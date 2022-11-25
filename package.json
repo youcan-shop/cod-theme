@@ -1,18 +1,21 @@
 {
-   "name": "cod-theme",
-   "private": true,
-   "version": "0.0.0",
-   "type": "module",
-   "scripts": {
-      "sass": "sass ./styles/main.scss ./assets/main.css --no-source-map --watch",
-      "fix": "prettier --write .",
-      "lint": "prettier --check .",
-      "dev": "clear & pnpm fix & pnpm lint & pnpm sass"
-   },
-   "devDependencies": {
-      "eslint": "^8.28.0",
-      "eslint-plugin-prettier": "^4.2.1",
-      "prettier": "2.8.0",
-      "sass": "^1.56.1"
-   }
+	"name": "cod-theme",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"sass": "sass ./styles/main.scss ./assets/main.css --no-source-map",
+		"fix": "prettier --write --ignore-unknown ./sections/*.liquid ./snippets/*.liquid ./templates/*.json ./layouts/*.liquid ./config/*.json ./assets/*.js ./assets/*.css --plugin-search-dir=.",
+		"lint": "prettier --check .",
+		"dev": "onchange \"**/*.*\" -- npm-run-all --parallel & sass & fix lint"
+	},
+	"devDependencies": {
+		"@shopify/prettier-plugin-liquid": "^0.4.2",
+		"eslint": "^8.28.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"npm-run-all": "^4.1.5",
+		"onchange": "^7.1.0",
+		"prettier": "2.8.0",
+		"sass": "^1.56.1"
+	}
 }

@@ -1,8 +1,8 @@
 {
-   "recommendations": [
-      "dbaeumer.vscode-eslint",
-      "usernamehw.errorlens",
-      "streetsidesoftware.code-spell-checker",
-      "esbenp.prettier-vscode",
-   ]
+	"recommendations": [
+		"dbaeumer.vscode-eslint",
+		"usernamehw.errorlens",
+		"streetsidesoftware.code-spell-checker",
+		"esbenp.prettier-vscode"
+	]
 }

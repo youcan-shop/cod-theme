@@ -1,15 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang='en'>
-  <head>
+	<head>
+		{%- render 'head-config' -%}
 
-    {%-render 'head-config'-%}
-
-    {{ content_for_header }}
-
-  </head>
-  <body>
-
-    {{ content_for_layout }}
-
-  </body>
+		{{ content_for_header }}
+	</head>
+	<body>
+		{{ content_for_layout }}
+	</body>
 </html>

@@ -1,22 +1,22 @@
 [
-   {
-      "label": "Head",
-      "settings": [
-         {
-            "type": "header",
-            "content": "Head settings"
-         },
-         {
-            "type": "text",
-            "label": "Head title",
-            "id": "head-title",
-            "info": "Leave it empty to display the store name"
-         },
-         {
-            "type": "image_picker",
-            "label": "Favicon",
-            "id": "favicon"
-         }
-      ]
-   }
+	{
+		"label": "Head",
+		"settings": [
+			{
+				"type": "header",
+				"content": "Head settings"
+			},
+			{
+				"type": "text",
+				"label": "Head title",
+				"id": "head-title",
+				"info": "Leave it empty to display the store name"
+			},
+			{
+				"type": "image_picker",
+				"label": "Favicon",
+				"id": "favicon"
+			}
+		]
+	}
 ]

@@ -1,8 +1,8 @@
 {
-   "sections": {
-      "home": {
-         "type": "home"
-      }
-   },
-   "order": ["home"]
+	"sections": {
+		"home": {
+			"type": "home"
+		}
+	},
+	"order": ["home"]
 }

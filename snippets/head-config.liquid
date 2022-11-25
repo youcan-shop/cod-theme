@@ -1,23 +1,23 @@
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset='UTF-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 
-{%-if settings.favicon-%}
-  <link rel="shortcut icon" href="{{ settings.favicon.src }}">
-{%-else-%}
-  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}">
-{%-endif-%}
+{%- if settings['favicon-'] %}
+	<link rel='shortcut icon' href='{{ settings.favicon.src }}'>
+{% else %}
+	<link rel='shortcut icon' href='{{ 'favicon.png' | asset_url }}'>
+{% endif %}
 
-{%-style-%}
-  body {
-    background: white
-  }
-{%-endstyle-%}
+{%- style -%}
+	body {
+		background: white;
+	}
+{%- endstyle -%}
 
 <title>
-  {%-if settings.head-title-%}
-    {{ settings.head-title }}
-  {%-else-%}
-    {{ store.name }}
-  {%-endif-%}
+	{%- if settings['head-title-'] %}
+		{{ settings['head-title'] }}
+	{% else %}
+		{{ store.name }}
+	{% endif %}
 </title>
