@@ -1,0 +1,14 @@
+{
+	"name": "cod-theme",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "sass ./styles/main.scss ./assets/main.css --no-source-map --watch & youcan dev -p",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"sass": "^1.56.1"
+	}
+}
