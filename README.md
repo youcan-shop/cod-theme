@@ -1,3 +1,3 @@
-# youcan-funri
+# youcan-cod-theme
 
-YouCan - Funri Theme.
+YouCan - COD Theme.
