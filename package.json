@@ -1,14 +1,18 @@
 {
-	"name": "cod-theme",
-	"private": true,
-	"version": "0.0.0",
-	"type": "module",
-	"scripts": {
-		"dev": "sass ./styles/main.scss ./assets/main.css --no-source-map --watch & youcan dev -p",
-		"build": "vite build",
-		"preview": "vite preview"
-	},
-	"devDependencies": {
-		"sass": "^1.56.1"
-	}
+   "name": "cod-theme",
+   "private": true,
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+      "sass": "sass ./styles/main.scss ./assets/main.css --no-source-map --watch",
+      "fix": "prettier --write .",
+      "lint": "prettier --check .",
+      "dev": "clear & pnpm fix & pnpm lint & pnpm sass"
+   },
+   "devDependencies": {
+      "eslint": "^8.28.0",
+      "eslint-plugin-prettier": "^4.2.1",
+      "prettier": "2.8.0",
+      "sass": "^1.56.1"
+   }
 }

@@ -4,8 +4,8 @@ Leave empty when you have nothing to say
 
 ## QA Steps
 
-* [ ] Go to X and Y
-* [ ] See TEXT in page Z
+-  [ ] Go to X and Y
+-  [ ] See TEXT in page Z
 
 ## Note
 
