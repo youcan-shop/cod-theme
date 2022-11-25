@@ -1,10 +1,4 @@
 {
-    "sections": {
-        "page": {
-            "type": "main-page"
-        }
-    },
-    "order": [
-        "page"
-    ]
+  "sections": {},
+  "order": []
 }
