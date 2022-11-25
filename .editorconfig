@@ -1,0 +1,17 @@
+# editorconfig.org
+root = true
+
+[*]
+indent_style = space
+indent_size = 3
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+quote_type = single
+allow_semicolons = false
+default_formatter = prettier
+format_on_save = true
+
+[*.md]
+trim_trailing_whitespace = false

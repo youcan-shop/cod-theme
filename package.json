@@ -1,0 +1,22 @@
+{
+	"name": "cod-theme",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"sass": "sass ./styles/main.scss ./assets/main.css --no-source-map --watch",
+		"fix": "onchange \"**/*.*\" -- prettier --write --ignore-unknown ./sections/*.liquid ./snippets/*.liquid ./templates/*.json ./layouts/*.liquid ./config/*.json ./assets/*.js ./assets/*.css --plugin-search-dir=.",
+		"lint": "onchange \"**/*.*\" -- prettier --check .",
+		"dev": "npm-run-all --parallel sass fix lint"
+	},
+	"devDependencies": {
+		"@shopify/prettier-plugin-liquid": "^0.4.2",
+		"concurrently": "^7.6.0",
+		"eslint": "^8.28.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"npm-run-all": "^4.1.5",
+		"onchange": "^7.1.0",
+		"prettier": "2.8.0",
+		"sass": "^1.56.1"
+	}
+}
