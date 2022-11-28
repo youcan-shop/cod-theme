@@ -1,4 +1,9 @@
 {% assign id = 100 | rand: 2000 %}
+
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+{{ 'main-slider.css' | asset_url | stylesheet_tag }}
+{{ 'splide.min.js' | asset_url | script_tag }}
+
 <div class='splide yc-slider__main' id='yc_slider_{{id}}'>
 	<div class='splide__track'>
 		<ul class='splide__list'>
@@ -28,7 +33,7 @@
 <script>
 	var splide = new Splide(`#yc_slider_{{id}}`, {
 		cover: '{{section.settings.slider_image_size_cover}}' ? true : false,
-		height: 'calc(100vh - var(--yc-nav-height) - var(--yc-notice-height))',
+		height: '100vh', // 'calc(100vh - var(--yc-nav-height) - var(--yc-notice-height))',
 		type: '{{section.settings.slider_transition_type}}',
 		rewind: false,
 		autoplay: '{{section.settings.slider_autoplay}}' ? true : false,

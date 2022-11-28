@@ -1,5 +1,8 @@
 .yc-slider__main {
 	.content {
+		height: 100%;
+		display: flex;
+		align-items: center;
 		* {
 			background-color: transparent !important;
 			color: white !important;
@@ -14,12 +17,15 @@
 			color: black !important;
 			margin-top: 1rem;
 		}
-		@for $i from 1 through 6 {
+		.headers {
+			font-weight: 700;
+			line-height: 1.2;
+			margin-bottom: 2rem;
+		}
+		@for $i from 1 through 3 {
 			h#{$i} {
 				font-size: calc(3rem / $i);
-				font-weight: 700;
-				line-height: 1.2;
-				margin-bottom: 2rem;
+				@extend .headers;
 			}
 		}
 		p {

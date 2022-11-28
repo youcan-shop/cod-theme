@@ -1,13 +1,25 @@
 {
 	"sections": {
-		"notice-bar": {
-			"type": "notice-bar"
-		},
-		"home": {
-			"type": "home"
-		},
+		"home": { "type": "home" },
 		"main-slider": {
-			"type": "main-slider"
+			"type": "main-slider",
+			"blocks": {
+				"block_ze3pjf9r5t3m1k": {
+					"type": "image_picker",
+					"settings": {
+						"image": "slide-1-2HcbgHFaAulNuyByxc1sBwiHUqm.jpg",
+						"caption": "<h1>Title here 2</h1><p>Cannabis, also known as marijuana among other names, is a psychoactive drug from the cannabis plant. Native to Central or South Asia, the cannabis plant has been used as a drug for both recreational and entheogenic purposes and in various traditional medicines for centuries.</p>",
+						"button_text": "Buy Now",
+						"product": "b6d57b05-df80-490f-9efe-d6b43f788d04"
+					}
+				},
+				"block_zg22mllchqs1zf": {
+					"type": "image_picker",
+					"settings": { "image": "slide-4-2HcbfUsDtvLWxslWUr6uWuUxeCp.jpg" }
+				}
+			},
+			"order": ["block_ze3pjf9r5t3m1k", "block_zg22mllchqs1zf"],
+			"settings": { "slider_autoplay": false }
 		}
 	},
 	"order": ["notice-bar", "home"]
