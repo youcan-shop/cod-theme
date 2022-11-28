@@ -1,6 +1,8 @@
 {% assign id = 100 | rand: 2000 %}
 
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
 {{ 'main-slider.css' | asset_url | stylesheet_tag }}
+{{ 'splide.min.js' | asset_url | script_tag }}
 
 <div class='splide yc-slider__main' id='yc_slider_{{id}}'>
   <div class='splide__track'>
