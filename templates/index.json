@@ -1,8 +1,11 @@
 {
 	"sections": {
+		"notice-bar": {
+			"type": "notice-bar"
+		},
 		"home": {
 			"type": "home"
 		}
 	},
-	"order": ["home"]
+	"order": ["notice-bar", "home"]
 }

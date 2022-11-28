@@ -1,0 +1,17 @@
+.yc-notice {
+	background-color: var(--yc-notice-background-color);
+	height: var(--yc-notice-height);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.yc-notice .content {
+	padding: var(--yc-notice-content-padding);
+	color: var(--yc-notice-text-color);
+	font-size: var(--yc-notice-font-size);
+}
+
+.yc-notice.fixed {
+	position: fixed;
+	inset: 0;
+}

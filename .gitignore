@@ -82,3 +82,6 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# youcan 
+.youcan
