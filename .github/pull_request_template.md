@@ -4,8 +4,8 @@
 
 ## QA Steps
 
--  [ ] Go to X and Y
--  [ ] See TEXT in page Z
+-  [ ] `pnpm i`
+-  [ ] `pnpm dev`
 
 ## Note
 
