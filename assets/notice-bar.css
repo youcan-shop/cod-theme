@@ -1,5 +1,5 @@
 .yc-notice {
-  background-color: var(--yc-notice-backgroundColor);
+  background-color: var(--yc-notice-background-color);
   height: var(--yc-notice-height);
   display: flex;
   align-items: center;
@@ -8,7 +8,8 @@
 
 .yc-notice .content {
   padding: var(--yc-notice-content-padding);
-  color: var(--yc-notice-textColor);
+  color: var(--yc-notice-text-color);
+  font-size: var(--yc-notice-font-size);
 }
 
 .yc-notice.fixed {
