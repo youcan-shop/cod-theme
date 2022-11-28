@@ -5,6 +5,9 @@
 		},
 		"home": {
 			"type": "home"
+		},
+		"main-slider": {
+			"type": "main-slider"
 		}
 	},
 	"order": ["notice-bar", "home"]

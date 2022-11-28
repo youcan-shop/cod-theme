@@ -9,7 +9,7 @@
 			{
 				"type": "text",
 				"label": "Head title",
-				"id": "head-title",
+				"id": "head_title",
 				"info": "Leave it empty to display the store name"
 			},
 			{

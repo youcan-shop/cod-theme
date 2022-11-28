@@ -1,0 +1,143 @@
+{% assign id = 100 | rand: 2000 %}
+<div class='splide yc-slider__main' id='yc_slider_{{id}}'>
+	<div class='splide__track'>
+		<ul class='splide__list'>
+			{%- for block in section.blocks %}
+				{%- if block.settings -%}
+					<li class='splide__slide' {{ block.youcan_attributes }}>
+						<img src='{{ block.settings.image.src }}'>
+						{%- if block.settings.caption and block.settings.product %}
+							<div class='content flex items-center container h-full w-full'>
+								<div class='px-3'>
+									<div class='caption'>{{ block.settings.caption }}</div>
+									<div class='flex mt-7'>
+										<a href='{{ block.settings.product.url }}' class='yc-btn'>
+											{{ block.settings.button_text }}
+										</a>
+									</div>
+								</div>
+							</div>
+						{%- endif %}
+					</li>
+				{%- endif %}
+			{%- endfor %}
+		</ul>
+	</div>
+</div>
+
+<script>
+	var splide = new Splide(`#yc_slider_{{id}}`, {
+		cover: '{{section.settings.slider_image_size_cover}}' ? true : false,
+		height: 'calc(100vh - var(--yc-nav-height) - var(--yc-notice-height))',
+		type: '{{section.settings.slider_transition_type}}',
+		rewind: false,
+		autoplay: '{{section.settings.slider_autoplay}}' ? true : false,
+		interval: 3000,
+		pagination: '{{section.settings.slider_pagination}}' ? true : false,
+		pauseOnHover: '{{section.settings.slider_pause_on_hover}}' ? true : false,
+		pauseOnFocus: '{{section.settings.slider_pause_on_focus}}' ? true : false,
+		drag: 'free',
+		focus: 'center',
+		arrows: '{{section.settings.slider_arrows}}' ? true : false,
+		snap: true,
+	})
+
+	splide.mount()
+</script>
+
+{%- schema -%}
+{
+	"label": "Slider",
+	"blocks": [
+		{
+			"label": "Slider image",
+			"limit": 6,
+			"type": "image_picker",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image"
+				},
+				{
+					"type": "richtext",
+					"id": "caption",
+					"label": "Slider Content"
+				},
+				{
+					"type": "text",
+					"id": "button_text",
+					"label": "Button Text"
+				},
+				{
+					"type": "product",
+					"id": "product",
+					"label": "Link Button To Product"
+				}
+			]
+		}
+	],
+	"settings": [
+		{
+			"type": "paragraph",
+			"content": "Slider id is used to identify the slider, Please use an unique and one word id. Ex: some-slider-id"
+		},
+		{
+			"type": "checkbox",
+			"id": "slider_image_size_cover",
+			"label": "Make image as cover",
+			"default": true
+		},
+		{
+			"type": "select",
+			"id": "slider_transition_type",
+			"label": "Transition type",
+			"options": [
+				{
+					"value": "slide",
+					"label": "Slide"
+				},
+				{
+					"value": "fade",
+					"label": "Fade"
+				},
+				{
+					"value": "loop",
+					"label": "Loop"
+				}
+			],
+			"default": "loop"
+		},
+		{
+			"type": "checkbox",
+			"id": "slider_autoplay",
+			"label": "Autoplay",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "slider_pause_on_hover",
+			"label": "Pause on hover",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "slider_pause_on_focus",
+			"label": "Pause on focus",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "slider_pagination",
+			"label": "Pagination",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "slider_arrows",
+			"label": "Arrows",
+			"default": true
+		}
+	]
+}
+{%- endschema -%}

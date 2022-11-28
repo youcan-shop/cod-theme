@@ -5,21 +5,19 @@
 {{ 'notice-bar.css' | asset_url | stylesheet_tag }}
 
 {%- if settings.favicon %}
-	<link rel='shortcut icon' href='{{ settings.favicon.src }}'>
+  <link rel='shortcut icon' href='{{ settings.favicon.src }}'>
 {% else %}
-	<link rel='shortcut icon' href='{{ 'favicon.png' | asset_url }}'>
+  <link rel='shortcut icon' href='{{ 'favicon.png' | asset_url }}'>
 {% endif %}
 
-{%- style -%}
-	body {
-		background: white;
-	}
-{%- endstyle -%}
+{{ 'normalize.css' | asset_url | stylesheet_tag }}
+{{ 'splide.css' | asset_url | stylesheet_tag }}
+{{ 'main-slider.css' | asset_url | stylesheet_tag }}
 
 <title>
-	{%- if settings['head-title-'] %}
-		{{ settings['head-title'] }}
-	{% else %}
-		{{ store.name }}
-	{% endif %}
+  {%- if settings.head_title %}
+    {{ settings.head_title }}
+  {% else %}
+    {{ store.name }}
+  {% endif %}
 </title>

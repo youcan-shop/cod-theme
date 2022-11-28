@@ -1,0 +1,53 @@
+.yc-slider__main .content * {
+	background-color: transparent !important;
+	color: white !important;
+}
+.yc-slider__main .content > div {
+	max-width: 30rem;
+	position: relative;
+	z-index: 3;
+}
+.yc-slider__main .content .yc-btn {
+	background-color: white !important;
+	color: black !important;
+	margin-top: 1rem;
+}
+.yc-slider__main .content h1 {
+	font-size: 3rem;
+	font-weight: 700;
+	line-height: 1.2;
+	margin-bottom: 2rem;
+}
+.yc-slider__main .content h2 {
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 1.2;
+	margin-bottom: 2rem;
+}
+.yc-slider__main .content h3 {
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1.2;
+	margin-bottom: 2rem;
+}
+.yc-slider__main .content h4 {
+	font-size: 0.75rem;
+	font-weight: 700;
+	line-height: 1.2;
+	margin-bottom: 2rem;
+}
+.yc-slider__main .content h5 {
+	font-size: 0.6rem;
+	font-weight: 700;
+	line-height: 1.2;
+	margin-bottom: 2rem;
+}
+.yc-slider__main .content h6 {
+	font-size: 0.5rem;
+	font-weight: 700;
+	line-height: 1.2;
+	margin-bottom: 2rem;
+}
+.yc-slider__main .content p {
+	margin-top: 14px;
+}

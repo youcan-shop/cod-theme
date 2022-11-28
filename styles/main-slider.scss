@@ -1,0 +1,29 @@
+.yc-slider__main {
+	.content {
+		* {
+			background-color: transparent !important;
+			color: white !important;
+		}
+		& > div {
+			max-width: 30rem;
+			position: relative;
+			z-index: 3;
+		}
+		.yc-btn {
+			background-color: white !important;
+			color: black !important;
+			margin-top: 1rem;
+		}
+		@for $i from 1 through 6 {
+			h#{$i} {
+				font-size: calc(3rem / $i);
+				font-weight: 700;
+				line-height: 1.2;
+				margin-bottom: 2rem;
+			}
+		}
+		p {
+			margin-top: 14px;
+		}
+	}
+}
