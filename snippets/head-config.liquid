@@ -4,7 +4,7 @@
 
 {{ 'notice-bar.css' | asset_url | stylesheet_tag }}
 
-{%- if settings['favicon-'] %}
+{%- if settings.favicon %}
 	<link rel='shortcut icon' href='{{ settings.favicon.src }}'>
 {% else %}
 	<link rel='shortcut icon' href='{{ 'favicon.png' | asset_url }}'>
