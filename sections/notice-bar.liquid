@@ -1,0 +1,62 @@
+{%- style -%}
+	:root {
+		--yc-notice-height: {{section.settings.notice_bar_height}}px;
+		--yc-notice-textColor: {{section.settings.notice_bar_text_color.hex}};
+		--yc-notice-backgroundColor: {{section.settings.notice_bar_background_color.hex}};
+		--yc-notice-above: {{section.settings.notice_bar_above}}
+	}
+{%- endstyle -%}
+
+{%- if section.settings.notice_bar_show %}
+	<div class='yc-notice {%- if section.settings.notice_bar_above %} fixed {%- endif %}'>
+		<div class='content'>{{ section.settings.notice_bar_content }}</div>
+	</div>
+{%- endif %}
+
+{% schema %}
+{
+	"label": "Notice Bar",
+	"settings": [
+		{
+			"type": "text",
+			"id": "notice_bar_content",
+			"label": "Content",
+			"default": "Special offer: free delivery, pay on delivery, faster and order now"
+		},
+		{
+			"type": "range",
+			"id": "notice_bar_height",
+			"min": 80,
+			"max": 150,
+			"step": 1,
+			"unit": "px",
+			"label": "Height",
+			"default": 80
+		},
+		{
+			"type": "checkbox",
+			"id": "notice_bar_show",
+			"label": "Show",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "notice_bar_above",
+			"label": "Above the header",
+			"default": false
+		},
+		{
+			"type": "color",
+			"id": "notice_bar_text_color",
+			"label": "Text color",
+			"default": "#FFFFFF"
+		},
+		{
+			"type": "color",
+			"id": "notice_bar_background_color",
+			"label": "Background color",
+			"default": "#803160"
+		}
+	]
+}
+{% endschema %}
