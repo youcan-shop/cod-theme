@@ -1,0 +1,176 @@
+{% assign id = 100 | rand: 2000 %}
+<div class="splide yc-slider__main" id="yc_slider_{{id}}">
+  <div class="splide__track">
+    <ul class="splide__list">
+      {%-for block in section.blocks-%}
+        {%-if block.settings-%}
+          <li class="splide__slide" {{ block.youcan_attributes }}>
+            <img src="{{ block.settings.image.src }}">
+            {%-if block.settings.caption and block.settings.product-%}
+              <div class="content flex items-center container h-full w-full">
+                <div class="px-3">
+                  <div class="caption">{{ block.settings.caption }}</div>
+                  <div class="flex mt-7">
+                    <a href="{{ block.settings.product.url }}" class="yc-btn">
+                      {{block.settings.button_text}}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            {%-endif-%}
+          </li>
+        {%-endif-%}
+      {%-endfor-%}
+    </ul>
+  </div>
+</div>
+<style>
+  .content > div {
+    max-width: 30rem;
+    position: relative;
+    z-index: 3;
+  }
+  .caption * {
+    background-color: transparent !important;
+    color: white !important;
+  }
+  .content .yc-btn {
+    background-color: white !important;
+    color: black !important;
+    margin-top: 1rem;
+  }
+  .caption h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+  .caption h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.7rem;
+  }
+  .content p {
+    margin-top: 14px
+  }
+</style>
+
+<script>
+  var splide = new Splide(`#yc_slider_{{id}}`, {
+    cover: "{{section.settings.slider-image-size-cover}}"
+      ? true
+      : false,
+    height: "calc(100vh - var(--yc-nav-height) - var(--yc-top-banner-height))",
+    type: "{{section.settings.slider-transition-type}}",
+    rewind: false,
+    autoplay: "{{section.settings.slider-autoplay}}"
+      ? true
+      : false,
+    interval: 3000,
+    pagination: "{{section.settings.slider-pagination}}"
+      ? true
+      : false,
+    pauseOnHover: "{{section.settings.slider-pause-on-hover}}"
+      ? true
+      : false,
+    pauseOnFocus: "{{section.settings.slider-pause-on-focus}}"
+      ? true
+      : false,
+    drag: "free",
+    focus: "center",
+    arrows: "{{section.settings.slider-arrows}}"
+      ? true
+      : false,
+    snap: true
+  });
+
+  splide.mount();
+</script>
+{%-schema-%}
+  {
+    "label": "Slider",
+    "blocks": [
+      {
+        "label": "Slider image",
+        "limit": 6,
+        "type": "image_picker",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }, {
+            "type": "richtext",
+            "id": "caption",
+            "label": "Slider Content"
+          }, {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text"
+          }, {
+            "type": "product",
+            "id": "product",
+            "label": "Link Button To Product"
+          }
+        ]
+      }
+    ],
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Slider id is used to identify the slider, Please use an unique and one word id. Ex: some-slider-id"
+      },
+      {
+        "type": "checkbox",
+        "id": "slider-image-size-cover",
+        "label": "Make image as cover",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "slider-transition-type",
+        "label": "Transition type",
+        "options": [
+          {
+            "value": "slide",
+            "label": "Slide"
+          }, {
+            "value": "fade",
+            "label": "Fade"
+          }, {
+            "value": "loop",
+            "label": "Loop"
+          }
+        ],
+        "default": "loop"
+      },
+      {
+        "type": "checkbox",
+        "id": "slider-autoplay",
+        "label": "Autoplay",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "slider-pause-on-hover",
+        "label": "Pause on hover",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "slider-pause-on-focus",
+        "label": "Pause on focus",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "slider-pagination",
+        "label": "Pagination",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "slider-arrows",
+        "label": "Arrows",
+        "default": true
+      }
+    ]
+  }
+{%-endschema-%}

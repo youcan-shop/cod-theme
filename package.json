@@ -4,10 +4,11 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"sass": "sass ./styles/main.scss ./assets/main.css --no-source-map --watch",
+		"sass": "sass ./styles:./assets --no-source-map --watch",
 		"fix": "onchange \"**/*.*\" -- prettier --write --ignore-unknown ./sections/*.liquid ./snippets/*.liquid ./templates/*.json ./layouts/*.liquid ./config/*.json ./assets/*.js ./assets/*.css --plugin-search-dir=.",
 		"lint": "onchange \"**/*.*\" -- prettier --check .",
-		"dev": "npm-run-all --parallel sass fix lint"
+		"yc": "youcan dev -p",
+		"dev": "npm-run-all --parallel sass fix lint yc"
 	},
 	"devDependencies": {
 		"@shopify/prettier-plugin-liquid": "^0.4.2",

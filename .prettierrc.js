@@ -1,4 +1,3 @@
-// module.exports = require("@shopify/prettier-plugin-liquid");
 module.exports = {
 	...require('@shopify/prettier-plugin-liquid'),
 	overrides: [
@@ -8,5 +7,5 @@ module.exports = {
 				parser: 'liquid',
 			},
 		},
-	]
+	],
 }
