@@ -52,17 +52,3 @@
 .yc-featured-products .product-list .product-block .product-thumbnail:hover img {
   transform: scale(1.2);
 }
-.yc-featured-products .product-list .product-block .product-button {
-  display: block;
-  border: 1px solid var(--yc-primary-color);
-  padding: 1.2rem 2.2rem;
-  text-decoration: none;
-  transition: 0.1s ease-in-out;
-  background-color: var(--yc-primary-color);
-  color: white;
-  max-width: 130px;
-  margin: auto;
-}
-.yc-featured-products .product-list .product-block .product-button:hover {
-  opacity: 0.9;
-}
