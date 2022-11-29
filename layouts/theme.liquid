@@ -1,23 +1,6 @@
 <!doctype html>
 <html lang='en'>
 	<head>
-		{%- style -%}
-			:root
-			{
-			  /* Notice bar */
-			  --yc-notice-height: {{ settings.notice_bar_height}}px;
-			  --yc-notice-font-size: {{ settings.notice_bar_content_font_size}}px;
-			  --yc-notice-text-color: {{ settings.notice_bar_content_text_color.hex}};
-			  --yc-notice-background-color: {{ settings.notice_bar_background_color.hex}};
-			  --yc-notice-above: {{ settings.notice_bar_above}};
-
-			  /* Slider */
-			  --yc-slider-arrows-background: {{ settings.arrows_background_color.hex}};
-			  --yc-slider-arrows-size: {{ settings.slider_arrows_size}}px;
-			  --yc-slider-arrows-content-size: {{ settings.slider_arrows_content_size}}px;
-			}
-		{%- endstyle -%}
-
 		{%- render 'head-config' -%}
 
 		{{ content_for_header }}
