@@ -1,21 +1,110 @@
 [
 	{
-		"label": "Head",
+		"label": "Metadata",
 		"settings": [
 			{
-				"type": "header",
-				"content": "Head settings"
+				"type": "text",
+				"id": "meta_title",
+				"label": "Title"
 			},
 			{
 				"type": "text",
-				"label": "Head title",
-				"id": "head_title",
-				"info": "Leave it empty to display the store name"
+				"id": "meta_description",
+				"label": "Meta description"
+			},
+			{
+				"type": "text",
+				"id": "meta_keywords",
+				"label": "Meta keywords"
 			},
 			{
 				"type": "image_picker",
-				"label": "Favicon",
-				"id": "favicon"
+				"id": "og_image",
+				"label": "Meta Open Graph Image"
+			}
+		]
+	},
+	{
+		"label": "Color Palette",
+		"settings": [
+			{
+				"type": "color",
+				"id": "primary_color",
+				"label": "Primary",
+				"default": "#103948"
+			},
+			{
+				"type": "color",
+				"id": "success_color",
+				"label": "Success",
+				"default": "#4AB380"
+			},
+			{
+				"type": "color",
+				"id": "error_color",
+				"label": "Error",
+				"default": "#773740"
+			},
+			{
+				"type": "color",
+				"id": "warning_color",
+				"label": "Warning",
+				"default": "#F2962F"
+			},
+			{
+				"type": "color",
+				"id": "neutral_color",
+				"label": "Neutral",
+				"default": "#16191B"
+			},
+			{
+				"type": "color",
+				"id": "neutral_light_color",
+				"label": "Neutral Light",
+				"default": "#3E4F57"
+			}
+		]
+	},
+	{
+		"label": "Additional Styles",
+		"settings": [
+			{
+				"type": "select",
+				"id": "font_family",
+				"label": "Font family",
+				"options": [
+					{
+						"value": "Roboto",
+						"label": "Roboto"
+					},
+					{
+						"value": "Open Sans",
+						"label": "Open Sans"
+					},
+					{
+						"value": "Lato",
+						"label": "Lato"
+					},
+					{
+						"value": "Oswald",
+						"label": "Oswald"
+					},
+					{
+						"value": "Raleway",
+						"label": "Raleway"
+					},
+					{
+						"value": "Montserrat",
+						"label": "Montserrat"
+					}
+				],
+				"default": "Roboto"
+			},
+			{
+				"type": "text",
+				"id": "transition",
+				"label": "Transition",
+				"default": "all 0.3s ease-in-out"
 			}
 		]
 	},
@@ -69,8 +158,7 @@
 			{
 				"type": "color",
 				"id": "notice_bar_background_color",
-				"label": "Background color",
-				"default": "#803160"
+				"label": "Background color"
 			}
 		]
 	},

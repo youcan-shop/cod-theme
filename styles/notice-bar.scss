@@ -4,12 +4,14 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
 	.content {
 		padding: var(--yc-notice-content-padding);
 		color: var(--yc-notice-text-color);
 		font-size: var(--yc-notice-font-size);
 	}
 }
+
 .yc-notice.fixed {
 	position: fixed;
 	inset: 0;
