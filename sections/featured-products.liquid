@@ -18,8 +18,9 @@
 						<span class='product-price'>{{ block.settings.product.price | money }}</span>
 					{% endif %}
 				</div>
-
-				<a class='yc-btn' href='{{ block.settings.product.url }}'>Shop now</a>
+				<div class='flex justify-center'>
+					<a class='yc-btn' href='{{ block.settings.product.url }}'>Shop now</a>
+				</div>
 			</div>
 		{%- endfor -%}
 	</div>
