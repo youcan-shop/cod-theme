@@ -1,3 +1,5 @@
+{{ 'navbar.css' | asset_url | stylesheet_tag }}
+
 <header class='yc-header'>
 	<nav class='yc-navbar {%if section.settings.have_container%} container {%endif%}'>
 		<div class='logo'>
@@ -27,10 +29,7 @@
 				</div>
 			</div>
 			<a class='cart relative' href='{{ routes.cart_url }}'>
-				<span
-					id='cart-items-padge'
-					class='absolute top-0 right-0 -mt-1 -mr-1 h-4 w-4 bg-black text-white flex items-center justify-center text-xs rounded-full z-10'
-				>
+				<span id='cart-items-padge'>
 					{{- cart.items | size -}}
 				</span>
 				<ion-icon name='cart-outline'></ion-icon>
@@ -84,7 +83,8 @@
 		{
 			"type": "checkbox",
 			"id": "have_container",
-			"label": "In container navbar"
+			"label": "In container navbar",
+			"default": true
 		}
 	]
 }
