@@ -3,6 +3,9 @@
 		"notice-bar": {
 			"type": "notice-bar"
 		},
+		"main-navbar": {
+			"type": "main-navbar"
+		},
 		"main-slider": {
 			"type": "main-slider",
 			"blocks": {

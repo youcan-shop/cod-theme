@@ -1,0 +1,91 @@
+<header class='yc-header'>
+	<nav class='yc-navbar {%if section.settings.have_container%} container {%endif%}'>
+		<div class='logo'>
+			<a href='/' class='font-bold text-lg'> Fenrir </a>
+		</div>
+		<div class='menu'>
+			<ul class='menu-list'>
+				{% for item in main-link-list.links %}
+					<li class='menu-item {%-if item.active-%} active {%-endif%}'>
+						<a href='{{ item.url }}'>{{ item.title }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class='corner'>
+			<button class='search' onclick='openSearch()'>
+				<ion-icon name='search-outline'></ion-icon>
+			</button>
+			<div id='searchInputHolder'>
+				<div class='container flex justify-center'>
+					<form action='/search' method='GET' class='input w-full flex gap-1 items-center'>
+						<input placeholder='Enter keyword to search for' type='text' name='q' value='' class='w-full'>
+						<button type='submit' class='px-3 flex items-center -ml-12'>
+							<ion-icon name='search-outline' class='text-xl'></ion-icon>
+						</button>
+					</form>
+				</div>
+			</div>
+			<a class='cart relative' href='{{ routes.cart_url }}'>
+				<span
+					id='cart-items-padge'
+					class='absolute top-0 right-0 -mt-1 -mr-1 h-4 w-4 bg-black text-white flex items-center justify-center text-xs rounded-full z-10'
+				>
+					{{- cart.items | size -}}
+				</span>
+				<ion-icon name='cart-outline'></ion-icon>
+			</a>
+			<button class='menu-toggler text-3xl' onclick="openDrawer('.navbar-drawer')">
+				<ion-icon name='menu-outline'></ion-icon>
+			</button>
+		</div>
+	</nav>
+	<script>
+		const searchHolder = document.getElementById('searchInputHolder')
+		const overlay = document.querySelector('.global-overlay')
+
+		function openSearch() {
+			overlay.style.height = 'calc(100vh - var(--yc-notice-height))'
+			overlay.style.top = 'var(--yc-notice-height)'
+			overlay.style.opacity = '1'
+			overlay.style.visibility = 'visible'
+			searchHolder.style.opacity = '1'
+			searchHolder.style.visibility = 'visible'
+		}
+		function closeSearch() {
+			overlay.style.opacity = '0'
+			overlay.style.visibility = 'hidden'
+			overlay.style.height = '100vh'
+			searchHolder.style.opacity = '0'
+			searchHolder.style.visibility = 'hidden'
+		}
+
+		overlay.addEventListener('click', closeSearch)
+	</script>
+	<div class='navigation-drawer navbar-drawer bg-white block md:hidden'>
+		<div class='logo mb-12 mt-12 flex items-center justify-center text-3xl'>Fenrir Theme</div>
+		<div class='flex flex-col border-b'>
+			{% for item in main-link-list.links %}
+				<a class='py-3 border-t px-4 flex items-center justify-between' href='{{ item.url }}'>
+					<span>
+						{{ item.title }}
+					</span>
+					<ion-icon name='chevron-forward-outline'></ion-icon>
+				</a>
+			{% endfor %}
+		</div>
+	</div>
+</header>
+
+{%- schema -%}
+{
+	"label": "Navbar",
+	"settings": [
+		{
+			"type": "checkbox",
+			"id": "have_container",
+			"label": "In container navbar"
+		}
+	]
+}
+{%- endschema -%}

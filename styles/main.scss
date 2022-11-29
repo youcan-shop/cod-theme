@@ -72,7 +72,7 @@ label {
 	background-color: var(--yc-nav-background);
 	padding: 0 calc(var(--yc-nav-px) - var(--yc-nav-px) / 5);
 
-	items {
+	.items {
 		justify-self: end;
 		display: flex;
 		align-items: center;
@@ -92,23 +92,34 @@ label {
 		}
 	}
 
-	logo {
+	.menu-toggler {
+		@include breakpoint('md') {
+			display: none;
+		}
+	}
+
+	.logo {
 		justify-self: start;
 		padding: 0 calc(var(--yc-nav-px) / 5);
 		font-weight: 400;
 	}
 
-	menu {
+	.menu {
 		justify-self: center;
+		display: none;
+
+		@include breakpoint('md') {
+			display: flex;
+		}
 	}
 
-	menu-list {
+	.menu-list {
 		display: flex;
 		list-style: none;
 		gap: 1rem;
 	}
 
-	menu-item {
+	.menu-item {
 		a {
 			color: var(--yc-nav-links-color);
 			font-size: 16px;
@@ -119,14 +130,34 @@ label {
 		}
 	}
 
-	menu-item a,
-	corner a {
-		transition: var(--yc-primary-transition);
+	.menu-item a,
+	.corner a {
+		transition: var(--yc-primary-color);
 	}
 
-	menu-item a:hover,
-	corner a:hover {
+	.menu-item a:hover,
+	.corner a:hover {
 		opacity: var(--yc-nav-links-hover-transparency);
+	}
+}
+
+#searchInputHolder {
+	transition: var(--yc-primary-color);
+	display: flex;
+	visibility: hidden;
+	opacity: 0;
+	position: fixed;
+	top: var(--yc-top-banner-height);
+	justify-content: center;
+	align-items: center;
+	left: 0;
+	width: 100vw;
+	height: var(--yc-nav-height);
+	z-index: 96;
+	background: white;
+
+	.input {
+		max-width: 25rem;
 	}
 }
 
