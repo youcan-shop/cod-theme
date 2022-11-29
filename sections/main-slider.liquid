@@ -1,8 +1,6 @@
 {% assign id = 100 | rand: 2000 %}
 
-{{ 'splide.min.css' | asset_url | stylesheet_tag }}
 {{ 'main-slider.css' | asset_url | stylesheet_tag }}
-{{ 'splide.min.js' | asset_url | script_tag }}
 
 <div class='splide yc-slider__main' id='yc_slider_{{id}}'>
 	<div class='splide__track'>
@@ -15,7 +13,7 @@
 							<div class='content flex items-center container h-full w-full'>
 								<div class='px-3'>
 									<div class='caption'>{{ block.settings.caption }}</div>
-									<div class='flex mt-7'>
+									<div class='btn-holder'>
 										<a href='{{ block.settings.product.url }}' class='yc-btn'>
 											{{ block.settings.button_text }}
 										</a>
@@ -84,8 +82,24 @@
 	],
 	"settings": [
 		{
-			"type": "paragraph",
-			"content": "Slider id is used to identify the slider, Please use an unique and one word id. Ex: some-slider-id"
+			"type": "range",
+			"id": "slider_arrows_size",
+			"min": 20,
+			"max": 55,
+			"step": 1,
+			"unit": "px",
+			"label": "Arrows Size",
+			"default": 37
+		},
+		{
+			"type": "range",
+			"id": "slider_arrows_content_size",
+			"min": 10,
+			"max": 30,
+			"step": 1,
+			"unit": "px",
+			"label": "Arrows Content Size",
+			"default": 14
 		},
 		{
 			"type": "checkbox",

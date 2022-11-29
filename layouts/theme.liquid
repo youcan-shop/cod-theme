@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang='en'>
 	<head>
+		{%- style -%}
+			:root {
+				--yc-slider-arrows-background: #fff;
+				--yc-slider-arrows-size: 37px;
+				--yc-slider-arrows-content-size: 14px;
+			}
+		{%- endstyle -%}
+
 		{%- render 'head-config' -%}
 
 		{{ content_for_header }}

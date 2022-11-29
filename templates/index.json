@@ -1,6 +1,5 @@
 {
 	"sections": {
-		"home": { "type": "home" },
 		"main-slider": {
 			"type": "main-slider",
 			"blocks": {
