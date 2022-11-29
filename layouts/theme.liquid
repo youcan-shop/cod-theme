@@ -12,9 +12,9 @@
 			  --yc-notice-above: {{ settings.notice_bar_above}};
 
 			  /* Slider */
-			  --yc-slider-arrows-background: #fff;
-			  --yc-slider-arrows-size: 37px;
-			  --yc-slider-arrows-content-size: 14px;
+			  --yc-slider-arrows-background: {{ settings.arrows_background_color.hex}};
+			  --yc-slider-arrows-size: {{ settings.slider_arrows_size}}px;
+			  --yc-slider-arrows-content-size: {{ settings.slider_arrows_content_size}}px;
 			}
 		{%- endstyle -%}
 
