@@ -31,7 +31,7 @@
 			{
 				"type": "range",
 				"id": "notice_bar_height",
-				"min": 60,
+				"min": 20,
 				"max": 150,
 				"step": 1,
 				"unit": "px",
