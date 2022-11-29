@@ -3,9 +3,9 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 
 {%- if settings.favicon %}
-  <link rel='shortcut icon' href='{{ settings.favicon.src }}'>
+	<link rel='shortcut icon' href='{{ settings.favicon.src }}'>
 {% else %}
-  <link rel='shortcut icon' href='{{ 'favicon.png' | asset_url }}'>
+	<link rel='shortcut icon' href='{{ 'favicon.png' | asset_url }}'>
 {% endif %}
 
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
@@ -16,9 +16,9 @@
 {{ 'utils.css' | asset_url | stylesheet_tag }}
 
 <title>
-  {%- if settings.head_title %}
-    {{ settings.head_title }}
-  {% else %}
-    {{ store.name }}
-  {% endif %}
+	{%- if settings.head_title %}
+		{{ settings.head_title }}
+	{% else %}
+		{{ store.name }}
+	{% endif %}
 </title>

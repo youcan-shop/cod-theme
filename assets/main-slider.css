@@ -32,5 +32,8 @@
   font-size: 1rem;
 }
 .yc-slider__main .content p {
-  margin-top: 14px;
+  margin-top: 1rem;
+}
+.yc-slider__main .content .btn-holder {
+  margin-top: 2rem;
 }
