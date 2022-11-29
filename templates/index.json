@@ -3,9 +3,27 @@
 		"notice-bar": {
 			"type": "notice-bar"
 		},
-		"home": {
-			"type": "home"
+		"main-slider": {
+			"type": "main-slider",
+			"blocks": {
+				"block_qcb3t3xjlvov0i": {
+					"type": "image_picker",
+					"settings": {
+						"image": "slide-2-2HcbdP3hGgA7FwWvn21AO5pGODx.jpg",
+						"caption": "<h1>Title here</h1><p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>",
+						"button_text": "Get it now!",
+						"product": "4595a663-91cf-48a1-bf9b-424fcd98d026"
+					}
+				},
+				"block_qdap9bgcs2mvf7": {
+					"type": "image_picker",
+					"settings": {
+						"image": "slide-3-2Hcbfzv5MEU2LkzXDxnFl8T4Hbp.jpg"
+					}
+				}
+			},
+			"order": ["block_qcb3t3xjlvov0i", "block_qdap9bgcs2mvf7"]
 		}
 	},
-	"order": ["notice-bar", "home"]
+	"order": ["notice-bar", "main-slider"]
 }

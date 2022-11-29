@@ -1,0 +1,134 @@
+{% assign id = 100 | rand: 2000 %}
+
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+{{ 'main-slider.css' | asset_url | stylesheet_tag }}
+{{ 'splide.min.js' | asset_url | script_tag }}
+
+<div class='splide yc-slider__main' id='yc_slider_{{id}}'>
+	<div class='splide__track'>
+		<ul class='splide__list'>
+			{%- for block in section.blocks %}
+				{%- if block.settings -%}
+					<li class='splide__slide' {{ block.youcan_attributes }}>
+						<img src='{{ block.settings.image.src }}'>
+						{%- if block.settings.caption and block.settings.product %}
+							<div class='content flex items-center container h-full w-full'>
+								<div class='px-3'>
+									<div class='caption'>{{ block.settings.caption }}</div>
+									<div class='btn-holder'>
+										<a
+											href='{{ block.settings.product.url }}'
+											class='yc-btn'
+											style='font-weight: {{block.settings.button_font_weight}}!important'
+										>
+											{{ block.settings.button_text }}
+										</a>
+									</div>
+								</div>
+							</div>
+						{%- endif %}
+					</li>
+				{%- endif %}
+			{%- endfor %}
+		</ul>
+	</div>
+</div>
+
+<script>
+	var splide = new Splide(`#yc_slider_{{id}}`, {
+		type: '{{settings.slider_transition_type}}',
+		arrows: '{{settings.slider_arrows}}' ? true : false,
+		autoplay: '{{settings.slider_autoplay}}' ? true : false,
+		cover: '{{settings.slider_image_size_cover}}' ? true : false,
+		pagination: '{{settings.slider_pagination}}' ? true : false,
+		pauseOnHover: '{{settings.slider_pause_on_hover}}' ? true : false,
+		pauseOnFocus: '{{settings.slider_pause_on_focus}}' ? true : false,
+		height: '100vh', // 'calc(100vh - var(--yc-nav-height) - var(--yc-notice-height))',
+		focus: 'center',
+		interval: 3000,
+		rewind: false,
+		drag: 'free',
+		snap: true,
+	})
+
+	splide.mount()
+</script>
+
+{%- schema -%}
+{
+	"label": "Slider",
+	"blocks": [
+		{
+			"label": "Slider image",
+			"limit": 6,
+			"type": "image_picker",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image"
+				},
+				{
+					"type": "richtext",
+					"id": "caption",
+					"label": "Slider Content"
+				},
+				{
+					"type": "text",
+					"id": "button_text",
+					"label": "Button Text"
+				},
+				{
+					"type": "product",
+					"id": "product",
+					"label": "Link Button To Product"
+				},
+				{
+					"type": "select",
+					"id": "button_font_weight",
+					"label": "Button Font Weight level",
+					"options": [
+						{
+							"value": "100",
+							"label": "100"
+						},
+						{
+							"value": "200",
+							"label": "200"
+						},
+						{
+							"value": "300",
+							"label": "300"
+						},
+						{
+							"value": "400",
+							"label": "400"
+						},
+						{
+							"value": "500",
+							"label": "500"
+						},
+						{
+							"value": "600",
+							"label": "600"
+						},
+						{
+							"value": "700",
+							"label": "700"
+						},
+						{
+							"value": "800",
+							"label": "800"
+						},
+						{
+							"value": "900",
+							"label": "900"
+						}
+					],
+					"default": "500"
+				}
+			]
+		}
+	]
+}
+{%- endschema -%}
