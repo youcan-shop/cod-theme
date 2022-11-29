@@ -1,19 +1,22 @@
 <div class='yc-featured-products'>
 	<h1 class='section-title'>Featured products</h1>
 	<div class='product-list'>
-		{% dump section.blocks %}
 		{%- for block in section.blocks -%}
 			<div class='product-block' {{ block.youcan_attributes }}>
-				{% if block.settings.product.thumbnail %}
-					<img src='{{ block.settings.product.thumbnail }}' class='product-block-thumbnail'>
-				{% else %}
-					<img src='{{ 'fallback-product-img.webp' | asset_url }}' class='product-block-thumbnail'>
-				{% endif %}
+				<div class='product-thumbnail'>
+					{% if block.settings.product.thumbnail %}
+						<img src='{{ block.settings.product.thumbnail }}'>
+					{% else %}
+						<img src='{{ 'fallback-product-img.webp' | asset_url }}'>
+					{% endif %}
+				</div>
+				<div class='product-details'>
+					<span class='product-title'>{{ block.settings.product.name }}</span>
+					{% if block.settings.product.price %}
+						<span class='product-price'>{{ block.settings.product.price | money }}</span>
+					{% endif %}
+				</div>
 
-				<h3 class='product-title'>{{ block.settings.product.name }}</h3>
-				{% if block.settings.product.price %}
-					<span>{{ block.settings.product.price | money }}</span>
-				{% endif %}
 				<a class='product-button' href='{{ block.settings.product.url }}'>Shop now</a>
 			</div>
 		{%- endfor -%}
