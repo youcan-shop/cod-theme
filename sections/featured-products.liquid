@@ -1,0 +1,41 @@
+<div class='yc-featured-products'>
+	<h1 class='section-title'>Featured products</h1>
+	<div class='product-list'>
+		{% dump section.blocks %}
+		{%- for block in section.blocks -%}
+			<div class='product-block' {{ block.youcan_attributes }}>
+				{% if block.settings.product.thumbnail %}
+					<img src='{{ block.settings.product.thumbnail }}' class='product-block-thumbnail'>
+				{% else %}
+					<img src='{{ 'fallback-product-img.webp' | asset_url }}' class='product-block-thumbnail'>
+				{% endif %}
+
+				<h3 class='product-title'>{{ block.settings.product.name }}</h3>
+				{% if block.settings.product.price %}
+					<span>{{ block.settings.product.price | money }}</span>
+				{% endif %}
+				<a class='product-button' href='{{ block.settings.product.url }}'>Shop now</a>
+			</div>
+		{%- endfor -%}
+	</div>
+</div>
+
+{%- schema -%}
+{
+	"label": "Featured products",
+	"blocks": [
+		{
+			"label": "Product",
+			"limit": 4,
+			"type": "product",
+			"settings": [
+				{
+					"type": "product",
+					"id": "product",
+					"label": "Product"
+				}
+			]
+		}
+	]
+}
+{%- endschema -%}

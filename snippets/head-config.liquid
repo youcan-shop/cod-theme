@@ -3,93 +3,72 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 
 {%- case settings.font_family -%}
-	{%- when 'Roboto' -%}
-		<link
-			href='https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
-			rel='stylesheet'
-		>
-	{%- when 'Open Sans' -%}
-		<link
-			href='https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
-			rel='stylesheet'
-		>
-	{%- when 'Lato' -%}
-		<link
-			href='https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
-			rel='stylesheet'
-		>
-	{%- when 'Montserrat' -%}
-		<link
-			href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
-			rel='stylesheet'
-		>
-	{%- when 'Poppins' -%}
-		<link
-			href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
-			rel='stylesheet'
-		>
-	{%- when 'Raleway' -%}
-		<link
-			href='https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
-			rel='stylesheet'
-		>
-	{%- when 'Oswald' -%}
-		<link
-			href='https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
-			rel='stylesheet'
-		>
+  {%- when 'Roboto' -%}
+    <link href='https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap' rel='stylesheet'>
+  {%- when 'Open Sans' -%}
+    <link href='https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap' rel='stylesheet'>
+  {%- when 'Lato' -%}
+    <link href='https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap' rel='stylesheet'>
+  {%- when 'Montserrat' -%}
+    <link href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap' rel='stylesheet'>
+  {%- when 'Poppins' -%}
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap' rel='stylesheet'>
+  {%- when 'Raleway' -%}
+    <link href='https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap' rel='stylesheet'>
+  {%- when 'Oswald' -%}
+    <link href='https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap' rel='stylesheet'>
 {%- endcase -%}
 
 {%- style -%}
-	:root {
-	  /* main */
-	  --yc-font-family:
-	  {{ settings.font_family }},
-	  sans-serif;
+  :root {
+    /* main */
+    --yc-font-family: 
+    {{ settings.font_family }},
+    sans-serif;
 
-	  /* colors */
-	  --yc-primary-color: {{ settings.primary_color.hex }};
-	  --yc-success-color: {{ settings.success_color.hex }};
-	  --yc-error-color: {{ settings.error_color.hex }};
-	  --yc-warning-color: {{ settings.warning_color.hex }};
-	  --yc-neutral-color: {{ settings.neutral_color.hex }};
-	  --yc-neutral-light-color: {{ settings.neutral_light_color.hex }};
+    /* colors */
+    --yc-primary-color: {{ settings.primary_color.hex }};
+    --yc-success-color: {{ settings.success_color.hex }};
+    --yc-error-color: {{ settings.error_color.hex }};
+    --yc-warning-color: {{ settings.warning_color.hex }};
+    --yc-neutral-color: {{ settings.neutral_color.hex }};
+    --yc-neutral-light-color: {{ settings.neutral_light_color.hex }};
 
-	  /* Notice bar */
-	  --yc-notice-height: {{ settings.notice_bar_height}}px;
-	  --yc-notice-font-size: {{ settings.notice_bar_content_font_size}}px;
-	  --yc-notice-background-color: {%- if settings.notice_bar_background_color %}
-	    {{ settings.notice_bar_background_color.hex}}
-	  {%- else %}
-	    var(--yc-primary-color){%- endif %};
+    /* Notice bar */
+    --yc-notice-height: {{ settings.notice_bar_height}}px;
+    --yc-notice-font-size: {{ settings.notice_bar_content_font_size}}px;
+    --yc-notice-background-color: {%- if settings.notice_bar_background_color %}
+      {{ settings.notice_bar_background_color.hex}}
+    {%- else %}
+      var(--yc-primary-color){%- endif %};
 
-	  --yc-notice-text-color: {{ settings.notice_bar_content_text_color.hex}};
+    --yc-notice-text-color: {{ settings.notice_bar_content_text_color.hex}};
 
-	  --yc-notice-above: {{ settings.notice_bar_above}};
+    --yc-notice-above: {{ settings.notice_bar_above}};
 
-	  /* Slider */
-	  --yc-slider-arrows-background: {{ settings.arrows_background_color.hex}};
-	  --yc-slider-arrows-size: {{ settings.slider_arrows_size}}px;
-	  --yc-slider-arrows-content-size: {{ settings.slider_arrows_content_size}}px;
-	}
+    /* Slider */
+    --yc-slider-arrows-background: {{ settings.arrows_background_color.hex}};
+    --yc-slider-arrows-size: {{ settings.slider_arrows_size}}px;
+    --yc-slider-arrows-content-size: {{ settings.slider_arrows_content_size}}px;
+  }
 {%- endstyle -%}
 
 {%- if settings.favicon %}
-	<link rel='shortcut icon' href='{{ settings.favicon.src }}'>
+  <link rel='shortcut icon' href='{{ settings.favicon.src }}'>
 {% else %}
-	<link rel='shortcut icon' href='{{ 'favicon.png' | asset_url }}'>
+  <link rel='shortcut icon' href='{{ 'favicon.png' | asset_url }}'>
 {% endif %}
 
 {%- if settings.meta_description %}
-	<meta name='description' content='{{ settings.meta_description }}'>
+  <meta name='description' content='{{ settings.meta_description }}'>
 {% endif %}
 
 {%- if settings.meta_keywords %}
-	<meta name='keywords' content='{{ settings.meta_keywords }}'>
+  <meta name='keywords' content='{{ settings.meta_keywords }}'>
 {% endif %}
 
 {%- if settings.og_image %}
-	<meta property='og:image' content='{{ settings.og_image.src }}'>
+  <meta property='og:image' content='{{ settings.og_image.src }}'>
 {% endif %}
 
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
@@ -100,9 +79,9 @@
 {{ 'utils.css' | asset_url | stylesheet_tag }}
 
 <title>
-	{%- if settings.meta_title %}
-		{{ settings.meta_title }}
-	{% else %}
-		{{ store.name }}
-	{% endif %}
+  {%- if settings.meta_title %}
+    {{ settings.meta_title }}
+  {% else %}
+    {{ store.name }}
+  {% endif %}
 </title>

@@ -1,0 +1,9 @@
+.yc-featured-products {
+	background: gray;
+	padding: 10px;
+	.product-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+}
