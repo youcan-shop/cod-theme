@@ -23,7 +23,10 @@
 				}
 			},
 			"order": ["block_qcb3t3xjlvov0i", "block_qdap9bgcs2mvf7"]
+		},
+		"featured-products": {
+			"type": "featured-products"
 		}
 	},
-	"order": ["notice-bar", "main-slider"]
+	"order": ["notice-bar", "featured-products"]
 }
