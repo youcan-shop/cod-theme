@@ -28,5 +28,5 @@
 			"type": "featured-products"
 		}
 	},
-	"order": ["notice-bar", "featured-products"]
+	"order": ["notice-bar", "main-slider", "featured-products"]
 }
