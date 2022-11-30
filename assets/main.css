@@ -1,24 +1,3 @@
-.container {
-  margin: 0 auto;
-  max-width: 540px;
-  padding: 0 1rem;
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
 /* ------------------------- */
 /* ----- global styles ----- */
 /* ------------------------- */

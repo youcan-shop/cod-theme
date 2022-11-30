@@ -106,7 +106,6 @@ select {
 [type=reset],
 [type=submit],
 button {
-  -webkit-appearance: button;
   background-color: transparent;
   background-image: none;
 }
@@ -129,16 +128,10 @@ progress {
 }
 
 [type=search] {
-  -webkit-appearance: textfield;
   outline-offset: -2px;
 }
 
-::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
 ::-webkit-file-upload-button {
-  -webkit-appearance: button;
   font: inherit;
 }
 

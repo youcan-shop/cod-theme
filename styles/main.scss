@@ -1,29 +1,5 @@
 @import 'helpers/mixins';
 
-.container {
-	margin: 0 auto;
-	max-width: 540px;
-	padding: 0 1rem;
-}
-
-@include breakpoint('md') {
-	.container {
-		max-width: 720px;
-	}
-}
-
-@include breakpoint('lg') {
-	.container {
-		max-width: 960px;
-	}
-}
-
-@include breakpoint('xl') {
-	.container {
-		max-width: 1140px;
-	}
-}
-
 /* ------------------------- */
 /* ----- global styles ----- */
 /* ------------------------- */
