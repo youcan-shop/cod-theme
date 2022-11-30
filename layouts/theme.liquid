@@ -12,5 +12,9 @@
 
 		{{ 'main.js' | asset_url | script_tag }}
 		{{ 'splide.min.js' | asset_url | script_tag }}
+		{{ 'dropdown.js' | asset_url | script_tag }}
+		<script>
+			document.querySelectorAll('select').forEach((select) => NiceSelect.bind(select))
+		</script>
 	</body>
 </html>

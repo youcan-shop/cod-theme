@@ -37,7 +37,20 @@
   padding: 10px;
   flex-basis: 50%;
 }
+.yc-product-card .product-details .product-price {
+  font-weight: 500;
+  color: var(--yc-);
+}
+.yc-product-card .product-details .product-description {
+  margin-top: 15px;
+  color: var(--yc-neutral-light-color);
+}
 
 * {
   box-sizing: border-box;
+}
+
+.yc-dropdown {
+  border: 1px solid var(--yc-primary-color);
+  padding: 10px;
 }

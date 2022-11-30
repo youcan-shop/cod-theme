@@ -1,28 +1,46 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
-{{ 'product.js' | asset_url | script_tag }}
 
 <section class='yc-product-card container'>
-  <div class="product-images">
-    <img id="thumbnail" class="thumbnail" src="{{product.thumbnail}}" alt="{{product.name}}">
-    <div class="images">
-      {% for image in product.images %}
-        <img onclick="previewProductImage('{{image}}')" src="{{image}}" alt="{{product.name}}">
-      {% endfor %}
-    </div>
-  </div>
-  <div class="product-details">
-    <h1 class="product-name">{{ product.name }}</h1>
-    <h2 class="product-price">{{ product.price | money}}</h2>
-    <div class="product-options">
-      //TODO
-    </div>
-    <span class="yc-btn">Add To Cart</span>
-    <p class="product-description">{{product.description}}</p>
-  </div>
+	<div class='product-images'>
+		<img id='thumbnail' class='thumbnail' src='{{product.thumbnail}}' alt='{{product.name}}'>
+		<div class='images'>
+			{% for image in product.images %}
+				<img onclick="previewProductImage('{{image}}')" src='{{image}}' alt='{{product.name}}'>
+			{% endfor %}
+		</div>
+	</div>
+	<div class='product-details'>
+		<h1 class='product-name'>{{ product.name }}</h1>
+		<h2 class='product-price'>{{ product.price | money }}</h2>
+		<div class='product-options'>
+			{% for option in product.options -%}
+				{% case option.type %}
+					{% when 'dropdown' %}
+						<select class='yc-dropdown' name='{{option.name}}' id='{{option.name}}'>
+							{% for item in option.values %}
+								<option value='{{item}}'>{{ item }}</option>
+							{% endfor %}
+						</select>
+					{% when 'textual_buttons' %}
+						<div>Textual buttons</div>
+					{% when 'radio_buttons' %}
+						<div>Radio buttons</div>
+					{% when 'image_based_buttons' %}
+						<div>Image based buttons</div>
+					{% when 'upload_image_zone' %}
+						<div>Upload image zone</div>
+				{% endcase %}
+			{%- endfor %}
+		</div>
+		<span class='yc-btn product-cta'>Add To Cart</span>
+		<div class='product-description'>{{ product.description }}</div>
+	</div>
 </section>
 
 {% dump product %}
 
 {%- schema -%}
-  {"label": "Product Card"}
+{ "label": "Product Card" }
 {%- endschema -%}
+
+{{ 'product.js' | asset_url | script_tag }}
