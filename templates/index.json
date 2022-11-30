@@ -31,5 +31,5 @@
 			"type": "featured-products"
 		}
 	},
-	"order": ["notice-bar", "main-slider", "featured-products"]
+	"order": ["notice-bar", "main-navbar", "main-slider"]
 }

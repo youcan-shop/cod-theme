@@ -11,6 +11,17 @@ body {
   overflow-x: hidden;
 }
 
+.container {
+  max-width: 1124px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.container.fluid {
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+}
+
 input,
 textarea,
 button,

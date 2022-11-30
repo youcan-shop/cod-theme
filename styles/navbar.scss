@@ -1,99 +1,132 @@
 @import 'helpers/mixins';
 
-.yc-navbar {
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	align-items: center;
-	height: var(--yc-nav-height);
-	z-index: 100;
+.items-configs {
+	color: var(--yc-nav-links-color) !important;
+	stroke: var(--yc-nav-links-color) !important;
+	font-family: var(--yc-nav-font-family) !important;
+	font-weight: var(--yc-nav-links-font-weight) !important;
+}
+
+.yc-header {
 	background-color: var(--yc-nav-background);
-	padding: 0 calc(var(--yc-nav-px) - var(--yc-nav-px) / 5);
 
-	.corner {
-		justify-self: end;
-		display: flex;
+	&.nav-fixed {
+		position: fixed;
+		top: var(--yc-notice-height);
+		left: 0;
+		right: 0;
+		width: 100%;
+		z-index: 99;
+	}
+
+	.yc-navbar {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
 		align-items: center;
-		gap: 1rem;
+		height: var(--yc-nav-height);
+		z-index: 100;
+		background-color: var(--yc-nav-background);
 
-		& > * {
+		*:not(span) {
+			@extend .items-configs;
+		}
+
+		@include breakpoint('md') {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.corner {
+			justify-self: end;
 			display: flex;
 			align-items: center;
-			justify-content: center;
-		}
+			gap: 1rem;
 
-		.search {
-			font-size: 1.5rem;
-		}
-		.cart {
-			font-size: 1.5rem;
-
-			#cart-items-padge {
-				position: absolute;
-				top: 0;
-				right: 0;
-				margin-top: -1rem;
-				margin-right: -1rem;
-				height: 1.5rem;
-				width: 1.5rem;
-				background-color: black;
-				color: white;
+			& > * {
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				font-size: 0.75rem;
-				border-radius: 50%;
-				z-index: 10;
+			}
+
+			.search {
+				font-size: 1.5rem;
+				display: none;
+
+				@include breakpoint('md') {
+					display: flex;
+				}
+			}
+			.cart {
+				font-size: 1.5rem;
+
+				#cart-items-padge {
+					position: absolute;
+					top: 0;
+					right: 0;
+					margin-top: -9px;
+					margin-right: -9px;
+					height: 20px;
+					width: 20px;
+					background-color: var(--yc-nav-cart-badge-color);
+					color: white;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-size: 12px;
+					border-radius: 50%;
+					z-index: 10;
+				}
 			}
 		}
-	}
 
-	.menu-toggler {
-		@include breakpoint('md') {
+		.menu-toggler {
+			@include breakpoint('md') {
+				display: none;
+			}
+		}
+
+		.logo {
+			img {
+				height: calc(var(--yc-nav-height) - 20px);
+				max-height: 40px;
+			}
+		}
+
+		.menu {
+			justify-self: center;
 			display: none;
+
+			@include breakpoint('md') {
+				display: flex;
+			}
 		}
-	}
 
-	.logo {
-		justify-self: start;
-		padding: 0 calc(var(--yc-nav-px) / 5);
-		font-weight: 400;
-	}
-
-	.menu {
-		justify-self: center;
-		display: none;
-
-		@include breakpoint('md') {
+		.menu-list {
 			display: flex;
+			list-style: none;
+			gap: 1rem;
 		}
-	}
 
-	.menu-list {
-		display: flex;
-		list-style: none;
-		gap: 1rem;
-	}
-
-	.menu-item {
-		a {
-			color: var(--yc-nav-links-color);
-			font-size: 16px;
-			padding: 0 calc(var(--yc-nav-px) / 5);
-			font-weight: 400;
-			height: 100%;
-			text-decoration: none;
+		.menu-item {
+			a {
+				color: var(--yc-nav-links-color);
+				font-size: 16px;
+				padding: 0 calc(var(--yc-nav-px) / 5);
+				font-weight: 400;
+				height: 100%;
+				text-decoration: none;
+			}
 		}
-	}
 
-	.menu-item a,
-	.corner a {
-		transition: var(--yc-primary-color);
-	}
+		.menu-item a,
+		.corner a {
+			transition: var(--yc-primary-color);
+		}
 
-	.menu-item a:hover,
-	.corner a:hover {
-		opacity: var(--yc-nav-links-hover-transparency);
+		.menu-item a:hover,
+		.corner a:hover {
+			opacity: var(--yc-nav-links-hover-transparency);
+		}
 	}
 }
 
@@ -135,6 +168,7 @@
 }
 
 .navigation-drawer {
+	background-color: white;
 	transition-duration: 0.2s;
 	transition-property: opacity, transform;
 	transform: translateX(-100%);
@@ -144,6 +178,31 @@
 	width: 18rem;
 	opacity: 0;
 	z-index: 99;
+
+	*:not(span) {
+		@extend .items-configs;
+	}
+
+	.logo {
+		padding: 3rem 1rem;
+		img {
+			max-height: 70px;
+		}
+	}
+
+	.items {
+		padding: 1rem 1.15rem;
+		border-top: 1px solid;
+	}
+
+	.items-wrapper {
+		border-bottom: 1px solid;
+	}
+
+	.items-wrapper,
+	.items {
+		border-color: rgba(0, 0, 0, 0.1);
+	}
 }
 
 .global-overlay,

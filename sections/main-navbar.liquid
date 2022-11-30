@@ -1,9 +1,11 @@
 {{ 'navbar.css' | asset_url | stylesheet_tag }}
 
-<header class='yc-header'>
-	<nav class='yc-navbar {%if section.settings.have_container%} container {%endif%}'>
+<header class='yc-header {%if settings.navbar_always_on_top%} nav-fixed {%endif%}'>
+	<nav class='yc-navbar container {%if settings.full_width%} fluid {%endif%}'>
 		<div class='logo'>
-			<a href='/' class='font-bold text-lg'> Fenrir </a>
+			<a href='/'>
+				<img src='{%- if settings.navbar_logo.src -%} {{ settings.navbar_logo.src }} {%- else -%} {{ 'cod-logo.png' | asset_url }} {%- endif -%}'>
+			</a>
 		</div>
 		<div class='menu'>
 			<ul class='menu-list'>
@@ -39,36 +41,18 @@
 			</button>
 		</div>
 	</nav>
-	<script>
-		const searchHolder = document.getElementById('searchInputHolder')
-		const overlay = document.querySelector('.global-overlay')
-
-		function openSearch() {
-			overlay.style.height = 'calc(100vh - var(--yc-notice-height))'
-			overlay.style.top = 'var(--yc-notice-height)'
-			overlay.style.opacity = '1'
-			overlay.style.visibility = 'visible'
-			searchHolder.style.opacity = '1'
-			searchHolder.style.visibility = 'visible'
-		}
-		function closeSearch() {
-			overlay.style.opacity = '0'
-			overlay.style.visibility = 'hidden'
-			overlay.style.height = '100vh'
-			searchHolder.style.opacity = '0'
-			searchHolder.style.visibility = 'hidden'
-		}
-
-		overlay.addEventListener('click', closeSearch)
-	</script>
-	<div class='navigation-drawer navbar-drawer bg-white block md:hidden'>
-		<div class='logo mb-12 mt-12 flex items-center justify-center text-3xl'>Fenrir Theme</div>
-		<div class='flex flex-col border-b'>
+	<div class='navigation-drawer navbar-drawer block md:hidden'>
+		<div class='logo flex items-center justify-center'>
+			<a href='/'>
+				<img src='{%- if settings.navbar_logo.src -%} {{ settings.navbar_logo.src }} {%- else -%} {{ 'cod-logo.png' | asset_url }} {%- endif -%}'>
+			</a>
+		</div>
+		<div class='flex flex-col items-wrapper'>
 			{% for item in main-link-list.links %}
-				<a class='py-3 border-t px-4 flex items-center justify-between' href='{{ item.url }}'>
-					<span>
+				<a class='items flex items-center justify-between' href='{{ item.url }}'>
+					<div>
 						{{ item.title }}
-					</span>
+					</div>
 					<ion-icon name='chevron-forward-outline'></ion-icon>
 				</a>
 			{% endfor %}
@@ -77,15 +61,5 @@
 </header>
 
 {%- schema -%}
-{
-	"label": "Navbar",
-	"settings": [
-		{
-			"type": "checkbox",
-			"id": "have_container",
-			"label": "In container navbar",
-			"default": true
-		}
-	]
-}
+{ "label": "Navbar" }
 {%- endschema -%}
