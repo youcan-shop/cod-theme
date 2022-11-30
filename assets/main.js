@@ -1,14 +1,14 @@
 /* ----------------------------- */
 /* ----- navigation-drawer ----- */
 /* ----------------------------- */
-const drawerOverlay = document.querySelector('.global-overlay')
+const overlay = document.querySelector('.global-overlay')
 const drawer = document.querySelector('.navigation-drawer')
 
-if (drawerOverlay) {
-  drawerOverlay.addEventListener('click', function(e) {
-    if (e.target === drawerOverlay) {
-      drawerOverlay.style.visibility = 'hidden'
-      drawerOverlay.style.opacity = '0'
+if (overlay) {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) {
+      overlay.style.visibility = 'hidden'
+      overlay.style.opacity = '0'
       drawer.style.transform = 'translateX(-100%)'
     }
   });
@@ -17,8 +17,8 @@ if (drawerOverlay) {
 function openDrawer(el) {
   const targetedDrawer = document.querySelector(`.navigation-drawer${el}`)
   if (targetedDrawer) {
-    drawerOverlay.style.visibility = 'visible'
-    drawerOverlay.style.opacity = '1'
+    overlay.style.visibility = 'visible'
+    overlay.style.opacity = '1'
     targetedDrawer.style.transform = 'none'
     targetedDrawer.style.opacity = '1'
   }
