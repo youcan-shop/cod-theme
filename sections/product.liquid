@@ -1,0 +1,28 @@
+{{ 'product.css' | asset_url | stylesheet_tag }}
+{{ 'product.js' | asset_url | script_tag }}
+
+<section class='yc-product-card container'>
+  <div class="product-images">
+    <img id="thumbnail" class="thumbnail" src="{{product.thumbnail}}" alt="{{product.name}}">
+    <div class="images">
+      {% for image in product.images %}
+        <img onclick="previewProductImage('{{image}}')" src="{{image}}" alt="{{product.name}}">
+      {% endfor %}
+    </div>
+  </div>
+  <div class="product-details">
+    <h1 class="product-name">{{ product.name }}</h1>
+    <h2 class="product-price">{{ product.price | money}}</h2>
+    <div class="product-options">
+      //TODO
+    </div>
+    <span class="yc-btn">Add To Cart</span>
+    <p class="product-description">{{product.description}}</p>
+  </div>
+</section>
+
+{% dump product %}
+
+{%- schema -%}
+  {"label": "Product Card"}
+{%- endschema -%}
