@@ -1,5 +1,7 @@
 {
-	"current": {},
+	"current": {
+		"font_family": "Open Sans"
+	},
 	"presets": {
 		"Default": {}
 	}

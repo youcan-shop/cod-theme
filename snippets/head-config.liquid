@@ -4,40 +4,19 @@
 
 {%- case settings.font_family -%}
 	{%- when 'Roboto' -%}
-		<link
-			href='https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
-			rel='stylesheet'
-		>
+		<link href='https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap' rel='stylesheet'>
 	{%- when 'Open Sans' -%}
-		<link
-			href='https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
-			rel='stylesheet'
-		>
+		<link href='https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap' rel='stylesheet'>
 	{%- when 'Lato' -%}
-		<link
-			href='https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
-			rel='stylesheet'
-		>
+		<link href='https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap' rel='stylesheet'>
 	{%- when 'Montserrat' -%}
-		<link
-			href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
-			rel='stylesheet'
-		>
+		<link href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap' rel='stylesheet'>
 	{%- when 'Poppins' -%}
-		<link
-			href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
-			rel='stylesheet'
-		>
+		<link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap' rel='stylesheet'>
 	{%- when 'Raleway' -%}
-		<link
-			href='https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
-			rel='stylesheet'
-		>
+		<link href='https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap' rel='stylesheet'>
 	{%- when 'Oswald' -%}
-		<link
-			href='https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
-			rel='stylesheet'
-		>
+		<link href='https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap' rel='stylesheet'>
 {%- endcase -%}
 
 {%- style -%}
@@ -92,6 +71,14 @@
 	  --yc-slider-arrows-background: {{ settings.arrows_background_color.hex}};
 	  --yc-slider-arrows-size: {{ settings.slider_arrows_size}}px;
 	  --yc-slider-arrows-content-size: {{ settings.slider_arrows_content_size}}px;
+
+	  /* Footer */
+	  --yc-footer-background-color: {%- if settings.footer_background_color -%}
+	    {{ settings.footer_background_color.hex}}
+	  {%- else -%}
+	    var(--yc-primary-color){%- endif -%};
+	  --yc-footer-text-color: {{ settings.footer_text_color.hex}};
+	  --yc-footer-copyright-background: {{ settings.footer_copyright_background.hex}};
 	}
 {%- endstyle -%}
 
