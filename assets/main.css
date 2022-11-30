@@ -1,35 +1,25 @@
-.container {
-  margin: 0 auto;
-  max-width: 540px;
-  padding: 0 1rem;
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
 /* ------------------------- */
 /* ----- global styles ----- */
 /* ------------------------- */
 html,
 body {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: var(--yc-font-family);
   direction: var(--yc-theme-direction);
   color: var(--yc-primary-color);
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+.container {
+  max-width: 1124px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.container.fluid {
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
 }
 
 input,
@@ -57,63 +47,6 @@ label {
   line-height: 1.6em !important;
 }
 
-.yc-navbar {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  height: var(--yc-nav-height);
-  z-index: 100;
-  background-color: var(--yc-nav-background);
-  padding: 0 calc(var(--yc-nav-px) - var(--yc-nav-px) / 5);
-}
-.yc-navbar items {
-  justify-self: end;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.yc-navbar items > * {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.yc-navbar items .search {
-  font-size: 1.5rem;
-}
-.yc-navbar items .cart {
-  font-size: 1.5rem;
-}
-.yc-navbar logo {
-  justify-self: start;
-  padding: 0 calc(var(--yc-nav-px) / 5);
-  font-weight: 400;
-}
-.yc-navbar menu {
-  justify-self: center;
-}
-.yc-navbar menu-list {
-  display: flex;
-  list-style: none;
-  gap: 1rem;
-}
-.yc-navbar menu-item a {
-  color: var(--yc-nav-links-color);
-  font-size: 16px;
-  padding: 0 calc(var(--yc-nav-px) / 5);
-  font-weight: 400;
-  height: 100%;
-  text-decoration: none;
-}
-.yc-navbar menu-item a,
-.yc-navbar corner a {
-  transition: var(--yc-primary-transition);
-}
-.yc-navbar menu-item a:hover,
-.yc-navbar corner a:hover {
-  opacity: var(--yc-nav-links-hover-transparency);
-}
-
 .product-holder:hover .product-title {
   text-decoration: underline;
 }
@@ -122,6 +55,19 @@ label {
   font-size: 2.5rem;
   font-weight: 500;
   text-align: center;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+button:focus {
+  outline: none;
 }
 
 .yc-btn {

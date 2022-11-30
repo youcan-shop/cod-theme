@@ -7,18 +7,24 @@
 		"sass": "sass ./styles:./assets --no-source-map --watch",
 		"fix": "onchange \"**/*.*\" -- prettier --write --ignore-unknown ./**/*.* --plugin-search-dir=. --ignore-path=.prettierignore",
 		"lint": "onchange \"**/*.*\" -- prettier --check .",
-		"wind": "npx tailwindcss -i ./styles/**/*.scss -o ./assets/output.css --watch",
+		"wind": "npx tailwindcss build -i ./styles/_utils.css -o ./styles/utils.scss",
+		"clean": "cleancss -o ./styles/utils.scss ./styles/utils.scss",
 		"yc": "youcan dev -p",
-		"dev": "npm-run-all --parallel sass fix lint yc"
+		"dev": "npm-run-all --parallel sass fix lint yc",
+		"utilise": "clear && pnpm wind && node eyeliner && pnpm clean && pnpm dev"
 	},
 	"devDependencies": {
 		"@shopify/prettier-plugin-liquid": "^0.4.2",
+		"clean-css-cli": "^5.6.1",
 		"concurrently": "^7.6.0",
 		"eslint": "^8.28.0",
 		"eslint-plugin-prettier": "^4.2.1",
+		"fs": "0.0.1-security",
 		"npm-run-all": "^4.1.5",
 		"onchange": "^7.1.0",
 		"prettier": "2.8.0",
-		"sass": "^1.56.1"
+		"sass": "^1.56.1",
+		"strip-css-comments-cli": "^3.0.0",
+		"tailwindcss": "^3.2.4"
 	}
 }

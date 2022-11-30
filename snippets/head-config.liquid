@@ -62,10 +62,31 @@
 	    {{ settings.notice_bar_background_color.hex}}
 	  {%- else %}
 	    var(--yc-primary-color){%- endif %};
-
 	  --yc-notice-text-color: {{ settings.notice_bar_content_text_color.hex}};
-
 	  --yc-notice-above: {{ settings.notice_bar_above}};
+
+	  /* -- navbar */
+	  --yc-nav-height: {{ settings.navbar_height}}px;
+	  --yc-nav-background: {{ settings.navbar_background_color.hex}};
+	  --yc-nav-links-color: {%- if settings.navbar_links_color -%}
+	    {{ settings.navbar_links_color.hex}}
+	  {%- else -%}
+	    var(--yc-neutral-color){%- endif -%};
+	  --yc-nav-cart-badge-color: {%- if settings.cart_badge_color -%}
+	    {{ settings.cart_badge_color.hex}}
+	  {%- else -%}
+	    var(--yc-neutral-color){%- endif -%};
+	  --yc-nav-links-font-weight: {{ settings.navbar_links_font_weight}};
+	  --yc-nav-links-hover-transparency: {{ settings.navbar_links_hover_transparency}};
+	  --yc-nav-font-family: {%- if settings.navbar_font_family -%}
+	    {{ settings.navbar_font_family }}, sans-serif{%- else -%}
+	    var(--yc-font-family){%- endif -%};
+	  --yc-nav-font-size: {{ settings.navbar_font_size}}px;
+	  --yc-nav-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+	  --yc-nav-shadow: {%- if settings.navbar_shadow -%}
+	    {{ settings.navbar_shadow}}
+	  {%- else -%}
+	    var(--yc-nav-shadow){%- endif -%};
 
 	  /* Slider */
 	  --yc-slider-arrows-background: {{ settings.arrows_background_color.hex}};
@@ -92,12 +113,12 @@
 	<meta property='og:image' content='{{ settings.og_image.src }}'>
 {% endif %}
 
+<script type='module' src='https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.esm.js'></script>
+
+{{ 'utils.css' | asset_url | stylesheet_tag }}
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
 {{ 'splide.min.js' | asset_url | script_tag }}
-
-{{ 'normalize.css' | asset_url | stylesheet_tag }}
 {{ 'main.css' | asset_url | stylesheet_tag }}
-{{ 'utils.css' | asset_url | stylesheet_tag }}
 
 <title>
 	{%- if settings.meta_title %}

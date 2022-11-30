@@ -85,3 +85,9 @@ sw.*
 
 # youcan 
 .youcan
+
+# local dev files
+styles/utils.scss
+styles/_utils.css
+eyeliner.js
+tailwind.config.cjs

@@ -1,0 +1,65 @@
+{{ 'navbar.css' | asset_url | stylesheet_tag }}
+
+<header class='yc-header {%if settings.navbar_always_on_top%} nav-fixed {%endif%}'>
+	<nav class='yc-navbar container {%if settings.full_width%} fluid {%endif%}'>
+		<div class='logo'>
+			<a href='/'>
+				<img src='{%- if settings.navbar_logo.src -%} {{ settings.navbar_logo.src }} {%- else -%} {{ 'cod-logo.png' | asset_url }} {%- endif -%}'>
+			</a>
+		</div>
+		<div class='menu'>
+			<ul class='menu-list'>
+				{% for item in main-link-list.links %}
+					<li class='menu-item {%-if item.active-%} active {%-endif%}'>
+						<a href='{{ item.url }}'>{{ item.title }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class='corner'>
+			<button class='search' onclick='openSearch()'>
+				<ion-icon name='search-outline'></ion-icon>
+			</button>
+			<div id='searchInputHolder'>
+				<div class='container flex justify-center'>
+					<form action='/search' method='GET' class='input w-full flex gap-1 items-center'>
+						<input placeholder='Enter keyword to search for' type='text' name='q' value='' class='w-full'>
+						<button type='submit' class='px-3 flex items-center -ml-12'>
+							<ion-icon name='search-outline' class='text-xl'></ion-icon>
+						</button>
+					</form>
+				</div>
+			</div>
+			<a class='cart relative' href='{{ routes.cart_url }}'>
+				<span id='cart-items-padge'>
+					{{- cart.items | size -}}
+				</span>
+				<ion-icon name='cart-outline'></ion-icon>
+			</a>
+			<button class='menu-toggler text-3xl' onclick="openDrawer('.navbar-drawer')">
+				<ion-icon name='menu-outline'></ion-icon>
+			</button>
+		</div>
+	</nav>
+	<div class='navigation-drawer navbar-drawer block md:hidden'>
+		<div class='logo flex items-center justify-center'>
+			<a href='/'>
+				<img src='{%- if settings.navbar_logo.src -%} {{ settings.navbar_logo.src }} {%- else -%} {{ 'cod-logo.png' | asset_url }} {%- endif -%}'>
+			</a>
+		</div>
+		<div class='flex flex-col items-wrapper'>
+			{% for item in main-link-list.links %}
+				<a class='items flex items-center justify-between' href='{{ item.url }}'>
+					<div>
+						{{ item.title }}
+					</div>
+					<ion-icon name='chevron-forward-outline'></ion-icon>
+				</a>
+			{% endfor %}
+		</div>
+	</div>
+</header>
+
+{%- schema -%}
+{ "label": "Navbar" }
+{%- endschema -%}

@@ -1,40 +1,28 @@
 @import 'helpers/mixins';
 
-.container {
-	margin: 0 auto;
-	max-width: 540px;
-	padding: 0 1rem;
-}
-
-@include breakpoint('md') {
-	.container {
-		max-width: 720px;
-	}
-}
-
-@include breakpoint('lg') {
-	.container {
-		max-width: 960px;
-	}
-}
-
-@include breakpoint('xl') {
-	.container {
-		max-width: 1140px;
-	}
-}
-
 /* ------------------------- */
 /* ----- global styles ----- */
 /* ------------------------- */
 html,
 body {
-	font-family: 'Nunito Sans', sans-serif;
+	font-family: var(--yc-font-family);
 	direction: var(--yc-theme-direction);
 	color: var(--yc-primary-color);
 	position: relative;
 	min-height: 100vh;
 	overflow-x: hidden;
+}
+
+.container {
+	max-width: 1124px;
+	margin: 0 auto;
+	padding: 0 1.5rem;
+
+	&.fluid {
+		max-width: 100%;
+		min-width: 100%;
+		width: 100%;
+	}
 }
 
 input,
@@ -62,74 +50,6 @@ label {
 	line-height: 1.6em !important;
 }
 
-.yc-navbar {
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	align-items: center;
-	height: var(--yc-nav-height);
-	z-index: 100;
-	background-color: var(--yc-nav-background);
-	padding: 0 calc(var(--yc-nav-px) - var(--yc-nav-px) / 5);
-
-	items {
-		justify-self: end;
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-
-		& > * {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-
-		.search {
-			font-size: 1.5rem;
-		}
-		.cart {
-			font-size: 1.5rem;
-		}
-	}
-
-	logo {
-		justify-self: start;
-		padding: 0 calc(var(--yc-nav-px) / 5);
-		font-weight: 400;
-	}
-
-	menu {
-		justify-self: center;
-	}
-
-	menu-list {
-		display: flex;
-		list-style: none;
-		gap: 1rem;
-	}
-
-	menu-item {
-		a {
-			color: var(--yc-nav-links-color);
-			font-size: 16px;
-			padding: 0 calc(var(--yc-nav-px) / 5);
-			font-weight: 400;
-			height: 100%;
-			text-decoration: none;
-		}
-	}
-
-	menu-item a,
-	corner a {
-		transition: var(--yc-primary-transition);
-	}
-
-	menu-item a:hover,
-	corner a:hover {
-		opacity: var(--yc-nav-links-hover-transparency);
-	}
-}
-
 .product-holder:hover .product-title {
 	text-decoration: underline;
 }
@@ -139,7 +59,18 @@ label {
 	font-weight: 500;
 	text-align: center;
 }
-
+button {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	width: auto;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	&:focus {
+		outline: none;
+	}
+}
 .yc-btn {
 	background: var(--yc-primary-color) !important;
 	color: white !important;

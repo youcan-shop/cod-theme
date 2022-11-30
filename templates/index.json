@@ -3,6 +3,9 @@
 		"notice-bar": {
 			"type": "notice-bar"
 		},
+		"main-navbar": {
+			"type": "main-navbar"
+		},
 		"main-slider": {
 			"type": "main-slider",
 			"blocks": {
@@ -28,5 +31,5 @@
 			"type": "featured-products"
 		}
 	},
-	"order": ["notice-bar", "main-slider", "featured-products"]
+	"order": ["notice-bar", "main-navbar", "main-slider"]
 }
