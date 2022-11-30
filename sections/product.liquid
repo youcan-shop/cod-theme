@@ -14,6 +14,7 @@
 		<h2 class='product-price'>{{ product.price | money }}</h2>
 		<div class='product-options'>
 			{% for option in product.options -%}
+				<h3>{{ option.name }}</h3>
 				{% case option.type %}
 					{% when 'dropdown' %}
 						<select class='yc-dropdown' name='{{option.name}}' id='{{option.name}}'>
@@ -22,7 +23,11 @@
 							{% endfor %}
 						</select>
 					{% when 'textual_buttons' %}
-						<div>Textual buttons</div>
+						<ul class='yc-options-list'>
+							{% for item in option.values %}
+								<li class='yc-options-item'>{{ item }}</li>
+							{% endfor %}
+						</ul>
 					{% when 'radio_buttons' %}
 						<div>Radio buttons</div>
 					{% when 'image_based_buttons' %}
