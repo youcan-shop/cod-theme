@@ -29,7 +29,12 @@
 							{% endfor %}
 						</ul>
 					{% when 'radio_buttons' %}
-						<div>Radio buttons</div>
+						{% for item in option.values %}
+							<div class='yc-radio-buttons'>
+								<input type='radio' name='{{option.name}}' value='{{item}}'>
+								<span>{{ item }}</span>
+							</div>
+						{% endfor %}
 					{% when 'image_based_buttons' %}
 						<div>Image based buttons</div>
 					{% when 'upload_image_zone' %}
