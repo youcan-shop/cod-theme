@@ -87,4 +87,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
+
+	input {
+		display: none;
+	}
+	.upload-msg {
+		margin-left: 5px;
+	}
 }

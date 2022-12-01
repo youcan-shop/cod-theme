@@ -87,4 +87,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+.yc-upload input {
+  display: none;
+}
+.yc-upload .upload-msg {
+  margin-left: 5px;
 }

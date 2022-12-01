@@ -14,6 +14,7 @@
 		<h2 class='product-price'>{{ product.price | money }}</h2>
 		<div class='product-options'>
 			{% for option in product.options -%}
+				<br>
 				<h3>{{ option.name }}</h3>
 				{% case option.type %}
 					{% when 'dropdown' %}
@@ -38,9 +39,10 @@
 					{% when 'image_based_buttons' %}
 						<div>Image based buttons</div>
 					{% when 'upload_image_zone' %}
-						<div class='yc-upload'>
+						<div class='yc-upload' onclick='uploadImage()'>
+							<input type='file' id='yc-upload' accept='image/png, image/gif, image/jpeg'>
 							<ion-icon name='cloud-upload-outline'></ion-icon>
-							Upload image zone
+							<span class='upload-msg'>Upload an image</span>
 						</div>
 				{% endcase %}
 			{%- endfor %}
