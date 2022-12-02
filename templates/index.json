@@ -1,11 +1,8 @@
 {
 	"sections": {
-		"notice-bar": {
-			"type": "notice-bar"
-		},
-		"main-navbar": {
-			"type": "main-navbar"
-		},
+		"main-video": { "type": "main-video", "settings": { "video_type": "facebook", "video_height": 700 } },
+		"notice-bar": { "type": "notice-bar" },
+		"main-navbar": { "type": "main-navbar" },
 		"main-slider": {
 			"type": "main-slider",
 			"blocks": {
@@ -18,36 +15,16 @@
 						"product": "4595a663-91cf-48a1-bf9b-424fcd98d026"
 					}
 				},
-				"block_qdap9bgcs2mvf7": {
-					"type": "image_picker",
-					"settings": {
-						"image": "slide-3-2Hcbfzv5MEU2LkzXDxnFl8T4Hbp.jpg"
-					}
-				}
+				"block_qdap9bgcs2mvf7": { "type": "image_picker", "settings": { "image": "slide-3-2Hcbfzv5MEU2LkzXDxnFl8T4Hbp.jpg" } }
 			},
 			"order": ["block_qcb3t3xjlvov0i", "block_qdap9bgcs2mvf7"]
 		},
 		"featured-products": {
 			"type": "featured-products",
 			"blocks": {
-				"block_bxuox7w3hcfbikm": {
-					"type": "product",
-					"settings": {
-						"product": "57141711-ca0a-43ff-b271-974d8672c7a0"
-					}
-				},
-				"block_bz1pi3lyquyby7q": {
-					"type": "product",
-					"settings": {
-						"product": "4595a663-91cf-48a1-bf9b-424fcd98d026"
-					}
-				},
-				"block_c06w7csmaq4ga7o": {
-					"type": "product",
-					"settings": {
-						"product": "7802ca53-bdbc-4c6f-a2f5-302adee4427d"
-					}
-				}
+				"block_bxuox7w3hcfbikm": { "type": "product", "settings": { "product": "57141711-ca0a-43ff-b271-974d8672c7a0" } },
+				"block_bz1pi3lyquyby7q": { "type": "product", "settings": { "product": "4595a663-91cf-48a1-bf9b-424fcd98d026" } },
+				"block_c06w7csmaq4ga7o": { "type": "product", "settings": { "product": "7802ca53-bdbc-4c6f-a2f5-302adee4427d" } }
 			},
 			"order": ["block_bxuox7w3hcfbikm", "block_bz1pi3lyquyby7q", "block_c06w7csmaq4ga7o"]
 		},
@@ -56,44 +33,17 @@
 			"blocks": {
 				"block_4krxs1lw6x0kt3s": {
 					"type": "privacy",
-					"settings": {
-						"block-title": "Privacy",
-						"name-1": "Mohamed",
-						"url-1": "/mohamed",
-						"name-2": "Something",
-						"url-2": "/something",
-						"name-3": "IDK",
-						"url-3": "/idk",
-						"name-4": "",
-						"url-4": ""
-					}
+					"settings": { "block-title": "Privacy", "name-1": "Mohamed", "url-1": "/mohamed", "name-2": "Something", "url-2": "/something", "name-3": "IDK", "url-3": "/idk", "name-4": "", "url-4": "" }
 				},
-				"block_e7krv81hwb411pr": {
-					"type": "contact",
-					"settings": {
-						"block-title": "Contact Us",
-						"newsletter": "rue france,\nrabat, agdal.\nYouCan"
-					}
-				},
+				"block_e7krv81hwb411pr": { "type": "contact", "settings": { "block-title": "Contact Us", "newsletter": "rue france,\nrabat, agdal.\nYouCan" } },
 				"block_ddtgqqbcghdz47": {
 					"type": "social",
-					"settings": {
-						"block-title": "Social Media",
-						"name-1": "facebook",
-						"url-1": "https://www.facebook.com",
-						"name-2": "instagram",
-						"url-2": "https://www.instagram.com"
-					}
+					"settings": { "block-title": "Social Media", "name-1": "facebook", "url-1": "https://www.facebook.com", "name-2": "instagram", "url-2": "https://www.instagram.com" }
 				},
-				"block_qg71lcaxpl005sd": {
-					"type": "copyright",
-					"settings": {
-						"copyright": "<p>\u00a9 2023 YC. All rights reserved.</p>"
-					}
-				}
+				"block_qg71lcaxpl005sd": { "type": "copyright", "settings": { "copyright": "<p>© 2023 YC. All rights reserved.</p>" } }
 			},
 			"order": ["block_4krxs1lw6x0kt3s", "block_ddtgqqbcghdz47", "block_e7krv81hwb411pr", "block_qg71lcaxpl005sd"]
 		}
 	},
-	"order": ["notice-bar", "main-navbar", "main-slider", "featured-products", "footer"]
+	"order": ["main-video", "notice-bar", "main-navbar", "main-slider", "featured-products", "footer"]
 }
