@@ -1,8 +1,5 @@
 {
 	"sections": {
-		"product": {
-			"type": "product"
-		},
 		"main-express-checkout": {
 			"type": "main-express-checkout"
 		}
