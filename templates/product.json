@@ -2,7 +2,10 @@
 	"sections": {
 		"product": {
 			"type": "product"
+		},
+		"main-express-checkout": {
+			"type": "main-express-checkout"
 		}
 	},
-	"order": ["product"]
+	"order": ["product", "main-express-checkout"]
 }
