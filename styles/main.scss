@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-	max-width: 1124px;
+	max-width: 1124px !important;
 	margin: 0 auto;
 	padding: 0 1.5rem;
 
@@ -31,6 +31,10 @@ button,
 select,
 a {
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+input {
+	font-weight: 300 !important;
 }
 
 a {
@@ -50,6 +54,14 @@ label {
 	line-height: 1.6em !important;
 }
 
+.border,
+.border-b,
+.border-t,
+.border-l,
+.border-r {
+	border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
 .product-holder:hover .product-title {
 	text-decoration: underline;
 }
@@ -66,6 +78,7 @@ button {
 	height: auto;
 	padding: 0;
 	margin: 0;
+
 	&:focus {
 		outline: none;
 	}
@@ -117,6 +130,7 @@ span {
 	box-shadow: var(--yc-primary-shadow) !important;
 	border: 1px solid #f2f2f2 !important;
 }
+
 input:not([type='radio']),
 .nice-select,
 .selector-item_label {
@@ -132,15 +146,6 @@ input:not([type='radio']),
 
 .product-imgs img {
 	transition: box-shadow 100ms ease;
-}
-
-input:not([type='radio']):hover,
-.product-imgs img.active,
-.product-imgs img:hover,
-.nice-select:hover,
-.selector-item_label:hover,
-.selector-item_radio:checked + .selector-item_label {
-	box-shadow: 0 0 0 0.2rem rgb(36 36 36 / 45%);
 }
 
 .yc-shadow {
@@ -247,5 +252,57 @@ input:not([type='radio']):hover,
 			height: 20px;
 			border-radius: 9999px;
 		}
+	}
+}
+
+/* --------------------------- */
+/* ----- spinner loading ----- */
+/* --------------------------- */
+.spinner {
+	width: 23px;
+	height: 23px;
+	display: inline-block;
+	border: 2px solid rgb(128 128 128 / 30%);
+	border-radius: 50%;
+	border-right: 1px solid currentColor;
+	animation-name: spin;
+	animation-duration: 900ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(1, 0, 0.15, 0.99);
+}
+
+@keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+/* ----------------- */
+/* ----- alert ----- */
+/* ----------------- */
+.yc-alert {
+	transition: all 0.5s ease;
+	position: fixed;
+	bottom: 0;
+	margin: 1rem;
+	height: 44px;
+	padding: 0 1.3rem;
+	background: #242424;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: var(--yc-primary-shadow);
+	opacity: 0;
+	z-index: -99;
+	transform: translateY(100%);
+
+	&.show {
+		opacity: 1;
+		z-index: 999;
+		transform: none;
 	}
 }
