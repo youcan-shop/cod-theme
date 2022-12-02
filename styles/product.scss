@@ -10,6 +10,42 @@
 		flex-basis: 50%;
 		padding: 10px;
 
+		#img-zoomer-box {
+			height: auto;
+			position: relative;
+		}
+
+		#img-1 {
+			width: 100%;
+			height: auto;
+		}
+
+		#img-zoomer-box:hover,
+		#img-zoomer-box:active {
+			cursor: zoom-in;
+			display: block;
+		}
+
+		#img-zoomer-box:hover #img-2,
+		#img-zoomer-box:active #img-2 {
+			opacity: 1;
+		}
+		#img-2 {
+			width: 25rem;
+			height: 25rem;
+			background-color: #fff;
+			background-repeat: no-repeat;
+			box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.3);
+			pointer-events: none;
+			position: absolute;
+			opacity: 0;
+			border: 2px solid white;
+			z-index: 99;
+			border-radius: 100%;
+			display: block;
+			transition: opacity 0.2s;
+		}
+
 		.thumbnail {
 			width: 100%;
 			height: 350px;
@@ -23,6 +59,7 @@
 			justify-content: start;
 			align-items: center;
 			gap: 10px;
+			overflow: auto;
 		}
 		.images img {
 			display: inline-block;
@@ -38,13 +75,24 @@
 		padding: 10px;
 		flex-basis: 50%;
 
+		.product-name {
+			font-size: 18pt;
+			font-weight: 500;
+			margin-bottom: 15px;
+		}
 		.product-price {
+			font-size: 16pt;
 			font-weight: 500;
 			color: var(--yc-);
 		}
 		.product-description {
 			margin-top: 15px;
 			color: var(--yc-neutral-light-color);
+		}
+		.product-option-title {
+			text-transform: capitalize;
+			margin-bottom: 5px;
+			font-weight: 500;
 		}
 	}
 }
@@ -80,6 +128,27 @@
 	margin-bottom: 10px;
 }
 
+.yc-image-options-list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10;
+
+	.yc-image-options-item {
+		aspect-ratio: 1;
+		height: 80px;
+		border: 1px solid var(--yc-neutral-light-color);
+		padding: 5px;
+		margin-right: 10px;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+
 .yc-upload {
 	border: 1px dashed var(--yc-primary-color);
 	width: 100%;
@@ -94,5 +163,31 @@
 	}
 	.upload-msg {
 		margin-left: 5px;
+	}
+}
+
+.yc-colors-select {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: start;
+	.color-item {
+		display: flex;
+		align-items: center;
+		justify-content: start;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-bottom: 10px;
+		border: 1px solid var(--yc-neutral-light-color);
+		padding: 6px 12px;
+		margin-right: 10px;
+		cursor: pointer;
+
+		.preview {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			border-radius: 9999px;
+		}
 	}
 }
