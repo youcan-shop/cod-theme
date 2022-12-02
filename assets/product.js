@@ -51,6 +51,37 @@ function setElementActive(element) {
   element.classList.add('active')
 }
 
+function selectDefaultOptions() {
+  const options = document.querySelectorAll('.product-options > div')
+  if (!options) return null;
+  options.forEach((option) => {
+    const optionName = option.id.split('-')[1]
+    const optionType = option.id.split('-')[2]
+    switch (optionType) {
+      case 'dropdown':
+        option.querySelector('select').value = option.querySelector('select').options[0].value
+        break
+      case 'textual_buttons':
+        option.querySelector('.yc-options-item').classList.add('active')
+        break
+      case 'radio_buttons':
+        option.querySelector('input').checked = true
+        break
+      case 'image_based_buttons':
+        option.querySelector('.yc-image-options-item').classList.add('active')
+        break
+      case 'upload_image_zone':
+        option.querySelector('#yc-upload').value = ''
+        break
+      case 'color_base_buttons':
+        option.querySelector('.color-item').classList.add('active')
+        break
+    }
+  })
+}
+
+
+
 function getSelectedOptions() {
   const options = document.querySelectorAll('.product-options > div')
   if (!options) return null;
@@ -70,10 +101,10 @@ function getSelectedOptions() {
 					selectedOptions[optionName] = option.querySelector('input:checked')?.value
 					break
 				case 'image_based_buttons':
-					selectedOptions[optionName] = option.querySelector('.yc-image-options-item.active')?.innerText
+					selectedOptions[optionName] = option.querySelector('.yc-image-options-item.active img')?.alt
 					break
 				case 'upload_image_zone':
-					selectedOptions[optionName] = option.querySelector('input')?.value
+					selectedOptions[optionName] = "upload-zone"
 					break
 				case 'color_base_buttons':
 					selectedOptions[optionName] = option.querySelector('.color-item.active')?.innerText
@@ -84,9 +115,7 @@ function getSelectedOptions() {
 	}
 
 function getSelectedVariant() {
-  console.log(variants)
   const selectedOptions = getSelectedOptions()
-  
   return variants.find((variant) => {
     if(JSON.stringify(variant.variations) === JSON.stringify(selectedOptions)) {
       return variant.id
@@ -98,17 +127,15 @@ function getSelectedVariant() {
 const productDetails = document.querySelector('.product-details')
 
 if (productDetails) {
-
-  console.log(productDetails)
   const observer = new MutationObserver((mutations) => {
     const selectedVariant = getSelectedVariant()
-    console.log(selectedVariant)
+    console.log(selectedVariant.id)
   })
     
   observer.observe(productDetails, { attributes: true, childList: true, subtree: true })
 }
 
-    
 
-
+// Set default options
+selectDefaultOptions()
 

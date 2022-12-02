@@ -2,7 +2,7 @@
 <section class='yc-product-card container'>
 	<div class='product-images'>
 		<div id='img-zoomer-box'>
-			<img id='img-1' class='thumbnail' src='{{product.thumbnail}}' alt='{{product.name}}'>
+			<img id='img-1' class='thumbnail' src='{{product.images[0]}}' alt='{{product.name}}'>
 			<div id='img-2'></div>
 		</div>
 
@@ -34,9 +34,8 @@
 							</ul>
 						{% when 'radio_buttons' %}
 							{% for item in option.values %}
-								<div id='{{option.name}}' class='yc-radio-buttons'>
-									<input type='radio' name='{{option.name}}' value='{{item}}'>
-									<span>{{ item }}</span>
+								<div class='yc-radio-buttons'>
+									<label for='{{item}}'><input type='radio' id='{{item}}' name='{{option.name}}' value='{{item}}'>{{ item }}</label>
 								</div>
 							{% endfor %}
 						{% when 'image_based_buttons' %}
@@ -66,10 +65,10 @@
 				</div>
 			{%- endfor %}
 		</form>
-		<div class='product-description'>{{ product.description }}</div>
 	</div>
+
+	<div class='product-description'>{{ product.description }}</div>
 </section>
-{% dump product %}
 
 {%- schema -%}
 { "label": "Product Card" }
