@@ -17,52 +17,53 @@
 		<h2 class='product-price'>{{ product.price | money }}</h2>
 		<form class='product-options'>
 			{% for option in product.options -%}
-				<br>
-				<h3 class='product-option-title'>{{ option.name }}</h3>
-				{% case option.type %}
-					{% when 'dropdown' %}
-						<select class='yc-dropdown' name='{{option.name}}' id='{{option.name}}'>
+				<div class='product-option' id='option-{{option.name}}-{{option.type}}'>
+					<label class='product-option-title' for='{{option.name}}'>{{ option.name }}</label>
+					{% case option.type %}
+						{% when 'dropdown' %}
+							<select class='yc-dropdown' name='{{option.name}}'>
+								{% for item in option.values %}
+									<option value='{{item}}'>{{ item }}</option>
+								{% endfor %}
+							</select>
+						{% when 'textual_buttons' %}
+							<ul class='yc-options-list'>
+								{% for item in option.values %}
+									<li onclick='setElementActive(this)' class='yc-options-item'>{{ item }}</li>
+								{% endfor %}
+							</ul>
+						{% when 'radio_buttons' %}
 							{% for item in option.values %}
-								<option value='{{item}}'>{{ item }}</option>
+								<div id='{{option.name}}' class='yc-radio-buttons'>
+									<input type='radio' name='{{option.name}}' value='{{item}}'>
+									<span>{{ item }}</span>
+								</div>
 							{% endfor %}
-						</select>
-					{% when 'textual_buttons' %}
-						<ul class='yc-options-list'>
-							{% for item in option.values %}
-								<li class='yc-options-item'>{{ item }}</li>
-							{% endfor %}
-						</ul>
-					{% when 'radio_buttons' %}
-						{% for item in option.values %}
-							<div class='yc-radio-buttons'>
-								<input type='radio' name='{{option.name}}' value='{{item}}'>
-								<span>{{ item }}</span>
+						{% when 'image_based_buttons' %}
+							<ul class='yc-image-options-list'>
+								{% for item in option.values %}
+									<li onclick='setElementActive(this)' class='yc-image-options-item'>
+										<img src='{{item.preview}}' alt='{{item.value}}'>
+									</li>
+								{% endfor %}
+							</ul>
+						{% when 'upload_image_zone' %}
+							<div class='yc-upload' onclick='uploadImage()'>
+								<input type='file' id='yc-upload' accept='image/png, image/gif, image/jpeg'>
+								<ion-icon name='cloud-upload-outline'></ion-icon>
+								<span class='upload-msg'>Upload an image</span>
 							</div>
-						{% endfor %}
-					{% when 'image_based_buttons' %}
-						<ul class='yc-image-options-list'>
-							{% for item in option.values %}
-								<li class='yc-image-options-item'>
-									<img src='{{item.preview}}' alt='{{item.value}}'>
-								</li>
-							{% endfor %}
-						</ul>
-					{% when 'upload_image_zone' %}
-						<div class='yc-upload' onclick='uploadImage()'>
-							<input type='file' id='yc-upload' accept='image/png, image/gif, image/jpeg'>
-							<ion-icon name='cloud-upload-outline'></ion-icon>
-							<span class='upload-msg'>Upload an image</span>
-						</div>
-					{% when 'color_base_buttons' %}
-						<ul class='yc-colors-select'>
-							{% for item in option.values %}
-								<li class='color-item'>
-									<span class='preview' style='background-color: {{item.preview}}'></span>
-									<span class='value'>{{ item.value }}</span>
-								</li>
-							{% endfor %}
-						</ul>
-				{% endcase %}
+						{% when 'color_base_buttons' %}
+							<ul class='yc-colors-select'>
+								{% for item in option.values %}
+									<li onclick='setElementActive(this)' class='color-item'>
+										<span class='preview' style='background-color: {{item.preview}}'></span>
+										<span class='value'>{{ item.value }}</span>
+									</li>
+								{% endfor %}
+							</ul>
+					{% endcase %}
+				</div>
 			{%- endfor %}
 		</form>
 		<div class='product-description'>{{ product.description }}</div>
@@ -73,5 +74,9 @@
 {%- schema -%}
 { "label": "Product Card" }
 {%- endschema -%}
+
+{%- script -%}
+const variantStr = `{{ product.variants | json }}`; const variants = JSON.parse(variantStr.slice(1,-1))
+{%- endscript -%}
 
 {{ 'product.js' | asset_url | script_tag }}
