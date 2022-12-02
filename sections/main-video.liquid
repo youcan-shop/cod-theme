@@ -1,0 +1,80 @@
+{{ 'main-video.css' | asset_url | stylesheet_tag }}
+
+{% schema %}
+{
+	"label": "Video",
+	"settings": [
+		{
+			"type": "select",
+			"id": "video_type",
+			"label": "Video Type",
+			"options": [
+				{
+					"value": "youtube",
+					"label": "Youtube"
+				},
+				{
+					"value": "facebook",
+					"label": "Facebook"
+				}
+			]
+		},
+		{
+			"type": "text",
+			"id": "video_link",
+			"label": "Video Link",
+			"accept": ["youtube", "vimeo"]
+		},
+		{
+			"type": "range",
+			"id": "video_height",
+			"label": "Video Height",
+			"min": 100,
+			"max": 1000,
+			"step": 10,
+			"unit": "px",
+			"default": 500
+		},
+		{
+			"type": "range",
+			"id": "video_width",
+			"label": "Video Width's Percentage",
+			"min": 10,
+			"max": 100,
+			"step": 5,
+			"unit": "%",
+			"default": 100
+		}
+	]
+}
+{% endschema %}
+
+<div class='flex items-center justify-center'>
+	{% if section.settings.video_link %}
+		{% if section.settings.video_type == 'youtube' %}
+			<iframe id='youtube-video' height='{{section.settings.video_height}}' src='' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+		{% endif %}
+		{% if section.settings.video_type == 'facebook' %}
+			<iframe
+				id='facebook-video'
+				height='{{section.settings.video_height}}'
+				src='https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FAymanJadaofficial%2Fvideos%2F1344326396104890%2F&show_text=false&width=560&t=0'
+				style='border:none;overflow:hidden'
+				scrolling='no'
+				frameborder='0'
+				allowfullscreen='true'
+				allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
+				allowFullScreen='true'
+			></iframe>
+		{% endif %}
+	{% endif %}
+</div>
+
+<script>
+	const width = {{section.settings.video_width}} * (window.innerWidth / 100)
+	const height = {{section.settings.video_height}}
+	const videoLink = '{{ section.settings.video_link }}'
+	const videoType = '{{ section.settings.video_type }}'
+</script>
+
+{{ 'video.js' | asset_url | script_tag }}
