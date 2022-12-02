@@ -1,324 +1,122 @@
-<div class="yc-cart mt-4">
-  {%-if cart and cart.items-%}
-    <div class="container cart-table">
-      <h2 class="text-4xl">
-        Shopping Cart
-      </h2>
-      <p class="mt-1">{{ cart.items | size }} items</p>
-      <div class="flex flex-col md:flex-row gap-14">
-        <div class="w-full flex flex-col justify-between">
-          <table class="table-auto w-full mt-7 self-baseline">
-            <thead>
-              <tr>
-                <th></th>
-                <th class="hidden md:block">Quantity</th>
-                <th>Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              {%- for item in cart.items -%}
-                <tr class="relative cart__item" id="{{ item.id }}">
-                  <td class="flex gap-6">
-                    <div class="absolute top-0 left-0 hidden bg-white flex items-center justify-center w-full h-full bg-white bg-opacity-40" id="loading__{{item.id}}">
-                      <span class="spinner text-black h-9 w-9"></span>
-                    </div>
-                    <div class="fixed"></div>
-                    <img src="{{item.image}}" alt="product-name" class="w-24 object-cover">
-                    <div class="flex flex-col items-start gap-3">
-                      <div>
-                        {{item.name}}
-                      </div>
-                      <div>{{item.price | money}}</div>
-                      <div class="md:hidden">
-                        {{item.quantity}}
-                      </div>
-                      <button onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')" class="yc-btn btn-sm flex items-center gap-1">
-                        <ion-icon name="trash" class="text-base"></ion-icon>
-                        Remove
-                      </button>
-                    </div>
-                  </td>
-                  <td class="hidden md:table-cell">
-                    <div class="quantity-wrapper">
-                      <div class="decrease">
-                        <button onclick="decreaseQuantity('{{ item.id }}', '{{ item.product_variant_id }}', '{{ item.quantity | minus: 1 }}')">
-                          -
-                        </button>
-                      </div>
-                      <input onchange="updateOnchange('{{ item.id }}', '{{ item.product_variant_id }}')" type="text" class="cart__quantity-input" value="{{ item.quantity }}" id="{{ item.product_variant_id }}">
-                      <div class="increase">
-                        <button onclick="increaseQuantity('{{ item.id }}', '{{ item.product_variant_id }}', '{{ item.quantity | plus: 1 }}')">
-                          +
-                        </button>
-                      </div>
-                    </div>
-                  </td>
-                  <td>{{item.price | times: item.quantity | money}}</td>
-                </tr>
-              {%- endfor -%}
-            </tbody>
-          </table>
-          <a href="/" class="yc-btn flex gap-2 w-fit mt-5 items-center">
-            <ion-icon name="arrow-back-outline"></ion-icon>
-            Continue Shopping
-          </a>
-        </div>
-        <div class="summary-box h-fit shadow-lg rounded-lg">
-          <div id="summary">
-            <h1 class="text-2xl border-b pb-4">Order Summary</h1>
-            {%-comment-%}
-              <div class="mt-1">
-              <label>Shipping</label>
-              <form action="{{ routes.store_shipping_url }}" method="POST">
-              {{ csrf }}
-              <select class="text-black w-full" onchange="this.form.submit()" name="shipping">
-              {% for shipping in cart.available_shipping_options %}
-              <option value="{{ shipping.compound_id }}">{{ shipping.name }} - {{ shipping.price | money}}
-              </option>
-              {% endfor %}
-              </select>
-              </form>
-              </div>
-            {%-endcomment-%}
-            <form name="promo">
-              <div class="pt-1 mb-7  w-full">
-                <label for="promo">Promo Code</label>
-                <input type="text" name="coupon" id="promo" placeholder="Enter your code" class="w-full">
-              </div>
-              <button type="submit" class="yc-btn w-full">
-                <span class="spinner text-white hidden" id="loading__coupon"></span>
-                <span>Apply</span>
-              </button>
-            </form>
-            {%-if cart and cart.items-%}
-              <div class="flex flex-col gap-1 mt-4">
-                {%- for item in cart.items -%}
-                  <div class="flex justify-between text-sm">
-                    <div class="capitalize">{{item.name}}</div>
-                    <div>{{item.price | times: item.quantity | money}}</div>
-                  </div>
-                {%- endfor -%}
-              </div>
-            {%- endif -%}
-            <div class="border-t mt-5">
-              <div class="flex text-sm justify-between mt-5">
-                <span>Total cost</span>
-                <span>{{ cart.total | money }}</span>
-              </div>
-              <button class="yc-btn mt-5 w-full">
-                <a href="{{ cart.cart_submit_url }}">Checkout</a>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  {%-endif-%}
-  <div class="{%if cart and cart.items%}hidden {%endif%} container empty-cart pt-12">
-    <div class="flex flex-col justify-center text-center items-center gap-3">
-      <ion-icon name="cart-outline" class="text-8xl"></ion-icon>
-      <div class="text-2xl md:text-3xl">
-        Your cart is currently empty.
-      </div>
-      <div class="opacity-60">
-        <p>
-          Before you proceed to checkout you must add some products to your shopping cart.
-        </p>
-        <p>
-          You will find a lot of interesting products on our "Shop" page.
-        </p>
-      </div>
-      <a href="/" class="yc-btn flex gap-2 w-fit mt-5 items-center">
-        <ion-icon name="arrow-back-outline"></ion-icon>
-        Return to shop
-      </a>
-    </div>
-  </div>
+{{ 'cart.css' | asset_url | stylesheet_tag }}
+
+<div class='yc-cart mt-4'>
+	{%- if cart and cart.items %}
+		<div class='container cart-table'>
+			<h2 class='text-4xl'>Shopping Cart</h2>
+			<p class='mt-1'>{{ cart.items | size }} items</p>
+			<div class='flex flex-col md:flex-row gap-14'>
+				<div class='w-full flex flex-col justify-between'>
+					<table class='table-auto w-full mt-7 self-baseline'>
+						<thead>
+							<tr>
+								<th></th>
+								<th class='hidden md:block'>Quantity</th>
+								<th>Total</th>
+							</tr>
+						</thead>
+						<tbody>
+							{%- for item in cart.items %}
+								<tr class='relative cart__item' id='{{ item.id }}'>
+									<td class='flex gap-6'>
+										<div class='cart-item-loader-spinner hidden' id='loading__{{item.id}}'>
+											<span class='spinner h-9 w-9'></span>
+										</div>
+										<div class='fixed'></div>
+										<img src='{{item.image}}' alt='product-name' class='w-24 object-cover'>
+										<div class='flex flex-col items-start gap-3'>
+											<div>
+												{{ item.name }}
+											</div>
+											<div>{{ item.price | money }}</div>
+											<div class='md:hidden'>
+												{{ item.quantity }}
+											</div>
+											<button onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')" class='yc-btn btn-sm flex items-center gap-1'>
+												<ion-icon name='trash' class='text-base'></ion-icon>
+												Remove
+											</button>
+										</div>
+									</td>
+									<td class='hidden md:table-cell'>
+										<div class='quantity-wrapper'>
+											<div class='decrease'>
+												<button onclick="decreaseQuantity('{{ item.id }}', '{{ item.product_variant_id }}', '{{ item.quantity | minus: 1 }}')">-</button>
+											</div>
+											<input onchange="updateOnchange('{{ item.id }}', '{{ item.product_variant_id }}')" type='text' value='{{ item.quantity }}' id='{{ item.product_variant_id }}'>
+											<div class='increase'>
+												<button onclick="increaseQuantity('{{ item.id }}', '{{ item.product_variant_id }}', '{{ item.quantity | plus: 1 }}')">+</button>
+											</div>
+										</div>
+									</td>
+									<td>{{ item.price | times: item.quantity | money }}</td>
+								</tr>
+							{%- endfor %}
+						</tbody>
+					</table>
+					<a href='/' class='yc-btn flex gap-2 w-fit mt-5 items-center'>
+						<ion-icon name='arrow-back-outline'></ion-icon>
+						Continue Shopping
+					</a>
+				</div>
+				<div class='summary-box h-fit'>
+					<div id='summary'>
+						<h1 class='text-2xl border-b pb-4'>Order Summary</h1>
+						<form name='promo'>
+							<div class='pt-1 mb-7 w-full'>
+								<label for='promo'>Promo Code</label>
+								<input type='text' name='coupon' id='promo' placeholder='Enter your code' class='w-full'>
+							</div>
+							<button type='submit' class='yc-btn w-full'>
+								<span class='spinner hidden' id='loading__coupon'></span>
+								<span>Apply</span>
+							</button>
+						</form>
+						{%- if cart and cart.items %}
+							<div class='flex flex-col gap-1 mt-4'>
+								{%- for item in cart.items %}
+									<div class='flex justify-between text-sm'>
+										<div class='capitalize'>{{ item.name }}</div>
+										<div>{{ item.price | times: item.quantity | money }}</div>
+									</div>
+								{%- endfor %}
+							</div>
+						{%- endif %}
+						<div class='border-t mt-5'>
+							<div class='flex text-sm justify-between mt-5'>
+								<span>Total cost</span>
+								<span>{{ cart.total | money }}</span>
+							</div>
+							<button class='yc-btn mt-5 w-full'>
+								<a href='{{ cart.cart_submit_url }}'>Checkout</a>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{%- endif %}
+	<div class='{%if cart and cart.items%}hidden {%endif%} container empty-cart pt-12'>
+		<div class='flex flex-col justify-center text-center items-center gap-3'>
+			<ion-icon name='cart-outline' class='text-8xl'></ion-icon>
+			<div class='text-2xl md:text-3xl'>Your cart is currently empty.</div>
+			<div class='opacity-60'>
+				<p>Before you proceed to checkout you must add some products to your shopping cart.</p>
+				<p>You will find a lot of interesting products on our "Shop" page.</p>
+			</div>
+			<a href='/' class='yc-btn flex gap-2 w-fit mt-5 items-center'>
+				<ion-icon name='arrow-back-outline'></ion-icon>
+				Return to shop
+			</a>
+		</div>
+	</div>
 </div>
-<script>
-  const promo = document.forms['promo']
-  if (promo) {
-    promo.addEventListener('submit', addPromo);
-  }
 
-  async function addPromo(e) {
-    e.preventDefault();
-    const coupon = promo['coupon'].value;
-    load("#loading__coupon")
-    try {
-      await youcanjs.checkout.applyCoupon(coupon);
-    } catch (e) {
-      console.error(e);
-      notify(e.message, "error");
-    } finally {
-      stopLoad("#loading__coupon")
-    }
-  }
+{{ 'cart.js' | asset_url | script_tag }}
 
-  function updateDOM(cartItemId, productVariantId, quantity) {
-    const inputHolder = document.getElementById(cartItemId)
-    const input = inputHolder.querySelector(`input[id="${productVariantId}"]`)
-    input.value = quantity;
-    const decrease = input.previousElementSibling;
-    const increase = input.nextElementSibling;
-
-    decrease.querySelector('button').setAttribute('onclick', `decreaseQuantity('${cartItemId}', '${productVariantId}', '${
-      Number(quantity) - 1
-    }')`);
-    increase.querySelector('button').setAttribute('onclick', `increaseQuantity('${cartItemId}', '${productVariantId}', '${
-      Number(quantity) + 1
-    }')`);
-  }
-
-  async function updateQuantiry(cartItemId, productVariantId, quantity) {
-    load(`#loading__${cartItemId}`);
-    try {
-      await youcanjs.cart.updateItem({cartItemId, productVariantId, quantity});
-    } catch (e) {
-      console.error(e);
-      notify(e.message, "error");
-    } finally {
-      stopLoad(`#loading__${cartItemId}`);
-    };
-    updateDOM(cartItemId, productVariantId, quantity);
-  }
-
-  async function updateOnchange(cartItemId, productVariantId) {
-    const inputHolder = document.getElementById(cartItemId)
-    const input = inputHolder.querySelector(`input[id="${productVariantId}"]`)
-    const quantity = input.value;
-
-    await updateQuantiry(cartItemId, productVariantId, quantity);
-    updateDOM(cartItemId, productVariantId, quantity);
-  }
-
-  async function decreaseQuantity(cartItemId, productVariantId, quantity) {
-    if (quantity < 1) {
-      return;
-    }
-    await updateQuantiry(cartItemId, productVariantId, quantity);
-  }
-
-  async function increaseQuantity(cartItemId, productVariantId, quantity) {
-    await updateQuantiry(cartItemId, productVariantId, quantity);
-  }
-
-  async function removeItem(cartItemId, productVariantId) {
-    load(`#loading__${cartItemId}`);
-    try {
-      await youcanjs.cart.removeItem({cartItemId, productVariantId});
-      document.getElementById(cartItemId).remove();
-
-      const cartItemsPadge = document.getElementById('cart-items-padge')
-
-      const cartItems = document.querySelectorAll('.cart__item');
-
-      if (cartItemsPadge) {
-        cartItemsPadge.innerText = parseInt(cartItemsPadge.innerText) + 1
-      }
-
-      if (cartItems.length === 0) {
-        if (cartItemsPadge) {
-          cartItemsPadge.innerText = 0
-        }
-        document.querySelector('.cart-table').remove();
-        document.querySelector('.empty-cart').classList.remove('hidden');
-      }
-
-    } catch (e) {
-      console.error(e);
-      notify(e.message, "error");
-    } finally {
-      stopLoad(`#loading__${cartItemId}`);
-    }
-  }
-</script>
-<style>
-  .yc-cart {
-    margin: 4rem 0 2rem;
-  }
-
-  .yc-cart .empty-cart ion-icon {
-    --ionicon-stroke-width: 18px;
-  }
-
-  .yc-cart .summary-box {
-    padding: 1.3rem 1.5rem;
-    max-width: 100%;
-    min-width: 22rem;
-  }
-
-  .yc-cart .cart-table th {
-    text-align: start;
-  }
-
-  .yc-cart .cart-table thead {
-    border-bottom: 1px solid #eaeaea;
-  }
-
-  .yc-cart .cart-table thead th {
-    padding: 1rem 0;
-    font-size: 0.9rem;
-    font-weight: 400 !important;
-  }
-
-  .yc-cart .cart-table tbody td {
-    vertical-align: top;
-    padding-top: 1.5rem;
-  }
-
-  .yc-cart table {
-    margin-top: 17px;
-  }
-
-  .yc-cart .quantity-wrapper {
-    -webkit-box-shadow: 0 2px 4px rgb(0 0 0 / 11%);
-    box-shadow: 0 2px 4px rgb(0 0 0 / 11%);
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    border: 1px solid var(--yc-inputs-shadow-color);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-
-  .yc-cart .quantity-wrapper button,
-  .yc-cart .quantity-wrapper input {
-    width: 37px !important;
-    min-width: 37px !important;
-    max-width: 37px !important;
-    height: 37px !important;
-    min-height: 37px !important;
-    max-height: 37px !important;
-  }
-
-  .yc-cart .quantity-wrapper input {
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    border: 1px solid var(--yc-inputs-shadow-color) !important;
-    border-top: none !important;
-    border-bottom: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    text-align: center;
-  }
-</style>
 {% schema %}
-  {
-    "label": "Cart",
-    "class": "cart"
-  }
+{
+	"label": "Cart",
+	"class": "cart"
+}
 {% endschema %}

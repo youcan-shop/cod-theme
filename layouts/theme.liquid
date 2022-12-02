@@ -6,7 +6,8 @@
 		{{ content_for_header }}
 	</head>
 	<body>
-		<div class='global-overlay'></div>
+		{%- render 'overlay' -%}
+		{%- render 'alert' -%}
 
 		{{ content_for_layout }}
 
