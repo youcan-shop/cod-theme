@@ -252,6 +252,10 @@ video {
   position: relative;
 }
 
+.mt-8 {
+  margin-top: 2rem;
+}
+
 .mt-24 {
   margin-top: 6rem;
 }
@@ -274,6 +278,10 @@ video {
 
 .grid {
   display: grid;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-full {
@@ -312,10 +320,6 @@ video {
   gap: 0.25rem;
 }
 
-.overflow-hidden {
-  overflow: hidden;
-}
-
 .whitespace-pre-wrap {
   white-space: pre-wrap;
 }
@@ -350,6 +354,12 @@ video {
 @media (min-width: 768px) {
   .md\:hidden {
     display: none;
+  }
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .md\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
