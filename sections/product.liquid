@@ -12,9 +12,15 @@
 			{% endfor %}
 		</div>
 	</div>
+	<input id='variantId' type='hidden'>
 	<div class='product-details'>
 		<h1 class='product-name'>{{ product.name }}</h1>
 		<h2 class='product-price'>{{ product.price | money }}</h2>
+		<div class='product-quantity '>
+			<label for='quantity'>Quantity</label>
+			<input type='number' id='quantity' name='quantity' min='1' max='10' value='1'>
+		</div>
+
 		<form class='product-options'>
 			{% for option in product.options -%}
 				<div class='product-option' id='option-{{option.name}}-{{option.type}}'>
@@ -66,9 +72,8 @@
 			{%- endfor %}
 		</form>
 	</div>
-
-	<div class='product-description'>{{ product.description }}</div>
 </section>
+<section class='product-description container'>{{ product.description }}</section>
 
 {%- schema -%}
 { "label": "Product Card" }

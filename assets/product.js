@@ -124,18 +124,27 @@ function getSelectedVariant() {
   })
 }
 
+
+// watch for changes in the options and updates the variant id
 const productDetails = document.querySelector('.product-details')
 
+
 if (productDetails) {
-  const observer = new MutationObserver((mutations) => {
+  const observer = new MutationObserver(() => {
     const selectedVariant = getSelectedVariant()
-    console.log(selectedVariant.id)
+    const variantIdInput = document.querySelector('#variantId')
+    variantIdInput.value = selectedVariant.id
+    console.log(variantIdInput)
   })
     
   observer.observe(productDetails, { attributes: true, childList: true, subtree: true })
 }
 
 
-// Set default options
+
+
+
+
+// Set default product options
 selectDefaultOptions()
 

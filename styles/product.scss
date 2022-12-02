@@ -1,19 +1,16 @@
 @import 'helpers/mixins';
 
 .yc-product-card {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: start;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 1rem;
 
 	@include breakpoint('md') {
-		flex-direction: row;
+		grid-template-columns: 1fr 1fr;
 	}
 
 	.product-images {
 		height: 600px;
-		flex-basis: calc(50% - 5px);
 		padding: 10px;
 		min-width: 300px;
 
@@ -25,6 +22,7 @@
 		#img-1 {
 			width: 100%;
 			height: auto;
+			border-radius: 12px;
 		}
 
 		#img-zoomer-box:hover,
@@ -82,7 +80,7 @@
 	}
 	.product-details {
 		padding: 10px;
-		flex-basis: calc(50% - 5px);
+		width: 100%;
 
 		.product-name {
 			font-size: 18pt;
@@ -97,7 +95,6 @@
 			.product-option {
 				margin-bottom: 20px;
 			}
-
 			.active {
 				border: 1px solid var(--yc-primary-color);
 			}
@@ -110,109 +107,6 @@
 			text-transform: capitalize;
 			margin-bottom: 5px;
 			font-weight: 500;
-		}
-	}
-}
-
-* {
-	box-sizing: border-box;
-}
-
-.yc-dropdown {
-	border: 1px solid var(--yc-neutral-light-color);
-	padding: 10px;
-}
-.yc-options-list {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 10px;
-	margin: 10px 0px;
-}
-.yc-options-item {
-	padding: 10px 25px;
-	font-size: 14px;
-	border: 1px solid var(--yc-neutral-light-color);
-
-	&:hover {
-		opacity: 0.8;
-		cursor: pointer;
-	}
-}
-.yc-radio-buttons {
-	margin-bottom: 10px;
-
-	label {
-		display: flex;
-		align-items: center;
-		gap: 10px;
-	}
-}
-
-.yc-image-options-list {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 10;
-
-	.yc-image-options-item {
-		aspect-ratio: 1;
-		height: 80px;
-		border: 1px solid var(--yc-neutral-light-color);
-		padding: 5px;
-		margin-right: 10px;
-		cursor: pointer;
-
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
-	}
-}
-
-.yc-upload {
-	border: 1px dashed var(--yc-neutral-light-color);
-	width: 100%;
-	height: 120px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-
-	input {
-		display: none;
-	}
-	.upload-msg {
-		margin-left: 5px;
-	}
-}
-
-.yc-colors-select {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: start;
-	.color-item {
-		display: flex;
-		align-items: center;
-		justify-content: start;
-		flex-wrap: wrap;
-		gap: 10px;
-		margin-bottom: 10px;
-		border: 1px solid var(--yc-neutral-light-color);
-		padding: 6px 12px;
-		margin-right: 10px;
-		cursor: pointer;
-
-		.preview {
-			display: inline-block;
-			width: 20px;
-			height: 20px;
-			border-radius: 9999px;
 		}
 	}
 }
