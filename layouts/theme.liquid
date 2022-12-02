@@ -6,11 +6,15 @@
 		{{ content_for_header }}
 	</head>
 	<body>
-		<div class='global-overlay'></div>
+		{%- render 'overlay' -%}
+		{%- render 'alert' -%}
 
 		{{ content_for_layout }}
 
 		{{ 'main.js' | asset_url | script_tag }}
 		{{ 'splide.min.js' | asset_url | script_tag }}
+		{{ 'youcan-js.js' | asset_url | script_tag }}
+
+		<script></script>
 	</body>
 </html>
