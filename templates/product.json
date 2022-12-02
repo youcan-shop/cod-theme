@@ -1,0 +1,8 @@
+{
+	"sections": {
+		"main-express-checkout": {
+			"type": "main-express-checkout"
+		}
+	},
+	"order": ["main-express-checkout"]
+}
