@@ -252,26 +252,6 @@ video {
   position: relative;
 }
 
-.mt-4 {
-  margin-top: 1rem;
-}
-
-.mt-1 {
-  margin-top: 0.25rem;
-}
-
-.mt-7 {
-  margin-top: 1.75rem;
-}
-
-.mt-5 {
-  margin-top: 1.25rem;
-}
-
-.mb-7 {
-  margin-bottom: 1.75rem;
-}
-
 .mt-8 {
   margin-top: 2rem;
 }
@@ -298,6 +278,10 @@ video {
 
 .grid {
   display: grid;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-full {
@@ -334,10 +318,6 @@ video {
 
 .gap-1 {
   gap: 0.25rem;
-}
-
-.overflow-hidden {
-  overflow: hidden;
 }
 
 .whitespace-pre-wrap {
