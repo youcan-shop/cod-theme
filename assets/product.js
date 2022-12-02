@@ -8,7 +8,6 @@ function uploadImage() {
   uploadInput.click()
 }
 
-
 let zoomer = function() {
   const imgZoomer = document.querySelector('#img-zoomer-box');
   if (imgZoomer) {
@@ -41,7 +40,6 @@ let zoomer = function() {
     }, false);
   }
 }();
-
 
 function setElementActive(element) {
   const siblings = element.parentNode.children
@@ -79,8 +77,6 @@ function selectDefaultOptions() {
     }
   })
 }
-
-
 
 function getSelectedOptions() {
   const options = document.querySelectorAll('.product-options > div')
@@ -124,10 +120,7 @@ function getSelectedVariant() {
   })
 }
 
-
-// watch for changes in the options and updates the variant id
 const productDetails = document.querySelector('.product-details')
-
 
 if (productDetails) {
   const observer = new MutationObserver(() => {
@@ -140,11 +133,4 @@ if (productDetails) {
   observer.observe(productDetails, { attributes: true, childList: true, subtree: true })
 }
 
-
-
-
-
-
-// Set default product options
 selectDefaultOptions()
-
