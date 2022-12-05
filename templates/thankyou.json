@@ -1,0 +1,10 @@
+{
+	"label": "Collection",
+	"layout": "theme",
+	"sections": {
+		"thankyou": {
+			"type": "thankyou"
+		}
+	},
+	"order": ["thankyou"]
+}
