@@ -1,21 +1,101 @@
 <div class='w-screen h-screen flex items-center justify-center'>
-	<div class='container pt-12'>
-		<div class='flex flex-col justify-center text-center items-center gap-3'>
-			<ion-icon name='<ion-icon name="bag-check-outline"></ion-icon>' class='text-8xl'></ion-icon>
-			<div class='text-2xl md:text-3xl'>Your cart is currently empty.</div>
-			<div class='opacity-60'>
-				<p>Our team will be in touch to confirm your request. We value your trust and appreciate your willingness to communicate with us. We are always here to serve you.</p>
-			</div>
-			<a href='/' class='yc-btn flex gap-2 w-fit mt-5 items-center'>
-				<ion-icon name='arrow-back-outline'></ion-icon>
-				Return to shop
-			</a>
-		</div>
-	</div>
+  <div class='container pt-12'>
+    <div class='flex flex-col justify-center text-center items-center gap-3'>
+      <ion-icon name='<ion-icon name="bag-check-outline"></ion-icon>' class='text-8xl'></ion-icon>
+      <div class='text-2xl md:text-3xl'>Your cart is currently empty.</div>
+      <div class='opacity-60'>
+        <p>Our team will be in touch to confirm your request. We value your trust and appreciate your willingness to communicate with us. We are always here to serve you.</p>
+      </div>
+      <a href='/' class='yc-btn flex gap-2 w-fit mt-5 items-center'>
+        <ion-icon name='arrow-back-outline'></ion-icon>
+        Return to shop
+      </a>
+    </div>
+  </div>
 </div>
 
 {%- schema -%}
-{
-	"label": "Thank you page"
-}
+  {
+    "label": "Thank you page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Thank you"
+      },
+      {
+        "type": "select",
+        "id": "title_font_weight",
+        "label": "Title font weight",
+        "default": "400",
+        "options": [
+          {
+            "value": "300",
+            "label": "Light"
+          }, {
+            "value": "400",
+            "label": "Normal"
+          }, {
+            "value": "500",
+            "label": "Bold"
+          }, {
+            "value": "700",
+            "label": "Heavy"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "title_font_size",
+        "label": "Title font size",
+        "min": 0,
+        "max": 100,
+        "default": 16
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle",
+        "default": "Your order has been received."
+      }, {
+        "type": "select",
+        "id": "subtitle_font_weight",
+        "label": "Subtitle font weight",
+        "default": "400",
+        "options": [
+          {
+            "value": "300",
+            "label": "Light"
+          }, {
+            "value": "400",
+            "label": "Normal"
+          }, {
+            "value": "500",
+            "label": "Bold"
+          }, {
+            "value": "700",
+            "label": "Heavy"
+          }
+        ]
+      }, {
+        "type": "range",
+        "id": "subtitle_font_size",
+        "label": "Subtitle font size",
+        "min": 0,
+        "max": 100,
+        "default": 16
+      }, {
+        "type": "text",
+        "id": "description",
+        "label": "Description",
+        "default": "Our team will be in touch to confirm your request. We value your trust and appreciate your willingness to communicate with us. We are always here to serve you."
+      }, {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text",
+        "default": "Return to shop"
+      }
+    ]
+  }
 {%- endschema -%}
