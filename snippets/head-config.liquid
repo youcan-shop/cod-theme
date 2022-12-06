@@ -10,6 +10,7 @@
 	  --yc-font-family:
 	  {{ settings.font_family }},
 	  sans-serif;
+	  --yc-main-shadow: rgba(0, 0, 0, 0.04) 0 0 0 1px, rgba(0, 0, 0, 0.03) 0 1px 1px, rgba(0, 0, 0, 0.03) 0 2px 2px, rgba(0, 0, 0, 0.03) 0 4px 4px, rgba(0, 0, 0, 0.03) 0 8px 8px, rgba(0, 0, 0, 0.03) 0 16px 16px;
 
 	  /* colors */
 	  --yc-primary-color: {{ settings.primary_color.hex }};
@@ -46,11 +47,7 @@
 	    {{ settings.navbar_font_family }}, sans-serif{%- else -%}
 	    var(--yc-font-family){%- endif -%};
 	  --yc-nav-font-size: {{ settings.navbar_font_size}}px;
-	  --yc-nav-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
-	  --yc-nav-shadow: {%- if settings.navbar_shadow -%}
-	    {{ settings.navbar_shadow}}
-	  {%- else -%}
-	    var(--yc-nav-shadow){%- endif -%};
+	  --yc-nav-shadow: {{ settings.navbar_shadow}};
 
 	  /* Slider */
 	  --yc-slider-arrows-background: {{ settings.arrows_background_color.hex}};
