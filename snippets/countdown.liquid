@@ -1,0 +1,12 @@
+{{ 'countdown.css' | asset_url | stylesheet_tag }}
+
+<div class='countdown-wrapper'>
+	<div class='countdown'>
+		<span id='days' class='unit-parent'></span>
+		<span id='hours' class='unit-parent'></span>
+		<span id='minutes' class='unit-parent'></span>
+		<span id='seconds' class='unit-parent'></span>
+	</div>
+</div>
+
+{{ 'countdown.js' | asset_url | script_tag }}
