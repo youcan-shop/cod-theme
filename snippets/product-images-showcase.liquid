@@ -26,18 +26,26 @@
 			</div>
 		{% when '3' %}
 			<section class='splide' aria-label='Custom Arrows Example'>
-				<div class='splide__arrows'>
+				{%- comment -%}
+					<div class='splide__arrows'>
 					<button class='splide__arrow splide__arrow--prev'>Prev</button>
 					<button class='splide__arrow splide__arrow--next'>Next</button>
-				</div>
+					</div>
+				{%- endcomment -%}
 
 				<div class='splide__track'>
 					<ul class='splide__list'>
-						<li class='splide__slide'>Slide 01</li>
-						<li class='splide__slide'>Slide 02</li>
-						<li class='splide__slide'>Slide 03</li>
+						{% for image in images %}
+							<li class='splide__slide'>
+								<img src='{{image}}' alt='{{product.name}}'>
+							</li>
+						{% endfor %}
 					</ul>
 				</div>
 			</section>
 	{% endcase %}
 </div>
+
+<script>
+	const splide = new Splide('.splide').mount()
+</script>
