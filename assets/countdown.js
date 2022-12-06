@@ -1,13 +1,3 @@
-const now = new Date();
-const storedDate = localStorage.getItem('targetDate');
-let targetDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0);
-
-if (storedDate) {
-  targetDate = new Date(storedDate);
-} else {
-  localStorage.setItem('targetDate', targetDate);
-}
-
 function initCountdown() {
   const currentDate = new Date();
   let timeRemaining = targetDate - currentDate;

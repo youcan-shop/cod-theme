@@ -12,4 +12,17 @@
 	</div>
 </div>
 
+<script>
+	const now = new Date()
+
+	const year = countdown_year || now.getFullYear()
+	const month = countdown_month || now.getMonth() + 1
+	const day = countdown_day || now.getDate()
+	const hour = countdown_hour || 0
+	const minute = countdown_minute || 0
+	const second = countdown_second || 0
+
+	const targetDate = new Date(year, month - 1, day, hour, minute, second)
+</script>
+
 {{ 'countdown.js' | asset_url | script_tag }}
