@@ -1,0 +1,43 @@
+<div>
+	{% case showcase_style %}
+		{% when '1' %}
+			<div class='product-images style1'>
+				<div id='img-zoomer-box'>
+					<img id='img-1' class='thumbnail' src='{{images[0]}}' alt='{{product_name}}'>
+					<div id='img-2'></div>
+				</div>
+
+				<div class='images'>
+					{% for image in images %}
+						<img onclick="previewProductImage('{{image}}')" src='{{image}}' alt='{{product.name}}'>
+					{% endfor %}
+				</div>
+			</div>
+		{% when '2' %}
+			<div class='product-images style2'>
+				<div class='images'>
+					{% for image in images %}
+						<img onclick="previewProductImage('{{image}}')" src='{{image}}' alt='{{product.name}}'>
+					{% endfor %}
+				</div>
+				<div>
+					<img class='thumbnail' id='img-1' src='{{images[0]}}' alt='{{product_name}}'>
+				</div>
+			</div>
+		{% when '3' %}
+			<section class='splide' aria-label='Custom Arrows Example'>
+				<div class='splide__arrows'>
+					<button class='splide__arrow splide__arrow--prev'>Prev</button>
+					<button class='splide__arrow splide__arrow--next'>Next</button>
+				</div>
+
+				<div class='splide__track'>
+					<ul class='splide__list'>
+						<li class='splide__slide'>Slide 01</li>
+						<li class='splide__slide'>Slide 02</li>
+						<li class='splide__slide'>Slide 03</li>
+					</ul>
+				</div>
+			</section>
+	{% endcase %}
+</div>
