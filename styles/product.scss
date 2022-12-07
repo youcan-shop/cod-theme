@@ -101,19 +101,6 @@
 				}
 			}
 		}
-		&.slider_style {
-			border: 1px solid #e3e3e3;
-			.images {
-				display: flex;
-				gap: 10px;
-				margin-top: 10px;
-				img {
-					object-fit: cover;
-					aspect-ratio: 1;
-					height: 80px;
-				}
-			}
-		}
 	}
 	.product-details {
 		width: 100%;

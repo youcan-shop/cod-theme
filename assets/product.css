@@ -93,19 +93,6 @@
 .yc-product-card .product-images.style2 .thumbnail-images img:hover {
   border: 1px solid blanchedalmond;
 }
-.yc-product-card .product-images.slider_style {
-  border: 1px solid #e3e3e3;
-}
-.yc-product-card .product-images.slider_style .images {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-.yc-product-card .product-images.slider_style .images img {
-  object-fit: cover;
-  aspect-ratio: 1;
-  height: 80px;
-}
 .yc-product-card .product-details {
   width: 100%;
 }
