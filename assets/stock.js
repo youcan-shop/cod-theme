@@ -6,7 +6,6 @@ if (typeof stockLeft !== 'number' || typeof totalInStock !== 'number') {
 
 if (stockLeft > 0 && totalInStock > 0) {
   progressBarFillWidth = (stockLeft / totalInStock) * 100
-  console.log('stockLeft: ', progressBarFillWidth)
 }
 
 document.getElementById('current-stock').innerHTML = stockLeft
