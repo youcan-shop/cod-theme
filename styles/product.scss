@@ -3,26 +3,28 @@
 .yc-product-card {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-gap: 1rem;
+	grid-gap: 5%;
+	max-width: 500px;
 
 	@include breakpoint('md') {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 55% 40%;
 	}
-
+	#main-image {
+		width: 100%;
+		height: 480px;
+		object-fit: cover;
+	}
 	.product-images {
-		height: 600px;
-		padding: 10px;
-		min-width: 300px;
-
+		width: 100%;
 		#img-zoomer-box {
 			height: auto;
 			position: relative;
+			overflow: hidden;
 		}
 
-		#img-1 {
+		#main-image {
 			width: 100%;
 			height: auto;
-			border-radius: 12px;
 		}
 
 		#img-zoomer-box:hover,
@@ -31,55 +33,76 @@
 			display: block;
 		}
 
-		#img-zoomer-box:hover #img-2,
-		#img-zoomer-box:active #img-2 {
+		#img-zoomer-box:hover #magnified-image,
+		#img-zoomer-box:active #magnified-image {
 			opacity: 1;
 		}
-		#img-2 {
-			width: 25rem;
-			height: 25rem;
-			background-color: #fff;
+		#magnified-image {
+			width: 100%;
+			height: 100%;
 			background-repeat: no-repeat;
-			box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.3);
 			pointer-events: none;
 			position: absolute;
 			opacity: 0;
-			border: 2px solid white;
 			z-index: 99;
-			border-radius: 100%;
 			display: block;
 			transition: opacity 0.2s;
 		}
+		&.style1 {
+			.thumbnail-images {
+				margin-top: 20px;
+				display: flex;
+				justify-content: start;
+				align-items: center;
+				gap: 10px;
+				overflow: auto;
+			}
+			.thumbnail-images img {
+				display: inline-block;
+				aspect-ratio: 1;
+				height: 80px;
+				object-fit: cover;
+				cursor: pointer;
+				border: 1px solid transparent;
 
-		#img-1 {
-			width: 100%;
-			height: 480px;
-			box-shadow: 0px 0px 12px 1px #e3e3e3;
-			object-fit: cover;
+				&.active {
+					border-color: var(--yc-primary-color);
+				}
+
+				&:hover {
+					transition: 0.4s ease-in-out;
+					border-color: var(--yc-primary-color);
+				}
+			}
 		}
-		.images {
-			margin-top: 20px;
+		&.style2 {
 			display: flex;
+			flex-direction: row-reverse;
 			justify-content: start;
-			align-items: center;
-			gap: 10px;
-			overflow: auto;
-		}
-		.images img {
-			display: inline-block;
-			aspect-ratio: 1;
-			height: 80px;
-			object-fit: cover;
-			border-radius: 12px;
-			cursor: pointer;
+			gap: 12px;
 
-			&:hover {
-				box-shadow: 0px 0px 12px 1px #e3e3e3;
+			.main-thumbnail {
+				aspect-ratio: 1;
+				height: 100%;
+				object-fit: cover;
+			}
+			.thumbnail-images {
+				width: 220px;
+			}
+			.thumbnail-images img {
+				aspect-ratio: 1;
+				height: 70px;
+				margin-bottom: 10px;
+				object-fit: cover;
+				margin-bottom: 10px;
+
+				&:hover {
+					border: 1px solid blanchedalmond;
+				}
 			}
 		}
 	}
 	.product-details {
-		padding: 10px;
 		width: 100%;
 
 		.product-name {

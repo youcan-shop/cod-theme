@@ -1,0 +1,12 @@
+<section class='product-images style{{showcase_style}}'>
+	<div id='img-zoomer-box'>
+		<img id='main-image' class='main-thumbnail' src='{{images[0]}}' alt='{{product_name}}'>
+		<div id='magnified-image'></div>
+	</div>
+
+	<div class='thumbnail-images'>
+		{% for image in images %}
+			<img onclick='previewProductImage(this)' src='{{image}}' alt='{{product.name}}'>
+		{% endfor %}
+	</div>
+</section>

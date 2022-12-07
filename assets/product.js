@@ -1,6 +1,7 @@
-function previewProductImage(url) {
-  const thumbnail = document.querySelector('#img-1')
-  thumbnail.src = url
+function previewProductImage(element) {
+  const thumbnail = document.querySelector('#main-image')
+  thumbnail.src = element.src
+  setElementActive(element)
 }
 
 function uploadImage() {
@@ -12,8 +13,8 @@ let zoomer = function() {
   const imgZoomer = document.querySelector('#img-zoomer-box');
   if (imgZoomer) {
     imgZoomer.addEventListener('mousemove', function(e) {
-      let original = document.querySelector('#img-1'),
-        magnified = document.querySelector('#img-2'),
+      let original = document.querySelector('#main-image'),
+        magnified = document.querySelector('#magnified-image'),
         style = magnified.style,
         x = e.pageX - this.offsetLeft,
         y = e.pageY - this.offsetTop,
@@ -32,9 +33,7 @@ let zoomer = function() {
 
       style.backgroundPositionX = (xperc - 9) + '%';
       style.backgroundPositionY = (yperc - 9) + '%';
-
-      style.left = (x - 180) + 'px';
-      style.top = (y - 180) + 'px';
+      style.inset = 0 + 'px'
 
       style.backgroundImage = 'url(' + original.src + ')';
     }, false);

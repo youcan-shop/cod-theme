@@ -1,18 +1,16 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
-<section class='yc-product-card container'>
-	<div class='product-images'>
-		<div id='img-zoomer-box'>
-			<img id='img-1' class='thumbnail' src='{{product.images[0]}}' alt='{{product.name}}'>
-			<div id='img-2'></div>
-		</div>
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+{{ 'splide.min.js' | asset_url | script_tag }}
+{{ 'product.js' | asset_url | script_tag }}
 
-		<div class='images'>
-			{% for image in product.images %}
-				<img onclick="previewProductImage('{{image}}')" src='{{image}}' alt='{{product.name}}'>
-			{% endfor %}
-		</div>
-	</div>
+<section class='yc-product-card container'>
+	{% assign images = product.images %}
+	{% assign product_name = product.name %}
+	{% assign showcase_style = section.settings.product_images_showcase_style %}
+	{% render 'product-images-showcase', images: images, product_name: product_name, showcase_style: showcase_style %}
+
 	<input id='variantId' type='hidden'>
+
 	<div class='product-details'>
 		<h1 class='product-name'>{{ product.name }}</h1>
 		<h2 class='product-price'>{{ product.price | money }}</h2>
@@ -76,11 +74,30 @@
 <section class='product-description container'>{{ product.description }}</section>
 
 {%- schema -%}
-{ "label": "Product Card" }
+{
+	"label": "Product Card",
+	"settings": [
+		{
+			"type": "select",
+			"id": "product_images_showcase_style",
+			"label": "Style",
+			"options": [
+				{
+					"value": "1",
+					"label": "Thumbnails bottom"
+				},
+				{
+					"value": "2",
+					"label": "Thumbnails left"
+				}
+			],
+			"default": "1"
+		}
+	]
+}
 {%- endschema -%}
 
-{%- script -%}
-const variantStr = `{{ product.variants | json }}`; const variants = JSON.parse(variantStr.slice(1,-1))
-{%- endscript -%}
-
-{{ 'product.js' | asset_url | script_tag }}
+<script>
+	const variantStr = `{{ product.variants | json }}`
+	const variants = JSON.parse(variantStr.slice(1, -1))
+</script>
