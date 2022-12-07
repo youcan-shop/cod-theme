@@ -1,0 +1,76 @@
+<div class='container mt-20'>
+	{%- paginate search.products by 4 some_unique_id %}
+		<div class='grid grid-cols-1 md:grid-cols-4 overflow-hidden gap-10'>
+			{%- for item in items %}
+				<a href='{{ item.url }}' class='overflow-hidden mb-9 product-holder'>
+					{% if item.thumbnail %}
+						<img src='{{ item.thumbnail }}' class='h-22 object-cover aspect-square'>
+					{% else %}
+						<img src='{{ 'fallback-product-img.webp' | asset_url }}' class='h-22 object-cover aspect-square'>
+					{% endif %}
+
+					<div class='text-center my-2 product-title'>{{ item.name }}</div>
+					<div class='text-center text-xl'>{{ item.price | money }}</div>
+				</a>
+			{%- endfor %}
+		</div>
+
+		<div>Current page: {{ current }} of {{ last }}</div>
+		<div class='flex items-center justify-center'>
+			<div class='flex gap-2 w-fit py-4 px-4 items-center shadow-lg rounded-lg'>
+				{%- dump next_page -%}
+				<a class='paginate-btn-prev' href='{{next_page}}'>Prev</a>
+				{% for index in (1..last) %}
+					<a class='paginate-btn' data-index='{{ index }}' class='pagination-btn {%if index == current%}active{%endif%}'>
+						{{ index }}
+					</a>
+				{% endfor %}
+
+				{%- if has_more %}
+					<a class='paginate-btn-next' href='{{previous_page}}'>Next</a>
+				{%- endif %}
+			</div>
+		</div>
+	{%- endpaginate %}
+</div>
+
+<script>
+	const paginateBtnPrev = document.querySelector('.paginate-btn-prev')
+	const paginateBtnNext = document.querySelector('.paginate-btn-next')
+	const paginateBtnCurrent = document.querySelectorAll('.paginate-btn')
+
+	const urlParams = new URLSearchParams(window.location.search)
+	const page = +urlParams.get('page')
+	const query = urlParams.get('q')
+
+	if (page <= 1 || !page) {
+		paginateBtnPrev.setAttribute('href', `/search?q=${query}&page=1`)
+	}
+
+	if (paginateBtnPrev) {
+		paginateBtnPrev.setAttribute('href', `/search?q=${query}&page=${page - 1}`)
+	}
+
+	if (paginateBtnNext) {
+		paginateBtnNext.setAttribute('href', `/search?q=${query}&page=${page + 1}`)
+	}
+
+	if (paginateBtnCurrent) {
+		paginateBtnCurrent.forEach((btn) => {
+			btn.setAttribute('href', `/search?q=${query}&page=${btn.dataset.index}`)
+		})
+	}
+</script>
+
+{%- schema -%}
+{
+	"label": "Navbar",
+	"settings": [
+		{
+			"type": "checkbox",
+			"id": "have_container",
+			"label": "In container navbar"
+		}
+	]
+}
+{%- endschema -%}
