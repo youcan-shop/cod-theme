@@ -72,8 +72,6 @@
 
 {%- if settings.favicon %}
 	<link rel='shortcut icon' href='{{ settings.favicon.src }}'>
-{% else %}
-	<link rel='shortcut icon' href='{{ 'favicon.png' | asset_url }}'>
 {% endif %}
 
 {%- if settings.meta_description %}
