@@ -1,21 +1,30 @@
-{{ 'stock.css' | asset_url | stylesheet_tag }}
+{%- if stock_items_left >= 0 or total_stock_items >= 0 -%}
+	{{ 'stock.css' | asset_url | stylesheet_tag }}
 
-<div class='stock-wrapper'>
-	<div id='stock-counter'>
-		<p>
-			📦
-			<span id='current-stock'></span>
-			left in stock
-		</p>
+	<div class='stock-wrapper'>
+		<div id='stock-counter'>
+			<p>
+				📦
+				<span id='current-stock'></span>
+				left in stock
+			</p>
+		</div>
+		<div class='progress-bar'>
+			<div id='stock-progress' class='progress'></div>
+		</div>
 	</div>
-	<div class='progress-bar'>
-		<div id='stock-progress' class='progress'></div>
-	</div>
-</div>
 
-<script>
-	const stockLeft = '{{stock_itemes_left}}'
-	const totalInStock = '{{total_stock_items}}'
-</script>
+	<script>
+		const stockLeft = {{stock_items_left}}
+		const totalInStock = {{total_stock_items}}
+	</script>
 
-{{ 'stock.js' | asset_url | script_tag }}
+	{{ 'stock.js' | asset_url | script_tag }}
+{%- else %}
+	<p>
+		ERROR: Please set the required properties for the stock: &nbsp;
+		<code>stock_items_left</code>
+		|
+		<code>total_stock_items</code>
+	</p>
+{% endif %}
