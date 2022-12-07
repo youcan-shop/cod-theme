@@ -1,0 +1,56 @@
+<input id='variantId' type='hidden'>
+<input type='file' id='yc-upload' accept='image/png, image/gif, image/jpeg' style='display:none'>
+
+<div class='product-options'>
+	{% for option in product.options -%}
+		<div class='product-option' id='option-{{option.name}}-{{option.type}}'>
+			<label class='product-option-title' for='{{option.name}}'>{{ option.name }}</label>
+			{% case option.type %}
+				{% when 'dropdown' %}
+					<select class='yc-dropdown' name='{{option.name}}'>
+						{% for item in option.values %}
+							<option value='{{item}}'>{{ item }}</option>
+						{% endfor %}
+					</select>
+				{% when 'textual_buttons' %}
+					<ul class='yc-options-list'>
+						{% for item in option.values %}
+							<li onclick='setElementActive(this)' class='yc-options-item'>{{ item }}</li>
+						{% endfor %}
+					</ul>
+				{% when 'radio_buttons' %}
+					{% for item in option.values %}
+						<div class='yc-radio'>
+							<input type='radio' id='{{item}}' name='{{option.name}}' value='{{item}}'>
+							<label class='yc-radio-buttons' for='{{item}}'>
+								<span>{{ item }}</span>
+							</label>
+						</div>
+					{% endfor %}
+				{% when 'image_based_buttons' %}
+					<ul class='yc-image-options-list'>
+						{% for item in option.values %}
+							<li onclick='setElementActive(this)' class='yc-image-options-item'>
+								<img src='{{item.preview}}' alt='{{item.value}}'>
+							</li>
+						{% endfor %}
+					</ul>
+				{% when 'upload_image_zone' %}
+					<div class='yc-upload' onclick='uploadImage(this)'>
+						<ion-icon name='cloud-upload-outline'></ion-icon>
+						<span class='upload-msg'>Upload an image</span>
+					</div>
+					<div class='yc-upload-preview'></div>
+				{% when 'color_base_buttons' %}
+					<ul class='yc-colors-select'>
+						{% for item in option.values %}
+							<li onclick='setElementActive(this)' class='color-item'>
+								<span class='preview' style='background-color: {{item.preview}}'></span>
+								<span class='value'>{{ item.value }}</span>
+							</li>
+						{% endfor %}
+					</ul>
+			{% endcase %}
+		</div>
+	{%- endfor %}
+</div>

@@ -1,7 +1,6 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
 {{ 'splide.min.js' | asset_url | script_tag }}
-{{ 'product.js' | asset_url | script_tag }}
 
 <section class='yc-product-card container'>
 	{% assign images = product.images %}
@@ -9,66 +8,15 @@
 	{% assign showcase_style = section.settings.product_images_showcase_style %}
 	{% render 'product-images-showcase', images: images, product_name: product_name, showcase_style: showcase_style %}
 
-	<input id='variantId' type='hidden'>
-
 	<div class='product-details'>
 		<h1 class='product-name'>{{ product.name }}</h1>
 		<h2 class='product-price'>{{ product.price | money }}</h2>
 		<div class='product-quantity '>
 			<label for='quantity'>Quantity</label>
-			<input type='number' id='quantity' name='quantity' min='1' max='10' value='1'>
+			<input type='number' class='yc-number' id='quantity' name='quantity' min='1' max='10' value='1'>
 		</div>
 
-		<form class='product-options'>
-			{% for option in product.options -%}
-				<div class='product-option' id='option-{{option.name}}-{{option.type}}'>
-					<label class='product-option-title' for='{{option.name}}'>{{ option.name }}</label>
-					{% case option.type %}
-						{% when 'dropdown' %}
-							<select class='yc-dropdown' name='{{option.name}}'>
-								{% for item in option.values %}
-									<option value='{{item}}'>{{ item }}</option>
-								{% endfor %}
-							</select>
-						{% when 'textual_buttons' %}
-							<ul class='yc-options-list'>
-								{% for item in option.values %}
-									<li onclick='setElementActive(this)' class='yc-options-item'>{{ item }}</li>
-								{% endfor %}
-							</ul>
-						{% when 'radio_buttons' %}
-							{% for item in option.values %}
-								<div class='yc-radio-buttons'>
-									<label for='{{item}}'><input type='radio' id='{{item}}' name='{{option.name}}' value='{{item}}'>{{ item }}</label>
-								</div>
-							{% endfor %}
-						{% when 'image_based_buttons' %}
-							<ul class='yc-image-options-list'>
-								{% for item in option.values %}
-									<li onclick='setElementActive(this)' class='yc-image-options-item'>
-										<img src='{{item.preview}}' alt='{{item.value}}'>
-									</li>
-								{% endfor %}
-							</ul>
-						{% when 'upload_image_zone' %}
-							<div class='yc-upload' onclick='uploadImage()'>
-								<input type='file' id='yc-upload' accept='image/png, image/gif, image/jpeg'>
-								<ion-icon name='cloud-upload-outline'></ion-icon>
-								<span class='upload-msg'>Upload an image</span>
-							</div>
-						{% when 'color_base_buttons' %}
-							<ul class='yc-colors-select'>
-								{% for item in option.values %}
-									<li onclick='setElementActive(this)' class='color-item'>
-										<span class='preview' style='background-color: {{item.preview}}'></span>
-										<span class='value'>{{ item.value }}</span>
-									</li>
-								{% endfor %}
-							</ul>
-					{% endcase %}
-				</div>
-			{%- endfor %}
-		</form>
+		{% render 'product-variants', product: product %}
 	</div>
 </section>
 <section class='product-description container'>{{ product.description }}</section>
@@ -101,3 +49,5 @@
 	const variantStr = `{{ product.variants | json }}`
 	const variants = JSON.parse(variantStr.slice(1, -1))
 </script>
+
+{{ 'product.js' | asset_url | script_tag }}
