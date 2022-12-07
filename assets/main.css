@@ -220,10 +220,9 @@ input:not([type=radio]),
   border: 1px solid var(--yc-neutral-light-color);
 }
 
-input[type=radio] {
+.yc-radio input[type=radio] {
   display: none;
 }
-
 .yc-radio .yc-radio-buttons {
   width: 20px;
   height: 20px;

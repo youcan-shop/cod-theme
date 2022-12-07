@@ -225,16 +225,14 @@ input:not([type='radio']),
 	border: 1px solid var(--yc-neutral-light-color);
 }
 
-input[type='radio'] {
-	display: none;
-}
-
 .yc-radio {
+	input[type='radio'] {
+		display: none;
+	}
 	.yc-radio-buttons {
 		width: 20px;
 		height: 20px;
 		background-color: var(--yc-neutral-light-color);
-		// border-radius: 50%;
 		position: relative;
 		cursor: pointer;
 		transition: all 0.2s;
@@ -253,7 +251,6 @@ input[type='radio'] {
 		width: 13px;
 		height: 13px;
 		background-color: var(--yc-primary-color);
-		// border-radius: 50%;
 	}
 }
 

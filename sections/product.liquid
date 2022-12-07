@@ -45,8 +45,9 @@
 }
 {%- endschema -%}
 
-{%- script -%}
-const variantStr = `{{ product.variants | json }}`; const variants = JSON.parse(variantStr.slice(1, -1))
-{%- endscript -%}
+{%- javascript -%}
+	const variantStr = `{{ product.variants | json }}`
+	const variants = JSON.parse(variantStr.slice(1, -1))
+{%- endjavascript -%}
 
 {{ 'product.js' | asset_url | script_tag }}
