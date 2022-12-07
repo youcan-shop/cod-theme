@@ -4,18 +4,13 @@
 {{ 'product.js' | asset_url | script_tag }}
 
 <section class='yc-product-card container'>
-	{%- comment -%}
-		Produt Showcase Images
-	{%- endcomment -%}
 	{% assign images = product.images %}
 	{% assign product_name = product.name %}
 	{% assign showcase_style = section.settings.product_images_showcase_style %}
 	{% render 'product-images-showcase', images: images, product_name: product_name, showcase_style: showcase_style %}
 
 	<input id='variantId' type='hidden'>
-	{%- comment -%}
-		Product details
-	{%- endcomment -%}
+
 	<div class='product-details'>
 		<h1 class='product-name'>{{ product.name }}</h1>
 		<h2 class='product-price'>{{ product.price | money }}</h2>
@@ -102,6 +97,7 @@
 }
 {%- endschema -%}
 
-{%- script -%}
-const variantStr = `{{ product.variants | json }}`; const variants = JSON.parse(variantStr.slice(1,-1))
-{%- endscript -%}
+<script>
+	const variantStr = `{{ product.variants | json }}`
+	const variants = JSON.parse(variantStr.slice(1, -1))
+</script>
