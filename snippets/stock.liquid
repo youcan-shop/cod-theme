@@ -1,0 +1,21 @@
+{{ 'stock.css' | asset_url | stylesheet_tag }}
+
+<div class='stock-wrapper'>
+	<div id='stock-counter'>
+		<p>
+			📦
+			<span id='current-stock'></span>
+			left in stock
+		</p>
+	</div>
+	<div class='progress-bar'>
+		<div id='stock-progress' class='progress'></div>
+	</div>
+</div>
+
+<script>
+	const stockLeft = '{{stock_itemes_left}}'
+	const totalInStock = '{{total_stock_items}}'
+</script>
+
+{{ 'stock.js' | asset_url | script_tag }}

@@ -1,0 +1,7 @@
+.stock-wrapper {
+  margin: 20px auto;
+  box-shadow: var(--yc-main-shadow);
+  border-radius: 8px;
+  padding: 14px;
+  max-width: 600px;
+}
