@@ -16,7 +16,7 @@
 			<input type='number' class='yc-number' id='quantity' name='quantity' min='1' max='10' value='1'>
 		</div>
 
-		{% render 'product-variants', product: product %}
+		{% render 'product-variants', options: product.options %}
 	</div>
 </section>
 <section class='product-description container'>{{ product.description }}</section>

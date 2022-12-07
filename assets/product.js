@@ -44,9 +44,8 @@ function uploadImage() {
 
 let zoomer = function() {
   const imgZoomer = document.querySelector('#img-zoomer-box');
-  console.log(imgZoomer)
-  if (imgZoomer) {
 
+  if (imgZoomer) {
     imgZoomer.addEventListener('mousemove', function (e) {
       let original = document.querySelector('#main-image'),
         magnified = document.querySelector('#magnified-image'),
