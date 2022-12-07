@@ -4,6 +4,8 @@
 		{%- render 'head-config' -%}
 
 		{{ content_for_header }}
+
+		{{ 'youcan-js.js' | asset_url | script_tag }}
 	</head>
 	<body>
 		{%- render 'overlay' -%}
@@ -12,7 +14,6 @@
 		{{ content_for_layout }}
 
 		{{ 'main.js' | asset_url | script_tag }}
-		{{ 'youcan-js.js' | asset_url | script_tag }}
 		{{ 'splide.min.js' | asset_url | script_tag }}
 		{{ 'dropdown.js' | asset_url | script_tag }}
 		<script>

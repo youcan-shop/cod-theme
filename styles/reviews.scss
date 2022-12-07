@@ -1,0 +1,36 @@
+.yc-product-reviews {
+	.yc-reviews-wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: var(--yc-reviews-gap);
+		flex-wrap: wrap;
+
+		.review-item {
+			width: calc((100% - (var(--yc-reviews-gap) * (var(--yc-reviews-items_per_row) - 1))) / var(--yc-reviews-items_per_row));
+
+			.header {
+				.image {
+					aspect-ratio: 1/1;
+					width: 100%;
+					object-fit: cover;
+				}
+
+				.name {
+					text-align: center;
+					font-size: var(--yc-reviews-name-font-size);
+					margin: 11px auto;
+				}
+			}
+
+			.content {
+				text-align: center;
+				font-size: var(--yc-reviews-content-font-size);
+			}
+		}
+
+		.review-item__empty {
+			margin: 0 auto 2rem;
+		}
+	}
+}
