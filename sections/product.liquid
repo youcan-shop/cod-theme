@@ -1,6 +1,7 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
 {{ 'splide.min.js' | asset_url | script_tag }}
+{{ 'product.js' | asset_url | script_tag }}
 
 <section class='yc-product-card container'>
 	{%- comment -%}
@@ -88,15 +89,11 @@
 			"options": [
 				{
 					"value": "1",
-					"label": "Style 1"
+					"label": "Thumbnails bottom"
 				},
 				{
 					"value": "2",
-					"label": "Style a"
-				},
-				{
-					"value": "3",
-					"label": "Stylee 3"
+					"label": "Thumbnails left"
 				}
 			],
 			"default": "1"
@@ -108,5 +105,3 @@
 {%- script -%}
 const variantStr = `{{ product.variants | json }}`; const variants = JSON.parse(variantStr.slice(1,-1))
 {%- endscript -%}
-
-{{ 'product.js' | asset_url | script_tag }}

@@ -1,51 +1,12 @@
-<div>
-	{% case showcase_style %}
-		{% when '1' %}
-			<div class='product-images style1'>
-				<div id='img-zoomer-box'>
-					<img id='img-1' class='thumbnail' src='{{images[0]}}' alt='{{product_name}}'>
-					<div id='img-2'></div>
-				</div>
+<section class='product-images style{{showcase_style}}'>
+	<div id='img-zoomer-box'>
+		<img id='main-image' class='main-thumbnail' src='{{images[0]}}' alt='{{product_name}}'>
+		<div id='magnified-image'></div>
+	</div>
 
-				<div class='images'>
-					{% for image in images %}
-						<img onclick="previewProductImage('{{image}}')" src='{{image}}' alt='{{product.name}}'>
-					{% endfor %}
-				</div>
-			</div>
-		{% when '2' %}
-			<div class='product-images style2'>
-				<div class='images'>
-					{% for image in images %}
-						<img onclick="previewProductImage('{{image}}')" src='{{image}}' alt='{{product.name}}'>
-					{% endfor %}
-				</div>
-				<div>
-					<img class='thumbnail' id='img-1' src='{{images[0]}}' alt='{{product_name}}'>
-				</div>
-			</div>
-		{% when '3' %}
-			<section class='splide' aria-label='Custom Arrows Example'>
-				{%- comment -%}
-					<div class='splide__arrows'>
-					<button class='splide__arrow splide__arrow--prev'>Prev</button>
-					<button class='splide__arrow splide__arrow--next'>Next</button>
-					</div>
-				{%- endcomment -%}
-
-				<div class='splide__track'>
-					<ul class='splide__list'>
-						{% for image in images %}
-							<li class='splide__slide'>
-								<img src='{{image}}' alt='{{product.name}}'>
-							</li>
-						{% endfor %}
-					</ul>
-				</div>
-			</section>
-	{% endcase %}
-</div>
-
-<script>
-	const splide = new Splide('.splide').mount()
-</script>
+	<div class='thumbnail-images'>
+		{% for image in images %}
+			<img onclick='previewProductImage(this)' src='{{image}}' alt='{{product.name}}'>
+		{% endfor %}
+	</div>
+</section>
