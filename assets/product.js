@@ -7,12 +7,46 @@ function previewProductImage(element) {
 function uploadImage() {
   const uploadInput = document.querySelector('#yc-upload')
   uploadInput.click()
+
+  uploadInput.addEventListener('change', function () {
+    if (this.files && this.files[0]) {
+      const reader = new FileReader()
+      reader.readAsDataURL(this.files[0])
+
+      reader.onload = function () {
+        const base64 = reader.result
+
+        const previews = document.querySelectorAll('.yc-upload-preview img')
+        previews.forEach((preview) => {
+          preview.remove()
+        })
+
+        const uploadArea = document.querySelector('.yc-upload')
+        uploadArea.style.display = 'none'
+
+        const preview = document.createElement('img')
+        preview.src = base64
+
+        preview.addEventListener('click', function () {
+          uploadArea.style.display = 'flex'
+          uploadInput.value = ''
+          preview.remove()
+        })
+
+        document.querySelector('.yc-upload-preview').appendChild(preview)
+
+
+      }
+    }
+  }
+  )
 }
 
 let zoomer = function() {
   const imgZoomer = document.querySelector('#img-zoomer-box');
+
   if (imgZoomer) {
-    imgZoomer.addEventListener('mousemove', function(e) {
+    imgZoomer.addEventListener('mousemove', function (e) {
       let original = document.querySelector('#main-image'),
         magnified = document.querySelector('#magnified-image'),
         style = magnified.style,
@@ -68,7 +102,7 @@ function selectDefaultOptions() {
         option.querySelector('.yc-image-options-item').classList.add('active')
         break
       case 'upload_image_zone':
-        option.querySelector('#yc-upload').value = ''
+        document.querySelector('#yc-upload').value = ''
         break
       case 'color_base_buttons':
         option.querySelector('.color-item').classList.add('active')
@@ -119,7 +153,7 @@ function getSelectedVariant() {
   })
 }
 
-const productDetails = document.querySelector('.product-details')
+const productDetails = document.querySelector('.product-options')
 
 if (productDetails) {
   const observer = new MutationObserver(() => {

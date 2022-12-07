@@ -179,15 +179,6 @@ input:not([type=radio]),
   cursor: pointer;
 }
 
-.yc-radio-buttons {
-  margin-bottom: 10px;
-}
-.yc-radio-buttons label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .yc-image-options-list {
   display: flex;
   flex-wrap: wrap;
@@ -222,6 +213,37 @@ input:not([type=radio]),
 }
 .yc-upload .upload-msg {
   margin-left: 5px;
+}
+
+.yc-number {
+  padding: 10px 25px;
+  border: 1px solid var(--yc-neutral-light-color);
+}
+
+.yc-radio input[type=radio] {
+  display: none;
+}
+.yc-radio .yc-radio-buttons {
+  width: 20px;
+  height: 20px;
+  background-color: var(--yc-neutral-light-color);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.yc-radio .yc-radio-buttons span {
+  margin-left: 28px;
+  margin-bottom: 5px;
+}
+.yc-radio input[type=radio]:checked + .yc-radio-buttons::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 13px;
+  height: 13px;
+  background-color: var(--yc-primary-color);
 }
 
 .yc-colors-select {
