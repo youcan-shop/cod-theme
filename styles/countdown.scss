@@ -11,6 +11,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: 2rem;
+		margin-top: 14px;
 
 		.unit-parent {
 			display: flex;
@@ -27,6 +28,7 @@
 		}
 	}
 	.message {
-		margin-top: 10px;
+		margin-bottom: 14px;
+		text-align: center;
 	}
 }

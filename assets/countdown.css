@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  margin-top: 14px;
 }
 .countdown-wrapper .countdown .unit-parent {
   display: flex;
@@ -25,5 +26,6 @@
   opacity: 0.7;
 }
 .countdown-wrapper .message {
-  margin-top: 10px;
+  margin-bottom: 14px;
+  text-align: center;
 }

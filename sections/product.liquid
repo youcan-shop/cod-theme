@@ -28,6 +28,8 @@
 					{%- when 'countdown_timer' %}
 						<!-- prettier-ignore -->
 						{%- render 'countdown',message:block.settings.countdown_message, countdown_year: block.settings.countdown_year, countdown_month: block.settings.countdown_month, countdown_day: block.settings.countdown_day, countdown_hour: block.settings.countdown_hour, countdown_minute: block.settings.countdown_minute -%}
+					{%- when 'stock' -%}
+						{% render 'stock', stock_items_left: block.settings.stock_items_left, total_stock_items: block.settings.total_stock_items %}
 				{%- endcase -%}
 			</div>
 		{%- endfor -%}
@@ -57,6 +59,22 @@
 		{
 			"label": "Description",
 			"type": "product_description"
+		},
+		{
+			"label": "Stock",
+			"type": "stock",
+			"settings": [
+				{
+					"label": "Items Left",
+					"id": "stock_items_left",
+					"type": "number"
+				},
+				{
+					"label": "Total In Stock",
+					"id": "total_stock_items",
+					"type": "number"
+				}
+			]
 		},
 		{
 			"label": "Countdown Timer",
