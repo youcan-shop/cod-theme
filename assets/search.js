@@ -8,7 +8,10 @@ let page = +urlParams.get('page[some_unique_id]')
 
 if (page <= 1 || !page) {
   page = 1
-  paginateBtnPrev.remove()
+
+  if (paginateBtnPrev) {
+    paginateBtnPrev.setAttribute('disabled', true)
+  }
 }
 
 if (paginateBtnPrev) {

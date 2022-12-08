@@ -1,7 +1,10 @@
 {{ 'search.css' | asset_url | stylesheet_tag }}
 
 <div class='container mt-20 yc-search'>
-	{%- paginate search.products by 4 some_unique_id %}
+	{%- assign products_per_page = section.settings.products_per_page -%}
+	{%- dump products_per_page -%}
+
+	{%- paginate search.products by 8 some_unique_id %}
 		<div class='yc-products-container'>
 			{%- for item in items %}
 				<a href='{{ item.url }}' class='overflow-hidden mb-9 product-holder'>
@@ -16,19 +19,27 @@
 				</a>
 			{%- endfor %}
 		</div>
-
 		<div class='yc-pagination-wrapper'>
-			<a class='paginate-btn-prev' href='{{ next_page }}'>Prev</a>
+			<a class='paginate-btn-prev' href='{{ next_page }}'>
+				<ion-icon name='arrow-back-outline'></ion-icon>
+			</a>
 
 			{% for index in (1..last) %}
-				<a class='paginate-btn' data-index='{{ index }}' class='pagination-btn {%if index == current%}active{%endif%}'>
+				<a class='paginate-btn {% if index == current %} active {%- endif %}' data-index='{{ index }}'>
 					{{ index }}
 				</a>
 			{% endfor %}
 
-			{%- if has_more %}
-				<a class='paginate-btn-next' href='{{ previous_page }}'>Next</a>
-			{%- endif %}
+			<a
+				class='paginate-btn-next'
+				href='{{ previous_page }}'
+				{%- if has_more %}
+				{%- else %}
+					disabled
+				{%- endif %}
+			>
+				<ion-icon name='arrow-forward-outline'></ion-icon>
+			</a>
 		</div>
 	{%- endpaginate %}
 </div>
@@ -37,12 +48,13 @@
 
 {%- schema -%}
 {
-	"label": "Navbar",
+	"label": "Search",
 	"settings": [
 		{
-			"type": "checkbox",
-			"id": "have_container",
-			"label": "In container navbar"
+			"type": "number",
+			"id": "products_per_page",
+			"label": "Products per page",
+			"default": 8
 		}
 	]
 }

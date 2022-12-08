@@ -30,6 +30,10 @@ a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+a[disabled] {
+  pointer-events: none;
+}
+
 input {
   font-weight: 300 !important;
 }
@@ -329,7 +333,11 @@ input:not([type=radio]),
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin: 20px 0;
+  margin: 20px auto;
+  padding: 1rem 2rem;
+  box-shadow: var(--yc-main-shadow);
+  border-radius: 8px;
+  width: fit-content;
 }
 .yc-pagination-wrapper .paginate-btn, .yc-pagination-wrapper .paginate-btn-prev, .yc-pagination-wrapper .paginate-btn-next {
   width: 2.3rem;
@@ -339,7 +347,7 @@ input:not([type=radio]),
   justify-content: center;
   border-radius: 50rem;
 }
-.yc-pagination-wrapper .paginate-btn:hover {
+.yc-pagination-wrapper .paginate-btn:hover, .yc-pagination-wrapper .paginate-btn.active {
   background: var(--yc-neutral-light-color);
 }
 .yc-pagination-wrapper .paginate-btn-prev, .yc-pagination-wrapper .paginate-btn-next {
@@ -351,4 +359,10 @@ input:not([type=radio]),
   border-radius: 50rem;
   background-color: var(--yc-primary-color);
   cursor: pointer;
+  color: white;
+}
+.yc-pagination-wrapper .paginate-btn-prev[disabled], .yc-pagination-wrapper .paginate-btn-next[disabled] {
+  background-color: var(--yc-neutral-light-color);
+  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.2);
 }

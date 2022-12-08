@@ -33,6 +33,10 @@ a {
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+a[disabled] {
+	pointer-events: none;
+}
+
 input {
 	font-weight: 300 !important;
 }
@@ -340,7 +344,11 @@ input:not([type='radio']),
 	align-items: center;
 	justify-content: center;
 	gap: 10px;
-	margin: 20px 0;
+	margin: 20px auto;
+	padding: 1rem 2rem;
+	box-shadow: var(--yc-main-shadow);
+	border-radius: 8px;
+	width: fit-content;
 
 	.paginate-btn {
 		&,
@@ -354,7 +362,8 @@ input:not([type='radio']),
 			border-radius: 50rem;
 		}
 
-		&:hover {
+		&:hover,
+		&.active {
 			background: var(--yc-neutral-light-color);
 		}
 
@@ -368,6 +377,13 @@ input:not([type='radio']),
 			border-radius: 50rem;
 			background-color: var(--yc-primary-color);
 			cursor: pointer;
+			color: white;
+
+			&[disabled] {
+				background-color: var(--yc-neutral-light-color);
+				cursor: not-allowed;
+				color: rgba(0, 0, 0, 0.2);
+			}
 		}
 	}
 }
