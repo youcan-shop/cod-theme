@@ -1,6 +1,6 @@
 [
 	{
-		"label": "Metadata",
+		"label": "Metadata and SEO",
 		"settings": [
 			{
 				"type": "text",
@@ -21,6 +21,11 @@
 				"type": "image_picker",
 				"id": "og_image",
 				"label": "Meta Open Graph Image"
+			},
+			{
+				"type": "image_picker",
+				"id": "favicon",
+				"label": "Favicon"
 			}
 		]
 	},
