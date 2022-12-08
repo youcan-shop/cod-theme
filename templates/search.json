@@ -1,0 +1,19 @@
+{
+	"label": "Collection",
+	"layout": "theme",
+	"sections": {
+		"notice-bar": {
+			"type": "notice-bar"
+		},
+		"navbar": {
+			"type": "main-navbar"
+		},
+		"main-search": {
+			"type": "main-search"
+		},
+		"footer": {
+			"type": "main-footer"
+		}
+	},
+	"order": ["notice-bar", "navbar", "main-search", "footer"]
+}

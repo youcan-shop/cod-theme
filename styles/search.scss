@@ -1,0 +1,57 @@
+@import 'helpers/mixins';
+
+.yc-search {
+	.top-items {
+		margin-bottom: 40px;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+
+		@include breakpoint('md') {
+			flex-direction: row;
+			align-items: center;
+		}
+
+		.yc-section-title {
+			margin-bottom: 10px;
+		}
+
+		.sort-items-holder {
+			display: flex;
+			justify-content: center;
+			gap: 10px;
+
+			.commander {
+				font-weight: 400;
+				white-space: nowrap;
+			}
+
+			.field {
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 4px;
+
+				.pawn {
+					display: flex;
+					gap: 7px;
+					align-items: center;
+					padding: 3px 13px;
+					border-radius: 50rem;
+					font-size: 14px;
+					background-color: rgba(0, 0, 0, 0.1);
+					color: rgba(0, 0, 0, 0.7);
+
+					&:hover {
+						background-color: rgba(0, 0, 0, 0.2);
+					}
+
+					&.active {
+						background-color: var(--yc-primary-color);
+						color: white;
+					}
+				}
+			}
+		}
+	}
+}
