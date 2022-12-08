@@ -1,20 +1,57 @@
 @import 'helpers/mixins';
 
 .yc-search {
-	.yc-products-container {
-		display: grid;
-		grid-template-columns: repeat(1, 1fr);
-		grid-gap: 10px;
-		overflow: hidden;
+	.top-items {
+		margin-bottom: 40px;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
 
 		@include breakpoint('md') {
-			grid-template-columns: repeat(4, 1fr);
+			flex-direction: row;
+			align-items: center;
 		}
 
-		.product-img {
-			width: 100%;
-			aspect-ratio: 1;
-			object-fit: cover;
+		.yc-section-title {
+			margin-bottom: 10px;
+		}
+
+		.sort-items-holder {
+			display: flex;
+			justify-content: center;
+			gap: 10px;
+
+			.commander {
+				font-weight: 400;
+				white-space: nowrap;
+			}
+
+			.field {
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 4px;
+
+				.pawn {
+					display: flex;
+					gap: 7px;
+					align-items: center;
+					padding: 3px 13px;
+					border-radius: 50rem;
+					font-size: 14px;
+					background-color: rgba(0, 0, 0, 0.1);
+					color: rgba(0, 0, 0, 0.7);
+
+					&:hover {
+						background-color: rgba(0, 0, 0, 0.2);
+					}
+
+					&.active {
+						background-color: var(--yc-primary-color);
+						color: white;
+					}
+				}
+			}
 		}
 	}
 }
