@@ -1,7 +1,9 @@
 {{ 'search.css' | asset_url | stylesheet_tag }}
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
 
-{%- paginate search.products by 8 cod %}
+{%- assign products_per_page = section.settings.products_per_page -%}
+
+{%- paginate search.products by products_per_page cod %}
 	<div class='yc-featured-products yc-search container'>
 		<div class='top-items'>
 			<h1 class='yc-section-title' id='search-title'></h1>
