@@ -1,0 +1,16 @@
+.yc-search .yc-products-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 10px;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .yc-search .yc-products-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.yc-search .yc-products-container .product-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}

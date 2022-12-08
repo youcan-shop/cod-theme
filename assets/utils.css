@@ -325,10 +325,6 @@ video {
   display: none;
 }
 
-.aspect-square {
-  aspect-ratio: 1/1;
-}
-
 .h-9 {
   height: 2.25rem;
 }
@@ -423,10 +419,6 @@ video {
   white-space: pre-wrap;
 }
 
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
 .border-b {
   border-bottom-width: 1px;
 }
@@ -443,16 +435,6 @@ video {
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-}
-
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .pb-4 {
@@ -544,9 +526,6 @@ video {
   }
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  .md\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .md\:flex-row {
     flex-direction: row;
