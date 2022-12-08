@@ -34,7 +34,7 @@ if (page <= 1 || !page) {
   page = 1
 
   if (paginateBtnPrev) {
-    paginateBtnPrev.setAttribute('disabled', true)
+    paginateBtnPrev.classList.add('disabled')
   }
 }
 

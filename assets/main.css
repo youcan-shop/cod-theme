@@ -30,7 +30,7 @@ a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-a[disabled] {
+a.disabled {
   pointer-events: none;
 }
 
@@ -361,7 +361,7 @@ input:not([type=radio]),
   cursor: pointer;
   color: white;
 }
-.yc-pagination-wrapper .paginate-btn-prev[disabled], .yc-pagination-wrapper .paginate-btn-next[disabled] {
+.yc-pagination-wrapper .paginate-btn-prev.disabled, .yc-pagination-wrapper .paginate-btn-next.disabled {
   background-color: var(--yc-neutral-light-color);
   cursor: not-allowed;
   color: rgba(0, 0, 0, 0.2);

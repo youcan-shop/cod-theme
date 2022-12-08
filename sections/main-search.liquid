@@ -58,14 +58,7 @@
 			</a>
 		{% endfor %}
 
-		<a
-			class='paginate-btn-next'
-			href='{{ previous_page }}'
-			{%- if has_more %}
-			{%- else %}
-				disabled
-			{%- endif %}
-		>
+		<a class='paginate-btn-next {%- if has_more %} {% else %} disabled {%- endif %}' href='{{ previous_page }}'>
 			<ion-icon name='arrow-forward-outline'></ion-icon>
 		</a>
 	</div>

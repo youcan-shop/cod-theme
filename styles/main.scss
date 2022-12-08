@@ -33,7 +33,7 @@ a {
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-a[disabled] {
+a.disabled {
 	pointer-events: none;
 }
 
@@ -379,7 +379,7 @@ input:not([type='radio']),
 			cursor: pointer;
 			color: white;
 
-			&[disabled] {
+			&.disabled {
 				background-color: var(--yc-neutral-light-color);
 				cursor: not-allowed;
 				color: rgba(0, 0, 0, 0.2);
