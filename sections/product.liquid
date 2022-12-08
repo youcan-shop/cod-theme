@@ -6,6 +6,7 @@
 	{% assign images = product.images %}
 	{% assign product_name = product.name %}
 	{% assign showcase_style = section.settings.product_images_showcase_style %}
+
 	{% render 'product-images-showcase', images: images, product_name: product_name, showcase_style: showcase_style %}
 
 	<div class='product-details'>

@@ -17,6 +17,7 @@ function initCountdown() {
     document.getElementById('seconds').innerHTML = seconds + '<span class="unit">Seconds</span>';
     document.getElementById('progress').style.width = progress + '%';
   }
+  
   countdown()
   setInterval(countdown, 1000);
 }
