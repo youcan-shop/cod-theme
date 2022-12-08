@@ -1,24 +1,23 @@
 <!doctype html>
 <html lang='en'>
-  <head>
-    {%- render 'head-config' -%}
+	<head>
+		{%- render 'head-config' -%}
 
-    {{ content_for_header }}
+		{{ content_for_header }}
 
-    {{ 'youcan-js.js' | asset_url | script_tag }}
-  </head>
-  <body>
-    {%- render 'overlay' -%}
-    {%- render 'alert' -%}
+		{{ 'youcan-js.js' | asset_url | script_tag }}
+	</head>
+	<body>
+		{%- render 'overlay' -%}
+		{%- render 'alert' -%}
 
-    {{ content_for_layout }}
+		{{ content_for_layout }}
 
-    {{ 'main.js' | asset_url | script_tag }}
-    {{ 'splide.min.js' | asset_url | script_tag }}
-    {{ 'dropdown.js' | asset_url | script_tag }}
-     {%- javascript -%}
+		{{ 'main.js' | asset_url | script_tag }}
+		{{ 'splide.min.js' | asset_url | script_tag }}
+		{{ 'dropdown.js' | asset_url | script_tag }}
+		{%- javascript -%}
 			document.querySelectorAll('select').forEach((select) => NiceSelect.bind(select))
-     {%- endjavascript -%}
-    </body>
-  </body>
+		{%- endjavascript -%}
+	</body>
 </html>
