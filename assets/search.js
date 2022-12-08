@@ -8,25 +8,27 @@ const sortField = urlParams.get('sort_field')
 const sortOrder = urlParams.get('sort_order')
 let page = +urlParams.get('page[cod]')
 
-const convertUrl = (key, value) => {
-  const url = new URL(window.location.href)
+const updateUrl = (key, value, url) => {
   if (url.searchParams.has(key)) {
     url.searchParams.set(key, value)
   } else {
     url.searchParams.append(key, value)
   }
+}
+
+const convertUrl = (key, value) => {
+  const url = new URL(window.location.href)
+  
+  updateUrl(key, value, url)
+
   return url
 }
 
 const convertUrlWithMultipleQuery = (keys, values) => {
   const url = new URL(window.location.href)
-  keys.forEach((key, i) => {
-    if (url.searchParams.has(key)) {
-      url.searchParams.set(key, values[i])
-    } else {
-      url.searchParams.append(key, values[i])
-    }
-  })
+
+  keys.forEach((key, i) => updateUrl(key, values[i], url))
+  
   return url
 }
 
