@@ -331,3 +331,21 @@ input:not([type='radio']),
 		transform: none;
 	}
 }
+
+/* ------------------------------ */
+/* ----- global progree bar ----- */
+/* ------------------------------ */
+.progress-bar {
+	height: 10px;
+	background-color: #ddd;
+	margin-top: 15px;
+	border-radius: 50rem;
+
+	.progress {
+		height: 100%;
+		background-color: var(--yc-primary-color);
+		width: 0;
+		transition: width 0.2s;
+		border-radius: 50rem;
+	}
+}
