@@ -2,14 +2,16 @@
   margin: 20px auto;
   box-shadow: var(--yc-main-shadow);
   border-radius: 8px;
-  padding: 14px;
+  padding: 20px;
   max-width: 600px;
+  text-align: center;
 }
 .countdown-wrapper .countdown {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  margin-top: 14px;
 }
 .countdown-wrapper .countdown .unit-parent {
   display: flex;
@@ -22,4 +24,8 @@
 .countdown-wrapper .countdown .unit-parent .unit {
   font-size: 14px;
   opacity: 0.7;
+}
+.countdown-wrapper .message {
+  margin-bottom: 14px;
+  text-align: center;
 }
