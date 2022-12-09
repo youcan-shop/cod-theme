@@ -6,6 +6,7 @@
 	gap: 5vh;
 	grid-auto-flow: row;
 	padding: 25px 15px;
+	align-items: start;
 
 	@include breakpoint('md') {
 		gap: 5vw;

@@ -4,6 +4,7 @@
   gap: 5vh;
   grid-auto-flow: row;
   padding: 25px 15px;
+  align-items: start;
 }
 @media (min-width: 768px) {
   .yc-product-card {
