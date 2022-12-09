@@ -11,8 +11,10 @@ async function addToCart() {
   
   try {
     load('#loading__checkout')
+    
     const response = await youcanjs.cart.addItem({ productVariantId: variantId, attachedImage: uploadedImageLink, quantity })
-    if(response.error) throw new Error(response.error)
+    if (response.error) throw new Error(response.error)
+    
     stopLoad('#loading__checkout')
     notify("Item has been added successfully", 'success')
   }

@@ -7,6 +7,7 @@ function previewProductImage(element) {
 async function uploadImage() {
   const uploadInput = document.querySelector('#yc-upload')
   let uploadedImageLink = document.querySelector('#yc-upload-link');
+
   uploadInput.click()
 
   uploadInput.addEventListener('change', async function () {
