@@ -1,10 +1,4 @@
-<div class='yc-add-to-cart {% if is_sticky %} is_sticky{% endif %}'>
-	<button class='yc-btn' onclick='addToCart()'>
-		{{ text }}
-	</button>
-</div>
-
-{{ 'add-to-cart.js' | asset_url | script_tag }}
+{{ 'add-to-cart.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
 	.yc-add-to-cart button {
@@ -12,18 +6,12 @@
 	  color: {{ text_color.hex}} !important;
 	  width: 100%;
 	}
-
-	.yc-add-to-cart.is_sticky {
-	  border-top: 1px solid #e3e3e3;
-	  background: white;
-	  position: fixed;
-	  bottom: 0;
-	  left: 0;
-	  width: 100%;
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  padding: 20px;
-	  z-index: 9999
-	}
 {%- endstyle -%}
+
+<div class='yc-add-to-cart {% if is_sticky %} is_sticky{% endif %}'>
+	<button class='yc-btn' onclick='addToCart()'>
+		{{ text }}
+	</button>
+</div>
+
+{{ 'add-to-cart.js' | asset_url | script_tag }}
