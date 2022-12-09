@@ -4,7 +4,7 @@ function previewProductImage(element) {
   setElementActive(element)
 }
 
-async function uploadImage() {
+function uploadImage() {
   const uploadInput = document.querySelector('#yc-upload')
   let uploadedImageLink = document.querySelector('#yc-upload-link');
 
