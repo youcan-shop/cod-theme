@@ -4,11 +4,12 @@ function previewProductImage(element) {
   setElementActive(element)
 }
 
-function uploadImage() {
+async function uploadImage() {
   const uploadInput = document.querySelector('#yc-upload')
+  let uploadedImageLink = document.querySelector('#yc-upload-link');
   uploadInput.click()
 
-  uploadInput.addEventListener('change', function () {
+  uploadInput.addEventListener('change', async function () {
     if (this.files && this.files[0]) {
       const reader = new FileReader()
       reader.readAsDataURL(this.files[0])
@@ -32,11 +33,13 @@ function uploadImage() {
           uploadInput.value = ''
           preview.remove()
         })
-
         document.querySelector('.yc-upload-preview').appendChild(preview)
-
-
       }
+
+      const res = await youcanjs.product.upload(this.files[0])
+      if (res.error) return notify(res.error, 'error')
+      
+      uploadedImageLink.value = res.link   
     }
   }
   )
@@ -65,8 +68,8 @@ let zoomer = function() {
         yperc += (.15 * yperc);
       };
 
-      style.backgroundPositionX = (xperc - 9) + '%';
-      style.backgroundPositionY = (yperc - 9) + '%';
+      style.backgroundPositionX = (xperc - 15) + '%';
+      style.backgroundPositionY = (yperc - 15) + '%';
       style.inset = 0 + 'px'
 
       style.backgroundImage = 'url(' + original.src + ')';
