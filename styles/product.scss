@@ -83,11 +83,13 @@
 			}
 		}
 		&.style2 {
-			display: flex;
-			flex-direction: row-reverse;
-			justify-content: start;
-			gap: 12px;
-
+			.product-images-container {
+				display: flex;
+				flex-direction: row-reverse;
+				justify-content: start;
+				gap: 12px;
+				align-items: start;
+			}
 			.main-thumbnail {
 				aspect-ratio: 1;
 				height: 100%;
