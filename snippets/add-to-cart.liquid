@@ -1,14 +1,16 @@
 {{ 'add-to-cart.css' | asset_url | stylesheet_tag }}
 
+{%- assign uniq = 0 | rand %}
+
 {%- style -%}
-	.yc-add-to-cart button {
+	.yc-add-to-cart-{{ uniq }}button {
 	  background: {{ background_color.hex}} !important;
 	  color: {{ text_color.hex}} !important;
 	  width: 100%;
 	}
 {%- endstyle -%}
 
-<div class='yc-add-to-cart {% if is_sticky %} is_sticky{% endif %}'>
+<div class='yc-add-to-cart-{{ uniq }}  {% if is_sticky %} is_sticky{% endif %}'>
 	<button class='yc-btn' onclick='addToCart()'>
 		<span class='spinner hidden' id='loading__checkout'></span>
 		<span>{{ text }}</span>
