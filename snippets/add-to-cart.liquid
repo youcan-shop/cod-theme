@@ -10,7 +10,8 @@
 
 <div class='yc-add-to-cart {% if is_sticky %} is_sticky{% endif %}'>
 	<button class='yc-btn' onclick='addToCart()'>
-		{{ text }}
+		<span class='spinner hidden' id='loading__checkout'></span>
+		<span>{{ text }}</span>
 	</button>
 </div>
 
