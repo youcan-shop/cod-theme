@@ -5,20 +5,32 @@ async function addToCart() {
 
   if (!variantId)
     return notify('Please select a variant', 'error')
-  
+
   if (!quantity)
     return notify('Please select a quantity', 'error')
-  
+
   try {
     load('#loading__checkout')
-    
-    const response = await youcanjs.cart.addItem({ productVariantId: variantId, attachedImage: uploadedImageLink, quantity })
+
+    const response = await youcanjs.cart.addItem({
+      productVariantId: variantId,
+      attachedImage: uploadedImageLink,
+      quantity
+    })
+
     if (response.error) throw new Error(response.error)
-    
+
+    const cart = document.querySelector('#cart-items-padge')
+
+    if (cart) {
+      let cartBadgeBudge = Number(cart.innerHTML)
+
+      cart.innerHTML = ++cartBadgeBudge
+    }
+
     stopLoad('#loading__checkout')
     notify("Item has been added successfully", 'success')
-  }
-  catch (err) {
+  } catch (err) {
     stopLoad('#loading__checkout')
     notify(err.message, 'error')
   }
