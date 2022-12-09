@@ -68,8 +68,8 @@ let zoomer = function() {
         yperc += (.15 * yperc);
       };
 
-      style.backgroundPositionX = (xperc - 15) + '%';
-      style.backgroundPositionY = (yperc - 15) + '%';
+      style.backgroundPositionX = (xperc - 9) + '%';
+      style.backgroundPositionY = (yperc - 9) + '%';
       style.inset = 0 + 'px'
 
       style.backgroundImage = 'url(' + original.src + ')';

@@ -14,7 +14,6 @@ async function addToCart() {
     notify(response.message, 'success')
   }
   catch (err) {
-    console.log(err)
     stopLoad('#loading__checkout')
     notify(err.message, 'error')
   }
