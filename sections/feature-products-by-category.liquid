@@ -1,30 +1,35 @@
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
 
-<div class='yc-featured-products container'>
-	<h1 class='yc-section-title'>Featured products</h1>
-	<div class='product-list'>
-		{%- for block in section.blocks -%}
-			<div class='product-block' {{ block.youcan_attributes }}>
-				<div class='product-thumbnail'>
-					{% if block.settings.product.thumbnail %}
-						<img src='{{ block.settings.product.thumbnail }}'>
-					{% else %}
-						<img src='{{ 'fallback-product-img.webp' | asset_url }}'>
-					{% endif %}
+{%- assign category = section.settings.category -%}
+{%- assign number_of_products = section.settings.number_of_products -%}
+
+{%- paginate collection.products by number_of_products id category_id: category.id %}
+	<div class='yc-featured-products container'>
+		<h1 class='yc-section-title'>{{ category.name }}</h1>
+		<div class='product-list'>
+			{%- for item in items -%}
+				<div class='product-block' {{ block.youcan_attributes }}>
+					<div class='product-thumbnail'>
+						{% if item.thumbnail %}
+							<img src='{{ item.thumbnail }}'>
+						{% else %}
+							<img src='{{ 'fallback-product-img.webp' | asset_url }}'>
+						{% endif %}
+					</div>
+					<div class='product-details'>
+						<span class='product-title'>{{ item.name }}</span>
+						{% if item.price %}
+							<span class='product-price'>{{ item.price | money }}</span>
+						{% endif %}
+					</div>
+					<div class='flex justify-center'>
+						<a class='yc-btn' href='{{ item.url }}'>Shop now</a>
+					</div>
 				</div>
-				<div class='product-details'>
-					<span class='product-title'>{{ block.settings.product.name }}</span>
-					{% if block.settings.product.price %}
-						<span class='product-price'>{{ block.settings.product.price | money }}</span>
-					{% endif %}
-				</div>
-				<div class='flex justify-center'>
-					<a class='yc-btn' href='{{ block.settings.product.url }}'>Shop now</a>
-				</div>
-			</div>
-		{%- endfor -%}
+			{%- endfor -%}
+		</div>
 	</div>
-</div>
+{%- endpaginate %}
 
 {%- schema -%}
 {
@@ -34,6 +39,12 @@
 			"type": "category",
 			"id": "category",
 			"label": "Category"
+		},
+		{
+			"type": "number",
+			"id": "number_of_products",
+			"label": "Number of products to showcase",
+			"default": 8
 		}
 	]
 }
