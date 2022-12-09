@@ -1,4 +1,4 @@
-.yc-add-to-cart.is_sticky {
+.is_sticky {
   border-top: 1px solid #e3e3e3;
   background: white;
   position: fixed;
@@ -12,7 +12,7 @@
   z-index: 9999;
 }
 @media (min-width: 768px) {
-  .yc-add-to-cart.is_sticky button {
+  .is_sticky button {
     max-width: 400px;
   }
 }
