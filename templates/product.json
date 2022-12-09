@@ -1,7 +1,49 @@
 {
 	"sections": {
 		"product": {
-			"type": "product"
+			"type": "product",
+			"blocks": {
+				"block_02hsdiizyoqxr4i": {
+					"type": "product_title",
+					"settings": {}
+				},
+				"block_03x0mpf3samste": {
+					"type": "product_price",
+					"settings": {}
+				},
+				"block_08c3kk0zsiefipf": {
+					"type": "product_quantity",
+					"settings": {}
+				},
+				"block_0cgb9qnrmae2tlc": {
+					"type": "product_variants",
+					"settings": {}
+				},
+				"block_0l6y7m9idganws5": {
+					"type": "countdown_timer",
+					"settings": {
+						"countdown_message": "<p>hurry up! There aren't many items left in stock.</p>",
+						"countdown_year": "2030",
+						"countdown_month": "10",
+						"countdown_day": "2"
+					}
+				},
+				"block_1am54q3ocikdah6": {
+					"type": "add_to_cart",
+					"settings": {
+						"text_content": "Add to cart",
+						"is_sticky": true,
+						"background_color": "#D70C71FF",
+						"text_color": "#ffffff"
+					}
+				},
+				"block_o4l39un36xqdc0k": {
+					"type": "stock",
+					"settings": {}
+				}
+			},
+			"order": ["block_02hsdiizyoqxr4i", "block_03x0mpf3samste", "block_08c3kk0zsiefipf", "block_0cgb9qnrmae2tlc", "block_0l6y7m9idganws5", "block_1am54q3ocikdah6", "block_o4l39un36xqdc0k"],
+			"settings": {}
 		},
 		"main-express-checkout": {
 			"type": "main-express-checkout"

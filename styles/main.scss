@@ -326,7 +326,7 @@ input:not([type='radio']),
 	justify-content: center;
 	box-shadow: var(--yc-primary-shadow);
 	opacity: 0;
-	z-index: -99;
+	z-index: 999;
 	transform: translateY(100%);
 
 	&.show {

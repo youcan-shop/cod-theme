@@ -5,20 +5,25 @@
 	grid-template-columns: 1fr;
 	gap: 5vh;
 	grid-auto-flow: row;
+	padding: 25px 15px;
+	align-items: start;
 
 	@include breakpoint('md') {
 		gap: 5vw;
 		grid-template-columns: 55% 40%;
 	}
 
-	#main-image {
-		width: 100%;
-		height: 480px;
-		object-fit: cover;
-	}
-
 	.product-images {
 		width: 100%;
+		.product-images-container {
+			position: sticky;
+			top: 120px;
+		}
+		#main-image {
+			width: 100%;
+			height: 480px;
+			object-fit: cover;
+		}
 		#img-zoomer-box {
 			height: auto;
 			position: relative;
@@ -79,11 +84,13 @@
 			}
 		}
 		&.style2 {
-			display: flex;
-			flex-direction: row-reverse;
-			justify-content: start;
-			gap: 12px;
-
+			.product-images-container {
+				display: flex;
+				flex-direction: row-reverse;
+				justify-content: start;
+				gap: 12px;
+				align-items: start;
+			}
 			.main-thumbnail {
 				aspect-ratio: 1;
 				height: 100%;

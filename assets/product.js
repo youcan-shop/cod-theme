@@ -6,9 +6,11 @@ function previewProductImage(element) {
 
 function uploadImage() {
   const uploadInput = document.querySelector('#yc-upload')
+  let uploadedImageLink = document.querySelector('#yc-upload-link');
+
   uploadInput.click()
 
-  uploadInput.addEventListener('change', function () {
+  uploadInput.addEventListener('change', async function () {
     if (this.files && this.files[0]) {
       const reader = new FileReader()
       reader.readAsDataURL(this.files[0])
@@ -32,11 +34,13 @@ function uploadImage() {
           uploadInput.value = ''
           preview.remove()
         })
-
         document.querySelector('.yc-upload-preview').appendChild(preview)
-
-
       }
+
+      const res = await youcanjs.product.upload(this.files[0])
+      if (res.error) return notify(res.error, 'error')
+      
+      uploadedImageLink.value = res.link   
     }
   }
   )
