@@ -33,6 +33,10 @@ a {
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+a.disabled {
+	pointer-events: none;
+}
+
 input {
 	font-weight: 300 !important;
 }
@@ -332,20 +336,54 @@ input:not([type='radio']),
 	}
 }
 
-/* ------------------------------ */
-/* ----- global progree bar ----- */
-/* ------------------------------ */
-.progress-bar {
-	height: 10px;
-	background-color: #ddd;
-	margin-top: 15px;
-	border-radius: 50rem;
+/* ---------------------- */
+/* ----- pagination ----- */
+/* ---------------------- */
+.yc-pagination-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	margin: 20px auto;
+	padding: 1rem 2rem;
+	box-shadow: var(--yc-main-shadow);
+	border-radius: 8px;
+	width: fit-content;
 
-	.progress {
-		height: 100%;
-		background-color: var(--yc-primary-color);
-		width: 0;
-		transition: width 0.2s;
-		border-radius: 50rem;
+	.paginate-btn {
+		&,
+		&-prev,
+		&-next {
+			width: 2.3rem;
+			height: 2.3rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50rem;
+		}
+
+		&:hover,
+		&.active {
+			background: var(--yc-neutral-light-color);
+		}
+
+		&-prev,
+		&-next {
+			width: 2.3rem;
+			height: 2.3rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50rem;
+			background-color: var(--yc-primary-color);
+			cursor: pointer;
+			color: white;
+
+			&.disabled {
+				background-color: var(--yc-neutral-light-color);
+				cursor: not-allowed;
+				color: rgba(0, 0, 0, 0.2);
+			}
+		}
 	}
 }

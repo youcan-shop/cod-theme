@@ -1,0 +1,47 @@
+.yc-search .top-items {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .yc-search .top-items {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.yc-search .top-items .yc-section-title {
+  margin-bottom: 10px;
+}
+.yc-search .top-items .sort-items-holder {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.yc-search .top-items .sort-items-holder .commander {
+  font-weight: 400;
+  white-space: nowrap;
+}
+.yc-search .top-items .sort-items-holder .field {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.yc-search .top-items .sort-items-holder .field .pawn {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  padding: 3px 13px;
+  border-radius: 50rem;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.7);
+}
+.yc-search .top-items .sort-items-holder .field .pawn:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.yc-search .top-items .sort-items-holder .field .pawn.active {
+  background-color: var(--yc-primary-color);
+  color: white;
+}

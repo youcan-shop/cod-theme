@@ -1,11 +1,13 @@
 .yc-product-reviews .yc-reviews-wrapper {
-  display: flex;
+  display: grid;
   gap: var(--yc-reviews-gap);
-  flex-wrap: wrap;
+  grid-template-columns: 1fr;
   margin: 0 auto 2rem;
 }
-.yc-product-reviews .yc-reviews-wrapper .review-item {
-  width: calc((100% - var(--yc-reviews-gap) * (var(--yc-reviews-items_per_row) - 1)) / var(--yc-reviews-items_per_row));
+@media (min-width: 768px) {
+  .yc-product-reviews .yc-reviews-wrapper {
+    grid-template-columns: repeat(var(--yc-reviews-items_per_row), 1fr);
+  }
 }
 .yc-product-reviews .yc-reviews-wrapper .review-item .header .image {
   aspect-ratio: 1/1;
