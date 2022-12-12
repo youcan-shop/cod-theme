@@ -6,11 +6,6 @@
 	.product_customization {
 	  padding-top: {{ section.settings.padding_top}}px;
 	  padding-bottom: {{ section.settings.padding_bottom}}px;
-	  background-color: {{ section.settings.background_color.hex}};
-	  color: {{ section.settings.text_color.hex}};
-	}
-	:root{
-	  --yc-neutral-light-color: {{ section.settings.text_color.hex}};
 	}
 {%- endstyle -%}
 
@@ -173,18 +168,6 @@
 			"id": "padding_bottom",
 			"label": "Padding bottom",
 			"default": 10
-		},
-		{
-			"type": "color",
-			"id": "background_color",
-			"label": "Background Color",
-			"default": "#FFFFFF"
-		},
-		{
-			"type": "color",
-			"id": "text_color",
-			"label": "Text color",
-			"default": "#292929"
 		}
 	]
 }
