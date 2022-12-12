@@ -105,6 +105,9 @@ function selectDefaultOptions() {
         break
     }
   })
+
+  const selectedVariant = getSelectedVariant();
+  setDefaultVariant(selectedVariant.id)
 }
 
 function getSelectedOptions() {
@@ -149,16 +152,43 @@ function getSelectedVariant() {
   })
 }
 
+function setDefaultVariant(id) {
+   const variantIdInput = document.querySelector('#variantId')
+
+  variantIdInput.value = id
+}
+
+function updateProductDetails(image, price) {
+  if (image) {
+    console.log(image)
+    const mainImg = document.querySelector('#main-image');
+    if (!mainImg) return;
+
+    mainImg.src = "https://cdn.youcan.shop/" + image;
+  }
+  
+  if (price) {
+    const productPrice = document.querySelector('.product-price');
+    if (!productPrice) return
+    
+    productPrice.innerHTML = `${String(productPrice.innerHTML).split(' ')[0]} ${price}`
+  }
+}
+
 const productDetails = document.querySelector('.product-options')
 
 if (productDetails) {
   const observer = new MutationObserver(() => {
     const selectedVariant = getSelectedVariant()
     const variantIdInput = document.querySelector('#variantId')
+
     variantIdInput.value = selectedVariant.id
+
+    updateProductDetails(selectedVariant.image, selectedVariant.price)
   })
     
   observer.observe(productDetails, { attributes: true, childList: true, subtree: true })
 }
+
 
 selectDefaultOptions()

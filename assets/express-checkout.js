@@ -7,7 +7,8 @@ document.getElementById('express-checkout-form').addEventListener('submit', asyn
   try {
     const productVariantId = document.getElementById('variantId').value
     const quantity = document.getElementById('quantity').value
-    const response = await youcanjs.checkout.placeExpressCheckoutOrder({ productVariantId, quantity, fields })
+    const attachedImage = document.querySelector('#yc-upload-link')?.value;
+    const response = await youcanjs.checkout.placeExpressCheckoutOrder({ productVariantId, attachedImage, quantity,  fields })
 
     response
       .onSuccess((data, redirectToThankyouPage) => {

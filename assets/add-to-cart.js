@@ -1,4 +1,5 @@
 async function addToCart() {
+  console.log(document.getElementById('variantId'))
   const variantId = document.getElementById('variantId')?.value
   const quantity = document.getElementById('quantity')?.value
   const uploadedImageLink = document.querySelector('#yc-upload-link')?.value;
