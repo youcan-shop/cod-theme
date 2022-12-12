@@ -2,4 +2,8 @@
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-gap: 1rem;
+
+	input {
+		border: var(--yc-main-border);
+	}
 }
