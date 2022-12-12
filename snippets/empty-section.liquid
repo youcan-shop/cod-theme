@@ -1,0 +1,28 @@
+{% assign section_id = 100 | rand: 2000 %}
+
+{%- style -%}
+  .section_customization_{{ section_id}}{
+    padding-top: {{ padding_top}}px;
+    padding-bottom: {{ padding_bottom}}px;
+    background-color: {{ background_color.hex}};
+    color: {{ text_color.hex}};
+  }
+  :root{
+    --yc-neutral-light-color: {{ text_color.hex}};
+  }
+{%- endstyle -%}
+
+
+<section>
+  {%- render section_name -%}
+</section>
+
+
+{%- comment -%}
+  Reset Styles
+{%- endcomment -%}
+{%- style -%}
+  :root {
+    --yc-neutral-light-color: {{ settings.neutral_light_color.hex }};
+  }
+{%- endstyle -}
