@@ -1,3 +1,5 @@
+{{ 'thankyou.css' | asset_url | stylesheet_tag }}
+
 <div class='w-full h-full flex items-center justify-center'>
 	<div class='container py-12'>
 		<div class='flex flex-col justify-center text-center items-center gap-3'>
@@ -11,6 +13,51 @@
 				<ion-icon name='arrow-back-outline'></ion-icon>
 				Return to shop
 			</a>
+		</div>
+	</div>
+</div>
+
+<div class='container'>
+	<div class='order-details'>
+		<div class='title'>Order details</div>
+		<div class='table-content'>
+			<div class='head'>
+				<div class='item'>
+					<div class='label'>Payment status</div>
+					<div class='value'>{{ order.paymentStatus }}</div>
+				</div>
+				<div class='item'>
+					<div class='label'>Shipping cost</div>
+					<div class='value'>{{ order.shippingCost }}</div>
+				</div>
+				<div class='item'>
+					<div class='label'>Total</div>
+					<div class='value'>{{ order.total | money }}</div>
+				</div>
+			</div>
+
+			<div class='summary'>
+				<table>
+					<thead>
+						<tr>
+							<th scope='col'>Product</th>
+							<th scope='col'>One piece price</th>
+							<th scope='col'>Quantity</th>
+							<th scope='col'>Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						{%- for item in order.order_variants %}
+							<tr>
+								<td data-label='Product'>{{ item.name }}</td>
+								<td data-label='One piece price'>{{ item.price | money }}</td>
+								<td data-label='Quantity'>{{ item.quantity }}</td>
+								<td data-label='Total'>{{ item.price | times: item.quantity | money }}</td>
+							</tr>
+						{%- endfor %}
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>
