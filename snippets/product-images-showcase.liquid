@@ -1,7 +1,7 @@
 <section class='product-images style{{showcase_style}}'>
 	<div class='product-images-container'>
 		<div id='img-zoomer-box'>
-			<img id='main-image' class='main-thumbnail' src='{{images[0]}}' alt='{{product_name}}'>
+			<img id='main-image' class='main-thumbnail' src='{%- if images[0] %}{{images[0]}}{%- else %}{{'default_product.jpeg' | asset_url}}{% endif %}' alt='{{product_name}}'>
 			<div id='magnified-image'></div>
 		</div>
 

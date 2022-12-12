@@ -58,19 +58,11 @@ let zoomer = function() {
         y = e.pageY - this.offsetTop,
         imgWidth = original.offsetWidth,
         imgHeight = original.offsetHeight,
-        xperc = ((x / imgWidth) * 100),
-        yperc = ((y / imgHeight) * 100);
+        xperc = ((x / imgWidth) * 100) - 10,
+        yperc = ((y / imgHeight) * 100) - 10;
 
-      if (x > (.01 * imgWidth)) {
-        xperc += (.15 * xperc);
-      };
-
-      if (y >= (.01 * imgHeight)) {
-        yperc += (.15 * yperc);
-      };
-
-      style.backgroundPositionX = (xperc - 9) + '%';
-      style.backgroundPositionY = (yperc - 9) + '%';
+      style.backgroundPositionX = xperc + '%';
+      style.backgroundPositionY = yperc + '%';
       style.inset = 0 + 'px'
 
       style.backgroundImage = 'url(' + original.src + ')';
@@ -164,7 +156,6 @@ if (productDetails) {
     const selectedVariant = getSelectedVariant()
     const variantIdInput = document.querySelector('#variantId')
     variantIdInput.value = selectedVariant.id
-    console.log(variantIdInput)
   })
     
   observer.observe(productDetails, { attributes: true, childList: true, subtree: true })
