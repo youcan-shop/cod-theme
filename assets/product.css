@@ -31,7 +31,7 @@
 }
 .yc-product-card .product-images #main-image {
   width: 100%;
-  height: auto;
+  height: 450px;
 }
 .yc-product-card .product-images #img-zoomer-box:hover,
 .yc-product-card .product-images #img-zoomer-box:active {
@@ -52,6 +52,7 @@
   z-index: 99;
   display: block;
   transition: opacity 0.2s;
+  background-size: 160%;
 }
 .yc-product-card .product-images.style1 .thumbnail-images {
   margin-top: 20px;
