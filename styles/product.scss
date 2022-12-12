@@ -32,7 +32,7 @@
 
 		#main-image {
 			width: 100%;
-			height: auto;
+			height: 450px;
 		}
 
 		#img-zoomer-box:hover,
@@ -55,6 +55,7 @@
 			z-index: 99;
 			display: block;
 			transition: opacity 0.2s;
+			background-size: 160%;
 		}
 		&.style1 {
 			.thumbnail-images {
@@ -123,6 +124,7 @@
 		.product-price {
 			font-size: 16pt;
 			font-weight: 500;
+			color: var(--yc-primary-color);
 		}
 		.product-options {
 			.product-option {

@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  z-index: 9999;
+  z-index: 999;
 }
 @media (min-width: 768px) {
   .is_sticky button {
