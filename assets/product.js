@@ -160,7 +160,6 @@ function setDefaultVariant(id) {
 
 function updateProductDetails(image, price) {
   if (image) {
-    console.log(image)
     const mainImg = document.querySelector('#main-image');
     if (!mainImg) return;
 
