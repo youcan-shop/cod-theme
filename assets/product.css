@@ -112,6 +112,7 @@
 .yc-product-card .product-details .product-price {
   font-size: 16pt;
   font-weight: 500;
+  color: var(--yc-primary-color);
 }
 .yc-product-card .product-details .product-options .product-option {
   margin-bottom: 20px;
