@@ -164,7 +164,7 @@ function updateProductDetails(image, price) {
     const mainImg = document.querySelector('#main-image');
     if (!mainImg) return;
 
-    mainImg.src = "https://cdn.youcan.shop/" + image;
+    mainImg.src = image;
   }
   
   if (price) {
