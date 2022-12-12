@@ -387,3 +387,43 @@ input:not([type='radio']),
 		}
 	}
 }
+
+/* --------------------- */
+/* ----- dropdowns ----- */
+/* --------------------- */
+.dropdown-parent {
+	position: relative;
+
+	.dropdown {
+		position: absolute;
+		max-width: 250px;
+		// box-shadow: var(--shadow);
+		// border-radius: var(--radius);
+		margin-top: 0.3rem;
+		background: white;
+		visibility: hidden;
+		opacity: 0;
+		transform: translateY(0.5rem);
+		transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1);
+
+		a {
+			display: flex;
+			align-items: center;
+			column-gap: var(--gap);
+			padding: 0.8rem 1rem;
+			text-decoration: none;
+			color: black;
+
+			&:hover {
+				background-color: var(--color);
+				color: white;
+			}
+		}
+
+		&.active {
+			visibility: visible;
+			opacity: 1;
+			transform: translateY(0rem);
+		}
+	}
+}

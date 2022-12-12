@@ -366,3 +366,37 @@ input:not([type=radio]),
   cursor: not-allowed;
   color: rgba(0, 0, 0, 0.2);
 }
+
+/* --------------------- */
+/* ----- dropdowns ----- */
+/* --------------------- */
+.dropdown-parent {
+  position: relative;
+}
+.dropdown-parent .dropdown {
+  position: absolute;
+  max-width: 250px;
+  margin-top: 0.3rem;
+  background: white;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1);
+}
+.dropdown-parent .dropdown a {
+  display: flex;
+  align-items: center;
+  column-gap: var(--gap);
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  color: black;
+}
+.dropdown-parent .dropdown a:hover {
+  background-color: var(--color);
+  color: white;
+}
+.dropdown-parent .dropdown.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0rem);
+}

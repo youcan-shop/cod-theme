@@ -95,3 +95,26 @@ function closeSearch() {
 }
 
 overlay.addEventListener('click', closeSearch)
+
+/* --------------------- */
+/* ----- dropdowns ----- */
+/* --------------------- */
+const dropdownButtons = document.querySelectorAll('.drop-btn');
+
+dropdownButtons.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    const dropdown = button.nextElementSibling;
+console.warn(button, dropdown)
+    dropdown.classList.toggle('active');
+  });
+});
+
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('.dropdown')) {
+    const activeDropdowns = document.querySelectorAll('.dropdown.active');
+
+    activeDropdowns.forEach((dropdown) => {
+      dropdown.classList.remove('active');
+    });
+  }
+});

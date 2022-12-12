@@ -10,18 +10,44 @@
 			<div class='sort-items-holder'>
 				<div class='commander'>Sort by:</div>
 				<div class='field'>
-					<a class='pawn' data-value='price'>
-						<span>Price</span>
-						<ion-icon name='chevron-down-outline'></ion-icon>
-					</a>
-					<a class='pawn' data-value='created_at'>
-						<span>Newest</span>
-						<ion-icon name='chevron-down-outline'></ion-icon>
-					</a>
-					<a class='pawn' data-value='name'>
-						<span>Alphabetically</span>
-						<ion-icon name='chevron-down-outline'></ion-icon>
-					</a>
+					<div class='dropdown-parent'>
+						<!-- button -->
+						<button class='drop-btn' data-value='price'>
+							<span>Price</span>
+							<ion-icon name='chevron-down-outline'></ion-icon>
+						</button>
+						<!-- dropdown -->
+						<div class='dropdown'>
+							<a href='#create'> Create New </a>
+							<a href='#draft'> All Drafts </a>
+						</div>
+					</div>
+
+					<div class='dropdown-parent'>
+						<!-- button -->
+						<a class='pawn drop-btn' data-value='created_at'>
+							<span>Newest</span>
+							<ion-icon name='chevron-down-outline'></ion-icon>
+						</a>
+						<!-- dropdown -->
+						<div class='dropdown'>
+							<a href='#create'> Create New </a>
+							<a href='#draft'> All Drafts </a>
+						</div>
+					</div>
+
+					<div class='dropdown-parent'>
+						<!-- button -->
+						<a class='pawn drop-btn' data-value='name'>
+							<span>Alphabetically</span>
+							<ion-icon name='chevron-down-outline'></ion-icon>
+						</a>
+						<!-- dropdown -->
+						<div class='dropdown'>
+							<a href='#create'> Create New </a>
+							<a href='#draft'> All Drafts </a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
