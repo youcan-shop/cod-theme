@@ -1,0 +1,113 @@
+.order-details {
+  margin: 2rem auto;
+  max-width: 600px;
+}
+.order-details .title {
+  font-size: 1.3rem;
+  margin: 0 0 1rem;
+}
+.order-details .table-content .head {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: var(--yc-main-border);
+  background-color: rgba(0, 0, 0, 0.03);
+}
+@media (min-width: 768px) {
+  .order-details .table-content .head {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+}
+.order-details .table-content .head .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 5px;
+  border-top: var(--yc-main-border);
+  border-bottom: var(--yc-main-border);
+  padding: 10px 17px;
+}
+@media (min-width: 768px) {
+  .order-details .table-content .head .item {
+    flex-direction: column;
+    border: none;
+    border-right: var(--yc-main-border);
+    border-left: var(--yc-main-border);
+  }
+}
+.order-details .table-content .head .item:first-child {
+  border: none;
+}
+.order-details .table-content .head .item:last-child {
+  border: none;
+}
+.order-details .table-content .head .item .label {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.order-details .table-content .summary {
+  margin-top: 10px;
+}
+.order-details .table-content .summary table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+.order-details .table-content .summary table caption {
+  font-size: 1.5em;
+  margin: 0.5em 0 0.75em;
+}
+.order-details .table-content .summary table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 0.35em;
+}
+.order-details .table-content .summary table th,
+.order-details .table-content .summary table td {
+  padding: 0.625em;
+  text-align: unset;
+}
+.order-details .table-content .summary table th {
+  font-weight: 500;
+  font-size: 0.85em;
+}
+@media screen and (max-width: 768px) {
+  .order-details .table-content .summary table {
+    border: 0;
+  }
+  .order-details .table-content .summary table caption {
+    font-size: 1.3em;
+  }
+  .order-details .table-content .summary table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  .order-details .table-content .summary table tr {
+    display: block;
+    margin-bottom: 0.625em;
+  }
+  .order-details .table-content .summary table td {
+    border-bottom: var(--yc-main-border);
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+  .order-details .table-content .summary table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .order-details .table-content .summary table td:last-child {
+    border-bottom: 0;
+  }
+}
