@@ -3,65 +3,58 @@
 {%- assign category = section.settings.category -%}
 {%- assign number_of_products = section.settings.number_of_products -%}
 
-{%- paginate collection.products by number_of_products id category_id: category.id %}
+{% if category %}
   <div class='yc-featured-products container'>
     <h1 class='yc-section-title'>{{ category.name }}</h1>
-    <a
-      href='{{ item.url }}'
-      class='product-list'
-    >
-      {%- for item in items -%}
-        <a
-          href='{{ item.url }}'
-          class='product-block'
-          {{ item.youcan_attributes }}
-        >
-          <div class='product-thumbnail'>
-            {% if item.thumbnail %}
-              <img src='{{ item.thumbnail }}'>
-            {% else %}
-              <img src='{{ 'default_product.jpeg' | asset_url }}'>
-            {% endif %}
-          </div>
-          <div class='product-details'>
-            <span class='product-title'>{{ item.name }}</span>
-            {% if item.price %}
-              <span class='product-price'>{{ item.price | money }}</span>
-            {% endif %}
-            {% if section.settings.show_compare_at_price and item.compare_at_price %}
-              <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
-            {% endif %}
-          </div>
-          <div class='flex justify-center'>
-            <button class='yc-btn'>Shop now</button>
-          </div>
-        </a>
-      {%- endfor -%}
-    </a>
+    <div class='product-list'>
+      {%- paginate collection.products by number_of_products id category_id: category.id %}
+        {%- for item in items -%}
+          <a href='{{ item.url }}' class='product-block'>
+            <div class='product-thumbnail'>
+              {% if item.thumbnail %}
+                <img src='{{ item.thumbnail }}'>
+              {% else %}
+                <img src='{{ 'default_product.jpeg' | asset_url }}'>
+              {% endif %}
+            </div>
+            <div class='product-details'>
+              <span class='product-title'>{{ item.name }}</span>
+              {% if item.price %}
+                <span class='product-price'>{{ item.price | money }}</span>
+              {% endif %}
+              {% if section.settings.show_compare_at_price and item.compare_at_price %}
+                <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
+              {% endif %}
+            </div>
+            <div class='flex justify-center'>
+              <button class='yc-btn'>Shop now</button>
+            </div>
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- endpaginate %}
   </div>
-{%- endpaginate %}
+{% endif %}
 
 {%- schema -%}
-{
-  "label": "Featured products by category",
-  "settings": [
-    {
-      "type": "category",
-      "id": "category",
-      "label": "Category"
-    },
-    {
-      "type": "number",
-      "id": "number_of_products",
-      "label": "Number of products to showcase",
-      "default": 8
-    },
-    {
-      "type": "checkbox",
-      "id": "show_compare_at_price",
-      "label": "Show compare at price",
-      "default": true
-    }
-  ]
-}
+  {
+    "label": "Featured products by category",
+    "settings": [
+      {
+        "type": "category",
+        "id": "category",
+        "label": "Category"
+      }, {
+        "type": "number",
+        "id": "number_of_products",
+        "label": "Number of products to showcase",
+        "default": 8
+      }, {
+        "type": "checkbox",
+        "id": "show_compare_at_price",
+        "label": "Show compare at price",
+        "default": true
+      }
+    ]
+  }
 {%- endschema -%}
