@@ -117,14 +117,15 @@
 		width: 100%;
 
 		.product-name {
-			font-size: 18pt;
-			font-weight: 500;
-			margin-bottom: 15px;
+			font-size: 25px;
+			font-weight: 600;
+			margin-bottom: 25px;
 		}
 		.product-price {
-			font-size: 16pt;
-			font-weight: 500;
+			font-size: 26px;
+			font-weight: 600;
 			color: var(--yc-primary-color);
+			line-height: 24px;
 		}
 		.product-options {
 			.product-option {

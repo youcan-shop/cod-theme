@@ -6,7 +6,7 @@ document.getElementById('express-checkout-form').addEventListener('submit', asyn
   load('#loading__checkout')
   try {
     const productVariantId = document.getElementById('variantId').value
-    const quantity = document.getElementById('quantity').value
+    const quantity = document.getElementById('quantity').value || 1
     const attachedImage = document.querySelector('#yc-upload-link')?.value;
     fields = { ...fields, attachedImage }
 
