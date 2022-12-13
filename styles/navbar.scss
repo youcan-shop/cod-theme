@@ -36,8 +36,19 @@
       grid-template-columns: repeat(3, 1fr);
     }
 
-    .corner {
+    :first-child {
+      justify-self: start;
+    }
+
+    :nth-child(2) {
+      justify-self: center;
+    }
+
+    :last-child {
       justify-self: end;
+    }
+
+    .corner {
       display: flex;
       align-items: center;
       gap: 1rem;
