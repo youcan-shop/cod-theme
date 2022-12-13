@@ -9,6 +9,11 @@ body {
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
+  padding:
+    env(safe-area-inset-top, 20px)
+    env(safe-area-inset-right, 20px)
+    env(safe-area-inset-bottom, 20px)
+    env(safe-area-inset-left, 20px);
 }
 
 .container {
@@ -316,12 +321,12 @@ input:not([type=radio]),
   justify-content: center;
   box-shadow: var(--yc-primary-shadow);
   opacity: 0;
-  z-index: 999;
+  z-index: 9999;
   transform: translateY(100%);
 }
 .yc-alert.show {
   opacity: 1;
-  z-index: 999;
+  z-index: 9999;
   transform: none;
 }
 
