@@ -3,188 +3,188 @@
 {{ 'splide.min.js' | asset_url | script_tag }}
 
 {%- style -%}
-	.product_customization {
-	  padding-top: {{ section.settings.padding_top}}px;
-	  padding-bottom: {{ section.settings.padding_bottom}}px;
-	}
+  .product_customization {
+    padding-top: {{ section.settings.padding_top}}px;
+    padding-bottom: {{ section.settings.padding_bottom}}px;
+  }
 {%- endstyle -%}
 
 <section class='product_customization'>
-	{%- assign selected_product = section.settings.product %}
+  {%- assign selected_product = section.settings.product %}
 
-	{%- if product %}
-		{%- assign selected_product = product %}
-	{%- endif %}
+  {%- if product %}
+    {%- assign selected_product = product %}
+  {%- endif %}
 
-	{%- if selected_product %}
-		{%- render 'single-product', product: selected_product, section: section -%}
-	{%- endif %}
+  {%- if selected_product %}
+    {%- render 'single-product', product: selected_product, section: section -%}
+  {%- endif %}
 </section>
 
 {%- schema -%}
 {
-	"limit": 1,
-	"label": "Single Product",
-	"blocks": [
-		{
-			"label": "Title",
-			"limit": 1,
-			"type": "product_title"
-		},
-		{
-			"label": "Price",
-			"limit": 1,
-			"type": "product_price"
-		},
-		{
-			"label": "Quantity",
-			"limit": 1,
-			"type": "product_quantity"
-		},
-		{
-			"label": "Variants",
-			"limit": 1,
-			"type": "product_variants"
-		},
-		{
-			"label": "Description",
-			"type": "product_description"
-		},
-		{
-			"label": "Stock",
-			"type": "stock",
-			"settings": [
-				{
-					"label": "Items Left",
-					"id": "stock_items_left",
-					"type": "number"
-				},
-				{
-					"label": "Total In Stock",
-					"id": "total_stock_items",
-					"type": "number"
-				}
-			]
-		},
-		{
-			"label": "Countdown Timer",
-			"type": "countdown_timer",
-			"settings": [
-				{
-					"label": "Message",
-					"id": "countdown_message",
-					"type": "richtext",
-					"default": "hurry up! There aren't many items left in stock."
-				},
-				{
-					"label": "Year",
-					"id": "countdown_year",
-					"type": "number"
-				},
-				{
-					"label": "Month",
-					"id": "countdown_month",
-					"type": "number"
-				},
-				{
-					"label": "Day",
-					"id": "countdown_day",
-					"type": "number"
-				},
-				{
-					"label": "Hour",
-					"id": "countdown_hour",
-					"type": "number"
-				},
-				{
-					"label": "Seconds",
-					"id": "countdown_minute",
-					"type": "number"
-				}
-			]
-		},
-		{
-			"label": "Add to cart",
-			"type": "add_to_cart",
-			"settings": [
-				{
-					"label": "Text",
-					"id": "text_content",
-					"type": "text",
-					"default": "Add to cart"
-				},
-				{
-					"label": "Is Sticky?",
-					"id": "is_sticky",
-					"type": "checkbox",
-					"default": true
-				},
-				{
-					"label": "Background Color",
-					"id": "background_color",
-					"type": "color",
-					"default": "#ff7420"
-				},
-				{
-					"label": "Text Color",
-					"id": "text_color",
-					"type": "color",
-					"default": "#ffffff"
-				}
-			]
-		},
-		{
-			"label": "Express checkout",
-			"type": "express_checkout"
-		}
-	],
-	"settings": [
-		{
-			"label": "Product",
-			"id": "product",
-			"type": "product"
-		},
-		{
-			"type": "select",
-			"id": "product_images_showcase_style",
-			"label": "Style",
-			"options": [
-				{
-					"value": "1",
-					"label": "Thumbnails bottom"
-				},
-				{
-					"value": "2",
-					"label": "Thumbnails left"
-				}
-			],
-			"default": "1"
-		},
-		{
-			"type": "checkbox",
-			"id": "show_compare_at_price",
-			"label": "Show compare at price",
-			"default": false
-		},
-		{
-			"type": "number",
-			"id": "padding_top",
-			"label": "Padding top",
-			"default": 10
-		},
-		{
-			"type": "number",
-			"id": "padding_bottom",
-			"label": "Padding bottom",
-			"default": 10
-		}
-	]
+  "limit": 1,
+  "label": "Single Product",
+  "blocks": [
+    {
+      "label": "Title",
+      "limit": 1,
+      "type": "product_title"
+    },
+    {
+      "label": "Price",
+      "limit": 1,
+      "type": "product_price"
+    },
+    {
+      "label": "Quantity",
+      "limit": 1,
+      "type": "product_quantity"
+    },
+    {
+      "label": "Variants",
+      "limit": 1,
+      "type": "product_variants"
+    },
+    {
+      "label": "Description",
+      "type": "product_description"
+    },
+    {
+      "label": "Stock",
+      "type": "stock",
+      "settings": [
+        {
+          "label": "Items Left",
+          "id": "stock_items_left",
+          "type": "number"
+        },
+        {
+          "label": "Total In Stock",
+          "id": "total_stock_items",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "label": "Countdown Timer",
+      "type": "countdown_timer",
+      "settings": [
+        {
+          "label": "Message",
+          "id": "countdown_message",
+          "type": "richtext",
+          "default": "hurry up! There aren't many items left in stock."
+        },
+        {
+          "label": "Year",
+          "id": "countdown_year",
+          "type": "number"
+        },
+        {
+          "label": "Month",
+          "id": "countdown_month",
+          "type": "number"
+        },
+        {
+          "label": "Day",
+          "id": "countdown_day",
+          "type": "number"
+        },
+        {
+          "label": "Hour",
+          "id": "countdown_hour",
+          "type": "number"
+        },
+        {
+          "label": "Seconds",
+          "id": "countdown_minute",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "label": "Add to cart",
+      "type": "add_to_cart",
+      "settings": [
+        {
+          "label": "Text",
+          "id": "text_content",
+          "type": "text",
+          "default": "Add to cart"
+        },
+        {
+          "label": "Is Sticky?",
+          "id": "is_sticky",
+          "type": "checkbox",
+          "default": true
+        },
+        {
+          "label": "Background Color",
+          "id": "background_color",
+          "type": "color",
+          "default": "#ff7420"
+        },
+        {
+          "label": "Text Color",
+          "id": "text_color",
+          "type": "color",
+          "default": "#ffffff"
+        }
+      ]
+    },
+    {
+      "label": "Express checkout",
+      "type": "express_checkout"
+    }
+  ],
+  "settings": [
+    {
+      "label": "Product",
+      "id": "product",
+      "type": "product"
+    },
+    {
+      "type": "select",
+      "id": "product_images_showcase_style",
+      "label": "Style",
+      "options": [
+        {
+          "value": "1",
+          "label": "Thumbnails bottom"
+        },
+        {
+          "value": "2",
+          "label": "Thumbnails left"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_compare_at_price",
+      "label": "Show compare at price",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding top",
+      "default": 10
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "default": 10
+    }
+  ]
 }
 {%- endschema -%}
 
 {%- javascript -%}
-	const variantStr = `{{ selected_product.variants | json }}`
-	const variants = JSON.parse(variantStr.slice(1, -1))
+  const variantStr = `{{ selected_product.variants | json }}`;
+  const variants = JSON.parse(variantStr.slice(1, -1));
 {%- endjavascript -%}
 
 {{ 'product.js' | asset_url | script_tag }}

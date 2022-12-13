@@ -3,18 +3,24 @@
 {%- assign uniq = 0 | rand %}
 
 {%- style -%}
-	.yc-{{ uniq }}-add-to-cart button {
-	  background: {{ background_color.hex}} !important;
-	  color: {{ text_color.hex}} !important;
-	  width: 100%;
-	}
+  .yc-{{ uniq }}-add-to-cart button {
+    background: {{ background_color.hex}} !important;
+    color: {{ text_color.hex}} !important;
+    width: 100%;
+  }
 {%- endstyle -%}
 
 <div class='yc-{{ uniq }}-add-to-cart{% if is_sticky %} is_sticky{% endif %}'>
-	<button class='yc-btn' onclick='addToCart()'>
-		<span class='spinner hidden' id='loading__checkout'></span>
-		<span>{{ text }}</span>
-	</button>
+  <button
+    class='yc-btn'
+    onclick='addToCart()'
+  >
+    <span
+      class='spinner hidden'
+      id='loading__checkout'
+    ></span>
+    <span>{{ text }}</span>
+  </button>
 </div>
 
 {{ 'add-to-cart.js' | asset_url | script_tag }}

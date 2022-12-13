@@ -1,8 +1,8 @@
 {
-	"sections": {
-		"cart": {
-			"type": "main-cart"
-		}
-	},
-	"order": ["cart"]
+  "sections": {
+    "cart": {
+      "type": "main-cart"
+    }
+  },
+  "order": ["cart"]
 }

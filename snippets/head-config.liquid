@@ -1,105 +1,129 @@
 <meta charset='UTF-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<meta
+  http-equiv='X-UA-Compatible'
+  content='IE=edge'
+>
+<meta
+  name='viewport'
+  content='width=device-width, initial-scale=1.0'
+>
 
-<link href='https://fonts.googleapis.com/css2?family={{settings.font_family}}:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap' rel='stylesheet'>
+<link
+  href='https://fonts.googleapis.com/css2?family={{settings.font_family}}:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
+  rel='stylesheet'
+>
 
 {%- style -%}
-	:root {
-	  /* main */
-	  --yc-font-family:
-	  {{ settings.font_family }},
-	  sans-serif;
-	  --yc-main-shadow: rgba(0, 0, 0, 0.04) 0 0 0 1px, rgba(0, 0, 0, 0.03) 0 1px 1px, rgba(0, 0, 0, 0.03) 0 2px 2px, rgba(0, 0, 0, 0.03) 0 4px 4px, rgba(0, 0, 0, 0.03) 0 8px 8px, rgba(0, 0, 0, 0.03) 0 16px 16px;
-	  --yc-theme-direction: {{ settings.theme_direction}};
+  :root {
+    /* main */
+    --yc-font-family:
+    {{ settings.font_family }},
+    sans-serif;
+    --yc-main-shadow: rgba(0, 0, 0, 0.04) 0 0 0 1px, rgba(0, 0, 0, 0.03) 0 1px 1px, rgba(0, 0, 0, 0.03) 0 2px 2px, rgba(0, 0, 0, 0.03) 0 4px 4px, rgba(0, 0, 0, 0.03) 0 8px 8px, rgba(0, 0, 0, 0.03) 0 16px 16px;
+    --yc-theme-direction: {{ settings.theme_direction}};
 
-	  /* colors */
-	  --yc-primary-color: {{ settings.primary_color.hex }};
-	  --yc-success-color: {{ settings.success_color.hex }};
-	  --yc-error-color: {{ settings.error_color.hex }};
-	  --yc-warning-color: {{ settings.warning_color.hex }};
-	  --yc-neutral-color: {{ settings.neutral_color.hex }};
-	  --yc-neutral-light-color: {{ settings.neutral_light_color.hex }};
+    /* colors */
+    --yc-primary-color: {{ settings.primary_color.hex }};
+    --yc-success-color: {{ settings.success_color.hex }};
+    --yc-error-color: {{ settings.error_color.hex }};
+    --yc-warning-color: {{ settings.warning_color.hex }};
+    --yc-neutral-color: {{ settings.neutral_color.hex }};
+    --yc-neutral-light-color: {{ settings.neutral_light_color.hex }};
 
-	  /* Borders  */
-	  --yc-main-border: 1px solid var(--yc-neutral-light-color);
+    /* Borders  */
+    --yc-main-border: 1px solid var(--yc-neutral-light-color);
 
-	  /* Notice bar */
-	  --yc-notice-height: {{ settings.notice_bar_height}}px;
-	  --yc-notice-font-size: {{ settings.notice_bar_content_font_size}}px;
-	  --yc-notice-background-color: {%- if settings.notice_bar_background_color %}
-	    {{ settings.notice_bar_background_color.hex}}
-	  {%- else %}
-	    var(--yc-primary-color){%- endif %};
-	  --yc-notice-text-color: {{ settings.notice_bar_content_text_color.hex}};
-	  --yc-notice-above: {{ settings.notice_bar_above}};
+    /* Notice bar */
+    --yc-notice-height: {{ settings.notice_bar_height}}px;
+    --yc-notice-font-size: {{ settings.notice_bar_content_font_size}}px;
+    --yc-notice-background-color: {%- if settings.notice_bar_background_color %}
+      {{ settings.notice_bar_background_color.hex}}
+    {%- else %}
+      var(--yc-primary-color){%- endif %};
+    --yc-notice-text-color: {{ settings.notice_bar_content_text_color.hex}};
+    --yc-notice-above: {{ settings.notice_bar_above}};
 
-	  /* -- navbar */
-	  --yc-nav-height: {{ settings.navbar_height}}px;
-	  --yc-nav-background: {{ settings.navbar_background_color.hex}};
-	  --yc-nav-links-color: {%- if settings.navbar_links_color -%}
-	    {{ settings.navbar_links_color.hex}}
-	  {%- else -%}
-	    var(--yc-neutral-color){%- endif -%};
-	  --yc-nav-cart-badge-color: {%- if settings.cart_badge_color -%}
-	    {{ settings.cart_badge_color.hex}}
-	  {%- else -%}
-	    var(--yc-neutral-color){%- endif -%};
-	  --yc-nav-links-font-weight: {{ settings.navbar_links_font_weight}};
-	  --yc-nav-links-hover-transparency: {{ settings.navbar_links_hover_transparency}};
-	  --yc-nav-font-family: {%- if settings.navbar_font_family -%}
-	    {{ settings.navbar_font_family }}, sans-serif{%- else -%}
-	    var(--yc-font-family){%- endif -%};
-	  --yc-nav-font-size: {{ settings.navbar_font_size}}px;
-	  --yc-nav-shadow: {{ settings.navbar_shadow}};
+    /* -- navbar */
+    --yc-nav-height: {{ settings.navbar_height}}px;
+    --yc-nav-background: {{ settings.navbar_background_color.hex}};
+    --yc-nav-links-color: {%- if settings.navbar_links_color -%}
+      {{ settings.navbar_links_color.hex}}
+    {%- else -%}
+      var(--yc-neutral-color){%- endif -%};
+    --yc-nav-cart-badge-color: {%- if settings.cart_badge_color -%}
+      {{ settings.cart_badge_color.hex}}
+    {%- else -%}
+      var(--yc-neutral-color){%- endif -%};
+    --yc-nav-links-font-weight: {{ settings.navbar_links_font_weight}};
+    --yc-nav-links-hover-transparency: {{ settings.navbar_links_hover_transparency}};
+    --yc-nav-font-family: {%- if settings.navbar_font_family -%}
+      {{ settings.navbar_font_family }}, sans-serif{%- else -%}
+      var(--yc-font-family){%- endif -%};
+    --yc-nav-font-size: {{ settings.navbar_font_size}}px;
+    --yc-nav-shadow: {{ settings.navbar_shadow}};
 
-	  /* Slider */
-	  --yc-slider-arrows-background: {{ settings.arrows_background_color.hex}};
-	  --yc-slider-arrows-size: {{ settings.slider_arrows_size}}px;
-	  --yc-slider-arrows-content-size: {{ settings.slider_arrows_content_size}}px;
+    /* Slider */
+    --yc-slider-arrows-background: {{ settings.arrows_background_color.hex}};
+    --yc-slider-arrows-size: {{ settings.slider_arrows_size}}px;
+    --yc-slider-arrows-content-size: {{ settings.slider_arrows_content_size}}px;
 
-	  /* Reviews */
-	  --yc-reviews-gap: {{ settings.reviews_gap}}px;
-	  --yc-reviews-items_per_row: {{ settings.reviews_items_per_row}};
-	  --yc-reviews-name-font-size: {{ settings.reviews_name_font_size}}px;
-	  --yc-reviews-content-font-size: {{ settings.reviews_content_font_size}}px;
+    /* Reviews */
+    --yc-reviews-gap: {{ settings.reviews_gap}}px;
+    --yc-reviews-items_per_row: {{ settings.reviews_items_per_row}};
+    --yc-reviews-name-font-size: {{ settings.reviews_name_font_size}}px;
+    --yc-reviews-content-font-size: {{ settings.reviews_content_font_size}}px;
 
-	  /* Footer */
-	  --yc-footer-background-color: {%- if settings.footer_background_color -%}
-	    {{ settings.footer_background_color.hex}}
-	  {%- else -%}
-	    var(--yc-primary-color){%- endif -%};
-	  --yc-footer-text-color: {{ settings.footer_text_color.hex}};
-	  --yc-footer-copyright-background: {{ settings.footer_copyright_background.hex}};
-	}
+    /* Footer */
+    --yc-footer-background-color: {%- if settings.footer_background_color -%}
+      {{ settings.footer_background_color.hex}}
+    {%- else -%}
+      var(--yc-primary-color){%- endif -%};
+    --yc-footer-text-color: {{ settings.footer_text_color.hex}};
+    --yc-footer-copyright-background: {{ settings.footer_copyright_background.hex}};
+  }
 {%- endstyle -%}
 
 {%- if settings.favicon %}
-	<link rel='shortcut icon' href='{{ settings.favicon.src }}'>
+  <link
+    rel='shortcut icon'
+    href='{{ settings.favicon.src }}'
+  >
 {% endif %}
 
 {%- if settings.meta_description %}
-	<meta name='description' content='{{ settings.meta_description }}'>
+  <meta
+    name='description'
+    content='{{ settings.meta_description }}'
+  >
 {% endif %}
 
 {%- if settings.meta_keywords %}
-	<meta name='keywords' content='{{ settings.meta_keywords }}'>
+  <meta
+    name='keywords'
+    content='{{ settings.meta_keywords }}'
+  >
 {% endif %}
 
 {%- if settings.og_image %}
-	<meta property='og:image' content='{{ settings.og_image.src }}'>
+  <meta
+    property='og:image'
+    content='{{ settings.og_image.src }}'
+  >
 {% endif %}
 
-<script type='module' src='https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.esm.js'></script>
+<script
+  type='module'
+  src='https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.esm.js'
+></script>
 
 {{ 'main.css' | asset_url | stylesheet_tag }}
 {{ 'utils.css' | asset_url | stylesheet_tag }}
 {{ 'dropdown.css' | asset_url | stylesheet_tag }}
 
 <title>
-	{%- if settings.meta_title %}
-		{{ settings.meta_title }}
-	{% else %}
-		{{ store.name }}
-	{% endif %}
+  {%- if settings.meta_title %}
+    {{ settings.meta_title }}
+  {% else %}
+    {{ store.name }}
+  {% endif %}
 </title>

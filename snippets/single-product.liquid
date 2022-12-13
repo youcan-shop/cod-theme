@@ -1,45 +1,61 @@
 <div class='container yc-product-card'>
-	{% assign images = product.images %}
-	{% assign product_name = product.name %}
-	{% assign showcase_style = section.settings.product_images_showcase_style %}
+  {% assign images = product.images %}
+  {% assign product_name = product.name %}
+  {% assign showcase_style = section.settings.product_images_showcase_style %}
 
-	{% render 'product-images-showcase', images: images, product_name: product_name, showcase_style: showcase_style %}
+  {% render 'product-images-showcase', images: images, product_name: product_name, showcase_style: showcase_style %}
 
-	<div class='product-details'>
-		{%- for block in section.blocks -%}
-			<div {{ block.youcan_attributes }}>
-				{%- case block.type -%}
-					{%- when 'product_title' -%}
-						<h1 class='product-name'>{{ product.name }}</h1>
-					{%- when 'product_price' -%}
-						<div class='flex gap-2 items-center'>
-							<h2 class='product-price'>{{ product.price | money }}</h2>
-							{% if section.settings.show_compare_at_price %}
-								<h3>
-									<del>{{ product.compare_at_price | money }}</del>
-								</h3>
-							{% endif %}
-						</div>
-					{%- when 'product_quantity' -%}
-						<div class='product-quantity '>
-							<label for='quantity'>Quantity</label>
-							<input type='number' class='yc-number' id='quantity' name='quantity' min='1' max='10' value='1'>
-						</div>
-					{%- when 'product_variants' -%}
-						{% render 'product-variants', options: product.options %}
-					{%- when 'product_description' -%}
-						<section class='product-description '>{{ product.description }}</section>
-					{%- when 'countdown_timer' %}
-						<!-- prettier-ignore -->
-						{%- render 'countdown',message:block.settings.countdown_message, countdown_year: block.settings.countdown_year, countdown_month: block.settings.countdown_month, countdown_day: block.settings.countdown_day, countdown_hour: block.settings.countdown_hour, countdown_minute: block.settings.countdown_minute -%}
-					{%- when 'stock' -%}
-						{% render 'stock', stock_items_left: block.settings.stock_items_left, total_stock_items: block.settings.total_stock_items %}
-					{%- when 'add_to_cart' -%}
-						{% render 'add-to-cart', text: block.settings.text_content, is_sticky: block.settings.is_sticky, background_color: block.settings.background_color, text_color: block.settings.text_color %}
-					{%- when 'express_checkout' -%}
-						{% render 'express-checkout', checkout: checkout %}
-				{%- endcase -%}
-			</div>
-		{%- endfor -%}
-	</div>
+  <div class='product-details'>
+    {%- for block in section.blocks -%}
+      <div {{ block.youcan_attributes }}>
+        {%- case block.type -%}
+          {%- when 'product_title' -%}
+            <h1 class='product-name'>{{ product.name }}</h1>
+          {%- when 'product_price' -%}
+            <div class='flex gap-2 items-center'>
+              <h2 class='product-price'>{{ product.price | money }}</h2>
+              {% if section.settings.show_compare_at_price %}
+                <h3>
+                  <del>{{ product.compare_at_price | money }}</del>
+                </h3>
+              {% endif %}
+            </div>
+          {%- when 'product_quantity' -%}
+            <div class='product-quantity '>
+              <label for='quantity'>Quantity</label>
+              <input
+                type='number'
+                class='yc-number'
+                id='quantity'
+                name='quantity'
+                min='1'
+                max='10'
+                value='1'
+              >
+            </div>
+          {%- when 'product_variants' -%}
+            {% render 'product-variants', options: product.options %}
+          {%- when 'product_description' -%}
+            <section class='product-description '>{{ product.description }}</section>
+          {%- when 'countdown_timer' %}
+            <!-- prettier-ignore -->
+            {%- render 'countdown',message:block.settings.countdown_message, countdown_year: block.settings.countdown_year, countdown_month: block.settings.countdown_month, countdown_day: block.settings.countdown_day, countdown_hour: block.settings.countdown_hour, countdown_minute: block.settings.countdown_minute -%}
+          {%- when 'stock' -%}
+            {% render 'stock',
+              stock_items_left: block.settings.stock_items_left,
+              total_stock_items: block.settings.total_stock_items
+            %}
+          {%- when 'add_to_cart' -%}
+            {% render 'add-to-cart',
+              text: block.settings.text_content,
+              is_sticky: block.settings.is_sticky,
+              background_color: block.settings.background_color,
+              text_color: block.settings.text_color
+            %}
+          {%- when 'express_checkout' -%}
+            {% render 'express-checkout', checkout: checkout %}
+        {%- endcase -%}
+      </div>
+    {%- endfor -%}
+  </div>
 </div>

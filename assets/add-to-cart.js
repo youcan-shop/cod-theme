@@ -1,37 +1,35 @@
 async function addToCart() {
-  const variantId = document.getElementById('variantId')?.value
-  const quantity = document.getElementById('quantity')?.value || 1
+  const variantId = document.getElementById('variantId')?.value;
+  const quantity = document.getElementById('quantity')?.value || 1;
   const uploadedImageLink = document.querySelector('#yc-upload-link')?.value;
 
-  if (!variantId)
-    return notify('Please select a variant', 'error')
+  if (!variantId) return notify('Please select a variant', 'error');
 
-  if (!quantity)
-    return notify('Please select a quantity', 'error')
+  if (!quantity) return notify('Please select a quantity', 'error');
 
   try {
-    load('#loading__checkout')
+    load('#loading__checkout');
 
     const response = await youcanjs.cart.addItem({
       productVariantId: variantId,
       attachedImage: uploadedImageLink,
-      quantity
-    })
+      quantity,
+    });
 
-    if (response.error) throw new Error(response.error)
+    if (response.error) throw new Error(response.error);
 
-    const cart = document.querySelector('#cart-items-badge')
+    const cart = document.querySelector('#cart-items-badge');
 
     if (cart) {
-      let cartBadgeBudge = Number(cart.innerHTML)
+      let cartBadgeBudge = Number(cart.innerHTML);
 
-      cart.innerHTML = ++cartBadgeBudge
+      cart.innerHTML = ++cartBadgeBudge;
     }
 
-    stopLoad('#loading__checkout')
-    notify("Item has been added successfully", 'success')
+    stopLoad('#loading__checkout');
+    notify('Item has been added successfully', 'success');
   } catch (err) {
-    stopLoad('#loading__checkout')
-    notify(err.message, 'error')
+    stopLoad('#loading__checkout');
+    notify(err.message, 'error');
   }
 }

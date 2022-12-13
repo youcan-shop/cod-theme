@@ -1,22 +1,22 @@
 .yc-notice {
-	background-color: var(--yc-notice-background-color);
-	height: var(--yc-notice-height);
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  background-color: var(--yc-notice-background-color);
+  height: var(--yc-notice-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-	.content {
-		padding: var(--yc-notice-content-padding);
-		color: var(--yc-notice-text-color);
-		font-size: var(--yc-notice-font-size);
-	}
+  .content {
+    padding: var(--yc-notice-content-padding);
+    color: var(--yc-notice-text-color);
+    font-size: var(--yc-notice-font-size);
+  }
 }
 
 .yc-notice.notice-fixed {
-	position: fixed;
-	inset: 0;
-	top: 0;
-	left: 0;
-	width: 100%;
-	z-index: 100;
+  position: fixed;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
 }
