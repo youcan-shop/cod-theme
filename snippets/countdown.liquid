@@ -15,16 +15,16 @@
 	</div>
 
 	<script>
-		const now = new Date()
+		const now = new Date();
 
-		const year = '{{ countdown_year }}'
-		const month = '{{ countdown_month }}'
-		const day = '{{ countdown_day }}'
-		const hour = '{{ countdown_hour }}' || 0
-		const minute = '{{ countdown_minute }}' || 0
-		const second = '{{ countdown_second }}' || 0
+		const year = '{{ countdown_year }}';
+		const month = '{{ countdown_month }}';
+		const day = '{{ countdown_day }}';
+		const hour = '{{ countdown_hour }}' || 0;
+		const minute = '{{ countdown_minute }}' || 0;
+		const second = '{{ countdown_second }}' || 0;
 
-		const targetDate = new Date(+year, +month - 1, +day, +hour, +minute, +second)
+		const targetDate = new Date(+year, +month - 1, +day, +hour, +minute, +second);
 	</script>
 
 	{{ 'countdown.js' | asset_url | script_tag }}

@@ -183,8 +183,8 @@
 {%- endschema -%}
 
 {%- javascript -%}
-	const variantStr = `{{ selected_product.variants | json }}`
-	const variants = JSON.parse(variantStr.slice(1, -1))
+	const variantStr = `{{ selected_product.variants | json }}`;
+	const variants = JSON.parse(variantStr.slice(1, -1));
 {%- endjavascript -%}
 
 {{ 'product.js' | asset_url | script_tag }}
