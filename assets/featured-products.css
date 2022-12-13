@@ -49,6 +49,11 @@
   font-weight: medium;
   margin-bottom: 10px;
 }
+.yc-featured-products .product-list .product-block .product-details .compare-at-price {
+  text-decoration: line-through;
+  opacity: 0.5;
+  margin-bottom: 5px;
+}
 .yc-featured-products .product-list .product-block .product-thumbnail:hover img {
   transform: scale(1.1);
 }

@@ -1,27 +1,33 @@
 {{ 'express-checkout.css' | asset_url | stylesheet_tag }}
 
 <form id='express-checkout-form'>
-	<div class='grid grid-cols-1 md:grid-cols-1 gap-1 express-checkout-fields'>
-		{%- for field in checkout.fields %}
-			<div class='express-checkout-field'>
-				<label for='f-{{ field.name }}'>{{ field.display_name }}</label>
-				<input
-					type='{{ field.type }}'
-					class='w-full'
-					id='f-{{ field.name }}'
-					name='{{ field.name }}'
-					placeholder='{{ field.placeholder }}'
-					{% if field.required %}
-						required
-					{% endif %}
-				>
-			</div>
-		{%- endfor %}
-	</div>
-	<button type='submit' class='yc-btn w-full mt-8'>
-		<span class='spinner hidden' id='loading__checkout'></span>
-		<span>place order</span>
-	</button>
+  <div class='grid grid-cols-1 md:grid-cols-1 gap-1 express-checkout-fields'>
+    {%- for field in checkout.fields %}
+      <div class='express-checkout-field'>
+        <label for='f-{{ field.name }}'>{{ field.display_name }}</label>
+        <input
+          type='{{ field.type }}'
+          class='w-full'
+          id='f-{{ field.name }}'
+          name='{{ field.name }}'
+          placeholder='{{ field.placeholder }}'
+          {% if field.required %}
+            required
+          {% endif %}
+        >
+      </div>
+    {%- endfor %}
+  </div>
+  <button
+    type='submit'
+    class='yc-btn w-full mt-8'
+  >
+    <span
+      class='spinner hidden'
+      id='loading__checkout'
+    ></span>
+    <span>place order</span>
+  </button>
 </form>
 
 {{ 'express-checkout.js' | asset_url | script_tag }}

@@ -1,456 +1,456 @@
 [
-	{
-		"label": "General Settings",
-		"settings": [
-			{
-				"type": "text",
-				"id": "meta_title",
-				"label": "Title"
-			},
-			{
-				"type": "select",
-				"id": "theme_direction",
-				"label": "Theme direction",
-				"options": [
-					{
-						"value": "rtl",
-						"label": "Right to left"
-					},
-					{
-						"value": "ltr",
-						"label": "left to right"
-					}
-				],
-				"default": "ltr"
-			},
-			{
-				"type": "text",
-				"id": "meta_description",
-				"label": "Meta description"
-			},
-			{
-				"type": "text",
-				"id": "meta_keywords",
-				"label": "Meta keywords"
-			},
-			{
-				"type": "image_picker",
-				"id": "og_image",
-				"label": "Meta Open Graph Image"
-			},
-			{
-				"type": "image_picker",
-				"id": "favicon",
-				"label": "Favicon"
-			}
-		]
-	},
-	{
-		"label": "Color Palette",
-		"settings": [
-			{
-				"type": "color",
-				"id": "primary_color",
-				"label": "Primary",
-				"default": "#aa2e66"
-			},
-			{
-				"type": "color",
-				"id": "success_color",
-				"label": "Success",
-				"default": "#4AB380"
-			},
-			{
-				"type": "color",
-				"id": "error_color",
-				"label": "Error",
-				"default": "#773740"
-			},
-			{
-				"type": "color",
-				"id": "warning_color",
-				"label": "Warning",
-				"default": "#F2962F"
-			},
-			{
-				"type": "color",
-				"id": "neutral_color",
-				"label": "Neutral",
-				"default": "#16191B"
-			},
-			{
-				"type": "color",
-				"id": "neutral_light_color",
-				"label": "Neutral Light",
-				"default": "#e3e3e3"
-			}
-		]
-	},
-	{
-		"label": "Additional Styles",
-		"settings": [
-			{
-				"type": "select",
-				"id": "font_family",
-				"label": "Font family",
-				"options": [
-					{
-						"value": "Roboto",
-						"label": "Roboto"
-					},
-					{
-						"value": "Cairo",
-						"label": "Cairo"
-					},
-					{
-						"value": "Open Sans",
-						"label": "Open Sans"
-					},
-					{
-						"value": "Lato",
-						"label": "Lato"
-					},
-					{
-						"value": "Oswald",
-						"label": "Oswald"
-					},
-					{
-						"value": "Raleway",
-						"label": "Raleway"
-					},
-					{
-						"value": "Montserrat",
-						"label": "Montserrat"
-					}
-				],
-				"default": "Roboto"
-			},
-			{
-				"type": "text",
-				"id": "transition",
-				"label": "Transition",
-				"default": "all 0.3s ease-in-out"
-			}
-		]
-	},
-	{
-		"label": "Notice Bar",
-		"settings": [
-			{
-				"type": "text",
-				"id": "notice_bar_content",
-				"label": "Content",
-				"default": "Special offer: free delivery, pay on delivery, faster and order now"
-			},
-			{
-				"type": "range",
-				"id": "notice_bar_height",
-				"min": 20,
-				"max": 150,
-				"step": 1,
-				"unit": "px",
-				"label": "Height",
-				"default": 40
-			},
-			{
-				"type": "range",
-				"id": "notice_bar_content_font_size",
-				"min": 12,
-				"max": 20,
-				"step": 1,
-				"unit": "px",
-				"label": "Font Size",
-				"default": 14
-			},
-			{
-				"type": "checkbox",
-				"id": "notice_bar_show",
-				"label": "Show",
-				"default": true
-			},
-			{
-				"type": "color",
-				"id": "notice_bar_content_text_color",
-				"label": "Text color",
-				"default": "#FFFFFF"
-			},
-			{
-				"type": "color",
-				"id": "notice_bar_background_color",
-				"label": "Background color"
-			}
-		]
-	},
-	{
-		"label": "Navbar",
-		"settings": [
-			{
-				"type": "image_picker",
-				"id": "navbar_logo",
-				"label": "Logo"
-			},
-			{
-				"type": "range",
-				"id": "navbar_height",
-				"min": 20,
-				"max": 150,
-				"step": 1,
-				"unit": "px",
-				"label": "Height",
-				"default": 60
-			},
-			{
-				"type": "color",
-				"id": "navbar_background_color",
-				"label": "Background color",
-				"default": "#FFFFFF"
-			},
-			{
-				"type": "color",
-				"id": "navbar_links_color",
-				"label": "Items and links color"
-			},
-			{
-				"type": "color",
-				"id": "cart_badge_color",
-				"label": "Cart badge color"
-			},
-			{
-				"type": "range",
-				"id": "navbar_links_hover_transparency",
-				"min": 0,
-				"max": 1,
-				"step": 0.1,
-				"unit": "",
-				"label": "Links hover transparency",
-				"default": 0.8
-			},
-			{
-				"type": "select",
-				"id": "navbar_links_font_weight",
-				"label": "Links font weight",
-				"options": [
-					{
-						"value": "300",
-						"label": "Light"
-					},
-					{
-						"value": "400",
-						"label": "Normal"
-					},
-					{
-						"value": "500",
-						"label": "Bold"
-					},
-					{
-						"value": "700",
-						"label": "Heavy"
-					}
-				],
-				"default": "400"
-			},
-			{
-				"type": "select",
-				"id": "navbar_font_family",
-				"label": "Font family",
-				"options": [
-					{
-						"value": "Roboto",
-						"label": "Roboto"
-					},
-					{
-						"value": "Open Sans",
-						"label": "Open Sans"
-					},
-					{
-						"value": "Lato",
-						"label": "Lato"
-					},
-					{
-						"value": "Oswald",
-						"label": "Oswald"
-					},
-					{
-						"value": "Raleway",
-						"label": "Raleway"
-					},
-					{
-						"value": "Montserrat",
-						"label": "Montserrat"
-					}
-				]
-			},
-			{
-				"type": "checkbox",
-				"id": "full_width",
-				"label": "Full width navbar",
-				"default": false
-			},
-			{
-				"type": "checkbox",
-				"id": "navbar_always_on_top",
-				"label": "Always on top",
-				"default": false
-			},
-			{
-				"type": "checkbox",
-				"id": "navbar_shadow",
-				"label": "Show navbar shadow",
-				"default": false
-			}
-		]
-	},
-	{
-		"label": "Main Slider",
-		"settings": [
-			{
-				"type": "range",
-				"id": "slider_arrows_size",
-				"min": 20,
-				"max": 55,
-				"step": 1,
-				"unit": "px",
-				"label": "Arrows Size",
-				"default": 37
-			},
-			{
-				"type": "range",
-				"id": "slider_arrows_content_size",
-				"min": 10,
-				"max": 30,
-				"step": 1,
-				"unit": "px",
-				"label": "Arrows Content Size",
-				"default": 14
-			},
-			{
-				"type": "color",
-				"id": "arrows_background_color",
-				"label": "Arrows Background Color",
-				"default": "#FFFFFF"
-			},
-			{
-				"type": "checkbox",
-				"id": "slider_image_size_cover",
-				"label": "Make image as cover",
-				"default": true
-			},
-			{
-				"type": "select",
-				"id": "slider_transition_type",
-				"label": "Transition type",
-				"options": [
-					{
-						"value": "slide",
-						"label": "Slide"
-					},
-					{
-						"value": "fade",
-						"label": "Fade"
-					},
-					{
-						"value": "loop",
-						"label": "Loop"
-					}
-				],
-				"default": "loop"
-			},
-			{
-				"type": "checkbox",
-				"id": "slider_autoplay",
-				"label": "Autoplay",
-				"default": true
-			},
-			{
-				"type": "checkbox",
-				"id": "slider_pause_on_hover",
-				"label": "Pause on hover",
-				"default": true
-			},
-			{
-				"type": "checkbox",
-				"id": "slider_pause_on_focus",
-				"label": "Pause on focus",
-				"default": true
-			},
-			{
-				"type": "checkbox",
-				"id": "slider_pagination",
-				"label": "Pagination",
-				"default": true
-			},
-			{
-				"type": "checkbox",
-				"id": "slider_arrows",
-				"label": "Arrows",
-				"default": true
-			}
-		]
-	},
-	{
-		"label": "Footer",
-		"settings": [
-			{
-				"type": "color",
-				"id": "footer_background_color",
-				"label": "Background Color"
-			},
-			{
-				"type": "color",
-				"id": "footer_text_color",
-				"label": "Text Color",
-				"default": "#fff"
-			},
-			{
-				"type": "color",
-				"id": "footer_copyright_background",
-				"label": "Copyright Background",
-				"default": "#0003"
-			}
-		]
-	},
-	{
-		"label": "Reviews",
-		"settings": [
-			{
-				"type": "range",
-				"id": "reviews_gap",
-				"label": "Gap between reviews",
-				"min": 0,
-				"max": 100,
-				"step": 1,
-				"unit": "px",
-				"default": 15
-			},
-			{
-				"type": "range",
-				"id": "reviews_items_per_row",
-				"label": "Reviews per row",
-				"min": 1,
-				"max": 4,
-				"step": 1,
-				"default": 3
-			},
-			{
-				"type": "range",
-				"id": "reviews_name_font_size",
-				"label": "Name font size",
-				"min": 10,
-				"max": 30,
-				"step": 1,
-				"unit": "px",
-				"default": 16
-			},
-			{
-				"type": "range",
-				"id": "reviews_content_font_size",
-				"label": "Content font size",
-				"min": 10,
-				"max": 30,
-				"step": 1,
-				"unit": "px",
-				"default": 14
-			}
-		]
-	}
+  {
+    "label": "General Settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "meta_title",
+        "label": "Title"
+      },
+      {
+        "type": "select",
+        "id": "theme_direction",
+        "label": "Theme direction",
+        "options": [
+          {
+            "value": "rtl",
+            "label": "Right to left"
+          },
+          {
+            "value": "ltr",
+            "label": "left to right"
+          }
+        ],
+        "default": "ltr"
+      },
+      {
+        "type": "text",
+        "id": "meta_description",
+        "label": "Meta description"
+      },
+      {
+        "type": "text",
+        "id": "meta_keywords",
+        "label": "Meta keywords"
+      },
+      {
+        "type": "image_picker",
+        "id": "og_image",
+        "label": "Meta Open Graph Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  },
+  {
+    "label": "Color Palette",
+    "settings": [
+      {
+        "type": "color",
+        "id": "primary_color",
+        "label": "Primary",
+        "default": "#aa2e66"
+      },
+      {
+        "type": "color",
+        "id": "success_color",
+        "label": "Success",
+        "default": "#4AB380"
+      },
+      {
+        "type": "color",
+        "id": "error_color",
+        "label": "Error",
+        "default": "#773740"
+      },
+      {
+        "type": "color",
+        "id": "warning_color",
+        "label": "Warning",
+        "default": "#F2962F"
+      },
+      {
+        "type": "color",
+        "id": "neutral_color",
+        "label": "Neutral",
+        "default": "#16191B"
+      },
+      {
+        "type": "color",
+        "id": "neutral_light_color",
+        "label": "Neutral Light",
+        "default": "#e3e3e3"
+      }
+    ]
+  },
+  {
+    "label": "Additional Styles",
+    "settings": [
+      {
+        "type": "select",
+        "id": "font_family",
+        "label": "Font family",
+        "options": [
+          {
+            "value": "Roboto",
+            "label": "Roboto"
+          },
+          {
+            "value": "Cairo",
+            "label": "Cairo"
+          },
+          {
+            "value": "Open Sans",
+            "label": "Open Sans"
+          },
+          {
+            "value": "Lato",
+            "label": "Lato"
+          },
+          {
+            "value": "Oswald",
+            "label": "Oswald"
+          },
+          {
+            "value": "Raleway",
+            "label": "Raleway"
+          },
+          {
+            "value": "Montserrat",
+            "label": "Montserrat"
+          }
+        ],
+        "default": "Roboto"
+      },
+      {
+        "type": "text",
+        "id": "transition",
+        "label": "Transition",
+        "default": "all 0.3s ease-in-out"
+      }
+    ]
+  },
+  {
+    "label": "Notice Bar",
+    "settings": [
+      {
+        "type": "text",
+        "id": "notice_bar_content",
+        "label": "Content",
+        "default": "Special offer: free delivery, pay on delivery, faster and order now"
+      },
+      {
+        "type": "range",
+        "id": "notice_bar_height",
+        "min": 20,
+        "max": 150,
+        "step": 1,
+        "unit": "px",
+        "label": "Height",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "notice_bar_content_font_size",
+        "min": 12,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size",
+        "default": 14
+      },
+      {
+        "type": "checkbox",
+        "id": "notice_bar_show",
+        "label": "Show",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "notice_bar_content_text_color",
+        "label": "Text color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "notice_bar_background_color",
+        "label": "Background color"
+      }
+    ]
+  },
+  {
+    "label": "Navbar",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "navbar_logo",
+        "label": "Logo"
+      },
+      {
+        "type": "range",
+        "id": "navbar_height",
+        "min": 20,
+        "max": 150,
+        "step": 1,
+        "unit": "px",
+        "label": "Height",
+        "default": 60
+      },
+      {
+        "type": "color",
+        "id": "navbar_background_color",
+        "label": "Background color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "navbar_links_color",
+        "label": "Items and links color"
+      },
+      {
+        "type": "color",
+        "id": "cart_badge_color",
+        "label": "Cart badge color"
+      },
+      {
+        "type": "range",
+        "id": "navbar_links_hover_transparency",
+        "min": 0,
+        "max": 1,
+        "step": 0.1,
+        "unit": "",
+        "label": "Links hover transparency",
+        "default": 0.8
+      },
+      {
+        "type": "select",
+        "id": "navbar_links_font_weight",
+        "label": "Links font weight",
+        "options": [
+          {
+            "value": "300",
+            "label": "Light"
+          },
+          {
+            "value": "400",
+            "label": "Normal"
+          },
+          {
+            "value": "500",
+            "label": "Bold"
+          },
+          {
+            "value": "700",
+            "label": "Heavy"
+          }
+        ],
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "navbar_font_family",
+        "label": "Font family",
+        "options": [
+          {
+            "value": "Roboto",
+            "label": "Roboto"
+          },
+          {
+            "value": "Open Sans",
+            "label": "Open Sans"
+          },
+          {
+            "value": "Lato",
+            "label": "Lato"
+          },
+          {
+            "value": "Oswald",
+            "label": "Oswald"
+          },
+          {
+            "value": "Raleway",
+            "label": "Raleway"
+          },
+          {
+            "value": "Montserrat",
+            "label": "Montserrat"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Full width navbar",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "navbar_always_on_top",
+        "label": "Always on top",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "navbar_shadow",
+        "label": "Show navbar shadow",
+        "default": false
+      }
+    ]
+  },
+  {
+    "label": "Main Slider",
+    "settings": [
+      {
+        "type": "range",
+        "id": "slider_arrows_size",
+        "min": 20,
+        "max": 55,
+        "step": 1,
+        "unit": "px",
+        "label": "Arrows Size",
+        "default": 37
+      },
+      {
+        "type": "range",
+        "id": "slider_arrows_content_size",
+        "min": 10,
+        "max": 30,
+        "step": 1,
+        "unit": "px",
+        "label": "Arrows Content Size",
+        "default": 14
+      },
+      {
+        "type": "color",
+        "id": "arrows_background_color",
+        "label": "Arrows Background Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "checkbox",
+        "id": "slider_image_size_cover",
+        "label": "Make image as cover",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "slider_transition_type",
+        "label": "Transition type",
+        "options": [
+          {
+            "value": "slide",
+            "label": "Slide"
+          },
+          {
+            "value": "fade",
+            "label": "Fade"
+          },
+          {
+            "value": "loop",
+            "label": "Loop"
+          }
+        ],
+        "default": "loop"
+      },
+      {
+        "type": "checkbox",
+        "id": "slider_autoplay",
+        "label": "Autoplay",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "slider_pause_on_hover",
+        "label": "Pause on hover",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "slider_pause_on_focus",
+        "label": "Pause on focus",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "slider_pagination",
+        "label": "Pagination",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "slider_arrows",
+        "label": "Arrows",
+        "default": true
+      }
+    ]
+  },
+  {
+    "label": "Footer",
+    "settings": [
+      {
+        "type": "color",
+        "id": "footer_background_color",
+        "label": "Background Color"
+      },
+      {
+        "type": "color",
+        "id": "footer_text_color",
+        "label": "Text Color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "footer_copyright_background",
+        "label": "Copyright Background",
+        "default": "#0003"
+      }
+    ]
+  },
+  {
+    "label": "Reviews",
+    "settings": [
+      {
+        "type": "range",
+        "id": "reviews_gap",
+        "label": "Gap between reviews",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "default": 15
+      },
+      {
+        "type": "range",
+        "id": "reviews_items_per_row",
+        "label": "Reviews per row",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "reviews_name_font_size",
+        "label": "Name font size",
+        "min": 10,
+        "max": 30,
+        "step": 1,
+        "unit": "px",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "reviews_content_font_size",
+        "label": "Content font size",
+        "min": 10,
+        "max": 30,
+        "step": 1,
+        "unit": "px",
+        "default": 14
+      }
+    ]
+  }
 ]
