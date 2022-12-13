@@ -1,11 +1,27 @@
 [
 	{
-		"label": "Metadata and SEO",
+		"label": "General Settings",
 		"settings": [
 			{
 				"type": "text",
 				"id": "meta_title",
 				"label": "Title"
+			},
+			{
+				"type": "select",
+				"id": "theme_direction",
+				"label": "Theme direction",
+				"options": [
+					{
+						"value": "rtl",
+						"label": "Right to left"
+					},
+					{
+						"value": "ltr",
+						"label": "left to right"
+					}
+				],
+				"default": "ltr"
 			},
 			{
 				"type": "text",
@@ -81,6 +97,10 @@
 					{
 						"value": "Roboto",
 						"label": "Roboto"
+					},
+					{
+						"value": "Cairo",
+						"label": "Cairo"
 					},
 					{
 						"value": "Open Sans",

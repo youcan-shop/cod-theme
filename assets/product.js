@@ -1,5 +1,6 @@
 function previewProductImage(element) {
   const thumbnail = document.querySelector('#main-image')
+
   thumbnail.src = element.src
   setElementActive(element)
 }
@@ -72,6 +73,7 @@ let zoomer = function() {
 
 function setElementActive(element) {
   const siblings = element.parentNode.children
+
   for (let i = 0; i < siblings.length; i++) {
     siblings[i].classList.remove('active')
   }
@@ -80,6 +82,7 @@ function setElementActive(element) {
 
 function selectDefaultOptions() {
   const options = document.querySelectorAll('.product-options > div')
+
   if (!options) return null;
   options.forEach((option) => {
     const optionName = option.id.split('-')[1]
@@ -105,10 +108,14 @@ function selectDefaultOptions() {
         break
     }
   })
+
+  const selectedVariant = getSelectedVariant();
+  setDefaultVariant(selectedVariant.id)
 }
 
 function getSelectedOptions() {
   const options = document.querySelectorAll('.product-options > div')
+
   if (!options) return null;
 		const selectedOptions = {}
 		options.forEach((option) => {
@@ -141,6 +148,7 @@ function getSelectedOptions() {
 
 function getSelectedVariant() {
   const selectedOptions = getSelectedOptions()
+
   return variants.find((variant) => {
     if(JSON.stringify(variant.variations) === JSON.stringify(selectedOptions)) {
       return variant.id
@@ -149,16 +157,44 @@ function getSelectedVariant() {
   })
 }
 
+function setDefaultVariant(id) {
+  const variantIdInput = document.querySelector('#variantId')
+
+  variantIdInput.value = id
+}
+
+function updateProductDetails(image, price) {
+  if (image) {
+    const mainImg = document.querySelector('#main-image');
+
+    if (!mainImg) return;
+
+    mainImg.src = image;
+  }
+  
+  if (price) {
+    const productPrice = document.querySelector('.product-price');
+
+    if (!productPrice) return
+    
+    productPrice.innerHTML = `${String(productPrice.innerHTML).split(' ')[0]} ${price}`
+  }
+}
+
 const productDetails = document.querySelector('.product-options')
 
 if (productDetails) {
   const observer = new MutationObserver(() => {
     const selectedVariant = getSelectedVariant()
     const variantIdInput = document.querySelector('#variantId')
+
     variantIdInput.value = selectedVariant.id
+
+    updateProductDetails(selectedVariant.image, selectedVariant.price)
   })
     
   observer.observe(productDetails, { attributes: true, childList: true, subtree: true })
 }
+
 
 selectDefaultOptions()

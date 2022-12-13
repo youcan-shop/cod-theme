@@ -1,6 +1,6 @@
 async function addToCart() {
   const variantId = document.getElementById('variantId')?.value
-  const quantity = document.getElementById('quantity')?.value
+  const quantity = document.getElementById('quantity')?.value || 1
   const uploadedImageLink = document.querySelector('#yc-upload-link')?.value;
 
   if (!variantId)

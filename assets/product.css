@@ -106,14 +106,15 @@
   width: 100%;
 }
 .yc-product-card .product-details .product-name {
-  font-size: 18pt;
-  font-weight: 500;
-  margin-bottom: 15px;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 25px;
 }
 .yc-product-card .product-details .product-price {
-  font-size: 16pt;
-  font-weight: 500;
+  font-size: 26px;
+  font-weight: 600;
   color: var(--yc-primary-color);
+  line-height: 24px;
 }
 .yc-product-card .product-details .product-options .product-option {
   margin-bottom: 20px;
