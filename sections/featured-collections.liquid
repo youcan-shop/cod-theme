@@ -4,8 +4,12 @@
   <h1 class='yc-section-title'>{{ section.settings.title }}</h1>
   <div class='product-list'>
     {%- for block in section.blocks -%}
-      {{block.settings.cateory.name }}
-      <a href='/collections/{{ block.settings.category.slug }}' class='product-block' {{ block.youcan_attributes }}>
+      {{ block.settings.cateory.name }}
+      <a
+        href='/collections/{{ block.settings.category.slug }}'
+        class='product-block'
+        {{ block.youcan_attributes }}
+      >
         <div class='product-thumbnail'>
           {% if block.settings.category.image %}
             <img src='{{ block.settings.category.image }}'>
@@ -23,29 +27,29 @@
 </div>
 
 {%- schema -%}
-  {
-    "label": "Featured collections",
-    "settings": [
-      {
-        "type": "text",
-        "id": "title",
-        "label": "Title",
-        "default": "Featured collections"
-      }
-    ],
-    "blocks": [
-      {
-        "label": "Category",
-        "limit": 4,
-        "type": "category",
-        "settings": [
-          {
-            "type": "category",
-            "id": "category",
-            "label": "Category"
-          }
-        ]
-      }
-    ]
-  }
+{
+  "label": "Featured collections",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Featured collections"
+    }
+  ],
+  "blocks": [
+    {
+      "label": "Category",
+      "limit": 4,
+      "type": "category",
+      "settings": [
+        {
+          "type": "category",
+          "id": "category",
+          "label": "Category"
+        }
+      ]
+    }
+  ]
+}
 {%- endschema -%}
