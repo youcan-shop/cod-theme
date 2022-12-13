@@ -30,8 +30,16 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.yc-header .yc-navbar .corner {
+.yc-header .yc-navbar :first-child {
+  justify-self: start;
+}
+.yc-header .yc-navbar :nth-child(2) {
+  justify-self: center;
+}
+.yc-header .yc-navbar :last-child {
   justify-self: end;
+}
+.yc-header .yc-navbar .corner {
   display: flex;
   align-items: center;
   gap: 1rem;
