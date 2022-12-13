@@ -11,7 +11,8 @@
     "navbar_links_color": "#FFFFFFFF",
     "navbar_height": 85,
     "notice_bar_content_text_color": "#000000FF",
-    "notice_bar_background_color": "#FFFFFFFF"
+    "notice_bar_background_color": "#FFFFFFFF",
+    "navbar_always_on_top": false
   },
   "presets": {
     "Default": {}

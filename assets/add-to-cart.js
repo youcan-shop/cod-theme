@@ -1,7 +1,7 @@
 async function addToCart() {
-  const variantId = document.getElementById('variantId')?.value;
+  const variantId = document.getElementById('variantId')?.value || undefined;
   const quantity = document.getElementById('quantity')?.value || 1;
-  const uploadedImageLink = document.querySelector('#yc-upload-link')?.value;
+  const uploadedImageLink = document.querySelector('#yc-upload-link')?.value || undefined;
 
   try {
     load('#loading__checkout');

@@ -124,7 +124,23 @@
         }
       },
       "order": ["block_4krxs1lw6x0kt3s", "block_ddtgqqbcghdz47", "block_e7krv81hwb411pr", "block_qg71lcaxpl005sd"]
+    },
+    "section_jfvxt8ulluc73yd": {
+      "type": "feature-products-by-category",
+      "settings": {
+        "category": "f0d2099e-5031-435c-8d39-e967270d2cb1",
+        "number_of_products": 8,
+        "show_compare_at_price": true
+      }
     }
   },
-  "order": ["main-video", "notice-bar", "main-navbar", "main-slider", "featured-products", "footer"]
+  "order": [
+    "main-video",
+    "notice-bar",
+    "main-navbar",
+    "main-slider",
+    "section_jfvxt8ulluc73yd",
+    "featured-products",
+    "footer"
+  ]
 }
