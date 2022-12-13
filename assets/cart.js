@@ -28,7 +28,7 @@ const promo = document.forms['promo']
 		increase.querySelector('button').setAttribute('onclick', `increaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) + 1}')`)
 	}
 
-	async function updateQuantiry(cartItemId, productVariantId, quantity) {
+	async function updateQuantity(cartItemId, productVariantId, quantity) {
 		load(`#loading__${cartItemId}`)
 		try {
 			await youcanjs.cart.updateItem({ cartItemId, productVariantId, quantity })
@@ -46,7 +46,7 @@ const promo = document.forms['promo']
 		const input = inputHolder.querySelector(`input[id="${productVariantId}"]`)
 		const quantity = input.value
 
-		await updateQuantiry(cartItemId, productVariantId, quantity)
+		await updateQuantity(cartItemId, productVariantId, quantity)
 		updateDOM(cartItemId, productVariantId, quantity)
 	}
 
@@ -54,11 +54,11 @@ const promo = document.forms['promo']
 		if (quantity < 1) {
 			return
 		}
-		await updateQuantiry(cartItemId, productVariantId, quantity)
+		await updateQuantity(cartItemId, productVariantId, quantity)
 	}
 
 	async function increaseQuantity(cartItemId, productVariantId, quantity) {
-		await updateQuantiry(cartItemId, productVariantId, quantity)
+		await updateQuantity(cartItemId, productVariantId, quantity)
 	}
 
 	async function removeItem(cartItemId, productVariantId) {
@@ -67,17 +67,17 @@ const promo = document.forms['promo']
 			await youcanjs.cart.removeItem({ cartItemId, productVariantId })
 			document.getElementById(cartItemId).remove()
 
-			const cartItemsPadge = document.getElementById('cart-items-padge')
+			const cartItemsBadge = document.getElementById('cart-items-badge')
 
 			const cartItems = document.querySelectorAll('.cart__item')
 
-			if (cartItemsPadge) {
-				cartItemsPadge.innerText = parseInt(cartItemsPadge.innerText) + 1
+			if (cartItemsBadge) {
+				cartItemsBadge.innerText = parseInt(cartItemsBadge.innerText) + 1
 			}
 
 			if (cartItems.length === 0) {
-				if (cartItemsPadge) {
-					cartItemsPadge.innerText = 0
+				if (cartItemsBadge) {
+					cartItemsBadge.innerText = 0
 				}
 				document.querySelector('.cart-table').remove()
 				document.querySelector('.empty-cart').classList.remove('hidden')
@@ -89,3 +89,27 @@ const promo = document.forms['promo']
 			stopLoad(`#loading__${cartItemId}`)
 		}
 	}
+
+function moveQuantityWrapper() {
+	const quantityWrapper = document.querySelector('.quantity-wrapper')
+	const quantityOnDesktop = document.querySelector('.quantity-on-desktop')
+	const quantityOnMobile = document.querySelector('.quantity-on-mobile')
+
+	if (window.innerWidth > 768) {
+		quantityOnDesktop.appendChild(quantityWrapper)
+
+		if (quantityOnMobile.contains(quantityWrapper)) {
+			quantityOnMobile.removeChild(quantityWrapper)
+		}
+	}
+	if (window.innerWidth < 768) {
+		quantityOnMobile.appendChild(quantityWrapper)
+
+		if (quantityOnDesktop.contains(quantityWrapper)) {
+			quantityOnDesktop.removeChild(quantityWrapper)
+		}
+	}
+}
+
+moveQuantityWrapper()
+window.addEventListener('resize', moveQuantityWrapper)

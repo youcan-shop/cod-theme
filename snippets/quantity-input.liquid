@@ -1,0 +1,9 @@
+<div class='quantity-wrapper'>
+  <div class='decrease'>
+    <button onclick="decreaseQuantity('{{ item.id }}', '{{ item.product_variant_id }}', '{{ item.quantity | minus: 1 }}')">-</button>
+  </div>
+  <input onchange="updateOnchange('{{ item.id }}', '{{ item.product_variant_id }}')" type='text' value='{{ item.quantity }}' id='{{ item.product_variant_id }}'>
+  <div class='increase'>
+    <button onclick="increaseQuantity('{{ item.id }}', '{{ item.product_variant_id }}', '{{ item.quantity | plus: 1 }}')">+</button>
+  </div>
+</div>

@@ -20,7 +20,7 @@ async function addToCart() {
 
     if (response.error) throw new Error(response.error)
 
-    const cart = document.querySelector('#cart-items-padge')
+    const cart = document.querySelector('#cart-items-badge')
 
     if (cart) {
       let cartBadgeBudge = Number(cart.innerHTML)

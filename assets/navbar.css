@@ -53,7 +53,7 @@
 .yc-header .yc-navbar .corner .cart {
   font-size: 1.5rem;
 }
-.yc-header .yc-navbar .corner .cart #cart-items-padge {
+.yc-header .yc-navbar .corner .cart #cart-items-badge {
   display: flex;
   position: absolute;
   top: 0;
