@@ -3,10 +3,6 @@ async function addToCart() {
   const quantity = document.getElementById('quantity')?.value || 1;
   const uploadedImageLink = document.querySelector('#yc-upload-link')?.value;
 
-  if (!variantId) return notify('Please select a variant', 'error');
-
-  if (!quantity) return notify('Please select a quantity', 'error');
-
   try {
     load('#loading__checkout');
 

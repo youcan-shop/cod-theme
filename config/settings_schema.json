@@ -137,7 +137,7 @@
     "label": "Notice Bar",
     "settings": [
       {
-        "type": "text",
+        "type": "richtext",
         "id": "notice_bar_content",
         "label": "Content",
         "default": "Special offer: free delivery, pay on delivery, faster and order now"
@@ -220,10 +220,10 @@
         "id": "navbar_links_hover_transparency",
         "min": 0,
         "max": 1,
-        "step": 0.1,
+        "step": 0.10000000000000001,
         "unit": "",
         "label": "Links hover transparency",
-        "default": 0.8
+        "default": 0.80000000000000004
       },
       {
         "type": "select",

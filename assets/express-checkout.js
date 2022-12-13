@@ -1,7 +1,7 @@
 document.getElementById('express-checkout-form').addEventListener('submit', async function (e) {
   e.preventDefault();
 
-  const fields = Object.fromEntries(new FormData(e.target));
+  let fields = Object.fromEntries(new FormData(e.target));
 
   load('#loading__checkout');
   try {

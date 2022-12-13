@@ -11,6 +11,7 @@ body {
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 .container {
