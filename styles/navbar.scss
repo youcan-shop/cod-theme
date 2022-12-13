@@ -36,22 +36,22 @@
       grid-template-columns: repeat(3, 1fr);
     }
 
-		:first-child {
-			justify-self: start;
-		}
+    :first-child {
+      justify-self: start;
+    }
 
-		:nth-child(2) {
-			justify-self: center;
-		}
+    :nth-child(2) {
+      justify-self: center;
+    }
 
-		:last-child {
-			justify-self: end;
-		}
+    :last-child {
+      justify-self: end;
+    }
 
-		.corner {
-			display: flex;
-			align-items: center;
-			gap: 1rem;
+    .corner {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
 
       & > * {
         display: flex;

@@ -88,6 +88,7 @@
   max-height: 40px;
 }
 .yc-header .yc-navbar .menu {
+  justify-self: center;
   display: none;
 }
 @media (min-width: 768px) {
