@@ -104,6 +104,7 @@
 }
 .yc-product-card .product-details {
   width: 100%;
+  max-width: 90vw;
 }
 .yc-product-card .product-details .product-name {
   font-size: 25px;

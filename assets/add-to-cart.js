@@ -1,11 +1,7 @@
 async function addToCart() {
-  const variantId = document.getElementById('variantId')?.value;
+  const variantId = document.getElementById('variantId')?.value || undefined;
   const quantity = document.getElementById('quantity')?.value || 1;
-  const uploadedImageLink = document.querySelector('#yc-upload-link')?.value;
-
-  if (!variantId) return notify('Please select a variant', 'error');
-
-  if (!quantity) return notify('Please select a quantity', 'error');
+  const uploadedImageLink = document.querySelector('#yc-upload-link')?.value || undefined;
 
   try {
     load('#loading__checkout');

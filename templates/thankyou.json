@@ -3,7 +3,22 @@
   "layout": "theme",
   "sections": {
     "navbar": {
-      "type": "main-navbar"
+      "type": "main-navbar",
+      "blocks": {
+        "block_hqol2w10n9uxn5m": {
+          "type": "logo",
+          "settings": {}
+        },
+        "block_hrpyc3qy1lo94jb": {
+          "type": "menu",
+          "settings": {}
+        },
+        "block_hsu6o77j726jvy": {
+          "type": "search_and_cart",
+          "settings": {}
+        }
+      },
+      "order": ["block_hqol2w10n9uxn5m", "block_hrpyc3qy1lo94jb", "block_hsu6o77j726jvy"]
     },
     "thankyou": {
       "type": "thankyou"

@@ -3,15 +3,31 @@
     "main-video": {
       "type": "main-video",
       "settings": {
-        "video_type": "facebook",
-        "video_height": 700
+        "video_type": "youtube",
+        "video_height": 700,
+        "video_link": "https://www.youtube.com/watch?v=9-Xvthp9l-8"
       }
     },
     "notice-bar": {
       "type": "notice-bar"
     },
     "main-navbar": {
-      "type": "main-navbar"
+      "type": "main-navbar",
+      "blocks": {
+        "block_a7t3crrx5pwftk9": {
+          "type": "logo",
+          "settings": {}
+        },
+        "block_a91xtc0po9f5de": {
+          "type": "menu",
+          "settings": {}
+        },
+        "block_aacoyo7xg6v7e3": {
+          "type": "search_and_cart",
+          "settings": {}
+        }
+      },
+      "order": ["block_a7t3crrx5pwftk9", "block_a91xtc0po9f5de", "block_aacoyo7xg6v7e3"]
     },
     "main-slider": {
       "type": "main-slider",
@@ -19,7 +35,7 @@
         "block_qcb3t3xjlvov0i": {
           "type": "image_picker",
           "settings": {
-            "image": "slide-2-2HcbdP3hGgA7FwWvn21AO5pGODx.jpg",
+            "image": "MWqUHBiFQEE6LuUXNgBrFNA0JFIfIwOZtUO3sv4U-2Iqyya8lN0b70DOA9hN9MmtCfBb.jpeg",
             "caption": "<h1>Title here</h1><p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>",
             "button_text": "Get it now!",
             "product": "4595a663-91cf-48a1-bf9b-424fcd98d026"
@@ -54,9 +70,18 @@
           "settings": {
             "product": "7802ca53-bdbc-4c6f-a2f5-302adee4427d"
           }
+        },
+        "block_angxjuj3umg4k6": {
+          "type": "product",
+          "settings": {
+            "product": "5f865c86-c8dc-48b6-8bcb-2525bc762430"
+          }
         }
       },
-      "order": ["block_bxuox7w3hcfbikm", "block_bz1pi3lyquyby7q", "block_c06w7csmaq4ga7o"]
+      "order": ["block_bxuox7w3hcfbikm", "block_bz1pi3lyquyby7q", "block_c06w7csmaq4ga7o", "block_angxjuj3umg4k6"],
+      "settings": {
+        "title": "\u0645\u0646\u062a\u062c\u0627\u062a"
+      }
     },
     "footer": {
       "type": "main-footer",
@@ -102,5 +127,5 @@
       "order": ["block_4krxs1lw6x0kt3s", "block_ddtgqqbcghdz47", "block_e7krv81hwb411pr", "block_qg71lcaxpl005sd"]
     }
   },
-  "order": ["main-video", "notice-bar", "main-navbar", "main-slider", "featured-products", "footer"]
+  "order": ["notice-bar", "main-navbar", "main-slider", "featured-products", "main-video", "footer"]
 }

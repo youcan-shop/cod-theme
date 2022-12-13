@@ -1,6 +1,18 @@
 {
   "current": {
-    "font_family": "Open Sans"
+    "font_family": "Cairo",
+    "theme_direction": "rtl",
+    "notice_bar_content": "\u0627\u0644\u0634\u062d\u0646 \u0645\u062c\u0627\u0646\u0649 \u0644\u0627\u0649 \u0645\u0643\u0627\u0646 \u0641\u0649 \u0645\u0635\u0631",
+    "notice_bar_content_font_size": 16,
+    "notice_bar_height": 70,
+    "primary_color": "#030303FF",
+    "navbar_logo": "xkQ9K8c7A4PKLqgcZlsMC5zcCwMxDl4B46DJhudA-2IqyMhNuxyIpY6fTgnIwkOhpR7T.png",
+    "navbar_background_color": "#000000FF",
+    "navbar_links_color": "#FFFFFFFF",
+    "navbar_height": 85,
+    "notice_bar_content_text_color": "#000000FF",
+    "notice_bar_background_color": "#FFFFFFFF",
+    "navbar_always_on_top": false
   },
   "presets": {
     "Default": {}
