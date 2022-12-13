@@ -3,8 +3,9 @@
     "main-video": {
       "type": "main-video",
       "settings": {
-        "video_type": "facebook",
-        "video_height": 700
+        "video_type": "youtube",
+        "video_height": 700,
+        "video_link": "https://www.youtube.com/watch?v=9-Xvthp9l-8"
       }
     },
     "notice-bar": {
@@ -124,23 +125,7 @@
         }
       },
       "order": ["block_4krxs1lw6x0kt3s", "block_ddtgqqbcghdz47", "block_e7krv81hwb411pr", "block_qg71lcaxpl005sd"]
-    },
-    "section_jfvxt8ulluc73yd": {
-      "type": "feature-products-by-category",
-      "settings": {
-        "category": "f0d2099e-5031-435c-8d39-e967270d2cb1",
-        "number_of_products": 8,
-        "show_compare_at_price": true
-      }
     }
   },
-  "order": [
-    "main-video",
-    "notice-bar",
-    "main-navbar",
-    "main-slider",
-    "section_jfvxt8ulluc73yd",
-    "featured-products",
-    "footer"
-  ]
+  "order": ["notice-bar", "main-navbar", "main-slider", "featured-products", "main-video", "footer"]
 }
