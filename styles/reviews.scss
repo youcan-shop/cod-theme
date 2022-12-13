@@ -1,39 +1,39 @@
 @import 'helpers/mixins';
 
 .yc-product-reviews {
-	.yc-reviews-wrapper {
-		display: grid;
-		gap: var(--yc-reviews-gap);
-		grid-template-columns: 1fr;
-		margin: 0 auto 2rem;
+  .yc-reviews-wrapper {
+    display: grid;
+    gap: var(--yc-reviews-gap);
+    grid-template-columns: 1fr;
+    margin: 0 auto 2rem;
 
-		@include breakpoint('md') {
-			grid-template-columns: repeat(var(--yc-reviews-items_per_row), 1fr);
-		}
+    @include breakpoint('md') {
+      grid-template-columns: repeat(var(--yc-reviews-items_per_row), 1fr);
+    }
 
-		.review-item {
-			.header {
-				.image {
-					aspect-ratio: 1/1;
-					width: 100%;
-					object-fit: cover;
-				}
+    .review-item {
+      .header {
+        .image {
+          aspect-ratio: 1/1;
+          width: 100%;
+          object-fit: cover;
+        }
 
-				.name {
-					text-align: center;
-					font-size: var(--yc-reviews-name-font-size);
-					margin: 11px auto;
-				}
-			}
+        .name {
+          text-align: center;
+          font-size: var(--yc-reviews-name-font-size);
+          margin: 11px auto;
+        }
+      }
 
-			.content {
-				text-align: center;
-				font-size: var(--yc-reviews-content-font-size);
-			}
-		}
+      .content {
+        text-align: center;
+        font-size: var(--yc-reviews-content-font-size);
+      }
+    }
 
-		.review-item__empty {
-			margin: auto;
-		}
-	}
+    .review-item__empty {
+      margin: auto;
+    }
+  }
 }

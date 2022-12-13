@@ -1,21 +1,21 @@
 @import 'helpers/mixins';
 
 .is_sticky {
-	border-top: 1px solid #e3e3e3;
-	background: white;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 20px;
-	z-index: 999;
+  border-top: 1px solid #e3e3e3;
+  background: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 999;
 
-	button {
-		@include breakpoint('md') {
-			max-width: 400px;
-		}
-	}
+  button {
+    @include breakpoint('md') {
+      max-width: 400px;
+    }
+  }
 }

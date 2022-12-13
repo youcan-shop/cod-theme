@@ -1,202 +1,202 @@
 function previewProductImage(element) {
-	const thumbnail = document.querySelector('#main-image');
+  const thumbnail = document.querySelector('#main-image');
 
-	thumbnail.src = element.src;
-	setElementActive(element);
+  thumbnail.src = element.src;
+  setElementActive(element);
 }
 
 function uploadImage() {
-	const uploadInput = document.querySelector('#yc-upload');
-	let uploadedImageLink = document.querySelector('#yc-upload-link');
+  const uploadInput = document.querySelector('#yc-upload');
+  let uploadedImageLink = document.querySelector('#yc-upload-link');
 
-	uploadInput.click();
+  uploadInput.click();
 
-	uploadInput.addEventListener('change', async function () {
-		if (this.files && this.files[0]) {
-			const reader = new FileReader();
-			reader.readAsDataURL(this.files[0]);
+  uploadInput.addEventListener('change', async function () {
+    if (this.files && this.files[0]) {
+      const reader = new FileReader();
+      reader.readAsDataURL(this.files[0]);
 
-			reader.onload = function () {
-				const base64 = reader.result;
+      reader.onload = function () {
+        const base64 = reader.result;
 
-				const previews = document.querySelectorAll('.yc-upload-preview img');
-				previews.forEach((preview) => {
-					preview.remove();
-				});
+        const previews = document.querySelectorAll('.yc-upload-preview img');
+        previews.forEach((preview) => {
+          preview.remove();
+        });
 
-				const uploadArea = document.querySelector('.yc-upload');
-				uploadArea.style.display = 'none';
+        const uploadArea = document.querySelector('.yc-upload');
+        uploadArea.style.display = 'none';
 
-				const preview = document.createElement('img');
-				preview.src = base64;
+        const preview = document.createElement('img');
+        preview.src = base64;
 
-				preview.addEventListener('click', function () {
-					uploadArea.style.display = 'flex';
-					uploadInput.value = '';
-					preview.remove();
-				});
-				document.querySelector('.yc-upload-preview').appendChild(preview);
-			};
+        preview.addEventListener('click', function () {
+          uploadArea.style.display = 'flex';
+          uploadInput.value = '';
+          preview.remove();
+        });
+        document.querySelector('.yc-upload-preview').appendChild(preview);
+      };
 
-			const res = await youcanjs.product.upload(this.files[0]);
-			if (res.error) return notify(res.error, 'error');
+      const res = await youcanjs.product.upload(this.files[0]);
+      if (res.error) return notify(res.error, 'error');
 
-			uploadedImageLink.value = res.link;
-		}
-	});
+      uploadedImageLink.value = res.link;
+    }
+  });
 }
 
 let zoomer = (function () {
-	const imgZoomer = document.querySelector('#img-zoomer-box');
+  const imgZoomer = document.querySelector('#img-zoomer-box');
 
-	if (imgZoomer) {
-		imgZoomer.addEventListener(
-			'mousemove',
-			function (e) {
-				let original = document.querySelector('#main-image'),
-					magnified = document.querySelector('#magnified-image'),
-					style = magnified.style,
-					x = e.pageX - this.offsetLeft,
-					y = e.pageY - this.offsetTop,
-					imgWidth = original.offsetWidth,
-					imgHeight = original.offsetHeight,
-					xperc = (x / imgWidth) * 100 - 10,
-					yperc = (y / imgHeight) * 100 - 10;
+  if (imgZoomer) {
+    imgZoomer.addEventListener(
+      'mousemove',
+      function (e) {
+        let original = document.querySelector('#main-image'),
+          magnified = document.querySelector('#magnified-image'),
+          style = magnified.style,
+          x = e.pageX - this.offsetLeft,
+          y = e.pageY - this.offsetTop,
+          imgWidth = original.offsetWidth,
+          imgHeight = original.offsetHeight,
+          xperc = (x / imgWidth) * 100 - 10,
+          yperc = (y / imgHeight) * 100 - 10;
 
-				style.backgroundPositionX = xperc + '%';
-				style.backgroundPositionY = yperc + '%';
-				style.inset = 0 + 'px';
+        style.backgroundPositionX = xperc + '%';
+        style.backgroundPositionY = yperc + '%';
+        style.inset = 0 + 'px';
 
-				style.backgroundImage = 'url(' + original.src + ')';
-			},
-			false
-		);
-	}
+        style.backgroundImage = 'url(' + original.src + ')';
+      },
+      false,
+    );
+  }
 })();
 
 function setElementActive(element) {
-	const siblings = element.parentNode.children;
+  const siblings = element.parentNode.children;
 
-	for (let i = 0; i < siblings.length; i++) {
-		siblings[i].classList.remove('active');
-	}
-	element.classList.add('active');
+  for (let i = 0; i < siblings.length; i++) {
+    siblings[i].classList.remove('active');
+  }
+  element.classList.add('active');
 }
 
 function selectDefaultOptions() {
-	const options = document.querySelectorAll('.product-options > div');
+  const options = document.querySelectorAll('.product-options > div');
 
-	if (!options) return null;
-	options.forEach((option) => {
-		const optionName = option.id.split('-')[1];
-		const optionType = option.id.split('-')[2];
-		switch (optionType) {
-			case 'dropdown':
-				option.querySelector('select').value = option.querySelector('select').options[0].value;
-				break;
-			case 'textual_buttons':
-				option.querySelector('.yc-options-item').classList.add('active');
-				break;
-			case 'radio_buttons':
-				option.querySelector('input').checked = true;
-				break;
-			case 'image_based_buttons':
-				option.querySelector('.yc-image-options-item').classList.add('active');
-				break;
-			case 'upload_image_zone':
-				document.querySelector('#yc-upload').value = '';
-				break;
-			case 'color_base_buttons':
-				option.querySelector('.color-item').classList.add('active');
-				break;
-		}
-	});
+  if (!options) return null;
+  options.forEach((option) => {
+    const optionName = option.id.split('-')[1];
+    const optionType = option.id.split('-')[2];
+    switch (optionType) {
+      case 'dropdown':
+        option.querySelector('select').value = option.querySelector('select').options[0].value;
+        break;
+      case 'textual_buttons':
+        option.querySelector('.yc-options-item').classList.add('active');
+        break;
+      case 'radio_buttons':
+        option.querySelector('input').checked = true;
+        break;
+      case 'image_based_buttons':
+        option.querySelector('.yc-image-options-item').classList.add('active');
+        break;
+      case 'upload_image_zone':
+        document.querySelector('#yc-upload').value = '';
+        break;
+      case 'color_base_buttons':
+        option.querySelector('.color-item').classList.add('active');
+        break;
+    }
+  });
 
-	const selectedVariant = getSelectedVariant();
-	setDefaultVariant(selectedVariant.id);
+  const selectedVariant = getSelectedVariant();
+  setDefaultVariant(selectedVariant.id);
 }
 
 function getSelectedOptions() {
-	const options = document.querySelectorAll('.product-options > div');
+  const options = document.querySelectorAll('.product-options > div');
 
-	if (!options) return null;
-	const selectedOptions = {};
-	options.forEach((option) => {
-		const optionName = option.id.split('-')[1];
-		const optionType = option.id.split('-')[2];
+  if (!options) return null;
+  const selectedOptions = {};
+  options.forEach((option) => {
+    const optionName = option.id.split('-')[1];
+    const optionType = option.id.split('-')[2];
 
-		switch (optionType) {
-			case 'dropdown':
-				selectedOptions[optionName] = option.querySelector('select')?.value;
-				break;
-			case 'textual_buttons':
-				selectedOptions[optionName] = option.querySelector('.yc-options-item.active')?.innerText;
-				break;
-			case 'radio_buttons':
-				selectedOptions[optionName] = option.querySelector('input:checked')?.value;
-				break;
-			case 'image_based_buttons':
-				selectedOptions[optionName] = option.querySelector('.yc-image-options-item.active img')?.alt;
-				break;
-			case 'upload_image_zone':
-				selectedOptions[optionName] = 'upload-zone';
-				break;
-			case 'color_base_buttons':
-				selectedOptions[optionName] = option.querySelector('.color-item.active')?.innerText;
-				break;
-		}
-	});
-	return selectedOptions;
+    switch (optionType) {
+      case 'dropdown':
+        selectedOptions[optionName] = option.querySelector('select')?.value;
+        break;
+      case 'textual_buttons':
+        selectedOptions[optionName] = option.querySelector('.yc-options-item.active')?.innerText;
+        break;
+      case 'radio_buttons':
+        selectedOptions[optionName] = option.querySelector('input:checked')?.value;
+        break;
+      case 'image_based_buttons':
+        selectedOptions[optionName] = option.querySelector('.yc-image-options-item.active img')?.alt;
+        break;
+      case 'upload_image_zone':
+        selectedOptions[optionName] = 'upload-zone';
+        break;
+      case 'color_base_buttons':
+        selectedOptions[optionName] = option.querySelector('.color-item.active')?.innerText;
+        break;
+    }
+  });
+  return selectedOptions;
 }
 
 function getSelectedVariant() {
-	const selectedOptions = getSelectedOptions();
+  const selectedOptions = getSelectedOptions();
 
-	return variants.find((variant) => {
-		if (JSON.stringify(variant.variations) === JSON.stringify(selectedOptions)) {
-			return variant.id;
-		}
-		return null;
-	});
+  return variants.find((variant) => {
+    if (JSON.stringify(variant.variations) === JSON.stringify(selectedOptions)) {
+      return variant.id;
+    }
+    return null;
+  });
 }
 
 function setDefaultVariant(id) {
-	const variantIdInput = document.querySelector('#variantId');
+  const variantIdInput = document.querySelector('#variantId');
 
-	variantIdInput.value = id;
+  variantIdInput.value = id;
 }
 
 function updateProductDetails(image, price) {
-	if (image) {
-		const mainImg = document.querySelector('#main-image');
+  if (image) {
+    const mainImg = document.querySelector('#main-image');
 
-		if (!mainImg) return;
+    if (!mainImg) return;
 
-		mainImg.src = image;
-	}
+    mainImg.src = image;
+  }
 
-	if (price) {
-		const productPrice = document.querySelector('.product-price');
+  if (price) {
+    const productPrice = document.querySelector('.product-price');
 
-		if (!productPrice) return;
+    if (!productPrice) return;
 
-		productPrice.innerHTML = `${String(productPrice.innerHTML).split(' ')[0]} ${price}`;
-	}
+    productPrice.innerHTML = `${String(productPrice.innerHTML).split(' ')[0]} ${price}`;
+  }
 }
 
 const productDetails = document.querySelector('.product-options');
 
 if (productDetails) {
-	const observer = new MutationObserver(() => {
-		const selectedVariant = getSelectedVariant();
-		const variantIdInput = document.querySelector('#variantId');
+  const observer = new MutationObserver(() => {
+    const selectedVariant = getSelectedVariant();
+    const variantIdInput = document.querySelector('#variantId');
 
-		variantIdInput.value = selectedVariant.id;
+    variantIdInput.value = selectedVariant.id;
 
-		updateProductDetails(selectedVariant.image, selectedVariant.price);
-	});
+    updateProductDetails(selectedVariant.image, selectedVariant.price);
+  });
 
-	observer.observe(productDetails, { attributes: true, childList: true, subtree: true });
+  observer.observe(productDetails, { attributes: true, childList: true, subtree: true });
 }
 
 selectDefaultOptions();

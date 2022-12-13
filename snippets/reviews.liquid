@@ -1,13 +1,13 @@
 {{ 'reviews.css' | asset_url | stylesheet_tag }}
 
 <div class='yc-product-reviews container'>
-	<h1 class='yc-section-title'>{{ reviews_title }}</h1>
-	<ul class='yc-reviews-wrapper'></ul>
+  <h1 class='yc-section-title'>{{ reviews_title }}</h1>
+  <ul class='yc-reviews-wrapper'></ul>
 </div>
 
 <script>
-	const defaultAvatar = '{{ "avatar.png" | asset_url }}';
-	const productId = '{{ product_id }}';
+  const defaultAvatar = '{{ "avatar.png" | asset_url }}';
+  const productId = '{{ product_id }}';
 </script>
 
 {{ 'reviews.js' | asset_url | script_tag }}

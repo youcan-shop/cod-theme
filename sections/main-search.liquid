@@ -4,80 +4,104 @@
 {%- assign products_per_page = section.settings.products_per_page -%}
 
 {%- paginate search.products by products_per_page cod %}
-	<div class='yc-featured-products yc-search container'>
-		<div class='top-items'>
-			<h1 class='yc-section-title' id='search-title'></h1>
-			<div class='sort-items-holder'>
-				<div class='commander'>Sort by:</div>
-				<div class='field'>
-					<a class='pawn' data-value='price'>
-						<span>Price</span>
-						<ion-icon name='chevron-down-outline'></ion-icon>
-					</a>
-					<a class='pawn' data-value='created_at'>
-						<span>Newest</span>
-						<ion-icon name='chevron-down-outline'></ion-icon>
-					</a>
-					<a class='pawn' data-value='name'>
-						<span>Alphabetically</span>
-						<ion-icon name='chevron-down-outline'></ion-icon>
-					</a>
-				</div>
-			</div>
-		</div>
-		<div class='product-list'>
-			{%- for item in items %}
-				<a href='{{ item.url }}' class='product-block'>
-					<div class='product-thumbnail'>
-						{% if item.thumbnail %}
-							<img src='{{ item.thumbnail }}'>
-						{% else %}
-							<img src='{{ 'fallback-product-img.webp' | asset_url }}'>
-						{% endif %}
-					</div>
+  <div class='yc-featured-products yc-search container'>
+    <div class='top-items'>
+      <h1
+        class='yc-section-title'
+        id='search-title'
+      ></h1>
+      <div class='sort-items-holder'>
+        <div class='commander'>Sort by:</div>
+        <div class='field'>
+          <a
+            class='pawn'
+            data-value='price'
+          >
+            <span>Price</span>
+            <ion-icon name='chevron-down-outline'></ion-icon>
+          </a>
+          <a
+            class='pawn'
+            data-value='created_at'
+          >
+            <span>Newest</span>
+            <ion-icon name='chevron-down-outline'></ion-icon>
+          </a>
+          <a
+            class='pawn'
+            data-value='name'
+          >
+            <span>Alphabetically</span>
+            <ion-icon name='chevron-down-outline'></ion-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class='product-list'>
+      {%- for item in items %}
+        <a
+          href='{{ item.url }}'
+          class='product-block'
+        >
+          <div class='product-thumbnail'>
+            {% if item.thumbnail %}
+              <img src='{{ item.thumbnail }}'>
+            {% else %}
+              <img src='{{ 'fallback-product-img.webp' | asset_url }}'>
+            {% endif %}
+          </div>
 
-					<div class='product-details'>
-						<span class='product-title'>{{ item.name }}</span>
-						{% if item.price %}
-							<span class='product-price'>{{ item.price | money }}</span>
-						{% endif %}
-					</div>
-				</a>
-			{%- endfor %}
-		</div>
-	</div>
+          <div class='product-details'>
+            <span class='product-title'>{{ item.name }}</span>
+            {% if item.price %}
+              <span class='product-price'>{{ item.price | money }}</span>
+            {% endif %}
+          </div>
+        </a>
+      {%- endfor %}
+    </div>
+  </div>
 
-	<div class='yc-pagination-wrapper'>
-		<a class='paginate-btn-prev' href='{{ next_page }}'>
-			<ion-icon name='arrow-back-outline'></ion-icon>
-		</a>
+  <div class='yc-pagination-wrapper'>
+    <a
+      class='paginate-btn-prev'
+      href='{{ next_page }}'
+    >
+      <ion-icon name='arrow-back-outline'></ion-icon>
+    </a>
 
-		{% for index in (1..last) %}
-			<a class='paginate-btn {% if index == current %} active {%- endif %}' data-index='{{ index }}'>
-				{{ index }}
-			</a>
-		{% endfor %}
+    {% for index in (1..last) %}
+      <a
+        class='paginate-btn {% if index == current %} active {%- endif %}'
+        data-index='{{ index }}'
+      >
+        {{ index }}
+      </a>
+    {% endfor %}
 
-		<a class='paginate-btn-next {%- if has_more %} {% else %} disabled {%- endif %}' href='{{ previous_page }}'>
-			<ion-icon name='arrow-forward-outline'></ion-icon>
-		</a>
-	</div>
+    <a
+      class='paginate-btn-next {%- if has_more %} {% else %} disabled {%- endif %}'
+      href='{{ previous_page }}'
+    >
+      <ion-icon name='arrow-forward-outline'></ion-icon>
+    </a>
+  </div>
 {%- endpaginate %}
 
 {{ 'search.js' | asset_url | script_tag }}
 
 {%- schema -%}
 {
-	"label": "Search",
-	"templates": ["search"],
-	"limit": 1,
-	"settings": [
-		{
-			"type": "number",
-			"id": "products_per_page",
-			"label": "Products per page",
-			"default": 8
-		}
-	]
+  "label": "Search",
+  "templates": ["search"],
+  "limit": 1,
+  "settings": [
+    {
+      "type": "number",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "default": 8
+    }
+  ]
 }
 {%- endschema -%}
