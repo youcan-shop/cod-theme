@@ -29,25 +29,15 @@
 												{{ item.name }}
 											</div>
 											<div>{{ item.price | money }}</div>
-											<div class='md:hidden'>
-												{{ item.quantity }}
-											</div>
+											<div class='md:hidden quantity-on-mobile'></div>
 											<button onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')" class='yc-btn btn-sm flex items-center gap-1'>
 												<ion-icon name='trash' class='text-base'></ion-icon>
 												Remove
 											</button>
 										</div>
 									</td>
-									<td class='hidden md:table-cell'>
-										<div class='quantity-wrapper'>
-											<div class='decrease'>
-												<button onclick="decreaseQuantity('{{ item.id }}', '{{ item.product_variant_id }}', '{{ item.quantity | minus: 1 }}')">-</button>
-											</div>
-											<input onchange="updateOnchange('{{ item.id }}', '{{ item.product_variant_id }}')" type='text' value='{{ item.quantity }}' id='{{ item.product_variant_id }}'>
-											<div class='increase'>
-												<button onclick="increaseQuantity('{{ item.id }}', '{{ item.product_variant_id }}', '{{ item.quantity | plus: 1 }}')">+</button>
-											</div>
-										</div>
+									<td class='hidden md:table-cell quantity-on-desktop'>
+										{%- render 'quantity-input', item: item -%}
 									</td>
 									<td>{{ item.price | times: item.quantity | money }}</td>
 								</tr>
