@@ -1,10 +1,10 @@
 @import 'helpers/mixins';
 
 .items-configs {
-  color: var(--yc-nav-links-color) !important;
-  stroke: var(--yc-nav-links-color) !important;
-  font-family: var(--yc-nav-font-family) !important;
-  font-weight: var(--yc-nav-links-font-weight) !important;
+  color: var(--yc-nav-links-color);
+  stroke: var(--yc-nav-links-color);
+  font-family: var(--yc-nav-font-family);
+  font-weight: var(--yc-nav-links-font-weight);
 }
 
 .yc-header {
