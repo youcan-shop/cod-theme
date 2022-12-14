@@ -1,4 +1,8 @@
-<a href='/collections/{{ category.slug }}' class='product-block' {{ block.youcan_attributes }}>
+<a
+  href='/collections/{{ category.slug }}'
+  class='product-block'
+  {{ block.youcan_attributes }}
+>
   <div class='product-thumbnail'>
     {% if category.image %}
       <img src='{{ category.image }}'>

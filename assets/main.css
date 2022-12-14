@@ -306,12 +306,11 @@ input:not([type=radio]),
 .yc-alert {
   transition: all 0.5s ease;
   position: fixed;
-  bottom: 0;
   margin: 1rem;
-  height: 44px;
+  height: var(--yc-notification-toast-height);
   padding: 0 1.3rem;
-  background: #242424;
-  color: white;
+  background: var(--yc-notification-toast-background-color);
+  color: var(--yc-notification-toast-text-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -319,8 +318,14 @@ input:not([type=radio]),
   opacity: 0;
   z-index: 9999;
   transform: translateY(100%);
-}
-.yc-alert.show {
+  font-weight: var(--yc-notification-toast-font-weight);
+  font-size: var(--yc-notification-toast-font-size);
+  border-radius: var(--yc-notification-toast-border-radius);
+  border: var(--yc-notification-toast-border-width) solid var(--yc-notification-toast-border-color);
+  top: var(--yc-notification-toast-top);
+  left: var(--yc-notification-toast-left);
+  bottom: var(--yc-notification-toast-bottom);
+  right: var(--yc-notification-toast-right);
   opacity: 1;
   z-index: 9999;
   transform: none;
