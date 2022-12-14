@@ -1,8 +1,8 @@
-.items-configs, .navigation-drawer *:not(span), .yc-header .yc-navbar *:not(span) {
-  color: var(--yc-nav-links-color) !important;
-  stroke: var(--yc-nav-links-color) !important;
-  font-family: var(--yc-nav-font-family) !important;
-  font-weight: var(--yc-nav-links-font-weight) !important;
+.items-configs, .navigation-drawer *:not(span), .yc-header .yc-navbar *:not(span):not(input) {
+  color: var(--yc-nav-links-color);
+  stroke: var(--yc-nav-links-color);
+  font-family: var(--yc-nav-font-family);
+  font-weight: var(--yc-nav-links-font-weight);
 }
 
 .yc-header {
@@ -133,8 +133,10 @@
   z-index: 96;
   background: white;
 }
-#searchInputHolder .input {
+#searchInputHolder .input,
+#searchInputHolder input {
   max-width: 25rem;
+  color: var(--yc-primary-color);
 }
 
 /* ----------------------------- */

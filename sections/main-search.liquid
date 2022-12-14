@@ -62,30 +62,32 @@
     </div>
   </div>
 
-  <div class='yc-pagination-wrapper'>
-    <a
-      class='paginate-btn-prev'
-      href='{{ next_page }}'
-    >
-      <ion-icon name='arrow-back-outline'></ion-icon>
-    </a>
-
-    {% for index in (1..last) %}
+  {%- if has_more %}
+    <div class='yc-pagination-wrapper'>
       <a
-        class='paginate-btn {% if index == current %} active {%- endif %}'
-        data-index='{{ index }}'
+        class='paginate-btn-prev'
+        href='{{ next_page }}'
       >
-        {{ index }}
+        <ion-icon name='arrow-back-outline'></ion-icon>
       </a>
-    {% endfor %}
 
-    <a
-      class='paginate-btn-next {%- if has_more %} {% else %} disabled {%- endif %}'
-      href='{{ previous_page }}'
-    >
-      <ion-icon name='arrow-forward-outline'></ion-icon>
-    </a>
-  </div>
+      {% for index in (1..last) %}
+        <a
+          class='paginate-btn {% if index == current %} active {%- endif %}'
+          data-index='{{ index }}'
+        >
+          {{ index }}
+        </a>
+      {% endfor %}
+
+      <a
+        class='paginate-btn-next'
+        href='{{ previous_page }}'
+      >
+        <ion-icon name='arrow-forward-outline'></ion-icon>
+      </a>
+    </div>
+  {%- endif %}
 {%- endpaginate %}
 
 {{ 'search.js' | asset_url | script_tag }}
