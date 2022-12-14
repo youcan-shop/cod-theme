@@ -1,0 +1,26 @@
+{{ 'featured-products.css' | asset_url | stylesheet_tag }}
+
+<a
+  href='{{ item.url }}'
+  class='product-block'
+>
+  <div class='product-thumbnail'>
+    {% if item.thumbnail %}
+      <img src='{{ item.thumbnail }}'>
+    {% else %}
+      <img src='{{ 'default_product.jpeg' | asset_url }}'>
+    {% endif %}
+  </div>
+  <div class='product-details'>
+    <span class='product-title'>{{ item.name }}</span>
+    {% if item.price %}
+      <span class='product-price'>{{ item.price | money }}</span>
+    {% endif %}
+    {% if settings.show_compare_at_price and item.compare_at_price %}
+      <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
+    {% endif %}
+  </div>
+  <div class='flex justify-center'>
+    <button class='yc-btn {% if settings.featured_products_btn_full_width %} w-full{% endif %}'>Shop now</button>
+  </div>
+</a>

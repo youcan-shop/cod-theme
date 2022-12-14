@@ -533,5 +533,22 @@
         "default": 14
       }
     ]
+  },
+  {
+    "label": "Reviews",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "featured_products_btn_full_width",
+        "label": "Full width button",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_compare_at_price",
+        "label": "Show compare at price",
+        "default": true
+      }
+    ]
   }
 ]

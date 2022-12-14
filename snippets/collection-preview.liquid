@@ -1,0 +1,13 @@
+<a href='/collections/{{ category.slug }}' class='product-block' {{ block.youcan_attributes }}>
+  <div class='product-thumbnail'>
+    {% if category.image %}
+      <img src='{{ category.image }}'>
+    {% else %}
+      <img src='{{ 'default_product.jpeg' | asset_url }}'>
+    {% endif %}
+  </div>
+  <div class='product-details'>
+    <span class='product-title'>{{ category.name }}</span>
+  </div>
+  <button class='yc-btn w-full'>Visit</button>
+</a>

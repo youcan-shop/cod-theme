@@ -4,24 +4,7 @@
   <h1 class='yc-section-title'>{{ section.settings.title }}</h1>
   <div class='product-list'>
     {%- for block in section.blocks -%}
-      {{ block.settings.cateory.name }}
-      <a
-        href='/collections/{{ block.settings.category.slug }}'
-        class='product-block'
-        {{ block.youcan_attributes }}
-      >
-        <div class='product-thumbnail'>
-          {% if block.settings.category.image %}
-            <img src='{{ block.settings.category.image }}'>
-          {% else %}
-            <img src='{{ 'default_product.jpeg' | asset_url }}'>
-          {% endif %}
-        </div>
-        <div class='product-details'>
-          <span class='product-title'>{{ block.settings.category.name }}</span>
-        </div>
-        <button class='yc-btn w-full'>Visit</button>
-      </a>
+      {%- render 'collection-preview', category: block.settings.category -%}
     {%- endfor -%}
   </div>
 </div>
