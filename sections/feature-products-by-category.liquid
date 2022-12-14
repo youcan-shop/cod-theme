@@ -9,7 +9,10 @@
     <div class='product-list'>
       {%- paginate collection.products by number_of_products id category_id: category.id %}
         {%- for item in items -%}
-          <a href='{{ item.url }}' class='product-block'>
+          <a
+            href='{{ item.url }}'
+            class='product-block'
+          >
             <div class='product-thumbnail'>
               {% if item.thumbnail %}
                 <img src='{{ item.thumbnail }}'>
@@ -31,30 +34,32 @@
             </div>
           </a>
         {%- endfor -%}
-      </div>
-    {%- endpaginate %}
+      {%- endpaginate %}
+    </div>
   </div>
 {% endif %}
 
 {%- schema -%}
-  {
-    "label": "Featured products by category",
-    "settings": [
-      {
-        "type": "category",
-        "id": "category",
-        "label": "Category"
-      }, {
-        "type": "number",
-        "id": "number_of_products",
-        "label": "Number of products to showcase",
-        "default": 8
-      }, {
-        "type": "checkbox",
-        "id": "show_compare_at_price",
-        "label": "Show compare at price",
-        "default": true
-      }
-    ]
-  }
+{
+  "label": "Featured products by category",
+  "settings": [
+    {
+      "type": "category",
+      "id": "category",
+      "label": "Category"
+    },
+    {
+      "type": "number",
+      "id": "number_of_products",
+      "label": "Number of products to showcase",
+      "default": 8
+    },
+    {
+      "type": "checkbox",
+      "id": "show_compare_at_price",
+      "label": "Show compare at price",
+      "default": true
+    }
+  ]
+}
 {%- endschema -%}
