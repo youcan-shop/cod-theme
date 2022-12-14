@@ -535,7 +535,7 @@
     ]
   },
   {
-    "label": "Reviews",
+    "label": "Featured Products",
     "settings": [
       {
         "type": "checkbox",
@@ -548,6 +548,102 @@
         "id": "show_compare_at_price",
         "label": "Show compare at price",
         "default": true
+      }
+    ]
+  },
+  {
+    "label": "Notification Toast",
+    "settings": [
+      {
+        "type": "select",
+        "id": "notification_toast_position",
+        "label": "Position",
+        "options": [
+          {
+            "value": "top-right",
+            "label": "Top right"
+          },
+          {
+            "value": "top-left",
+            "label": "Top left"
+          },
+          {
+            "value": "bottom-right",
+            "label": "Bottom right"
+          },
+          {
+            "value": "bottom-left",
+            "label": "Bottom left"
+          }
+        ],
+        "default": "top-right"
+      },
+      {
+        "type": "range",
+        "id": "notification_toast_height",
+        "label": "Height",
+        "min": 30,
+        "max": 200,
+        "step": 1,
+        "unit": "px",
+        "default": 50
+      },
+      {
+        "type": "range",
+        "id": "notification_toast_font_size",
+        "label": "Text size",
+        "min": 10,
+        "max": 30,
+        "step": 1,
+        "unit": "px",
+        "default": 16
+      },
+      {
+        "type": "color",
+        "id": "notification_toast_background_color",
+        "label": "Background color",
+        "default": "#222"
+      },
+      {
+        "type": "color",
+        "id": "notification_toast_text_color",
+        "label": "Text color",
+        "default": "#fff"
+      },
+      {
+        "type": "range",
+        "id": "notification_toast_border_radius",
+        "label": "Border radius",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "default": 5
+      },
+      {
+        "type": "range",
+        "id": "notification_toast_border_width",
+        "label": "Border width",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "default": 0
+      },
+      {
+        "type": "color",
+        "id": "notification_toast_border_color",
+        "label": "Border color",
+        "default": "#000"
+      },
+      {
+        "type": "range",
+        "id": "notification_toast_font_weight",
+        "label": "Text weight",
+        "min": 100,
+        "max": 900,
+        "step": 100,
+        "default": 400
       }
     ]
   }
