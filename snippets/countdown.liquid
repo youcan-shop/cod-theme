@@ -1,55 +1,70 @@
-{%- if countdown_year and countdown_month and countdown_day %}
-  {{ 'countdown.css' | asset_url | stylesheet_tag }}
+{{ 'countdown.css' | asset_url | stylesheet_tag }}
 
-  <div class='countdown-wrapper'>
-    <div class='message'>{{ message }}</div>
-    <div class='progress-bar'>
-      <div
-        id='progress'
-        class='progress'
-      ></div>
-    </div>
-    <div class='countdown'>
-      <span
-        id='days'
-        class='unit-parent'
-      ></span>
-      <span
-        id='hours'
-        class='unit-parent'
-      ></span>
-      <span
-        id='minutes'
-        class='unit-parent'
-      ></span>
-      <span
-        id='seconds'
-        class='unit-parent'
-      ></span>
-    </div>
+<div class='countdown-wrapper'>
+  <div class='message'>{{ message }}</div>
+  <div class='progress-bar'>
+    <div
+      id='progress'
+      class='progress'
+    ></div>
   </div>
+  <div class='countdown'>
+    <span
+      id='days'
+      class='unit-parent'
+    ></span>
+    <span
+      id='hours'
+      class='unit-parent'
+    ></span>
+    <span
+      id='minutes'
+      class='unit-parent'
+    ></span>
+    <span
+      id='seconds'
+      class='unit-parent'
+    ></span>
+  </div>
+</div>
 
-  <script>
-    const now = new Date();
+<script>
+  const now = new Date();
 
-    const year = '{{ countdown_year }}';
-    const month = '{{ countdown_month }}';
-    const day = '{{ countdown_day }}';
-    const hour = '{{ countdown_hour }}' || 0;
-    const minute = '{{ countdown_minute }}' || 0;
-    const second = '{{ countdown_second }}' || 0;
+  const year = {%- if countdown_year -%}
+    {{ countdown_year }}
+  {%- else -%}now.getFullYear(){%- endif -%};
 
-    const targetDate = new Date(+year, +month - 1, +day, +hour, +minute, +second);
-  </script>
+  const month = {%- if countdown_month -%}
+    {{ countdown_month }}
+  {%- else -%}now.getMonth() + 1
+  {%- endif -%};
 
-  {{ 'countdown.js' | asset_url | script_tag }}
-{%- else %}
-  <p>
-    ERROR: Please set the required properties for the countdown: &nbsp;
-    <code>countdown_year</code>
-    |
-    <code>countdown_month</code>
-    |
-    <code>countdown_day</code>
-  </p>
-{%- endif %}
+  const day = {%- if countdown_day -%}
+    {{ countdown_day }}
+  {%- else -%}now.getDate() + 1
+  {%- endif -%};
+
+  const hour = {%- if countdown_hour -%}
+    {{ countdown_hour }}
+  {%- else -%}now.getHours() + 1
+  {%- endif -%};
+
+  const minute = {%- if countdown_minute -%}
+    {{ countdown_minute }}
+  {%- else -%}
+    0
+  {%- endif -%};
+
+  const second = {%- if countdown_second -%}
+    {{ countdown_second }}
+  {%- else -%}
+    0
+  {%- endif -%};
+
+  const targetDate = new Date(year, month - 1, day, hour, minute, second);
+</script>
+
+{{ 'countdown.js' | asset_url | script_tag }}
+
+{{ 'countdown.js' | asset_url | script_tag }}

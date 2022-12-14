@@ -4,7 +4,10 @@ if (typeof stockLeft !== 'number' || typeof totalInStock !== 'number') {
   throw new Error('stockLeft and totalInStock must be numbers');
 }
 
-if (stockLeft > 0 && totalInStock > 0) {
+if (stockLeft > totalInStock) {
+  document.querySelector('.stock-wrapper').innerHTML =
+    'items left in stock cannot be greater than total items in stock';
+} else if (stockLeft > 0 && totalInStock > 0) {
   progressBarFillWidth = (stockLeft / totalInStock) * 100;
 }
 
