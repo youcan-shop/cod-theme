@@ -179,11 +179,12 @@
 }
 
 .navigation-drawer {
-  background-color: white;
+  background-color: var(--yc-drawer-background);
   transition-duration: 0.2s;
   transition-property: opacity, transform;
-  transform: translateX(-100%);
+  transform: translateX(-150vw);
   position: fixed;
+  left: 0;
   top: 0;
   height: 100vh;
   width: 18rem;
@@ -204,6 +205,14 @@
   .items {
     padding: 1rem 1.15rem;
     border-top: 1px solid;
+
+    &,
+    * {
+      color: var(--yc-drawer-links-color) !important;
+      font-family: var(--yc-drawer-font-family) !important;
+      font-size: var(--yc-drawer-font-size) !important;
+      font-weight: var(--yc-drawer-links-font-weight) !important;
+    }
   }
 
   .items-wrapper {

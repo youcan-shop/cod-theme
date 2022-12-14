@@ -56,7 +56,7 @@ if (overlay) {
     if (e.target === overlay) {
       overlay.style.visibility = 'hidden';
       overlay.style.opacity = '0';
-      drawer.style.transform = 'translateX(-100%)';
+      drawer.style.transform = 'translateX(-150vw)';
     }
   });
 }
