@@ -68,10 +68,11 @@ if (sortBtns) {
 
     const sortBtn = document.querySelector(`.sort-items-holder .pawn[data-value='${sortField}']`);
 
-    sortBtn.classList.add('active');
-
     if (sortBtn) {
+      sortBtn.classList.add('active');
+
       const sortBtnIcon = sortBtn.querySelector('ion-icon');
+
       if (sortBtnIcon) {
         if (sortOrder === 'asc') {
           sortBtnIcon.setAttribute('name', 'chevron-up-outline');

@@ -384,3 +384,7 @@ input:not([type=radio]),
   cursor: not-allowed;
   color: rgba(0, 0, 0, 0.2);
 }
+
+[dir=rtl] .yc-pagination-wrapper .paginate-btn-prev, [dir=rtl] .yc-pagination-wrapper .paginate-btn-next {
+  transform: rotate(180deg);
+}

@@ -406,3 +406,14 @@ input:not([type='radio']),
     }
   }
 }
+
+[dir='rtl'] {
+  .yc-pagination-wrapper {
+    .paginate-btn {
+      &-prev,
+      &-next {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
