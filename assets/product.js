@@ -114,7 +114,9 @@ function selectDefaultOptions() {
 
   const selectedVariant = getSelectedVariant();
 
-  if (!selectedVariant) setDefaultVariant(variants[0]?.id);
+  if (!selectedVariant) {
+    setDefaultVariant(variants[0]?.id);
+  }
 
   setDefaultVariant(selectedVariant.id);
 }
