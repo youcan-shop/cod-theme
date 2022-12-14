@@ -42,8 +42,7 @@
 
   const day = {%- if countdown_day -%}
     {{ countdown_day }}
-  {%- else -%}now.getDate() + 1
-  {%- endif -%};
+  {%- else -%}now.getDate(){%- endif -%};
 
   const hour = {%- if countdown_hour -%}
     {{ countdown_hour }}
