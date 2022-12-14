@@ -1,0 +1,43 @@
+{{ 'featured-products.css' | asset_url | stylesheet_tag }}
+
+<div class='yc-featured-products container'>
+  <h1 class='yc-section-title'>{{ section.settings.title }}</h1>
+  <div class='product-list'>
+
+    {%- paginate collection.products by 10 collection_id category_id: category.id %}
+    {% for product in items %}
+      <a href='{{ block.settings.product.url }}' class='product-block' {{ block.youcan_attributes }}>
+        <div class='product-thumbnail'>
+          {% if block.settings.product.thumbnail %}
+            <img src='{{ block.settings.product.thumbnail }}'>
+          {% else %}
+            <img src='{{ 'default_product.jpeg' | asset_url }}'>
+          {% endif %}
+        </div>
+        <div class='product-details'>
+          <span class='product-title'>{{ block.settings.product.name }}</span>
+          {% if block.settings.product.price %}
+            <span class='product-price'>{{ block.settings.product.price | money }}</span>
+          {% endif %}
+          {% if section.settings.show_compare_at_price and block.settings.product.compare_at_price %}
+            <span class='compare-at-price'>{{ block.settings.product.compare_at_price | money }}</span>
+          {% endif %}
+        </div>
+        <div class='flex justify-center'>
+          <button class='yc-btn'>Shop now</button>
+        </div>
+      </a>
+      {% for product in items %}
+    {%- endpaginate %}
+
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "label": "Collections",
+    "templates": ["list-collections"],
+    "limit": 1
+  }
+{% endschema %}

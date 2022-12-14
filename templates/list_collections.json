@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "navbar": {
+      "type": "main-navbar"
+    }
+  },
+  "order": ["navbar"]
+}
