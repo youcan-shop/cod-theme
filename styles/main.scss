@@ -327,7 +327,7 @@ input:not([type='radio']),
   box-shadow: var(--yc-primary-shadow);
   opacity: 0;
   z-index: 9999;
-  transform: translateY(100%);
+  transform: translateY(25%);
   font-weight: var(--yc-notification-toast-font-weight);
   font-size: var(--yc-notification-toast-font-size);
   border-radius: var(--yc-notification-toast-border-radius);
@@ -337,11 +337,11 @@ input:not([type='radio']),
   bottom: var(--yc-notification-toast-bottom);
   right: var(--yc-notification-toast-right);
 
-  // &.show {
-  opacity: 1;
-  z-index: 9999;
-  transform: none;
-  // }
+  &.show {
+    opacity: 1;
+    z-index: 9999;
+    transform: none;
+  }
 }
 
 /* ------------------------ */

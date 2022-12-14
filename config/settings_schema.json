@@ -555,6 +555,30 @@
     "label": "Notification Toast",
     "settings": [
       {
+        "type": "select",
+        "id": "notification_toast_position",
+        "label": "Position",
+        "options": [
+          {
+            "value": "top-right",
+            "label": "Top right"
+          },
+          {
+            "value": "top-left",
+            "label": "Top left"
+          },
+          {
+            "value": "bottom-right",
+            "label": "Bottom right"
+          },
+          {
+            "value": "bottom-left",
+            "label": "Bottom left"
+          }
+        ],
+        "default": "top-right"
+      },
+      {
         "type": "range",
         "id": "notification_toast_height",
         "label": "Height",
@@ -620,30 +644,6 @@
         "max": 900,
         "step": 100,
         "default": 400
-      },
-      {
-        "type": "select",
-        "id": "notification_toast_position",
-        "label": "Position",
-        "options": [
-          {
-            "value": "top-right",
-            "label": "Top right"
-          },
-          {
-            "value": "top-left",
-            "label": "Top left"
-          },
-          {
-            "value": "bottom-right",
-            "label": "Bottom right"
-          },
-          {
-            "value": "bottom-left",
-            "label": "Bottom left"
-          }
-        ],
-        "default": "top-right"
       }
     ]
   }

@@ -107,13 +107,16 @@
     {%- if settings.notification_toast_position == 'top-left' -%}
       --yc-notification-toast-top: 0;
       --yc-notification-toast-left: 0;
-      {%- elseif settings.notification_toast_position == 'top-right' -%}
+    {%- endif -%}
+    {%- if settings.notification_toast_position == 'top-right' -%}
       --yc-notification-toast-top: 0;
       --yc-notification-toast-right: 0;
-      {%- elseif settings.notification_toast_position == 'bottom-left' -%}
+    {%- endif -%}
+    {%- if settings.notification_toast_position == 'bottom-left' -%}
       --yc-notification-toast-bottom: 0;
       --yc-notification-toast-left: 0;
-      {%- elseif settings.notification_toast_position == 'bottom-right' -%}
+    {%- endif -%}
+    {%- if settings.notification_toast_position == 'bottom-right' -%}
       --yc-notification-toast-bottom: 0;
       --yc-notification-toast-right: 0;
     {%- endif -%}
