@@ -5,14 +5,12 @@
     {%- for block in section.blocks -%}
       {%- case block.type %}
         {%- when 'logo' %}
-          <!--  -->
           <div class='logo'>
             <a href='/'>
               <img src='{%- if settings.navbar_logo.src -%} {{ settings.navbar_logo.src }} {%- else -%} {{ 'cod-logo.png' | asset_url }} {%- endif -%}'>
             </a>
           </div>
         {%- when 'menu' %}
-          <!--  -->
           <div class='menu'>
             <ul class='menu-list'>
               {% for item in main-link-list.links %}
@@ -24,14 +22,12 @@
           </div>
         {%- when 'search_and_cart' %}
           <div class='corner'>
-            <!--  -->
             <button
               class='search'
               onclick='openSearch()'
             >
               <ion-icon name='search-outline'></ion-icon>
             </button>
-            <!--  -->
             <div id='searchInputHolder'>
               <div class='container flex justify-center'>
                 <form
@@ -77,9 +73,6 @@
       {%- endcase %}
     {%- endfor -%}
   </nav>
-  <!--  -->
-  <!--  -->
-  <!--  -->
   <div class='navigation-drawer navbar-drawer block md:hidden'>
     <div class='logo flex items-center justify-center'>
       <a href='/'>
