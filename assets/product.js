@@ -113,6 +113,9 @@ function selectDefaultOptions() {
   });
 
   const selectedVariant = getSelectedVariant();
+
+  if (!selectedVariant) setDefaultVariant(variants[0]?.id);
+
   setDefaultVariant(selectedVariant.id);
 }
 
@@ -200,4 +203,3 @@ if (productDetails) {
 }
 
 selectDefaultOptions();
-setDefaultVariant(variants[0].id);
