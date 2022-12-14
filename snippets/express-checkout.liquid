@@ -18,16 +18,18 @@
       </div>
     {%- endfor %}
   </div>
-  <button
-    type='submit'
-    class='yc-btn w-full mt-8'
-  >
-    <span
-      class='spinner hidden'
-      id='loading__checkout'
-    ></span>
-    <span>place order</span>
-  </button>
+  <div class='mt-8 {% if is_sticky %} is_sticky{% endif %}'>
+    <button
+      type='submit'
+      class='yc-btn w-full '
+    >
+      <span
+        class='spinner hidden'
+        id='loading__checkout'
+      ></span>
+      <span>place order</span>
+    </button>
+  </div>
 </form>
 
 {{ 'express-checkout.js' | asset_url | script_tag }}
