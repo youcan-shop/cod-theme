@@ -144,7 +144,7 @@
       },
       {
         "type": "range",
-        "id": "notice_bar_height",
+        "id": "notice_bar_height_desktop",
         "min": 20,
         "max": 150,
         "step": 1,
@@ -154,7 +154,7 @@
       },
       {
         "type": "range",
-        "id": "notice_bar_content_font_size",
+        "id": "notice_bar_content_font_size_desktop",
         "min": 12,
         "max": 20,
         "step": 1,
@@ -170,13 +170,13 @@
       },
       {
         "type": "color",
-        "id": "notice_bar_content_text_color",
+        "id": "notice_bar_content_text_color_desktop",
         "label": "Text color",
         "default": "#FFFFFF"
       },
       {
         "type": "color",
-        "id": "notice_bar_background_color",
+        "id": "notice_bar_background_color_desktop",
         "label": "Background color"
       }
     ]
@@ -192,7 +192,7 @@
       },
       {
         "type": "range",
-        "id": "notice_bar_height",
+        "id": "notice_bar_height_mobile",
         "min": 20,
         "max": 150,
         "step": 1,
@@ -202,7 +202,7 @@
       },
       {
         "type": "range",
-        "id": "notice_bar_content_font_size",
+        "id": "notice_bar_content_font_size_mobile",
         "min": 12,
         "max": 20,
         "step": 1,
@@ -218,13 +218,13 @@
       },
       {
         "type": "color",
-        "id": "notice_bar_content_text_color",
+        "id": "notice_bar_content_text_color_mobile",
         "label": "Text color",
         "default": "#FFFFFF"
       },
       {
         "type": "color",
-        "id": "notice_bar_background_color",
+        "id": "notice_bar_background_color_mobile",
         "label": "Background color"
       }
     ]
