@@ -40,6 +40,9 @@
     line-height: 2rem;
   }
 }
+.thankyou-wrapper .content-wrapper .description .ql-align-center {
+  text-align: center;
+}
 .thankyou-wrapper .content-wrapper .yc-btn {
   margin-top: 2rem;
 }
