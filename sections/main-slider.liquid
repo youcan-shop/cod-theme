@@ -49,7 +49,7 @@
     pagination: '{{settings.slider_pagination}}' ? true : false,
     pauseOnHover: '{{settings.slider_pause_on_hover}}' ? true : false,
     pauseOnFocus: '{{settings.slider_pause_on_focus}}' ? true : false,
-    height: 'calc(100vh - var(--yc-nav-height) - var(--yc-notice-height))',
+    height: `calc({{settings.slider_height_percentage}}vh - var(--yc-nav-height) - var(--yc-notice-height))`,
     focus: 'center',
     interval: 3000,
     rewind: false,
@@ -62,7 +62,7 @@
 
 {%- schema -%}
 {
-  "label": "Slider",
+  "label": "Desktop Slider",
   "blocks": [
     {
       "label": "Slider image",

@@ -386,6 +386,16 @@
     "settings": [
       {
         "type": "range",
+        "id": "slider_height_percentage",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Slider height",
+        "default": 50
+      },
+      {
+        "type": "range",
         "id": "slider_arrows_size",
         "min": 20,
         "max": 55,
