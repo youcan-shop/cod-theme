@@ -101,7 +101,6 @@ button {
   align-items: center;
   justify-content: center;
   gap: 5px;
-  direction: ltr;
 
   &:not(.btn-sm) {
     height: 44px;
@@ -115,6 +114,11 @@ button {
   }
   &.btn-sm ion-icon {
     margin-bottom: 2px;
+  }
+}
+[dir='rtl'] {
+  .yc-btn {
+    flex-direction: row-reverse;
   }
 }
 
