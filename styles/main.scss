@@ -119,6 +119,10 @@ button {
 [dir='rtl'] {
   .yc-btn {
     flex-direction: row-reverse;
+
+    .yc-btn-responsive-icon {
+      transform: rotate(180deg);
+    }
   }
 }
 
@@ -219,6 +223,8 @@ input:not([type='radio']),
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+
   cursor: pointer;
 
   input {
@@ -242,12 +248,14 @@ input:not([type='radio']),
     width: 20px;
     height: 20px;
     background-color: var(--yc-neutral-light-color);
+    border-radius: 50%;
     position: relative;
     cursor: pointer;
     transition: all 0.2s;
 
     span {
       margin-left: 28px;
+      margin-right: 28px;
       margin-bottom: 5px;
     }
   }
@@ -260,6 +268,7 @@ input:not([type='radio']),
     transform: translate(-50%, -50%);
     width: 13px;
     height: 13px;
+    border-radius: 50%;
     background-color: var(--yc-primary-color);
   }
 }
@@ -420,17 +429,6 @@ input:not([type='radio']),
         background-color: var(--yc-neutral-light-color);
         cursor: not-allowed;
         color: rgba(0, 0, 0, 0.2);
-      }
-    }
-  }
-}
-
-[dir='rtl'] {
-  .yc-pagination-wrapper {
-    .paginate-btn {
-      &-prev,
-      &-next {
-        transform: rotate(180deg);
       }
     }
   }
