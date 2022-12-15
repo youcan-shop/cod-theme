@@ -11,6 +11,9 @@
   height: 100%;
   display: flex;
   align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
 }
 .yc-slider__desktop .content * {
   background-color: transparent !important;
@@ -46,6 +49,8 @@
 .yc-slider__desktop .content .btn-holder {
   margin-top: 2rem;
   display: flex;
+  text-align: center;
+  justify-content: center;
 }
 .yc-slider__desktop .content .container > div {
   max-width: 600px;

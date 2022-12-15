@@ -9,6 +9,8 @@
     background-color: rgba(black, 0.7);
     height: 100%;
     display: flex;
+    text-align: center;
+    justify-content: center;
     align-items: center;
     * {
       background-color: transparent !important;
@@ -46,6 +48,7 @@
 
     .btn-holder {
       margin-top: 2rem;
+      text-align: center;
     }
   }
 }
