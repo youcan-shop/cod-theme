@@ -1,11 +1,60 @@
 <div class='container'>
-  {%- render 'express-checkout', checkout: checkout -%}
+  {%- render 'express-checkout', checkout: checkout, settings: section.settings -%}
 </div>
 
 {% schema %}
 {
   "label": "Express Checkout",
   "templates": ["index", "product"],
-  "limit": 1
+  "limit": 1,
+  "settings": [
+    {
+      "label": "Button text",
+      "id": "express_checkout_cta",
+      "type": "text"
+    },
+    {
+      "label": "Sticky button",
+      "id": "is_sticky",
+      "type": "checkbox",
+      "default": true
+    },
+    {
+      "label": "Gap between inputs",
+      "id": "inputs_gap",
+      "type": "range",
+      "min": 4,
+      "max": 20,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "label": "Input padding",
+      "id": "input_padding",
+      "type": "range",
+      "min": 4,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "label": "Input border color",
+      "id": "input_border_color",
+      "type": "color"
+    },
+    {
+      "label": "Input text Size",
+      "id": "input_text_size",
+      "type": "number",
+      "default": 16
+    },
+    {
+      "label": "Input border radius",
+      "id": "input_border_radius",
+      "type": "number",
+      "default": 0
+    }
+  ]
 }
 {% endschema %}
