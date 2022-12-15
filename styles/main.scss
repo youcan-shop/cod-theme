@@ -119,6 +119,10 @@ button {
 [dir='rtl'] {
   .yc-btn {
     flex-direction: row-reverse;
+
+    .yc-btn-responsive-icon {
+      transform: rotate(180deg);
+    }
   }
 }
 
@@ -418,17 +422,6 @@ input:not([type='radio']),
         background-color: var(--yc-neutral-light-color);
         cursor: not-allowed;
         color: rgba(0, 0, 0, 0.2);
-      }
-    }
-  }
-}
-
-[dir='rtl'] {
-  .yc-pagination-wrapper {
-    .paginate-btn {
-      &-prev,
-      &-next {
-        transform: rotate(180deg);
       }
     }
   }

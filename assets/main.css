@@ -118,6 +118,10 @@ button:focus {
   flex-direction: row-reverse;
 }
 
+[dir=rtl] .yc-btn .yc-btn-responsive-icon {
+  transform: rotate(180deg);
+}
+
 h1,
 h2,
 h3,
@@ -397,10 +401,6 @@ input:not([type=radio]),
   background-color: var(--yc-neutral-light-color);
   cursor: not-allowed;
   color: rgba(0, 0, 0, 0.2);
-}
-
-[dir=rtl] .yc-pagination-wrapper .paginate-btn-prev, [dir=rtl] .yc-pagination-wrapper .paginate-btn-next {
-  transform: rotate(180deg);
 }
 
 /* ---------------------- */
