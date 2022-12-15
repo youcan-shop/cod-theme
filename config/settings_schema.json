@@ -440,7 +440,7 @@
         "step": 1,
         "unit": "%",
         "label": "Slider height",
-        "default": 50
+        "default": 60
       },
       {
         "type": "range",

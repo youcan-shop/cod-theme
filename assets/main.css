@@ -99,7 +99,6 @@ button:focus {
   align-items: center;
   justify-content: center;
   gap: 5px;
-  direction: ltr;
 }
 .yc-btn:not(.btn-sm) {
   height: 44px;
@@ -113,6 +112,10 @@ button:focus {
 }
 .yc-btn.btn-sm ion-icon {
   margin-bottom: 2px;
+}
+
+[dir=rtl] .yc-btn {
+  flex-direction: row-reverse;
 }
 
 h1,
@@ -189,14 +192,13 @@ input:not([type=radio]),
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10;
+  gap: 10px;
 }
 .yc-image-options-list .yc-image-options-item {
   aspect-ratio: 1;
   height: 80px;
   border: 1px solid var(--yc-neutral-light-color);
   padding: 5px;
-  margin-right: 10px;
   cursor: pointer;
 }
 .yc-image-options-list .yc-image-options-item img {
@@ -212,6 +214,7 @@ input:not([type=radio]),
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   cursor: pointer;
 }
 .yc-upload input {
@@ -233,12 +236,14 @@ input:not([type=radio]),
   width: 20px;
   height: 20px;
   background-color: var(--yc-neutral-light-color);
+  border-radius: 50%;
   position: relative;
   cursor: pointer;
   transition: all 0.2s;
 }
 .yc-radio .yc-radio-buttons span {
   margin-left: 28px;
+  margin-right: 28px;
   margin-bottom: 5px;
 }
 .yc-radio input[type=radio]:checked + .yc-radio-buttons::before {
@@ -249,6 +254,7 @@ input:not([type=radio]),
   transform: translate(-50%, -50%);
   width: 13px;
   height: 13px;
+  border-radius: 50%;
   background-color: var(--yc-primary-color);
 }
 
