@@ -6,8 +6,7 @@
     "navbar_logo": "xkQ9K8c7A4PKLqgcZlsMC5zcCwMxDl4B46DJhudA-2IqyMhNuxyIpY6fTgnIwkOhpR7T.png",
     "navbar_background_color": "#000000FF",
     "navbar_links_color": "#FFFFFFFF",
-    "navbar_height": 85,
-    "navbar_always_on_top": false
+    "navbar_height": 85
   },
   "presets": {
     "Default": {}
