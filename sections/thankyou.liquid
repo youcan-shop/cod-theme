@@ -1,21 +1,17 @@
 {{ 'thankyou.css' | asset_url | stylesheet_tag }}
 
-<div class='w-full h-full flex items-center justify-center'>
+<div class='thankyou-wrapper'>
   <div class='container py-12'>
-    <div class='flex flex-col justify-center text-center items-center gap-3'>
-      <ion-icon
-        name='planet-outline'
-        class='text-9xl'
-        style='--ionicon-stroke-width: 12px;'
-      ></ion-icon>
-      <div class='text-3xl md:text-5xl'>{{ section.settings.title }}</div>
-      <div class='md:text-xl opacity-75 my-3'>{{ section.settings.subtitle }}</div>
-      <div class='opacity-90 text-2xl leading-10'>
+    <div class='content-wrapper'>
+      <img src='{{section.settings.hero_image.src}}'>
+      <div class='title'>{{ section.settings.title }}</div>
+      <div class='subtitle'>{{ section.settings.subtitle }}</div>
+      <div class='description'>
         {{ section.settings.description }}
       </div>
       <a
         href='/'
-        class='yc-btn flex gap-2 w-fit mt-5 items-center'
+        class='yc-btn'
       >
         <ion-icon name='arrow-back-outline'></ion-icon>
         Return to shop
@@ -75,6 +71,21 @@
   "templates": ["thankyou"],
   "limit": 1,
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "hero_image_height",
+      "label": "Image height",
+      "min": 0,
+      "max": 200,
+      "step": 1,
+      "unit": "px",
+      "default": 50
+    },
     {
       "type": "text",
       "id": "title",

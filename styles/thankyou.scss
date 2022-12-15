@@ -1,5 +1,53 @@
 @import 'helpers/mixins';
 
+.thankyou-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .title {
+      font-size: 2rem;
+
+      @include breakpoint('md') {
+        font-size: 2.7rem;
+      }
+    }
+
+    .subtitle {
+      opacity: 0.75;
+      font-size: 1.2rem;
+
+      @include breakpoint('md') {
+        font-size: 1.5rem;
+      }
+    }
+
+    .description {
+      margin-top: 15px;
+      opacity: 0.9;
+      font-size: 1.3rem;
+      line-height: 1.5rem;
+
+      @include breakpoint('md') {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+    }
+
+    .yc-btn {
+      margin-top: 2rem;
+    }
+  }
+}
+
 .order-details {
   margin: 2rem auto;
   max-width: 600px;
