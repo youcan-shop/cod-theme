@@ -1,17 +1,17 @@
 {% assign id = 100 | rand: 2000 %}
 
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
-{{ 'main-slider.css' | asset_url | stylesheet_tag }}
+{{ 'mobile-slider.css' | asset_url | stylesheet_tag }}
 {{ 'splide.min.js' | asset_url | script_tag }}
 
 <div
-  class='splide yc-slider__main'
+  class='splide yc-slider__mobile'
   id='yc_slider_{{id}}'
 >
   <div class='splide__track'>
     <ul class='splide__list'>
       {%- for block in section.blocks %}
-        {%- if block.settings -%}
+        {%- if block.settings.image.src %}
           <li
             class='splide__slide'
             {{ block.youcan_attributes }}
@@ -41,15 +41,16 @@
 </div>
 
 <script>
-  var splide = new Splide(`#yc_slider_{{id}}`, {
-    type: '{{settings.slider_transition_type}}',
-    arrows: '{{settings.slider_arrows}}' ? true : false,
-    autoplay: '{{settings.slider_autoplay}}' ? true : false,
-    cover: '{{settings.slider_image_size_cover}}' ? true : false,
-    pagination: '{{settings.slider_pagination}}' ? true : false,
-    pauseOnHover: '{{settings.slider_pause_on_hover}}' ? true : false,
-    pauseOnFocus: '{{settings.slider_pause_on_focus}}' ? true : false,
-    height: 'calc(100vh - var(--yc-nav-height) - var(--yc-notice-height))',
+  var splide = new Splide(`#yc_slider_{{ id }}`, {
+    type: '{{ settings.slider_mobile_transition_type }}',
+    arrows: '{{ settings.slider_mobile_arrows }}' ? true : false,
+    autoplay: '{{ settings.slider_mobile_autoplay }}' ? true : false,
+    cover: '{{ settings.slider_mobile_image_size_cover }}' ? true : false,
+    pagination: '{{ settings.slider_mobile_pagination }}' ? true : false,
+    pauseOnHover: '{{ settings.slider_mobile_pause_on_hover }}' ? true : false,
+    pauseOnFocus: '{{ settings.slider_mobile_pause_on_focus }}' ? true : false,
+    height: `{{ settings.slider_mobile_height_percentage }}vh`,
+    arrows: false,
     focus: 'center',
     interval: 3000,
     rewind: false,
@@ -62,7 +63,7 @@
 
 {%- schema -%}
 {
-  "label": "Slider",
+  "label": "Mobile Slider",
   "blocks": [
     {
       "label": "Slider image",

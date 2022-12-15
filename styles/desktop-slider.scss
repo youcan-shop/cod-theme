@@ -1,8 +1,21 @@
-.yc-slider__main {
+@import 'helpers/mixins';
+
+.yc-slider__desktop {
+  display: none;
+
+  @include breakpoint('md') {
+    display: block;
+  }
+
   .content {
+    background-color: rgba(black, 0.7);
     height: 100%;
     display: flex;
     align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+
     * {
       background-color: transparent !important;
       color: white !important;
@@ -39,6 +52,15 @@
 
     .btn-holder {
       margin-top: 2rem;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .container {
+      & > div {
+        max-width: 600px;
+      }
     }
   }
 }

@@ -1,0 +1,54 @@
+@import 'helpers/mixins';
+
+.yc-slider__mobile {
+  @include breakpoint('md') {
+    display: none;
+  }
+
+  .content {
+    background-color: rgba(black, 0.7);
+    height: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    * {
+      background-color: transparent !important;
+      color: white !important;
+    }
+
+    & > div {
+      max-width: 30rem;
+      position: relative;
+      z-index: 3;
+    }
+
+    .yc-btn {
+      background-color: white !important;
+      color: black !important;
+      margin-top: 1rem;
+    }
+
+    .headers {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+
+    @for $i from 1 through 3 {
+      h#{$i} {
+        font-size: calc(3rem / $i);
+        @extend .headers;
+      }
+    }
+
+    p {
+      margin-top: 1rem;
+    }
+
+    .btn-holder {
+      margin-top: 2rem;
+      text-align: center;
+    }
+  }
+}
