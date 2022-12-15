@@ -16,7 +16,7 @@
 
   &.desktop {
     display: none;
-  
+
     @include breakpoint('md') {
       display: flex;
       background-color: var(--yc-notice-background-color-desktop);
@@ -38,7 +38,7 @@
       color: var(--yc-notice-text-color-mobile);
       font-size: var(--yc-notice-font-size-mobile);
     }
-  
+
     @include breakpoint('md') {
       display: none;
     }
