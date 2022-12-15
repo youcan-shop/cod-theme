@@ -1,15 +1,47 @@
+@import 'helpers/mixins';
+
 .yc-notice {
-  background-color: var(--yc-notice-background-color);
-  height: var(--yc-notice-height);
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
 
   .content {
-    padding: var(--yc-notice-content-padding);
-    color: var(--yc-notice-text-color);
-    font-size: var(--yc-notice-font-size);
-    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &.desktop {
+    display: none;
+  
+    @include breakpoint('md') {
+      display: flex;
+      background-color: var(--yc-notice-background-color-desktop);
+      height: var(--yc-notice-height-desktop);
+
+      .content {
+        color: var(--yc-notice-text-color-desktop);
+        font-size: var(--yc-notice-font-size-desktop);
+      }
+    }
+  }
+
+  &.mobile {
+    display: flex;
+    background-color: var(--yc-notice-background-color-mobile);
+    height: var(--yc-notice-height-mobile);
+
+    .content {
+      color: var(--yc-notice-text-color-mobile);
+      font-size: var(--yc-notice-font-size-mobile);
+    }
+  
+    @include breakpoint('md') {
+      display: none;
+    }
   }
 }
 
