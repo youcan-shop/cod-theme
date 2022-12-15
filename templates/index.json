@@ -29,27 +29,6 @@
       },
       "order": ["block_a7t3crrx5pwftk9", "block_a91xtc0po9f5de", "block_aacoyo7xg6v7e3"]
     },
-    "main-slider": {
-      "type": "main-slider",
-      "blocks": {
-        "block_qcb3t3xjlvov0i": {
-          "type": "image_picker",
-          "settings": {
-            "image": "MWqUHBiFQEE6LuUXNgBrFNA0JFIfIwOZtUO3sv4U-2Iqyya8lN0b70DOA9hN9MmtCfBb.jpeg",
-            "caption": "<h1>Title here</h1><p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>",
-            "button_text": "Get it now!",
-            "product": "4595a663-91cf-48a1-bf9b-424fcd98d026"
-          }
-        },
-        "block_qdap9bgcs2mvf7": {
-          "type": "image_picker",
-          "settings": {
-            "image": "slide-3-2Hcbfzv5MEU2LkzXDxnFl8T4Hbp.jpg"
-          }
-        }
-      },
-      "order": ["block_qcb3t3xjlvov0i", "block_qdap9bgcs2mvf7"]
-    },
     "featured-products": {
       "type": "featured-products",
       "blocks": {

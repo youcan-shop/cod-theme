@@ -1,0 +1,39 @@
+.yc-slider__desktop .content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.yc-slider__desktop .content * {
+  background-color: transparent !important;
+  color: white !important;
+}
+.yc-slider__desktop .content > div {
+  max-width: 30rem;
+  position: relative;
+  z-index: 3;
+}
+.yc-slider__desktop .content .yc-btn {
+  background-color: white !important;
+  color: black !important;
+  margin-top: 1rem;
+}
+.yc-slider__desktop .content .headers, .yc-slider__desktop .content h3, .yc-slider__desktop .content h2, .yc-slider__desktop .content h1 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+.yc-slider__desktop .content h1 {
+  font-size: 3rem;
+}
+.yc-slider__desktop .content h2 {
+  font-size: 1.5rem;
+}
+.yc-slider__desktop .content h3 {
+  font-size: 1rem;
+}
+.yc-slider__desktop .content p {
+  margin-top: 1rem;
+}
+.yc-slider__desktop .content .btn-holder {
+  margin-top: 2rem;
+}
