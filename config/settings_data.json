@@ -2,15 +2,11 @@
   "current": {
     "font_family": "Cairo",
     "theme_direction": "rtl",
-    "notice_bar_content_font_size": 16,
-    "notice_bar_height": 70,
     "primary_color": "#030303FF",
     "navbar_logo": "xkQ9K8c7A4PKLqgcZlsMC5zcCwMxDl4B46DJhudA-2IqyMhNuxyIpY6fTgnIwkOhpR7T.png",
     "navbar_background_color": "#000000FF",
     "navbar_links_color": "#FFFFFFFF",
     "navbar_height": 85,
-    "notice_bar_content_text_color": "#000000FF",
-    "notice_bar_background_color": "#FFFFFFFF",
     "navbar_always_on_top": false
   },
   "presets": {
