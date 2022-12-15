@@ -1,0 +1,30 @@
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+{{ 'mobile-slider.css' | asset_url | stylesheet_tag }}
+{{ 'splide.min.js' | asset_url | script_tag }}
+
+<div class='splide {{ class }}' id='yc_slider_{{id}}'>
+  <div class='splide__track'>
+    <ul class='splide__list'>
+      {%-dump block-%}
+      {%- for block in slides %}
+        {%- if block.settings.image.src %}
+          <li class='splide__slide' {{ block.youcan_attributes }}>
+            <img src='{{ block.settings.image.src }}'>
+            {%- if block.settings.caption and block.settings.product %}
+              <div class='content flex items-center container h-full w-full'>
+                <div class='px-3'>
+                  <div class='caption'>{{ block.settings.caption }}</div>
+                  <div class='btn-holder'>
+                    <a href='{{ block.settings.product.url }}' class='yc-btn' style='font-weight: {{block.settings.button_font_weight}}!important'>
+                      {{ block.settings.button_text }}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            {%- endif %}
+          </li>
+        {%- endif %}
+      {%- endfor %}
+    </ul>
+  </div>
+</div>

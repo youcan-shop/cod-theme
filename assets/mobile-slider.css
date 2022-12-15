@@ -1,3 +1,8 @@
+@media (min-width: 768px) {
+  .yc-slider__mobile {
+    display: none;
+  }
+}
 .yc-slider__mobile .content {
   height: 100%;
   display: flex;

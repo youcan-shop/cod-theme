@@ -1,4 +1,10 @@
+@import 'helpers/mixins';
+
 .yc-slider__mobile {
+  @include breakpoint('md') {
+    display: none;
+  }
+
   .content {
     height: 100%;
     display: flex;

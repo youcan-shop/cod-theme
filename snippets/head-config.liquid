@@ -76,10 +76,16 @@
       var(--yc-font-family){%- endif -%};
     --yc-drawer-font-size: {{ settings.drawer_font_size}}px;
 
-    /* Slider */
-    --yc-slider-arrows-background: {{ settings.arrows_background_color.hex}};
+    /* Sliders */
+    /* -- Desktop */
+    --yc-slider-arrows-background: {{ settings.slider_desktop_arrows_background_color.hex }};
     --yc-slider-arrows-size: {{ settings.slider_arrows_size}}px;
     --yc-slider-arrows-content-size: {{ settings.slider_arrows_content_size}}px;
+
+    /* -- Mobile */
+    --yc-slider-mobile-arrows-background: {{ settings.slider_mobile_desktop_arrows_background_color.hex }};
+    --yc-slider-mobile-arrows-size: {{ settings.slider_mobile_arrows_size}}px;
+    --yc-slider-mobile-arrows-content-size: {{ settings.slider_mobile_arrows_content_size}}px;
 
     /* Reviews */
     --yc-reviews-gap: {{ settings.reviews_gap}}px;
