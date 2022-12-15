@@ -116,6 +116,11 @@ button {
     margin-bottom: 2px;
   }
 }
+[dir='rtl'] {
+  .yc-btn {
+    flex-direction: row-reverse;
+  }
+}
 
 h1,
 h2,
