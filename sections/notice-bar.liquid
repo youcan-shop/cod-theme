@@ -1,8 +1,14 @@
 {{ 'notice-bar.css' | asset_url | stylesheet_tag }}
 
-{%- if settings.notice_bar_show %}
-  <div class='yc-notice {%- if settings.navbar_always_on_top %} notice-fixed {%- endif %}'>
-    <div class='content'>{{ settings.notice_bar_content }}</div>
+{%- if settings.notice_bar_show_desktop %}
+  <div class='yc-notice desktop  {%- if settings.navbar_always_on_top %} notice-fixed {%- endif %}'>
+    <div class='content container '>{{ settings.notice_bar_content_desktop }}</div>
+  </div>
+{%- endif %}
+
+{%- if settings.notice_bar_show_mobile %}
+  <div class='yc-notice mobile container {%- if settings.navbar_always_on_top %} notice-fixed {%- endif %}'>
+    <div class='content'>{{ settings.notice_bar_content_mobile }}</div>
   </div>
 {%- endif %}
 

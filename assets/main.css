@@ -99,6 +99,7 @@ button:focus {
   align-items: center;
   justify-content: center;
   gap: 5px;
+  direction: ltr;
 }
 .yc-btn:not(.btn-sm) {
   height: 44px;
