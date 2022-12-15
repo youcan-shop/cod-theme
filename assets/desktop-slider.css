@@ -7,6 +7,7 @@
   }
 }
 .yc-slider__desktop .content {
+  background-color: rgba(0, 0, 0, 0.7);
   height: 100%;
   display: flex;
   align-items: center;
@@ -44,4 +45,8 @@
 }
 .yc-slider__desktop .content .btn-holder {
   margin-top: 2rem;
+  display: flex;
+}
+.yc-slider__desktop .content .container > div {
+  max-width: 600px;
 }

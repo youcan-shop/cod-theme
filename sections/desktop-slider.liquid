@@ -11,15 +11,15 @@
   <div class='splide__track'>
     <ul class='splide__list'>
       {%- for block in section.blocks %}
-        {%- if block.settings.image.src %}
-          <li
-            class='splide__slide'
-            {{ block.youcan_attributes }}
-          >
-            {%- if block.settings.caption and block.settings.product %}
-              <img src='{{ block.settings.image.src }}'>
-              <div class='content flex items-center container h-full w-full'>
-                <div class='px-3'>
+        <li
+          class='splide__slide'
+          {{ block.youcan_attributes }}
+        >
+          <img src='{{ block.settings.image.src }}'>
+          {%- if block.settings.caption and block.settings.product %}
+            <div class='content flex items-center h-full w-full'>
+              <div class='container'>
+                <div>
                   <div class='caption'>{{ block.settings.caption }}</div>
                   <div class='btn-holder'>
                     <a
@@ -32,9 +32,9 @@
                   </div>
                 </div>
               </div>
-            {%- endif %}
-          </li>
-        {%- endif %}
+            </div>
+          {%- endif %}
+        </li>
       {%- endfor %}
     </ul>
   </div>

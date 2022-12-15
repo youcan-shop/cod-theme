@@ -113,7 +113,7 @@
           "type": "image_picker",
           "settings": {
             "image": "slide-4-2HcbfUsDtvLWxslWUr6uWuUxeCp.jpg",
-            "caption": "<h2>This is a desktop slider</h2><p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to.</p>",
+            "caption": "<h2>\u0647\u0630\u0627 \u0647\u0648 \u0634\u0631\u064a\u0637 \u062a\u0645\u0631\u064a\u0631 \u0633\u0637\u062d \u0627\u0644\u0645\u0643\u062a\u0628</h2><p>\u0641\u064a \u0627\u0644\u0646\u0634\u0631 \u0648\u0627\u0644\u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u062c\u0631\u0627\u0641\u064a\u0643\u064a \u060c \u0647\u0648 \u0639\u0646\u0635\u0631 \u0646\u0627\u0626\u0628 \u0634\u0627\u0626\u0639 \u0627\u0644\u0627\u0633\u062a\u062e\u062f\u0627\u0645.</p>",
             "button_text": "Visit Now \ud83d\udd25",
             "product": "4595a663-91cf-48a1-bf9b-424fcd98d026",
             "button_font_weight": "500"
@@ -122,13 +122,47 @@
         "block_qx88dcfkmfmqpeh": {
           "type": "image_picker",
           "settings": {
+            "image": "slide-3-2Hcbfzv5MEU2LkzXDxnFl8T4Hbp.jpg",
+            "button_font_weight": "500",
+            "caption": "<p><br></p>",
+            "button_text": ""
+          }
+        }
+      },
+      "order": ["block_qw91o394p69bv8l", "block_qx88dcfkmfmqpeh"]
+    },
+    "section_mjhf0v7zdki572el": {
+      "type": "mobile-slider",
+      "settings": {},
+      "blocks": {
+        "block_mlrd68efi1c0fy6": {
+          "type": "image_picker",
+          "settings": {
+            "image": "MWqUHBiFQEE6LuUXNgBrFNA0JFIfIwOZtUO3sv4U-2Iqyya8lN0b70DOA9hN9MmtCfBb.jpeg",
+            "caption": "<h2>Test test</h2><p>In publishing and graphic design, Lorem ipsum is a placeholder.</p>",
+            "button_text": "visit",
+            "product": "5f865c86-c8dc-48b6-8bcb-2525bc762430",
+            "button_font_weight": "500"
+          }
+        },
+        "block_mng0xrhzeicyac": {
+          "type": "image_picker",
+          "settings": {
             "image": "slide-2-2HcbdP3hGgA7FwWvn21AO5pGODx.jpg",
             "button_font_weight": "500"
           }
         }
       },
-      "order": ["block_qw91o394p69bv8l", "block_qx88dcfkmfmqpeh"]
+      "order": ["block_mlrd68efi1c0fy6", "block_mng0xrhzeicyac"]
     }
   },
-  "order": ["notice-bar", "main-navbar", "featured-products", "main-video", "footer", "section_qum9qooyrwe3uz"]
+  "order": [
+    "notice-bar",
+    "main-navbar",
+    "section_qum9qooyrwe3uz",
+    "section_mjhf0v7zdki572el",
+    "featured-products",
+    "main-video",
+    "footer"
+  ]
 }

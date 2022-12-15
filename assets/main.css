@@ -417,3 +417,7 @@ input:not([type=radio]),
     max-width: 400px;
   }
 }
+
+.splide {
+  direction: ltr;
+}
