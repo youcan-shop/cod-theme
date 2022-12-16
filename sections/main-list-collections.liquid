@@ -1,0 +1,42 @@
+{{ 'queries-handler.css' | asset_url | stylesheet_tag }}
+{{ 'featured-products.css' | asset_url | stylesheet_tag }}
+
+{%- assign per_page = section.settings.items_per_page -%}
+<div class='yc-featured-products container'>
+  <div class='top-items'>
+    <h1 class='yc-section-title'>{{ section.settings.title }}</h1>
+    {%- render 'main-sort' -%}
+  </div>
+  {%- paginate collections by per_page cod %}
+    <div class='product-list'>
+      {% for collection in items %}
+        {%- render 'collection-preview', category: collection %}
+      {% endfor %}
+    </div>
+
+    <!-- prettier-ignore -->
+    {%- render 'main-pagination', has_more: has_more, next_page: next_page, previous_page: previous_page, current: current, last: last -%}
+  {%- endpaginate %}
+</div>
+
+{% schema %}
+{
+  "label": "Collections",
+  "templates": ["list-collections"],
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Collections"
+    },
+    {
+      "type": "number",
+      "id": "items_per_page",
+      "label": "Collections per page",
+      "default": 10
+    }
+  ]
+}
+{% endschema %}

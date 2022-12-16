@@ -1,0 +1,92 @@
+/* ---------------- */
+/* ----- sort ----- */
+/* ---------------- */
+.top-items {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .top-items {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.top-items .yc-section-title {
+  margin-bottom: 10px;
+}
+.top-items .sort-items-holder {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.top-items .sort-items-holder .commander {
+  font-weight: 400;
+  white-space: nowrap;
+}
+.top-items .sort-items-holder .field {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.top-items .sort-items-holder .field .pawn {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  padding: 3px 13px;
+  border-radius: 50rem;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.7);
+}
+.top-items .sort-items-holder .field .pawn:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.top-items .sort-items-holder .field .pawn.active {
+  background-color: var(--yc-primary-color);
+  color: white;
+}
+
+/* ---------------------- */
+/* ----- pagination ----- */
+/* ---------------------- */
+.yc-pagination-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;
+  padding: 1rem 2rem;
+  box-shadow: var(--yc-main-shadow);
+  border-radius: 8px;
+  width: fit-content;
+}
+.yc-pagination-wrapper .paginate-btn, .yc-pagination-wrapper .paginate-btn-prev, .yc-pagination-wrapper .paginate-btn-next {
+  width: 2.3rem;
+  height: 2.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50rem;
+}
+.yc-pagination-wrapper .paginate-btn:hover, .yc-pagination-wrapper .paginate-btn.active {
+  background: var(--yc-neutral-light-color);
+}
+.yc-pagination-wrapper .paginate-btn-prev, .yc-pagination-wrapper .paginate-btn-next {
+  width: 2.3rem;
+  height: 2.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50rem;
+  background-color: var(--yc-primary-color);
+  cursor: pointer;
+  color: white;
+}
+.yc-pagination-wrapper .paginate-btn-prev.disabled, .yc-pagination-wrapper .paginate-btn-next.disabled {
+  background-color: var(--yc-neutral-light-color);
+  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.2);
+}

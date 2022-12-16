@@ -1,4 +1,4 @@
-{{ 'search.css' | asset_url | stylesheet_tag }}
+{{ 'queries-handler.css' | asset_url | stylesheet_tag }}
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
 
 {%- assign products_per_page = section.settings.products_per_page -%}
@@ -10,32 +10,7 @@
         class='yc-section-title'
         id='search-title'
       ></h1>
-      <div class='sort-items-holder'>
-        <div class='commander'>Sort by:</div>
-        <div class='field'>
-          <a
-            class='pawn'
-            data-value='price'
-          >
-            <span>Price</span>
-            <ion-icon name='chevron-down-outline'></ion-icon>
-          </a>
-          <a
-            class='pawn'
-            data-value='created_at'
-          >
-            <span>Newest</span>
-            <ion-icon name='chevron-down-outline'></ion-icon>
-          </a>
-          <a
-            class='pawn'
-            data-value='name'
-          >
-            <span>Alphabetically</span>
-            <ion-icon name='chevron-down-outline'></ion-icon>
-          </a>
-        </div>
-      </div>
+      {%- render 'main-sort' -%}
     </div>
     <div class='product-list'>
       {%- for item in items %}
@@ -68,38 +43,8 @@
     </div>
   </div>
 
-  {%- if has_more %}
-    <div class='yc-pagination-wrapper'>
-      <a
-        class='paginate-btn-prev'
-        href='{{ next_page }}'
-      >
-        <ion-icon
-          name='arrow-back-outline'
-          class='yc-btn-responsive-icon'
-        ></ion-icon>
-      </a>
-
-      {% for index in (1..last) %}
-        <a
-          class='paginate-btn {% if index == current %} active {%- endif %}'
-          data-index='{{ index }}'
-        >
-          {{ index }}
-        </a>
-      {% endfor %}
-
-      <a
-        class='paginate-btn-next'
-        href='{{ previous_page }}'
-      >
-        <ion-icon
-          name='arrow-forward-outline'
-          class='yc-btn-responsive-icon'
-        ></ion-icon>
-      </a>
-    </div>
-  {%- endif %}
+  <!-- prettier-ignore -->
+  {%- render 'main-pagination', has_more: has_more, next_page: next_page, previous_page: previous_page, current: current, last: last -%}
 {%- endpaginate %}
 
 {{ 'search.js' | asset_url | script_tag_deferred }}
