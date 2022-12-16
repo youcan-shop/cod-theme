@@ -3,7 +3,9 @@
 <div class='yc-featured-products container'>
   <h1 class='yc-section-title'>{{ section.settings.title }}</h1>
   <div class='product-list'>
-    {%- paginate collections by 10 collection_id category_id: category.id %}
+    {%- assign per_page = section.settings.items_per_page -%}
+
+    {%- paginate collections by per_page collection_id, category_id: category.id %}
       {% for collection in items %}
         {%- render 'collection-preview', category: collection %}
       {% endfor %}
@@ -22,6 +24,12 @@
       "id": "title",
       "label": "Title",
       "default": "Collections"
+    },
+    {
+      "type": "number",
+      "id": "items_per_page",
+      "label": "Collections per page",
+      "default": 10
     }
   ]
 }
