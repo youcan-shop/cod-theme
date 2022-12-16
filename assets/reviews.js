@@ -29,6 +29,5 @@
     }
   } catch (error) {
     noDataSetter();
-    console.error(error);
   }
 })();

@@ -25,7 +25,6 @@ if (videoType == 'youtube') {
   iframe.width = width;
 } else if (videoType == 'facebook') {
   const iframe = document.getElementById('facebook-video');
-  console.log(videoSrc);
   iframe.src = videoSrc;
   iframe.width = width;
 }
