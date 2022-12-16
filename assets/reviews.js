@@ -14,7 +14,7 @@
       reviewItem.classList.add('review-item');
       reviewItem.innerHTML = `
         <div class='header'>
-          <img class='image' src=${review.images_urls[0] || defaultAvatar} />
+          <img loading='lazy' class='image' src=${review.images_urls[0] || defaultAvatar} />
           <div class='name'>${review.first_name} ${review.last_name}</div>
         </div>
         <div class='content'>

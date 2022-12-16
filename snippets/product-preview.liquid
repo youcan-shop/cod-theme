@@ -6,9 +6,15 @@
 >
   <div class='product-thumbnail'>
     {% if item.thumbnail %}
-      <img src='{{ item.thumbnail }}'>
+      <img
+        loading='lazy'
+        src='{{ item.thumbnail }}'
+      >
     {% else %}
-      <img src='{{ 'default_product.jpeg' | asset_url }}'>
+      <img
+        loading='lazy'
+        src='{{ 'default_product.jpeg' | asset_url }}'
+      >
     {% endif %}
   </div>
   <div class='product-details'>

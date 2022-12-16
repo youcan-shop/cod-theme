@@ -45,9 +45,15 @@
         >
           <div class='product-thumbnail'>
             {% if item.thumbnail %}
-              <img src='{{ item.thumbnail }}'>
+              <img
+                loading='lazy'
+                src='{{ item.thumbnail }}'
+              >
             {% else %}
-              <img src='{{ 'fallback-product-img.webp' | asset_url }}'>
+              <img
+                loading='lazy'
+                src='{{ 'fallback-product-img.webp' | asset_url }}'
+              >
             {% endif %}
           </div>
 
