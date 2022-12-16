@@ -47,8 +47,6 @@
   {%- render 'main-pagination', has_more: has_more, next_page: next_page, previous_page: previous_page, current: current, last: last -%}
 {%- endpaginate %}
 
-{{ 'search.js' | asset_url | script_tag_deferred }}
-
 {%- schema -%}
 {
   "label": "Search",
