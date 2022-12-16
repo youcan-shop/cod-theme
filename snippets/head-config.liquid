@@ -9,7 +9,7 @@
 >
 
 <link
-  href='https://fonts.googleapis.com/css2?family={{settings.font_family}}:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
+  href='https://fonts.googleapis.com/css2?family={{ settings.font_family }}:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
   rel='stylesheet'
 >
 
@@ -21,7 +21,7 @@
     sans-serif;
     --yc-inputs-shadow: 0 0 0 1px var(--yc-primary-color);
     --yc-main-shadow: rgba(0, 0, 0, 0.04) 0 0 0 1px, rgba(0, 0, 0, 0.03) 0 1px 1px, rgba(0, 0, 0, 0.03) 0 2px 2px, rgba(0, 0, 0, 0.03) 0 4px 4px, rgba(0, 0, 0, 0.03) 0 8px 8px, rgba(0, 0, 0, 0.03) 0 16px 16px;
-    --yc-theme-direction: {{ settings.theme_direction}};
+    --yc-theme-direction: {{ settings.theme_direction }};
 
     /* colors */
     --yc-primary-color: {{ settings.primary_color.hex }};
@@ -35,91 +35,91 @@
     --yc-main-border: 1px solid var(--yc-neutral-light-color);
 
     /* Notice bar Desktop */
-    --yc-notice-height-desktop: {{ settings.notice_bar_height_desktop}}px;
-    --yc-notice-font-size-desktop: {{ settings.notice_bar_content_font_size_desktop}}px;
+    --yc-notice-height-desktop: {{ settings.notice_bar_height_desktop }}px;
+    --yc-notice-font-size-desktop: {{ settings.notice_bar_content_font_size_desktop }}px;
     --yc-notice-background-color-desktop: {%- if settings.notice_bar_background_color_desktop %}
-      {{ settings.notice_bar_background_color_desktop.hex}}
+      {{ settings.notice_bar_background_color_desktop.hex }}
     {%- else %}
       var(--yc-primary-color){%- endif %};
-    --yc-notice-text-color-desktop: {{ settings.notice_bar_content_text_color_desktop.hex}};
+    --yc-notice-text-color-desktop: {{ settings.notice_bar_content_text_color_desktop.hex }};
 
     /* Notice bar Mobile */
-    --yc-notice-height-mobile: {{ settings.notice_bar_height_mobile}}px;
-    --yc-notice-font-size-mobile: {{ settings.notice_bar_content_font_size_mobile}}px;
+    --yc-notice-height-mobile: {{ settings.notice_bar_height_mobile }}px;
+    --yc-notice-font-size-mobile: {{ settings.notice_bar_content_font_size_mobile }}px;
     --yc-notice-background-color-mobile: {%- if settings.notice_bar_background_color_mobile %}
-      {{ settings.notice_bar_background_color_mobile.hex}}
+      {{ settings.notice_bar_background_color_mobile.hex }}
     {%- else %}
       var(--yc-primary-color){%- endif %};
-    --yc-notice-text-color-mobile: {{ settings.notice_bar_content_text_color_mobile.hex}};
+    --yc-notice-text-color-mobile: {{ settings.notice_bar_content_text_color_mobile.hex }};
 
-    --yc-notice-above: {{ settings.notice_bar_above}};
+    --yc-notice-above: {{ settings.notice_bar_above }};
 
     /* Navbar */
-    --yc-nav-height: {{ settings.navbar_height}}px;
-    --yc-nav-background: {{ settings.navbar_background_color.hex}};
+    --yc-nav-height: {{ settings.navbar_height }}px;
+    --yc-nav-background: {{ settings.navbar_background_color.hex }};
     --yc-nav-links-color: {%- if settings.navbar_links_color -%}
-      {{ settings.navbar_links_color.hex}}
+      {{ settings.navbar_links_color.hex }}
     {%- else -%}
       var(--yc-neutral-color){%- endif -%};
     --yc-nav-cart-badge-color: {%- if settings.cart_badge_color -%}
-      {{ settings.cart_badge_color.hex}}
+      {{ settings.cart_badge_color.hex }}
     {%- else -%}
       var(--yc-neutral-color){%- endif -%};
-    --yc-nav-links-font-weight: {{ settings.navbar_links_font_weight}};
-    --yc-nav-links-hover-transparency: {{ settings.navbar_links_hover_transparency}};
+    --yc-nav-links-font-weight: {{ settings.navbar_links_font_weight }};
+    --yc-nav-links-hover-transparency: {{ settings.navbar_links_hover_transparency }};
     --yc-nav-font-family: {%- if settings.navbar_font_family -%}
       {{ settings.navbar_font_family }}, sans-serif{%- else -%}
       var(--yc-font-family){%- endif -%};
-    --yc-nav-font-size: {{ settings.navbar_font_size}}px;
-    --yc-nav-shadow: {{ settings.navbar_shadow}};
+    --yc-nav-font-size: {{ settings.navbar_font_size }}px;
+    --yc-nav-shadow: {{ settings.navbar_shadow }};
 
     /* Mobile drawer */
-    --yc-drawer-background: {{ settings.drawer_background_color.hex}};
+    --yc-drawer-background: {{ settings.drawer_background_color.hex }};
     --yc-drawer-links-color: {%- if settings.drawer_links_color -%}
-      {{ settings.drawer_links_color.hex}}
+      {{ settings.drawer_links_color.hex }}
     {%- else -%}
       var(--yc-neutral-color){%- endif -%};
-    --yc-drawer-links-font-weight: {{ settings.drawer_links_font_weight}};
-    --yc-drawer-links-hover-transparency: {{ settings.drawer_links_hover_transparency}};
+    --yc-drawer-links-font-weight: {{ settings.drawer_links_font_weight }};
+    --yc-drawer-links-hover-transparency: {{ settings.drawer_links_hover_transparency }};
     --yc-drawer-font-family: {%- if settings.drawer_font_family -%}
       {{ settings.drawer_font_family }}, sans-serif{%- else -%}
       var(--yc-font-family){%- endif -%};
-    --yc-drawer-font-size: {{ settings.drawer_font_size}}px;
+    --yc-drawer-font-size: {{ settings.drawer_font_size }}px;
 
     /* Sliders */
     /* -- Desktop */
     --yc-slider-arrows-background: {{ settings.slider_desktop_arrows_background_color.hex }};
-    --yc-slider-arrows-size: {{ settings.slider_arrows_size}}px;
-    --yc-slider-arrows-content-size: {{ settings.slider_arrows_content_size}}px;
+    --yc-slider-arrows-size: {{ settings.slider_arrows_size }}px;
+    --yc-slider-arrows-content-size: {{ settings.slider_arrows_content_size }}px;
 
     /* -- Mobile */
     --yc-slider-mobile-arrows-background: {{ settings.slider_mobile_desktop_arrows_background_color.hex }};
-    --yc-slider-mobile-arrows-size: {{ settings.slider_mobile_arrows_size}}px;
-    --yc-slider-mobile-arrows-content-size: {{ settings.slider_mobile_arrows_content_size}}px;
+    --yc-slider-mobile-arrows-size: {{ settings.slider_mobile_arrows_size }}px;
+    --yc-slider-mobile-arrows-content-size: {{ settings.slider_mobile_arrows_content_size }}px;
 
     /* Reviews */
-    --yc-reviews-gap: {{ settings.reviews_gap}}px;
-    --yc-reviews-items_per_row: {{ settings.reviews_items_per_row}};
-    --yc-reviews-name-font-size: {{ settings.reviews_name_font_size}}px;
-    --yc-reviews-content-font-size: {{ settings.reviews_content_font_size}}px;
+    --yc-reviews-gap: {{ settings.reviews_gap }}px;
+    --yc-reviews-items_per_row: {{ settings.reviews_items_per_row }};
+    --yc-reviews-name-font-size: {{ settings.reviews_name_font_size }}px;
+    --yc-reviews-content-font-size: {{ settings.reviews_content_font_size }}px;
 
     /* Footer */
     --yc-footer-background-color: {%- if settings.footer_background_color -%}
-      {{ settings.footer_background_color.hex}}
+      {{ settings.footer_background_color.hex }}
     {%- else -%}
       var(--yc-primary-color){%- endif -%};
-    --yc-footer-text-color: {{ settings.footer_text_color.hex}};
-    --yc-footer-copyright-background: {{ settings.footer_copyright_background.hex}};
+    --yc-footer-text-color: {{ settings.footer_text_color.hex }};
+    --yc-footer-copyright-background: {{ settings.footer_copyright_background.hex }};
 
     /* Notification toast */
-    --yc-notification-toast-height: {{ settings.notification_toast_height}}px;
-    --yc-notification-toast-font-weight: {{ settings.notification_toast_font_weight}};
-    --yc-notification-toast-font-size: {{ settings.notification_toast_font_size}}px;
-    --yc-notification-toast-background-color: {{ settings.notification_toast_background_color.hex}};
-    --yc-notification-toast-text-color: {{ settings.notification_toast_text_color.hex}};
-    --yc-notification-toast-border-radius: {{ settings.notification_toast_border_radius}}px;
-    --yc-notification-toast-border-width: {{ settings.notification_toast_border_width}}px;
-    --yc-notification-toast-border-color: {{ settings.notification_toast_border_color.hex}};
+    --yc-notification-toast-height: {{ settings.notification_toast_height }}px;
+    --yc-notification-toast-font-weight: {{ settings.notification_toast_font_weight }};
+    --yc-notification-toast-font-size: {{ settings.notification_toast_font_size }}px;
+    --yc-notification-toast-background-color: {{ settings.notification_toast_background_color.hex }};
+    --yc-notification-toast-text-color: {{ settings.notification_toast_text_color.hex }};
+    --yc-notification-toast-border-radius: {{ settings.notification_toast_border_radius }}px;
+    --yc-notification-toast-border-width: {{ settings.notification_toast_border_width }}px;
+    --yc-notification-toast-border-color: {{ settings.notification_toast_border_color.hex }};
     {%- if settings.notification_toast_position == 'top-left' -%}
       --yc-notification-toast-top: 0;
       --yc-notification-toast-left: 0;
