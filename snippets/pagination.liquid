@@ -1,0 +1,34 @@
+{%- if last > 1 -%}
+  <div class='yc-pagination-wrapper'>
+    <a
+      class='paginate-btn-prev {% if current <= 1 %} disabled {%- endif %}'
+      href='{{ next_page }}'
+    >
+      <ion-icon
+        name='arrow-back-outline'
+        class='yc-btn-responsive-icon'
+      ></ion-icon>
+    </a>
+
+    {% for index in (1..last) %}
+      <a
+        class='paginate-btn {% if index == current %} active {%- endif %}'
+        data-index='{{ index }}'
+      >
+        {{ index }}
+      </a>
+    {% endfor %}
+
+    <a
+      class='paginate-btn-next {% if current >= last %} disabled {%- endif %}'
+      href='{{ previous_page }}'
+    >
+      <ion-icon
+        name='arrow-forward-outline'
+        class='yc-btn-responsive-icon'
+      ></ion-icon>
+    </a>
+  </div>
+{%- endif -%}
+
+{{ 'queries-handler.js' | asset_url | script_tag }}
