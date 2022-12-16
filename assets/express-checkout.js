@@ -26,7 +26,7 @@ document.getElementById('express-checkout-form').addEventListener('submit', asyn
         redirectToPaymentPage();
       })
       .catch((err) => {
-        console.error(err);
+        notify(err.message, 'error');
       });
   } catch (e) {
     notify(e.message, 'error');
