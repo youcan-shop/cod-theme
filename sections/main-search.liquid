@@ -10,7 +10,7 @@
         class='yc-section-title'
         id='search-title'
       ></h1>
-      {%- render 'sort' -%}
+      {%- render 'main-sort' -%}
     </div>
     <div class='product-list'>
       {%- for item in items %}
@@ -38,7 +38,7 @@
   </div>
 
   <!-- prettier-ignore -->
-  {%- render 'pagination', has_more: has_more, next_page: next_page, previous_page: previous_page, current: current, last: last -%}
+  {%- render 'main-pagination', has_more: has_more, next_page: next_page, previous_page: previous_page, current: current, last: last -%}
 {%- endpaginate %}
 
 {%- schema -%}
