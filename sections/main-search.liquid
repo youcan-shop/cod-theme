@@ -1,4 +1,4 @@
-{{ 'search.css' | asset_url | stylesheet_tag }}
+{{ 'queries-handler.css' | asset_url | stylesheet_tag }}
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
 
 {%- assign products_per_page = section.settings.products_per_page -%}
@@ -10,32 +10,7 @@
         class='yc-section-title'
         id='search-title'
       ></h1>
-      <div class='sort-items-holder'>
-        <div class='commander'>Sort by:</div>
-        <div class='field'>
-          <a
-            class='pawn'
-            data-value='price'
-          >
-            <span>Price</span>
-            <ion-icon name='chevron-down-outline'></ion-icon>
-          </a>
-          <a
-            class='pawn'
-            data-value='created_at'
-          >
-            <span>Newest</span>
-            <ion-icon name='chevron-down-outline'></ion-icon>
-          </a>
-          <a
-            class='pawn'
-            data-value='name'
-          >
-            <span>Alphabetically</span>
-            <ion-icon name='chevron-down-outline'></ion-icon>
-          </a>
-        </div>
-      </div>
+      {%- render 'sort' -%}
     </div>
     <div class='product-list'>
       {%- for item in items %}
