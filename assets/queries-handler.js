@@ -34,10 +34,6 @@ const convertUrlWithMultipleQuery = (keys, values) => {
 
 if (page <= 1 || !page) {
   page = 1;
-
-  if (paginateBtnPrev) {
-    paginateBtnPrev.classList.add('disabled');
-  }
 }
 
 if (paginateBtnPrev) {
