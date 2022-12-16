@@ -18,11 +18,11 @@
   {% for option in options -%}
     <div
       class='product-option'
-      id='option-{{option.name}}-{{option.type}}'
+      id='option-{{ option.name }}-{{ option.type }}'
     >
       <label
         class='product-option-title'
-        for='{{option.name}}'
+        for='{{ option.name }}'
       >
         {{- option.name -}}
       </label>
@@ -30,10 +30,10 @@
         {% when 'dropdown' %}
           <select
             class='yc-dropdown'
-            name='{{option.name}}'
+            name='{{ option.name }}'
           >
             {% for item in option.values %}
-              <option value='{{item}}'>{{ item }}</option>
+              <option value='{{ item }}'>{{ item }}</option>
             {% endfor %}
           </select>
         {% when 'textual_buttons' %}
@@ -52,13 +52,13 @@
             <div class='yc-radio'>
               <input
                 type='radio'
-                id='{{item}}'
-                name='{{option.name}}'
-                value='{{item}}'
+                id='{{ item }}'
+                name='{{ option.name }}'
+                value='{{ item }}'
               >
               <label
                 class='yc-radio-buttons'
-                for='{{item}}'
+                for='{{ item }}'
               >
                 <span>{{ item }}</span>
               </label>
@@ -72,8 +72,9 @@
                 class='yc-image-options-item'
               >
                 <img
-                  src='{{item.preview}}'
-                  alt='{{item.value}}'
+                  loading='lazy'
+                  src='{{ item.preview }}'
+                  alt='{{ item.value }}'
                 >
               </li>
             {% endfor %}
@@ -96,7 +97,7 @@
               >
                 <span
                   class='preview'
-                  style='background-color: {{item.preview}}'
+                  style='background-color: {{ item.preview }}'
                 ></span>
                 <span class='value'>{{ item.value }}</span>
               </li>

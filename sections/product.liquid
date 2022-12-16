@@ -1,6 +1,4 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
-{{ 'splide.min.css' | asset_url | stylesheet_tag }}
-{{ 'splide.min.js' | asset_url | script_tag }}
 
 {%- style -%}
   .product_customization {
@@ -300,4 +298,4 @@
   const variants = JSON.parse(variantStr.slice(1, -1));
 {%- endjavascript -%}
 
-{{ 'product.js' | asset_url | script_tag }}
+{{ 'product.js' | asset_url | script_tag_deferred }}

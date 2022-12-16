@@ -18,7 +18,6 @@ document.getElementById('express-checkout-form').addEventListener('submit', asyn
       })
       .onValidationErr((data) => {
         notify(data, 'error');
-        console.warn('validation error', data);
       })
       .onSkipShippingStep((data, redirectToShippingPage) => {
         redirectToShippingPage();
@@ -30,7 +29,6 @@ document.getElementById('express-checkout-form').addEventListener('submit', asyn
         console.error(err);
       });
   } catch (e) {
-    console.error(e);
     notify(e.message, 'error');
   } finally {
     stopLoad('#loading__checkout');

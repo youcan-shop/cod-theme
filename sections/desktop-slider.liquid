@@ -15,7 +15,10 @@
           class='splide__slide'
           {{ block.youcan_attributes }}
         >
-          <img src='{{ block.settings.image.src }}'>
+          <img
+            loading='lazy'
+            src='{{ block.settings.image.src }}'
+          >
           {%- if block.settings.caption and block.settings.product %}
             <div class='content flex items-center h-full w-full'>
               <div class='container flex items-center justify-center'>

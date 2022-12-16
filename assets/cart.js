@@ -10,7 +10,6 @@ async function addPromo(e) {
   try {
     await youcanjs.checkout.applyCoupon(coupon);
   } catch (e) {
-    console.error(e);
     notify(e.message, 'error');
   } finally {
     stopLoad('#loading__coupon');
@@ -37,7 +36,6 @@ async function updateQuantity(cartItemId, productVariantId, quantity) {
   try {
     await youcanjs.cart.updateItem({ cartItemId, productVariantId, quantity });
   } catch (e) {
-    console.error(e);
     notify(e.message, 'error');
   } finally {
     stopLoad(`#loading__${cartItemId}`);
@@ -87,7 +85,6 @@ async function removeItem(cartItemId, productVariantId) {
       document.querySelector('.empty-cart').classList.remove('hidden');
     }
   } catch (e) {
-    console.error(e);
     notify(e.message, 'error');
   } finally {
     stopLoad(`#loading__${cartItemId}`);

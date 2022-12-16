@@ -20,9 +20,15 @@
         >
           <div class='product-thumbnail'>
             {% if item.thumbnail %}
-              <img src='{{ item.thumbnail }}'>
+              <img
+                loading='lazy'
+                src='{{ item.thumbnail }}'
+              >
             {% else %}
-              <img src='{{ 'fallback-product-img.webp' | asset_url }}'>
+              <img
+                loading='lazy'
+                src='{{ 'fallback-product-img.webp' | asset_url }}'
+              >
             {% endif %}
           </div>
 
@@ -40,6 +46,8 @@
   <!-- prettier-ignore -->
   {%- render 'main-pagination', has_more: has_more, next_page: next_page, previous_page: previous_page, current: current, last: last -%}
 {%- endpaginate %}
+
+{{ 'search.js' | asset_url | script_tag_deferred }}
 
 {%- schema -%}
 {
