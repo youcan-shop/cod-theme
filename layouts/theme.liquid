@@ -8,7 +8,7 @@
 
     {{ content_for_header }}
 
-    {{ 'youcan-js.min.js' | asset_url | script_tag }}
+    {{ 'youcan-js.min.js' | asset_url | script_tag_deferred }}
   </head>
   <body>
     {%- render 'overlay' -%}
@@ -16,9 +16,9 @@
 
     {{ content_for_layout }}
 
-    {{ 'main.js' | asset_url | script_tag }}
-    {{ 'splide.min.js' | asset_url | script_tag }}
-    {{ 'dropdown.min.js' | asset_url | script_tag }}
+    {{ 'main.js' | asset_url | script_tag_deferred }}
+    {{ 'splide.min.js' | asset_url | script_tag_deferred }}
+    {{ 'dropdown.min.js' | asset_url | script_tag_deferred }}
     {%- javascript -%}
       document.querySelectorAll('select').forEach((select) => NiceSelect.bind(select));
     {%- endjavascript -%}

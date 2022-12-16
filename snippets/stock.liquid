@@ -22,7 +22,7 @@
     const totalInStock = {{ total_stock_items }}
   </script>
 
-  {{ 'stock.js' | asset_url | script_tag }}
+  {{ 'stock.js' | asset_url | script_tag_deferred }}
 {%- else %}
   <p>
     ERROR: Please set the required properties for the stock: &nbsp;

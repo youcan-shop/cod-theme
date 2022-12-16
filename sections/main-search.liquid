@@ -102,7 +102,7 @@
   {%- endif %}
 {%- endpaginate %}
 
-{{ 'search.js' | asset_url | script_tag }}
+{{ 'search.js' | asset_url | script_tag_deferred }}
 
 {%- schema -%}
 {

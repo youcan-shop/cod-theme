@@ -64,6 +64,6 @@
   const targetDate = new Date(year, month - 1, day, hour, minute, second);
 </script>
 
-{{ 'countdown.js' | asset_url | script_tag }}
+{{ 'countdown.js' | asset_url | script_tag_deferred }}
 
-{{ 'countdown.js' | asset_url | script_tag }}
+{{ 'countdown.js' | asset_url | script_tag_deferred }}

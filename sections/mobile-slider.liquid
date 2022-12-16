@@ -2,7 +2,7 @@
 
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
 {{ 'mobile-slider.css' | asset_url | stylesheet_tag }}
-{{ 'splide.min.js' | asset_url | script_tag }}
+{{ 'splide.min.js' | asset_url | script_tag_deferred }}
 
 <div
   class='splide yc-slider__mobile'
