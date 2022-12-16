@@ -1,8 +1,0 @@
-{
-  "sections": {
-    "collections": {
-      "type": "main-collections"
-    }
-  },
-  "order": ["collections"]
-}
