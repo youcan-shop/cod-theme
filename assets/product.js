@@ -225,5 +225,7 @@ const stickyImagesHandler = () => {
   }
 };
 
-stickyImagesHandler();
-window.addEventListener('scroll', stickyImagesHandler);
+if (window.innerWidth > 768) {
+  stickyImagesHandler();
+  window.addEventListener('scroll', stickyImagesHandler);
+}
