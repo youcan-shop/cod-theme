@@ -11,7 +11,7 @@
             >
               {%- for item in block.settings -%}
                 {%- if item.0 == "block-title" -%}
-                  <h1 class='title block'>{{ item.1 }}</h1>
+                  <h1 class='title block'>{{ 'footer.blocks.privacy.title' | t: item.1 }}</h1>
                 {%- else %}
                   <a class='item block'>{{ item.1 }}</a>
                 {%- endif %}
@@ -24,7 +24,7 @@
             >
               {%- for item in block.settings -%}
                 {%- if item.0 == "block-title" -%}
-                  <h1 class='title block'>{{ item.1 }}</h1>
+                  <h1 class='title block'>{{ 'footer.blocks.social.title' | t: item.1 }}</h1>
                 {%- else %}
                   <a class='item block'>{{ item.1 }}</a>
                 {%- endif %}
@@ -34,7 +34,7 @@
             <div {{ block.youcan_attributes }}>
               {%- for item in block.settings -%}
                 {%- if item.0 == "block-title" -%}
-                  <h1 class='title block'>{{ item.1 }}</h1>
+                  <h1 class='title block'>{{ 'footer.blocks.contact.title' | t: item.1 }}</h1>
                 {%- else %}
                   <div class='item block whitespace-pre-wrap leading-8 -mt-1'>{{ item.1 }}</div>
                 {%- endif %}
@@ -46,7 +46,7 @@
               {{ block.youcan_attributes }}
             >
               {%- for item in block.settings -%}
-                <div class='block whitespace-pre-wrap leading-8'>{{ item.1 }}</div>
+                <div class='block whitespace-pre-wrap leading-8'>{{ 'footer.blocks.copyright.title' | t: item.1 }}</div>
               {%- endfor %}
             </div>
         {%- endcase %}
@@ -70,8 +70,7 @@
         {
           "type": "text",
           "id": "block-title",
-          "label": "Block title",
-          "default": "Privacy"
+          "label": "Block title"
         },
         {
           "type": "header",
@@ -155,8 +154,7 @@
         {
           "type": "text",
           "id": "block-title",
-          "label": "Block title",
-          "default": "Social Media"
+          "label": "Block title"
         },
         {
           "type": "paragraph",
@@ -204,8 +202,7 @@
         {
           "type": "text",
           "id": "block-title",
-          "label": "Block title",
-          "default": "Contact Us"
+          "label": "Block title"
         },
         {
           "type": "richtext",
@@ -223,8 +220,7 @@
         {
           "type": "richtext",
           "id": "copyright",
-          "label": "Copyright Text",
-          "default": "© 2023 YC. All rights reserved."
+          "label": "Copyright Text"
         }
       ]
     }

@@ -1,0 +1,70 @@
+{
+  "navbar": {
+    "search": {
+      "placeholder": "Enter keyword to search for..."
+    }
+  },
+  "featured_products": {
+    "title": "Featured Products.a.."
+  },
+  "featured_collections": {
+    "title": "Featured Collections .."
+  },
+  "list_collections": {
+    "title": "Collections"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "items_count": "items",
+    "items": {
+      "quantity": "Quantity",
+      "total": "Total",
+      "remove_cta": "Remove"
+    },
+    "summary": {
+      "title": "Order Summary",
+      "promo": "Promo Code",
+      "promo_input": "Enter your code",
+      "promo_cta": "Apply",
+      "total": "Total cost",
+      "checkout_cta": "Checkout"
+    },
+    "empty": {
+      "title": "Your cart is currently empty.",
+      "description": "Before you proceed to checkout you must add some products to your shopping cart. <br/> You will find a lot of interesting products on our \"Shop\" page.",
+      "cta": "Return to shop"
+    },
+    "continue_shopping_cta": "Continue Shopping"
+  },
+  "thankyou": {
+    "title": "Thank you",
+    "subtitle": "Your order has been received.",
+    "description": "Our team will be in touch to confirm your request.<br/>We value your trust and appreciate your willingness to communicate with us.<br/>We are always here to serve you.",
+    "return_cta": "Return to shop",
+    "details": {
+      "title": "Order details",
+      "payment_status": "Payment Status",
+      "shipping_cost": "Shipping Cost",
+      "total": "Total",
+      "product": "PRODUCT",
+      "one_piece_price": "ONE PIECE PRICE",
+      "quantity": "QUANTITY"
+    }
+  },
+  "footer": {
+    "blocks": {
+      "privacy": {
+        "title": "Privacy"
+      },
+      "social": {
+        "title": "Social Media"
+      },
+      "contact": {
+        "title": "Contact Us"
+      },
+      "copyright": {
+        "title": "© 2023 YC. All rights reserved."
+      }
+    }
+  }
+}
