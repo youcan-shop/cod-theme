@@ -51,6 +51,26 @@
       "quantity": "QUANTITY"
     }
   },
+  "snippets": {
+    "collection_preview": {
+      "visit_cta": "Visit o"
+    },
+    "main_sort": {
+      "title": "Sort by",
+      "price": "Price",
+      "newest": "Newest",
+      "alphabetically": "Alphabetically"
+    },
+    "product_preview": {
+      "cta_button": "Shop now"
+    },
+    "single_product": {
+      "quantity": "Quantity",
+      "variants": {
+        "upload": "Upload an image"
+      }
+    }
+  },
   "footer": {
     "blocks": {
       "privacy": {
