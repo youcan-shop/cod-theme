@@ -1,20 +1,132 @@
+{%- style %}
+  :root {
+    /* Notice bar Desktop */
+    --yc-notice-height-desktop: {{ section.settings.notice_bar_height_desktop }}px;
+      --yc-notice-font-size-desktop: {{ section.settings.notice_bar_content_font_size_desktop }}px;
+      --yc-notice-background-color-desktop: {%- if section.settings.notice_bar_background_color_desktop %}
+        {{ section.settings.notice_bar_background_color_desktop.hex }}
+      {%- else %}
+        var(--yc-primary-color){%- endif %};
+      --yc-notice-text-color-desktop: {{ section.settings.notice_bar_content_text_color_desktop.hex }};
+
+      /* Notice bar Mobile */
+      --yc-notice-height-mobile: {{ section.settings.notice_bar_height_mobile }}px;
+      --yc-notice-font-size-mobile: {{ section.settings.notice_bar_content_font_size_mobile }}px;
+      --yc-notice-background-color-mobile: {%- if section.settings.notice_bar_background_color_mobile %}
+        {{ section.settings.notice_bar_background_color_mobile.hex }}
+      {%- else %}
+        var(--yc-primary-color){%- endif %};
+      --yc-notice-text-color-mobile: {{ section.settings.notice_bar_content_text_color_mobile.hex }};
+
+      --yc-notice-above: {{ section.settings.notice_bar_above }};
+  }
+{%- endstyle %}
+
 {{ 'notice-bar.css' | asset_url | stylesheet_tag }}
 
-{%- if settings.notice_bar_show_desktop %}
+{%- if section.settings.notice_bar_show_desktop %}
   <div class='yc-notice desktop'>
-    <div class='content container '>{{ settings.notice_bar_content_desktop }}</div>
+    <div class='content container '>{{ section.settings.notice_bar_content_desktop }}</div>
   </div>
 {%- endif %}
 
-{%- if settings.notice_bar_show_mobile %}
+{%- if section.settings.notice_bar_show_mobile %}
   <div class='yc-notice mobile container'>
-    <div class='content'>{{ settings.notice_bar_content_mobile }}</div>
+    <div class='content'>{{ section.settings.notice_bar_content_mobile }}</div>
   </div>
 {%- endif %}
 
 {% schema %}
 {
   "label": "Notice Bar",
-  "limit": 1
+  "limit": 1,
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "notice_bar_content_desktop",
+      "label": "Content",
+      "default": "Special offer: free delivery, pay on delivery, faster and order now"
+    },
+    {
+      "type": "range",
+      "id": "notice_bar_height_desktop",
+      "min": 20,
+      "max": 150,
+      "step": 1,
+      "unit": "px",
+      "label": "Height",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "notice_bar_content_font_size_desktop",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Font Size",
+      "default": 14
+    },
+    {
+      "type": "checkbox",
+      "id": "notice_bar_show_desktop",
+      "label": "Show",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "notice_bar_content_text_color_desktop",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "notice_bar_background_color_desktop",
+      "label": "Background color"
+    },
+    {
+      "type": "richtext",
+      "id": "notice_bar_content_mobile",
+      "label": "Content",
+      "default": "Special offer: free delivery, pay on delivery, faster and order now"
+    },
+    {
+      "type": "range",
+      "id": "notice_bar_height_mobile",
+      "min": 20,
+      "max": 150,
+      "step": 1,
+      "unit": "px",
+      "label": "Height",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "notice_bar_content_font_size_mobile",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Font Size",
+      "default": 14
+    },
+    {
+      "type": "checkbox",
+      "id": "notice_bar_show_mobile",
+      "label": "Show",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "notice_bar_content_text_color_mobile",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "notice_bar_background_color_mobile",
+      "label": "Background color"
+    }
+  ]
 }
 {% endschema %}
