@@ -15,14 +15,14 @@ const makeNavbarStatic = () => {
 };
 
 function toggleNavbar() {
-  if (window.scrollY >= fixedNavbar.offsetHeight + notice.offsetHeight && fixedNavbar) {
+  if (window.scrollY >= fixedNavbar.offsetHeight + notice.offsetHeight) {
     makeNavbarFixed();
   } else {
     makeNavbarStatic();
   }
 }
 
-if (fixedNavbar) {
+if (fixedNavbar && notice) {
   toggleNavbar();
   window.addEventListener('scroll', toggleNavbar);
 }
