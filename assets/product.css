@@ -3,7 +3,7 @@
   grid-template-columns: 1fr;
   gap: 5vh;
   grid-auto-flow: row;
-  padding: 25px 15px;
+  margin: 25px 0;
   align-items: start;
 }
 @media (min-width: 768px) {
