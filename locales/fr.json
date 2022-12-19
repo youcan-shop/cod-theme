@@ -1,0 +1,93 @@
+{
+  "navbar": {
+    "search": {
+      "placeholder": "Entrez un mot-clé à rechercher..."
+    }
+  },
+  "featured_products": {
+    "title": "Produits en vedette.a.."
+  },
+  "featured_collections": {
+    "title": "Collections en vedette .."
+  },
+  "list_collections": {
+    "title": "Collections"
+  },
+  "cart": {
+    "title": "Panier d'achat",
+    "items_count": "articles",
+    "items": {
+      "quantity": "Quantité",
+      "total": "Total",
+      "remove_cta": "Supprimer"
+    },
+    "summary": {
+      "title": "Résumé de la commande",
+      "promo": "Code promotionnel",
+      "promo_input": "Entrez votre code",
+      "promo_cta": "Appliquer",
+      "total": "Coût total",
+      "checkout_cta": "Paiement"
+    },
+    "empty": {
+      "title": "Votre panier est actuellement vide.",
+      "description": "Avant de procéder au paiement, vous devez ajouter des produits à votre panier d'achat. <br/> Vous trouverez beaucoup de produits intéressants sur notre page \"Shop\".",
+      "cta": "Retour au magasin"
+    },
+    "continue_shopping_cta": "Continuer les achats"
+  },
+  "thankyou": {
+    "title": "Merci",
+    "subtitle": "Votre commande a été reçue.",
+    "description": "Notre équipe prendra contact avec vous pour confirmer votre demande.<br/>Nous apprécions votre confiance et votre volonté de communiquer avec nous.<br/>Nous sommes toujours là pour vous servir.",
+    "return_cta": "Retour au magasin",
+    "details": {
+      "title": "Détails de la commande",
+      "payment_status": "Statut du paiement",
+      "shipping_cost": "Coût d'expédition",
+      "total": "Total",
+      "product": "PRODUIT",
+      "one_piece_price": "PRIX D'UNE PIÈCE",
+      "quantity": "QUANTITÉ"
+    }
+  },
+  "snippets": {
+    "collection_preview": {
+      "visit_cta": "Visiter o"
+    },
+    "main_sort": {
+      "title": "Trier par",
+      "price": "Prix",
+      "newest": "Le plus récent",
+      "alphabetically": "Par ordre alphabétique"
+    },
+    "product_preview": {
+      "cta_button": "Magasiner maintenant"
+    },
+    "single_product": {
+      "quantity": "Quantité",
+      "variants": {
+        "upload": "Télécharger une image"
+      }
+    },
+    "express_checkout": {
+      "cta": "Acheter maintent"
+    }
+  },
+  "footer": {
+    "blocks": {
+      "privacy": {
+        "title": "Confidentialité"
+      },
+      "social": {
+        "title": "Médias sociaux"
+      },
+      "contact": {
+        "title": "Contactez-nous"
+      },
+      "copyright": {
+        "title": "© 2023 YC. Tous droits réservés."
+      }
+    }
+  }
+}
