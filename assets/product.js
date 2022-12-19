@@ -218,10 +218,10 @@ const stickyImagesHandler = () => {
 
   if (imagesRect.bottom >= rect.bottom) {
     if (imagesRect.top > 0) {
-      imagesHolder.style.marginTop = `${-rect.top}px`;
+      imagesHolder.style.transform = `translateY(${-rect.top}px)`;
     }
   } else if (rect.top < 0) {
-    imagesHolder.style.marginTop = `${-rect.top}px`;
+    imagesHolder.style.transform = `translateY(${-rect.top}px)`;
   }
 };
 
