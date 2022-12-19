@@ -2,23 +2,23 @@
   :root {
     /* Notice bar Desktop */
     --yc-notice-height-desktop: {{ section.settings.notice_bar_height_desktop }}px;
-      --yc-notice-font-size-desktop: {{ section.settings.notice_bar_content_font_size_desktop }}px;
-      --yc-notice-background-color-desktop: {%- if section.settings.notice_bar_background_color_desktop %}
-        {{ section.settings.notice_bar_background_color_desktop.hex }}
-      {%- else %}
-        var(--yc-primary-color){%- endif %};
-      --yc-notice-text-color-desktop: {{ section.settings.notice_bar_content_text_color_desktop.hex }};
+    --yc-notice-font-size-desktop: {{ section.settings.notice_bar_content_font_size_desktop }}px;
+    --yc-notice-background-color-desktop: {%- if section.settings.notice_bar_background_color_desktop %}
+      {{ section.settings.notice_bar_background_color_desktop.hex }}
+    {%- else %}
+      var(--yc-primary-color){%- endif %};
+    --yc-notice-text-color-desktop: {{ section.settings.notice_bar_content_text_color_desktop.hex }};
 
-      /* Notice bar Mobile */
-      --yc-notice-height-mobile: {{ section.settings.notice_bar_height_mobile }}px;
-      --yc-notice-font-size-mobile: {{ section.settings.notice_bar_content_font_size_mobile }}px;
-      --yc-notice-background-color-mobile: {%- if section.settings.notice_bar_background_color_mobile %}
-        {{ section.settings.notice_bar_background_color_mobile.hex }}
-      {%- else %}
-        var(--yc-primary-color){%- endif %};
-      --yc-notice-text-color-mobile: {{ section.settings.notice_bar_content_text_color_mobile.hex }};
+    /* Notice bar Mobile */
+    --yc-notice-height-mobile: {{ section.settings.notice_bar_height_mobile }}px;
+    --yc-notice-font-size-mobile: {{ section.settings.notice_bar_content_font_size_mobile }}px;
+    --yc-notice-background-color-mobile: {%- if section.settings.notice_bar_background_color_mobile %}
+      {{ section.settings.notice_bar_background_color_mobile.hex }}
+    {%- else %}
+      var(--yc-primary-color){%- endif %};
+    --yc-notice-text-color-mobile: {{ section.settings.notice_bar_content_text_color_mobile.hex }};
 
-      --yc-notice-above: {{ section.settings.notice_bar_above }};
+    --yc-notice-above: {{ section.settings.notice_bar_above }};
   }
 {%- endstyle %}
 
