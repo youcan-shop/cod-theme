@@ -1,3 +1,32 @@
+/* ------------------ */
+/* ----- navbar ----- */
+/* ------------------ */
+const fixedNavbar = document.querySelector('.nav-fixed');
+const notice = document.querySelector('.yc-notice');
+
+const makeNavbarFixed = () => {
+  document.body.style.paddingTop = fixedNavbar.offsetHeight + 'px';
+  fixedNavbar.classList.add('fixed');
+};
+
+const makeNavbarStatic = () => {
+  document.body.style.paddingTop = '0';
+  fixedNavbar.classList.remove('fixed');
+};
+
+function toggleNavbar() {
+  if (window.scrollY >= fixedNavbar.offsetHeight + notice.offsetHeight) {
+    makeNavbarFixed();
+  } else {
+    makeNavbarStatic();
+  }
+}
+
+if (fixedNavbar && notice) {
+  toggleNavbar();
+  window.addEventListener('scroll', toggleNavbar);
+}
+
 /* -------------------------- */
 /* ----- spinner-loader ----- */
 /* -------------------------- */

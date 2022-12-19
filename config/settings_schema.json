@@ -339,6 +339,12 @@
         "id": "navbar_shadow",
         "label": "Show navbar shadow",
         "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "navbar_always_on_top",
+        "label": "Navbar always on top",
+        "default": false
       }
     ]
   },

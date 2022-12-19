@@ -9,14 +9,25 @@
 
 .yc-header {
   background-color: var(--yc-nav-background);
+  transition: opacity 0.3s, transform 0.3s;
 
-  &.nav-fixed {
+  &.nav-fixed.fixed {
     position: fixed;
-    top: var(--yc-notice-height);
+    top: 0;
     left: 0;
     right: 0;
     width: 100%;
-    z-index: 99;
+    z-index: 101;
+    animation: make-navbar-fixed 0.2s ease;
+
+    @keyframes make-navbar-fixed {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
   }
 
   .yc-navbar {
