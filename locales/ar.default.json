@@ -1,0 +1,93 @@
+{
+  "navbar": {
+    "search": {
+      "placeholder": "أدخل الكلمة الرئيسية للبحث عنها..."
+    }
+  },
+  "featured_products": {
+    "title": "المنتجات المميزة"
+  },
+  "featured_collections": {
+    "title": "مجموعات مميزة"
+  },
+  "list_collections": {
+    "title": "مجموعات"
+  },
+  "cart": {
+    "title": "عربة التسوق",
+    "items_count": "عناصر",
+    "items": {
+      "quantity": "الكمية",
+      "total": "المجموع",
+      "remove_cta": "إزالة"
+    },
+    "summary": {
+      "title": "ملخص الطلب",
+      "promo": "رمز الترويج",
+      "promo_input": "أدخل رمزك",
+      "promo_cta": "تطبيق",
+      "total": "التكلفة الإجمالية",
+      "checkout_cta": "الدفع"
+    },
+    "empty": {
+      "title": "عربتك فارغة حاليًا.",
+      "description": "قبل أن تقوم بالدفع، يجب عليك إضافة بعض المنتجات إلى عربة التسوق الخاصة بك. <br/> ستجد الكثير من المنتجات المثيرة للاهتمام في صفحة \"Shop\" لدينا.",
+      "cta": "عودة إلى المتجر"
+    },
+    "continue_shopping_cta": "متابعة التسوق"
+  },
+  "thankyou": {
+    "title": "شكرا",
+    "subtitle": "تم استلام طلبك.",
+    "description": "سيتصل بك فريقنا لتأكيد طلبك",
+    "return_cta": "عودة إلى المتجر",
+    "details": {
+      "title": "تفاصيل الطلب",
+      "payment_status": "حالة الدفع",
+      "shipping_cost": "تكلفة الشحن",
+      "total": "المجموع",
+      "product": "منتج",
+      "one_piece_price": "سعر قطعة واحدة",
+      "quantity": "الكمية"
+    }
+  },
+  "snippets": {
+    "collection_preview": {
+      "visit_cta": "زيارة"
+    },
+    "main_sort": {
+      "title": "ترتيب حسب",
+      "price": "السعر",
+      "newest": "الأحدث",
+      "alphabetically": "حسب الأبجدية"
+    },
+    "product_preview": {
+      "cta_button": "تسوق الآن"
+    },
+    "single_product": {
+      "quantity": "الكمية",
+      "variants": {
+        "upload": "تحميل صورة"
+      }
+    },
+    "express_checkout": {
+      "cta": "اشتري الآن"
+    }
+  },
+  "footer": {
+    "blocks": {
+      "privacy": {
+        "title": "الخصوصية"
+      },
+      "social": {
+        "title": "وسائل التواصل الإجتماعي"
+      },
+      "contact": {
+        "title": "اتصل بنا"
+      },
+      "copyright": {
+        "title": "© 2023 YC. كل الحقوق محفوظة."
+      }
+    }
+  }
+}

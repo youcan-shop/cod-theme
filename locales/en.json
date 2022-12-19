@@ -5,10 +5,10 @@
     }
   },
   "featured_products": {
-    "title": "Featured Products.a.."
+    "title": "Featured Products"
   },
   "featured_collections": {
-    "title": "Featured Collections .."
+    "title": "Featured Collections"
   },
   "list_collections": {
     "title": "Collections"
@@ -69,6 +69,9 @@
       "variants": {
         "upload": "Upload an image"
       }
+    },
+    "express_checkout": {
+      "cta": "Buy now"
     }
   },
   "footer": {
