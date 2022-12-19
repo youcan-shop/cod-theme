@@ -10,10 +10,7 @@
     "sections": {
       "notice-bar": {
         "type": "notice-bar",
-        "settings": {
-          "notice_bar_show_desktop": true,
-          "notice_bar_content_desktop": "FAST"
-        }
+        "settings": {}
       },
       "main-navbar": {
         "type": "main-navbar",
