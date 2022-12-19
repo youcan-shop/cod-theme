@@ -205,3 +205,27 @@ if (productDetails) {
 }
 
 selectDefaultOptions();
+
+/* ----------------------------------- */
+/* ----- sticky images on scroll ----- */
+/* ----------------------------------- */
+const productWrapper = document.querySelector('.yc-product-card');
+const imagesHolder = document.querySelector('.product-images-container');
+
+const stickyImagesHandler = () => {
+  const rect = productWrapper.getBoundingClientRect();
+  const imagesRect = imagesHolder.getBoundingClientRect();
+
+  if (imagesRect.bottom >= rect.bottom) {
+    if (imagesRect.top > 0) {
+      imagesHolder.style.transform = `translateY(${-rect.top}px)`;
+    }
+  } else if (rect.top < 0) {
+    imagesHolder.style.transform = `translateY(${-rect.top}px)`;
+  }
+};
+
+if (window.innerWidth > 768 && imagesHolder && productWrapper) {
+  stickyImagesHandler();
+  window.addEventListener('scroll', stickyImagesHandler);
+}

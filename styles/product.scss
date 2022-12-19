@@ -5,7 +5,7 @@
   grid-template-columns: 1fr;
   gap: 5vh;
   grid-auto-flow: row;
-  padding: 25px 15px;
+  margin: 25px auto;
   align-items: start;
 
   @include breakpoint('md') {
