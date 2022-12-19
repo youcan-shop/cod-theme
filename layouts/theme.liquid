@@ -14,6 +14,9 @@
     {%- render 'overlay' -%}
     {%- render 'alert' -%}
 
+    {%- section 'notice-bar' %}
+    {%- section 'main-navbar' %}
+
     {{ content_for_layout }}
 
     {{ 'main.js' | asset_url | script_tag }}
