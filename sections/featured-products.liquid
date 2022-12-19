@@ -1,5 +1,7 @@
 <div class='yc-featured-products container'>
-  <h1 class='yc-section-title'>{{ section.settings.title }}</h1>
+  <h1 class='yc-section-title'>
+    {{ 'featured_products.title' | t: section.settings.title }}
+  </h1>
   <div class='product-list'>
     {%- for block in section.blocks -%}
       {%- render 'product-preview', item: block.settings.product -%}
@@ -14,8 +16,7 @@
     {
       "type": "text",
       "id": "title",
-      "label": "Title",
-      "default": "Featured products"
+      "label": "Title"
     }
   ],
   "blocks": [

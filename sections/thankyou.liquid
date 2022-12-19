@@ -7,10 +7,10 @@
         loading='lazy'
         src='{{section.settings.hero_image.src}}'
       >
-      <div class='title'>{{ section.settings.title }}</div>
-      <div class='subtitle'>{{ section.settings.subtitle }}</div>
+      <div class='title'>{{ 'thankyou.title' | t: section.settings.title }}</div>
+      <div class='subtitle'>{{ 'thankyou.subtitle' | t: section.settings.subtitle }}</div>
       <div class='description'>
-        {{ section.settings.description }}
+        {{ 'thankyou.description' | t: section.settings.description }}
       </div>
       <a
         href='/'
@@ -20,7 +20,7 @@
           name='arrow-back-outline'
           class='yc-btn-responsive-icon'
         ></ion-icon>
-        Return to shop
+        {{ 'thankyou.return_cta' | t }}
       </a>
     </div>
   </div>
@@ -28,19 +28,21 @@
 
 <div class='container'>
   <div class='order-details'>
-    <div class='title'>Order details</div>
+    <div class='title'>
+      {{ 'thankyou.details.title' | t }}
+    </div>
     <div class='table-content'>
       <div class='head'>
         <div class='item'>
-          <div class='label'>Payment status</div>
+          <div class='label'>{{ 'thankyou.details.payment_status' | t }}</div>
           <div class='value'>{{ order.paymentStatus }}</div>
         </div>
         <div class='item'>
-          <div class='label'>Shipping cost</div>
+          <div class='label'>{{ 'thankyou.details.shipping_cost' | t }}</div>
           <div class='value'>{{ order.shippingCost }}</div>
         </div>
         <div class='item'>
-          <div class='label'>Total</div>
+          <div class='label'>{{ 'thankyou.details.total' | t }}</div>
           <div class='value'>{{ order.total | money }}</div>
         </div>
       </div>
@@ -49,19 +51,19 @@
         <table>
           <thead>
             <tr>
-              <th scope='col'>Product</th>
-              <th scope='col'>One piece price</th>
-              <th scope='col'>Quantity</th>
-              <th scope='col'>Total</th>
+              <th scope='col'>{{ 'thankyou.details.product' | t }}</th>
+              <th scope='col'>{{ 'thankyou.details.one_piece_price' | t }}</th>
+              <th scope='col'>{{ 'thankyou.details.one_piece_price' | t }}</th>
+              <th scope='col'>{{ 'thankyou.details.total' | t }}</th>
             </tr>
           </thead>
           <tbody>
             {%- for item in order.order_variants %}
               <tr>
-                <td data-label='Product'>{{ item.name }}</td>
-                <td data-label='One piece price'>{{ item.price | money }}</td>
-                <td data-label='Quantity'>{{ item.quantity }}</td>
-                <td data-label='Total'>{{ item.price | times: item.quantity | money }}</td>
+                <td data-label='{{ 'thankyou.details.product' | t }}'>{{ item.name }}</td>
+                <td data-label='{{ 'thankyou.details.one_piece_price' | t }}'>{{ item.price | money }}</td>
+                <td data-label='{{ 'thankyou.details.one_piece_price' | t }}'>{{ item.quantity }}</td>
+                <td data-label='{{ 'thankyou.details.total' | t }}'>{{ item.price | times: item.quantity | money }}</td>
               </tr>
             {%- endfor %}
           </tbody>
@@ -95,8 +97,7 @@
     {
       "type": "text",
       "id": "title",
-      "label": "Title",
-      "default": "Thank you"
+      "label": "Title"
     },
     {
       "type": "select",
@@ -135,8 +136,7 @@
     {
       "type": "text",
       "id": "subtitle",
-      "label": "Subtitle",
-      "default": "Your order has been received."
+      "label": "Subtitle"
     },
     {
       "type": "select",
@@ -175,14 +175,12 @@
     {
       "type": "richtext",
       "id": "description",
-      "label": "Description",
-      "default": "<p>Our team will be in touch to confirm your request.</p> <p>We value your trust and appreciate your willingness to communicate with us.</p> <p>We are always here to serve you.</p>"
+      "label": "Description"
     },
     {
       "type": "text",
       "id": "button_text",
-      "label": "Button text",
-      "default": "Return to shop"
+      "label": "Button text"
     }
   ]
 }
