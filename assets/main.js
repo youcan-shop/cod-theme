@@ -107,14 +107,14 @@ const searchHolder = document.getElementById('searchInputHolder');
 const noticeHeight = notice?.offsetHeight;
 
 function openSearch() {
-  if (overlay) return;
+  if (!overlay) return;
 
   overlay.style.height = `calc(100vh + ${noticeHeight || 0}px)`;
   overlay.style.top = `${noticeHeight || 0}px`;
   overlay.style.opacity = '1';
   overlay.style.visibility = 'visible';
 
-  if (searchHolder) return;
+  if (!searchHolder) return;
 
   searchHolder.style.opacity = '1';
   searchHolder.style.visibility = 'visible';
@@ -122,13 +122,13 @@ function openSearch() {
 }
 
 function closeSearch() {
-  if (overlay) return;
+  if (!overlay) return;
 
   overlay.style.opacity = '0';
   overlay.style.visibility = 'hidden';
   overlay.style.height = '100vh';
 
-  if (searchHolder) return;
+  if (!searchHolder) return;
 
   searchHolder.style.opacity = '0';
   searchHolder.style.visibility = 'hidden';
