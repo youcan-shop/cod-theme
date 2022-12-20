@@ -1,0 +1,183 @@
+{% assign id = 100 | rand: 2000 %}
+
+{% style %}
+  .multi-column-{{ id }}{
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.background_color.hex }};
+    color: {{ section.settings.text_color.hex }};
+  }
+
+  .multi-column-{{ id }} .multi-column-blocks{
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+    grid-gap: 2vw;
+  }
+
+  @media only screen and (max-width: 576px) {
+    .multi-column-{{ id }} .multi-column-blocks {
+      grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
+    }
+  }
+
+  .column-block {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    text-align:center;
+  }
+
+  .column-block .column-title {
+    font-weight: 500;
+    font-size: 25px;
+  }
+
+  .column-block .column-description{
+    font-size:16px;
+  }
+
+  .column-block .column-image {
+    object-fit: cover;
+    aspect-ratio:1;
+    width:100%;
+  }
+{% endstyle %}
+
+<div class='multi-column-{{ id }}'>
+  <div class='container'>
+    <h3 class='yc-section-title'>{{ section.settings.title }}</h3>
+    <div class='multi-column-blocks'>
+      {% for block in section.blocks %}
+        {% assign block_setting = block.settings %}
+        <div
+          class='column-block'
+          {{ block.youcan_attributes }}
+        >
+          {% if block_setting.image %}
+            <img
+              class='column-image'
+              src='{{ block_setting.image.src }}'
+              width='200'
+              height='200'
+              loading='lazy'
+            >
+          {% endif %}
+          {% if block_setting.heading %}
+            <h4 class='column-title'>{{ block_setting.heading }}</h4>
+          {% endif %}
+          {% if block_setting.description %}
+            <p class='column-description'>{{ block_setting.description }}</p>
+          {% endif %}
+          {% if block_setting.link_label %}
+            <a
+              class='yc-btn'
+              href='{{ block_setting.link }}'
+            >
+              {{- block_setting.link_label -}}
+            </a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "label": "Multi-column",
+  "blocks": [
+    {
+      "type": "columnn",
+      "label": "Column",
+      "limit": 20,
+      "settings": [
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Image"
+        },
+        {
+          "id": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "id": "description",
+          "type": "richtext",
+          "label": "Description"
+        },
+        {
+          "id": "link_label",
+          "type": "text",
+          "label": "Link label"
+        },
+        {
+          "id": "link",
+          "type": "text",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "heading"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 5,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 5,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Bottom"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "label": "Number of columns on desktop"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Number of columsn on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        }
+      ],
+      "default": "1"
+    }
+  ]
+}
+{% endschema %}
