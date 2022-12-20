@@ -8,14 +8,13 @@ select {
 .yc-dropdown {
   box-sizing: border-box;
   cursor: pointer;
-  display: block;
+  display: inline-block;
   font-family: inherit;
   position: relative;
-  text-align: left !important;
   transition: all 0.2s ease-in-out;
   user-select: none;
   white-space: nowrap;
-  width: auto;
+  width: 100%;
 }
 .yc-dropdown:hover {
   border-color: #dbdbdb;
