@@ -104,14 +104,16 @@ function openDrawer(el) {
 /* ----- search ----- */
 /* ------------------ */
 const searchHolder = document.getElementById('searchInputHolder');
-
+const noticeHeight = notice?.offsetHeight;
+console.log(noticeHeight || 0);
 function openSearch() {
-  overlay.style.height = 'calc(100vh - var(--yc-notice-height))';
-  overlay.style.top = 'var(--yc-notice-height)';
+  overlay.style.height = `calc(100vh + ${noticeHeight || 0}px)`;
+  overlay.style.top = `${noticeHeight || 0}px`;
   overlay.style.opacity = '1';
   overlay.style.visibility = 'visible';
   searchHolder.style.opacity = '1';
   searchHolder.style.visibility = 'visible';
+  searchHolder.style.top = `${noticeHeight || 0}px`;
 }
 
 function closeSearch() {

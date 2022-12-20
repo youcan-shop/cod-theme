@@ -284,10 +284,6 @@ video {
   margin-top: -0.25rem;
 }
 
-.-ml-12 {
-  margin-left: -3rem;
-}
-
 .mt-8 {
   margin-top: 2rem;
 }
@@ -474,14 +470,14 @@ video {
   line-height: 1;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .capitalize {
