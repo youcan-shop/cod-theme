@@ -17,9 +17,5 @@
     {{ content_for_layout }}
 
     {{ 'main.js' | asset_url | script_tag }}
-    {{ 'dropdown.min.js' | asset_url | script_tag }}
-    {%- javascript -%}
-      document.querySelectorAll('select').forEach((select) => NiceSelect.bind(select));
-    {%- endjavascript -%}
   </body>
 </html>
