@@ -105,7 +105,7 @@ function openDrawer(el) {
 /* ------------------ */
 const searchHolder = document.getElementById('searchInputHolder');
 const noticeHeight = notice?.offsetHeight;
-console.log(noticeHeight || 0);
+
 function openSearch() {
   overlay.style.height = `calc(100vh + ${noticeHeight || 0}px)`;
   overlay.style.top = `${noticeHeight || 0}px`;
