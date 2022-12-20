@@ -48,30 +48,33 @@
   <div class='container'>
     <h3 class='yc-section-title'>{{ section.settings.title }}</h3>
     <div class='multi-column-blocks'>
-      {% for k in section.blocks %}
-        {% assign block = k.settings %}
-        <div class='column-block'>
-          {% if block.image %}
+      {% for block in section.blocks %}
+        {% assign block_setting = block.settings %}
+        <div
+          class='column-block'
+          {{ block.youcan_attributes }}
+        >
+          {% if block_setting.image %}
             <img
               class='column-image'
-              src='{{ block.image.src }}'
+              src='{{ block_setting.image.src }}'
               width='200'
               height='200'
               loading='lazy'
             >
           {% endif %}
-          {% if block.heading %}
-            <h4 class='column-title'>{{ block.heading }}</h4>
+          {% if block_setting.heading %}
+            <h4 class='column-title'>{{ block_setting.heading }}</h4>
           {% endif %}
-          {% if block.description %}
-            <p class='column-description'>{{ block.description }}</p>
+          {% if block_setting.description %}
+            <p class='column-description'>{{ block_setting.description }}</p>
           {% endif %}
-          {% if block.link_label %}
+          {% if block_setting.link_label %}
             <a
               class='yc-btn'
-              href='{{ block.link }}'
+              href='{{ block_setting.link }}'
             >
-              {{- block.link_label -}}
+              {{- block_setting.link_label -}}
             </a>
           {% endif %}
         </div>
