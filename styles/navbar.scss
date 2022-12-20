@@ -158,7 +158,6 @@
   visibility: hidden;
   opacity: 0;
   position: fixed;
-  top: var(--yc-top-banner-height);
   justify-content: center;
   align-items: center;
   left: 0;
@@ -171,6 +170,18 @@
   input {
     max-width: 25rem;
     color: var(--yc-primary-color);
+  }
+
+  .search-btn {
+    padding: 0 0.75rem;
+    display: flex;
+    align-items: center;
+    margin-left: -3rem;
+
+    ion-icon {
+      font-size: 1.2rem;
+      color: var(--yc-primary-color);
+    }
   }
 }
 
