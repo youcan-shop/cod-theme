@@ -78,25 +78,33 @@ function notify(msg, type = 'success', timeout = 3000) {
 /* ----- navigation-drawer ----- */
 /* ----------------------------- */
 const overlay = document.querySelector('.global-overlay');
-const drawer = document.querySelector('.navigation-drawer');
+const drawers = document.querySelectorAll('.navigation-drawer');
 
 if (overlay) {
   overlay.addEventListener('click', function (e) {
     if (e.target === overlay) {
       overlay.style.visibility = 'hidden';
       overlay.style.opacity = '0';
-      drawer.style.transform = 'translateX(-150vw)';
+
+      drawers.forEach((drawer) => {
+        drawer.style.transform = 'translateX(-150vw)';
+        drawer.style.opacity = '0';
+        drawer.style.visibility = 'hidden';
+      });
     }
   });
 }
 
 function openDrawer(el) {
   const targetedDrawer = document.querySelector(`.navigation-drawer${el}`);
+
   if (targetedDrawer) {
     overlay.style.visibility = 'visible';
     overlay.style.opacity = '1';
+
     targetedDrawer.style.transform = 'none';
     targetedDrawer.style.opacity = '1';
+    targetedDrawer.style.visibility = 'visible';
   }
 }
 

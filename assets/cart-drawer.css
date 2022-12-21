@@ -1,0 +1,4 @@
+.cart-drawer,
+.cart-drawer *:not(.yc-btn):not(ion-icon) {
+  color: var(--yc-primary-color) !important;
+}

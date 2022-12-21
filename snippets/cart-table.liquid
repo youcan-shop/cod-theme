@@ -50,8 +50,9 @@
         </td>
         <td class='quantity-on-desktop'>
           {%- render 'quantity-input', item: item -%}
+          <h1>{{ item.quantity }}</h1>
         </td>
-        <td>{{ item.price | times: item.quantity | money }}</td>
+        <td>{{ item.price | times: item.quantity }}</td>
       </tr>
     {%- endfor %}
   </tbody>

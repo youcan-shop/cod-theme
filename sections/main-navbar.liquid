@@ -56,15 +56,16 @@
                 </form>
               </div>
             </div>
-            <a
+            <button
               class='cart relative'
-              href='{{ routes.cart_url }}'
+              onclick="openDrawer('.cart-drawer')"
+              {% comment %} href='{{ routes.cart_url }}' {% endcomment %}
             >
               <span id='cart-items-badge'>
                 {{- cart.items | size -}}
               </span>
               <ion-icon name='cart-outline'></ion-icon>
-            </a>
+            </button>
             <button
               class='menu-toggler text-3xl'
               onclick="openDrawer('.navbar-drawer')"
