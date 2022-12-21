@@ -1,3 +1,5 @@
+@import 'helpers/mixins';
+
 .yc-cart {
   margin: 4rem 0 2rem;
 
@@ -11,6 +13,39 @@
     padding: 1.3rem 1.5rem;
     max-width: 100%;
     min-width: 22rem;
+  }
+
+  .cart-items-table {
+    .quantity-head,
+    .quantity-on-desktop {
+      display: none;
+    }
+
+    .quantity-on-mobile {
+      display: table-cell;
+    }
+
+    @include breakpoint('md') {
+      .quantity-on-desktop {
+        display: table-cell;
+      }
+
+      .quantity-head {
+        display: block;
+      }
+    }
+
+    &.mobile {
+      .quantity-head {
+        display: none;
+      }
+    }
+
+    &.desktop {
+      .quantity-head {
+        display: block;
+      }
+    }
   }
 
   .cart-table {

@@ -264,16 +264,12 @@ video {
   margin-top: 0.25rem;
 }
 
-.mt-7 {
-  margin-top: 1.75rem;
+.mb-7 {
+  margin-bottom: 1.75rem;
 }
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.mb-7 {
-  margin-bottom: 1.75rem;
 }
 
 .mt-24 {
@@ -282,6 +278,10 @@ video {
 
 .-mt-1 {
   margin-top: -0.25rem;
+}
+
+.mt-7 {
+  margin-top: 1.75rem;
 }
 
 .mt-8 {
@@ -312,17 +312,22 @@ video {
   height: 100%;
 }
 
-.h-9 {
-  height: 2.25rem;
-}
-
 .h-fit {
   height: -moz-fit-content;
   height: fit-content;
 }
 
+.h-9 {
+  height: 2.25rem;
+}
+
 .w-full {
   width: 100%;
+}
+
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .w-9 {
@@ -331,11 +336,6 @@ video {
 
 .w-24 {
   width: 6rem;
-}
-
-.w-fit {
-  width: -moz-fit-content;
-  width: fit-content;
 }
 
 .table-auto {
@@ -370,16 +370,12 @@ video {
   gap: 3.5rem;
 }
 
-.gap-6 {
-  gap: 1.5rem;
+.gap-1 {
+  gap: 0.25rem;
 }
 
 .gap-3 {
   gap: 0.75rem;
-}
-
-.gap-1 {
-  gap: 0.25rem;
 }
 
 .gap-2 {
@@ -388,6 +384,10 @@ video {
 
 .gap-10 {
   gap: 2.5rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
 }
 
 .self-baseline {
@@ -450,11 +450,6 @@ video {
   line-height: 2.5rem;
 }
 
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -480,6 +475,11 @@ video {
   line-height: 1.75rem;
 }
 
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .capitalize {
   text-transform: capitalize;
 }
@@ -495,9 +495,6 @@ video {
 @media (min-width: 768px) {
   .md\:block {
     display: block;
-  }
-  .md\:table-cell {
-    display: table-cell;
   }
   .md\:hidden {
     display: none;
