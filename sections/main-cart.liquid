@@ -1,4 +1,5 @@
 {{ 'cart.css' | asset_url | stylesheet_tag }}
+{{ 'cart-table.css' | asset_url | stylesheet_tag }}
 
 <div class='yc-cart mt-4'>
   {%- if cart and cart.items %}
@@ -9,7 +10,19 @@
         {{ 'cart.items_count' | t }}
       </p>
       <div class='flex flex-col md:flex-row gap-14'>
-        {%- render 'cart-table', cart: cart -%}
+        <div class="class='w-full flex flex-col justify-between">
+          {%- render 'cart-table', cart: cart -%}
+          <a
+            href='/'
+            class='yc-btn flex gap-2 w-fit mt-5 items-center'
+          >
+            <ion-icon
+              name='arrow-back-outline'
+              class='yc-btn-responsive-icon'
+            ></ion-icon>
+            {{ 'cart.continue_shopping_cta' | t }}
+          </a>
+        </div>
         <div class='summary-box h-fit'>
           <div id='summary'>
             <h1 class='text-2xl border-b pb-4'>{{ 'cart.summary.title' | t }}</h1>
@@ -84,6 +97,7 @@
 </div>
 
 {{ 'cart.js' | asset_url | script_tag_deferred }}
+{{ 'cart-table.js' | asset_url | script_tag_deferred }}
 
 {% schema %}
 {
