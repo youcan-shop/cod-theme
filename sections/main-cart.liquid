@@ -9,74 +9,7 @@
         {{ 'cart.items_count' | t }}
       </p>
       <div class='flex flex-col md:flex-row gap-14'>
-        <div class='w-full flex flex-col justify-between'>
-          <table class='table-auto w-full mt-7 self-baseline'>
-            <thead>
-              <tr>
-                <th></th>
-                <th class='hidden md:block'>
-                  {{ 'cart.items.quantity' | t }}
-                </th>
-                <th>{{ 'cart.items.total' | t }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {%- for item in cart.items %}
-                <tr
-                  class='relative cart__item'
-                  id='{{ item.id }}'
-                >
-                  <td class='flex gap-6'>
-                    <div
-                      class='cart-item-loader-spinner hidden'
-                      id='loading__{{ item.id }}'
-                    >
-                      <span class='spinner h-9 w-9'></span>
-                    </div>
-                    <div class='fixed'></div>
-                    <img
-                      loading='lazy'
-                      src='{{ item.image }}'
-                      alt='product-name'
-                      class='w-24 object-cover'
-                    >
-                    <div class='flex flex-col items-start gap-3'>
-                      <div>
-                        {{ item.name }}
-                      </div>
-                      <div>{{ item.price | money }}</div>
-                      <div class='md:hidden quantity-on-mobile'></div>
-                      <button
-                        onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')"
-                        class='yc-btn btn-sm flex items-center gap-1'
-                      >
-                        <ion-icon
-                          name='trash'
-                          class='text-base'
-                        ></ion-icon>
-                        {{ 'cart.items.remove_cta' | t }}
-                      </button>
-                    </div>
-                  </td>
-                  <td class='hidden md:table-cell quantity-on-desktop'>
-                    {%- render 'quantity-input', item: item -%}
-                  </td>
-                  <td>{{ item.price | times: item.quantity | money }}</td>
-                </tr>
-              {%- endfor %}
-            </tbody>
-          </table>
-          <a
-            href='/'
-            class='yc-btn flex gap-2 w-fit mt-5 items-center'
-          >
-            <ion-icon
-              name='arrow-back-outline'
-              class='yc-btn-responsive-icon'
-            ></ion-icon>
-            {{ 'cart.continue_shopping_cta' | t }}
-          </a>
-        </div>
+        {%- render 'cart-table', cart: cart -%}
         <div class='summary-box h-fit'>
           <div id='summary'>
             <h1 class='text-2xl border-b pb-4'>{{ 'cart.summary.title' | t }}</h1>
