@@ -87,7 +87,10 @@ if (overlay) {
       overlay.style.opacity = '0';
 
       drawers.forEach((drawer) => {
-        drawer.style.transform = 'translateX(-150vw)';
+        drawer.classList.contains('right')
+          ? (drawer.style.transform = 'translateX(150vw)')
+          : (drawer.style.transform = 'translateX(-150vw)');
+
         drawer.style.opacity = '0';
         drawer.style.visibility = 'hidden';
       });

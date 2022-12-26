@@ -90,4 +90,5 @@ sw.*
 styles/utils.scss
 styles/_utils.css
 eyeliner.js
+driver.js
 tailwind.config.cjs

@@ -3,4 +3,7 @@
   *:not(.yc-btn):not(ion-icon) {
     color: var(--yc-primary-color) !important;
   }
+
+  width: calc(100vw - 20vw) !important;
+  max-width: 500px !important;
 }

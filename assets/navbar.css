@@ -187,6 +187,11 @@
   opacity: 0;
   z-index: 99;
 }
+.navigation-drawer.right {
+  left: auto;
+  right: 0;
+  transform: translateX(150vw);
+}
 .navigation-drawer .logo {
   padding: 3rem 1rem;
 }

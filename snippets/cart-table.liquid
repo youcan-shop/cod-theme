@@ -31,10 +31,10 @@
             class='w-24 object-cover'
           >
           <div class='flex flex-col items-start gap-3'>
-            <div>
+            <div class='cart__item-name'>
               {{ item.name }}
             </div>
-            <div>{{ item.price | money }}</div>
+            <div class='cart__item-price'>{{ item.price | money }}</div>
             <div class='quantity-on-mobile'></div>
             <button
               onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')"
@@ -50,7 +50,6 @@
         </td>
         <td class='quantity-on-desktop'>
           {%- render 'quantity-input', item: item -%}
-          <h1>{{ item.quantity }}</h1>
         </td>
         <td>{{ item.price | times: item.quantity }}</td>
       </tr>
