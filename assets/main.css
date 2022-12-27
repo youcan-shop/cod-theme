@@ -385,3 +385,10 @@ input:not([type=radio]),
 .splide {
   direction: ltr;
 }
+
+/* ------------------- */
+/* ----- spacers ----- */
+/* ------------------- */
+.spacer {
+  flex-grow: 1;
+}

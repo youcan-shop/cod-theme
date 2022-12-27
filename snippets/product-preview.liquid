@@ -19,6 +19,9 @@
   </div>
   <div class='product-details'>
     <span class='product-title'>{{ item.name }}</span>
+  </div>
+  <div class='spacer'></div>
+  <div class='prices'>
     {% if item.price %}
       <span class='product-price'>{{ item.price | money }}</span>
     {% endif %}
@@ -26,6 +29,7 @@
       <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
     {% endif %}
   </div>
+  <div class='spacer'></div>
   <div class='flex justify-center'>
     <button class='yc-btn {% if settings.featured_products_btn_full_width %} w-full{% endif %}'>
       {{ 'snippets.product_preview.cta_button' | t }}
