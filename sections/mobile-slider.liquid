@@ -20,19 +20,21 @@
               loading='lazy'
               src='{{ block.settings.image.src }}'
             >
-            {%- if block.settings.caption and block.settings.product %}
+            {%- if block.settings.caption %}
               <div class='content flex items-center container h-full w-full'>
                 <div class='px-3'>
                   <div class='caption'>{{ block.settings.caption }}</div>
-                  <div class='btn-holder'>
-                    <a
-                      href='{{ block.settings.product.url }}'
-                      class='yc-btn'
-                      style='font-weight: {{block.settings.button_font_weight}}!important'
-                    >
-                      {{ block.settings.button_text }}
-                    </a>
-                  </div>
+                  {% if block.settings.product %}
+                    <div class='btn-holder'>
+                      <a
+                        href='{{ block.settings.product.url }}'
+                        class='yc-btn'
+                        style='font-weight: {{block.settings.button_font_weight}}!important'
+                      >
+                        {{ block.settings.button_text }}
+                      </a>
+                    </div>
+                  {% endif %}
                 </div>
               </div>
             {%- endif %}
@@ -45,17 +47,17 @@
 
 <script>
   var splide = new Splide(`#yc_slider_{{ id }}`, {
-    type: '{{ settings.slider_mobile_transition_type }}',
-    arrows: '{{ settings.slider_mobile_arrows }}' ? true : false,
-    autoplay: '{{ settings.slider_mobile_autoplay }}' ? true : false,
-    cover: '{{ settings.slider_mobile_image_size_cover }}' ? true : false,
-    pagination: '{{ settings.slider_mobile_pagination }}' ? true : false,
-    pauseOnHover: '{{ settings.slider_mobile_pause_on_hover }}' ? true : false,
-    pauseOnFocus: '{{ settings.slider_mobile_pause_on_focus }}' ? true : false,
-    height: `{{ settings.slider_mobile_height_percentage }}vh`,
+    type: '{{ section.settings.slider_mobile_transition_type }}',
+    arrows: '{{ section.settings.slider_mobile_arrows }}' ? true : false,
+    autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
+    cover: '{{ section.settings.slider_mobile_image_size_cover }}' ? true : false,
+    pagination: '{{ section.settings.slider_mobile_pagination }}' ? true : false,
+    pauseOnHover: '{{ section.settings.slider_mobile_pause_on_hover }}' ? true : false,
+    pauseOnFocus: '{{ section.settings.slider_mobile_pause_on_focus }}' ? true : false,
+    height: `{{ section.settings.slider_mobile_height_percentage }}vh`,
+    interval: '{{ section.settings.slider_timeout | times: 1000 }}',
     arrows: false,
     focus: 'center',
-    interval: 3000,
     rewind: false,
     drag: 'free',
     snap: true,
@@ -67,6 +69,110 @@
 {%- schema -%}
 {
   "label": "Mobile Slider",
+  "settings": [
+    {
+      "type": "range",
+      "id": "slider_mobile_height_percentage",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Slider height",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "slider_mobile_arrows_size",
+      "min": 20,
+      "max": 55,
+      "step": 1,
+      "unit": "px",
+      "label": "Arrows Size",
+      "default": 37
+    },
+    {
+      "type": "range",
+      "id": "slider_mobile_arrows_content_size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Arrows Content Size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "slider_timeout",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "unit": "s",
+      "label": "Timeout",
+      "default": 5
+    },
+    {
+      "type": "color",
+      "id": "slider_mobile_arrows_background_color",
+      "label": "Arrows Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_image_size_cover",
+      "label": "Make image as cover",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "slider_mobile_transition_type",
+      "label": "Transition type",
+      "options": [
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        },
+        {
+          "value": "loop",
+          "label": "Loop"
+        }
+      ],
+      "default": "loop"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_pause_on_focus",
+      "label": "Pause on focus",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_pagination",
+      "label": "Pagination",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_arrows",
+      "label": "Arrows",
+      "default": true
+    }
+  ],
   "blocks": [
     {
       "label": "Slider image",
