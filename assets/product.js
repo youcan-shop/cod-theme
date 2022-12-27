@@ -206,7 +206,6 @@ function setVariant(parentSection, id) {
  * @param {HTMLElement} parentSection
  * @param {String} image
  * @param {String} price
- * @returns
  */
 function updateProductDetails(parentSection, image, price) {
   if (image) {
