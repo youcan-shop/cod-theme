@@ -12,6 +12,9 @@
         "settings": {
           "navbar_logo": "slide-3-2Hcbfzv5MEU2LkzXDxnFl8T4Hbp.jpg"
         }
+      },
+      "main-footer": {
+        "type": "main-footer"
       }
     }
   },
