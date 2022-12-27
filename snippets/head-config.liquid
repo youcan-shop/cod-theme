@@ -34,6 +34,25 @@
     /* Borders  */
     --yc-main-border: 1px solid var(--yc-neutral-light-color);
 
+    /* Navbar */
+    --yc-nav-height: {{ settings.navbar_height }}px;
+    --yc-nav-background: {{ settings.navbar_background_color.hex }};
+    --yc-nav-links-color: {%- if settings.navbar_links_color -%}
+      {{ settings.navbar_links_color.hex }}
+    {%- else -%}
+      var(--yc-neutral-color){%- endif -%};
+    --yc-nav-cart-badge-color: {%- if settings.cart_badge_color -%}
+      {{ settings.cart_badge_color.hex }}
+    {%- else -%}
+      var(--yc-neutral-color){%- endif -%};
+    --yc-nav-links-font-weight: {{ settings.navbar_links_font_weight }};
+    --yc-nav-links-hover-transparency: {{ settings.navbar_links_hover_transparency }};
+    --yc-nav-font-family: {%- if settings.navbar_font_family -%}
+      {{ settings.navbar_font_family }}, sans-serif{%- else -%}
+      var(--yc-font-family){%- endif -%};
+    --yc-nav-font-size: {{ settings.navbar_font_size }}px;
+    --yc-nav-shadow: {{ settings.navbar_shadow }};
+
     /* Mobile drawer */
     --yc-drawer-background: {{ settings.drawer_background_color.hex }};
     --yc-drawer-links-color: {%- if settings.drawer_links_color -%}
