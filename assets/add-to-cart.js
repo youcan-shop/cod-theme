@@ -5,7 +5,6 @@ async function addToCart(snippetId) {
   const quantity = parentSection.querySelector(`#quantity`)?.value || 1;
   const uploadedImageLink = parentSection.querySelector(`#yc-upload-link`)?.value || undefined;
 
-  console.log(variantId, quantity, uploadedImageLink);
   try {
     load('#loading__checkout');
 
