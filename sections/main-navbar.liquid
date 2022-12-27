@@ -27,66 +27,89 @@
     {%- for block in section.blocks -%}
       {%- case block.type %}
         {%- when 'logo' %}
-        <div class='logo'>
-          <a href='/'>
-            <img loading='lazy' src='{%- if section.settings.navbar_logo.src -%} {{ section.settings.navbar_logo.src }} {%- else -%} {{ 'cod-logo.png' | asset_url }} {%- endif -%}'>
-          </a>
-        </div>
-        {%- when 'menu' %}
-        <div class='menu'>
-          <ul class='menu-list'>
-            {% for item in main-link-list.links %}
-              <li class='menu-item {%-if item.active-%} active {%-endif%}'>
-                <a href='{{ item.url }}'>{{ item.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-        {%- when 'search_and_cart' %}
-        <div class='corner'>
-          <button class='search' onclick='openSearch()'>
-            <ion-icon name='search-outline'></ion-icon>
-          </button>
-          <div id='searchInputHolder'>
-            <div class='container flex justify-center'>
-              <form
-                action='/search'
-                method='GET'
-                class='input w-full flex gap-1 items-center'>
-                <input
-                  placeholder='{{ 'navbar.search.placeholder' | t }}'
-                  type='text'
-                  name='q'
-                  value=''
-                  class='w-full'>
-                <button type='submit' class='search-btn'>
-                  <ion-icon name='search-outline'></ion-icon>
-                </button>
-              </form>
-            </div>
+          <div class='logo'>
+            <a href='/'>
+              <img
+                loading='lazy'
+                src='{%- if section.settings.navbar_logo.src -%} {{ section.settings.navbar_logo.src }} {%- else -%} {{ 'cod-logo.png' | asset_url }} {%- endif -%}'
+              >
+            </a>
           </div>
-          <a class='cart relative' href='{{ routes.cart_url }}'>
-            <span id='cart-items-badge'>
-              {{- cart.items | size -}}
-            </span>
-            <ion-icon name='cart-outline'></ion-icon>
-          </a>
-          <button class='menu-toggler text-3xl' onclick="openDrawer('.navbar-drawer')">
-            <ion-icon name='menu-outline'></ion-icon>
-          </button>
-        </div>
+        {%- when 'menu' %}
+          <div class='menu'>
+            <ul class='menu-list'>
+              {% for item in main-link-list.links %}
+                <li class='menu-item {%-if item.active-%} active {%-endif%}'>
+                  <a href='{{ item.url }}'>{{ item.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {%- when 'search_and_cart' %}
+          <div class='corner'>
+            <button
+              class='search'
+              onclick='openSearch()'
+            >
+              <ion-icon name='search-outline'></ion-icon>
+            </button>
+            <div id='searchInputHolder'>
+              <div class='container flex justify-center'>
+                <form
+                  action='/search'
+                  method='GET'
+                  class='input w-full flex gap-1 items-center'
+                >
+                  <input
+                    placeholder='{{ 'navbar.search.placeholder' | t }}'
+                    type='text'
+                    name='q'
+                    value=''
+                    class='w-full'
+                  >
+                  <button
+                    type='submit'
+                    class='search-btn'
+                  >
+                    <ion-icon name='search-outline'></ion-icon>
+                  </button>
+                </form>
+              </div>
+            </div>
+            <a
+              class='cart relative'
+              href='{{ routes.cart_url }}'
+            >
+              <span id='cart-items-badge'>
+                {{- cart.items | size -}}
+              </span>
+              <ion-icon name='cart-outline'></ion-icon>
+            </a>
+            <button
+              class='menu-toggler text-3xl'
+              onclick="openDrawer('.navbar-drawer')"
+            >
+              <ion-icon name='menu-outline'></ion-icon>
+            </button>
+          </div>
       {%- endcase %}
     {%- endfor -%}
   </nav>
   <div class='navigation-drawer navbar-drawer block md:hidden'>
     <div class='logo flex items-center justify-center'>
       <a href='/'>
-        <img loading='lazy' src='{%- if section.settings.navbar_logo.src -%} {{ section.settings.navbar_logo.src }} {%- else -%} {{ 'cod-logo.png' | asset_url }} {%- endif -%}'>
+        <img
+          loading='lazy'
+          src='{%- if section.settings.navbar_logo.src -%} {{ section.settings.navbar_logo.src }} {%- else -%} {{ 'cod-logo.png' | asset_url }} {%- endif -%}'
+        >
       </a>
     </div>
     <div class='flex flex-col items-wrapper'>
       {% for item in main-link-list.links %}
-        <a class='items flex items-center justify-between' href='{{ item.url }}'>
+        <a
+          class='items flex items-center justify-between'
+          href='{{ item.url }}'
+        >
           <div>
             {{ item.title }}
           </div>
@@ -98,127 +121,141 @@
 </header>
 
 {%- schema -%}
-  {
-    "label": "Navbar",
-    "limit": 1,
-    "blocks": [
-      {
-        "label": "Logo",
-        "limit": 1,
-        "type": "logo"
-      }, {
-        "label": "Menu",
-        "limit": 1,
-        "type": "menu"
-      }, {
-        "label": "Search and Cart",
-        "limit": 1,
-        "type": "search_and_cart"
-      }
-    ],
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "navbar_logo",
-        "label": "Logo"
-      },
-      {
-        "type": "range",
-        "id": "navbar_height",
-        "min": 20,
-        "max": 150,
-        "step": 1,
-        "unit": "px",
-        "label": "Height",
-        "default": 60
-      },
-      {
-        "type": "color",
-        "id": "navbar_background_color",
-        "label": "Background color",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "id": "navbar_links_color",
-        "label": "Items and links color"
-      }, {
-        "type": "color",
-        "id": "cart_badge_color",
-        "label": "Cart badge color"
-      }, {
-        "type": "range",
-        "id": "navbar_links_hover_transparency",
-        "min": 0,
-        "max": 1,
-        "step": 0.10000000000000001,
-        "unit": "",
-        "label": "Links hover transparency",
-        "default": 0.80000000000000004
-      }, {
-        "type": "select",
-        "id": "navbar_links_font_weight",
-        "label": "Links font weight",
-        "options": [
-          {
-            "value": "300",
-            "label": "Light"
-          }, {
-            "value": "400",
-            "label": "Normal"
-          }, {
-            "value": "500",
-            "label": "Bold"
-          }, {
-            "value": "700",
-            "label": "Heavy"
-          }
-        ],
-        "default": "400"
-      }, {
-        "type": "select",
-        "id": "navbar_font_family",
-        "label": "Font family",
-        "options": [
-          {
-            "value": "Roboto",
-            "label": "Roboto"
-          },
-          {
-            "value": "Open Sans",
-            "label": "Open Sans"
-          },
-          {
-            "value": "Lato",
-            "label": "Lato"
-          },
-          {
-            "value": "Oswald",
-            "label": "Oswald"
-          }, {
-            "value": "Raleway",
-            "label": "Raleway"
-          }, {
-            "value": "Montserrat",
-            "label": "Montserrat"
-          }
-        ]
-      }, {
-        "type": "checkbox",
-        "id": "full_width",
-        "label": "Full width navbar",
-        "default": false
-      }, {
-        "type": "checkbox",
-        "id": "navbar_shadow",
-        "label": "Show navbar shadow",
-        "default": false
-      }, {
-        "type": "checkbox",
-        "id": "navbar_always_on_top",
-        "label": "Navbar always on top",
-        "default": false
-      }
-    ]
-  }
+{
+  "label": "Navbar",
+  "limit": 1,
+  "blocks": [
+    {
+      "label": "Logo",
+      "limit": 1,
+      "type": "logo"
+    },
+    {
+      "label": "Menu",
+      "limit": 1,
+      "type": "menu"
+    },
+    {
+      "label": "Search and Cart",
+      "limit": 1,
+      "type": "search_and_cart"
+    }
+  ],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "navbar_logo",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "navbar_height",
+      "min": 20,
+      "max": 150,
+      "step": 1,
+      "unit": "px",
+      "label": "Height",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "navbar_background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "navbar_links_color",
+      "label": "Items and links color"
+    },
+    {
+      "type": "color",
+      "id": "cart_badge_color",
+      "label": "Cart badge color"
+    },
+    {
+      "type": "range",
+      "id": "navbar_links_hover_transparency",
+      "min": 0,
+      "max": 1,
+      "step": 0.10000000000000001,
+      "unit": "",
+      "label": "Links hover transparency",
+      "default": 0.80000000000000004
+    },
+    {
+      "type": "select",
+      "id": "navbar_links_font_weight",
+      "label": "Links font weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Bold"
+        },
+        {
+          "value": "700",
+          "label": "Heavy"
+        }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "select",
+      "id": "navbar_font_family",
+      "label": "Font family",
+      "options": [
+        {
+          "value": "Roboto",
+          "label": "Roboto"
+        },
+        {
+          "value": "Open Sans",
+          "label": "Open Sans"
+        },
+        {
+          "value": "Lato",
+          "label": "Lato"
+        },
+        {
+          "value": "Oswald",
+          "label": "Oswald"
+        },
+        {
+          "value": "Raleway",
+          "label": "Raleway"
+        },
+        {
+          "value": "Montserrat",
+          "label": "Montserrat"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width navbar",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "navbar_shadow",
+      "label": "Show navbar shadow",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "navbar_always_on_top",
+      "label": "Navbar always on top",
+      "default": false
+    }
+  ]
+}
 {%- endschema -%}
