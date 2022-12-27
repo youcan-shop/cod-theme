@@ -16,13 +16,15 @@
 <div class='yc-{{ uniq }}-add-to-cart{% if is_sticky %} is_sticky{% endif %}'>
   <button
     class='yc-btn'
-    onclick='addToCart({{ snippetId }})'
+    onclick='addToCart("{{ snippetId }}")'
   >
     <span
       class='spinner hidden'
       id='loading__checkout'
     ></span>
-    <span>{{ text }}</span>
+    <span>
+      {{ text }}
+    </span>
   </button>
 </div>
 

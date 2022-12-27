@@ -1,9 +1,9 @@
 async function addToCart(snippetId) {
-  const parentSection = `.yc-single-product.s-${snippetId}`;
-  console.log(parentSection);
-  const variantId = document.querySelector(`${parentSection} #variantId`)?.value || undefined;
-  const quantity = document.querySelector(`${parentSection} #quantity`)?.value || 1;
-  const uploadedImageLink = document.querySelector(`${parentSection} #yc-upload-link`)?.value || undefined;
+  const parentSection = document.querySelector(`#s-${snippetId}`);
+
+  const variantId = parentSection.querySelector(`#variantId`)?.value || undefined;
+  const quantity = parentSection.querySelector(`#quantity`)?.value || 1;
+  const uploadedImageLink = parentSection.querySelector(`#yc-upload-link`)?.value || undefined;
 
   console.log(variantId, quantity, uploadedImageLink);
   try {
