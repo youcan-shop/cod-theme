@@ -15,7 +15,7 @@
       reviewItem.innerHTML = `
         <div class='header'>
           <img loading='lazy' class='image' src=${review.images_urls[0] || defaultAvatar} />
-          <div class='name'>${review.first_name} ${review.last_name}</div>
+          <div class='name'>${review.first_name || ''} ${review.last_name || ''}</div>
           </div>
         <div class='content'>
           <div class="yc-reviews-stars" style="--rating: ${review.ratings};" aria-label="Rating of this product is ${
