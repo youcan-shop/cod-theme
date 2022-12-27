@@ -1,13 +1,19 @@
 function previewProductImage(element) {
-  const thumbnail = document.querySelector('#main-image');
+  const parentSection = element.closest('.yc-single-product');
+  const thumbnail = parentSection.querySelector('#main-image');
 
   thumbnail.src = element.src;
   setElementActive(element);
 }
 
-function uploadImage() {
-  const uploadInput = document.querySelector('#yc-upload');
-  let uploadedImageLink = document.querySelector('#yc-upload-link');
+/**
+ * Upload image input handler
+ * @param {HTMLElement} element
+ */
+function uploadImage(element) {
+  const parentSection = element.closest('.yc-single-product');
+  const uploadInput = parentSection.querySelector('#yc-upload');
+  let uploadedImageLink = parentSection.querySelector('#yc-upload-link');
 
   uploadInput.click();
 
@@ -19,15 +25,15 @@ function uploadImage() {
       reader.onload = function () {
         const base64 = reader.result;
 
-        const previews = document.querySelectorAll('.yc-upload-preview img');
+        const previews = parentSection.querySelectorAll('.yc-upload-preview img');
         previews.forEach((preview) => {
           preview.remove();
         });
 
-        const uploadArea = document.querySelector('.yc-upload');
+        const uploadArea = parentSection.querySelector('.yc-upload');
         uploadArea.style.display = 'none';
 
-        const preview = document.createElement('img');
+        const preview = parentSection.createElement('img');
         preview.src = base64;
 
         preview.addEventListener('click', function () {
@@ -35,7 +41,7 @@ function uploadImage() {
           uploadInput.value = '';
           preview.remove();
         });
-        document.querySelector('.yc-upload-preview').appendChild(preview);
+        parentSection.querySelector('.yc-upload-preview').appendChild(preview);
       };
 
       const res = await youcanjs.product.upload(this.files[0]);
@@ -74,6 +80,11 @@ let zoomer = (function () {
   }
 })();
 
+/**
+ * Sets active class to an element
+ * @param {HTMLElement} element
+ * @returns {void}
+ */
 function setElementActive(element) {
   const siblings = element.parentNode.children;
 
@@ -83,13 +94,18 @@ function setElementActive(element) {
   element.classList.add('active');
 }
 
-function selectDefaultOptions() {
-  const options = document.querySelectorAll('.product-options > div');
+/**
+ * Sets default options for a product
+ * @param {HTMLElement} parentSection
+ */
+function selectDefaultOptions(parentSection) {
+  const options = parentSection.querySelectorAll('.product-options > div');
 
-  if (!options) return null;
+  if (!options) return;
+
   options.forEach((option) => {
-    const optionName = option.id.split('-')[1];
     const optionType = option.id.split('-')[2];
+
     switch (optionType) {
       case 'dropdown':
         option.querySelector('select').value = option.querySelector('select').options[0].value;
@@ -112,17 +128,22 @@ function selectDefaultOptions() {
     }
   });
 
-  const selectedVariant = getSelectedVariant();
+  const selectedVariant = getSelectedVariant(parentSection);
 
   if (!selectedVariant) {
-    setDefaultVariant(variants[0]?.id);
+    setVariant(parentSection, variants[0]?.id);
   }
 
-  setDefaultVariant(selectedVariant.id);
+  setVariant(parentSection, selectedVariant.id);
 }
 
-function getSelectedOptions() {
-  const options = document.querySelectorAll('.product-options > div');
+/**
+ * Gets selected options for a product
+ * @param {HTMLElement} parentSection
+ * @returns {Object} selected options
+ */
+function getSelectedOptions(parentSection) {
+  const options = parentSection.querySelectorAll('.product-options > div');
 
   if (!options) return null;
   const selectedOptions = {};
@@ -154,8 +175,13 @@ function getSelectedOptions() {
   return selectedOptions;
 }
 
-function getSelectedVariant() {
-  const selectedOptions = getSelectedOptions();
+/**
+ * matches selected options with variants and returns the selected variant id
+ * @param {HTMLElement} parentSection
+ * @returns {Object | null} selected variant
+ */
+function getSelectedVariant(parentSection) {
+  const selectedOptions = getSelectedOptions(parentSection);
 
   return variants.find((variant) => {
     if (JSON.stringify(variant.variations) === JSON.stringify(selectedOptions)) {
@@ -165,15 +191,26 @@ function getSelectedVariant() {
   });
 }
 
-function setDefaultVariant(id) {
-  const variantIdInput = document.querySelector('#variantId');
+/**
+ * Sets the variant id in the hidden input field of the product form
+ * @param {HTMLElement} parentSection
+ * @param {String} id variant id
+ */
+function setVariant(parentSection, id) {
+  const variantIdInput = parentSection.querySelector('#variantId');
 
   variantIdInput.value = id;
 }
 
-function updateProductDetails(image, price) {
+/**
+ * Updates product details after variant change
+ * @param {HTMLElement} parentSection
+ * @param {String} image
+ * @param {String} price
+ */
+function updateProductDetails(parentSection, image, price) {
   if (image) {
-    const mainImg = document.querySelector('#main-image');
+    const mainImg = parentSection.querySelector('#main-image');
 
     if (!mainImg) return;
 
@@ -181,7 +218,7 @@ function updateProductDetails(image, price) {
   }
 
   if (price) {
-    const productPrice = document.querySelector('.product-price');
+    const productPrice = parentSection.querySelector('.product-price');
 
     if (!productPrice) return;
 
@@ -189,43 +226,56 @@ function updateProductDetails(image, price) {
   }
 }
 
-const productDetails = document.querySelector('.product-options');
+/**
+ * Set sticky product image on scroll
+ * @param {HTMLElement} parentSection
+ */
+function setStickyProductImage(parentSection) {
+  const imagesHolder = parentSection.querySelector('.product-images-container');
 
-if (productDetails) {
-  const observer = new MutationObserver(() => {
-    const selectedVariant = getSelectedVariant();
-    const variantIdInput = document.querySelector('#variantId');
+  const stickyImagesHandler = () => {
+    const rect = parentSection.getBoundingClientRect();
+    const imagesRect = imagesHolder.getBoundingClientRect();
 
-    variantIdInput.value = selectedVariant.id;
-
-    updateProductDetails(selectedVariant.image, selectedVariant.price);
-  });
-
-  observer.observe(productDetails, { attributes: true, childList: true, subtree: true });
-}
-
-selectDefaultOptions();
-
-/* ----------------------------------- */
-/* ----- sticky images on scroll ----- */
-/* ----------------------------------- */
-const productWrapper = document.querySelector('.yc-product-card');
-const imagesHolder = document.querySelector('.product-images-container');
-
-const stickyImagesHandler = () => {
-  const rect = productWrapper.getBoundingClientRect();
-  const imagesRect = imagesHolder.getBoundingClientRect();
-
-  if (imagesRect.bottom >= rect.bottom) {
-    if (imagesRect.top > 0) {
+    if (imagesRect.bottom >= rect.bottom) {
+      if (imagesRect.top > 0) {
+        imagesHolder.style.transform = `translateY(${-rect.top}px)`;
+      }
+    } else if (rect.top < 0) {
       imagesHolder.style.transform = `translateY(${-rect.top}px)`;
     }
-  } else if (rect.top < 0) {
-    imagesHolder.style.transform = `translateY(${-rect.top}px)`;
-  }
-};
+  };
 
-if (window.innerWidth > 768 && imagesHolder && productWrapper) {
-  stickyImagesHandler();
-  window.addEventListener('scroll', stickyImagesHandler);
+  if (window.innerWidth > 768 && imagesHolder && parentSection) {
+    stickyImagesHandler();
+    window.addEventListener('scroll', stickyImagesHandler);
+  }
 }
+
+function setup() {
+  const singleProductSections = document.querySelectorAll('.yc-single-product');
+
+  if (!singleProductSections) return;
+
+  singleProductSections.forEach((section) => {
+    const productDetails = section.querySelector('.product-options');
+
+    if (productDetails) {
+      const observer = new MutationObserver(() => {
+        const selectedVariant = getSelectedVariant(section);
+        const variantIdInput = section.querySelector('#variantId');
+
+        variantIdInput.value = selectedVariant.id;
+
+        updateProductDetails(section, selectedVariant.image, selectedVariant.price);
+      });
+
+      observer.observe(productDetails, { attributes: true, childList: true, subtree: true });
+    }
+
+    selectDefaultOptions(section);
+    setStickyProductImage(section);
+  });
+}
+
+setup();
