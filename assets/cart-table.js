@@ -1,6 +1,7 @@
 function updateDOM(cartItemId, productVariantId, quantity) {
   const inputHolder = document.getElementById(cartItemId);
   const input = inputHolder.querySelector(`input[id="${productVariantId}"]`);
+  console.log(input, productVariantId);
   input.value = quantity;
   const decrease = input.previousElementSibling;
   const increase = input.nextElementSibling;

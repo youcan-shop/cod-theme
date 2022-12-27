@@ -17,12 +17,10 @@ async function addToCart() {
     const cart = document.querySelector('#cart-items-badge');
 
     if (cart) {
-      let cartBadgeBudge = Number(cart.innerHTML);
-      const newAddedItem = response.items.find((item) => item.productVariant.id === variantId);
+      cart.innerHTML = response.items.length;
 
-      cart.innerHTML = ++cartBadgeBudge;
-
-      addCartitemToDOM(newAddedItem);
+      addCartItemToDrawerDOM(response.items);
+      openDrawer('.cart-drawer');
     }
 
     stopLoad('#loading__checkout');
@@ -33,44 +31,56 @@ async function addToCart() {
   }
 }
 
-function addCartitemToDOM(cartItem) {
+function addCartItemToDrawerDOM(cartItems) {
   const cartItemsTable = document.querySelector('.cart-items-table');
   const cartItemsTableBody = cartItemsTable.querySelector('tbody');
-  const cartItemsBadge = document.getElementById('cart-items-badge');
-
   const cartItemTemplate = document.querySelector('.cart__item');
   const cartItemClone = cartItemTemplate.cloneNode(true);
 
-  cartItemClone.classList.remove('hidden');
-  cartItemClone.classList.remove('cart__item');
-  cartItemClone.id = cartItem.id;
+  cartItemsTableBody.innerHTML = '';
 
-  const cartItemName = cartItemClone.querySelector('.cart__item-name');
-  cartItemName.innerText = cartItem.productVariant.product.name;
-  console.log(cartItem);
-  cartItemName.setAttribute('href', cartItem.url);
+  cartItems.forEach((cartItem) => {
+    const cartItemName = cartItemClone.querySelector('.cart__item-name');
+    const cartItemPrice = cartItemClone.querySelector('.cart__item-price');
+    const quantityWrapper = cartItemClone.querySelector('.quantity-wrapper');
+    const cartItemImage = cartItemClone.querySelector('img');
 
-  const cartItemPrice = cartItemClone.querySelector('.cart__item-price');
-  cartItemPrice.innerText = cartItem.price;
+    cartItemClone.id = cartItem.id;
+    cartItemImage.setAttribute(
+      'src',
+      cartItem.productVariant.image.url || cartItem.productVariant.product.images[0].url,
+    );
 
-  const quantityWrapper = cartItemClone.querySelector('.quantity-wrapper');
-  quantityWrapper.innerHTML = `
-  <div class='decrease'>
-    <button onclick="decreaseQuantity('${cartItem.id}', '${cartItem.productVariantId}', '${cartItem.quantity - 1}')">
-      -
-    </button>
-  </div>
-  <input
-    onchange="updateOnchange('${cartItem.id}', '${cartItem.productVariantId}')"
-    type='text'
-    value='1'
-    id='6baf66d1-b440-41b8-97b4-56daaaf96e94'>
-  <div class='increase'>
-    <button onclick="increaseQuantity('${cartItem.id}', '${cartItem.productVariantId}', '${cartItem.quantity + 1}')">
-      +
-    </button>
-  </div>
-  `;
+    cartItemName.innerText = cartItem.productVariant.product.name;
+    console.log(cartItem);
+    cartItemName.setAttribute('href', cartItem.url);
 
-  cartItemsTableBody.appendChild(cartItemClone);
+    cartItemPrice.innerText = cartItem.price;
+
+    quantityWrapper.innerHTML = `
+        <div class='decrease'>
+          <button onclick="decreaseQuantity('${cartItem.id}',
+            '${cartItem.productVariant.id}',
+            '${(cartItem.quantity <= 0 ? 1 : cartItem.quantity) - 1}')"
+          >
+            -
+          </button>
+        </div>
+        <input
+          onchange="updateOnchange('${cartItem.id}', '${cartItem.productVariant.id}')"
+          type='text'
+          value='${cartItem.quantity}'
+          id='6baf66d1-b440-41b8-97b4-56daaaf96e94'>
+        <div class='increase'>
+          <button onclick="increaseQuantity('${cartItem.id}',
+            '${cartItem.productVariant.id}',
+            '${cartItem.quantity + 1}')"
+          >
+            +
+          </button>
+        </div>
+      `;
+
+    cartItemsTableBody.appendChild(cartItemClone);
+  });
 }

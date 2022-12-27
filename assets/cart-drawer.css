@@ -1,6 +1,7 @@
 .cart-drawer {
   width: 80vw !important;
   max-width: 500px !important;
+  padding: 0 20px !important;
 }
 .cart-drawer,
 .cart-drawer *:not(.yc-btn):not(ion-icon) {
