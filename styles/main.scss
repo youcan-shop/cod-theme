@@ -1,5 +1,14 @@
 @import 'helpers/mixins';
 
+/* --------------------- */
+/* ----- variables ----- */
+/* -------------------- */
+:root {
+  --yc-reviews-stars-size: 20px;
+  --yc-reviews-stars-color: #d4d4d4;
+  --yc-reviews-stars-background: #fc0;
+}
+
 /* ------------------------- */
 /* ----- global styles ----- */
 /* ------------------------- */
@@ -401,6 +410,27 @@ input:not([type='radio']),
 
 .splide {
   direction: ltr;
+}
+
+.yc-reviews-stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+
+  display: inline-block;
+  font-size: var(--yc-reviews-stars-size);
+  line-height: 1;
+
+  &::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(
+      90deg,
+      var(--yc-reviews-stars-background) var(--percent),
+      var(--yc-reviews-stars-color) var(--percent)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 /* ------------------- */

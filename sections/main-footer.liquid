@@ -1,4 +1,16 @@
 {{ 'footer.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  :root {
+    --yc-footer-background-color: {%- if section.settings.footer_background_color -%}
+      {{ section.settings.footer_background_color.hex }}
+      {%- else -%}
+      var(--yc-primary-color){%- endif -%};
+    --yc-footer-text-color: {{ section.settings.footer_text_color.hex }};
+    --yc-footer-copyright-background: {{ section.settings.footer_copyright_background.hex }};
+  }
+{% endstyle %}
+
 <footer class='yc-footer mt-24'>
   <div class='grid grid-cols-1 md:grid-cols-3 gap-10 container pb-7 pt-14'>
     {%- for block in section.blocks -%}
@@ -61,6 +73,25 @@
 {
   "label": "Footer",
   "limit": 1,
+  "settings": [
+    {
+      "type": "color",
+      "id": "footer_background_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "color",
+      "id": "footer_text_color",
+      "label": "Text Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "footer_copyright_background",
+      "label": "Copyright Background",
+      "default": "#0003"
+    }
+  ],
   "blocks": [
     {
       "label": "Privacy",
