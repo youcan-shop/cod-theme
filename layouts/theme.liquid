@@ -1,8 +1,5 @@
 <!doctype html>
-<html
-  lang='en'
-  dir='{{ settings.theme_direction }}'
->
+<html lang='en' dir='{{ settings.theme_direction }}'>
   <head>
     {%- render 'head-config' -%}
 
@@ -14,7 +11,11 @@
     {%- render 'overlay' -%}
     {%- render 'alert' -%}
 
+    {%- section 'notice-bar' %}
+
     {{ content_for_layout }}
+
+    {% section 'main-footer' %}
 
     {{ 'main.js' | asset_url | script_tag }}
   </body>
