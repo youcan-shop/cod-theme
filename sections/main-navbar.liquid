@@ -1,5 +1,27 @@
 {{ 'navbar.css' | asset_url | stylesheet_tag }}
 
+{% style %}
+  :root{
+    --yc-nav-height: {{ section.settings.navbar_height }}px;
+    --yc-nav-background: {{ section.settings.navbar_background_color.hex }};
+    --yc-nav-links-color: {%- if section.settings.navbar_links_color -%}
+      {{ section.settings.navbar_links_color.hex }}
+    {%- else -%}
+      var(--yc-neutral-color){%- endif -%};
+    --yc-nav-cart-badge-color: {%- if section.settings.cart_badge_color -%}
+      {{ section.settings.cart_badge_color.hex }}
+    {%- else -%}
+      var(--yc-neutral-color){%- endif -%};
+    --yc-nav-links-font-weight: {{ section.settings.navbar_links_font_weight }};
+    --yc-nav-links-hover-transparency: {{ section.settings.navbar_links_hover_transparency }};
+    --yc-nav-font-family: {%- if section.settings.navbar_font_family -%}
+      {{ section.settings.navbar_font_family }}, sans-serif{%- else -%}
+      var(--yc-font-family){%- endif -%};
+    --yc-nav-font-size: {{ section.settings.navbar_font_size }}px;
+    --yc-nav-shadow: {{ section.settings.navbar_shadow }};
+  }
+{% endstyle %}
+
 <header class='yc-header {%if section.settings.navbar_always_on_top%} nav-fixed {%endif%}'>
   <nav class='yc-navbar container {%if section.settings.full_width%} fluid {%endif%}'>
     {%- for block in section.blocks -%}
