@@ -113,6 +113,7 @@
       }
     }
   }
+
   .product-details {
     width: 100%;
     max-width: 90vw;
@@ -121,12 +122,6 @@
       font-size: 25px;
       font-weight: 600;
       margin-bottom: 25px;
-    }
-    .product-price {
-      font-size: 26px;
-      font-weight: 600;
-      color: var(--yc-primary-color);
-      line-height: 24px;
     }
     .product-options {
       .product-option {
@@ -154,5 +149,12 @@
       margin-bottom: 5px;
       font-weight: 500;
     }
+  }
+
+  .product-price {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--yc-primary-color);
+    line-height: 24px;
   }
 }
