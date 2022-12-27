@@ -55,9 +55,9 @@
     pauseOnHover: '{{ section.settings.slider_mobile_pause_on_hover }}' ? true : false,
     pauseOnFocus: '{{ section.settings.slider_mobile_pause_on_focus }}' ? true : false,
     height: `{{ section.settings.slider_mobile_height_percentage }}vh`,
+    interval: '{{ section.settings.slider_timeout | times: 1000 }}',
     arrows: false,
     focus: 'center',
-    interval: '{{ section.settings.slider_timeout | times: 1000 }}',
     rewind: false,
     drag: 'free',
     snap: true,
@@ -99,6 +99,16 @@
       "unit": "px",
       "label": "Arrows Content Size",
       "default": 14
+    },
+    {
+      "type": "range",
+      "id": "slider_timeout",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "unit": "s",
+      "label": "Timeout",
+      "default": 5
     },
     {
       "type": "color",
