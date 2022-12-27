@@ -53,7 +53,7 @@
 }
 .yc-featured-products .product-list .product-block .prices {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 .yc-featured-products .product-list .product-block .prices .compare-at-price {
   text-decoration: line-through;
