@@ -1,4 +1,9 @@
-<div class='container yc-product-card'>
+{%- assign snippetId = 0 | rand %}
+
+<div
+  class='container yc-single-product s-{{ snippetId }}'
+  id='s-{{ snippetId }}'
+>
   {% assign images = product.images %}
   {% assign product_name = product.name %}
   {% assign showcase_style = section.settings.product_images_showcase_style %}
@@ -45,7 +50,7 @@
             {% render 'stock', stock_items_left: block.settings.stock_items_left, total_stock_items: block.settings.total_stock_items %}
           {%- when 'add_to_cart' -%}
             <!-- prettier-ignore -->
-            {% render 'add-to-cart', text: block.settings.text_content, is_sticky: block.settings.is_sticky, background_color: block.settings.background_color, text_color: block.settings.text_color %}
+            {% render 'add-to-cart', text: block.settings.text_content, is_sticky: block.settings.is_sticky, background_color: block.settings.background_color, text_color: block.settings.text_color, snippetId: snippetId %}
           {%- when 'express_checkout' -%}
             <!-- prettier-ignore -->
             {% render 'express-checkout', checkout: checkout, is_sticky: block.settings.is_sticky, settings: block.settings %}

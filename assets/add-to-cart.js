@@ -1,8 +1,11 @@
-async function addToCart() {
-  const variantId = document.getElementById('variantId')?.value || undefined;
-  const quantity = document.getElementById('quantity')?.value || 1;
-  const uploadedImageLink = document.querySelector('#yc-upload-link')?.value || undefined;
+async function addToCart(snippetId) {
+  const parentSection = `.yc-single-product.s-${snippetId}`;
+  console.log(parentSection);
+  const variantId = document.querySelector(`${parentSection} #variantId`)?.value || undefined;
+  const quantity = document.querySelector(`${parentSection} #quantity`)?.value || 1;
+  const uploadedImageLink = document.querySelector(`${parentSection} #yc-upload-link`)?.value || undefined;
 
+  console.log(variantId, quantity, uploadedImageLink);
   try {
     load('#loading__checkout');
 
