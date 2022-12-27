@@ -34,26 +34,6 @@
     /* Borders  */
     --yc-main-border: 1px solid var(--yc-neutral-light-color);
 
-    /* Notice bar Desktop */
-    --yc-notice-height-desktop: {{ settings.notice_bar_height_desktop }}px;
-    --yc-notice-font-size-desktop: {{ settings.notice_bar_content_font_size_desktop }}px;
-    --yc-notice-background-color-desktop: {%- if settings.notice_bar_background_color_desktop %}
-      {{ settings.notice_bar_background_color_desktop.hex }}
-    {%- else %}
-      var(--yc-primary-color){%- endif %};
-    --yc-notice-text-color-desktop: {{ settings.notice_bar_content_text_color_desktop.hex }};
-
-    /* Notice bar Mobile */
-    --yc-notice-height-mobile: {{ settings.notice_bar_height_mobile }}px;
-    --yc-notice-font-size-mobile: {{ settings.notice_bar_content_font_size_mobile }}px;
-    --yc-notice-background-color-mobile: {%- if settings.notice_bar_background_color_mobile %}
-      {{ settings.notice_bar_background_color_mobile.hex }}
-    {%- else %}
-      var(--yc-primary-color){%- endif %};
-    --yc-notice-text-color-mobile: {{ settings.notice_bar_content_text_color_mobile.hex }};
-
-    --yc-notice-above: {{ settings.notice_bar_above }};
-
     /* Navbar */
     --yc-nav-height: {{ settings.navbar_height }}px;
     --yc-nav-background: {{ settings.navbar_background_color.hex }};
@@ -102,14 +82,6 @@
     --yc-reviews-items_per_row: {{ settings.reviews_items_per_row }};
     --yc-reviews-name-font-size: {{ settings.reviews_name_font_size }}px;
     --yc-reviews-content-font-size: {{ settings.reviews_content_font_size }}px;
-
-    /* Footer */
-    --yc-footer-background-color: {%- if settings.footer_background_color -%}
-      {{ settings.footer_background_color.hex }}
-    {%- else -%}
-      var(--yc-primary-color){%- endif -%};
-    --yc-footer-text-color: {{ settings.footer_text_color.hex }};
-    --yc-footer-copyright-background: {{ settings.footer_copyright_background.hex }};
 
     /* Notification toast */
     --yc-notification-toast-height: {{ settings.notification_toast_height }}px;
