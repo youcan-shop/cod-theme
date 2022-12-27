@@ -138,3 +138,9 @@
   margin-bottom: 5px;
   font-weight: 500;
 }
+.yc-product-card .product-price {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--yc-primary-color);
+  line-height: 24px;
+}
