@@ -8,7 +8,7 @@
     color: {{ section.settings.text_color.hex }};
   }
 
-  .multi-column-{{ id }} .multi-column-blocks{
+  .multi-column-{{ id }} .multi-column-blocks {
     display: grid;
     grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
     grid-gap: 2vw;
@@ -21,11 +21,11 @@
   }
 
   .column-block {
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
-    text-align:center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
   }
 
   .column-block .column-title {
@@ -33,14 +33,14 @@
     font-size: 25px;
   }
 
-  .column-block .column-description{
-    font-size:16px;
+  .column-block .column-description {
+    font-size: 16px;
   }
 
   .column-block .column-image {
     object-fit: cover;
-    aspect-ratio:1;
-    width:100%;
+    aspect-ratio: 1;
+    width: 100%;
   }
 {% endstyle %}
 
@@ -110,12 +110,12 @@
         {
           "id": "link_label",
           "type": "text",
-          "label": "Link label"
+          "label": "Button label"
         },
         {
           "id": "link",
           "type": "text",
-          "label": "Link"
+          "label": "Button text"
         }
       ]
     }
@@ -124,7 +124,11 @@
     {
       "type": "text",
       "id": "title",
-      "label": "heading"
+      "label": "Section Title"
+    },
+    {
+      "type": "header",
+      "content": "Styles"
     },
     {
       "type": "color",
@@ -135,6 +139,10 @@
       "type": "color",
       "id": "text_color",
       "label": "Text color"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
     },
     {
       "type": "range",
