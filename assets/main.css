@@ -410,3 +410,9 @@ input:not([type=radio]),
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+/* ------------------- */
+/* ----- spacers ----- */
+/* ------------------- */
+.spacer {
+  flex-grow: 1;
+}
