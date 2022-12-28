@@ -14,38 +14,24 @@
 {% endstyle %}
 
 <footer class='yc-footer mt-24'>
-  <div class='grid grid-cols-1 md:grid-cols-3 gap-10 container pb-7 pt-14'>
+  <div class='columns container'>
     {%- for block in section.blocks -%}
-      <div>
-        {%- case block.type -%}
-          {%- when 'privacy' -%}
+      {%- case block.type -%}
+        {%- when 'copyright' -%}
+          <div
+            class='copyright'
+            {{ block.youcan_attributes }}
+          >
+            {%- for item in block.settings -%}
+              <div class='block whitespace-pre-wrap leading-8'>{{ item.1 }}</div>
+            {%- endfor %}
+          </div>
+        {%- else -%}
+          <div class='column'>
             <div
               class='parsed-links'
               {{ block.youcan_attributes }}
             >
-              {%- for item in block.settings -%}
-                {%- if item.0 == "block-title" -%}
-                  <h1 class='title block'>{{ item.1 }}</h1>
-                {%- else %}
-                  <a class='item block'>{{ item.1 }}</a>
-                {%- endif %}
-              {%- endfor %}
-            </div>
-          {%- when 'social' -%}
-            <div
-              class='parsed-links'
-              {{ block.youcan_attributes }}
-            >
-              {%- for item in block.settings -%}
-                {%- if item.0 == "block-title" -%}
-                  <h1 class='title block'>{{ item.1 }}</h1>
-                {%- else %}
-                  <a class='item block'>{{ item.1 }}</a>
-                {%- endif %}
-              {%- endfor %}
-            </div>
-          {%- when 'contact' -%}
-            <div {{ block.youcan_attributes }}>
               {%- for item in block.settings -%}
                 {% case item.0 %}
                   {% when 'block-title' %}
@@ -53,21 +39,12 @@
                   {% when 'description' %}
                     <p>{{ item.1 }}</p>
                   {%- else %}
-                    <div class='item block whitespace-pre-wrap leading-8 -mt-1'>{{ item.1 }}</div>
+                    <a class='item block whitespace-pre-wrap leading-8 -mt-1'>{{ item.1 }}</a>
                 {% endcase %}
               {%- endfor %}
             </div>
-          {%- when 'copyright' -%}
-            <div
-              class='copyright'
-              {{ block.youcan_attributes }}
-            >
-              {%- for item in block.settings -%}
-                <div class='block whitespace-pre-wrap leading-8'>{{ 'footer.blocks.copyright.title' | t: item.1 }}</div>
-              {%- endfor %}
-            </div>
-        {%- endcase %}
-      </div>
+          </div>
+      {%- endcase %}
     {%- endfor %}
   </div>
 </footer>
@@ -99,9 +76,8 @@
   ],
   "blocks": [
     {
-      "label": "Privacy",
-      "limit": 1,
-      "type": "privacy",
+      "label": "Column",
+      "type": "column",
       "settings": [
         {
           "type": "text",
@@ -184,72 +160,6 @@
           "type": "richtext",
           "id": "description",
           "label": "Description",
-          "default": ""
-        }
-      ]
-    },
-    {
-      "label": "Social media",
-      "limit": 1,
-      "type": "social",
-      "settings": [
-        {
-          "type": "text",
-          "id": "block-title",
-          "label": "Block title"
-        },
-        {
-          "type": "paragraph",
-          "content": "Plaese enter your needed links, other inputs you can leave it empty."
-        },
-        {
-          "type": "header",
-          "content": "Link 1"
-        },
-        {
-          "type": "text",
-          "id": "name-1",
-          "label": "Name",
-          "default": ""
-        },
-        {
-          "type": "text",
-          "id": "url-1",
-          "label": "URL",
-          "default": ""
-        },
-        {
-          "type": "header",
-          "content": "Link 2"
-        },
-        {
-          "type": "text",
-          "id": "name-2",
-          "label": "Name",
-          "default": ""
-        },
-        {
-          "type": "text",
-          "id": "url-2",
-          "label": "URL",
-          "default": ""
-        }
-      ]
-    },
-    {
-      "label": "Contact Us",
-      "limit": 1,
-      "type": "contact",
-      "settings": [
-        {
-          "type": "text",
-          "id": "block-title",
-          "label": "Block title"
-        },
-        {
-          "type": "richtext",
-          "id": "newsletter",
-          "label": "Adress",
           "default": ""
         }
       ]
