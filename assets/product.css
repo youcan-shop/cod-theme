@@ -2,12 +2,13 @@
   display: flex;
   gap: 5vh;
   margin: 25px auto;
+  flex-direction: column;
   align-items: start;
 }
 @media (min-width: 768px) {
   .yc-single-product {
     gap: 5vw;
-    grid-template-columns: 55% 40%;
+    flex-direction: row;
   }
 }
 .yc-single-product .product-images {
@@ -92,6 +93,7 @@
   scrollbar-width: none;
   overflow: auto;
   width: 80px;
+  height: 450px;
 }
 .yc-single-product .product-images.style2 .thumbnail-images::-webkit-scrollbar {
   display: none;

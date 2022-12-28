@@ -279,17 +279,3 @@ function setup() {
 }
 
 setup();
-
-function setThumbnailHeight() {
-  const thumbnailImages = document.querySelector('.product-images.style2 .thumbnail-images');
-  const mainThumbnail = document.querySelector('.main-thumbnail');
-  const mainThumbnailHeight = mainThumbnail.clientHeight;
-
-  if (!mainThumbnailHeight) return;
-
-  thumbnailImages.style.height = `${mainThumbnailHeight}px`;
-}
-
-setThumbnailHeight();
-window.addEventListener('load', setThumbnailHeight);
-window.addEventListener('resize', setThumbnailHeight);
