@@ -9,12 +9,97 @@
       },
       "main-navbar": {
         "type": "main-navbar",
-        "settings": {
-          "navbar_logo": "slide-3-2Hcbfzv5MEU2LkzXDxnFl8T4Hbp.jpg"
-        }
+        "blocks": {
+          "block_gkk8ae6rzniqule": {
+            "type": "logo",
+            "settings": {}
+          },
+          "block_glpfko4s63fm6kj": {
+            "type": "menu",
+            "settings": {}
+          },
+          "block_gmrv273jdps9sso": {
+            "type": "search_and_cart",
+            "settings": {}
+          }
+        },
+        "order": ["block_gkk8ae6rzniqule", "block_glpfko4s63fm6kj", "block_gmrv273jdps9sso"]
       },
       "main-footer": {
-        "type": "main-footer"
+        "type": "main-footer",
+        "blocks": {
+          "block_e1ssn3zlutxitkd": {
+            "type": "column",
+            "settings": {
+              "block-title": "Privacy",
+              "name-1": "test",
+              "url-1": "test",
+              "name-2": "test",
+              "url-2": "test",
+              "name-3": "test",
+              "url-3": "test",
+              "name-4": "test",
+              "url-4": "test",
+              "description": "<p>In publishing and <strong><em><u>graphic design</u></em></strong>, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document</p>"
+            }
+          },
+          "block_e332zl8k5x9hut": {
+            "type": "column",
+            "settings": {
+              "block-title": "Social media",
+              "name-1": "facebook",
+              "url-1": "facebook",
+              "name-2": "facebook",
+              "url-2": "facebook",
+              "name-3": "facebook",
+              "url-3": "facebook",
+              "name-4": "facebook",
+              "url-4": "facebook",
+              "description": "<p>put some <strong><em><u>description</u></em></strong> here if you want</p>"
+            }
+          },
+          "block_e40unhfivg0xwvf": {
+            "type": "column",
+            "settings": {
+              "block-title": "Contact us",
+              "name-1": "contact",
+              "url-1": "contact",
+              "name-2": "contact",
+              "url-2": "contact",
+              "name-3": "contact",
+              "url-3": "contact",
+              "name-4": "contact",
+              "url-4": "contact",
+              "description": ""
+            }
+          },
+          "block_e56ztxh3krc44so": {
+            "type": "column",
+            "settings": {
+              "block-title": "Something",
+              "name-1": "Something",
+              "url-1": "Something",
+              "name-2": "Something",
+              "url-2": "Something",
+              "name-3": "Something",
+              "url-3": "Something",
+              "description": ""
+            }
+          },
+          "block_ocqzrg651kw4tf8": {
+            "type": "copyright",
+            "settings": {
+              "copyright": "<p>Made with \u2764\ufe0f by YouCan</p>"
+            }
+          }
+        },
+        "order": [
+          "block_e1ssn3zlutxitkd",
+          "block_e332zl8k5x9hut",
+          "block_e40unhfivg0xwvf",
+          "block_e56ztxh3krc44so",
+          "block_ocqzrg651kw4tf8"
+        ]
       }
     }
   },
