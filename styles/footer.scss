@@ -14,6 +14,17 @@
     margin-bottom: 1rem;
   }
 
+  .columns {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    gap: 1rem;
+
+    .column {
+      flex: 1 1 0;
+    }
+  }
+
   .item {
     font-size: 14px;
     margin-bottom: 0.7rem;

@@ -2,74 +2,10 @@
   "label": "Collection",
   "layout": "theme",
   "sections": {
-    "notice-bar": {
-      "type": "notice-bar"
-    },
-    "navbar": {
-      "type": "main-navbar",
-      "blocks": {
-        "block_hp9f77n09849tei": {
-          "type": "logo",
-          "settings": {}
-        },
-        "block_hqhijlld7dndejg": {
-          "type": "menu",
-          "settings": {}
-        },
-        "block_hrdk7wwzcuevglr": {
-          "type": "search_and_cart",
-          "settings": {}
-        }
-      },
-      "order": ["block_hp9f77n09849tei", "block_hqhijlld7dndejg", "block_hrdk7wwzcuevglr"]
-    },
     "main-search": {
       "type": "main-search",
       "settings": {}
-    },
-    "footer": {
-      "type": "main-footer",
-      "blocks": {
-        "block_i033573etb3nqg3": {
-          "type": "copyright",
-          "settings": {
-            "copyright": "<p>\u00a9 2023 YC. All rights reserved.</p>"
-          }
-        },
-        "block_i197lhlk0jcer9g": {
-          "type": "privacy",
-          "settings": {
-            "block-title": "Privacy",
-            "name-1": "",
-            "url-1": "",
-            "name-2": "",
-            "url-2": "",
-            "name-3": "",
-            "url-3": "",
-            "name-4": "",
-            "url-4": ""
-          }
-        },
-        "block_i2aefgpcobfpqo": {
-          "type": "social",
-          "settings": {
-            "block-title": "Social Media",
-            "name-1": "",
-            "url-1": "",
-            "name-2": "",
-            "url-2": ""
-          }
-        },
-        "block_igvxqey0jt26n1": {
-          "type": "contact",
-          "settings": {
-            "block-title": "Contact Us",
-            "newsletter": ""
-          }
-        }
-      },
-      "order": ["block_igvxqey0jt26n1", "block_i197lhlk0jcer9g", "block_i2aefgpcobfpqo", "block_i033573etb3nqg3"]
     }
   },
-  "order": ["notice-bar", "navbar", "main-search", "footer"]
+  "order": ["main-search"]
 }

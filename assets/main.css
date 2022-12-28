@@ -19,7 +19,10 @@ body {
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
-  padding: 0px 0px 44px 0px;
+}
+
+[style*="z-index: 500; height: 54px; width: 100vw; position: fixed; padding: 4px 16px"] {
+  display: none !important;
 }
 
 .container {
