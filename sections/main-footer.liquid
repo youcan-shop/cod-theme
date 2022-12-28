@@ -1,13 +1,15 @@
 {{ 'footer.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-  :root {
+  :root  {
     --yc-footer-background-color: {%- if section.settings.footer_background_color -%}
       {{ section.settings.footer_background_color.hex }}
-      {%- else -%}
+    {%- else -%}
       var(--yc-primary-color){%- endif -%};
-    --yc-footer-text-color: {{ section.settings.footer_text_color.hex }};
-    --yc-footer-copyright-background: {{ section.settings.footer_copyright_background.hex }};
+    --yc-footer-text-color: {{ section.settings.footer_text_color.hex }}
+    ;
+    --yc-footer-copyright-background: {{ section.settings.footer_copyright_background.hex }}
+    ;
   }
 {% endstyle %}
 
@@ -23,7 +25,7 @@
             >
               {%- for item in block.settings -%}
                 {%- if item.0 == "block-title" -%}
-                  <h1 class='title block'>{{ 'footer.blocks.privacy.title' | t: item.1 }}</h1>
+                  <h1 class='title block'>{{ item.1 }}</h1>
                 {%- else %}
                   <a class='item block'>{{ item.1 }}</a>
                 {%- endif %}
@@ -36,7 +38,7 @@
             >
               {%- for item in block.settings -%}
                 {%- if item.0 == "block-title" -%}
-                  <h1 class='title block'>{{ 'footer.blocks.social.title' | t: item.1 }}</h1>
+                  <h1 class='title block'>{{ item.1 }}</h1>
                 {%- else %}
                   <a class='item block'>{{ item.1 }}</a>
                 {%- endif %}
@@ -45,11 +47,14 @@
           {%- when 'contact' -%}
             <div {{ block.youcan_attributes }}>
               {%- for item in block.settings -%}
-                {%- if item.0 == "block-title" -%}
-                  <h1 class='title block'>{{ 'footer.blocks.contact.title' | t: item.1 }}</h1>
-                {%- else %}
-                  <div class='item block whitespace-pre-wrap leading-8 -mt-1'>{{ item.1 }}</div>
-                {%- endif %}
+                {% case item.0 %}
+                  {% when 'block-title' %}
+                    <h1 class='title block'>{{ item.1 }}</h1>
+                  {% when 'description' %}
+                    <p>{{ item.1 }}</p>
+                  {%- else %}
+                    <div class='item block whitespace-pre-wrap leading-8 -mt-1'>{{ item.1 }}</div>
+                {% endcase %}
               {%- endfor %}
             </div>
           {%- when 'copyright' -%}
@@ -173,6 +178,12 @@
           "type": "text",
           "id": "url-4",
           "label": "URL",
+          "default": ""
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
           "default": ""
         }
       ]

@@ -8,27 +8,6 @@
         "video_link": "https://www.youtube.com/watch?v=9-Xvthp9l-8"
       }
     },
-    "notice-bar": {
-      "type": "notice-bar"
-    },
-    "main-navbar": {
-      "type": "main-navbar",
-      "blocks": {
-        "block_a7t3crrx5pwftk9": {
-          "type": "logo",
-          "settings": {}
-        },
-        "block_a91xtc0po9f5de": {
-          "type": "menu",
-          "settings": {}
-        },
-        "block_aacoyo7xg6v7e3": {
-          "type": "search_and_cart",
-          "settings": {}
-        }
-      },
-      "order": ["block_a7t3crrx5pwftk9", "block_a91xtc0po9f5de", "block_aacoyo7xg6v7e3"]
-    },
     "featured-products": {
       "type": "featured-products",
       "blocks": {
@@ -61,49 +40,6 @@
       "settings": {
         "title": "\u0645\u0646\u062a\u062c\u0627\u062a"
       }
-    },
-    "footer": {
-      "type": "main-footer",
-      "blocks": {
-        "block_4krxs1lw6x0kt3s": {
-          "type": "privacy",
-          "settings": {
-            "block-title": "Privacy",
-            "name-1": "Mohamed",
-            "url-1": "/mohamed",
-            "name-2": "Something",
-            "url-2": "/something",
-            "name-3": "IDK",
-            "url-3": "/idk",
-            "name-4": "",
-            "url-4": ""
-          }
-        },
-        "block_e7krv81hwb411pr": {
-          "type": "contact",
-          "settings": {
-            "block-title": "Contact Us",
-            "newsletter": "rue france,\nrabat, agdal.\nYouCan"
-          }
-        },
-        "block_ddtgqqbcghdz47": {
-          "type": "social",
-          "settings": {
-            "block-title": "Social Media",
-            "name-1": "facebook",
-            "url-1": "https://www.facebook.com",
-            "name-2": "instagram",
-            "url-2": "https://www.instagram.com"
-          }
-        },
-        "block_qg71lcaxpl005sd": {
-          "type": "copyright",
-          "settings": {
-            "copyright": "<p>\u00a9 2023 YC. All rights reserved.</p>"
-          }
-        }
-      },
-      "order": ["block_4krxs1lw6x0kt3s", "block_ddtgqqbcghdz47", "block_e7krv81hwb411pr", "block_qg71lcaxpl005sd"]
     },
     "section_qum9qooyrwe3uz": {
       "type": "desktop-slider",
@@ -156,13 +92,5 @@
       "order": ["block_mlrd68efi1c0fy6", "block_mng0xrhzeicyac"]
     }
   },
-  "order": [
-    "notice-bar",
-    "main-navbar",
-    "section_qum9qooyrwe3uz",
-    "section_mjhf0v7zdki572el",
-    "featured-products",
-    "main-video",
-    "footer"
-  ]
+  "order": ["section_qum9qooyrwe3uz", "section_mjhf0v7zdki572el", "featured-products", "main-video"]
 }

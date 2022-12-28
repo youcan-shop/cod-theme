@@ -2,74 +2,7 @@
   "sections": {
     "cart": {
       "type": "main-cart"
-    },
-    "section_c9vdydfyz079jrd": {
-      "type": "main-navbar",
-      "settings": {},
-      "blocks": {
-        "block_ccr27xqud9285g6": {
-          "type": "logo",
-          "settings": {}
-        },
-        "block_ce8w32qnokuk7v9": {
-          "type": "menu",
-          "settings": {}
-        },
-        "block_cf1xrono1t56drk": {
-          "type": "search_and_cart",
-          "settings": {}
-        }
-      },
-      "order": ["block_ccr27xqud9285g6", "block_ce8w32qnokuk7v9", "block_cf1xrono1t56drk"]
-    },
-    "section_ci0y2z5amimfgit": {
-      "type": "notice-bar",
-      "settings": {}
-    },
-    "section_cq53vtdr47phup": {
-      "type": "main-footer",
-      "settings": {},
-      "blocks": {
-        "block_ctcb4s6e3ju8dmr": {
-          "type": "privacy",
-          "settings": {
-            "block-title": "Privacy",
-            "name-1": "",
-            "url-1": "",
-            "name-2": "",
-            "url-2": "",
-            "name-3": "",
-            "url-3": "",
-            "name-4": "",
-            "url-4": ""
-          }
-        },
-        "block_cumema226rfei8m": {
-          "type": "social",
-          "settings": {
-            "block-title": "Social Media",
-            "name-1": "",
-            "url-1": "",
-            "name-2": "",
-            "url-2": ""
-          }
-        },
-        "block_cvitp1uav109gzk": {
-          "type": "contact",
-          "settings": {
-            "block-title": "Contact Us",
-            "newsletter": ""
-          }
-        },
-        "block_cwaa28dty0enroc": {
-          "type": "copyright",
-          "settings": {
-            "copyright": "\u00a9 2023 YC. All rights reserved."
-          }
-        }
-      },
-      "order": ["block_ctcb4s6e3ju8dmr", "block_cumema226rfei8m", "block_cvitp1uav109gzk", "block_cwaa28dty0enroc"]
     }
   },
-  "order": ["section_ci0y2z5amimfgit", "section_c9vdydfyz079jrd", "cart", "section_cq53vtdr47phup"]
+  "order": ["cart"]
 }
