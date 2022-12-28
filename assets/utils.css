@@ -386,10 +386,6 @@ video {
   gap: 0.5rem;
 }
 
-.gap-10 {
-  gap: 2.5rem;
-}
-
 .self-baseline {
   align-self: baseline;
 }
@@ -431,14 +427,6 @@ video {
 
 .pt-12 {
   padding-top: 3rem;
-}
-
-.pb-7 {
-  padding-bottom: 1.75rem;
-}
-
-.pt-14 {
-  padding-top: 3.5rem;
 }
 
 .text-center {
@@ -501,9 +489,6 @@ video {
   }
   .md\:hidden {
     display: none;
-  }
-  .md\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .md\:grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
