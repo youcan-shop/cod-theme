@@ -1,4 +1,5 @@
 const parsedLinks = document.querySelectorAll('.parsed-links');
+
 parsedLinks.forEach((parsedLink) => {
   const links = parsedLink.querySelectorAll('a');
   links.forEach((link, index) => {
