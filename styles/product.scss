@@ -1,10 +1,8 @@
 @import 'helpers/mixins';
 
 .yc-single-product {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   gap: 5vh;
-  grid-auto-flow: row;
   margin: 25px auto;
   align-items: start;
 
@@ -98,14 +96,21 @@
         object-fit: cover;
       }
       .thumbnail-images {
-        width: 220px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        overflow: auto;
+        width: 80px;
       }
       .thumbnail-images img {
         aspect-ratio: 1;
-        height: 70px;
+        width: 100%;
         margin-bottom: 10px;
         object-fit: cover;
         margin-bottom: 10px;
+        cursor: pointer;
 
         &:hover {
           border: 1px solid blanchedalmond;
