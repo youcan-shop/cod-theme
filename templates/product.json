@@ -48,29 +48,6 @@
       ],
       "settings": {}
     },
-    "section_cdz4dhl44ples5l": {
-      "type": "notice-bar",
-      "settings": {}
-    },
-    "section_chibrwxttztfa5": {
-      "type": "main-navbar",
-      "settings": {},
-      "blocks": {
-        "block_ck8x75z23fjydot": {
-          "type": "logo",
-          "settings": {}
-        },
-        "block_cl1x8scjp5fce3u": {
-          "type": "menu",
-          "settings": {}
-        },
-        "block_clwp4d8tq8ew16v": {
-          "type": "search_and_cart",
-          "settings": {}
-        }
-      },
-      "order": ["block_ck8x75z23fjydot", "block_cl1x8scjp5fce3u", "block_clwp4d8tq8ew16v"]
-    },
     "section_kl230iysvlo3xtbp": {
       "type": "product-reviews",
       "settings": {
@@ -79,5 +56,5 @@
       }
     }
   },
-  "order": ["section_cdz4dhl44ples5l", "section_chibrwxttztfa5", "product", "section_kl230iysvlo3xtbp"]
+  "order": ["product", "section_kl230iysvlo3xtbp"]
 }
