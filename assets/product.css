@@ -7,16 +7,18 @@
 }
 @media (min-width: 768px) {
   .yc-single-product {
-    gap: 5vw;
+    gap: 2vw;
     flex-direction: row;
   }
 }
 .yc-single-product .product-images {
   width: 100%;
 }
-.yc-single-product .product-images .product-images-container {
-  position: sticky;
-  top: 120px;
+@media (min-width: 768px) {
+  .yc-single-product .product-images {
+    position: sticky;
+    top: 15px;
+  }
 }
 .yc-single-product .product-images #main-image {
   width: 100%;

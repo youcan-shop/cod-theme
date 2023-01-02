@@ -230,27 +230,27 @@ function updateProductDetails(parentSection, image, price) {
  * Set sticky product image on scroll
  * @param {HTMLElement} parentSection
  */
-function setStickyProductImage(parentSection) {
-  const imagesHolder = parentSection.querySelector('.product-images-container');
+// function setStickyProductImage(parentSection) {
+//   const imagesHolder = parentSection.querySelector('.product-images-container');
 
-  const stickyImagesHandler = () => {
-    const rect = parentSection.getBoundingClientRect();
-    const imagesRect = imagesHolder.getBoundingClientRect();
+//   const stickyImagesHandler = () => {
+//     const rect = parentSection.getBoundingClientRect();
+//     const imagesRect = imagesHolder.getBoundingClientRect();
 
-    if (imagesRect.bottom >= rect.bottom) {
-      if (imagesRect.top > 0) {
-        imagesHolder.style.transform = `translateY(${-rect.top}px)`;
-      }
-    } else if (rect.top < 0) {
-      imagesHolder.style.transform = `translateY(${-rect.top}px)`;
-    }
-  };
+//     if (imagesRect.bottom >= rect.bottom) {
+//       if (imagesRect.top > 0) {
+//         imagesHolder.style.transform = `translateY(${-rect.top}px)`;
+//       }
+//     } else if (rect.top < 0) {
+//       imagesHolder.style.transform = `translateY(${-rect.top}px)`;
+//     }
+//   };
 
-  if (window.innerWidth > 768 && imagesHolder && parentSection) {
-    stickyImagesHandler();
-    window.addEventListener('scroll', stickyImagesHandler);
-  }
-}
+//   if (window.innerWidth > 768 && imagesHolder && parentSection) {
+//     stickyImagesHandler();
+//     window.addEventListener('scroll', stickyImagesHandler);
+//   }
+// }
 
 function setup() {
   const singleProductSections = document.querySelectorAll('.yc-single-product');
@@ -274,7 +274,6 @@ function setup() {
     }
 
     selectDefaultOptions(section);
-    setStickyProductImage(section);
   });
 }
 

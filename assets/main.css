@@ -18,7 +18,6 @@ body {
   color: var(--yc-neutral-color);
   position: relative;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 [style*="z-index: 500; height: 54px; width: 100vw; position: fixed; padding: 4px 16px"] {
