@@ -83,7 +83,7 @@
 
   <button
     type='submit'
-    class='yc-btn w-full {% if is_sticky %} is_sticky{% endif %}'
+    class='yc-btn w-full {% if is_sticky %} is_sticky {% else %} mt-8 {% endif %}'
     onclick='placeOrder(this)'
   >
     <span

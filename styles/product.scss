@@ -127,6 +127,9 @@
   .product-details {
     width: 100%;
     max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
     .product-name {
       font-size: 25px;
