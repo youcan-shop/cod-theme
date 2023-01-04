@@ -156,7 +156,6 @@ input:not([type=radio]),
 .nice-select,
 .selector-item_label {
   transition: box-shadow 100ms ease;
-  box-shadow: var(--yc-inputs-shadow);
   padding-left: 13px !important;
   padding-right: 13px !important;
   font-size: 14px !important;

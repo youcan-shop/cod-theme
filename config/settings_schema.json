@@ -99,6 +99,18 @@
             "label": "Roboto"
           },
           {
+            "value": "Readex Pro",
+            "label": "Readex Pro"
+          },
+          {
+            "value": "Almarai",
+            "label": "Almarai"
+          },
+          {
+            "value": "Noto Sans Arabic",
+            "label": "Noto Sans Arabic"
+          },
+          {
             "value": "Cairo",
             "label": "Cairo"
           },
@@ -213,6 +225,10 @@
           {
             "value": "Open Sans",
             "label": "Open Sans"
+          },
+          {
+            "value": "Almarai",
+            "label": "Almarai"
           },
           {
             "value": "Lato",
