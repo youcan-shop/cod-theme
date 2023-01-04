@@ -101,7 +101,7 @@ function setElementActive(element) {
 function selectDefaultOptions(parentSection) {
   const options = parentSection.querySelectorAll('.product-options > div');
 
-  if (!options) return;
+  if (!options || !options.length) return;
 
   options.forEach((option) => {
     const optionType = option.id.split('-')[2];
