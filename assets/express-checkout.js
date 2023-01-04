@@ -1,4 +1,4 @@
-async function expressCheckout() {
+async function placeOrder() {
   const expressCheckoutForm = document.querySelector('#express-checkout-form');
 
   let fields = Object.fromEntries(new FormData(expressCheckoutForm));
