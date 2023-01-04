@@ -33,7 +33,7 @@ function uploadImage(element) {
         const uploadArea = parentSection.querySelector('.yc-upload');
         uploadArea.style.display = 'none';
 
-        const preview = parentSection.createElement('img');
+        const preview = document.createElement('img');
         preview.src = base64;
 
         preview.addEventListener('click', function () {
