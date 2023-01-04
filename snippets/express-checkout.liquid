@@ -14,7 +14,7 @@
     {% endif %}
   }
 
-  .custom-checkout-{{ checkout_id }}input {
+  .custom-checkout-{{ checkout_id }} input {
     padding: {{ settings.input_padding }}px;
     border-radius: {{ settings.input_border_radius }}px;
     font-size: {{ settings.input_text_size }}px;
@@ -32,7 +32,7 @@
     {% endif %}
   }
 
-  .custom-checkout-{{ checkout_id }}button {
+  .custom-checkout-{{ checkout_id }} button {
     padding: {{ settings.button_padding }}px;
     border-radius: {{ settings.button_border_radius }}px;
     font-size: {{ settings.button_text_size }}px;
@@ -47,13 +47,13 @@
   }
 
   {% if settings.button_text_color %}
-  .custom-checkout-{{ checkout_id }}button span {
+  .custom-checkout-{{ checkout_id }} button span {
     color: {{ settings.button_text_color.hex }} !important;
   }
   {% endif %}
 
   {% if settings.input_placeholder_color %}
-  .custom-checkout-{{ checkout_id }}input::placeholder {
+  .custom-checkout-{{ checkout_id }} input::placeholder {
     color: {{ settings.input_placeholder_color.hex }};
   }
   {% endif %}
