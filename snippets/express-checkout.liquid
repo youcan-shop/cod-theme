@@ -3,59 +3,59 @@
 {% assign checkout_id = 100 | rand: 2000 %}
 
 {% style %}
-  .custom-checkout-{{ checkout_id }} {
+  .custom-checkout-{{ checkout_id }}{
     grid-gap: {{ settings.inputs_gap }}px;
   }
-  .custom-checkout-{{ checkout_id }} label {
+  .custom-checkout-{{ checkout_id }}label {
     font-size: {{ settings.label_text_size }}px;
 
     {% if settings.label_text_color %}
-     color: {{ settings.label_text_color.hex }};
+      color: {{ settings.label_text_color.hex }};
     {% endif %}
   }
 
-  .custom-checkout-{{ checkout_id }} input {
+  .custom-checkout-{{ checkout_id }}input {
     padding: {{ settings.input_padding }}px;
     border-radius: {{ settings.input_border_radius }}px;
     font-size: {{ settings.input_text_size }}px;
 
     {% if settings.input_background_color %}
-     background-color: {{ settings.input_background_color.hex }};
+      background-color: {{ settings.input_background_color.hex }};
     {% endif %}
 
     {% if settings.input_text_color %}
-     color: {{ settings.input_text_color.hex }};
+      color: {{ settings.input_text_color.hex }};
     {% endif %}
 
     {% if settings.input_border_color %}
-     border-color: {{ settings.input_border_color.hex }};
+      border-color: {{ settings.input_border_color.hex }};
     {% endif %}
   }
 
-  .custom-checkout-{{ checkout_id }} button {
+  .custom-checkout-{{ checkout_id }}button {
     padding: {{ settings.button_padding }}px;
     border-radius: {{ settings.button_border_radius }}px;
     font-size: {{ settings.button_text_size }}px;
 
     {% if settings.button_background_color %}
-     background-color: {{ settings.button_background_color.hex }} !important;
+      background-color: {{ settings.button_background_color.hex }} !important;
     {% endif %}
 
     {% if settings.button_border_color %}
-     border-color: {{ settings.button_border_color.hex }} !important;
+      border-color: {{ settings.button_border_color.hex }} !important;
     {% endif %}
   }
 
   {% if settings.button_text_color %}
-  .custom-checkout-{{ checkout_id }} button span {
-     color: {{ settings.button_text_color.hex }} !important;
-  }
+    .custom-checkout-{{ checkout_id }}button span {
+      color: {{ settings.button_text_color.hex }} !important;
+    }
   {% endif %}
 
   {% if settings.input_placeholder_color %}
-  .custom-checkout-{{ checkout_id }} input::placeholder {
-    color: {{ settings.input_placeholder_color.hex }}
-  }
+    .custom-checkout-{{ checkout_id }}input::placeholder {
+      color: {{ settings.input_placeholder_color.hex }};
+    }
   {% endif %}
 {% endstyle %}
 
@@ -80,18 +80,18 @@
       </div>
     {%- endfor %}
   </div>
-  <div class='mt-8 {% if is_sticky %} is_sticky{% endif %}'>
-    <button
-      type='submit'
-      class='yc-btn w-full'
-    >
-      <span
-        class='spinner hidden'
-        id='loading__checkout'
-      ></span>
-      <span>{{ 'snippets.express_checkout.cta' | t: settings.express_checkout_cta }}</span>
-    </button>
-  </div>
+
+  <button
+    type='submit'
+    class='yc-btn w-full {% if is_sticky %} is_sticky{% endif %}'
+    onclick='expressCheckout(this)'
+  >
+    <span
+      class='spinner hidden'
+      id='loading__checkout'
+    ></span>
+    <span>{{ 'snippets.express_checkout.cta' | t: settings.express_checkout_cta }}</span>
+  </button>
 </form>
 
 {{ 'express-checkout.js' | asset_url | script_tag_deferred }}

@@ -375,7 +375,7 @@ input:not([type=radio]),
 /* ---------------------- */
 /* ----- sticky CTA ----- */
 /* ---------------------- */
-.is_sticky {
+.sticky-elements-container {
   border-top: 1px solid #e3e3e3;
   background: white;
   position: fixed;
@@ -386,12 +386,11 @@ input:not([type=radio]),
   align-items: center;
   justify-content: center;
   padding: 20px;
+  gap: 20px;
   z-index: 999;
 }
-@media (min-width: 768px) {
-  .is_sticky button {
-    max-width: 400px;
-  }
+.sticky-elements-container .is_sticky {
+  max-width: 300px;
 }
 
 .splide {

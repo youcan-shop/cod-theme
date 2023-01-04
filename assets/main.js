@@ -135,3 +135,21 @@ function closeSearch() {
 }
 
 overlay.addEventListener('click', closeSearch);
+
+/**
+ * Group Sticky elements in one place
+ */
+(function groupStickyElements() {
+  const elements = document.querySelectorAll('.is_sticky');
+
+  if (!elements || !elements.length) return;
+
+  const elementsContainer = document.createElement('div');
+  elementsContainer.classList.add('sticky-elements-container');
+
+  elements.forEach((element) => {
+    elementsContainer.appendChild(element);
+  });
+
+  document.body.append(elementsContainer);
+})();
