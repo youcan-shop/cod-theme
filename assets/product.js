@@ -52,32 +52,30 @@ function uploadImage(element) {
   });
 }
 
-let zoomer = (function () {
-  const imgZoomer = document.querySelector('#img-zoomer-box');
+(function productImageHoverZoomer() {
+  const singleProductImagesPreview = document.querySelectorAll('.product-images-container');
 
-  if (imgZoomer) {
-    imgZoomer.addEventListener(
-      'mousemove',
-      function (e) {
-        let original = document.querySelector('#main-image'),
-          magnified = document.querySelector('#magnified-image'),
-          style = magnified.style,
-          x = e.pageX - this.offsetLeft,
-          y = e.pageY - this.offsetTop,
-          imgWidth = original.offsetWidth,
-          imgHeight = original.offsetHeight,
-          xperc = (x / imgWidth) * 100 - 10,
-          yperc = (y / imgHeight) * 100 - 10;
+  if (!singleProductImagesPreview || !singleProductImagesPreview.length) return;
 
-        style.backgroundPositionX = xperc + '%';
-        style.backgroundPositionY = yperc + '%';
-        style.inset = 0 + 'px';
+  singleProductImagesPreview.forEach((imagesPreview) => {
+    const imgZoomer = imagesPreview.querySelector('#img-zoomer-box');
 
-        style.backgroundImage = 'url(' + original.src + ')';
-      },
-      false,
-    );
-  }
+    if (!imgZoomer) return;
+
+    function eventHandler(e) {
+      const original = document.querySelector('#main-image');
+      const magnified = document.querySelector('#magnified-image');
+
+      x = (e.offsetX / original.offsetWidth) * 100;
+      y = (e.offsetY / original.offsetHeight) * 100;
+
+      magnified.style.backgroundPosition = x + '% ' + y + '%';
+      magnified.style.backgroundImage = 'url(' + original.src + ')';
+      magnified.style.inset = '0px';
+    }
+
+    imgZoomer.addEventListener('mousemove', eventHandler, false);
+  });
 })();
 
 /**
@@ -145,7 +143,8 @@ function selectDefaultOptions(parentSection) {
 function getSelectedOptions(parentSection) {
   const options = parentSection.querySelectorAll('.product-options > div');
 
-  if (!options) return null;
+  if (!options || !options.length) return null;
+
   const selectedOptions = {};
   options.forEach((option) => {
     const optionName = option.id.split('-')[1];
