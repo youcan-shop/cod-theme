@@ -6,7 +6,7 @@ async function addToCart(snippetId) {
   const uploadedImageLink = parentSection.querySelector(`#yc-upload-link`)?.value || undefined;
 
   try {
-    load('#loading__checkout');
+    load('#loading__cart');
 
     const response = await youcanjs.cart.addItem({
       productVariantId: variantId,
@@ -24,10 +24,10 @@ async function addToCart(snippetId) {
       cart.innerHTML = ++cartBadgeBudge;
     }
 
-    stopLoad('#loading__checkout');
+    stopLoad('#loading__cart');
     notify('Item has been added successfully', 'success');
   } catch (err) {
-    stopLoad('#loading__checkout');
+    stopLoad('#loading__cart');
     notify(err.message, 'error');
   }
 }
