@@ -91,3 +91,4 @@ styles/utils.scss
 styles/_utils.css
 eyeliner.js
 tailwind.config.cjs
+sync.mjs
