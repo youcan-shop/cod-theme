@@ -348,11 +348,13 @@ input:not([type=radio]),
   left: var(--yc-notification-toast-left);
   bottom: var(--yc-notification-toast-bottom);
   right: var(--yc-notification-toast-right);
+  visibility: hidden;
 }
 .yc-alert.show {
   opacity: 1;
   z-index: 9999;
   transform: none;
+  visibility: visible;
 }
 
 /* ------------------------ */

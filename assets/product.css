@@ -133,6 +133,7 @@
   border: 1px solid var(--yc-primary-color);
 }
 .yc-single-product .product-details .product-description {
+  overflow: hidden;
   margin-top: 15px;
   color: var(--yc-neutral-light-color);
 }
