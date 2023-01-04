@@ -5,8 +5,8 @@ async function placeOrder() {
 
   load('#loading__checkout');
   try {
-    const productVariantId = document.getElementById('variantId').value;
-    const quantity = document.getElementById('quantity').value || 1;
+    const productVariantId = document.getElementById('variantId')?.value;
+    const quantity = document.getElementById('quantity')?.value || 1;
     const attachedImage = document.querySelector('#yc-upload-link')?.value;
 
     if (attachedImage) {

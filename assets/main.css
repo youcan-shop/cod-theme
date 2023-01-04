@@ -156,7 +156,6 @@ input:not([type=radio]),
 .nice-select,
 .selector-item_label {
   transition: box-shadow 100ms ease;
-  box-shadow: var(--yc-inputs-shadow);
   padding-left: 13px !important;
   padding-right: 13px !important;
   font-size: 14px !important;
@@ -260,6 +259,8 @@ input:not([type=radio]),
   margin-left: 28px;
   margin-right: 28px;
   margin-bottom: 5px;
+  display: inline-block;
+  width: 350px;
 }
 .yc-radio input[type=radio]:checked + .yc-radio-buttons::before {
   content: "";
