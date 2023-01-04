@@ -17,7 +17,7 @@
 @media (min-width: 768px) {
   .yc-single-product .product-images {
     position: sticky;
-    top: 15px;
+    top: calc(var(--yc-nav-height) + 20px);
   }
 }
 .yc-single-product .product-images #main-image {
