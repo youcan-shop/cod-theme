@@ -10,6 +10,7 @@
 .yc-header {
   background-color: var(--yc-nav-background);
   transition: opacity 0.3s, transform 0.3s;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
   &.nav-fixed.fixed {
     position: fixed;
@@ -31,7 +32,6 @@
   }
 
   .yc-navbar {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;

@@ -1,6 +1,6 @@
 {
   "current": {
-    "font_family": "Cairo",
+    "font_family": "Almarai",
     "theme_direction": "rtl",
     "primary_color": "#030303FF",
     "sections": {
@@ -39,7 +39,8 @@
           "navbar_logo": "image-2IqyhOl7b1bbMBEPS5JD0G2MrcW.png",
           "navbar_links_color": "#000000FF",
           "navbar_background_color": "#FFFFFFFF",
-          "navbar_height": 107
+          "navbar_height": 107,
+          "navbar_always_on_top": true
         }
       },
       "main-footer": {
