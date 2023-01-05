@@ -3,7 +3,7 @@
 import watch from'node-watch';
 
 const main = async () => {
-  watch('assets', { recursive: true }, (evt, name) => {
+  watch('./', { recursive: true }, (evt, name) => {
     console.log('%s changed.', name);
   });
 }
