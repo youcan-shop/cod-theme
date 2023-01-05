@@ -4,13 +4,12 @@
   overflow: hidden;
   display: block;
   width: 100%;
-  padding-bottom: 64px;
-  padding-top: 64px;
+  padding: 5.4rem 0 6rem;
   position: relative;
 }
 .yc-footer .title {
   font-weight: 500;
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   margin-bottom: 1rem;
 }
 .yc-footer .columns {
