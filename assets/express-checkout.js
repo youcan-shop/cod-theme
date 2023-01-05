@@ -23,6 +23,8 @@ async function placeOrder() {
         const form = document.querySelector('#express-checkout-form');
         const formFields = Object.keys(err.meta.fields);
 
+        if (!form || !formFields) return;
+
         formFields.forEach((field) => {
           const input = form.querySelector(`input[name="${field}"]`);
           const errorEl = form.querySelector(`.validation-error[data-error="${field}"]`);
@@ -40,13 +42,15 @@ async function placeOrder() {
             errorEl.innerHTML = '';
           });
         });
+
+        const formTop = form.getBoundingClientRect().top;
+
+        window.scrollBy({ top: formTop - window.innerHeight / 3, behavior: 'smooth' });
       })
       .onSkipShippingStep((data, redirectToShippingPage) => {
-        console.warn(data);
         redirectToShippingPage();
       })
       .onSkipPaymentStep((data, redirectToPaymentPage) => {
-        console.warn(data);
         redirectToPaymentPage();
       });
   } catch (e) {
