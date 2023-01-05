@@ -15,13 +15,14 @@
 	},
 	"devDependencies": {
 		"@shopify/prettier-plugin-liquid": "^0.4.2",
+		"child_process": "^1.0.2",
 		"clean-css-cli": "^5.6.1",
 		"concurrently": "^7.6.0",
 		"fs": "0.0.1-security",
 		"node-watch": "^0.7.3",
 		"npm-run-all": "^4.1.5",
 		"onchange": "^7.1.0",
-		"prettier": "2.8.0",
+		"prettier": "1.12.1",
 		"sass": "^1.56.1",
 		"strip-css-comments-cli": "^3.0.0",
 		"tailwindcss": "^3.2.4"
