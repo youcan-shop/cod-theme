@@ -7,10 +7,10 @@
         loading='lazy'
         src='{{section.settings.hero_image.src}}'
       >
-      <div class='title'>{{ 'thankyou.title' | t: section.settings.title }}</div>
-      <div class='subtitle'>{{ 'thankyou.subtitle' | t: section.settings.subtitle }}</div>
+      <div class='title'>{{ section.settings.title }}</div>
+      <div class='subtitle'>{{ section.settings.subtitle }}</div>
       <div class='description'>
-        {{ 'thankyou.description' | t: section.settings.description }}
+        {{ section.settings.description }}
       </div>
       <a
         href='/'
