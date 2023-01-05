@@ -63,7 +63,7 @@
   id='express-checkout-form'
   class='custom-checkout-{{ checkout_id }}'
 >
-  <div class='grid grid-cols-1 md:grid-cols-1 gap-1 express-checkout-fields'>
+  <div class='express-checkout-fields'>
     {%- for field in checkout.fields %}
       <div class='express-checkout-field'>
         <label for='f-{{ field.name }}'>{{ field.display_name }}</label>
@@ -77,6 +77,10 @@
             required
           {% endif %}
         >
+        <div
+          class='validation-error'
+          data-error='{{ field.name }}'
+        ></div>
       </div>
     {%- endfor %}
   </div>

@@ -50,6 +50,16 @@ a.disabled {
 input {
   font-weight: 300 !important;
 }
+input.error {
+  border-color: var(--yc-error-color) !important;
+  outline: 1px solid var(--yc-error-color) !important;
+}
+input + .validation-error {
+  color: var(--yc-error-color) !important;
+  font-size: 12px;
+  font-weight: 600;
+  height: 12px;
+}
 
 a {
   text-decoration: none;

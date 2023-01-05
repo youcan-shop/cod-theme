@@ -19,17 +19,39 @@ async function placeOrder() {
       .onSuccess((data, redirectToThankyouPage) => {
         redirectToThankyouPage();
       })
-      .onValidationErr((data) => {
-        notify(data, 'error');
+      .onValidationErr((err) => {
+        const form = document.querySelector('#express-checkout-form');
+        const formFields = Object.keys(err.meta.fields);
+
+        if (!form || !formFields) return;
+
+        formFields.forEach((field) => {
+          const input = form.querySelector(`input[name="${field}"]`);
+          const errorEl = form.querySelector(`.validation-error[data-error="${field}"]`);
+
+          if (input) {
+            input.classList.add('error');
+          }
+
+          if (errorEl) {
+            errorEl.innerHTML = err.meta.fields[field][0];
+          }
+
+          input.addEventListener('input', () => {
+            input.classList.remove('error');
+            errorEl.innerHTML = '';
+          });
+        });
+
+        const formTop = form.getBoundingClientRect().top;
+
+        window.scrollBy({ top: formTop - window.innerHeight / 3, behavior: 'smooth' });
       })
       .onSkipShippingStep((data, redirectToShippingPage) => {
         redirectToShippingPage();
       })
       .onSkipPaymentStep((data, redirectToPaymentPage) => {
         redirectToPaymentPage();
-      })
-      .catch((err) => {
-        notify(err.message, 'error');
       });
   } catch (e) {
     notify(e.message, 'error');
