@@ -1,10 +1,12 @@
 // watch for github repo changes and log something to the console
+// don't use url import, it's not supported in node
+import watch from'node-watch';
 
-import { watch } from 'https://deno.land/std/fs/mod.ts';
-
-const watcher = watch('./');
-
-for await (const event of watcher) {
-  console.log(event);
+const main = async () => {
+  watch('assets', { recursive: true }, (evt, name) => {
+    console.log('%s changed.', name);
+  });
 }
+
+main();
 
