@@ -15,17 +15,26 @@
 }
 .yc-footer .columns {
   display: flex;
-  flex-wrap: wrap;
   margin-bottom: 1rem;
   gap: 1rem;
+  flex-direction: column;
 }
 .yc-footer .columns .column {
   flex: 1 1 0;
 }
-.yc-footer .item {
+@media (min-width: 768px) {
+  .yc-footer .columns {
+    flex-direction: row;
+  }
+}
+.yc-footer .item,
+.yc-footer .description {
   font-size: 14px;
   margin-bottom: 0.7rem;
   opacity: 0.7;
+}
+.yc-footer .description {
+  line-height: 1.8;
 }
 .yc-footer a.item:not(.normal):hover {
   text-decoration: underline;

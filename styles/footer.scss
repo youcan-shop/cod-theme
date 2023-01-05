@@ -1,3 +1,5 @@
+@import 'helpers/mixins';
+
 .yc-footer {
   background-color: var(--yc-footer-background-color);
   color: var(--yc-footer-text-color);
@@ -16,19 +18,28 @@
 
   .columns {
     display: flex;
-    flex-wrap: wrap;
     margin-bottom: 1rem;
     gap: 1rem;
+    flex-direction: column;
 
     .column {
       flex: 1 1 0;
     }
+
+    @include breakpoint('md') {
+      flex-direction: row;
+    }
   }
 
-  .item {
+  .item,
+  .description {
     font-size: 14px;
     margin-bottom: 0.7rem;
     opacity: 0.7;
+  }
+
+  .description {
+    line-height: 1.8;
   }
 
   a.item:not(.normal):hover {

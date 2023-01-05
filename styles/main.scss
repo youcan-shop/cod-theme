@@ -415,7 +415,8 @@ input:not([type='radio']),
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  height: 80px;
+  padding: 0 20px;
   gap: 20px;
   z-index: 999;
 

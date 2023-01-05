@@ -17,9 +17,7 @@ async function placeOrder() {
 
     response
 
-
-
-    .onSuccess((data, redirectToThankyouPage) => {
+      .onSuccess((data, redirectToThankyouPage) => {
         redirectToThankyouPage();
       })
       .onValidationErr((err) => {
