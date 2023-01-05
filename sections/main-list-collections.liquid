@@ -4,7 +4,7 @@
 {%- assign per_page = section.settings.items_per_page -%}
 <div class='yc-featured-products container'>
   <div class='top-items'>
-    <h1 class='yc-section-title'>{{ 'list_collections.title' | t: section.settings.title }}</h1>
+    <h1 class='yc-section-title'>{{ section.settings.title }}</h1>
     {%- render 'main-sort' -%}
   </div>
   {%- paginate collections by per_page cod %}
