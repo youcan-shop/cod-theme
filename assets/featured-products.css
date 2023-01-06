@@ -21,6 +21,7 @@
   color: var(--yc-neutral-color);
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .yc-featured-products .product-list .product-block .product-thumbnail {
   overflow: hidden;
@@ -51,8 +52,16 @@
   font-weight: medium;
   margin-bottom: 10px;
 }
+.yc-featured-products .product-list .product-block:hover .yc-btn {
+  opacity: 1;
+}
 .yc-featured-products .product-list .product-block .yc-btn {
-  display: none;
+  display: block;
+  position: absolute;
+  bottom: 117px;
+  width: 80%;
+  opacity: 0;
+  border-radius: 4px;
 }
 .yc-featured-products .product-list .product-block .prices {
   display: flex;
