@@ -1,34 +1,44 @@
+@import 'helpers/mixins';
+
 .yc-footer {
   background-color: var(--yc-footer-background-color);
   color: var(--yc-footer-text-color);
   overflow: hidden;
   display: block;
   width: 100%;
-  padding-bottom: 64px;
-  padding-top: 64px;
+  padding: 5.4rem 0 6rem;
   position: relative;
 
   .title {
     font-weight: 500;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
   }
 
   .columns {
     display: flex;
-    flex-wrap: wrap;
     margin-bottom: 1rem;
     gap: 1rem;
+    flex-direction: column;
 
     .column {
       flex: 1 1 0;
     }
+
+    @include breakpoint('md') {
+      flex-direction: row;
+    }
   }
 
-  .item {
+  .item,
+  .description {
     font-size: 14px;
     margin-bottom: 0.7rem;
     opacity: 0.7;
+  }
+
+  .description {
+    line-height: 1.8;
   }
 
   a.item:not(.normal):hover {

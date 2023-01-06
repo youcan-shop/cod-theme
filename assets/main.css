@@ -13,11 +13,17 @@
 /* ------------------------- */
 html,
 body {
-  font-family: var(--yc-font-family);
   direction: var(--yc-theme-direction);
   color: var(--yc-neutral-color);
   position: relative;
   min-height: 100vh;
+}
+
+.yc-btn span,
+.yc-btn,
+html,
+body {
+  font-family: var(--yc-font-family);
 }
 
 [style*="z-index: 500; height: 54px; width: 100vw; position: fixed; padding: 4px 16px"] {
@@ -91,8 +97,12 @@ label {
 }
 
 .yc-section-title {
-  font-size: 3rem;
+  padding-top: 5rem;
+  font-size: 2rem;
   margin: 2rem 0 2.5rem;
+  font-weight: 500;
+  opacity: 0.9;
+  text-align: center;
 }
 
 button {
@@ -398,7 +408,8 @@ input:not([type=radio]),
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  height: 80px;
+  padding: 0 20px;
   gap: 20px;
   z-index: 999;
 }

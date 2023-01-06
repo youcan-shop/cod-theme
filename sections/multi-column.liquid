@@ -12,11 +12,13 @@
     display: grid;
     grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
     grid-gap: 2vw;
+    align-items: center;
   }
 
   @media only screen and (max-width: 576px) {
     .multi-column-{{ id }} .multi-column-blocks {
       grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
+      align-items: start;
     }
   }
 
@@ -40,7 +42,8 @@
   .column-block .column-image {
     object-fit: cover;
     aspect-ratio: 1;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
   }
 {% endstyle %}
 
@@ -115,7 +118,7 @@
         {
           "id": "link",
           "type": "text",
-          "label": "Button text"
+          "label": "Button link"
         }
       ]
     }

@@ -35,7 +35,7 @@
                   {% when 'block-title' %}
                     <h1 class='title block'>{{ item.1 }}</h1>
                   {% when 'description' %}
-                    <p>{{ item.1 }}</p>
+                    <div class='description'>{{ item.1 }}</div>
                   {%- else %}
                     <a class='item block whitespace-pre-wrap leading-8 -mt-1'>{{ item.1 }}</a>
                 {% endcase %}

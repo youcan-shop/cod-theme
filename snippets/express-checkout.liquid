@@ -3,6 +3,11 @@
 {% assign checkout_id = 100 | rand: 2000 %}
 
 {% style %}
+  {% if is_sticky %}
+  body {
+    padding-bottom: 80px;
+  }
+  {% endif %}
   .custom-checkout-{{ checkout_id }} {
     grid-gap: {{ settings.inputs_gap }}px;
   }
@@ -40,6 +45,10 @@
     {% if settings.button_background_color %}
     background-color: {{ settings.button_background_color.hex }} !important;
     {% endif %}
+  }
+
+  .express-checkout-button span {
+    font-weight: bold;
   }
 
   {% if settings.button_text_color %}

@@ -27,7 +27,7 @@
 }
 .yc-featured-products .product-list .product-block .product-thumbnail {
   overflow: hidden;
-  aspect-ratio: 4/5;
+  aspect-ratio: 1;
   width: 100%;
   display: flex;
   align-items: center;
