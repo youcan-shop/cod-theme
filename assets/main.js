@@ -104,9 +104,14 @@ function openDrawer(el) {
 /* ----- search ----- */
 /* ------------------ */
 const searchHolder = document.getElementById('searchInputHolder');
-const noticeHeight = notice?.offsetHeight;
+let noticeHeight = notice?.offsetHeight;
 
 function openSearch() {
+  const isNavBarFixed = fixedNavbar?.classList.contains('fixed');
+  noticeHeight = isNavBarFixed ? 0 : notice?.offsetHeight;
+
+  console.warn(isNavBarFixed ? 0 : notice?.offsetHeight);
+
   if (!overlay) return;
 
   overlay.style.height = `calc(100vh + ${noticeHeight || 0}px)`;
