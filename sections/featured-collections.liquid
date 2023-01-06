@@ -1,4 +1,4 @@
-{{ 'featured-products.css' | asset_url | stylesheet_tag }}
+{{ 'featured-collections.css' | asset_url | stylesheet_tag }}
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
@@ -9,13 +9,16 @@
   .section-featured-collections-{{id}} .yc-section-title{
     text-align: {{ section.settings.section_title_position }}
   }
+  .section-featured-collections{
+
+  }
 {% endstyle %}
 
-<div class='yc-featured-products section-featured-collections-{{id}} container'>
+<div class='yc-featured-collections section-featured-collections-{{id}} container'>
   <h1 class='yc-section-title'>
     {{ section.settings.title }}
   </h1>
-  <div class='product-list'>
+  <div class='collections-list'>
     {%- for block in section.blocks -%}
       {%- render 'collection-preview', category: block.settings.category -%}
     {%- endfor -%}
