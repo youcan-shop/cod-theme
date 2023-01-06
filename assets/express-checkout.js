@@ -16,7 +16,6 @@ async function placeOrder() {
     const response = await youcanjs.checkout.placeExpressCheckoutOrder({ productVariantId, quantity, fields });
 
     response
-
       .onSuccess((data, redirectToThankyouPage) => {
         redirectToThankyouPage();
       })
