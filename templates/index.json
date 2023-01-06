@@ -69,7 +69,7 @@
         "block_mlrd68efi1c0fy6": {
           "type": "image_picker",
           "settings": {
-            "image": "MWqUHBiFQEE6LuUXNgBrFNA0JFIfIwOZtUO3sv4U-2Iqyya8lN0b70DOA9hN9MmtCfBb.jpeg",
+            "image": "OFS-1-large_5f874119-097b-4f1a-b218-1bd46b883c7c_1400x733_crop_center-2JwtY66cwrwPKjilC2MItTG0pfr.jpeg",
             "caption": "<h2>Test test</h2><p>In publishing and graphic design, Lorem ipsum is a placeholder.</p>",
             "button_text": "visit",
             "product": "5f865c86-c8dc-48b6-8bcb-2525bc762430",
@@ -79,22 +79,12 @@
         "block_mng0xrhzeicyac": {
           "type": "image_picker",
           "settings": {
-            "image": "slide-2-2HcbdP3hGgA7FwWvn21AO5pGODx.jpg",
+            "image": "poster-club-edit_1200x608_crop_center-2JwtlvlpxunYvxe4TtyDkiBU7hO.jpeg",
             "button_font_weight": "500"
           }
         }
       },
       "order": ["block_mlrd68efi1c0fy6", "block_mng0xrhzeicyac"]
-    },
-    "section_5aeef2b1cloff2e": {
-      "type": "feature-products-by-category",
-      "settings": {
-        "category": "2bab572d-5197-418d-9072-1f0b82ff9fb8",
-        "number_of_products": "4",
-        "show_compare_at_price": true,
-        "padding_bottom": 5,
-        "padding_top": 85
-      }
     },
     "section_62tm9748qh15wfk": {
       "type": "multi-column",
@@ -168,14 +158,50 @@
         }
       },
       "order": ["block_iucc6f1w88xcfdv", "block_iztiz4hxqx8n8sl"]
+    },
+    "section_9nayyt0zwugfwpf": {
+      "type": "featured-collections",
+      "settings": {
+        "title": "تشكيلات جديدة",
+        "section_title_position": "right",
+        "padding_top": 80,
+        "padding_bottom": 5
+      },
+      "blocks": {
+        "block_9tdrxohe4dvholo": {
+          "type": "category",
+          "settings": {
+            "category": "f0d2099e-5031-435c-8d39-e967270d2cb1"
+          }
+        },
+        "block_fnblvntzzcvcsyf": {
+          "type": "category",
+          "settings": {
+            "category": "5c4185a7-fffd-48e0-9064-9ed0b7b31d88"
+          }
+        },
+        "block_fopl8exczmojy74": {
+          "type": "category",
+          "settings": {
+            "category": "db6868e6-1d32-40fd-a927-bda6555b0d8c"
+          }
+        },
+        "block_fpy1lbh4t349ufo": {
+          "type": "category",
+          "settings": {
+            "category": "2bab572d-5197-418d-9072-1f0b82ff9fb8"
+          }
+        }
+      },
+      "order": ["block_9tdrxohe4dvholo", "block_fnblvntzzcvcsyf", "block_fopl8exczmojy74", "block_fpy1lbh4t349ufo"]
     }
   },
   "order": [
     "section_qum9qooyrwe3uz",
+    "section_mjhf0v7zdki572el",
     "section_62tm9748qh15wfk",
     "featured-products",
-    "section_mjhf0v7zdki572el",
     "section_iryt4p1dmrzxq9d",
-    "section_5aeef2b1cloff2e"
+    "section_9nayyt0zwugfwpf"
   ]
 }
