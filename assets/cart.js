@@ -23,12 +23,23 @@ function updateDOM(cartItemId, productVariantId, quantity) {
   const decrease = input.previousElementSibling;
   const increase = input.nextElementSibling;
 
+  const productPrice = inputHolder.querySelector('.product-price').innerText;
+  const currency = productPrice.split(' ')[0];
+  const price = productPrice.split(' ')[1];
+  const totalPrice = inputHolder.querySelector('.total-price');
+
   decrease
     .querySelector('button')
     .setAttribute('onclick', `decreaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) - 1}')`);
   increase
     .querySelector('button')
     .setAttribute('onclick', `increaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) + 1}')`);
+
+  if (isNaN(quantity)) {
+    totalPrice.innerText = 0;
+  } else if (currency && price) {
+    totalPrice.innerText = `${currency} ${price * quantity}`;
+  }
 }
 
 async function updateQuantity(cartItemId, productVariantId, quantity) {

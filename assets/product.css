@@ -118,6 +118,7 @@
   flex-direction: column;
   gap: 20px;
   overflow: hidden;
+  padding: 10px;
 }
 .yc-single-product .product-details .product-name {
   font-size: 25px;

@@ -44,7 +44,7 @@
                       <div>
                         {{ item.name }}
                       </div>
-                      <div>{{ item.price | money }}</div>
+                      <div class='product-price'>{{ item.price | money }}</div>
                       <div class='md:hidden quantity-on-mobile'></div>
                       <button
                         onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')"
@@ -61,7 +61,7 @@
                   <td class='hidden md:table-cell quantity-on-desktop'>
                     {%- render 'quantity-input', item: item -%}
                   </td>
-                  <td>{{ item.price | times: item.quantity | money }}</td>
+                  <td class='total-price'>{{ item.price | times: item.quantity | money }}</td>
                 </tr>
               {%- endfor %}
             </tbody>
