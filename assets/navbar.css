@@ -144,7 +144,7 @@
 #searchInputHolder .input,
 #searchInputHolder input {
   max-width: 25rem;
-  color: var(--yc-primary-color);
+  color: #111;
 }
 #searchInputHolder .search-btn {
   padding: 0 0.75rem;
@@ -154,7 +154,7 @@
 }
 #searchInputHolder .search-btn ion-icon {
   font-size: 1.2rem;
-  color: var(--yc-primary-color);
+  color: #111;
 }
 
 /* ----------------------------- */
