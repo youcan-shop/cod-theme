@@ -75,16 +75,13 @@
       }
 
       .prices {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        justify-items: center;
-        align-items: center;
+        display: block;
+        font-size: 14pt;
 
         .compare-at-price {
           text-decoration: line-through;
           opacity: 0.5;
-          margin-bottom: 5px;
+          margin-right: 5px;
         }
 
         .product-thumbnail:hover img {
