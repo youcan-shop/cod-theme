@@ -3,6 +3,3 @@
   grid-template-columns: 1fr;
   grid-gap: 2px;
 }
-.express-checkout-fields input {
-  border: var(--yc-main-border);
-}
