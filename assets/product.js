@@ -99,7 +99,9 @@ function setElementActive(element) {
 function selectDefaultOptions(parentSection) {
   const options = parentSection.querySelectorAll('.product-options > div');
 
-  if (!options || !options.length) return;
+  if (!options || !options.length) {
+    return setVariant(parentSection, variants[0]?.id);
+  }
 
   options.forEach((option) => {
     const optionType = option.id.split('-')[2];
@@ -127,10 +129,6 @@ function selectDefaultOptions(parentSection) {
   });
 
   const selectedVariant = getSelectedVariant(parentSection);
-
-  if (!selectedVariant) {
-    setVariant(parentSection, variants[0]?.id);
-  }
 
   setVariant(parentSection, selectedVariant.id);
 }
