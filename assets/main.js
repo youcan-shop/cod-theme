@@ -108,9 +108,7 @@ let noticeHeight = notice?.offsetHeight;
 
 function openSearch() {
   const isNavBarFixed = fixedNavbar?.classList.contains('fixed');
-  noticeHeight = isNavBarFixed ? 0 : notice?.offsetHeight;
-
-  console.warn(isNavBarFixed ? 0 : notice?.offsetHeight);
+  noticeHeight = isNavBarFixed ? 0 : notice?.offsetHeightconsole;
 
   if (!overlay) return;
 
