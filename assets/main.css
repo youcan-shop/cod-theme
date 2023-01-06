@@ -13,11 +13,17 @@
 /* ------------------------- */
 html,
 body {
-  font-family: var(--yc-font-family);
   direction: var(--yc-theme-direction);
   color: var(--yc-neutral-color);
   position: relative;
   min-height: 100vh;
+}
+
+.yc-btn span,
+.yc-btn,
+html,
+body {
+  font-family: var(--yc-font-family);
 }
 
 [style*="z-index: 500; height: 54px; width: 100vw; position: fixed; padding: 4px 16px"] {

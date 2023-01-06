@@ -14,11 +14,16 @@
 /* ------------------------- */
 html,
 body {
-  font-family: var(--yc-font-family);
   direction: var(--yc-theme-direction);
   color: var(--yc-neutral-color);
   position: relative;
   min-height: 100vh;
+}
+.yc-btn span,
+.yc-btn,
+html,
+body {
+  font-family: var(--yc-font-family);
 }
 
 // remove the sticky preview-bar
