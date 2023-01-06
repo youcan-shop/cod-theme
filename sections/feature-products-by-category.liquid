@@ -1,8 +1,19 @@
 {%- assign category = section.settings.category -%}
 {%- assign number_of_products = section.settings.number_of_products -%}
+{% assign id = 100 | rand: 2000 %}
+
+{% style %}
+  .section-featured-products-by-category-{{id}}{
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  .section-featured-products-by-category-{{id}} .yc-section-title{
+    text-align: {{ section.settings.section_title_position }}
+  }
+{% endstyle %}
 
 {% if category %}
-  <div class='yc-featured-products container'>
+  <div class='yc-featured-products section-featured-products-by-category-{{id}} container'>
     <h1 class='yc-section-title'>{{ category.name }}</h1>
     <div class='product-list'>
       {%- paginate collection.products by number_of_products id category_id: category.id %}
@@ -22,6 +33,43 @@
       "type": "category",
       "id": "category",
       "label": "Category"
+    },
+    {
+      "type": "select",
+      "id": "section_title_position",
+      "label": "Title position",
+      "options": [
+        {
+          "label": "left",
+          "value": "left"
+        },
+        {
+          "label": "right",
+          "value": "right"
+        },
+        {
+          "label": "center",
+          "value": "center"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 5,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 5,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Bottom"
     },
     {
       "type": "number",

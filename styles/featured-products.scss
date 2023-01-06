@@ -1,8 +1,6 @@
 @import 'helpers/mixins';
 
 .yc-featured-products {
-  padding: 10px;
-
   .product-list {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
