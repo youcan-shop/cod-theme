@@ -12,7 +12,7 @@
         "block_bz1pi3lyquyby7q": {
           "type": "product",
           "settings": {
-            "product": "4595a663-91cf-48a1-bf9b-424fcd98d026"
+            "product": "e74763a8-673d-4b32-b87a-83ad8f448446"
           }
         },
         "block_c06w7csmaq4ga7o": {
@@ -93,7 +93,8 @@
         "columns_mobile": "2",
         "title": "ما يميزنا",
         "padding_bottom": 5,
-        "padding_top": 85
+        "padding_top": 85,
+        "background_color": "#FFFFFFFF"
       },
       "blocks": {
         "block_c9qx028mi12btfk4": {
