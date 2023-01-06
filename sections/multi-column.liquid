@@ -8,6 +8,10 @@
     color: {{ section.settings.text_color.hex }};
   }
 
+  .multi-column-{{ id }} .yc-section-title{
+    text-align: {{ section.settings.section_title_position }}
+  }
+
   .multi-column-{{ id }} .multi-column-blocks {
     display: grid;
     grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
@@ -146,6 +150,25 @@
     {
       "type": "header",
       "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "section_title_position",
+      "label": "Title position",
+      "options": [
+        {
+          "label": "left",
+          "value": "left"
+        },
+        {
+          "label": "right",
+          "value": "right"
+        },
+        {
+          "label": "center",
+          "value": "center"
+        }
+      ]
     },
     {
       "type": "range",
