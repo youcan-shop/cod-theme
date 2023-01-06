@@ -1,9 +1,9 @@
 <a
   href='/collections/{{ category.slug }}'
-  class='product-block'
+  class='collection-block'
   {{ block.youcan_attributes }}
 >
-  <div class='product-thumbnail'>
+  <div class='collection-thumbnail'>
     {% if category.image %}
       <img
         loading='lazy'
@@ -16,8 +16,9 @@
       >
     {% endif %}
   </div>
-  <div class='product-details'>
-    <span class='product-title'>{{ category.name }}</span>
+  <div class='collection-details'>
+    <span class='collection-name'>{{ category.name }}</span>
+
+    <span class='collection-cta'>{{ 'snippets.collection_preview.visit_cta' | t }}</span>
   </div>
-  <button class='yc-btn w-full'>{{ 'snippets.collection_preview.visit_cta' | t }}</button>
 </a>
