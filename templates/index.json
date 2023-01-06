@@ -6,7 +6,7 @@
         "block_bxuox7w3hcfbikm": {
           "type": "product",
           "settings": {
-            "product": "57141711-ca0a-43ff-b271-974d8672c7a0"
+            "product": "693a2102-03c6-46d8-a5e1-e8455c3384d8"
           }
         },
         "block_bz1pi3lyquyby7q": {
@@ -30,7 +30,10 @@
       },
       "order": ["block_bxuox7w3hcfbikm", "block_bz1pi3lyquyby7q", "block_c06w7csmaq4ga7o", "block_angxjuj3umg4k6"],
       "settings": {
-        "title": "منتجات"
+        "title": "منتجات",
+        "section_title_position": "right",
+        "padding_bottom": 5,
+        "padding_top": 85
       }
     },
     "section_qum9qooyrwe3uz": {
@@ -40,7 +43,7 @@
         "block_qw91o394p69bv8l": {
           "type": "image_picker",
           "settings": {
-            "image": "slide-4-2HcbfUsDtvLWxslWUr6uWuUxeCp.jpg",
+            "image": "OFS-1-large_5f874119-097b-4f1a-b218-1bd46b883c7c_1400x733_crop_center-2JwtY66cwrwPKjilC2MItTG0pfr.jpeg",
             "caption": "<h2>هذا هو شريط تمرير سطح المكتب</h2><p>في النشر والتصميم الجرافيكي ، هو عنصر نائب شائع الاستخدام.</p>",
             "button_text": "Visit Now 🔥",
             "product": "4595a663-91cf-48a1-bf9b-424fcd98d026",
@@ -50,7 +53,7 @@
         "block_qx88dcfkmfmqpeh": {
           "type": "image_picker",
           "settings": {
-            "image": "slide-3-2Hcbfzv5MEU2LkzXDxnFl8T4Hbp.jpg",
+            "image": "poster-club-edit_1200x608_crop_center-2JwtlvlpxunYvxe4TtyDkiBU7hO.jpeg",
             "button_font_weight": "500",
             "caption": "<p><br></p>",
             "button_text": ""
@@ -88,7 +91,9 @@
       "settings": {
         "category": "2bab572d-5197-418d-9072-1f0b82ff9fb8",
         "number_of_products": "4",
-        "show_compare_at_price": true
+        "show_compare_at_price": true,
+        "padding_bottom": 5,
+        "padding_top": 85
       }
     },
     "section_62tm9748qh15wfk": {
@@ -96,7 +101,9 @@
       "settings": {
         "columns_desktop": 4,
         "columns_mobile": "2",
-        "title": "ما يميزنا"
+        "title": "ما يميزنا",
+        "padding_bottom": 5,
+        "padding_top": 85
       },
       "blocks": {
         "block_c9qx028mi12btfk4": {
@@ -139,7 +146,9 @@
       "settings": {
         "columns_desktop": 2,
         "columns_mobile": "1",
-        "title": "معلومات عنا"
+        "title": "معلومات عنا",
+        "padding_bottom": 5,
+        "padding_top": 85
       },
       "blocks": {
         "block_iucc6f1w88xcfdv": {
@@ -163,10 +172,10 @@
   },
   "order": [
     "section_qum9qooyrwe3uz",
-    "section_mjhf0v7zdki572el",
     "section_62tm9748qh15wfk",
     "featured-products",
-    "section_5aeef2b1cloff2e",
-    "section_iryt4p1dmrzxq9d"
+    "section_mjhf0v7zdki572el",
+    "section_iryt4p1dmrzxq9d",
+    "section_5aeef2b1cloff2e"
   ]
 }

@@ -109,8 +109,8 @@ const noticeHeight = notice?.offsetHeight;
 function openSearch() {
   if (!overlay) return;
 
-  overlay.style.height = `calc(100vh + ${noticeHeight || 0}px)`;
-  overlay.style.top = `${noticeHeight || 0}px`;
+  overlay.style.height = `calc(100vh + ${notice && fixedNavbar ? noticeHeight : 0}px)`;
+  overlay.style.top = `${notice && fixedNavbar ? noticeHeight : 0}px`;
   overlay.style.opacity = '1';
   overlay.style.visibility = 'visible';
 
@@ -118,7 +118,7 @@ function openSearch() {
 
   searchHolder.style.opacity = '1';
   searchHolder.style.visibility = 'visible';
-  searchHolder.style.top = `${noticeHeight || 0}px`;
+  searchHolder.style.top = `${notice && fixedNavbar ? noticeHeight : 0}px`;
 }
 
 function closeSearch() {
