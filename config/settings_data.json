@@ -2,7 +2,7 @@
   "current": {
     "font_family": "Almarai",
     "theme_direction": "rtl",
-    "primary_color": "#030303FF",
+    "primary_color": "#B83375FF",
     "sections": {
       "notice-bar": {
         "type": "notice-bar",
@@ -123,7 +123,8 @@
           "footer_copyright_background": "#111111FF"
         }
       }
-    }
+    },
+    "featured_products_btn_full_width": true
   },
   "presets": {
     "Default": {}
