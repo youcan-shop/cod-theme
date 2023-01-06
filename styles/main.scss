@@ -56,6 +56,7 @@ a.disabled {
 
 input {
   font-weight: 300 !important;
+  border: var(--yc-main-border);
 
   &.error {
     border-color: var(--yc-error-color) !important;
