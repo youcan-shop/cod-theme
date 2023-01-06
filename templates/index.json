@@ -24,11 +24,30 @@
         "block_angxjuj3umg4k6": {
           "type": "product",
           "settings": {
-            "product": "5f865c86-c8dc-48b6-8bcb-2525bc762430"
+            "product": "ce17d5cf-4607-4f0b-9996-6a2d616c0112"
+          }
+        },
+        "block_6o21thmwvzgx9w": {
+          "type": "product",
+          "settings": {
+            "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d"
+          }
+        },
+        "block_7ilc4bc4d0ae4nt": {
+          "type": "product",
+          "settings": {
+            "product": "2d39bfc2-2269-482d-97e8-35286c06fa8d"
           }
         }
       },
-      "order": ["block_bxuox7w3hcfbikm", "block_bz1pi3lyquyby7q", "block_c06w7csmaq4ga7o", "block_angxjuj3umg4k6"],
+      "order": [
+        "block_bxuox7w3hcfbikm",
+        "block_bz1pi3lyquyby7q",
+        "block_c06w7csmaq4ga7o",
+        "block_angxjuj3umg4k6",
+        "block_6o21thmwvzgx9w",
+        "block_7ilc4bc4d0ae4nt"
+      ],
       "settings": {
         "title": "منتجات",
         "section_title_position": "right",
