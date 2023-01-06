@@ -1,13 +1,5 @@
 {
   "sections": {
-    "main-video": {
-      "type": "main-video",
-      "settings": {
-        "video_type": "youtube",
-        "video_height": 700,
-        "video_link": "https://www.youtube.com/watch?v=9-Xvthp9l-8"
-      }
-    },
     "featured-products": {
       "type": "featured-products",
       "blocks": {
@@ -38,7 +30,7 @@
       },
       "order": ["block_bxuox7w3hcfbikm", "block_bz1pi3lyquyby7q", "block_c06w7csmaq4ga7o", "block_angxjuj3umg4k6"],
       "settings": {
-        "title": "\u0645\u0646\u062a\u062c\u0627\u062a"
+        "title": "منتجات"
       }
     },
     "section_qum9qooyrwe3uz": {
@@ -49,8 +41,8 @@
           "type": "image_picker",
           "settings": {
             "image": "slide-4-2HcbfUsDtvLWxslWUr6uWuUxeCp.jpg",
-            "caption": "<h2>\u0647\u0630\u0627 \u0647\u0648 \u0634\u0631\u064a\u0637 \u062a\u0645\u0631\u064a\u0631 \u0633\u0637\u062d \u0627\u0644\u0645\u0643\u062a\u0628</h2><p>\u0641\u064a \u0627\u0644\u0646\u0634\u0631 \u0648\u0627\u0644\u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u062c\u0631\u0627\u0641\u064a\u0643\u064a \u060c \u0647\u0648 \u0639\u0646\u0635\u0631 \u0646\u0627\u0626\u0628 \u0634\u0627\u0626\u0639 \u0627\u0644\u0627\u0633\u062a\u062e\u062f\u0627\u0645.</p>",
-            "button_text": "Visit Now \ud83d\udd25",
+            "caption": "<h2>هذا هو شريط تمرير سطح المكتب</h2><p>في النشر والتصميم الجرافيكي ، هو عنصر نائب شائع الاستخدام.</p>",
+            "button_text": "Visit Now 🔥",
             "product": "4595a663-91cf-48a1-bf9b-424fcd98d026",
             "button_font_weight": "500"
           }
@@ -90,7 +82,91 @@
         }
       },
       "order": ["block_mlrd68efi1c0fy6", "block_mng0xrhzeicyac"]
+    },
+    "section_5aeef2b1cloff2e": {
+      "type": "feature-products-by-category",
+      "settings": {
+        "category": "2bab572d-5197-418d-9072-1f0b82ff9fb8",
+        "number_of_products": "4",
+        "show_compare_at_price": true
+      }
+    },
+    "section_62tm9748qh15wfk": {
+      "type": "multi-column",
+      "settings": {
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "title": "ما يميزنا"
+      },
+      "blocks": {
+        "block_c9qx028mi12btfk4": {
+          "type": "columnn",
+          "settings": {
+            "image": "padlock-2JudeRoA8kjW5JhkxBtV1tmYrxI.webp",
+            "heading": "الشحن المجاني",
+            "description": "<p>شحن مجاني في الوطن العربي</p>"
+          }
+        },
+        "block_cc11ny9wgf589l": {
+          "type": "columnn",
+          "settings": {
+            "image": "like-2Judg0nppvNU6tx25Gy7LaPxD2S.webp",
+            "heading": "15 يوم عوائد",
+            "description": "<p>ضمان استعادة الاموال</p>"
+          }
+        },
+        "block_cee6rpyw7oltwqg": {
+          "type": "columnn",
+          "settings": {
+            "image": "return-of-investment-2JudgcrWjW0Avhc7Z2jtHFlFiea.webp",
+            "heading": "100٪ ضمان مجاني",
+            "description": "<p>ضمان استعادة الاموال</p>"
+          }
+        },
+        "block_cgovtb6di7fywh8": {
+          "type": "columnn",
+          "settings": {
+            "image": "truck-2JudgxLTGzBUaXLBlveov91BiQD.webp",
+            "heading": "عملية دفع آمنة",
+            "description": "<p>لا تقلق بشأن الأمن بعد الآن</p>"
+          }
+        }
+      },
+      "order": ["block_c9qx028mi12btfk4", "block_cc11ny9wgf589l", "block_cee6rpyw7oltwqg", "block_cgovtb6di7fywh8"]
+    },
+    "section_iryt4p1dmrzxq9d": {
+      "type": "multi-column",
+      "settings": {
+        "columns_desktop": 2,
+        "columns_mobile": "1",
+        "title": "معلومات عنا"
+      },
+      "blocks": {
+        "block_iucc6f1w88xcfdv": {
+          "type": "columnn",
+          "settings": {
+            "image": "xtra-minimal-webshop-2Juh78or1FZPYilwGUJPgH8Nl4c.webp"
+          }
+        },
+        "block_iztiz4hxqx8n8sl": {
+          "type": "columnn",
+          "settings": {
+            "heading": "ملابس من جميع أنحاء العالم ، ماركات خاصة.",
+            "description": "<p>هذا المتجر يعرض مجموعة متنوعة من الملابس من جميع أنحاء العالم، ويضم ماركات راقية وخاصة.</p><p>يمكنك العثور على كل ما تريد من ملابس معتمدة وعصرية في هذا المتجر الذي يتيح لك التسوق عبر الإنترنت.</p><p>استمتع بتجربة التسوق الرائعة والعثور على ملابس ناعمة وراقية في متجر ملابس من جميع أنحاء العالم الذي يعرض ماركات خاصة للرجال والنساء.</p>",
+            "link_label": "عن المتجر",
+            "link": "/about-us"
+          }
+        }
+      },
+      "order": ["block_iucc6f1w88xcfdv", "block_iztiz4hxqx8n8sl"]
     }
   },
-  "order": ["section_qum9qooyrwe3uz", "section_mjhf0v7zdki572el", "featured-products", "main-video"]
+  "order": [
+    "section_qum9qooyrwe3uz",
+    "section_mjhf0v7zdki572el",
+    "section_62tm9748qh15wfk",
+    "featured-products",
+    "section_5aeef2b1cloff2e",
+    "section_iryt4p1dmrzxq9d"
+  ]
 }

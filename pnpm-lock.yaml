@@ -2,24 +2,28 @@ lockfileVersion: 5.4
 
 specifiers:
   '@shopify/prettier-plugin-liquid': ^0.4.2
+  child_process: ^1.0.2
   clean-css-cli: ^5.6.1
   concurrently: ^7.6.0
   fs: 0.0.1-security
+  node-watch: ^0.7.3
   npm-run-all: ^4.1.5
   onchange: ^7.1.0
-  prettier: 2.8.0
+  prettier: 1.12.1
   sass: ^1.56.1
   strip-css-comments-cli: ^3.0.0
   tailwindcss: ^3.2.4
 
 devDependencies:
-  '@shopify/prettier-plugin-liquid': 0.4.2_prettier@2.8.0
+  '@shopify/prettier-plugin-liquid': 0.4.2_prettier@1.12.1
+  child_process: 1.0.2
   clean-css-cli: 5.6.1
   concurrently: 7.6.0
   fs: 0.0.1-security
+  node-watch: 0.7.3
   npm-run-all: 4.1.5
   onchange: 7.1.0
-  prettier: 2.8.0
+  prettier: 1.12.1
   sass: 1.56.1
   strip-css-comments-cli: 3.0.0
   tailwindcss: 3.2.4
@@ -76,7 +80,7 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@shopify/prettier-plugin-liquid/0.4.2_prettier@2.8.0:
+  /@shopify/prettier-plugin-liquid/0.4.2_prettier@1.12.1:
     resolution: {integrity: sha512-5m2ZZPIf2lDza2QqfEdyrnYKrG+gKccZme5RrKFi88DuABWuX/P1tbL8MIOCVvjbVQpLRDeJOGOlAgRNNudNNg==}
     peerDependencies:
       prettier: ^2.0.0
@@ -84,7 +88,7 @@ packages:
       html-styles: 1.0.0
       line-column: 1.0.2
       ohm-js: 16.4.0
-      prettier: 2.8.0
+      prettier: 1.12.1
     dev: true
 
   /@types/minimist/1.2.2:
@@ -219,6 +223,10 @@ packages:
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
+    dev: true
+
+  /child_process/1.0.2:
+    resolution: {integrity: sha512-Wmza/JzL0SiWz7kl6MhIKT5ceIlnFPJX+lwUGj7Clhy5MMldsSoJR0+uvRzOS5Kv45Mq7t1PoE8TsOA9bzvb6g==}
     dev: true
 
   /chokidar/3.5.3:
@@ -938,6 +946,11 @@ packages:
     resolution: {integrity: sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==}
     dev: true
 
+  /node-watch/0.7.3:
+    resolution: {integrity: sha512-3l4E8uMPY1HdMMryPRUAl+oIHtXtyiTlIiESNSVSNxcPfzAFzeTbXFQkZfAwBbo0B1qMSG8nUABx+Gd+YrbKrQ==}
+    engines: {node: '>=6'}
+    dev: true
+
   /normalize-package-data/2.5.0:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
     dependencies:
@@ -1184,9 +1197,9 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
-  /prettier/2.8.0:
-    resolution: {integrity: sha512-9Lmg8hTFZKG0Asr/kW9Bp8tJjRVluO8EJQVfY2T7FMw9T5jy4I/Uvx0Rca/XWf50QQ1/SS48+6IJWnrb+2yemA==}
-    engines: {node: '>=10.13.0'}
+  /prettier/1.12.1:
+    resolution: {integrity: sha512-0pNl3XiDYDs4gikLFUt/EjdpQx9tDzexMJDs/Xfh3IrhNEd6mYJh0XipH7B1gxQVtT5ESJH7qpGXgNxRNDbTRA==}
+    engines: {node: '>=4'}
     hasBin: true
     dev: true
 
