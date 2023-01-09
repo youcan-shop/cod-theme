@@ -16,7 +16,9 @@
   </h1>
   <div class='product-list'>
     {%- for block in section.blocks -%}
-      {%- render 'product-preview', item: block.settings.product -%}
+      <div {{ block.youcan_attributes }}>
+        {%- render 'product-preview', item: block.settings.product -%}
+      </div>
     {%- endfor -%}
   </div>
 </div>
