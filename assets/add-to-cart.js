@@ -28,7 +28,6 @@ async function addToCart(snippetId) {
     notify('Item has been added successfully', 'success');
   } catch (err) {
     stopLoad('#loading__cart');
-    console.log(err);
     notify(err.message, 'error');
   }
 }
