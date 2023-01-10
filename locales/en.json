@@ -89,5 +89,10 @@
         "title": "© 2023 YC. All rights reserved."
       }
     }
+  },
+  "errors": {
+    "select_variant": "Please select a variant",
+    "quantity_smaller_than_zero": "Quantity must be greater than 0",
+    "upload_image": "Please upload an image"
   }
 }
