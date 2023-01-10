@@ -1,138 +1,135 @@
 {
   "current": {
-      "font_family": "Almarai",
-      "theme_direction": "rtl",
-      "primary_color": "#B83375FF",
-      "sections": {
-          "notice-bar": {
-              "type": "notice-bar",
-              "settings": {
-                  "notice_bar_content_desktop": "<p>الشحن المجاني متاح لجميع الطلبات<\/p>",
-                  "notice_bar_content_mobile": "<p>الشحن المجاني متاح لجميع الطلبات<\/p>",
-                  "notice_bar_content_font_size_desktop": 12,
-                  "notice_bar_content_font_size_mobile": 12,
-                  "notice_bar_height_desktop": 45,
-                  "notice_bar_height_mobile": 45,
-                  "notice_bar_background_color_desktop": "#B83375FF",
-                  "notice_bar_background_color_mobile": "#B83375FF"
-              }
-          },
-          "main-navbar": {
-              "type": "main-navbar",
-              "blocks": {
-                  "block_gkk8ae6rzniqule": {
-                      "type": "logo",
-                      "settings": {}
-                  },
-                  "block_glpfko4s63fm6kj": {
-                      "type": "menu",
-                      "settings": {}
-                  },
-                  "block_gmrv273jdps9sso": {
-                      "type": "search_and_cart",
-                      "settings": {}
-                  }
-              },
-              "order": [
-                  "block_gkk8ae6rzniqule",
-                  "block_glpfko4s63fm6kj",
-                  "block_gmrv273jdps9sso"
-              ],
-              "settings": {
-                  "cart_badge_color": "#B83375FF",
-                  "navbar_logo": "image-2IqyhOl7b1bbMBEPS5JD0G2MrcW.png",
-                  "navbar_links_color": "#000000FF",
-                  "navbar_background_color": "#FFFFFFFF",
-                  "navbar_height": 107,
-                  "navbar_always_on_top": true
-              }
-          },
-          "main-footer": {
-              "type": "main-footer",
-              "blocks": {
-                  "block_e1ssn3zlutxitkd": {
-                      "type": "column",
-                      "settings": {
-                          "block-title": "عن المتجر",
-                          "name-1": "عن المتجر",
-                          "url-1": "\/pages\/about-us",
-                          "name-2": "طرق الدفع",
-                          "url-2": "\/pages\/how-to-pay",
-                          "name-3": "الشحن والتسليم",
-                          "url-3": "\/pages\/shipping-delivery",
-                          "name-4": "",
-                          "url-4": "",
-                          "description": "<p><br><\/p>"
-                      }
-                  },
-                  "block_e332zl8k5x9hut": {
-                      "type": "column",
-                      "settings": {
-                          "block-title": "اتصل بنا",
-                          "name-1": "اتصل بنا",
-                          "url-1": "\/pages\/contact-us",
-                          "name-2": "الأسئلة المتكررة",
-                          "url-2": "\/pages\/faq",
-                          "name-3": "",
-                          "url-3": "",
-                          "name-4": "",
-                          "url-4": "",
-                          "description": "<p><br><\/p>"
-                      }
-                  },
-                  "block_e40unhfivg0xwvf": {
-                      "type": "column",
-                      "settings": {
-                          "block-title": "الشروط والسياسات",
-                          "name-1": "سياسة الاستبدال والاسترجاع",
-                          "url-1": "https:\/\/khofow.store\/pages\/return-policy",
-                          "name-2": "",
-                          "url-2": "",
-                          "name-3": "",
-                          "url-3": "",
-                          "name-4": "",
-                          "url-4": "",
-                          "description": ""
-                      }
-                  },
-                  "block_e56ztxh3krc44so": {
-                      "type": "column",
-                      "settings": {
-                          "block-title": "نبذة مختصرة عن متجرنا",
-                          "name-1": "",
-                          "url-1": "",
-                          "name-2": "",
-                          "url-2": "",
-                          "name-3": "",
-                          "url-3": "",
-                          "description": "<p>متجرنا متخصص في بيع مجموعة متنوعة من الملابس للرجال والنساء والأطفال.<\/p><p>نحن نقدم مزيجًا من الملابس الرسمية وغير الرسمية ، بدءًا من الجينز والقمصان إلى الفساتين والبدلات.<\/p>"
-                      }
-                  },
-                  "block_ocqzrg651kw4tf8": {
-                      "type": "copyright",
-                      "settings": {
-                          "copyright": "<p>جميع الحقوق محفوظة © 2023<\/p>"
-                      }
-                  }
-              },
-              "order": [
-                  "block_e1ssn3zlutxitkd",
-                  "block_e332zl8k5x9hut",
-                  "block_e40unhfivg0xwvf",
-                  "block_e56ztxh3krc44so",
-                  "block_ocqzrg651kw4tf8"
-              ],
-              "settings": {
-                  "footer_background_color": "#222222FF",
-                  "footer_copyright_background": "#111111FF"
-              }
-          }
+    "font_family": "Almarai",
+    "theme_direction": "rtl",
+    "primary_color": "#B83375FF",
+    "sections": {
+      "notice-bar": {
+        "type": "notice-bar",
+        "settings": {
+          "notice_bar_content_desktop": "<p>الشحن المجاني متاح لجميع الطلبات</p>",
+          "notice_bar_content_mobile": "<p>الشحن المجاني متاح لجميع الطلبات</p>",
+          "notice_bar_content_font_size_desktop": 12,
+          "notice_bar_content_font_size_mobile": 12,
+          "notice_bar_height_desktop": 45,
+          "notice_bar_height_mobile": 45,
+          "notice_bar_background_color_desktop": "#B83375FF",
+          "notice_bar_background_color_mobile": "#B83375FF"
+        }
       },
-      "featured_products_btn_full_width": true,
-      "success_color": "#1EBA54FF",
-      "error_color": "#DF1E2FFF"
+      "main-navbar": {
+        "type": "main-navbar",
+        "blocks": {
+          "block_gkk8ae6rzniqule": {
+            "type": "logo",
+            "settings": {}
+          },
+          "block_glpfko4s63fm6kj": {
+            "type": "menu",
+            "settings": {}
+          },
+          "block_gmrv273jdps9sso": {
+            "type": "search_and_cart",
+            "settings": {}
+          }
+        },
+        "order": ["block_gkk8ae6rzniqule", "block_glpfko4s63fm6kj", "block_gmrv273jdps9sso"],
+        "settings": {
+          "cart_badge_color": "#B83375FF",
+          "navbar_logo": "image-2IqyhOl7b1bbMBEPS5JD0G2MrcW.png",
+          "navbar_links_color": "#000000FF",
+          "navbar_background_color": "#FFFFFFFF",
+          "navbar_height": 107,
+          "navbar_always_on_top": true
+        }
+      },
+      "main-footer": {
+        "type": "main-footer",
+        "blocks": {
+          "block_e1ssn3zlutxitkd": {
+            "type": "column",
+            "settings": {
+              "block-title": "عن المتجر",
+              "name-1": "عن المتجر",
+              "url-1": "/pages/about-us",
+              "name-2": "طرق الدفع",
+              "url-2": "/pages/how-to-pay",
+              "name-3": "الشحن والتسليم",
+              "url-3": "/pages/shipping-delivery",
+              "name-4": "",
+              "url-4": "",
+              "description": "<p><br></p>"
+            }
+          },
+          "block_e332zl8k5x9hut": {
+            "type": "column",
+            "settings": {
+              "block-title": "اتصل بنا",
+              "name-1": "اتصل بنا",
+              "url-1": "/pages/contact-us",
+              "name-2": "الأسئلة المتكررة",
+              "url-2": "/pages/faq",
+              "name-3": "",
+              "url-3": "",
+              "name-4": "",
+              "url-4": "",
+              "description": "<p><br></p>"
+            }
+          },
+          "block_e40unhfivg0xwvf": {
+            "type": "column",
+            "settings": {
+              "block-title": "الشروط والسياسات",
+              "name-1": "سياسة الاستبدال والاسترجاع",
+              "url-1": "https://khofow.store/pages/return-policy",
+              "name-2": "",
+              "url-2": "",
+              "name-3": "",
+              "url-3": "",
+              "name-4": "",
+              "url-4": "",
+              "description": ""
+            }
+          },
+          "block_e56ztxh3krc44so": {
+            "type": "column",
+            "settings": {
+              "block-title": "نبذة مختصرة عن متجرنا",
+              "name-1": "",
+              "url-1": "",
+              "name-2": "",
+              "url-2": "",
+              "name-3": "",
+              "url-3": "",
+              "description":
+                "<p>متجرنا متخصص في بيع مجموعة متنوعة من الملابس للرجال والنساء والأطفال.</p><p>نحن نقدم مزيجًا من الملابس الرسمية وغير الرسمية ، بدءًا من الجينز والقمصان إلى الفساتين والبدلات.</p>"
+            }
+          },
+          "block_ocqzrg651kw4tf8": {
+            "type": "copyright",
+            "settings": {
+              "copyright": "<p>جميع الحقوق محفوظة © 2023</p>"
+            }
+          }
+        },
+        "order": [
+          "block_e1ssn3zlutxitkd",
+          "block_e332zl8k5x9hut",
+          "block_e40unhfivg0xwvf",
+          "block_e56ztxh3krc44so",
+          "block_ocqzrg651kw4tf8"
+        ],
+        "settings": {
+          "footer_background_color": "#222222FF",
+          "footer_copyright_background": "#111111FF"
+        }
+      }
+    },
+    "featured_products_btn_full_width": true,
+    "success_color": "#1EBA54FF",
+    "error_color": "#DF1E2FFF"
   },
   "presets": {
-      "Default": {}
+    "Default": {}
   }
 }
