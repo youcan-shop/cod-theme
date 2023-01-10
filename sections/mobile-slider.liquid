@@ -1,5 +1,16 @@
 {% assign id = 100 | rand: 2000 %}
 
+{% style %}
+  #yc_slider_{{ id }} .splide__arrow {
+    background: {{ section.settings.slider_mobile_arrows_background_color.hex }} !important;
+  }
+
+  #yc_slider_{{ id }} .splide__arrow svg {
+    height: {{ section.settings.slider_arrows_content_size }}px;
+    width: {{ section.settings.slider_arrows_content_size }}px;
+  }
+{% endstyle %}
+
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
 {{ 'mobile-slider.css' | asset_url | stylesheet_tag }}
 {{ 'splide.min.js' | asset_url | script_tag }}
@@ -29,7 +40,7 @@
                       <a
                         href='{{ block.settings.product.url }}'
                         class='yc-btn'
-                        style='font-weight: {{block.settings.button_font_weight}}!important'
+                        style='font-weight: {{ block.settings.button_font_weight }}!important'
                       >
                         {{ block.settings.button_text }}
                       </a>
