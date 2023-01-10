@@ -41,6 +41,12 @@ body {
   width: 100%;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 input,
 textarea,
 button,

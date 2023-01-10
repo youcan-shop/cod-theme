@@ -11,13 +11,15 @@
     {{ 'youcan-js.min.js' | asset_url | script_tag }}
   </head>
   <body>
-    {%- render 'overlay' -%}
-    {%- render 'alert' -%}
-
-    {%- section 'notice-bar' %}
-    {%- section 'main-navbar' %}
-
-    {{ content_for_layout }}
+    <div>
+      {%- render 'overlay' -%}
+      {%- render 'alert' -%}
+  
+      {%- section 'notice-bar' %}
+      {%- section 'main-navbar' %}
+  
+      {{ content_for_layout }}
+    </div>
 
     {% section 'main-footer' %}
 

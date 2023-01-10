@@ -9,3 +9,17 @@ parsedLinks.forEach((parsedLink) => {
     }
   });
 });
+
+const placeFooterAtTheBottom = () => {
+  const footer = document.querySelector('.yc-footer');
+  
+  if (!footer) return;
+  
+  const footerHeight = footer.offsetHeight;
+  document.body.style.paddingBottom = `${footerHeight + 100}px`;
+  footer.style.position = 'absolute';
+  footer.style.bottom = 0;
+}
+
+// placeFooterAtTheBottom();
+// window.addEventListener('resize', placeFooterAtTheBottom);
