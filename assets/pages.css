@@ -1,3 +1,82 @@
 .yc-page {
-  margin: 3rem auto;
+  margin: 5rem auto;
+  font-family: inherit;
+}
+.yc-page, .yc-page * {
+  font-family: inherit;
+}
+.yc-page h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+.yc-page h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+.yc-page h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+.yc-page h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+.yc-page h5 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+.yc-page h6 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+.yc-page p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
+.yc-page a {
+  color: var(--yc-primary-color);
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+.yc-page a:hover {
+  color: var(--yc-primary-color);
+}
+.yc-page b, .yc-page b *, .yc-page strong, .yc-page strong * {
+  font-weight: 500 !important;
+}
+.yc-page ul {
+  list-style: disc;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+.yc-page ol {
+  list-style: decimal;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+.yc-page li {
+  margin-bottom: 0.5rem;
+}
+.yc-page img {
+  max-width: 100%;
+  height: auto;
+}
+.yc-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
 }
