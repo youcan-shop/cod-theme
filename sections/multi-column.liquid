@@ -1,9 +1,9 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  .multi-column-{{ id }}{
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
+  .multi-column-{{ id }} {
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
     background-color: {{ section.settings.background_color.hex }};
     color: {{ section.settings.text_color.hex }};
   }
@@ -172,21 +172,21 @@
     },
     {
       "type": "range",
-      "id": "padding_top",
+      "id": "margin_top",
       "min": 5,
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Padding Top"
+      "label": "Space Top"
     },
     {
       "type": "range",
-      "id": "padding_bottom",
+      "id": "margin_bottom",
       "min": 5,
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Padding Bottom"
+      "label": "Space Bottom"
     },
     {
       "type": "range",
