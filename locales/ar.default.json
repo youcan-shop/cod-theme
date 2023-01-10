@@ -93,6 +93,7 @@
   "errors": {
     "select_variant": "الرجاء اختيار عرض",
     "quantity_smaller_than_zero": "يجب أن تكون الكمية أكبر من 0",
-    "upload_image": "الرجاء تحميل صورة"
+    "upload_image": "الرجاء تحميل صورة",
+    "product_added": "تمت إضافة المنتج بنجاح"
   }
 }

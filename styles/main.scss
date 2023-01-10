@@ -365,7 +365,7 @@ input:not([type='radio']),
   margin: 1rem;
   height: var(--yc-notification-toast-height);
   padding: 0 1.3rem;
-  background-color: var(--yc-notification-toast-background-color);
+  background-color: transparent;
   color: var(--yc-notification-toast-text-color);
   display: flex;
   align-items: center;
@@ -385,7 +385,7 @@ input:not([type='radio']),
   visibility: hidden;
 
   &.success {
-    background-color: red;
+    background-color: var(--yc-success-color);
   }
 
   &.error {
