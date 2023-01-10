@@ -60,18 +60,21 @@ function stopLoad(el) {
 /* ----------------- */
 function notify(msg, type = 'success', timeout = 3000) {
   const alert = document.querySelector('.yc-alert');
+  if (!alert) return;
 
-  if (type === 'success') {
-    alert.querySelector('.icon-error').style.display = 'none';
-    alert.querySelector('.icon-success').style.display = 'block';
-  } else {
-    alert.querySelector('.icon-error').style.display = 'block';
-    alert.querySelector('.icon-success').style.display = 'none';
-  }
+  const icons = alert.querySelectorAll('.icon');
+  if (!icons || !icons.length) return;
 
+  const alertClassList = alert.classList.value;
+
+  icons.forEach((icon) => icon.style.display = 'none');
+  alert.querySelector(`.icon-${type}`).style.display = 'block';
   alert.querySelector('.alert-msg').innerText = msg;
+  
+  alert.classList.add(type);
   alert.classList.add('show');
-  setTimeout(() => alert.classList.remove('show'), timeout);
+
+  setTimeout(() => alert.setAttribute('class', alertClassList), timeout);
 }
 
 /* ----------------------------- */

@@ -93,6 +93,7 @@
   "errors": {
     "select_variant": "Please select a variant",
     "quantity_smaller_than_zero": "Quantity must be greater than 0",
-    "upload_image": "Please upload an image"
+    "upload_image": "Please upload an image",
+    "product_added": "Product has been added successfully"
   }
 }
