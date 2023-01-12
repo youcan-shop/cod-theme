@@ -5,7 +5,6 @@ async function addToCart(snippetId) {
   const quantity = parentSection.querySelector(`#quantity`)?.value || 1;
   const uploadedImageLink = parentSection.querySelector(`#yc-upload-link`)?.value || undefined;
 
-
   if (!variantId) {
     return notify(ADD_TO_CART_EXPECTED_ERRORS.select_variant, 'error');
   }
@@ -14,9 +13,9 @@ async function addToCart(snippetId) {
     return notify(ADD_TO_CART_EXPECTED_ERRORS.quantity_smaller_than_zero, 'error');
   }
 
-  if (!uploadedImageLink) {
-    return notify(ADD_TO_CART_EXPECTED_ERRORS.upload_image, 'error');
-  }
+  // if (!uploadedImageLink) {
+  //   return notify(ADD_TO_CART_EXPECTED_ERRORS.upload_image, 'error');
+  // }
 
   try {
     load('#loading__cart');

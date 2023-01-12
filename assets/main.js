@@ -67,10 +67,10 @@ function notify(msg, type = 'success', timeout = 3000) {
 
   const alertClassList = alert.classList.value;
 
-  icons.forEach((icon) => icon.style.display = 'none');
+  icons.forEach((icon) => (icon.style.display = 'none'));
   alert.querySelector(`.icon-${type}`).style.display = 'block';
   alert.querySelector('.alert-msg').innerText = msg;
-  
+
   alert.classList.add(type);
   alert.classList.add('show');
 

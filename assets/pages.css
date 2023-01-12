@@ -2,7 +2,8 @@
   margin: 5rem auto;
   font-family: inherit;
 }
-.yc-page, .yc-page * {
+.yc-page,
+.yc-page * {
   font-family: inherit;
 }
 .yc-page h1 {
@@ -55,8 +56,11 @@
 .yc-page a:hover {
   color: var(--yc-primary-color);
 }
-.yc-page b, .yc-page b *, .yc-page strong, .yc-page strong * {
-  font-weight: 500 !important;
+.yc-page b,
+.yc-page b *,
+.yc-page strong,
+.yc-page strong * {
+  font-weight: 600 !important;
 }
 .yc-page ul {
   list-style: disc;

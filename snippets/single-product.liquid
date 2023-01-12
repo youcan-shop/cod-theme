@@ -54,7 +54,10 @@
             {% render 'add-to-cart', text: block.settings.text_content, is_sticky: block.settings.is_sticky, background_color: block.settings.background_color, text_color: block.settings.text_color, snippetId: snippetId %}
           {%- when 'express_checkout' -%}
             <!-- prettier-ignore -->
+            <div class="sticky-checkout">
             {% render 'express-checkout', checkout: checkout, is_sticky: block.settings.is_sticky, settings: block.settings %}
+
+          </div>
         {%- endcase -%}
       </div>
     {%- endfor -%}
