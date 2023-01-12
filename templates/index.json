@@ -111,8 +111,8 @@
         "columns_desktop": 4,
         "columns_mobile": "2",
         "title": "ما يميزنا",
-        "padding_bottom": 5,
-        "padding_top": 85,
+        "margin_bottom": 5,
+        "margin_top": 85,
         "background_color": "#FFFFFFFF"
       },
       "blocks": {
@@ -157,8 +157,8 @@
         "columns_desktop": 2,
         "columns_mobile": "1",
         "title": "معلومات عنا",
-        "padding_bottom": 5,
-        "padding_top": 85
+        "margin_bottom": 5,
+        "margin_top": 85
       },
       "blocks": {
         "block_iucc6f1w88xcfdv": {
