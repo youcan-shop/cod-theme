@@ -22,6 +22,11 @@
     display: flex;
     justify-content: center;
     gap: 10px;
+    flex-direction: column;
+
+    @include breakpoint('md') {
+      flex-direction: row;
+    }
 
     .commander {
       font-weight: 400;
