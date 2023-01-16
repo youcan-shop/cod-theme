@@ -20,6 +20,12 @@
   display: flex;
   justify-content: center;
   gap: 10px;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .top-items .sort-items-holder {
+    flex-direction: row;
+  }
 }
 .top-items .sort-items-holder .commander {
   font-weight: 400;
