@@ -24,54 +24,33 @@
               <div class='block whitespace-pre-wrap leading-8'>{{ item.1 }}</div>
             {%- endfor %}
           </div>
-        {%- else -%}
-          <div class='column'>
-            <div
-              class='parsed-links'
-              {{ block.youcan_attributes }}
-            >
-              {%- for item in block.settings -%}
-                {% case item.0 %}
-                  {% when 'block-title' %}
-                    <h1 class='title block'>{{ item.1 }}</h1>
-                  {% when 'description' %}
-                    <div class='description'>{{ item.1 }}</div>
-                  {%- else %}
-                    <a class='item block whitespace-pre-wrap leading-8 -mt-1'>{{ item.1 }}</a>
-                {% endcase %}
-              {%- endfor %}
-            </div>
-          </div>
       {%- endcase %}
     {%- endfor %}
   </div>
+  <div class="columns container">
+    {%- for linklist in link-lists -%}
+      {%- if linklist.links | count > 0  and linklist != main-link-list -%}
+        <div class="column">
+          <h1 class='title block'>{{ linklist.title }}</h1>
+          <div class="parsed-links">
+            {%- for item in linklist.links -%}
+                <a class="item" href="{{ item.url }}">{{ item.title }}</a>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
 
-  <div class="col-lg-8">
-                <div class="row links-wrap">
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <ul class="list-unstyled">
-                        {%-for item in main-link-list.links-%}
-                            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-                        {%-endfor-%}
-                        </ul>
-                    </div>
-
-                    {%-for linklist in link-lists-%}
-                        {%-if linklist.links | count > 0  and linklist != main-link-list-%}
-                            <div class="col-6 col-sm-6 col-md-3">
-                                <ul class="list-unstyled">
-                                {%-for item in linklist.links-%}
-                                    <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-                                {%-endfor-%}
-                                </ul>
-                            </div>
-                        {%-endif-%}
-                    {%-endfor-%}
-                </div>
-            </div>
+    {%- for block in section.blocks -%}
+      <div class="column">
+        <h1 class='title block'>{{ block.settings.block-title }}</h1>
+        <div class="description">
+          {{ block.settings.description }}
+        </div>
+      </div>
+    {%- endfor %}
+  </div>
 </footer>
-
-{{ 'footer.js' | asset_url | script_tag_deferred }}
 
 {%- schema -%}
 {
@@ -105,78 +84,6 @@
           "type": "text",
           "id": "block-title",
           "label": "Block title"
-        },
-        {
-          "type": "header",
-          "content": ""
-        },
-        {
-          "type": "paragraph",
-          "content": "Plaese enter your needed links, other inputs you can leave it empty."
-        },
-        {
-          "type": "header",
-          "content": "Link 1"
-        },
-        {
-          "type": "text",
-          "id": "name-1",
-          "label": "Name",
-          "default": ""
-        },
-        {
-          "type": "text",
-          "id": "url-1",
-          "label": "URL",
-          "default": ""
-        },
-        {
-          "type": "header",
-          "content": "Link 2"
-        },
-        {
-          "type": "text",
-          "id": "name-2",
-          "label": "Name",
-          "default": ""
-        },
-        {
-          "type": "text",
-          "id": "url-2",
-          "label": "URL",
-          "default": ""
-        },
-        {
-          "type": "header",
-          "content": "Link 3"
-        },
-        {
-          "type": "text",
-          "id": "name-3",
-          "label": "Name",
-          "default": ""
-        },
-        {
-          "type": "text",
-          "id": "url-3",
-          "label": "URL",
-          "default": ""
-        },
-        {
-          "type": "header",
-          "content": "Link 4"
-        },
-        {
-          "type": "text",
-          "id": "name-4",
-          "label": "Name",
-          "default": ""
-        },
-        {
-          "type": "text",
-          "id": "url-4",
-          "label": "URL",
-          "default": ""
         },
         {
           "type": "richtext",

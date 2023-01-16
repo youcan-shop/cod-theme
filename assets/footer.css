@@ -31,12 +31,14 @@
   font-size: 14px;
   margin-bottom: 0.7rem;
   opacity: 0.7;
+  display: block;
 }
 .yc-footer .description {
   line-height: 1.8;
 }
 .yc-footer a.item:not(.normal):hover {
   text-decoration: underline;
+  line-height: 1.5;
 }
 .yc-footer .copyright {
   position: absolute;
