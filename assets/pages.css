@@ -56,7 +56,7 @@
   color: var(--yc-primary-color);
 }
 .yc-page b, .yc-page b *, .yc-page strong, .yc-page strong * {
-  font-weight: 500 !important;
+  font-weight: 600 !important;
 }
 .yc-page ul {
   list-style: disc;
