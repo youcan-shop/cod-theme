@@ -45,6 +45,30 @@
       {%- endcase %}
     {%- endfor %}
   </div>
+
+  <div class="col-lg-8">
+                <div class="row links-wrap">
+                    <div class="col-6 col-sm-6 col-md-3">
+                        <ul class="list-unstyled">
+                        {%-for item in main-link-list.links-%}
+                            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                        {%-endfor-%}
+                        </ul>
+                    </div>
+
+                    {%-for linklist in link-lists-%}
+                        {%-if linklist.links | count > 0  and linklist != main-link-list-%}
+                            <div class="col-6 col-sm-6 col-md-3">
+                                <ul class="list-unstyled">
+                                {%-for item in linklist.links-%}
+                                    <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                                {%-endfor-%}
+                                </ul>
+                            </div>
+                        {%-endif-%}
+                    {%-endfor-%}
+                </div>
+            </div>
 </footer>
 
 {{ 'footer.js' | asset_url | script_tag_deferred }}
