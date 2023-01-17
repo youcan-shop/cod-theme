@@ -5,12 +5,12 @@
   class='product-block'
 >
 
-  {% if block_settings.banner_text %}
+  {% if block_settings.tag_text %}
     <div
-      class="banner {%- if block_settings.banner_position %} {{ block_settings.banner_position  }} {%- endif %}"
-      style="background: {{ block_settings.banner_color.hex }}; color: {{ block_settings.banner_text_color.hex }}"
+      class="tag {%- if block_settings.tag_position %} {{ block_settings.tag_position  }} {%- endif %}"
+      style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
     >
-      {{ block_settings.banner_text }}
+      {{ block_settings.tag_text }}
     </div>
   {% endif %}
   <div class='product-thumbnail'>
