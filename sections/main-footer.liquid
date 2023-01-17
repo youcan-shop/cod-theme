@@ -12,13 +12,13 @@
 {% endstyle %}
 
 <footer class='yc-footer mt-24'>
+  <div class="logo container">
+    <img
+      loading='lazy'
+      src='{%- if section.settings.logo.src -%} {{ section.settings.logo.src }} {%- else -%} {{ 'cod-logo-light.png' | asset_url }} {%- endif -%}'
+    >
+  </div>
   <div class="columns container">
-    <div class="logo column">
-      <img
-        loading='lazy'
-        src='{%- if section.settings.logo.src -%} {{ section.settings.logo.src }} {%- else -%} {{ 'cod-logo-light.png' | asset_url }} {%- endif -%}'
-      >
-    </div>
     {%- for linklist in link-lists -%}
       {%- if linklist.links | count > 0  and linklist != main-link-list -%}
         <div class="column">
@@ -39,9 +39,10 @@
             class='copyright'
             {{ block.youcan_attributes }}
           >
-            {%- for item in block.settings -%}
-              <div class='block whitespace-pre-wrap leading-8'>{{ item.1 }}</div>
-            {%- endfor %}
+            <div class="container">
+              <div class='block whitespace-pre-wrap leading-8'>{{ block.settings.copyright }}</div>
+              <img src="{{ block.settings.copyright_additonal_image.src }}">
+            </div>
           </div>
         {%- else -%}
           <div class="column">
@@ -114,6 +115,11 @@
           "type": "richtext",
           "id": "copyright",
           "label": "Copyright Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "copyright_additonal_image",
+          "label": "Copyright additonal image"
         }
       ]
     }
