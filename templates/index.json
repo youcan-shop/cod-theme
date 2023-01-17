@@ -4,40 +4,47 @@
       "type": "featured-products",
       "blocks": {
         "block_bxuox7w3hcfbikm": {
-          "type": "product",
-          "settings": {
-            "product": "693a2102-03c6-46d8-a5e1-e8455c3384d8"
-          }
+            "type": "product",
+            "settings": {
+                "product": "693a2102-03c6-46d8-a5e1-e8455c3384d8",
+                "tag_text": "Very Limited",
+                "tag_color": "#9FD87EFF"
+            }
         },
         "block_bz1pi3lyquyby7q": {
-          "type": "product",
-          "settings": {
-            "product": "e74763a8-673d-4b32-b87a-83ad8f448446"
-          }
+            "type": "product",
+            "settings": {
+                "product": "e74763a8-673d-4b32-b87a-83ad8f448446",
+                "tag_text": "NEW",
+                "tag_color": "#000000FF",
+                "tag_text_color": "#FFFFFFFF"
+            }
         },
         "block_c06w7csmaq4ga7o": {
-          "type": "product",
-          "settings": {
-            "product": "7802ca53-bdbc-4c6f-a2f5-302adee4427d"
-          }
+            "type": "product",
+            "settings": {
+                "product": "7802ca53-bdbc-4c6f-a2f5-302adee4427d"
+            }
         },
         "block_angxjuj3umg4k6": {
-          "type": "product",
-          "settings": {
-            "product": "ce17d5cf-4607-4f0b-9996-6a2d616c0112"
-          }
+            "type": "product",
+            "settings": {
+                "product": "ce17d5cf-4607-4f0b-9996-6a2d616c0112"
+            }
         },
         "block_6o21thmwvzgx9w": {
-          "type": "product",
-          "settings": {
-            "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d"
-          }
+            "type": "product",
+            "settings": {
+                "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d",
+                "tag_text": "هوتكٌٗام 🐊",
+                "tag_color": "#FF3000FF"
+            }
         },
         "block_7ilc4bc4d0ae4nt": {
-          "type": "product",
-          "settings": {
-            "product": "2d39bfc2-2269-482d-97e8-35286c06fa8d"
-          }
+            "type": "product",
+            "settings": {
+                "product": "2d39bfc2-2269-482d-97e8-35286c06fa8d"
+            }
         }
       },
       "order": [
