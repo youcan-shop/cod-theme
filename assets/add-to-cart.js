@@ -14,9 +14,10 @@ async function addToCart(snippetId) {
     return notify(ADD_TO_CART_EXPECTED_ERRORS.quantity_smaller_than_zero, 'error');
   }
 
-  if (!uploadedImageLink) {
-    return notify(ADD_TO_CART_EXPECTED_ERRORS.upload_image, 'error');
-  }
+  // TODO: check the case when the product doesn't require an image
+  // if (!uploadedImageLink) {
+  //   return notify(ADD_TO_CART_EXPECTED_ERRORS.upload_image, 'error');
+  // }
 
   try {
     load('#loading__cart');

@@ -4,6 +4,21 @@
   class='container yc-single-product'
   id='s-{{ snippetId }}'
 >
+  <input
+  id='variantId'
+  type='hidden'
+  >
+  <input
+    type='file'
+    id='yc-upload'
+    accept='image/png, image/gif, image/jpeg'
+    style='display:none'
+  >
+  <input
+    type='text'
+    id='yc-upload-link'
+    style='display: none'
+  >
   {% assign images = product.images %}
   {% assign product_name = product.name %}
   {% assign showcase_style = section.settings.product_images_showcase_style %}
@@ -55,6 +70,10 @@
           {%- when 'express_checkout' -%}
             <!-- prettier-ignore -->
             {% render 'express-checkout', checkout: checkout, is_sticky: block.settings.is_sticky, settings: block.settings %}
+            {% if block.settings.is_sticky %}
+            {% render 'sticky-checkout', settings: block.settings %}
+            <button class="yc-btn is_sticky" onclick="triggerCheckout()">yc</button>
+            {% endif %}
         {%- endcase -%}
       </div>
     {%- endfor -%}

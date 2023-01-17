@@ -223,6 +223,13 @@ function updateProductDetails(parentSection, image, price) {
   }
 }
 
+function triggerCheckout(){ 
+  const stickyOverlay = document.querySelector('#sticky-overlay')
+  stickyOverlay.style.display = 'block'
+
+}
+
+
 function setup() {
   const singleProductSections = document.querySelectorAll('.yc-single-product');
 
