@@ -85,3 +85,28 @@
 .yc-featured-products .product-list .product-block .prices .product-thumbnail:hover img {
   transform: scale(1.1);
 }
+.yc-featured-products .product-list .product-block .banner {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  z-index: 1;
+  padding: 8px 15px;
+}
+.yc-featured-products .product-list .product-block .banner .top_right {
+  top: 0;
+  right: 0;
+}
+.yc-featured-products .product-list .product-block .banner .bottom_right {
+  bottom: 0;
+  right: 0;
+}
+.yc-featured-products .product-list .product-block .banner .top_left {
+  top: 0;
+  left: 0;
+}
+.yc-featured-products .product-list .product-block .banner .bottom_left {
+  bottom: 0;
+  left: 0;
+}

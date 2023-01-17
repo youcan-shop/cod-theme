@@ -96,6 +96,36 @@
           transform: scale(1.1);
         }
       }
+
+      .banner {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        z-index: 1;
+        padding: 8px 15px;
+
+        .top_right {
+          top: 0;
+          right: 0;
+        }
+
+        .bottom_right {
+          bottom: 0;
+          right: 0;
+        }
+
+        .top_left {
+          top: 0;
+          left: 0;
+        }
+
+        .bottom_left {
+          bottom: 0;
+          left: 0;
+        }
+      }
     }
   }
 }

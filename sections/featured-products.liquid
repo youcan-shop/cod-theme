@@ -16,7 +16,7 @@
   </h1>
   <div class='product-list'>
     {%- for block in section.blocks -%}
-      {%- render 'product-preview', item: block.settings.product -%}
+      {%- render 'product-preview', item: block.settings.product, block_settings: block.settings -%}
     {%- endfor -%}
   </div>
 </div>
@@ -77,6 +77,47 @@
           "type": "product",
           "id": "product",
           "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "banner_text",
+          "label": "Banner text"
+        },
+        {
+          "type": "color",
+          "id": "banner_color",
+          "label": "Banner color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "banner_text_color",
+          "label": "Banner text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "select",
+          "id": "banner_position",
+          "label": "Banner position",
+          "options": [
+            {
+              "label": "Top Right",
+              "value": "top_right"
+            },
+            {
+              "label": "Top Left",
+              "value": "top_left"
+            },
+            {
+              "label": "Bottom Right",
+              "value": "bottom_right"
+            },
+            {
+              "label": "Bottom Left",
+              "value": "bottom_left"
+            }
+          ],
+          "default": "top_right"
         }
       ]
     }
