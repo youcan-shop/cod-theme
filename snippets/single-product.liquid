@@ -55,9 +55,10 @@
           {%- when 'express_checkout' -%}
             <!-- prettier-ignore -->
             <div class="sticky-checkout">
-            {% render 'express-checkout', checkout: checkout, is_sticky: block.settings.is_sticky, settings: block.settings %}
 
-          </div>
+            {% render 'product-variants', options: product.options %}
+            {% render 'express-checkout', checkout: checkout, is_sticky: block.settings.is_sticky, settings: block.settings %}
+            </div>
         {%- endcase -%}
       </div>
     {%- endfor -%}

@@ -158,9 +158,8 @@
   border-radius: 4px;
   width: 100%;
   max-width: 700px;
-  height: 50vh;
+  min-height: 50vh;
   background-color: white;
-  box-shadow: 1px 1px 10px 10px #e3e3e3;
   border: 1px solid #e3e3e3;
   padding: 20px;
   z-index: 8;
