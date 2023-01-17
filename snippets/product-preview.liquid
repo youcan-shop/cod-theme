@@ -7,7 +7,7 @@
 
   {% if block_settings.tag_text %}
     <div
-      class="tag {%- if block_settings.tag_position %} {{ block_settings.tag_position  }} {%- endif %}"
+      class="tag {{ block_settings.tag_position }}"
       style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
     >
       {{ block_settings.tag_text }}
