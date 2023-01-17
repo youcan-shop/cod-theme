@@ -4,10 +4,11 @@
   href='{{ item.url }}'
   class='product-block'
 >
+
   {% if block_settings.banner_text %}
     <div
-      class="banner {% if block_settings.banner_position %} {{ block_settings.banner_position  }} {% endif %}"
-      style="background: {{ block_settings.banner_color }}; color: {{ block_settings.banner_text_color }}"
+      class="banner {%- if block_settings.banner_position %} {{ block_settings.banner_position  }} {%- endif %}"
+      style="background: {{ block_settings.banner_color.hex }}; color: {{ block_settings.banner_text_color.hex }}"
     >
       {{ block_settings.banner_text }}
     </div>
