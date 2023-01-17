@@ -223,7 +223,13 @@ function updateProductDetails(parentSection, image, price) {
   }
 }
 
-function triggerCheckout(){
+function teleport(el, to){
+  const toEl = document.querySelector(to);
+  toEl.appendChild(el)
+}
+
+
+function triggerCheckout(parentId){
   const stickycheckout = document.querySelector('#yc-sticky-checkout')
   overlay.style.visibility = 'visible';
   overlay.style.opacity = '1';
@@ -232,8 +238,26 @@ function triggerCheckout(){
   overlay.addEventListener('click', () => {
     stickycheckout.style.visibility = 'hidden';
     stickycheckout.style.transform = "translateY(100%)";
-
   })
+
+
+  const parentSection = document.querySelector(`#${parentId}`)
+
+  // quantity
+  const quantity = parentSection.querySelector('.product-quantity');
+  // product options
+  const options = parentSection.querySelector('.product-options');
+
+  // express checkout
+  const expressCheckoutForm = parentSection.querySelector('#express-checkout-form')
+
+  teleport(options, '#checkout_step_1')
+  teleport(quantity, '#checkout_step_1')
+
+  teleport(expressCheckoutForm, "#checkout_step_2")
+
+  // const 
+
 
   stickycheckout.style.visibility = 'visible'
 }
