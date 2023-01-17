@@ -57,7 +57,8 @@
           "block_ocqzrg651kw4tf8": {
             "type": "copyright",
             "settings": {
-              "copyright": "<p>جميع الحقوق محفوظة © 2023</p>"
+              "copyright": "<p>جميع الحقوق محفوظة © 2023</p>",
+              "copyright_additonal_image": "image-1-2KSUTbu7UzFbGW1h5Q1sHk9sYpH.png"
             }
           }
         },

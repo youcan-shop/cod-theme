@@ -56,6 +56,25 @@
     font-size: 14px;
     text-align: center;
     background-color: var(--yc-footer-copyright-background);
-    padding: 1rem 0;
+    
+    .container {
+      height: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      img {
+        height: 26px;
+      }
+    }
+  }
+
+  .logo {
+    margin-bottom: 3rem;
+
+    img {
+      max-height: 2.5rem;
+      object-fit: contain;
+    }
   }
 }
