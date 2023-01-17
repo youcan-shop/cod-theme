@@ -1,253 +1,234 @@
 {
   "sections": {
-      "featured-products": {
-          "type": "featured-products",
-          "blocks": {
-              "block_bxuox7w3hcfbikm": {
-                  "type": "product",
-                  "settings": {
-                      "product": "693a2102-03c6-46d8-a5e1-e8455c3384d8",
-                      "tag_text": "Very Limited",
-                      "tag_color": "#9FD87EFF"
-                  }
-              },
-              "block_bz1pi3lyquyby7q": {
-                  "type": "product",
-                  "settings": {
-                      "product": "e74763a8-673d-4b32-b87a-83ad8f448446",
-                      "tag_text": "NEW",
-                      "tag_color": "#000000FF",
-                      "tag_text_color": "#FFFFFFFF"
-                  }
-              },
-              "block_c06w7csmaq4ga7o": {
-                  "type": "product",
-                  "settings": {
-                      "product": "7802ca53-bdbc-4c6f-a2f5-302adee4427d"
-                  }
-              },
-              "block_angxjuj3umg4k6": {
-                  "type": "product",
-                  "settings": {
-                      "product": "ce17d5cf-4607-4f0b-9996-6a2d616c0112"
-                  }
-              },
-              "block_6o21thmwvzgx9w": {
-                  "type": "product",
-                  "settings": {
-                      "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d",
-                      "tag_text": "هوتكٌٗام 🐊",
-                      "tag_color": "#FF3000FF"
-                  }
-              },
-              "block_7ilc4bc4d0ae4nt": {
-                  "type": "product",
-                  "settings": {
-                      "product": "2d39bfc2-2269-482d-97e8-35286c06fa8d"
-                  }
-              }
-          },
-          "order": [
-              "block_bxuox7w3hcfbikm",
-              "block_bz1pi3lyquyby7q",
-              "block_c06w7csmaq4ga7o",
-              "block_angxjuj3umg4k6",
-              "block_6o21thmwvzgx9w",
-              "block_7ilc4bc4d0ae4nt"
-          ],
-          "settings": {
-              "title": "منتجات",
-              "section_title_position": "right",
-              "padding_bottom": 5,
-              "padding_top": 85
-          }
+    "featured-products": {
+      "type": "featured-products",
+      "blocks": {
+        "block_bxuox7w3hcfbikm": {
+            "type": "product",
+            "settings": {
+                "product": "693a2102-03c6-46d8-a5e1-e8455c3384d8",
+                "tag_text": "Very Limited",
+                "tag_color": "#9FD87EFF"
+            }
+        },
+        "block_bz1pi3lyquyby7q": {
+            "type": "product",
+            "settings": {
+                "product": "e74763a8-673d-4b32-b87a-83ad8f448446",
+                "tag_text": "NEW",
+                "tag_color": "#000000FF",
+                "tag_text_color": "#FFFFFFFF"
+            }
+        },
+        "block_c06w7csmaq4ga7o": {
+            "type": "product",
+            "settings": {
+                "product": "7802ca53-bdbc-4c6f-a2f5-302adee4427d"
+            }
+        },
+        "block_angxjuj3umg4k6": {
+            "type": "product",
+            "settings": {
+                "product": "ce17d5cf-4607-4f0b-9996-6a2d616c0112"
+            }
+        },
+        "block_6o21thmwvzgx9w": {
+            "type": "product",
+            "settings": {
+                "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d",
+                "tag_text": "هوتكٌٗام 🐊",
+                "tag_color": "#FF3000FF"
+            }
+        },
+        "block_7ilc4bc4d0ae4nt": {
+            "type": "product",
+            "settings": {
+                "product": "2d39bfc2-2269-482d-97e8-35286c06fa8d"
+            }
+        }
       },
-      "section_qum9qooyrwe3uz": {
-          "type": "desktop-slider",
-          "settings": {},
-          "blocks": {
-              "block_qw91o394p69bv8l": {
-                  "type": "image_picker",
-                  "settings": {
-                      "image": "OFS-1-large_5f874119-097b-4f1a-b218-1bd46b883c7c_1400x733_crop_center-2JwtY66cwrwPKjilC2MItTG0pfr.jpeg",
-                      "caption": "<h2>هذا هو شريط تمرير سطح المكتب<\/h2><p>في النشر والتصميم الجرافيكي ، هو عنصر نائب شائع الاستخدام.<\/p>",
-                      "button_text": "Visit Now 🔥",
-                      "product": "4595a663-91cf-48a1-bf9b-424fcd98d026",
-                      "button_font_weight": "500"
-                  }
-              },
-              "block_qx88dcfkmfmqpeh": {
-                  "type": "image_picker",
-                  "settings": {
-                      "image": "poster-club-edit_1200x608_crop_center-2JwtlvlpxunYvxe4TtyDkiBU7hO.jpeg",
-                      "button_font_weight": "500",
-                      "caption": "<p><br><\/p>",
-                      "button_text": ""
-                  }
-              }
-          },
-          "order": [
-              "block_qw91o394p69bv8l",
-              "block_qx88dcfkmfmqpeh"
-          ]
-      },
-      "section_mjhf0v7zdki572el": {
-          "type": "mobile-slider",
-          "settings": {},
-          "blocks": {
-              "block_mlrd68efi1c0fy6": {
-                  "type": "image_picker",
-                  "settings": {
-                      "image": "OFS-1-large_5f874119-097b-4f1a-b218-1bd46b883c7c_1400x733_crop_center-2JwtY66cwrwPKjilC2MItTG0pfr.jpeg",
-                      "caption": "<h2>Test test<\/h2><p>In publishing and graphic design, Lorem ipsum is a placeholder.<\/p>",
-                      "button_text": "visit",
-                      "product": "5f865c86-c8dc-48b6-8bcb-2525bc762430",
-                      "button_font_weight": "500"
-                  }
-              },
-              "block_mng0xrhzeicyac": {
-                  "type": "image_picker",
-                  "settings": {
-                      "image": "poster-club-edit_1200x608_crop_center-2JwtlvlpxunYvxe4TtyDkiBU7hO.jpeg",
-                      "button_font_weight": "500"
-                  }
-              }
-          },
-          "order": [
-              "block_mlrd68efi1c0fy6",
-              "block_mng0xrhzeicyac"
-          ]
-      },
-      "section_62tm9748qh15wfk": {
-          "type": "multi-column",
-          "settings": {
-              "columns_desktop": 4,
-              "columns_mobile": "2",
-              "title": "ما يميزنا",
-              "margin_bottom": 5,
-              "margin_top": 85,
-              "background_color": "#FFFFFFFF"
-          },
-          "blocks": {
-              "block_c9qx028mi12btfk4": {
-                  "type": "columnn",
-                  "settings": {
-                      "image": "padlock-2JudeRoA8kjW5JhkxBtV1tmYrxI.webp",
-                      "heading": "الشحن المجاني",
-                      "description": "<p>شحن مجاني في الوطن العربي<\/p>"
-                  }
-              },
-              "block_cc11ny9wgf589l": {
-                  "type": "columnn",
-                  "settings": {
-                      "image": "like-2Judg0nppvNU6tx25Gy7LaPxD2S.webp",
-                      "heading": "15 يوم عوائد",
-                      "description": "<p>ضمان استعادة الاموال<\/p>"
-                  }
-              },
-              "block_cee6rpyw7oltwqg": {
-                  "type": "columnn",
-                  "settings": {
-                      "image": "return-of-investment-2JudgcrWjW0Avhc7Z2jtHFlFiea.webp",
-                      "heading": "100٪ ضمان مجاني",
-                      "description": "<p>ضمان استعادة الاموال<\/p>"
-                  }
-              },
-              "block_cgovtb6di7fywh8": {
-                  "type": "columnn",
-                  "settings": {
-                      "image": "truck-2JudgxLTGzBUaXLBlveov91BiQD.webp",
-                      "heading": "عملية دفع آمنة",
-                      "description": "<p>لا تقلق بشأن الأمن بعد الآن<\/p>"
-                  }
-              }
-          },
-          "order": [
-              "block_c9qx028mi12btfk4",
-              "block_cc11ny9wgf589l",
-              "block_cee6rpyw7oltwqg",
-              "block_cgovtb6di7fywh8"
-          ]
-      },
-      "section_iryt4p1dmrzxq9d": {
-          "type": "multi-column",
-          "settings": {
-              "columns_desktop": 2,
-              "columns_mobile": "1",
-              "title": "معلومات عنا",
-              "margin_bottom": 5,
-              "margin_top": 85
-          },
-          "blocks": {
-              "block_iucc6f1w88xcfdv": {
-                  "type": "columnn",
-                  "settings": {
-                      "image": "xtra-minimal-webshop-2Juh78or1FZPYilwGUJPgH8Nl4c.webp"
-                  }
-              },
-              "block_iztiz4hxqx8n8sl": {
-                  "type": "columnn",
-                  "settings": {
-                      "heading": "ملابس من جميع أنحاء العالم ، ماركات خاصة.",
-                      "description": "<p>هذا المتجر يعرض مجموعة متنوعة من الملابس من جميع أنحاء العالم، ويضم ماركات راقية وخاصة.<\/p><p>يمكنك العثور على كل ما تريد من ملابس معتمدة وعصرية في هذا المتجر الذي يتيح لك التسوق عبر الإنترنت.<\/p><p>استمتع بتجربة التسوق الرائعة والعثور على ملابس ناعمة وراقية في متجر ملابس من جميع أنحاء العالم الذي يعرض ماركات خاصة للرجال والنساء.<\/p>",
-                      "link_label": "عن المتجر",
-                      "link": "\/about-us"
-                  }
-              }
-          },
-          "order": [
-              "block_iucc6f1w88xcfdv",
-              "block_iztiz4hxqx8n8sl"
-          ]
-      },
-      "section_9nayyt0zwugfwpf": {
-          "type": "featured-collections",
-          "settings": {
-              "title": "تشكيلات جديدة",
-              "section_title_position": "right",
-              "padding_top": 80,
-              "padding_bottom": 5
-          },
-          "blocks": {
-              "block_9tdrxohe4dvholo": {
-                  "type": "category",
-                  "settings": {
-                      "category": "f0d2099e-5031-435c-8d39-e967270d2cb1"
-                  }
-              },
-              "block_fnblvntzzcvcsyf": {
-                  "type": "category",
-                  "settings": {
-                      "category": "5c4185a7-fffd-48e0-9064-9ed0b7b31d88"
-                  }
-              },
-              "block_fopl8exczmojy74": {
-                  "type": "category",
-                  "settings": {
-                      "category": "db6868e6-1d32-40fd-a927-bda6555b0d8c"
-                  }
-              },
-              "block_fpy1lbh4t349ufo": {
-                  "type": "category",
-                  "settings": {
-                      "category": "2bab572d-5197-418d-9072-1f0b82ff9fb8"
-                  }
-              }
-          },
-          "order": [
-              "block_9tdrxohe4dvholo",
-              "block_fnblvntzzcvcsyf",
-              "block_fopl8exczmojy74",
-              "block_fpy1lbh4t349ufo"
-          ]
+      "order": [
+        "block_bxuox7w3hcfbikm",
+        "block_bz1pi3lyquyby7q",
+        "block_c06w7csmaq4ga7o",
+        "block_angxjuj3umg4k6",
+        "block_6o21thmwvzgx9w",
+        "block_7ilc4bc4d0ae4nt"
+      ],
+      "settings": {
+        "title": "منتجات",
+        "section_title_position": "right",
+        "padding_bottom": 5,
+        "padding_top": 85
       }
+    },
+    "section_qum9qooyrwe3uz": {
+      "type": "desktop-slider",
+      "settings": {},
+      "blocks": {
+        "block_qw91o394p69bv8l": {
+          "type": "image_picker",
+          "settings": {
+            "image": "OFS-1-large_5f874119-097b-4f1a-b218-1bd46b883c7c_1400x733_crop_center-2JwtY66cwrwPKjilC2MItTG0pfr.jpeg",
+            "caption": "<h2>هذا هو شريط تمرير سطح المكتب</h2><p>في النشر والتصميم الجرافيكي ، هو عنصر نائب شائع الاستخدام.</p>",
+            "button_text": "Visit Now 🔥",
+            "product": "4595a663-91cf-48a1-bf9b-424fcd98d026",
+            "button_font_weight": "500"
+          }
+        },
+        "block_qx88dcfkmfmqpeh": {
+          "type": "image_picker",
+          "settings": {
+            "image": "poster-club-edit_1200x608_crop_center-2JwtlvlpxunYvxe4TtyDkiBU7hO.jpeg",
+            "button_font_weight": "500",
+            "caption": "<p><br></p>",
+            "button_text": ""
+          }
+        }
+      },
+      "order": ["block_qw91o394p69bv8l", "block_qx88dcfkmfmqpeh"]
+    },
+    "section_mjhf0v7zdki572el": {
+      "type": "mobile-slider",
+      "settings": {},
+      "blocks": {
+        "block_mlrd68efi1c0fy6": {
+          "type": "image_picker",
+          "settings": {
+            "image": "OFS-1-large_5f874119-097b-4f1a-b218-1bd46b883c7c_1400x733_crop_center-2JwtY66cwrwPKjilC2MItTG0pfr.jpeg",
+            "caption": "<h2>Test test</h2><p>In publishing and graphic design, Lorem ipsum is a placeholder.</p>",
+            "button_text": "visit",
+            "product": "5f865c86-c8dc-48b6-8bcb-2525bc762430",
+            "button_font_weight": "500"
+          }
+        },
+        "block_mng0xrhzeicyac": {
+          "type": "image_picker",
+          "settings": {
+            "image": "poster-club-edit_1200x608_crop_center-2JwtlvlpxunYvxe4TtyDkiBU7hO.jpeg",
+            "button_font_weight": "500"
+          }
+        }
+      },
+      "order": ["block_mlrd68efi1c0fy6", "block_mng0xrhzeicyac"]
+    },
+    "section_62tm9748qh15wfk": {
+      "type": "multi-column",
+      "settings": {
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "title": "ما يميزنا",
+        "margin_bottom": 5,
+        "margin_top": 85,
+        "background_color": "#FFFFFFFF"
+      },
+      "blocks": {
+        "block_c9qx028mi12btfk4": {
+          "type": "columnn",
+          "settings": {
+            "image": "padlock-2JudeRoA8kjW5JhkxBtV1tmYrxI.webp",
+            "heading": "الشحن المجاني",
+            "description": "<p>شحن مجاني في الوطن العربي</p>"
+          }
+        },
+        "block_cc11ny9wgf589l": {
+          "type": "columnn",
+          "settings": {
+            "image": "like-2Judg0nppvNU6tx25Gy7LaPxD2S.webp",
+            "heading": "15 يوم عوائد",
+            "description": "<p>ضمان استعادة الاموال</p>"
+          }
+        },
+        "block_cee6rpyw7oltwqg": {
+          "type": "columnn",
+          "settings": {
+            "image": "return-of-investment-2JudgcrWjW0Avhc7Z2jtHFlFiea.webp",
+            "heading": "100٪ ضمان مجاني",
+            "description": "<p>ضمان استعادة الاموال</p>"
+          }
+        },
+        "block_cgovtb6di7fywh8": {
+          "type": "columnn",
+          "settings": {
+            "image": "truck-2JudgxLTGzBUaXLBlveov91BiQD.webp",
+            "heading": "عملية دفع آمنة",
+            "description": "<p>لا تقلق بشأن الأمن بعد الآن</p>"
+          }
+        }
+      },
+      "order": ["block_c9qx028mi12btfk4", "block_cc11ny9wgf589l", "block_cee6rpyw7oltwqg", "block_cgovtb6di7fywh8"]
+    },
+    "section_iryt4p1dmrzxq9d": {
+      "type": "multi-column",
+      "settings": {
+        "columns_desktop": 2,
+        "columns_mobile": "1",
+        "title": "معلومات عنا",
+        "margin_bottom": 5,
+        "margin_top": 85
+      },
+      "blocks": {
+        "block_iucc6f1w88xcfdv": {
+          "type": "columnn",
+          "settings": {
+            "image": "xtra-minimal-webshop-2Juh78or1FZPYilwGUJPgH8Nl4c.webp"
+          }
+        },
+        "block_iztiz4hxqx8n8sl": {
+          "type": "columnn",
+          "settings": {
+            "heading": "ملابس من جميع أنحاء العالم ، ماركات خاصة.",
+            "description": "<p>هذا المتجر يعرض مجموعة متنوعة من الملابس من جميع أنحاء العالم، ويضم ماركات راقية وخاصة.</p><p>يمكنك العثور على كل ما تريد من ملابس معتمدة وعصرية في هذا المتجر الذي يتيح لك التسوق عبر الإنترنت.</p><p>استمتع بتجربة التسوق الرائعة والعثور على ملابس ناعمة وراقية في متجر ملابس من جميع أنحاء العالم الذي يعرض ماركات خاصة للرجال والنساء.</p>",
+            "link_label": "عن المتجر",
+            "link": "/about-us"
+          }
+        }
+      },
+      "order": ["block_iucc6f1w88xcfdv", "block_iztiz4hxqx8n8sl"]
+    },
+    "section_9nayyt0zwugfwpf": {
+      "type": "featured-collections",
+      "settings": {
+        "title": "تشكيلات جديدة",
+        "section_title_position": "right",
+        "padding_top": 80,
+        "padding_bottom": 5
+      },
+      "blocks": {
+        "block_9tdrxohe4dvholo": {
+          "type": "category",
+          "settings": {
+            "category": "f0d2099e-5031-435c-8d39-e967270d2cb1"
+          }
+        },
+        "block_fnblvntzzcvcsyf": {
+          "type": "category",
+          "settings": {
+            "category": "5c4185a7-fffd-48e0-9064-9ed0b7b31d88"
+          }
+        },
+        "block_fopl8exczmojy74": {
+          "type": "category",
+          "settings": {
+            "category": "db6868e6-1d32-40fd-a927-bda6555b0d8c"
+          }
+        },
+        "block_fpy1lbh4t349ufo": {
+          "type": "category",
+          "settings": {
+            "category": "2bab572d-5197-418d-9072-1f0b82ff9fb8"
+          }
+        }
+      },
+      "order": ["block_9tdrxohe4dvholo", "block_fnblvntzzcvcsyf", "block_fopl8exczmojy74", "block_fpy1lbh4t349ufo"]
+    }
   },
   "order": [
-      "section_qum9qooyrwe3uz",
-      "section_mjhf0v7zdki572el",
-      "section_62tm9748qh15wfk",
-      "featured-products",
-      "section_iryt4p1dmrzxq9d",
-      "section_9nayyt0zwugfwpf"
+    "section_qum9qooyrwe3uz",
+    "section_mjhf0v7zdki572el",
+    "section_62tm9748qh15wfk",
+    "featured-products",
+    "section_iryt4p1dmrzxq9d",
+    "section_9nayyt0zwugfwpf"
   ]
 }
