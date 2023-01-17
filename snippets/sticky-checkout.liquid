@@ -1,64 +1,42 @@
 {% style %}
 
-#sticky-overlay {
-    background: rgb(0 0 0 / 75%);
-    backdrop-filter: blur(3px);
-    height:100vh;
-    width: 100%;
-    position: fixed;
-    bottom:0px;
-    left:0;
-    transform: translate(0, 0);
-    z-index: 99999;
-    display:none;
-    
-}
-
-@keyframes slidein {
-  from {
-    transform: translateY(100%);
-  }
-
-  to {
-    transform: translateY(0%);
-  }
-}
-
 
 
 .yc-sticky-checkout {
+    visibility: hidden;
+    position: fixed;
+    left:0;
+    transform: translateY(100%);
+    z-index: 99999;
     width: 100%;
     height: 50vh;
     background-color: white;
     padding: 10px;
     padding-bottom: 150px;
-    position:fixed;
     bottom:0;
-    animation: 0.3s slidein;
+    transition: all .1s ease-in-out;
 }
 
 .yc-sticky-checkout .yc
 
 {% endstyle %}
 
-<div id="sticky-overlay" class="sticky-overlay">
-    <div id="yc-sticky-checkout"  class="yc-sticky-checkout">
-        <div class="step_1" id="checkout_step_1">
-            st3p1
-        </div>
-        <div class="step_2" id="checkout_step_2">
-            step2
-            <button
-                type='submit'
-                class='yc-btn w-full express-checkout-button'
-                onclick='placeOrder(this)'
-            >
-                <span
-                class='spinner hidden'
-                id='loading__checkout'
-                ></span>
-                <span>{{ settings.express_checkout_cta }}</span>
-            </button>
-        </div>
+<div id="yc-sticky-checkout"  class="yc-sticky-checkout">
+    <div class="step_1" id="checkout_step_1">
+        st3p1
+    </div>
+    <div class="step_2" id="checkout_step_2">
+        step2
+        <button
+            type='submit'
+            class='yc-btn w-full express-checkout-button'
+            onclick='placeOrder(this)'
+        >
+            <span
+            class='spinner hidden'
+            id='loading__checkout'
+            ></span>
+            <span>{{ settings.express_checkout_cta }}</span>
+        </button>
     </div>
 </div>

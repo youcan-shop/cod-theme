@@ -223,10 +223,19 @@ function updateProductDetails(parentSection, image, price) {
   }
 }
 
-function triggerCheckout(){ 
-  const stickyOverlay = document.querySelector('#sticky-overlay')
-  stickyOverlay.style.display = 'block'
+function triggerCheckout(){
+  const stickycheckout = document.querySelector('#yc-sticky-checkout')
+  overlay.style.visibility = 'visible';
+  overlay.style.opacity = '1';
+  stickycheckout.style.transform = 'none';
 
+  overlay.addEventListener('click', () => {
+    stickycheckout.style.visibility = 'hidden';
+    stickycheckout.style.transform = "translateY(100%)";
+
+  })
+
+  stickycheckout.style.visibility = 'visible'
 }
 
 
