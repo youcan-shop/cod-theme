@@ -58,4 +58,13 @@
     background-color: var(--yc-footer-copyright-background);
     padding: 1rem 0;
   }
+
+  .logo {
+    flex-grow: 2;
+
+    img {
+      max-height: 3rem;
+      object-fit: contain;
+    }
+  }
 }

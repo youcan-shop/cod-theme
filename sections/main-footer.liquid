@@ -12,22 +12,13 @@
 {% endstyle %}
 
 <footer class='yc-footer mt-24'>
-  <div class='columns container'>
-    {%- for block in section.blocks -%}
-      {%- case block.type -%}
-        {%- when 'copyright' -%}
-          <div
-            class='copyright'
-            {{ block.youcan_attributes }}
-          >
-            {%- for item in block.settings -%}
-              <div class='block whitespace-pre-wrap leading-8'>{{ item.1 }}</div>
-            {%- endfor %}
-          </div>
-      {%- endcase %}
-    {%- endfor %}
-  </div>
   <div class="columns container">
+    <div class="logo column">
+      <img
+        loading='lazy'
+        src='{%- if section.settings.logo.src -%} {{ section.settings.logo.src }} {%- else -%} {{ 'cod-logo-light.png' | asset_url }} {%- endif -%}'
+      >
+    </div>
     {%- for linklist in link-lists -%}
       {%- if linklist.links | count > 0  and linklist != main-link-list -%}
         <div class="column">
@@ -42,12 +33,24 @@
     {%- endfor -%}
 
     {%- for block in section.blocks -%}
-      <div class="column">
-        <h1 class='title block'>{{ block.settings.block-title }}</h1>
-        <div class="description">
-          {{ block.settings.description }}
-        </div>
-      </div>
+      {%- case block.type -%}
+        {%- when 'copyright' -%}
+          <div
+            class='copyright'
+            {{ block.youcan_attributes }}
+          >
+            {%- for item in block.settings -%}
+              <div class='block whitespace-pre-wrap leading-8'>{{ item.1 }}</div>
+            {%- endfor %}
+          </div>
+        {%- else -%}
+          <div class="column">
+            <h1 class='title block'>{{ block.settings.block-title }}</h1>
+            <div class="description">
+              {{ block.settings.description }}
+            </div>
+          </div>
+        {%- endcase %}
     {%- endfor %}
   </div>
 </footer>
@@ -57,6 +60,11 @@
   "label": "Footer",
   "limit": 1,
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
     {
       "type": "paragraph",
       "content": "Footer menu can be managed from your [Menu settings](https:\/\/seller-area.youcan.shop\/admin\/menus)"
