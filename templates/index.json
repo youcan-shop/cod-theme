@@ -58,7 +58,7 @@
       "settings": {
         "title": "منتجات",
         "section_title_position": "right",
-        "padding_bottom": 5,
+        "padding_bottom": 85,
         "padding_top": 85
       }
     },
@@ -221,6 +221,55 @@
         }
       },
       "order": ["block_9tdrxohe4dvholo", "block_fnblvntzzcvcsyf", "block_fopl8exczmojy74", "block_fpy1lbh4t349ufo"]
+    },
+    "section_sfrr573akvf9a93": {
+      "type": "featured-products",
+      "settings": {
+          "title": "الهمزة",
+          "padding_top": 80,
+          "padding_bottom": 95,
+          "background_color": "#C80357FF",
+          "text_color": "#FFFFFFFF",
+          "countdown_message": "<p>أسرع! قبل انتهاء الهمزة<\/p>",
+          "countdown_year": "2023",
+          "countdown_month": "1",
+          "countdown_day": "20",
+          "countdown_enabled": true
+      },
+      "blocks": {
+          "block_t4pstgyxcklip0s": {
+              "type": "product",
+              "settings": {
+                  "product": "2d39bfc2-2269-482d-97e8-35286c06fa8d",
+                  "tag_color": "#000000",
+                  "tag_text_color": "#ffffff",
+                  "tag_position": "top_right"
+              }
+          },
+          "block_t5vbqr2jlmpdhgg": {
+              "type": "product",
+              "settings": {
+                  "product": "ce17d5cf-4607-4f0b-9996-6a2d616c0112",
+                  "tag_color": "#000000",
+                  "tag_text_color": "#ffffff",
+                  "tag_position": "top_right"
+              }
+          },
+          "block_t7e2q4xmp6k9hq": {
+              "type": "product",
+              "settings": {
+                  "product": "693a2102-03c6-46d8-a5e1-e8455c3384d8",
+                  "tag_color": "#000000",
+                  "tag_text_color": "#ffffff",
+                  "tag_position": "top_right"
+              }
+          }
+      },
+      "order": [
+          "block_t4pstgyxcklip0s",
+          "block_t5vbqr2jlmpdhgg",
+          "block_t7e2q4xmp6k9hq"
+      ]
     }
   },
   "order": [
@@ -228,6 +277,7 @@
     "section_mjhf0v7zdki572el",
     "section_62tm9748qh15wfk",
     "featured-products",
+    "section_sfrr573akvf9a93",
     "section_iryt4p1dmrzxq9d",
     "section_9nayyt0zwugfwpf"
   ]
