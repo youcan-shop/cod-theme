@@ -228,6 +228,14 @@ function teleport(el, to){
   toEl.appendChild(el)
 }
 
+function createPlaceholderDiv(id) {
+  const div = document.createElement('DIV')
+
+  div.setAttribute('id', id)
+
+  return div
+}
+
 
 function triggerCheckout(parentId){
   const stickycheckout = document.querySelector('#yc-sticky-checkout')
@@ -235,18 +243,20 @@ function triggerCheckout(parentId){
   overlay.style.opacity = '1';
   stickycheckout.style.transform = 'none';
 
-  overlay.addEventListener('click', () => {
-    stickycheckout.style.visibility = 'hidden';
-    stickycheckout.style.transform = "translateY(100%)";
-  })
+
 
 
   const parentSection = document.querySelector(`#${parentId}`)
 
   // quantity
   const quantity = parentSection.querySelector('.product-quantity');
+  const quantityPlaceholder = createPlaceholderDiv('quantity-placeholder')
+  quantity.parentElement.appendChild(quantityPlaceholder)
+
   // product options
   const options = parentSection.querySelector('.product-options');
+  const optionsPlaceholder = createPlaceholderDiv('options-placeholder')
+  options.parentElement.appendChild(optionsPlaceholder)
 
   // express checkout
   const expressCheckoutForm = parentSection.querySelector('#express-checkout-form')
@@ -256,8 +266,13 @@ function triggerCheckout(parentId){
 
   teleport(expressCheckoutForm, "#checkout_step_2")
 
-  // const 
+  overlay.addEventListener('click', () => {
+    optionsPlaceholder.replaceWith(options)
+    quantityPlaceholder.replaceWith(quantity)
 
+    stickycheckout.style.visibility = 'hidden';
+    stickycheckout.style.transform = "translateY(100%)";
+  })
 
   stickycheckout.style.visibility = 'visible'
 }
