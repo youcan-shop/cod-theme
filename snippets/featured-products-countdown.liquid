@@ -1,6 +1,8 @@
+{% assign id = 100 | rand: 2000 %}
+
 <div class="countdown-wrapper">
   <div class='message'>{{ message }}</div>
-  <div class="countdown" data-date="{{ countdown_day }}-{{ countdown_month }}-{{ countdown_year }}" data-time="{{ countdown_hour }}:{{ countdown_minute }}">
+  <div class="countdown" id="count-{{ id }}" data-date="{{ countdown_day }}-{{ countdown_month }}-{{ countdown_year }}" data-time="{{ countdown_hour }}:{{ countdown_minute }}">
     <div class="day"><span class="num"></span><span class="word"></span></div>
     <div class="hour"><span class="num"></span><span class="word"></span></div>
     <div class="min"><span class="num"></span><span class="word"></span></div>
@@ -8,4 +10,12 @@
   </div>
 </div>
 
-{{ 'countdown.js' | asset_url | script_tag_deferred }}
+{% javascript %}
+  countdown({
+    target: '#count-{{ id }}',
+    dayWord: ' day',
+    hourWord: ' hour',
+    minWord: ' min',
+    secWord: ' sec'
+  });
+{% endjavascript %}

@@ -22,6 +22,7 @@
     color: {{ section.settings.text_color.hex }};
   }
 {% endstyle %}
+
 <div class='yc-featured-products section-featured-products-{{id}}'>
   <div class="container">
     <!-- prettier-ignore -->
@@ -76,7 +77,8 @@
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Padding Top"
+      "label": "Padding Top",
+      "default": 80
     },
     {
       "type": "range",
@@ -85,7 +87,8 @@
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Padding Bottom"
+      "label": "Padding Bottom",
+      "default": 80
     },
     {
       "type": "color",
