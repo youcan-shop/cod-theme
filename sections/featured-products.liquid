@@ -1,26 +1,44 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  .section-featured-products-{{id}}{
+  .section-featured-products-{{id}} {
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
-  .section-featured-products-{{id}} .yc-section-title{
+  .section-featured-products-{{id}} .yc-section-title {
     text-align: {{ section.settings.section_title_position }}
   }
-{% endstyle %}
+  .section-featured-products-{{id}} {
+    {% if section.settings.background_image.src %}
+    background-image: url({{ section.settings.background_image.src }});
+    {% elsif section.settings.background_color.hex %}
+    background-color: {{ section.settings.background_color.hex }};
+    {% endif %}
 
-<div class='yc-featured-products section-featured-products-{{id}} container'>
-  {%- render 'featured-products-countdown', message: 'camera wawaw', countdown_year: 2023, countdown_month: 1, countdown_day: 18, countdown_hour: 0, countdown_minute: 0 -%}
-  <h1 class='yc-section-title'>
-    {{ section.settings.title }}
-  </h1>
-  <div class='product-list'>
-    {%- for block in section.blocks -%}
-      <div {{ block.youcan_attributes }}>
-        {%- render 'product-preview', item: block.settings.product, block_settings: block.settings -%}
-      </div>
-    {%- endfor -%}
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 10rem;
+  }
+  .section-featured-products-{{id}} * {
+    color: {{ section.settings.text_color.hex }};
+  }
+{% endstyle %}
+<div class='yc-featured-products section-featured-products-{{id}}'>
+  <div class="container">
+    <!-- prettier-ignore -->
+    {% if section.settings.countdown_enabled %}
+      {%- render 'featured-products-countdown', message: section.settings.countdown_message, countdown_year: section.settings.countdown_year, countdown_month: section.settings.countdown_month, countdown_day: section.settings.countdown_day, countdown_hour: section.settings.countdown_hour, countdown_minute: section.settings.countdown_minute -%}
+    {% endif %}
+    <h1 class='yc-section-title'>
+      {{ section.settings.title }}
+    </h1>
+    <div class='product-list'>
+      {%- for block in section.blocks -%}
+        <div {{ block.youcan_attributes }}>
+          {%- render 'product-preview', item: block.settings.product, block_settings: block.settings -%}
+        </div>
+      {%- endfor -%}
+    </div>
   </div>
 </div>
 
@@ -69,6 +87,65 @@
       "step": 1,
       "unit": "px",
       "label": "Padding Bottom"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "header",
+      "content": "Countdown settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "ℹ️ If you want to show countdown on this section, please enable it and set the date and time."
+    },
+    {
+      "type": "checkbox",
+      "id": "countdown_enabled",
+      "label": "Enable countdown"
+    },
+    {
+      "label": "Message",
+      "id": "countdown_message",
+      "type": "richtext",
+      "default": "Hurry up! There aren't many items left in stock."
+    },
+    {
+      "label": "Year",
+      "id": "countdown_year",
+      "type": "number"
+    },
+    {
+      "label": "Month",
+      "id": "countdown_month",
+      "type": "number"
+    },
+    {
+      "label": "Day",
+      "id": "countdown_day",
+      "type": "number"
+    },
+    {
+      "label": "Hour",
+      "id": "countdown_hour",
+      "type": "number"
+    },
+    {
+      "label": "Minutes",
+      "id": "countdown_minute",
+      "type": "number"
     }
   ],
   "blocks": [
