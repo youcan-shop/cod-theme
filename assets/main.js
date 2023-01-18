@@ -142,9 +142,9 @@ function closeSearch() {
 
 overlay.addEventListener('click', closeSearch);
 
-/**
- * Group Sticky elements in one place
- */
+/* ---------------------------------------------- */
+/* ----- Group Sticky elements in one place ----- */
+/* ---------------------------------------------- */
 (function groupStickyElements() {
   const elements = document.querySelectorAll('.is_sticky');
 
