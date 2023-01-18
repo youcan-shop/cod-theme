@@ -1,29 +1,49 @@
 /* --------------------------- */
 /* ----- countdown timer ----- */
 /* --------------------------- */
-const countdown = function(_config) {
-  const $ = elem => document.querySelector(elem);
-  const addZero = (x) => (x < 10 && x >= 0) ? "0"+x : x;
-  const tarDate = $(_config.target).getAttribute('data-date').split('-');
+
+/**
+ * addZero function, adds a zero in front of a number if it's less than 10
+ * @param {number} x - number to be checked
+ * @returns {string} - number with a zero in front if it's less than 10
+ */
+const addZero = (x) => {
+  if (x < 10 && x >= 0) {
+    return `0${x}`;
+  }
+
+  return x;
+}
+
+/**
+ * $ function, a shorthand for document.querySelector
+ * countdown function, takes a target element and sets the countdown timer
+ * @param {*} target 
+ */
+const $ = elem => document.querySelector(elem);
+
+/**
+ * countdown function, takes a target element and sets the countdown timer
+ * @param {*} target 
+ */
+const countdown = function(target) {
+  const tarDate = $(target).getAttribute('data-date').split('-');
+
   const day = parseInt(tarDate[0]);
   const month = parseInt(tarDate[1]);
   const year = parseInt(tarDate[2]);
-  let tarTime = $(_config.target).getAttribute('data-time');
-  let tarhour, tarmin;
 
-  if (tarTime != null) {
-    tarTime = tarTime.split(':');
-    tarhour = parseInt(tarTime[0]);
-    tarmin = parseInt(tarTime[1]);
+  let targetedTime = $(target).getAttribute('data-time');
+  let targetedHour, targetedMin;
+
+  if (targetedTime != null) {
+    targetedTime = targetedTime.split(':');
+    targetedHour = parseInt(targetedTime[0]);
+    targetedMin = parseInt(targetedTime[1]);
   }
 
   // Set the date we're counting down to
-  const countDownDate = new Date(year, month-1, day, tarhour, tarmin, 0, 0).getTime();
-
-  $(_config.target+' .day .word').innerHTML = _config.dayWord;
-  $(_config.target+' .hour .word').innerHTML = _config.hourWord;
-  $(_config.target+' .min .word').innerHTML = _config.minWord;
-  $(_config.target+' .sec .word').innerHTML = _config.secWord; 
+  const countDownDate = new Date(year, month-1, day, targetedHour, targetedMin, 0, 0).getTime();
 
   const updateTime = () => {
     // Get todays date and time
@@ -38,18 +58,18 @@ const countdown = function(_config) {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    requestAnimationFrame(updateTime);
 
-    $(_config.target+' .day .num').innerHTML = addZero(days);
-    $(_config.target+' .hour .num').innerHTML = addZero(hours);
-    $(_config.target+' .min .num').innerHTML = addZero(minutes);
-    $(_config.target+' .sec .num').innerHTML = addZero(seconds);
+    $(`${target} .day .num`).innerHTML = addZero(days);
+    $(`${target} .hour .num`).innerHTML = addZero(hours);
+    $(`${target} .min .num`).innerHTML = addZero(minutes);
+    $(`${target} .sec .num`).innerHTML = addZero(seconds);
 
-    // If the count down is over, write some text
     if (distance < 0) {
-      $(".countdown").innerHTML = "EXPIRED";
+      clearInterval(countdownTimer);
+      return;
     }
   }
 
   updateTime();
+  setInterval(updateTime, 1000);
 }

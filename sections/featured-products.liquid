@@ -27,7 +27,7 @@
   <div class="container">
     <!-- prettier-ignore -->
     {% if section.settings.countdown_enabled %}
-      {%- render 'featured-products-countdown', message: section.settings.countdown_message, countdown_year: section.settings.countdown_year, countdown_month: section.settings.countdown_month, countdown_day: section.settings.countdown_day, countdown_hour: section.settings.countdown_hour, countdown_minute: section.settings.countdown_minute -%}
+      {%- render 'countdown', section_settings: section.settings -%}
     {% endif %}
     <h1 class='yc-section-title'>
       {{ section.settings.title }}
