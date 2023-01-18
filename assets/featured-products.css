@@ -111,3 +111,18 @@
   bottom: 8px;
   left: 8px;
 }
+.yc-featured-products .countdown-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.yc-featured-products .countdown-wrapper .message {
+  font-size: 2rem;
+}
+.yc-featured-products .countdown-wrapper .countdown {
+  direction: ltr;
+  display: flex;
+  gap: 1rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}

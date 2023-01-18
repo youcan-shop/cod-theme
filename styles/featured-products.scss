@@ -129,4 +129,22 @@
       }
     }
   }
+
+  .countdown-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .message {
+      font-size: 2rem;
+    }
+
+    .countdown {
+      direction: ltr;
+      display: flex;
+      gap: 1rem;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+  }
 }
