@@ -1,65 +1,11 @@
-{{ 'featured-products-countdown.css' | asset_url | stylesheet_tag }}
-
-<div class='countdown-wrapper'>
+<div class="countdown-wrapper">
   <div class='message'>{{ message }}</div>
-  <div class='countdown'>
-    <span
-      id='days'
-      class='unit-parent'
-      data-display-unit='days'
-    ></span>
-    <span
-      id='hours'
-      class='unit-parent'
-      data-display-unit='hours'
-    ></span>
-    <span
-      id='minutes'
-      class='unit-parent'
-      data-display-unit='min'
-    ></span>
-    <span
-      id='seconds'
-      class='unit-parent'
-      data-display-unit='sec'
-    ></span>
+  <div class="countdown" data-date="{{ countdown_day }}-{{ countdown_month }}-{{ countdown_year }}" data-time="{{ countdown_hour }}:{{ countdown_minute }}">
+    <div class="day"><span class="num"></span><span class="word"></span></div>
+    <div class="hour"><span class="num"></span><span class="word"></span></div>
+    <div class="min"><span class="num"></span><span class="word"></span></div>
+    <div class="sec"><span class="num"></span><span class="word"></span></div>
   </div>
 </div>
-
-<script>
-  const now = new Date();
-
-  const year = {%- if countdown_year -%}
-    {{ countdown_year }}
-  {%- else -%}now.getFullYear(){%- endif -%};
-
-  const month = {%- if countdown_month -%}
-    {{ countdown_month }}
-  {%- else -%}now.getMonth() + 1
-  {%- endif -%};
-
-  const day = {%- if countdown_day -%}
-    {{ countdown_day }}
-  {%- else -%}now.getDate(){%- endif -%};
-
-  const hour = {%- if countdown_hour -%}
-    {{ countdown_hour }}
-  {%- else -%}now.getHours() + 1
-  {%- endif -%};
-
-  const minute = {%- if countdown_minute -%}
-    {{ countdown_minute }}
-  {%- else -%}
-    0
-  {%- endif -%};
-
-  const second = {%- if countdown_second -%}
-    {{ countdown_second }}
-  {%- else -%}
-    0
-  {%- endif -%};
-
-  const targetDate = new Date(year, month - 1, day, hour, minute, second);
-</script>
 
 {{ 'countdown.js' | asset_url | script_tag_deferred }}
