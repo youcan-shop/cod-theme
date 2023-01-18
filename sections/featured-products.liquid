@@ -14,7 +14,6 @@
     {% elsif section.settings.background_color.hex %}
     background-color: {{ section.settings.background_color.hex }};
     {% endif %}
-
     background-repeat: repeat;
     background-position: center;
     background-size: 10rem;
@@ -125,27 +124,32 @@
     {
       "label": "Year",
       "id": "countdown_year",
-      "type": "number"
+      "type": "number",
+      "default": 0
     },
     {
       "label": "Month",
       "id": "countdown_month",
-      "type": "number"
+      "type": "number",
+      "default": 0
     },
     {
       "label": "Day",
       "id": "countdown_day",
-      "type": "number"
+      "type": "number",
+      "default": 0
     },
     {
       "label": "Hour",
       "id": "countdown_hour",
-      "type": "number"
+      "type": "number",
+      "default": 0
     },
     {
       "label": "Minutes",
       "id": "countdown_minute",
-      "type": "number"
+      "type": "number",
+      "default": 0
     }
   ],
   "blocks": [
