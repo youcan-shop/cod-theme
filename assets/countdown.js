@@ -17,7 +17,8 @@ function initCountdown() {
       if (units[unit] === 0) {
         el.style.display = 'none';
       } else if (el) {
-        el.innerHTML = units[unit] + '<span class="unit">' + unit + '</span>';
+        const displayUnit = el.getAttribute('data-display-unit');
+        el.innerHTML = units[unit] + '<span class="unit">' + (displayUnit ? displayUnit : unit) + '</span>';
       }
     }
 
