@@ -22,7 +22,9 @@ function initCountdown() {
     }
 
     const progressEl = document.getElementById('progress');
-    progressEl.style.width = progress + '%';
+    if (progressEl) {
+      progressEl.style.width = progress + '%';
+    }
 
     if (timeRemaining < 0) {
       document.querySelector('.countdown-wrapper').innerHTML = 'Offer Is Expired';
