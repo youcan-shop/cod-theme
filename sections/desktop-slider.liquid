@@ -9,6 +9,14 @@
     height: {{ section.settings.slider_arrows_content_size }}px;
     width: {{ section.settings.slider_arrows_content_size }}px;
   }
+  
+  .yc-slider__desktop .content {
+    background-color: {{ section.settings.slider_overlay_background_color.hex }};
+  }
+
+  .yc-slider__mobile .content {
+    background-color: {{ section.settings.slider_mobile_overlay_background_color.hex }};
+  }
 {% endstyle %}
 
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
@@ -80,6 +88,12 @@
     {
       "type": "paragraph",
       "content": "ℹ️ These settings will be applied to desktop devices."
+    },
+    {
+      "type": "color",
+      "id": "slider_overlay_background_color",
+      "label": "Overlay Background Color",
+      "default": "#0000007d"
     },
     {
       "type": "range",
@@ -184,6 +198,12 @@
     {
       "type": "paragraph",
       "content": "ℹ️ These settings will be applied to mobile devices."
+    },
+    {
+      "type": "color",
+      "id": "slider_mobile_overlay_background_color",
+      "label": "Overlay Background Color",
+      "default": "#0000007d"
     },
     {
       "type": "range",
