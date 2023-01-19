@@ -42,10 +42,10 @@
       {% render 'product-card' %}
     </div>
 
-    <span class="close-icon" onclick="goToStep(0)">
+    <span class="close-icon" onclick="goToCheckoutStep(0)">
       <ion-icon name="close-outline"></ion-icon>
     </span>
-    <button class="yc-btn w-full sticky-checkout-cta" onclick="showExpressCheckoutForm()">
+    <button class="yc-btn w-full sticky-checkout-cta" onclick="goToCheckoutStep(2)">
       {{ settings.express_checkout_cta }}
     </button>
   </div>
@@ -53,7 +53,7 @@
     <div class="variant-card">
       {% render 'product-card' %}
     </div>
-    <span class="back-icon" onclick="goToStep(1)">
+    <span class="back-icon" onclick="goToCheckoutStep(1)">
       <ion-icon name="return-up-back-outline"></ion-icon>
     </span>
     <button
