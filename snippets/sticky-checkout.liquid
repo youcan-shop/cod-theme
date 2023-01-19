@@ -37,11 +37,10 @@
 {% endstyle %}
 
 <div id="yc-sticky-checkout" class="yc-sticky-checkout">
+  <div class="variant-card">
+    {% render 'product-card' %}
+  </div>
   <div class="step_1" id="checkout_step_1">
-    <div class="variant-card">
-      {% render 'product-card' %}
-    </div>
-
     <span class="close-icon" onclick="goToCheckoutStep(0)">
       <ion-icon name="close-outline"></ion-icon>
     </span>
@@ -50,9 +49,6 @@
     </button>
   </div>
   <div class="step_2" id="checkout_step_2">
-    <div class="variant-card">
-      {% render 'product-card' %}
-    </div>
     <span class="back-icon" onclick="goToCheckoutStep(1)">
       <ion-icon name="return-up-back-outline"></ion-icon>
     </span>

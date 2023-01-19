@@ -20,7 +20,7 @@
       top: calc(var(--yc-nav-height) + 20px);
     }
 
-    #main-image {
+    .main-image {
       width: 100%;
       height: 480px;
       object-fit: cover;
@@ -31,7 +31,7 @@
       overflow: hidden;
     }
 
-    #main-image {
+    .main-image {
       width: 100%;
       height: 450px;
     }

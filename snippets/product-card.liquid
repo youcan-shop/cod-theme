@@ -37,9 +37,8 @@
 <div class="yc-product-card">
   <div class="image">
     <img
-      id="main-image"
       class="main-image"
-      src="{%- if product_image %} {{ product-image }} {%- else %} {{ 'default_product.jpeg' | asset_url }} {%- endif %}"
+      src="{{ 'default_product.jpeg' | asset_url }}"
       alt="product image">
   </div>
   <div class="details">

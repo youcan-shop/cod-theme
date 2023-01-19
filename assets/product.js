@@ -2,7 +2,7 @@ const _qs = (selector) => document.querySelector(selector);
 
 function previewProductImage(element) {
   const parentSection = element.closest('.yc-single-product');
-  const thumbnail = parentSection.querySelector('#main-image');
+  const thumbnail = parentSection.querySelector('.main-image');
 
   thumbnail.src = element.src;
   setElementActive(element);
@@ -69,7 +69,7 @@ function uploadImage(element) {
     if (!imgZoomer) return;
 
     function eventHandler(e) {
-      const original = _qs('#main-image');
+      const original = _qs('.main-image');
       const magnified = _qs('#magnified-image');
 
       x = (e.offsetX / original.offsetWidth) * 100;
@@ -220,23 +220,29 @@ function setVariant(parentSection, id) {
  * @param {String} image
  * @param {String} price
  */
-function updateProductDetails(parentSection, image, price) {
+function updateProductDetails(parentSection, image, price, variations) {
   if (image) {
-    const mainImg = parentSection.querySelector('#main-image');
+    const mainImgs = parentSection.querySelectorAll('.main-image');
 
-    if (!mainImg) return;
-
-    mainImg.src = image;
+    mainImgs.forEach(mainImg => mainImg.src = image)
   }
 
   if (price) {
-    const productPrice = parentSection.querySelector('.product-price');
+    const productPrices = parentSection.querySelectorAll('.product-price');
 
-    if (!productPrice) return;
+    productPrices.forEach(productPrice => {
+      productPrice.innerHTML = `${
+        String(productPrice.innerHTML).split(' ')[0]
+      } ${price}`;
+    })
+  }
 
-    productPrice.innerHTML = `${
-      String(productPrice.innerHTML).split(' ')[0]
-    } ${price}`;
+  if(variations) {
+    const productVariations = parentSection.querySelectorAll('.product-variations');
+
+    productVariations.forEach(el => {
+      el.innerHTML = Object.values(variations).join(' - ')
+    })
   }
 }
 
@@ -317,8 +323,8 @@ function hideCheckout() {
   const quantityPlaceholder = _qs('#quantity-placeholder');
 
   overlay.click();
-  optionsPlaceholder.replaceWith(options);
-  quantityPlaceholder.replaceWith(quantity);
+  optionsPlaceholder?.replaceWith(options);
+  quantityPlaceholder?.replaceWith(quantity);
   stickyCheckout.style.visibility = 'hidden';
   stickyCheckout.style.transform = 'translateY(100%)';
 }
@@ -358,7 +364,8 @@ function setup() {
         updateProductDetails(
           section,
           selectedVariant.image,
-          selectedVariant.price
+          selectedVariant.price,
+          selectedVariant.variations
         );
       });
 
