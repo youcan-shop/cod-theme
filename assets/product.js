@@ -335,8 +335,8 @@ function hideCheckout() {
   // Remove overlay element
   overlay.click();
   // return element to their initial place
-  optionsPlaceholder.replaceWith(options);
-  quantityPlaceholder.replaceWith(quantity);
+  optionsPlaceholder?.replaceWith(options);
+  quantityPlaceholder?.replaceWith(quantity);
   // hide the checkout element
   stickyCheckout.style.visibility = "hidden";
   stickyCheckout.style.transform = "translateY(100%)";
@@ -375,8 +375,6 @@ function setup() {
       const observer = new MutationObserver(() => {
         const selectedVariant = getSelectedVariant(section);
         const variantIdInput = section.querySelector("#variantId");
-
-        console.log(selectedVariant)
 
         variantIdInput.value = selectedVariant.id;
 
