@@ -45,14 +45,15 @@ async function placeOrder() {
 
         const formTop = form.getBoundingClientRect().top;
 
-        window.scrollBy({ top: formTop - window.innerHeight / 3, behavior: 'smooth' });
+        // window.scrollBy({ top: formTop - window.innerHeight / 3, behavior: 'smooth' });
       })
       .onSkipShippingStep((data, redirectToShippingPage) => {
         redirectToShippingPage();
       })
       .onSkipPaymentStep((data, redirectToPaymentPage) => {
         redirectToPaymentPage();
-      });
+      })
+      
   } catch (e) {
     notify(e.message, 'error');
   } finally {

@@ -238,12 +238,11 @@ function createPlaceholderDiv(id) {
 
 
 function triggerCheckout(parentId){
+  document.querySelector('#checkout_step_1').style.display = 'block'
   const stickycheckout = document.querySelector('#yc-sticky-checkout')
   overlay.style.visibility = 'visible';
   overlay.style.opacity = '1';
   stickycheckout.style.transform = 'none';
-
-
 
 
   const parentSection = document.querySelector(`#${parentId}`)
@@ -266,6 +265,8 @@ function triggerCheckout(parentId){
 
   teleport(expressCheckoutForm, "#checkout_step_2")
 
+  document.querySelector('#checkout_step_2').style.display = 'none'
+
   overlay.addEventListener('click', () => {
     optionsPlaceholder.replaceWith(options)
     quantityPlaceholder.replaceWith(quantity)
@@ -275,6 +276,11 @@ function triggerCheckout(parentId){
   })
 
   stickycheckout.style.visibility = 'visible'
+}
+
+function showExpressCheckoutForm(){
+  document.querySelector('#checkout_step_1').style.display = 'none'
+  document.querySelector('#checkout_step_2').style.display = 'block'
 }
 
 

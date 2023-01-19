@@ -2,41 +2,41 @@
 
 
 
-.yc-sticky-checkout {
+  .yc-sticky-checkout {
     visibility: hidden;
     position: fixed;
-    left:0;
+    left: 0;
     transform: translateY(100%);
     z-index: 99999;
     width: 100%;
     height: 50vh;
     background-color: white;
-    padding: 10px;
-    padding-bottom: 150px;
-    bottom:0;
-    transition: all .1s ease-in-out;
-}
+    padding: 10px 10px 150px;
+    bottom: 0;
+    transition: all 0.1s ease-in-out;
+  }
 
-.yc-sticky-checkout .yc
-
+  .sticky-checkout-cta {
+    position: absolute;
+    bottom: 10px;
+  }
 {% endstyle %}
 
-<div id="yc-sticky-checkout"  class="yc-sticky-checkout">
-    <div class="step_1" id="checkout_step_1">
-        st3p1
-    </div>
-    <div class="step_2" id="checkout_step_2">
-        step2
-        <button
-            type='submit'
-            class='yc-btn w-full express-checkout-button'
-            onclick='placeOrder(this)'
-        >
-            <span
-            class='spinner hidden'
-            id='loading__checkout'
-            ></span>
-            <span>{{ settings.express_checkout_cta }}</span>
-        </button>
-    </div>
+<div id="yc-sticky-checkout" class="yc-sticky-checkout">
+  <div class="step_1" id="checkout_step_1">
+
+    <button class="yc-btn w-full sticky-checkout-cta" onclick="showExpressCheckoutForm()">
+      checkout
+    </button>
+  </div>
+  <div class="step_2" id="checkout_step_2">
+
+    <button
+      type='submit'
+      class='yc-btn w-full express-checkout-button sticky-checkout-cta'
+      onclick='placeOrder(this)'>
+      <span class='spinner hidden' id='loading__checkout'></span>
+      <span>{{ settings.express_checkout_cta }}</span>
+    </button>
+  </div>
 </div>
