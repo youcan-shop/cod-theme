@@ -1,0 +1,55 @@
+{% style %}
+  .yc-product-card {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  .yc-product-card .image {
+    width: 120px;
+    aspect-ratio: 1;
+    max-width: 30%;
+  }
+
+  .yc-product-card .details {
+    flex-grow: 1;
+  }
+
+  .yc-product-card .price {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+  }
+
+  .yc-product-card .price .main {
+
+    font-size: 18pt;
+    font-weight: bold;
+  }
+{% endstyle %}
+
+
+<div class="yc-product-card">
+  <div class="image">
+    <img src="https://cdn.youcan.shop/stores/c611907409af35137b71c51dab490ec2/products/FvXX5Unjky6HENEdM0S8cznWX334Gv2LicPpT0pt.webp" alt="product image">
+  </div>
+  <div class="details">
+    <div class="price">
+      <span class="main">400</span>
+      <span class="off">
+        50%
+      </span>
+    </div>
+    <div class="compare-at-price">500</div>
+    <div class="variantName">Black</div>
+  </div>
+  <div class="other-info">
+    <span>x4</span>
+  </div>
+</div>
