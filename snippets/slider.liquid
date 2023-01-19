@@ -1,0 +1,40 @@
+<div
+  class='splide yc-slider__{{ view }}'
+  id='yc_slider_{{ id }}'
+>
+  <div class='splide__track'>
+    <ul class='splide__list'>
+      {%- for block in blocks %}
+        <li
+          class='splide__slide'
+          {{ block.youcan_attributes }}
+        >
+          <img
+            loading='lazy'
+            src='{{ block.settings.image.src }}'
+          >
+          {%- if block.settings.caption %}
+            <div class='content flex items-center h-full w-full'>
+              <div class='container flex items-center justify-center'>
+                <div>
+                  <div class='caption'>{{ block.settings.caption }}</div>
+                  {% if block.settings.product %}
+                    <div class='btn-holder'>
+                      <a
+                        href='{{ block.settings.product.url }}'
+                        class='yc-btn'
+                        style='font-weight: {{ block.settings.button_font_weight }}!important'
+                      >
+                        {{ block.settings.button_text }}
+                      </a>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {%- endif %}
+        </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</div>

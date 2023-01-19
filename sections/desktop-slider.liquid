@@ -13,73 +13,74 @@
 
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
 {{ 'desktop-slider.css' | asset_url | stylesheet_tag }}
+{{ 'mobile-slider.css' | asset_url | stylesheet_tag }}
 {{ 'splide.min.js' | asset_url | script_tag }}
 
-<div
-  class='splide yc-slider__desktop'
-  id='yc_slider_{{ id }}'
->
-  <div class='splide__track'>
-    <ul class='splide__list'>
-      {%- for block in section.blocks %}
-        <li
-          class='splide__slide'
-          {{ block.youcan_attributes }}
-        >
-          <img
-            loading='lazy'
-            src='{{ block.settings.image.src }}'
-          >
-          {%- if block.settings.caption %}
-            <div class='content flex items-center h-full w-full'>
-              <div class='container flex items-center justify-center'>
-                <div>
-                  <div class='caption'>{{ block.settings.caption }}</div>
-                  {% if block.settings.product %}
-                    <div class='btn-holder'>
-                      <a
-                        href='{{ block.settings.product.url }}'
-                        class='yc-btn'
-                        style='font-weight: {{ block.settings.button_font_weight }}!important'
-                      >
-                        {{ block.settings.button_text }}
-                      </a>
-                    </div>
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-          {%- endif %}
-        </li>
-      {%- endfor %}
-    </ul>
-  </div>
-</div>
+{% render 'slider', blocks: section.blocks, id: id , view: 'desktop' %}
+{% render 'slider', blocks: section.blocks, id: id , view: 'mobile' %}
 
 <script>
-  var splide = new Splide(`#yc_slider_{{ id }}`, {
+  const isMobile = window.matchMedia("(max-width: 760px)");
+
+  const slider = document.querySelector(`#yc_slider_{{ id }}`);
+
+  const desktopSlider = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
     type: '{{ section.settings.slider_transition_type }}',
     arrows: '{{ section.settings.slider_arrows }}' ? true : false,
     autoplay: '{{ section.settings.slider_autoplay }}' ? true : false,
-    cover: '{{ section.settings.slider_image_size_cover }}' ? true : false,
+    cover: true,
     pagination: '{{ section.settings.slider_pagination }}' ? true : false,
     pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
     pauseOnFocus: '{{ section.settings.slider_pause_on_focus }}' ? true : false,
     height: `{{ section.settings.slider_height_percentage }}vh`,
     interval: '{{ section.settings.slider_timeout | times: 1000 }}',
     focus: 'center',
-    rewind: false,
+    rewind: true,
     drag: 'free',
     snap: true,
+    loop: true,
   });
 
-  splide.mount();
+  const mobileSlider = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
+    type: '{{ section.settings.slider_mobile_transition_type }}',
+    autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
+    cover: true,
+    pagination: '{{ section.settings.slider_mobile_pagination }}' ? true : false,
+    height: `{{ section.settings.slider_mobile_height_percentage }}vh`,
+    interval: '{{ section.settings.slider_mobile_timeout | times: 1000 }}',
+    focus: 'center',
+    rewind: true,
+    drag: 'free',
+    snap: true,
+    loop: true,
+  });
+
+  const mountSlider = () => {
+    try {
+      if (isMobile.matches) return mobileSlider.mount();
+      
+      desktopSlider.mount();
+    } catch {
+      return;
+    }
+  }
+
+  mountSlider();
+  isMobile.addEventListener('change', mountSlider);
 </script>
 
 {%- schema -%}
 {
-  "label": "Desktop Slider",
+  "label": "Slider",
   "settings": [
+    {
+      "type": "header",
+      "content": "👉 Desktop Slider Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "ℹ️ These settings will be applied to desktop devices."
+    },
     {
       "type": "range",
       "id": "slider_height_percentage",
@@ -125,12 +126,6 @@
       "id": "slider_desktop_arrows_background_color",
       "label": "Arrows Background Color",
       "default": "#FFFFFF"
-    },
-    {
-      "type": "checkbox",
-      "id": "slider_image_size_cover",
-      "label": "Make image as cover",
-      "default": true
     },
     {
       "type": "select",
@@ -179,6 +174,72 @@
     {
       "type": "checkbox",
       "id": "slider_arrows",
+      "label": "Arrows",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "👉 Mobile Slider Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "ℹ️ These settings will be applied to mobile devices."
+    },
+    {
+      "type": "range",
+      "id": "slider_mobile_height_percentage",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Slider height",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "slider_mobile_timeout",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "unit": "s",
+      "label": "Timeout",
+      "default": 5
+    },
+    {
+      "type": "select",
+      "id": "slider_mobile_transition_type",
+      "label": "Transition type",
+      "options": [
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        },
+        {
+          "value": "loop",
+          "label": "Loop"
+        }
+      ],
+      "default": "loop"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_pagination",
+      "label": "Pagination",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_arrows",
       "label": "Arrows",
       "default": true
     }
