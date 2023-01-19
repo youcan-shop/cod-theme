@@ -67,6 +67,7 @@
 <form
   id='express-checkout-form'
   class='custom-checkout-{{ checkout_id }}'
+  onsubmit="return false;"
 >
   <div class='express-checkout-fields'>
     {%- for field in checkout.fields %}
