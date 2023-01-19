@@ -28,7 +28,6 @@
   }
 
   .yc-product-card .price .main {
-
     font-size: 18pt;
     font-weight: bold;
   }
@@ -37,19 +36,18 @@
 
 <div class="yc-product-card">
   <div class="image">
-    <img src="https://cdn.youcan.shop/stores/c611907409af35137b71c51dab490ec2/products/FvXX5Unjky6HENEdM0S8cznWX334Gv2LicPpT0pt.webp" alt="product image">
+    <img
+      id="main-image"
+      class="main-image"
+      src="{%- if product_image %} {{ product-image }} {%- else %} {{ 'default_product.jpeg' | asset_url }} {%- endif %}"
+      alt="product image">
   </div>
   <div class="details">
     <div class="price">
-      <span class="main">400</span>
-      <span class="off">
-        50%
-      </span>
+      <span class="product-price"></span>
+      <span class="off"></span>
     </div>
-    <div class="compare-at-price">500</div>
-    <div class="variantName">Black</div>
+    <div class="product-variations"></div>
   </div>
-  <div class="other-info">
-    <span>x4</span>
-  </div>
+  <div class="other-info"></div>
 </div>

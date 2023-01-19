@@ -220,23 +220,29 @@ function setVariant(parentSection, id) {
  * @param {String} image
  * @param {String} price
  */
-function updateProductDetails(parentSection, image, price) {
+function updateProductDetails(parentSection, image, price, variations) {
   if (image) {
-    const mainImg = parentSection.querySelector("#main-image");
+    const mainImgs = parentSection.querySelectorAll(".main-image");
 
-    if (!mainImg) return;
-
-    mainImg.src = image;
+    mainImgs.forEach(mainImg => mainImg.src = image)
   }
 
   if (price) {
-    const productPrice = parentSection.querySelector(".product-price");
+    const productPrices = parentSection.querySelectorAll(".product-price");
 
-    if (!productPrice) return;
+    productPrices.forEach(productPrice => {
+      productPrice.innerHTML = `${
+        String(productPrice.innerHTML).split(" ")[0]
+      } ${price}`;
+    })
+  }
 
-    productPrice.innerHTML = `${
-      String(productPrice.innerHTML).split(" ")[0]
-    } ${price}`;
+  if(variations) {
+    const productVariations = parentSection.querySelectorAll('.product-variations')
+
+    productVariations.forEach(el => {
+      el.innerHTML = Object.values(variations).join(' - ')
+    })
   }
 }
 
@@ -370,12 +376,15 @@ function setup() {
         const selectedVariant = getSelectedVariant(section);
         const variantIdInput = section.querySelector("#variantId");
 
+        console.log(selectedVariant)
+
         variantIdInput.value = selectedVariant.id;
 
         updateProductDetails(
           section,
           selectedVariant.image,
-          selectedVariant.price
+          selectedVariant.price,
+          selectedVariant.variations
         );
       });
 
