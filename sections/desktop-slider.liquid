@@ -67,7 +67,7 @@
     try {
       if (isMobile.matches) return mobileSlider.mount();
       
-      desktopSlider.mount();
+      return desktopSlider.mount();
     } catch {
       return;
     }
