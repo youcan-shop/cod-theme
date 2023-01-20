@@ -1,6 +1,6 @@
 function previewProductImage(element) {
   const parentSection = element.closest('.yc-single-product');
-  const thumbnail = parentSection.querySelector('#main-image');
+  const thumbnail = parentSection.querySelector('.main-image');
 
   thumbnail.src = element.src;
   setElementActive(element);
@@ -25,7 +25,9 @@ function uploadImage(element) {
       reader.onload = function () {
         const base64 = reader.result;
 
-        const previews = parentSection.querySelectorAll('.yc-upload-preview img');
+        const previews = parentSection.querySelectorAll(
+          '.yc-upload-preview img'
+        );
         previews.forEach((preview) => {
           preview.remove();
         });
@@ -53,7 +55,9 @@ function uploadImage(element) {
 }
 
 (function productImageHoverZoomer() {
-  const singleProductImagesPreview = document.querySelectorAll('.product-images-container');
+  const singleProductImagesPreview = document.querySelectorAll(
+    '.product-images-container'
+  );
 
   if (!singleProductImagesPreview || !singleProductImagesPreview.length) return;
 
@@ -63,8 +67,8 @@ function uploadImage(element) {
     if (!imgZoomer) return;
 
     function eventHandler(e) {
-      const original = document.querySelector('#main-image');
-      const magnified = document.querySelector('#magnified-image');
+      const original = $('.main-image');
+      const magnified = $('#magnified-image');
 
       x = (e.offsetX / original.offsetWidth) * 100;
       y = (e.offsetY / original.offsetHeight) * 100;
@@ -108,7 +112,8 @@ function selectDefaultOptions(parentSection) {
 
     switch (optionType) {
       case 'dropdown':
-        option.querySelector('select').value = option.querySelector('select').options[0].value;
+        option.querySelector('select').value =
+          option.querySelector('select').options[0].value;
         break;
       case 'textual_buttons':
         option.querySelector('.yc-options-item').classList.add('active');
@@ -120,7 +125,7 @@ function selectDefaultOptions(parentSection) {
         option.querySelector('.yc-image-options-item').classList.add('active');
         break;
       case 'upload_image_zone':
-        document.querySelector('#yc-upload').value = '';
+        $('#yc-upload').value = '';
         break;
       case 'color_base_buttons':
         option.querySelector('.color-item').classList.add('active');
@@ -153,19 +158,25 @@ function getSelectedOptions(parentSection) {
         selectedOptions[optionName] = option.querySelector('select')?.value;
         break;
       case 'textual_buttons':
-        selectedOptions[optionName] = option.querySelector('.yc-options-item.active')?.innerText;
+        selectedOptions[optionName] = option.querySelector(
+          '.yc-options-item.active'
+        )?.innerText;
         break;
       case 'radio_buttons':
-        selectedOptions[optionName] = option.querySelector('input:checked')?.value;
+        selectedOptions[optionName] =
+          option.querySelector('input:checked')?.value;
         break;
       case 'image_based_buttons':
-        selectedOptions[optionName] = option.querySelector('.yc-image-options-item.active img')?.alt;
+        selectedOptions[optionName] = option.querySelector(
+          '.yc-image-options-item.active img'
+        )?.alt;
         break;
       case 'upload_image_zone':
         selectedOptions[optionName] = 'upload-zone';
         break;
       case 'color_base_buttons':
-        selectedOptions[optionName] = option.querySelector('.color-item.active')?.innerText;
+        selectedOptions[optionName] =
+          option.querySelector('.color-item.active')?.innerText;
         break;
     }
   });
@@ -181,7 +192,9 @@ function getSelectedVariant(parentSection) {
   const selectedOptions = getSelectedOptions(parentSection);
 
   return variants.find((variant) => {
-    if (JSON.stringify(variant.variations) === JSON.stringify(selectedOptions)) {
+    if (
+      JSON.stringify(variant.variations) === JSON.stringify(selectedOptions)
+    ) {
       return variant.id;
     }
     return null;
@@ -205,21 +218,146 @@ function setVariant(parentSection, id) {
  * @param {String} image
  * @param {String} price
  */
-function updateProductDetails(parentSection, image, price) {
+function updateProductDetails(parentSection, image, price, variations) {
   if (image) {
-    const mainImg = parentSection.querySelector('#main-image');
+    const mainImgs = parentSection.querySelectorAll('.main-image');
 
-    if (!mainImg) return;
-
-    mainImg.src = image;
+    mainImgs.forEach(mainImg => mainImg.src = image)
   }
 
   if (price) {
-    const productPrice = parentSection.querySelector('.product-price');
+    const productPrices = parentSection.querySelectorAll('.product-price');
 
-    if (!productPrice) return;
+    productPrices.forEach(productPrice => {
+      productPrice.innerHTML = `${
+        String(productPrice.innerHTML).split(' ')[0]
+      } ${price}`;
+    })
+  }
 
-    productPrice.innerHTML = `${String(productPrice.innerHTML).split(' ')[0]} ${price}`;
+  if(variations) {
+    const productVariations = parentSection.querySelectorAll('.product-variations');
+
+    productVariations.forEach(el => {
+      el.innerHTML = Object.values(variations).join(' - ')
+    })
+  }
+}
+
+/**
+ * Teleport an element to another place
+ * @param {HTMLElement} el
+ * @param {string} to id of the element
+ */
+function teleport(el, to) {
+  const toEl = $(to);
+  toEl.appendChild(el);
+}
+
+/**
+ * Create a placeholder div with an ID
+ * @param {string} id id of the element
+ * @returns {HTMLElement} created placeholder div
+ */
+function createPlaceholderDiv(id) {
+  const div = document.createElement('DIV');
+  div.setAttribute('id', id);
+
+  return div;
+}
+
+const expressCheckoutForm = document.querySelector(
+  '#express-checkout-form'
+);
+
+teleport(expressCheckoutForm, '#checkout_step_2');
+
+/**
+ * Teleport variants and quantity to sticky checkout section
+ * @param {HTMLElement} parentSection
+ */
+function teleportCheckoutElements(parentSection) {
+  const quantity = parentSection.querySelector('.product-quantity');
+  const options = parentSection.querySelector('.product-options');
+  const expressCheckoutForm = parentSection.querySelector('#express-checkout-form');
+
+  // Create placeholder for the teleported items
+  const quantityPlaceholder = createPlaceholderDiv('quantity-placeholder');
+  const optionsPlaceholder = createPlaceholderDiv('options-placeholder');
+  quantity.parentElement.appendChild(quantityPlaceholder);
+  options.parentElement.appendChild(optionsPlaceholder);
+
+  // teleport elements
+  teleport(options, '#checkout_step_1 .options');
+  teleport(quantity, '#checkout_step_1 .options');
+  teleport(expressCheckoutForm, '#checkout_step_2 .checkout-form');
+}
+
+function showStickyCheckout() {
+  const stickyCheckout = $('#yc-sticky-checkout');
+
+  // Show the background overlay
+  showOverlay();
+  overlay.style.zIndex = '9999';
+
+  // Show the checkout
+  stickyCheckout.style.visibility = 'visible';
+  stickyCheckout.style.transform = 'translateY(0)';
+  // stickyCheckout.style.opacity = '1';
+
+  const makeModalCenter = () => {
+    stickyCheckout.style.left = `${(window.innerWidth - stickyCheckout.offsetWidth) / 2}px`;
+  }
+
+  makeModalCenter();
+  window.addEventListener('resize', makeModalCenter);
+}
+
+function triggerCheckout(parentId) {
+  showStickyCheckout();
+
+  goToCheckoutStep(1);
+
+  const parentSection = $(`#${parentId}`);
+  teleportCheckoutElements(parentSection);
+
+  overlay.addEventListener('click', () => {
+    hideCheckout();
+  });
+}
+
+function hideCheckout() {
+  const stickyCheckout = $('#yc-sticky-checkout');
+  const options = stickyCheckout.querySelector('.product-options');
+  const quantity = stickyCheckout.querySelector('.product-quantity');
+  const optionsPlaceholder = $('#options-placeholder');
+  const quantityPlaceholder = $('#quantity-placeholder');
+
+  overlay.click();
+
+  overlay.style.zIndex = '95';
+  optionsPlaceholder?.replaceWith(options);
+  quantityPlaceholder?.replaceWith(quantity);
+
+  stickyCheckout.style.visibility = 'hidden';
+  stickyCheckout.style.transform = 'translateY(100%)';
+  // stickyCheckout.style.opacity = '0';
+}
+
+function goToCheckoutStep(step) {
+  $('#checkout_step_1').style.display = 'none';
+  $('#checkout_step_2').style.display = 'none';
+
+  switch (step) {
+    case 1:
+      $('#checkout_step_1').style.display = 'flex';
+      break;
+    case 2:
+      $('#checkout_step_2').style.display = 'flex';
+      break;
+    default:
+      hideCheckout();
+      break;
   }
 }
 
@@ -238,10 +376,19 @@ function setup() {
 
         variantIdInput.value = selectedVariant.id;
 
-        updateProductDetails(section, selectedVariant.image, selectedVariant.price);
+        updateProductDetails(
+          section,
+          selectedVariant.image,
+          selectedVariant.price,
+          selectedVariant.variations
+        );
       });
 
-      observer.observe(productDetails, { attributes: true, childList: true, subtree: true });
+      observer.observe(productDetails, {
+        attributes: true,
+        childList: true,
+        subtree: true,
+      });
     }
 
     selectDefaultOptions(section);

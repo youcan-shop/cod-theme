@@ -248,6 +248,11 @@ video {
     max-width: 1536px;
   }
 }
+
+.font-bold {
+  font-weight: 700;
+}
+
 .fixed {
   position: fixed;
 }

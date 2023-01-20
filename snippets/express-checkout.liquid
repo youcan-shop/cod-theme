@@ -7,6 +7,10 @@
   body {
     padding-bottom: 80px;
   }
+
+ 
+
+
   {% endif %}
   .custom-checkout-{{ checkout_id }} {
     grid-gap: {{ settings.inputs_gap }}px;
@@ -67,6 +71,7 @@
 <form
   id='express-checkout-form'
   class='custom-checkout-{{ checkout_id }}'
+  onsubmit="return false;"
 >
   <div class='express-checkout-fields'>
     {%- for field in checkout.fields %}
@@ -90,9 +95,10 @@
     {%- endfor %}
   </div>
 
+  {% if is_sticky == false %} 
   <button
     type='submit'
-    class='yc-btn w-full express-checkout-button {% if is_sticky %} is_sticky {% else %} mt-8 {% endif %}'
+    class='yc-btn w-full express-checkout-button mt-8'
     onclick='placeOrder(this)'
   >
     <span
@@ -101,6 +107,8 @@
     ></span>
     <span>{{ settings.express_checkout_cta }}</span>
   </button>
+  {% endif %}
+  
 </form>
 
 {{ 'express-checkout.js' | asset_url | script_tag_deferred }}

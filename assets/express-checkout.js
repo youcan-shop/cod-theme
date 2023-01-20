@@ -45,7 +45,9 @@ async function placeOrder() {
 
         const formTop = form.getBoundingClientRect().top;
 
-        window.scrollBy({ top: formTop - window.innerHeight / 3, behavior: 'smooth' });
+        if(!document.querySelector('#yc-sticky-checkout')) {
+          window.scrollBy({ top: formTop - window.innerHeight / 3, behavior: 'smooth' });
+        }
       })
       .onSkipShippingStep((data, redirectToShippingPage) => {
         redirectToShippingPage();

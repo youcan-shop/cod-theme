@@ -1,0 +1,50 @@
+{% style %}
+  .yc-product-card {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .yc-product-card .image {
+    width: 120px;
+    aspect-ratio: 1;
+    max-width: 30%;
+  }
+
+  .yc-product-card .details {
+    flex-grow: 1;
+  }
+
+  .yc-product-card .price {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+  }
+
+  .yc-product-card .price .main {
+    font-size: 18pt;
+    font-weight: bold;
+  }
+{% endstyle %}
+
+
+<div class="yc-product-card">
+  <div class="image">
+    <img
+      class="main-image"
+      src="{{ 'default_product.jpeg' | asset_url }}"
+      alt="product image">
+  </div>
+  <div class="details">
+    <div class="price">
+      <span class="product-price"></span>
+      <span class="off"></span>
+    </div>
+    <div class="product-variations"></div>
+  </div>
+  <div class="other-info"></div>
+</div>

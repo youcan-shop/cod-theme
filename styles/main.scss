@@ -310,6 +310,8 @@ input:not([type='radio']),
   flex-wrap: wrap;
   align-items: center;
   justify-content: start;
+  gap: 10px;
+
   .color-item {
     display: flex;
     align-items: center;
@@ -319,7 +321,6 @@ input:not([type='radio']),
     margin-bottom: 10px;
     border: 1px solid var(--yc-neutral-light-color);
     padding: 6px 12px;
-    margin-right: 10px;
     cursor: pointer;
 
     .preview {
