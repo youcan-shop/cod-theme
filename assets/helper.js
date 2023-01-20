@@ -26,7 +26,7 @@ const $ = elem => document.querySelector(elem);
  * countdown function, takes a target element and sets the countdown timer
  * @param {*} target 
  */
-const countdown = function(target) {
+const countdown = (target) => {
   const tarDate = $(target).getAttribute('data-date').split('-');
 
   const day = parseInt(tarDate[0]);
@@ -65,8 +65,8 @@ const countdown = function(target) {
     $(`${target} .sec .num`).innerHTML = addZero(seconds);
 
     if (distance < 0) {
-      clearInterval(countdownTimer);
-      return;
+      clearInterval(updateTime);
+      return $(".countdown").style.display = "none";
     }
   }
 
