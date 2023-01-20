@@ -134,12 +134,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: column;
     
-    @include breakpoint('md') {
-      flex-direction: row;
-    }
-
     .message {
       text-align: center;
       font-size: 2rem;
@@ -149,7 +144,6 @@
       display: flex;
       gap: 0.5rem;
       justify-content: center;
-      margin: 1rem 0;
 
       & .day,
       & .hour,
@@ -167,9 +161,10 @@
         display: block;
         padding: 0.4rem 0.6rem;
         border-radius: 7px;
-        border: 1px solid;
+        background-color: var(--yc-neutral-color);
         font-size: 1.6rem;
         line-height: 2rem;
+        font-weight: 500;
       }
       
       & .day .word,
