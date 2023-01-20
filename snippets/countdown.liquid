@@ -1,69 +1,15 @@
-{{ 'countdown.css' | asset_url | stylesheet_tag }}
+{% assign id = 100 | rand: 2000 %}
 
-<div class='countdown-wrapper'>
-  <div class='message'>{{ message }}</div>
-  <div class='progress-bar'>
-    <div
-      id='progress'
-      class='progress'
-    ></div>
-  </div>
-  <div class='countdown'>
-    <span
-      id='days'
-      class='unit-parent'
-    ></span>
-    <span
-      id='hours'
-      class='unit-parent'
-    ></span>
-    <span
-      id='minutes'
-      class='unit-parent'
-    ></span>
-    <span
-      id='seconds'
-      class='unit-parent'
-    ></span>
+<div class="countdown-wrapper">
+  <div class='message'>{{ section_settings.countdown_message }}</div>
+  <div class="countdown" id="count-{{ id }}" data-date="{{ section_settings.countdown_day }}-{{ section_settings.countdown_month }}-{{ section_settings.countdown_year }}" data-time="{{ section_settings.countdown_hour }}:{{ section_settings.countdown_minute }}">
+    <div class="day"><span class="num"></span><span class="word"> day</span></div>
+    <div class="hour"><span class="num"></span><span class="word"> hour</span></div>
+    <div class="min"><span class="num"></span><span class="word"> min</span></div>
+    <div class="sec"><span class="num"></span><span class="word"> sec</span></div>
   </div>
 </div>
 
-<script>
-  const now = new Date();
-
-  const year = {%- if countdown_year -%}
-    {{ countdown_year }}
-  {%- else -%}now.getFullYear(){%- endif -%};
-
-  const month = {%- if countdown_month -%}
-    {{ countdown_month }}
-  {%- else -%}now.getMonth() + 1
-  {%- endif -%};
-
-  const day = {%- if countdown_day -%}
-    {{ countdown_day }}
-  {%- else -%}now.getDate(){%- endif -%};
-
-  const hour = {%- if countdown_hour -%}
-    {{ countdown_hour }}
-  {%- else -%}now.getHours() + 1
-  {%- endif -%};
-
-  const minute = {%- if countdown_minute -%}
-    {{ countdown_minute }}
-  {%- else -%}
-    0
-  {%- endif -%};
-
-  const second = {%- if countdown_second -%}
-    {{ countdown_second }}
-  {%- else -%}
-    0
-  {%- endif -%};
-
-  const targetDate = new Date(year, month - 1, day, hour, minute, second);
-</script>
-
-{{ 'countdown.js' | asset_url | script_tag_deferred }}
-
-{{ 'countdown.js' | asset_url | script_tag_deferred }}
+{% javascript %}
+  countdown('#count-{{ id }}');
+{% endjavascript %}

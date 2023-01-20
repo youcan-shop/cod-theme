@@ -9,6 +9,7 @@
     {{ content_for_header }}
 
     {{ 'youcan-js.min.js' | asset_url | script_tag }}
+    {{ 'helper.js' | asset_url | script_tag }}
   </head>
   <body>
     {%- render 'overlay' -%}

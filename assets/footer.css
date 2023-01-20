@@ -49,5 +49,20 @@
   font-size: 14px;
   text-align: center;
   background-color: var(--yc-footer-copyright-background);
-  padding: 1rem 0;
+}
+.yc-footer .copyright .container {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.yc-footer .copyright .container img {
+  height: 26px;
+}
+.yc-footer .logo {
+  margin-bottom: 3rem;
+}
+.yc-footer .logo img {
+  max-height: 2.5rem;
+  object-fit: contain;
 }
