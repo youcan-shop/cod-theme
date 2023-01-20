@@ -45,9 +45,7 @@ async function placeOrder() {
 
         const formTop = form.getBoundingClientRect().top;
 
-        const isSticky = document.querySelector('#yc-sticky-checkout')
-
-        if(!isSticky) {
+        if(!document.querySelector('#yc-sticky-checkout')) {
           window.scrollBy({ top: formTop - window.innerHeight / 3, behavior: 'smooth' });
         }
       })

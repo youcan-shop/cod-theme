@@ -1,5 +1,3 @@
-const _qs = (selector) => document.querySelector(selector);
-
 function previewProductImage(element) {
   const parentSection = element.closest('.yc-single-product');
   const thumbnail = parentSection.querySelector('.main-image');
@@ -69,8 +67,8 @@ function uploadImage(element) {
     if (!imgZoomer) return;
 
     function eventHandler(e) {
-      const original = _qs('.main-image');
-      const magnified = _qs('#magnified-image');
+      const original = $('.main-image');
+      const magnified = $('#magnified-image');
 
       x = (e.offsetX / original.offsetWidth) * 100;
       y = (e.offsetY / original.offsetHeight) * 100;
@@ -127,7 +125,7 @@ function selectDefaultOptions(parentSection) {
         option.querySelector('.yc-image-options-item').classList.add('active');
         break;
       case 'upload_image_zone':
-        _qs('#yc-upload').value = '';
+        $('#yc-upload').value = '';
         break;
       case 'color_base_buttons':
         option.querySelector('.color-item').classList.add('active');
@@ -252,7 +250,7 @@ function updateProductDetails(parentSection, image, price, variations) {
  * @param {string} to id of the element
  */
 function teleport(el, to) {
-  const toEl = _qs(to);
+  const toEl = $(to);
   toEl.appendChild(el);
 }
 
@@ -296,7 +294,7 @@ function teleportCheckoutElements(parentSection) {
 }
 
 function showStickyCheckout() {
-  const stickyCheckout = _qs('#yc-sticky-checkout');
+  const stickyCheckout = $('#yc-sticky-checkout');
 
   // Show the background overlay
   showOverlay();
@@ -320,7 +318,7 @@ function triggerCheckout(parentId) {
 
   goToCheckoutStep(1);
 
-  const parentSection = _qs(`#${parentId}`);
+  const parentSection = $(`#${parentId}`);
   teleportCheckoutElements(parentSection);
 
   overlay.addEventListener('click', () => {
@@ -329,11 +327,11 @@ function triggerCheckout(parentId) {
 }
 
 function hideCheckout() {
-  const stickyCheckout = _qs('#yc-sticky-checkout');
+  const stickyCheckout = $('#yc-sticky-checkout');
   const options = stickyCheckout.querySelector('.product-options');
   const quantity = stickyCheckout.querySelector('.product-quantity');
-  const optionsPlaceholder = _qs('#options-placeholder');
-  const quantityPlaceholder = _qs('#quantity-placeholder');
+  const optionsPlaceholder = $('#options-placeholder');
+  const quantityPlaceholder = $('#quantity-placeholder');
 
   overlay.click();
 
@@ -347,15 +345,15 @@ function hideCheckout() {
 }
 
 function goToCheckoutStep(step) {
-  _qs('#checkout_step_1').style.display = 'none';
-  _qs('#checkout_step_2').style.display = 'none';
+  $('#checkout_step_1').style.display = 'none';
+  $('#checkout_step_2').style.display = 'none';
 
   switch (step) {
     case 1:
-      _qs('#checkout_step_1').style.display = 'flex';
+      $('#checkout_step_1').style.display = 'flex';
       break;
     case 2:
-      _qs('#checkout_step_2').style.display = 'flex';
+      $('#checkout_step_2').style.display = 'flex';
       break;
     default:
       hideCheckout();
