@@ -83,9 +83,20 @@ function notify(msg, type = 'success', timeout = 3000) {
 const overlay = document.querySelector('.global-overlay');
 const drawer = document.querySelector('.navigation-drawer');
 
-if (overlay) {
+const showOverlay = () => {
+  const overlay = document.querySelector('.global-overlay');
+
+  document.body.style.overflowY = 'hidden';
+  overlay.style.visibility = 'visible';
+  overlay.style.opacity = '1';
+}
+
+const hideOverlay = () => {
+  const overlay = document.querySelector('.global-overlay');
+
   overlay.addEventListener('click', function (e) {
     if (e.target === overlay) {
+      document.body.style.overflowY = 'auto';
       overlay.style.visibility = 'hidden';
       overlay.style.opacity = '0';
       drawer.style.transform = 'translateX(-150vw)';
@@ -93,11 +104,14 @@ if (overlay) {
   });
 }
 
+if (overlay) {
+  hideOverlay();
+}
+
 function openDrawer(el) {
   const targetedDrawer = document.querySelector(`.navigation-drawer${el}`);
   if (targetedDrawer) {
-    overlay.style.visibility = 'visible';
-    overlay.style.opacity = '1';
+    showOverlay();
     targetedDrawer.style.transform = 'none';
     targetedDrawer.style.opacity = '1';
   }
@@ -142,9 +156,9 @@ function closeSearch() {
 
 overlay.addEventListener('click', closeSearch);
 
-/**
- * Group Sticky elements in one place
- */
+/* ---------------------------------------------- */
+/* ----- Group Sticky elements in one place ----- */
+/* ---------------------------------------------- */
 (function groupStickyElements() {
   const elements = document.querySelectorAll('.is_sticky');
 

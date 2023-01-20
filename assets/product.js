@@ -268,6 +268,12 @@ function createPlaceholderDiv(id) {
   return div;
 }
 
+const expressCheckoutForm = document.querySelector(
+  '#express-checkout-form'
+);
+
+teleport(expressCheckoutForm, '#checkout_step_2');
+
 /**
  * Teleport variants and quantity to sticky checkout section
  * @param {HTMLElement} parentSection
@@ -275,9 +281,7 @@ function createPlaceholderDiv(id) {
 function teleportCheckoutElements(parentSection) {
   const quantity = parentSection.querySelector('.product-quantity');
   const options = parentSection.querySelector('.product-options');
-  const expressCheckoutForm = parentSection.querySelector(
-    '#express-checkout-form'
-  );
+  const expressCheckoutForm = parentSection.querySelector('#express-checkout-form');
 
   // Create placeholder for the teleported items
   const quantityPlaceholder = createPlaceholderDiv('quantity-placeholder');
@@ -286,20 +290,29 @@ function teleportCheckoutElements(parentSection) {
   options.parentElement.appendChild(optionsPlaceholder);
 
   // teleport elements
-  teleport(options, '#checkout_step_1');
-  teleport(quantity, '#checkout_step_1');
-  teleport(expressCheckoutForm, '#checkout_step_2');
+  teleport(options, '#checkout_step_1 .options');
+  teleport(quantity, '#checkout_step_1 .options');
+  teleport(expressCheckoutForm, '#checkout_step_2 .checkout-form');
 }
 
 function showStickyCheckout() {
   const stickyCheckout = _qs('#yc-sticky-checkout');
+
   // Show the background overlay
-  overlay.style.visibility = 'visible';
-  overlay.style.opacity = '1';
+  showOverlay();
+  overlay.style.zIndex = '9999';
 
   // Show the checkout
   stickyCheckout.style.visibility = 'visible';
-  stickyCheckout.style.transform = 'none';
+  stickyCheckout.style.transform = 'translateY(0)';
+  // stickyCheckout.style.opacity = '1';
+
+  const makeModalCenter = () => {
+    stickyCheckout.style.left = `${(window.innerWidth - stickyCheckout.offsetWidth) / 2}px`;
+  }
+
+  makeModalCenter();
+  window.addEventListener('resize', makeModalCenter);
 }
 
 function triggerCheckout(parentId) {
@@ -323,10 +336,14 @@ function hideCheckout() {
   const quantityPlaceholder = _qs('#quantity-placeholder');
 
   overlay.click();
+
+  overlay.style.zIndex = '95';
   optionsPlaceholder?.replaceWith(options);
   quantityPlaceholder?.replaceWith(quantity);
+
   stickyCheckout.style.visibility = 'hidden';
   stickyCheckout.style.transform = 'translateY(100%)';
+  // stickyCheckout.style.opacity = '0';
 }
 
 function goToCheckoutStep(step) {
@@ -335,10 +352,10 @@ function goToCheckoutStep(step) {
 
   switch (step) {
     case 1:
-      _qs('#checkout_step_1').style.display = 'block';
+      _qs('#checkout_step_1').style.display = 'flex';
       break;
     case 2:
-      _qs('#checkout_step_2').style.display = 'block';
+      _qs('#checkout_step_2').style.display = 'flex';
       break;
     default:
       hideCheckout();

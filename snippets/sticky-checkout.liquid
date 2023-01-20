@@ -1,63 +1,38 @@
-{% style %}
-  .yc-sticky-checkout {
-    visibility: hidden;
-    position: fixed;
-    left: 0;
-    transform: translateY(100%);
-    z-index: 99999;
-    width: 100%;
-    height: 70vh;
-    background-color: white;
-    padding: 10px 10px 150px;
-    bottom: 0;
-    transition: all 0.1s ease-in-out;
-  }
-
-  .sticky-checkout-cta {
-    position: absolute;
-    bottom: 10px;
-  }
-
-  .variant-card {
-    margin-bottom: 15px;
-  }
-
-  .back-icon,
-  .close-icon {
-    width: 40px;
-    height: 40px;
-    background: #e3e3e3;
-    position: absolute;
-    left: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16pt;
-  }
-{% endstyle %}
+{{ 'express-checkout.css' | asset_url | stylesheet_tag }}
 
 <div id="yc-sticky-checkout" class="yc-sticky-checkout">
-  <div class="variant-card">
-    {% render 'product-card' %}
-  </div>
   <div class="step_1" id="checkout_step_1">
-    <span class="close-icon" onclick="goToCheckoutStep(0)">
+    <div class="variant-card">
+      {% render 'product-card' %}
+    </div>
+    <button class="close-icon" onclick="goToCheckoutStep(0)">
       <ion-icon name="close-outline"></ion-icon>
-    </span>
-    <button class="yc-btn w-full sticky-checkout-cta" onclick="goToCheckoutStep(2)">
-      {{ settings.express_checkout_cta }}
     </button>
+    <div class="options"></div>
+    <div class="spacer"></div>
+    <div class="cta-bottom-wrapper">
+      <button class="yc-btn w-full font-bold" onclick="goToCheckoutStep(2)">
+        {{ settings.express_checkout_cta }}
+      </button>
+    </div>
   </div>
   <div class="step_2" id="checkout_step_2">
-    <span class="back-icon" onclick="goToCheckoutStep(1)">
+    <div class="variant-card">
+      {% render 'product-card' %}
+    </div>
+    <button class="back-icon" onclick="goToCheckoutStep(1)">
       <ion-icon name="return-up-back-outline"></ion-icon>
-    </span>
-    <button
-      type='submit'
-      class='yc-btn w-full express-checkout-button sticky-checkout-cta'
-      onclick='placeOrder(this)'>
-      <span class='spinner hidden' id='loading__checkout'></span>
-      <span>{{ settings.express_checkout_cta }}</span>
     </button>
+    <div class="checkout-form"></div>
+    <div class="spacer"></div>
+    <div class="cta-bottom-wrapper">
+      <button
+        type='submit'
+        class='yc-btn w-full express-checkout-button'
+        onclick='placeOrder(this)'>
+        <span class='spinner hidden' id='loading__checkout'></span>
+        <span>{{ settings.express_checkout_cta }}</span>
+      </button>
+    </div>
   </div>
 </div>

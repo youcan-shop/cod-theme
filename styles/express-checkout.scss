@@ -1,5 +1,80 @@
+$sticky-checkout-padding: 20px;
+
 .express-checkout-fields {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 2px;
+}
+
+@keyframes slideFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.yc-sticky-checkout {
+  overflow: auto;
+  max-width: 50rem;
+  visibility: hidden;
+  position: fixed;
+  transform: translateY(100%);
+  transition: 0.3s ease;
+  transition-property: all;
+  will-change: transform, opacity;
+  margin: auto;
+  z-index: 99999;
+  width: 100%;
+  height: 70vh;
+  background-color: white;
+  bottom: 0;
+  padding: $sticky-checkout-padding;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  
+  .cta-bottom-wrapper {
+    position: sticky;
+    bottom: 0;
+    padding-bottom: $sticky-checkout-padding;
+    background-color: white;
+  }
+  
+  .checkout-form {
+    padding-bottom: $sticky-checkout-padding;
+  }
+
+  .variant-card {
+    margin-bottom: 15px;
+  }
+  
+  .back-icon,
+  .close-icon {
+    width: 40px;
+    height: 40px;
+    background: #e3e3e3;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16pt;
+  }
+
+  .step_1, .step_2 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+  #checkout_step_1, #checkout_step_2 {
+    animation: slideFromBottom 0.2s ease-in-out;
+    will-change: transform;
+  }
 }
