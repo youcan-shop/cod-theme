@@ -4,9 +4,9 @@ function generateVideoSrc(videoLink, videoType) {
 
   if (videoLink.includes('youtu.be')) {
     videoId = videoLink.split('youtu.be/')[1];
+  } else {
+    videoId = videoLink.split('v=')[1];
   }
-
-  videoId = videoLink.split('v=')[1];
 
   if (videoType == 'youtube') {
     videoSrc = 'https://www.youtube.com/embed/' + videoId;
