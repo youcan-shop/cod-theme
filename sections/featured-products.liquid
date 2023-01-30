@@ -21,6 +21,9 @@
   .section-featured-products-{{id}} * {
     color: {{ section.settings.text_color.hex }};
   }
+  .section-featured-products-{{id}} .countdown-wrapper .countdown .sec .num {
+    border-color: {{ section.settings.text_color.hex }};
+  }
 {% endstyle %}
 
 <div class='yc-featured-products section-featured-products-{{id}}'>

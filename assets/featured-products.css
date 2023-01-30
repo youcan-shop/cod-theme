@@ -115,6 +115,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .yc-featured-products .countdown-wrapper {
+    flex-direction: row;
+  }
 }
 .yc-featured-products .countdown-wrapper .message {
   text-align: center;
@@ -125,6 +131,7 @@
   display: flex;
   gap: 0.5rem;
   justify-content: center;
+  margin: 1rem 0;
 }
 .yc-featured-products .countdown-wrapper .countdown .day, .yc-featured-products .countdown-wrapper .countdown .hour, .yc-featured-products .countdown-wrapper .countdown .min, .yc-featured-products .countdown-wrapper .countdown .sec {
   text-align: center;
@@ -135,10 +142,9 @@
   display: block;
   padding: 0.4rem 0.6rem;
   border-radius: 7px;
-  background-color: var(--yc-neutral-color);
+  border: 1px solid;
   font-size: 1.6rem;
   line-height: 2rem;
-  font-weight: 500;
 }
 .yc-featured-products .countdown-wrapper .countdown .day .word, .yc-featured-products .countdown-wrapper .countdown .hour .word, .yc-featured-products .countdown-wrapper .countdown .min .word, .yc-featured-products .countdown-wrapper .countdown .sec .word {
   display: block;
