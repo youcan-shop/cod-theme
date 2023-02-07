@@ -2,7 +2,9 @@
   const reviewsContainer = document.querySelector('.yc-product-reviews');
   const reviewsWrapper = document.querySelector('.yc-reviews-wrapper');
   const noDataSetter = (element) => {
-    reviewsContainer.remove();
+    if (reviewsContainer) {
+      reviewsContainer.remove();
+    }
   };
 
   try {
