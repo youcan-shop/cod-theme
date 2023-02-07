@@ -1,9 +1,8 @@
 (async () => {
+  const reviewsContainer = document.querySelector('.yc-product-reviews');
   const reviewsWrapper = document.querySelector('.yc-reviews-wrapper');
   const noDataSetter = (element) => {
-    reviewsWrapper.innerHTML = `
-        <div class='review-item__empty'>No reviews available</div>
-      `;
+    reviewsContainer.remove();
   };
 
   try {
