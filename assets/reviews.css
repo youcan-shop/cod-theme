@@ -1,3 +1,6 @@
+.yc-product-reviews {
+  display: none;
+}
 .yc-product-reviews .yc-reviews-wrapper {
   display: grid;
   gap: var(--yc-reviews-gap);

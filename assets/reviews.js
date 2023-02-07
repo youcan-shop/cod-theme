@@ -8,6 +8,7 @@
   try {
     const reviews = await youcanjs.product.fetchReviews(productId).data();
 
+    reviewsContainer.style.display = 'block';
     reviews.forEach((review) => {
       const reviewItem = document.createElement('li');
       reviewItem.classList.add('review-item');

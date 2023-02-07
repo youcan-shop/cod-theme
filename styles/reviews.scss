@@ -1,6 +1,8 @@
 @import 'helpers/mixins';
 
 .yc-product-reviews {
+  display: none;
+
   .yc-reviews-wrapper {
     display: grid;
     gap: var(--yc-reviews-gap);
