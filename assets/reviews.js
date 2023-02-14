@@ -1,14 +1,16 @@
 (async () => {
+  const reviewsContainer = document.querySelector('.yc-product-reviews');
   const reviewsWrapper = document.querySelector('.yc-reviews-wrapper');
   const noDataSetter = (element) => {
-    reviewsWrapper.innerHTML = `
-        <div class='review-item__empty'>No reviews available</div>
-      `;
+    if (reviewsContainer) {
+      reviewsContainer.remove();
+    }
   };
 
   try {
     const reviews = await youcanjs.product.fetchReviews(productId).data();
 
+    reviewsContainer.style.display = 'block';
     reviews.forEach((review) => {
       const reviewItem = document.createElement('li');
       reviewItem.classList.add('review-item');
