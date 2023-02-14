@@ -62,7 +62,7 @@
     .corner {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 24px;
 
       & > * {
         display: flex;
@@ -125,7 +125,7 @@
     .menu-list {
       display: flex;
       list-style: none;
-      gap: 1rem;
+      gap: 50px;
     }
 
     .menu-item {
