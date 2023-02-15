@@ -11,7 +11,7 @@
         >
           <img
             loading='lazy'
-            src='{{ block.settings.image.src }}'
+            src='{%- if block.settings.image.src -%} {{ block.settings.image.src }} {%- else -%} {{ 'hero.png' | asset_url }} {%- endif -%}'
           >
           {%- if block.settings.caption %}
             <div class='content flex items-center h-full w-full'>
