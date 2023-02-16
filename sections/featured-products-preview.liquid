@@ -1,0 +1,216 @@
+{% assign id = 100 | rand: 2000 %}
+
+{% style %}
+  .section-featured-products-{{id}} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  .section-featured-products-{{id}} .yc-section-title {
+    text-align: {{ section.settings.section_title_position }}
+  }
+  .section-featured-products-{{id}} {
+    {% if section.settings.background_image.src %}
+    background-image: url({{ section.settings.background_image.src }});
+    {% elsif section.settings.background_color.hex %}
+    background-color: {{ section.settings.background_color.hex }};
+    {% endif %}
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 10rem;
+  }
+  .section-featured-products-{{id}} * {
+    color: {{ section.settings.text_color.hex }};
+  }
+  .section-featured-products-{{id}} .countdown-wrapper .countdown .sec .num {
+    border-color: {{ section.settings.text_color.hex }};
+  }
+{% endstyle %}
+
+<div class='yc-featured-products section-featured-products-{{id}}'>
+  <div class="container">
+    <!-- prettier-ignore -->
+    {% if section.settings.countdown_enabled %}
+      {%- render 'countdown', section_settings: section.settings -%}
+    {% endif %}
+    <h1 class='yc-section-title'>
+      {{ section.settings.title }}
+    </h1>
+    <div class='product-list'>
+      {%- for block in section.blocks -%}
+        <div {{ block.youcan_attributes }}>
+          {%- render 'hot-product-preview', item: block.settings.product, block_settings: block.settings -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{%- schema -%}
+{
+  "label": "Featured products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "section_title_position",
+      "label": "Title position",
+      "options": [
+        {
+          "label": "left",
+          "value": "left"
+        },
+        {
+          "label": "right",
+          "value": "right"
+        },
+        {
+          "label": "center",
+          "value": "center"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 5,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 5,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "header",
+      "content": "Countdown settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "ℹ️ If you want to show countdown on this section, please enable it and set the date and time."
+    },
+    {
+      "type": "checkbox",
+      "id": "countdown_enabled",
+      "label": "Enable countdown"
+    },
+    {
+      "label": "Message",
+      "id": "countdown_message",
+      "type": "richtext",
+      "default": "Hurry up! There aren't many items left in stock."
+    },
+    {
+      "label": "Year",
+      "id": "countdown_year",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Month",
+      "id": "countdown_month",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Day",
+      "id": "countdown_day",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Hour",
+      "id": "countdown_hour",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Minutes",
+      "id": "countdown_minute",
+      "type": "number",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "label": "Product",
+      "type": "product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "tag_text",
+          "label": "Banner text"
+        },
+        {
+          "type": "color",
+          "id": "tag_color",
+          "label": "Banner color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "tag_text_color",
+          "label": "Banner text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "select",
+          "id": "tag_position",
+          "label": "Banner position",
+          "options": [
+            {
+              "label": "Top Right",
+              "value": "top_right"
+            },
+            {
+              "label": "Top Left",
+              "value": "top_left"
+            },
+            {
+              "label": "Bottom Right",
+              "value": "bottom_right"
+            },
+            {
+              "label": "Bottom Left",
+              "value": "bottom_left"
+            }
+          ],
+          "default": "top_right"
+        }
+      ]
+    }
+  ]
+}
+{%- endschema -%}

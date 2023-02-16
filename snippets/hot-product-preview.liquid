@@ -1,0 +1,45 @@
+{{ 'hot-featured-products.css' | asset_url | stylesheet_tag }}
+
+<a
+  href='{{ item.url }}'
+  class='product-block'
+>
+
+  {% if block_settings.tag_text %}
+    <div
+      class="tag {{ block_settings.tag_position }}"
+      style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
+    >
+      {{ block_settings.tag_text }}
+    </div>
+  {% endif %}
+  <div class='product-thumbnail'>
+    {% if item.thumbnail %}
+      <img
+        loading='lazy'
+        src='{{ item.thumbnail }}'
+      >
+    {% else %}
+      <img
+        loading='lazy'
+        src='{{ 'default_product.jpeg' | asset_url }}'
+      >
+    {% endif %}
+  </div>
+  <div class='product-details'>
+    <span class='product-title'>{{ item.name }}</span>
+  </div>
+  <div class='prices'>
+    {% if item.price %}
+      <span class='product-price'>{{ item.price | money }}</span>
+    {% endif %}
+    {% if settings.show_compare_at_price and item.compare_at_price %}
+      <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
+    {% endif %}
+  </div>
+  <div class='flex justify-center'>
+    <button class='yc-btn {% if settings.featured_products_btn_full_width %} w-full{% endif %}'>
+      {{ 'snippets.product_preview.cta_button' | t }}
+    </button>
+  </div>
+</a>

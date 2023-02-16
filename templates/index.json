@@ -222,6 +222,9 @@
                 "block_fpy1lbh4t349ufo"
             ]
         },
+        "featured-products-preview": {
+            "type": "featured-products-preview"
+        },
         "section_sfrr573akvf9a93": {
             "type": "featured-products",
             "settings": {
@@ -278,6 +281,7 @@
         "section_62tm9748qh15wfk",
         "featured-products",
         "section_sfrr573akvf9a93",
+        "featured-products-preview",
         "section_iryt4p1dmrzxq9d"
     ]
 }
