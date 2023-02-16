@@ -50,8 +50,7 @@
             "main-footer": {
                 "type": "main-footer",
                 "settings": {
-                    "footer_background_color": "#222222FF",
-                    "footer_copyright_background": "#111111FF"
+                    "footer_background_color": "#000000"
                 }
             }
         },
