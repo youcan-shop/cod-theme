@@ -1,0 +1,46 @@
+.accordion {
+  display: grid;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.accordion-header {
+  background-color: #eee;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.accordion-header:hover {
+  background-color: #ddd;
+}
+
+.accordion-content {
+  height: 0%;
+  overflow: hidden;
+  transition: height 0.5s ease-in-out;
+}
+
+.accordion-content.open {
+  height: 100%;
+}
+
+.accordion-content.close {
+  height: 0;
+  transition-timing-function: linear;
+}
+
+.accordion-content p {
+  padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .accordion-header {
+    font-size: 1.2rem;
+  }
+
+  .accordion-content {
+    padding: 5px;
+  }
+}
+
