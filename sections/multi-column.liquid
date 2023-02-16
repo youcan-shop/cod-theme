@@ -9,7 +9,9 @@
   }
 
   .multi-column-{{ id }} .yc-section-title{
-    text-align: {{ section.settings.section_title_position }}
+    text-align: {{ section.settings.section_title_position }};
+    font-weight: 700;
+    font-size: 26px;
   }
 
   .multi-column-{{ id }} .multi-column-blocks {
@@ -19,36 +21,57 @@
     align-items: center;
   }
 
-  @media only screen and (max-width: 576px) {
-    .multi-column-{{ id }} .multi-column-blocks {
-      grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
-      align-items: start;
-    }
-  }
-
   .column-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
     text-align: center;
   }
 
   .column-block .column-title {
-    font-weight: 500;
-    font-size: 25px;
+    margin-top: 16px;
+    font-weight: 700;
+    font-size: 18px;    
+    color: #000000;
   }
 
   .column-block .column-image {
-    object-fit: cover;
+    object-fit: contain;
     aspect-ratio: 1;
-    width: auto;
-    max-width: 100%;
+    width: 50px;
+    height: 50px;
+  }
+
+  .column-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    border: 1px solid #EBEBEB;
+    padding: 15px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    .multi-column-{{ id }} .multi-column-blocks {
+      grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
+      align-items: start;
+      row-gap: 16px;
+    }
+
+    .column-block .column-title {
+        font-size: 15px;    
+      }
+
+    .column-image-wrapper {
+      width: 75px;
+      height: 75px;
+    }
   }
 {% endstyle %}
 
-<div class='multi-column-{{ id }}'>
-  <div class='container'>
+<div class='multi-column-{{ id }} container'>
     <h3 class='yc-section-title'>{{ section.settings.title }}</h3>
     <div class='multi-column-blocks'>
       {% for block in section.blocks %}
@@ -58,13 +81,13 @@
           {{ block.youcan_attributes }}
         >
           {% if block_setting.image %}
+          <div class="column-image-wrapper">
             <img
               class='column-image'
               src='{{ block_setting.image.src }}'
-              width='100'
-              height='100'
               loading='lazy'
             >
+          </div>
           {% endif %}
           {% if block_setting.heading %}
             <h4 class='column-title'>{{ block_setting.heading }}</h4>
@@ -80,7 +103,6 @@
         </div>
       {% endfor %}
     </div>
-  </div>
 </div>
 
 {% schema %}
@@ -101,11 +123,6 @@
           "id": "heading",
           "type": "text",
           "label": "Heading"
-        },
-        {
-          "id": "description",
-          "type": "richtext",
-          "label": "Description"
         },
         {
           "id": "link_label",

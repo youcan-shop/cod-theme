@@ -16,12 +16,12 @@
 
     @include breakpoint('md') {
       grid-template-columns: repeat(3, 1fr);
-      padding: 0 50px;
-
+      padding: 0 40px;
+      gap: 20px;
     }
     @include breakpoint('lg') {
       grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-      padding: 0 100px;
+      padding: 0 60px;
     }
   }
 
