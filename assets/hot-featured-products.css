@@ -8,7 +8,7 @@
 .yc-featured-products .hot-product-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 12px;
 }
 @media (min-width: 768px) {
   .yc-featured-products .hot-product-list {
@@ -23,7 +23,7 @@
   }
 }
 .yc-featured-products .product-box {
-  padding: 12px;
+  padding: 12px 5px;
   border: 1px solid #E7E7E7;
   position: relative;
   width: 100%;
@@ -74,4 +74,5 @@
   font-size: 16px;
   margin-top: 5px;
   font-weight: 400;
+  text-decoration-line: line-through;
 }

@@ -39,10 +39,6 @@
     font-size: 25px;
   }
 
-  .column-block .column-description {
-    font-size: 16px;
-  }
-
   .column-block .column-image {
     object-fit: cover;
     aspect-ratio: 1;
@@ -65,16 +61,13 @@
             <img
               class='column-image'
               src='{{ block_setting.image.src }}'
-              width='200'
-              height='200'
+              width='100'
+              height='100'
               loading='lazy'
             >
           {% endif %}
           {% if block_setting.heading %}
             <h4 class='column-title'>{{ block_setting.heading }}</h4>
-          {% endif %}
-          {% if block_setting.description %}
-            <p class='column-description'>{{ block_setting.description }}</p>
           {% endif %}
           {% if block_setting.link_label %}
             <a

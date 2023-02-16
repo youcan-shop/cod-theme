@@ -12,7 +12,7 @@
   .hot-product-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 12px;
 
     @include breakpoint('md') {
       grid-template-columns: repeat(3, 1fr);
@@ -26,7 +26,7 @@
   }
 
   .product-box {
-    padding: 12px;
+    padding: 12px 5px;
     border: 1px solid #E7E7E7;
     position: relative;
     width: 100%;
@@ -85,6 +85,7 @@
       font-size: 16px;
       margin-top: 5px;
       font-weight: 400;
+      text-decoration-line: line-through;
     }
   }
 }

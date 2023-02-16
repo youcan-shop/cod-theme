@@ -13,7 +13,7 @@
   <div class="yc-featured-container">
     <img 
       loading='lazy'
-      src='{%- if section.settings.image.src -%} {{ section.settings.image.src }} {%- else -%} {{ 'hot.png' | asset_url }} {%- endif -%}'
+      src='{{ section.settings.image.src }}'
     >
     <h1 class='yc-section-title'>
       {{ section.settings.title }}
