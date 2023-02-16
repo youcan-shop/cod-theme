@@ -49,26 +49,6 @@
             },
             "main-footer": {
                 "type": "main-footer",
-                "blocks": {
-                    "block_e56ztxh3krc44so": {
-                        "type": "column",
-                        "settings": {
-                            "block-title": "نبذة مختصرة عن متجرنا",
-                            "description": "<p>متجرنا متخصص في بيع مجموعة متنوعة من الملابس للرجال والنساء والأطفال.<\/p><p>نحن نقدم مزيجًا من الملابس الرسمية وغير الرسمية ، بدءًا من الجينز والقمصان إلى الفساتين والبدلات.<\/p>"
-                        }
-                    },
-                    "block_ocqzrg651kw4tf8": {
-                        "type": "copyright",
-                        "settings": {
-                            "copyright": "<p>جميع الحقوق محفوظة © 2023<\/p>",
-                            "copyright_additonal_image": "image-1-2KSUTbu7UzFbGW1h5Q1sHk9sYpH.png"
-                        }
-                    }
-                },
-                "order": [
-                    "block_e56ztxh3krc44so",
-                    "block_ocqzrg651kw4tf8"
-                ],
                 "settings": {
                     "footer_background_color": "#222222FF",
                     "footer_copyright_background": "#111111FF"

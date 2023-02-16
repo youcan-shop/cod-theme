@@ -11,13 +11,7 @@
   }
 {% endstyle %}
 
-<footer class='yc-footer mt-24'>
-  <div class="logo container">
-    <img
-      loading='lazy'
-      src='{%- if section.settings.logo.src -%} {{ section.settings.logo.src }} {%- else -%} {{ 'cod-logo-light.png' | asset_url }} {%- endif -%}'
-    >
-  </div>
+<footer class='yc-footer'>
   <div class="columns container">
     {%- for linklist in link-lists -%}
       {%- if linklist.links | count > 0  and linklist != main-link-list -%}
@@ -31,27 +25,21 @@
         </div>
       {%- endif -%}
     {%- endfor -%}
-
+  </div>
+  <div class="copyright-wrapper container" {{ block.youcan_attributes }}>
     {%- for block in section.blocks -%}
-      {%- case block.type -%}
-        {%- when 'copyright' -%}
-          <div
-            class='copyright'
-            {{ block.youcan_attributes }}
-          >
-            <div class="container">
-              <div class='block whitespace-pre-wrap leading-8'>{{ block.settings.copyright }}</div>
-              <img src="{{ block.settings.copyright_additonal_image.src }}">
-            </div>
+      {%- case block.type %}
+        {%- when 'copyright' %}
+          <div class="copyright-title">
+            {{ block.settings.copyright }}
           </div>
-        {%- else -%}
-          <div class="column">
-            <h1 class='title block'>{{ block.settings.block-title }}</h1>
-            <div class="description">
-              {{ block.settings.description }}
-            </div>
-          </div>
-        {%- endcase %}
+          <div class="spacer"></div>
+
+        {%- when 'social-media' %}
+          <a class="social-media-link" href="{{ block.settings.social_media_url }}">
+            <img src="{{ block.settings.social_media_icon_image.src }}">
+          </a>
+      {%- endcase %}
     {%- endfor %}
   </div>
 </footer>
@@ -61,11 +49,6 @@
   "label": "Footer",
   "limit": 1,
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo"
-    },
     {
       "type": "paragraph",
       "content": "Footer menu can be managed from your [Menu settings](https:\/\/seller-area.youcan.shop\/admin\/menus)"
@@ -90,23 +73,6 @@
   ],
   "blocks": [
     {
-      "label": "Column",
-      "type": "column",
-      "settings": [
-        {
-          "type": "text",
-          "id": "block-title",
-          "label": "Block title"
-        },
-        {
-          "type": "richtext",
-          "id": "description",
-          "label": "Description",
-          "default": ""
-        }
-      ]
-    },
-    {
       "label": "Copyright",
       "limit": 1,
       "type": "copyright",
@@ -115,11 +81,22 @@
           "type": "richtext",
           "id": "copyright",
           "label": "Copyright Text"
-        },
+        }
+      ]
+    },
+    {
+      "label": "social media",
+      "type": "social-media",
+      "settings": [
         {
           "type": "image_picker",
-          "id": "copyright_additonal_image",
-          "label": "Copyright additonal image"
+          "id": "social_media_icon_image",
+          "label": "facebook icon"
+        },
+        {
+          "type": "text",
+          "id": "social_media_url",
+          "label": "Url"
         }
       ]
     }
