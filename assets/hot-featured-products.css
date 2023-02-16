@@ -18,7 +18,7 @@
 }
 @media (min-width: 992px) {
   .yc-featured-products .hot-product-list {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
     padding: 0 100px;
   }
 }
