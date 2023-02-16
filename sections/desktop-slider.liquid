@@ -5,8 +5,15 @@
     background: {{ section.settings.slider_desktop_arrows_background_color.hex }} !important;
     width: 54px;
     height: 54px;
-    border-radius: 0 8px 8px 0;
     margin: 0 100px;
+  }
+
+  #yc_slider_{{ id }} .splide__arrow--next {
+    border-radius: 0 8px 8px 0;
+  }
+
+  #yc_slider_{{ id }} .splide__arrow--prev {
+    border-radius: 8px 0 0 8px;
   }
 
   #yc_slider_{{ id }} .splide__arrow svg {
