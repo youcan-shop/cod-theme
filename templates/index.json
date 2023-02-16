@@ -59,7 +59,8 @@
                 "title": "منتجات",
                 "section_title_position": "right",
                 "padding_bottom": 85,
-                "padding_top": 85
+                "padding_top": 85,
+                "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>"
             }
         },
         "section_qum9qooyrwe3uz": {
@@ -106,40 +107,40 @@
                 "columns_mobile": "2",
                 "title": "ما يميزنا",
                 "margin_bottom": 5,
-                "margin_top": 85,
+                "margin_top": 5,
                 "background_color": "#FFFFFFFF"
             },
             "blocks": {
                 "block_c9qx028mi12btfk4": {
                     "type": "columnn",
                     "settings": {
-                        "image": "padlock-2JudeRoA8kjW5JhkxBtV1tmYrxI.webp",
-                        "heading": "الشحن المجاني",
+                        "image": "Money-2LpGTJyXNmKnJ11H9SZ35OgwEgQ.png",
+                        "heading": "الدفع عند الإستلام",
                         "description": "<p>شحن مجاني في الوطن العربي<\/p>"
                     }
                 },
                 "block_cc11ny9wgf589l": {
                     "type": "columnn",
                     "settings": {
-                        "image": "like-2Judg0nppvNU6tx25Gy7LaPxD2S.webp",
-                        "heading": "15 يوم عوائد",
-                        "description": "<p>ضمان استعادة الاموال<\/p>"
+                        "heading": "الشحن مجاني",
+                        "description": "<p>ضمان استعادة الاموال<\/p>",
+                        "image": "Truck-2LpIMBFnAZDQ9mBi3GZRIUg6OTh.png"
                     }
                 },
                 "block_cee6rpyw7oltwqg": {
                     "type": "columnn",
                     "settings": {
-                        "image": "return-of-investment-2JudgcrWjW0Avhc7Z2jtHFlFiea.webp",
-                        "heading": "100٪ ضمان مجاني",
+                        "image": "Group 970-2LpIR0KI9f5f4kwefb9M28M1bNw.png",
+                        "heading": "ضمان حقيقي",
                         "description": "<p>ضمان استعادة الاموال<\/p>"
                     }
                 },
                 "block_cgovtb6di7fywh8": {
                     "type": "columnn",
                     "settings": {
-                        "image": "truck-2JudgxLTGzBUaXLBlveov91BiQD.webp",
-                        "heading": "عملية دفع آمنة",
-                        "description": "<p>لا تقلق بشأن الأمن بعد الآن<\/p>"
+                        "heading": "خدمة ما بعد البيع",
+                        "description": "<p>لا تقلق بشأن الأمن بعد الآن<\/p>",
+                        "image": "Group 969-2LpIUyhKP0iqKecsrpNpUWCQvYB.png"
                     }
                 }
             },
@@ -228,41 +229,51 @@
                 "block_6547bvw4gulrpmv": {
                     "type": "product",
                     "settings": {
-                        "tag_color": "#000000",
+                        "tag_color": "#FF0017FF",
                         "tag_text_color": "#ffffff",
-                        "tag_position": "top_right"
+                        "tag_position": "top_right",
+                        "tag_text": "جديد",
+                        "product": "e53d4919-b7e9-4a4b-a612-26b76241870f"
                     }
                 },
                 "block_6724xikj4i64s4": {
                     "type": "product",
                     "settings": {
-                        "tag_color": "#000000",
+                        "tag_color": "#FF0017FF",
                         "tag_text_color": "#ffffff",
-                        "tag_position": "top_right"
+                        "tag_position": "top_right",
+                        "product": "3164ea4f-12e5-4be3-b3b0-259ad202cc15",
+                        "tag_text": "جديد"
                     }
                 },
                 "block_68dc487pf9xm6h1": {
                     "type": "product",
                     "settings": {
-                        "tag_color": "#000000",
+                        "tag_color": "#FF0017FF",
                         "tag_text_color": "#ffffff",
-                        "tag_position": "top_right"
+                        "tag_position": "top_right",
+                        "product": "17fb3b16-1abb-4ec7-9147-a863cb374a9d",
+                        "tag_text": "جديد"
                     }
                 },
                 "block_69ikueasef2cy1k": {
                     "type": "product",
                     "settings": {
-                        "tag_color": "#000000",
+                        "tag_color": "#FF0017FF",
                         "tag_text_color": "#ffffff",
-                        "tag_position": "top_right"
+                        "tag_position": "top_right",
+                        "tag_text": "جديد",
+                        "product": "ce413d44-d917-4bfb-b10d-6d5cdae50252"
                     }
                 },
                 "block_6byj7t2yus5g0t": {
                     "type": "product",
                     "settings": {
-                        "tag_color": "#000000",
+                        "tag_color": "#FF0017FF",
                         "tag_text_color": "#ffffff",
-                        "tag_position": "top_right"
+                        "tag_position": "top_right",
+                        "tag_text": "جديد",
+                        "product": "67a96ed6-c845-4e16-88b8-9299ebf5935e"
                     }
                 }
             },
@@ -272,7 +283,13 @@
                 "block_68dc487pf9xm6h1",
                 "block_69ikueasef2cy1k",
                 "block_6byj7t2yus5g0t"
-            ]
+            ],
+            "settings": {
+                "title": "المنتجات الأكثر رواجًا ",
+                "image": "hot-2LpFcKQDOb4aotZ2S8WF7ns94Py.png",
+                "section_title_position": "center",
+                "padding_bottom": 50
+            }
         },
         "section_sfrr573akvf9a93": {
             "type": "featured-products",
@@ -327,8 +344,8 @@
     "order": [
         "section_qum9qooyrwe3uz",
         "featured-products-preview",
-        "section_9nayyt0zwugfwpf",
         "section_62tm9748qh15wfk",
+        "section_9nayyt0zwugfwpf",
         "featured-products",
         "section_sfrr573akvf9a93",
         "section_iryt4p1dmrzxq9d"
