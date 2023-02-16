@@ -1,3 +1,5 @@
+@import 'helpers/mixins';
+
 .yc-featured-products {
   .yc-hot-products {
     display: flex;
@@ -8,16 +10,24 @@
   }
 
   .hot-product-list {
-    padding: 0 100px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+
+    @include breakpoint('md') {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0 50px;
+
+    }
+    @include breakpoint('lg') {
+      grid-template-columns: repeat(5, 1fr);
+      padding: 0 100px;
+    }
   }
 
   .product-box {
-    padding: 15px;
+    padding: 12px;
     border: 1px solid #E7E7E7;
-    height: 295px;
     width: 100%;
   }
 

@@ -6,15 +6,25 @@
   margin-bottom: 40px;
 }
 .yc-featured-products .hot-product-list {
-  padding: 0 100px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
+@media (min-width: 768px) {
+  .yc-featured-products .hot-product-list {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 50px;
+  }
+}
+@media (min-width: 992px) {
+  .yc-featured-products .hot-product-list {
+    grid-template-columns: repeat(5, 1fr);
+    padding: 0 100px;
+  }
+}
 .yc-featured-products .product-box {
-  padding: 15px;
+  padding: 12px;
   border: 1px solid #E7E7E7;
-  height: 295px;
   width: 100%;
 }
 .yc-featured-products .product-thumbnail img {
