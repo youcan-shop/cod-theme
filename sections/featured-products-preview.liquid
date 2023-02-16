@@ -16,7 +16,7 @@
     <div class="yc-hot-products">
       <img 
           loading='lazy'
-          src='{%- if section.settings.image.src -%} {{ section.settings.image.src }} {%- endif -%}'
+          src='{%- if section.settings.image.src -%} {{ section.settings.image.src }} {%- else -%} {{ 'hot.png' | asset_url }} {%- endif -%}'
         >
       <h1 class='yc-hot-title'>
         {{ section.settings.title }}
@@ -101,6 +101,12 @@
           "type": "product",
           "id": "product",
           "label": "Product"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_price_on_mobile",
+          "label": "Show price on mobile",
+          "default": true
         },
         {
           "type": "text",
