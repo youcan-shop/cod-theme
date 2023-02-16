@@ -2,12 +2,17 @@
 
 {% style %}
   #yc_slider_{{ id }} .splide__arrow {
-    background: {{ section.settings.slider_mobile_arrows_background_color.hex }} !important;
+    background: {{ section.settings.slider_desktop_arrows_background_color.hex }} !important;
+    width: 54px;
+    height: 54px;
+    border-radius: 0 8px 8px 0;
+    margin: 0 100px;
   }
 
   #yc_slider_{{ id }} .splide__arrow svg {
     height: {{ section.settings.slider_arrows_content_size }}px;
     width: {{ section.settings.slider_arrows_content_size }}px;
+    background-color: {{ section.settings.slider_mobile_arrows_background_color.hex }};
   }
   
   .yc-slider__desktop .content {
@@ -115,16 +120,6 @@
       "unit": "sec",
       "label": "Timeout between slides",
       "default": 5
-    },
-    {
-      "type": "range",
-      "id": "slider_arrows_size",
-      "min": 20,
-      "max": 55,
-      "step": 1,
-      "unit": "px",
-      "label": "Arrows Size",
-      "default": 37
     },
     {
       "type": "range",
