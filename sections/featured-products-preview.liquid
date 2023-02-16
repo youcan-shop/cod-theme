@@ -1,3 +1,5 @@
+{{ 'hot-featured-products.css' | asset_url | stylesheet_tag }}
+
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
@@ -5,54 +7,49 @@
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
-  .section-featured-products-{{id}} .yc-section-title {
-    text-align: {{ section.settings.section_title_position }}
-  }
-  .section-featured-products-{{id}} {
-    {% if section.settings.background_image.src %}
-    background-image: url({{ section.settings.background_image.src }});
-    {% elsif section.settings.background_color.hex %}
-    background-color: {{ section.settings.background_color.hex }};
-    {% endif %}
-    background-repeat: repeat;
-    background-position: center;
-    background-size: 10rem;
-  }
-  .section-featured-products-{{id}} * {
-    color: {{ section.settings.text_color.hex }};
-  }
-  .section-featured-products-{{id}} .countdown-wrapper .countdown .sec .num {
-    border-color: {{ section.settings.text_color.hex }};
+  .section-featured-products-{{id}} .yc-hot-products {
+    justify-content: {{ section.settings.section_title_position }};
   }
 {% endstyle %}
 
-<div class='yc-featured-products section-featured-products-{{id}}'>
-  <div class="container">
-    <!-- prettier-ignore -->
-    {% if section.settings.countdown_enabled %}
-      {%- render 'countdown', section_settings: section.settings -%}
-    {% endif %}
-    <h1 class='yc-section-title'>
-      {{ section.settings.title }}
-    </h1>
-    <div class='product-list'>
+<div class='yc-featured-products section-featured-products-{{id}} container'>
+    <div class="yc-hot-products">
+      <img 
+          loading='lazy'
+          src='{%- if section.settings.image.src -%} {{ section.settings.image.src }} {%- else -%} {{ 'hot.png' | asset_url }} {%- endif -%}'
+        >
+      <h1 class='yc-hot-title'>
+        {{ section.settings.title }}
+      </h1>
+    </div>
+    <div class='hot-product-list'>
       {%- for block in section.blocks -%}
-        <div {{ block.youcan_attributes }}>
+        <div {{ block.youcan_attributes }} class="product-box">
           {%- render 'hot-product-preview', item: block.settings.product, block_settings: block.settings -%}
         </div>
       {%- endfor -%}
     </div>
-  </div>
 </div>
 
 {%- schema -%}
 {
-  "label": "Featured products",
+  "label": "Hot products",
   "settings": [
     {
       "type": "text",
       "id": "title",
       "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_compare_at_price",
+      "label": "Show compare at price",
+      "default": true
     },
     {
       "type": "select",
@@ -92,70 +89,6 @@
       "unit": "px",
       "label": "Padding Bottom",
       "default": 80
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background color"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text color"
-    },
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background image"
-    },
-    {
-      "type": "header",
-      "content": "Countdown settings"
-    },
-    {
-      "type": "paragraph",
-      "content": "ℹ️ If you want to show countdown on this section, please enable it and set the date and time."
-    },
-    {
-      "type": "checkbox",
-      "id": "countdown_enabled",
-      "label": "Enable countdown"
-    },
-    {
-      "label": "Message",
-      "id": "countdown_message",
-      "type": "richtext",
-      "default": "Hurry up! There aren't many items left in stock."
-    },
-    {
-      "label": "Year",
-      "id": "countdown_year",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Month",
-      "id": "countdown_month",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Day",
-      "id": "countdown_day",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Hour",
-      "id": "countdown_hour",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Minutes",
-      "id": "countdown_minute",
-      "type": "number",
-      "default": 0
     }
   ],
   "blocks": [

@@ -14,7 +14,7 @@
                 "block_bz1pi3lyquyby7q": {
                     "type": "product",
                     "settings": {
-                        "product": "e74763a8-673d-4b32-b87a-83ad8f448446",
+                        "product": "e53d4919-b7e9-4a4b-a612-26b76241870f",
                         "tag_text": "NEW",
                         "tag_color": "#000000FF",
                         "tag_text_color": "#FFFFFFFF"
@@ -23,7 +23,7 @@
                 "block_c06w7csmaq4ga7o": {
                     "type": "product",
                     "settings": {
-                        "product": "7802ca53-bdbc-4c6f-a2f5-302adee4427d"
+                        "product": "e53d4919-b7e9-4a4b-a612-26b76241870f"
                     }
                 },
                 "block_angxjuj3umg4k6": {
@@ -223,7 +223,56 @@
             ]
         },
         "featured-products-preview": {
-            "type": "featured-products-preview"
+            "type": "featured-products-preview",
+            "blocks": {
+                "block_6547bvw4gulrpmv": {
+                    "type": "product",
+                    "settings": {
+                        "tag_color": "#000000",
+                        "tag_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                },
+                "block_6724xikj4i64s4": {
+                    "type": "product",
+                    "settings": {
+                        "tag_color": "#000000",
+                        "tag_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                },
+                "block_68dc487pf9xm6h1": {
+                    "type": "product",
+                    "settings": {
+                        "tag_color": "#000000",
+                        "tag_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                },
+                "block_69ikueasef2cy1k": {
+                    "type": "product",
+                    "settings": {
+                        "tag_color": "#000000",
+                        "tag_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                },
+                "block_6byj7t2yus5g0t": {
+                    "type": "product",
+                    "settings": {
+                        "tag_color": "#000000",
+                        "tag_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                }
+            },
+            "order": [
+                "block_6547bvw4gulrpmv",
+                "block_6724xikj4i64s4",
+                "block_68dc487pf9xm6h1",
+                "block_69ikueasef2cy1k",
+                "block_6byj7t2yus5g0t"
+            ]
         },
         "section_sfrr573akvf9a93": {
             "type": "featured-products",
@@ -277,11 +326,11 @@
     },
     "order": [
         "section_qum9qooyrwe3uz",
+        "featured-products-preview",
         "section_9nayyt0zwugfwpf",
         "section_62tm9748qh15wfk",
         "featured-products",
         "section_sfrr573akvf9a93",
-        "featured-products-preview",
         "section_iryt4p1dmrzxq9d"
     ]
 }
