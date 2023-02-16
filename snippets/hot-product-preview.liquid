@@ -1,0 +1,36 @@
+{{ 'hot-featured-products.css' | asset_url | stylesheet_tag }}
+<a
+  href='{{ item.url }}'
+  class='product-block'
+>
+
+  {% if block_settings.tag_text %}
+    <div
+      class="tag {{ block_settings.tag_position }}"
+      style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
+    >
+      {{ block_settings.tag_text }}
+    </div>
+  {% endif %}
+  <div class='product-thumbnail'>
+    {% if item.thumbnail %}
+      <img
+        loading='lazy'
+        src='{{ item.thumbnail }}'
+      >
+    {% else %}
+      <img
+        loading='lazy'
+        src='{{ 'default_product.jpeg' | asset_url }}'
+      >
+    {% endif %}
+  </div>
+  <div class='prices'>
+    {% if item.price %}
+    <h3 class='product-price'>{{ item.price | money}}</h3>
+    {% endif %}
+    {% if section.settings.show_compare_at_price and item.compare_at_price %}
+      <h4 class='compare-price'>{{ item.compare_at_price | money }}</h4>
+    {% endif %}
+  </div>
+</a>

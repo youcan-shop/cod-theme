@@ -19,3 +19,8 @@ $breakpoints: (
   }
 }
 
+@mixin max-screen($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}

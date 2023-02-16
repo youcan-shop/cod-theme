@@ -2,22 +2,23 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  .section-featured-collections-{{id}}{
+  .section-featured-collections-{{id}} .yc-featured-container{
+    justify-content: {{ section.settings.section_title_position }};
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
-  }
-  .section-featured-collections-{{id}} .yc-section-title{
-    text-align: {{ section.settings.section_title_position }}
-  }
-  .section-featured-collections{
-
   }
 {% endstyle %}
 
 <div class='yc-featured-collections section-featured-collections-{{id}} container'>
-  <h1 class='yc-section-title'>
-    {{ section.settings.title }}
-  </h1>
+  <div class="yc-featured-container">
+    <img 
+      loading='lazy'
+      src='{{ section.settings.image.src }}'
+    >
+    <h1 class='yc-section-title'>
+      {{ section.settings.title }}
+    </h1>
+  </div>
   <div class='collections-list'>
     {%- for block in section.blocks -%}
       {%- render 'collection-preview', category: block.settings.category -%}
@@ -33,6 +34,11 @@
       "type": "text",
       "id": "title",
       "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
     },
     {
       "type": "select",

@@ -1,6 +1,22 @@
 @import 'helpers/mixins';
 
 .yc-featured-collections {
+  .yc-featured-container {
+    display: flex;
+    column-gap: 2px;
+    align-items: center;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .yc-section-title {
+      font-size: 26px;
+      margin: 0;
+    }
+  }
+
   .collections-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -17,7 +33,7 @@
       background: gray;
       display: inline-block;
       aspect-ratio: 4/5;
-      overflow: hidden;
+      overflow: hidden; 
       transition: 0.3s ease-in-out;
 
 

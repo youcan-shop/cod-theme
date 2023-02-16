@@ -1,3 +1,16 @@
+.yc-featured-collections .yc-featured-container {
+  display: flex;
+  column-gap: 2px;
+  align-items: center;
+}
+.yc-featured-collections .yc-featured-container img {
+  width: 24px;
+  height: 24px;
+}
+.yc-featured-collections .yc-featured-container .yc-section-title {
+  font-size: 26px;
+  margin: 0;
+}
 .yc-featured-collections .collections-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
