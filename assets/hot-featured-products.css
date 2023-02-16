@@ -25,7 +25,34 @@
 .yc-featured-products .product-box {
   padding: 12px;
   border: 1px solid #E7E7E7;
+  position: relative;
   width: 100%;
+}
+.yc-featured-products .product-box .tag {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  z-index: 1;
+  padding: 4px 13px;
+  border-radius: 4px;
+}
+.yc-featured-products .product-box .tag.top_right {
+  top: 8px;
+  right: 8px;
+}
+.yc-featured-products .product-box .tag.bottom_right {
+  bottom: 8px;
+  right: 8px;
+}
+.yc-featured-products .product-box .tag.top_left {
+  top: 8px;
+  left: 8px;
+}
+.yc-featured-products .product-box .tag.bottom_left {
+  bottom: 8px;
+  left: 8px;
 }
 .yc-featured-products .product-thumbnail img {
   width: 100%;

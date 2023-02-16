@@ -24,7 +24,7 @@
     </div>
     <div class='hot-product-list'>
       {%- for block in section.blocks -%}
-        <div {{ block.youcan_attributes }} class="product-box">
+        <div class="product-box">
           {%- render 'hot-product-preview', item: block.settings.product, block_settings: block.settings -%}
         </div>
       {%- endfor -%}
