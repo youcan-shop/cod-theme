@@ -17,7 +17,7 @@
         <div class="yc-reviews-stars" style="--rating: ${calculateAverageRating(reviews)};" aria-label="Rating of this product is ${calculateAverageRating(reviews)} out of 5"></div>
       </div>
       <div class='review-count'>
-        (${reviewCount} تقييمات)
+        (${reviewCount} ${ratings})
       </div>
     `;
 

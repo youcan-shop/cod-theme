@@ -53,5 +53,6 @@
  <script>
     const defaultAvatar = '{{ "avatar.png" | asset_url }}';
     const productId = '{{ product_id }}';
+    const ratings = "{{ 'reviews.ratings' | t }}";
   </script>
 {{ 'reviews-count.js' | asset_url | script_tag_deferred }}
