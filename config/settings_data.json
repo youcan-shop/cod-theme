@@ -1,84 +1,90 @@
 {
-    "current": {
-        "font_family": "Almarai",
-        "theme_direction": "rtl",
-        "primary_color": "#F33520",
-        "sections": {
-            "notice-bar": {
-                "type": "notice-bar",
-                "settings": {
-                    "notice_bar_content_desktop": "<p>الشحن المجاني متاح لجميع الطلبات<\/p>",
-                    "notice_bar_content_mobile": "<p>الشحن المجاني متاح لجميع الطلبات<\/p>",
-                    "notice_bar_content_font_size_desktop": 13,
-                    "notice_bar_content_font_size_mobile": 12,
-                    "notice_bar_height_desktop": 45,
-                    "notice_bar_height_mobile": 45,
-                    "notice_bar_background_color_desktop": "#F33520FF",
-                    "notice_bar_background_color_mobile": "#E72E25FF"
-                }
-            },
-            "main-navbar": {
-                "type": "main-navbar",
-                "blocks": {
-                    "block_gkk8ae6rzniqule": {
-                        "type": "logo",
-                        "settings": {}
-                    },
-                    "block_glpfko4s63fm6kj": {
-                        "type": "menu",
-                        "settings": {}
-                    },
-                    "block_gmrv273jdps9sso": {
-                        "type": "search_and_cart",
-                        "settings": {}
-                    }
-                },
-                "order": [
-                    "block_gkk8ae6rzniqule",
-                    "block_glpfko4s63fm6kj",
-                    "block_gmrv273jdps9sso"
-                ],
-                "settings": {
-                    "cart_badge_color": "#B83375FF",
-                    "navbar_logo": "image-2IqyhOl7b1bbMBEPS5JD0G2MrcW.png",
-                    "navbar_links_color": "#000000FF",
-                    "navbar_background_color": "#FFFFFFFF",
-                    "navbar_height": 85,
-                    "navbar_always_on_top": true
-                }
-            },
-            "main-footer": {
-                "type": "main-footer",
-                "blocks": {
-                    "block_e56ztxh3krc44so": {
-                        "type": "column",
-                        "settings": {
-                            "block-title": "نبذة مختصرة عن متجرنا",
-                            "description": "<p>متجرنا متخصص في بيع مجموعة متنوعة من الملابس للرجال والنساء والأطفال.<\/p><p>نحن نقدم مزيجًا من الملابس الرسمية وغير الرسمية ، بدءًا من الجينز والقمصان إلى الفساتين والبدلات.<\/p>"
-                        }
-                    },
-                    "block_ocqzrg651kw4tf8": {
-                        "type": "copyright",
-                        "settings": {
-                            "copyright": "<p>جميع الحقوق محفوظة © 2023<\/p>",
-                            "copyright_additonal_image": "image-1-2KSUTbu7UzFbGW1h5Q1sHk9sYpH.png"
-                        }
-                    }
-                },
-                "order": [
-                    "block_e56ztxh3krc44so",
-                    "block_ocqzrg651kw4tf8"
-                ],
-                "settings": {
-                    "footer_background_color": "#222222FF",
-                    "footer_copyright_background": "#111111FF"
-                }
-            }
-        },
-        "success_color": "#1EBA54FF",
-        "error_color": "#DF1E2FFF"
-    },
-    "presets": {
-        "Default": {}
-    }
+  "current": {
+      "font_family": "Almarai",
+      "theme_direction": "rtl",
+      "primary_color": "#F33520",
+      "sections": {
+          "notice-bar": {
+              "type": "notice-bar",
+              "settings": {
+                  "notice_bar_content_desktop": "<p>الشحن المجاني متاح لجميع الطلبات<\/p>",
+                  "notice_bar_content_mobile": "<p>الشحن المجاني متاح لجميع الطلبات<\/p>",
+                  "notice_bar_content_font_size_desktop": 13,
+                  "notice_bar_content_font_size_mobile": 12,
+                  "notice_bar_height_desktop": 45,
+                  "notice_bar_height_mobile": 45,
+                  "notice_bar_background_color_desktop": "#F33520FF",
+                  "notice_bar_background_color_mobile": "#E72E25FF"
+              }
+          },
+          "main-navbar": {
+              "type": "main-navbar",
+              "blocks": {
+                  "block_gkk8ae6rzniqule": {
+                      "type": "logo",
+                      "settings": {}
+                  },
+                  "block_glpfko4s63fm6kj": {
+                      "type": "menu",
+                      "settings": {}
+                  },
+                  "block_gmrv273jdps9sso": {
+                      "type": "search_and_cart",
+                      "settings": {}
+                  }
+              },
+              "order": [
+                  "block_gkk8ae6rzniqule",
+                  "block_glpfko4s63fm6kj",
+                  "block_gmrv273jdps9sso"
+              ],
+              "settings": {
+                  "cart_badge_color": "#B83375FF",
+                  "navbar_logo": "image-2IqyhOl7b1bbMBEPS5JD0G2MrcW.png",
+                  "navbar_links_color": "#000000FF",
+                  "navbar_background_color": "#FFFFFFFF",
+                  "navbar_height": 85,
+                  "navbar_always_on_top": true
+              }
+          },
+          "main-footer": {
+              "type": "main-footer",
+              "settings": {
+                  "footer_background_color": "#000000",
+                  "mention_and_social_media": true,
+                  "mention": "<p>made with ❤️ by YouCan<\/p>"
+              },
+              "blocks": {
+                  "block_social": {
+                      "type": "social-media",
+                      "settings": {
+                          "social_media_icon_image": "InstagramLogo-2Ls7ER18h4Gq3v3Ep9WbRtQJJfx.png"
+                      }
+                  },
+                  "block_nlltx86k7y4b93k": {
+                      "type": "social-media",
+                      "settings": {
+                          "social_media_icon_image": "FacebookLogo-2Ls8VdaIiSBR4QDXchzGWkuNZgk.png"
+                      }
+                  },
+                  "block_o07mmbhyf997iu": {
+                      "type": "social-media",
+                      "settings": {
+                          "social_media_icon_image": "WhatsappLogo-2Ls8YMiusO4JlG2IfHjxpaYXJke.png"
+                      }
+                  }
+              },
+              "order": [
+                  "block_social",
+                  "block_nlltx86k7y4b93k",
+                  "block_o07mmbhyf997iu"
+              ]
+          }
+      },
+      "success_color": "#1EBA54FF",
+      "error_color": "#DF1E2FFF"
+  },
+  "presets": {
+      "Default": {}
+  }
 }

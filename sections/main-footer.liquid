@@ -11,19 +11,18 @@
   }
 {% endstyle %}
 
-<footer class='yc-footer mt-24'>
-  <div class="logo container">
-    <img
-      loading='lazy'
-      src='{%- if section.settings.logo.src -%} {{ section.settings.logo.src }} {%- else -%} {{ 'cod-logo-light.png' | asset_url }} {%- endif -%}'
-    >
-  </div>
+<footer class='yc-footer'>
   <div class="columns container">
     {%- for linklist in link-lists -%}
       {%- if linklist.links | count > 0  and linklist != main-link-list -%}
-        <div class="column">
-          <h1 class='title block'>{{ linklist.title }}</h1>
-          <div class="parsed-links">
+        <div class="accordion-item column">
+          <div class='accordion-header'>
+            <h1 class="title">{{ linklist.title }}</h1>
+            <svg class="arrow" width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.01947 7.41357L7.56174 1.50241L14.104 7.41357" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="accordion-content">
             {%- for item in linklist.links -%}
                 <a class="item" href="{{ item.url }}">{{ item.title }}</a>
             {%- endfor -%}
@@ -31,41 +30,31 @@
         </div>
       {%- endif -%}
     {%- endfor -%}
-
-    {%- for block in section.blocks -%}
-      {%- case block.type -%}
-        {%- when 'copyright' -%}
-          <div
-            class='copyright'
-            {{ block.youcan_attributes }}
-          >
-            <div class="container">
-              <div class='block whitespace-pre-wrap leading-8'>{{ block.settings.copyright }}</div>
-              <img src="{{ block.settings.copyright_additonal_image.src }}">
-            </div>
-          </div>
-        {%- else -%}
-          <div class="column">
-            <h1 class='title block'>{{ block.settings.block-title }}</h1>
-            <div class="description">
-              {{ block.settings.description }}
-            </div>
-          </div>
-        {%- endcase %}
-    {%- endfor %}
   </div>
+  {%- if section.settings.mention_and_social_media -%}
+    <div class="container">
+      <div class="copyright-wrapper" {{ block.youcan_attributes }}>
+        <div class="copyright-title">
+          {{ section.settings.mention }}
+        </div>
+        <div class="spacer"></div>
+        {%- for block in section.blocks -%}
+          <a class="social-media-link" href="{{ block.settings.social_media_url }}" target="_blank">
+            <img src="{{ block.settings.social_media_icon_image.src }}">
+          </a>
+        {%- endfor %}
+      </div>
+    </div>
+  {%- endif -%}
 </footer>
+
+{{ 'accordion.js' | asset_url | script_tag_deferred }}
 
 {%- schema -%}
 {
   "label": "Footer",
   "limit": 1,
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo"
-    },
     {
       "type": "paragraph",
       "content": "Footer menu can be managed from your [Menu settings](https:\/\/seller-area.youcan.shop\/admin\/menus)"
@@ -82,44 +71,31 @@
       "default": "#fff"
     },
     {
-      "type": "color",
-      "id": "footer_copyright_background",
-      "label": "Copyright Background",
-      "default": "#0003"
+      "type": "checkbox",
+      "id": "mention_and_social_media",
+      "label": "Mention & Social media",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "mention",
+      "label": "Mention content"
     }
   ],
   "blocks": [
     {
-      "label": "Column",
-      "type": "column",
+      "label": "social media",
+      "type": "social-media",
       "settings": [
-        {
-          "type": "text",
-          "id": "block-title",
-          "label": "Block title"
-        },
-        {
-          "type": "richtext",
-          "id": "description",
-          "label": "Description",
-          "default": ""
-        }
-      ]
-    },
-    {
-      "label": "Copyright",
-      "limit": 1,
-      "type": "copyright",
-      "settings": [
-        {
-          "type": "richtext",
-          "id": "copyright",
-          "label": "Copyright Text"
-        },
         {
           "type": "image_picker",
-          "id": "copyright_additonal_image",
-          "label": "Copyright additonal image"
+          "id": "social_media_icon_image",
+          "label": "facebook icon"
+        },
+        {
+          "type": "text",
+          "id": "social_media_url",
+          "label": "Url"
         }
       ]
     }
