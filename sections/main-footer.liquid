@@ -39,7 +39,7 @@
         </div>
         <div class="spacer"></div>
         {%- for block in section.blocks -%}
-          <a class="social-media-link" href="{{ block.settings.social_media_url }}">
+          <a class="social-media-link" href="{{ block.settings.social_media_url }}" target="_blank">
             <img src="{{ block.settings.social_media_icon_image.src }}">
           </a>
         {%- endfor %}
