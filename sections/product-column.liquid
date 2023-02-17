@@ -1,0 +1,71 @@
+{{ 'product.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .product_customization {
+    padding-top: {{ section.settings.padding_top}}px;
+    padding-bottom: {{ section.settings.padding_bottom}}px;
+  }
+{%- endstyle -%}
+
+<section class='product_customization'>
+  {%- assign selected_product = section.settings.product %}
+
+  {%- if product %}
+    {%- assign selected_product = product %}
+  {%- endif %}
+
+  {%- if selected_product %}
+    {%- render 'product-home', product: selected_product, section: section -%}
+  {%- endif %}
+</section>
+
+{%- schema -%}
+  {
+    "label": "Product column",
+    "settings": [
+      {
+        "label": "Product",
+        "id": "product",
+        "type": "product"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_compare_at_price",
+        "label": "Show compare at price",
+        "default": false
+      },
+      {
+        "type": "number",
+        "id": "padding_top",
+        "label": "Padding top",
+        "default": 10
+      },
+      {
+        "type": "number",
+        "id": "padding_bottom",
+        "label": "Padding bottom",
+        "default": 10
+      }
+    ],
+    "blocks": [
+      {
+        "label": "Title",
+        "limit": 1,
+        "type": "product_title"
+      },
+      {
+        "label": "Price",
+        "limit": 1,
+        "type": "product_price"
+      },
+      {
+        "label": "Description",
+        "limit": 1,
+        "type": "product_description"
+      }
+    ]
+  }
+{%- endschema -%}
+
+
+{{ 'product.js' | asset_url | script_tag_deferred }}

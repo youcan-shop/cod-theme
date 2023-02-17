@@ -36,7 +36,7 @@
                     "type": "product",
                     "settings": {
                         "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d",
-                        "tag_text": "هوتكٌٗام 🐊",
+                        "tag_text": "هوتكٌٗام 🐊",
                         "tag_color": "#FF3000FF"
                     }
                 },
@@ -291,6 +291,31 @@
                 "padding_bottom": 50
             }
         },
+        "product-column": {
+            "type": "product-column",
+            "blocks": {
+                "block_ylzj5evdm3qr4jt": {
+                    "type": "product_title",
+                    "settings": {}
+                },
+                "block_yn7znd0yq40jraa": {
+                    "type": "product_price",
+                    "settings": {}
+                },
+                "block_yo835awgm4qhspj": {
+                    "type": "product_description",
+                    "settings": {}
+                }
+            },
+            "settings": {
+                "product": "e53d4919-b7e9-4a4b-a612-26b76241870f"
+            },
+            "order": [
+                "block_ylzj5evdm3qr4jt",
+                "block_yn7znd0yq40jraa",
+                "block_yo835awgm4qhspj"
+            ]
+        },
         "section_sfrr573akvf9a93": {
             "type": "featured-products",
             "settings": {
@@ -339,15 +364,23 @@
                 "block_t5vbqr2jlmpdhgg",
                 "block_t7e2q4xmp6k9hq"
             ]
+        },
+        "section_vr5tnn6x1kssy5a": {
+            "type": "multi-column",
+            "settings": {
+                "columns_mobile": "1"
+            }
         }
     },
     "order": [
+        "product-column",
         "section_qum9qooyrwe3uz",
         "featured-products-preview",
         "section_62tm9748qh15wfk",
         "section_9nayyt0zwugfwpf",
         "featured-products",
         "section_sfrr573akvf9a93",
-        "section_iryt4p1dmrzxq9d"
+        "section_iryt4p1dmrzxq9d",
+        "section_vr5tnn6x1kssy5a"
     ]
 }
