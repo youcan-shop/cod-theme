@@ -31,25 +31,21 @@
       {%- endif -%}
     {%- endfor -%}
   </div>
+  {%- if section.settings.mention_and_social_media -%}
     <div class="container">
       <div class="copyright-wrapper" {{ block.youcan_attributes }}>
+        <div class="copyright-title">
+          {{ section.settings.mention }}
+        </div>
+        <div class="spacer"></div>
         {%- for block in section.blocks -%}
-          {%- case block.type %}
-            {%- when 'copyright' %}
-              <div class="copyright-title">
-                {{ block.settings.copyright }}
-              </div>
-
-              <div class="spacer"></div>
-
-            {%- when 'social-media' %}
-              <a class="social-media-link" href="{{ block.settings.social_media_url }}">
-                <img src="{{ block.settings.social_media_icon_image.src }}">
-              </a>
-          {%- endcase %}
+          <a class="social-media-link" href="{{ block.settings.social_media_url }}">
+            <img src="{{ block.settings.social_media_icon_image.src }}">
+          </a>
         {%- endfor %}
       </div>
     </div>
+  {%- endif -%}
 </footer>
 
 {{ 'accordion.js' | asset_url | script_tag_deferred }}
@@ -73,21 +69,20 @@
       "id": "footer_text_color",
       "label": "Text Color",
       "default": "#fff"
+    },
+    {
+      "type": "checkbox",
+      "id": "mention_and_social_media",
+      "label": "Mention & Social media",
+      "default": false
+    },
+    {
+      "type": "richtext",
+      "id": "mention",
+      "label": "Mention content"
     }
   ],
   "blocks": [
-    {
-      "label": "Copyright",
-      "limit": 1,
-      "type": "copyright",
-      "settings": [
-        {
-          "type": "richtext",
-          "id": "copyright",
-          "label": "Copyright Text"
-        }
-      ]
-    },
     {
       "label": "social media",
       "type": "social-media",
