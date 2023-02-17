@@ -4,6 +4,9 @@
       "placeholder": "أدخل الكلمة الرئيسية للبحث عنها..."
     }
   },
+  "reviews":{
+    "ratings": "التقييمات"
+  },
   "featured_products": {
     "title": "المنتجات المميزة"
   },

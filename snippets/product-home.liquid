@@ -1,0 +1,58 @@
+{%- assign snippetId = 0 | rand %}
+{% assign images = product.images %}
+{% assign product_name = product.name %}
+{{ 'reviews.css' | asset_url | stylesheet_tag }}
+
+
+<div class='product-images-container'>
+  <div
+    class='product-block'
+  >
+  <div class='image-box'>
+  {% if block_settings.tag_text %}
+    <div
+      class="tag {{ block_settings.tag_position }}"
+      style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
+    >
+      {{ block_settings.tag_text }}
+    </div>
+  {% endif %}
+    <img
+      loading='lazy'
+      class='main-image'
+      class='main-thumbnail'
+      src='{%- if images[0] %}{{images[0]}}{%- else %}{{ 'default_product.jpeg' | asset_url }}{% endif %}'
+      alt='{{ product_name }}'>
+  </div>
+  <div class='product-details'>
+    {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'product_title' -%}
+            <h1 class='product-name'>{{ product.name }}</h1>
+              <div class='yc-product-reviews'>
+                <ul class='yc-reviews-wrapper reviews-block'></ul>
+              </div>
+          {%- when 'product_price' -%}
+            <div class='flex gap-2 items-center'>
+              <h2 class='product-price'>{{ product.price | money }}</h2>
+              {% if section.settings.show_compare_at_price %}
+                <h3>
+                  <del class="product-compare-price">{{ product.compare_at_price | money }}</del>
+                </h3>
+              {% endif %}
+            </div>
+          {%- when 'product_description' -%}
+            <section class='product-description '>{{ product.description }}</section>
+        {%- endcase -%}
+    {%- endfor -%}
+    <a href='{{ product.url }}' class='yc-btn buy-btn'>إتمام الشراء</a>
+    </div>
+    </div>
+  </div>
+
+ <script>
+    const defaultAvatar = '{{ "avatar.png" | asset_url }}';
+    const productId = '{{ product_id }}';
+    const ratings = "{{ 'reviews.ratings' | t }}";
+  </script>
+{{ 'reviews-count.js' | asset_url | script_tag_deferred }}

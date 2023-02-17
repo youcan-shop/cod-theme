@@ -36,7 +36,7 @@
                     "type": "product",
                     "settings": {
                         "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d",
-                        "tag_text": "هوتكٌٗام 🐊",
+                        "tag_text": "هوتكٌٗام 🐊",
                         "tag_color": "#FF3000FF"
                     }
                 },
@@ -106,7 +106,7 @@
                 "columns_desktop": 4,
                 "columns_mobile": "2",
                 "title": "ما يميزنا",
-                "margin_bottom": 5,
+                "margin_bottom": 50,
                 "margin_top": 5,
                 "background_color": "#FFFFFFFF"
             },
@@ -291,6 +291,40 @@
                 "padding_bottom": 50
             }
         },
+        "product-column": {
+            "type": "product-column",
+            "blocks": {
+                "block_ylzj5evdm3qr4jt": {
+                    "type": "product_title",
+                    "settings": {}
+                },
+                "block_yn7znd0yq40jraa": {
+                    "type": "product_price",
+                    "settings": {}
+                },
+                "block_yo835awgm4qhspj": {
+                    "type": "product_description",
+                    "settings": {}
+                }
+            },
+            "settings": {
+                "product": "e53d4919-b7e9-4a4b-a612-26b76241870f",
+                "background_color": "#FFF9F4",
+                "show_compare_at_price": true,
+                "padding_top": 50,
+                "padding_bottom": 50,
+                "tag_text": "خصم بقيمه 40% ",
+                "tag_text_color": "#FFFFFFFF",
+                "tag_color": "#F33520",
+                "show_on_mobile": true,
+                "show_product": true
+            },
+            "order": [
+                "block_ylzj5evdm3qr4jt",
+                "block_yo835awgm4qhspj",
+                "block_yn7znd0yq40jraa"
+            ]
+        },
         "section_sfrr573akvf9a93": {
             "type": "featured-products",
             "settings": {
@@ -339,15 +373,23 @@
                 "block_t5vbqr2jlmpdhgg",
                 "block_t7e2q4xmp6k9hq"
             ]
+        },
+        "section_vr5tnn6x1kssy5a": {
+            "type": "multi-column",
+            "settings": {
+                "columns_mobile": "1"
+            }
         }
     },
     "order": [
         "section_qum9qooyrwe3uz",
         "featured-products-preview",
         "section_62tm9748qh15wfk",
+        "product-column",
         "section_9nayyt0zwugfwpf",
         "featured-products",
         "section_sfrr573akvf9a93",
-        "section_iryt4p1dmrzxq9d"
+        "section_iryt4p1dmrzxq9d",
+        "section_vr5tnn6x1kssy5a"
     ]
 }

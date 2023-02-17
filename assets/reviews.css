@@ -29,3 +29,14 @@
 .yc-product-reviews .yc-reviews-wrapper .review-item__empty {
   margin: auto;
 }
+.yc-product-reviews .reviews-block {
+  display: flex;
+  margin: 0;
+  gap: 6px;
+  align-items: center;
+}
+.yc-product-reviews .review-count {
+  font-weight: 400;
+  font-size: 13px;
+  color: #707070;
+}

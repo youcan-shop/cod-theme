@@ -1,0 +1,134 @@
+{{ 'product-column.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .product_customization {
+    padding-top: {{ section.settings.padding_top}}px;
+    padding-bottom: {{ section.settings.padding_bottom}}px;
+  }
+
+  .product_customization { 
+    background-color: {{ section.settings.background_color.hex }};
+  } 
+
+  @media screen and (max-width: 768px) {
+    .product_customization {
+      display: {% if section.settings.show_product %}block{% else %}none{% endif %};
+    }
+  }
+  
+{%- endstyle -%}
+
+<section class='product_customization'>
+  {%- assign selected_product = section.settings.product %}
+
+  {%- if product %}
+    {%- assign selected_product = product %}
+  {%- endif %}
+
+  {%- if selected_product %}
+    {%- render 'product-home', product_id: selected_product.id, product: selected_product, block_settings: section.settings-%}
+  {%- endif %}
+</section>
+
+{%- schema -%}
+  {
+    "label": "Product column",
+    "settings": [
+      {
+        "label": "Product",
+        "id": "product",
+        "type": "product"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_compare_at_price",
+        "label": "Show compare at price",
+        "default": false
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_product",
+        "label": "Show product on mobile",
+        "default": true
+      },
+      {
+        "type": "number",
+        "id": "padding_top",
+        "label": "Padding top",
+        "default": 10
+      },
+      {
+        "type": "number",
+        "id": "padding_bottom",
+        "label": "Padding bottom",
+        "default": 10
+      },
+      {
+          "type": "text",
+          "id": "tag_text",
+          "label": "Banner text"
+        },
+        {
+          "type": "color",
+          "id": "tag_color",
+          "label": "Banner background color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "tag_text_color",
+          "label": "Banner text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "select",
+          "id": "tag_position",
+          "label": "Banner position",
+          "options": [
+            {
+              "label": "Top Right",
+              "value": "top_right"
+            },
+            {
+              "label": "Top Left",
+              "value": "top_left"
+            },
+            {
+              "label": "Bottom Right",
+              "value": "bottom_right"
+            },
+            {
+              "label": "Bottom Left",
+              "value": "bottom_left"
+            }
+          ],
+          "default": "top_right"
+        }
+    ],
+    "blocks": [
+      {
+        "label": "Title",
+        "limit": 1,
+        "type": "product_title"
+      },
+      {
+        "label": "Price",
+        "limit": 1,
+        "type": "product_price"
+      },
+      {
+        "label": "Description",
+        "limit": 1,
+        "type": "product_description"
+      }
+    ]
+  }
+{%- endschema -%}
+
+
+{{ 'product.js' | asset_url | script_tag_deferred }}
