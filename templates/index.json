@@ -106,7 +106,7 @@
                 "columns_desktop": 4,
                 "columns_mobile": "2",
                 "title": "ما يميزنا",
-                "margin_bottom": 5,
+                "margin_bottom": 50,
                 "margin_top": 5,
                 "background_color": "#FFFFFFFF"
             },
@@ -308,7 +308,11 @@
                 }
             },
             "settings": {
-                "product": "e53d4919-b7e9-4a4b-a612-26b76241870f"
+                "product": "e53d4919-b7e9-4a4b-a612-26b76241870f",
+                "background_color": "#FFF9F4",
+                "show_compare_at_price": true,
+                "padding_top": 50,
+                "padding_bottom": 50
             },
             "order": [
                 "block_ylzj5evdm3qr4jt",
@@ -373,10 +377,10 @@
         }
     },
     "order": [
-        "product-column",
         "section_qum9qooyrwe3uz",
         "featured-products-preview",
         "section_62tm9748qh15wfk",
+        "product-column",
         "section_9nayyt0zwugfwpf",
         "featured-products",
         "section_sfrr573akvf9a93",

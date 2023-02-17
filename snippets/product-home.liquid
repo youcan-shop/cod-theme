@@ -1,14 +1,12 @@
 {%- assign snippetId = 0 | rand %}
 {% assign images = product.images %}
 {% assign product_name = product.name %}
-{% assign product_url = product.url %}
 
 <div class='product-images-container'>
-  <a
-  href='{{ product.url }}'
-  class='product-block'
->
-  <div id='img-zoomer-box'>
+  <div
+    class='product-block'
+  >
+  <div class='image-box'>
     <img
       loading='lazy'
       class='main-image'
@@ -26,7 +24,7 @@
               <h2 class='product-price'>{{ product.price | money }}</h2>
               {% if section.settings.show_compare_at_price %}
                 <h3>
-                  <del>{{ product.compare_at_price | money }}</del>
+                  <del class="product-compare-price">{{ product.compare_at_price | money }}</del>
                 </h3>
               {% endif %}
             </div>
@@ -34,6 +32,7 @@
             <section class='product-description '>{{ product.description }}</section>
         {%- endcase -%}
     {%- endfor -%}
+    <a href='{{ product.url }}' class='yc-btn buy-btn'>Add to cart</a>
     </div>
-    </a>
+    </div>
   </div>
