@@ -79,6 +79,10 @@
         font-size: 13px;
         line-height: 250%;
 
+        @include breakpoint('md') {
+          font-size: 15px;
+        }
+
         &:hover {
           text-decoration: underline;
         }
@@ -91,12 +95,18 @@
     display: flex;
     gap: 12px;
     flex-direction: row-reverse;
+    align-items: center;
     justify-content: space-between;
-    font-size: 14px;
     margin-top: 14px;
   }
 
-  .social-media-link {
+  .copyright-wrapper .copyright-title {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 250%;
+  }
+
+  .copyright-wrapper .social-media-link {
     display: block;
     width: 20px;
     height: 20px;
