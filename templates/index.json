@@ -312,7 +312,10 @@
                 "background_color": "#FFF9F4",
                 "show_compare_at_price": true,
                 "padding_top": 50,
-                "padding_bottom": 50
+                "padding_bottom": 50,
+                "tag_text": "خصم بقيمه 40% ",
+                "tag_text_color": "#FFFFFFFF",
+                "tag_color": "#F33520"
             },
             "order": [
                 "block_ylzj5evdm3qr4jt",

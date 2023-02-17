@@ -95,37 +95,6 @@
           transform: scale(1.1);
         }
       }
-
-      .tag {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1rem;
-        z-index: 1;
-        padding: 4px 13px;
-        border-radius: 4px;
-
-        &.top_right {
-          top: 8px;
-          right: 8px;
-        }
-
-        &.bottom_right {
-          bottom: 8px;
-          right: 8px;
-        }
-
-        &.top_left {
-          top: 8px;
-          left: 8px;
-        }
-
-        &.bottom_left {
-          bottom: 8px;
-          left: 8px;
-        }
-      }
     }
   }
 

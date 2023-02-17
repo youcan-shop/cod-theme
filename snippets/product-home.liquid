@@ -9,6 +9,14 @@
     class='product-block'
   >
   <div class='image-box'>
+  {% if block_settings.tag_text %}
+    <div
+      class="tag {{ block_settings.tag_position }}"
+      style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
+    >
+      {{ block_settings.tag_text }}
+    </div>
+  {% endif %}
     <img
       loading='lazy'
       class='main-image'
@@ -19,7 +27,6 @@
   <div class='product-details'>
 
   <div class='yc-product-reviews'>
-    <h1 class='yc-section-title'>{{ reviews_title }}</h1>
     <ul class='yc-reviews-wrapper reviews-block'></ul>
   </div>
   
@@ -27,7 +34,6 @@
     const defaultAvatar = '{{ "avatar.png" | asset_url }}';
     const productId = '{{ product_id }}';
   </script>
-{{ 'reviews.js' | asset_url | script_tag_deferred }}
 
     {%- for block in section.blocks -%}
         {%- case block.type -%}
