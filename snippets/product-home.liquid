@@ -1,6 +1,8 @@
 {%- assign snippetId = 0 | rand %}
 {% assign images = product.images %}
 {% assign product_name = product.name %}
+{{ 'reviews.css' | asset_url | stylesheet_tag }}
+
 
 <div class='product-images-container'>
   <div
@@ -15,6 +17,18 @@
       alt='{{ product_name }}'>
   </div>
   <div class='product-details'>
+
+  <div class='yc-product-reviews'>
+    <h1 class='yc-section-title'>{{ reviews_title }}</h1>
+    <ul class='yc-reviews-wrapper reviews-block'></ul>
+  </div>
+  
+  <script>
+    const defaultAvatar = '{{ "avatar.png" | asset_url }}';
+    const productId = '{{ product_id }}';
+  </script>
+{{ 'reviews.js' | asset_url | script_tag_deferred }}
+
     {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'product_title' -%}
@@ -32,7 +46,9 @@
             <section class='product-description '>{{ product.description }}</section>
         {%- endcase -%}
     {%- endfor -%}
-    <a href='{{ product.url }}' class='yc-btn buy-btn'>Add to cart</a>
+    <a href='{{ product.url }}' class='yc-btn buy-btn'>إتمام الشراء</a>
     </div>
     </div>
   </div>
+
+{{ 'reviews-count.js' | asset_url | script_tag_deferred }}

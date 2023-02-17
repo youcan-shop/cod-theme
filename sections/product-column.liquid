@@ -9,8 +9,8 @@
   .product_customization { 
     background-color: {{ section.settings.background_color.hex }};
   } 
-
 {%- endstyle -%}
+
 <section class='product_customization'>
   {%- assign selected_product = section.settings.product %}
 
@@ -19,7 +19,7 @@
   {%- endif %}
 
   {%- if selected_product %}
-    {%- render 'product-home', product: selected_product, section: section -%}
+    {%- render 'product-home', product_id: selected_product.id, product: selected_product, section: section -%}
   {%- endif %}
 </section>
 
