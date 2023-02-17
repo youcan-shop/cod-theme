@@ -9,6 +9,13 @@
   .product_customization { 
     background-color: {{ section.settings.background_color.hex }};
   } 
+
+  @media screen and (max-width: 768px) {
+    .product_customization {
+      display: {% if section.settings.show_product %}block{% else %}none{% endif %};
+    }
+  }
+  
 {%- endstyle -%}
 
 <section class='product_customization'>
@@ -42,6 +49,12 @@
         "type": "color",
         "id": "background_color",
         "label": "Background color"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_product",
+        "label": "Show product on mobile",
+        "default": true
       },
       {
         "type": "number",
