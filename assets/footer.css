@@ -89,6 +89,13 @@
   justify-content: space-between;
   margin-top: 14px;
 }
+@media (min-width: 768px) {
+  .yc-footer .copyright-wrapper {
+    border-top: 1px solid #444444;
+    padding-top: 45px;
+    margin-top: 35px;
+  }
+}
 .yc-footer .copyright-wrapper .copyright-title {
   font-weight: 600;
   font-size: 11px;
