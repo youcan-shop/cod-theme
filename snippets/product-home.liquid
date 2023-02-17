@@ -25,20 +25,13 @@
       alt='{{ product_name }}'>
   </div>
   <div class='product-details'>
-
-  <div class='yc-product-reviews'>
-    <ul class='yc-reviews-wrapper reviews-block'></ul>
-  </div>
-  
-  <script>
-    const defaultAvatar = '{{ "avatar.png" | asset_url }}';
-    const productId = '{{ product_id }}';
-  </script>
-
     {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'product_title' -%}
             <h1 class='product-name'>{{ product.name }}</h1>
+              <div class='yc-product-reviews'>
+                <ul class='yc-reviews-wrapper reviews-block'></ul>
+              </div>
           {%- when 'product_price' -%}
             <div class='flex gap-2 items-center'>
               <h2 class='product-price'>{{ product.price | money }}</h2>
@@ -57,4 +50,8 @@
     </div>
   </div>
 
+ <script>
+    const defaultAvatar = '{{ "avatar.png" | asset_url }}';
+    const productId = '{{ product_id }}';
+  </script>
 {{ 'reviews-count.js' | asset_url | script_tag_deferred }}

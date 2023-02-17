@@ -315,12 +315,14 @@
                 "padding_bottom": 50,
                 "tag_text": "خصم بقيمه 40% ",
                 "tag_text_color": "#FFFFFFFF",
-                "tag_color": "#F33520"
+                "tag_color": "#F33520",
+                "show_on_mobile": true,
+                "show_product": true
             },
             "order": [
                 "block_ylzj5evdm3qr4jt",
-                "block_yn7znd0yq40jraa",
-                "block_yo835awgm4qhspj"
+                "block_yo835awgm4qhspj",
+                "block_yn7znd0yq40jraa"
             ]
         },
         "section_sfrr573akvf9a93": {
