@@ -15,9 +15,14 @@
   <div class="columns container">
     {%- for linklist in link-lists -%}
       {%- if linklist.links | count > 0  and linklist != main-link-list -%}
-        <div class="column">
-          <h1 class='title block'>{{ linklist.title }}</h1>
-          <div class="parsed-links">
+        <div class="accordion-item column transparent">
+          <div class='accordion-header'>
+            <h1 class="title">{{ linklist.title }}</h1>
+            <svg class="arrow" width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.01947 7.41357L7.56174 1.50241L14.104 7.41357" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="accordion-content">
             {%- for item in linklist.links -%}
                 <a class="item" href="{{ item.url }}">{{ item.title }}</a>
             {%- endfor -%}
@@ -43,6 +48,8 @@
     {%- endfor %}
   </div>
 </footer>
+
+{{ 'accordion.js' | asset_url | script_tag_deferred }}
 
 {%- schema -%}
 {
