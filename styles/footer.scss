@@ -3,21 +3,14 @@
 .yc-footer {
   background-color: var(--yc-footer-background-color);
   color: var(--yc-footer-text-color);
+  margin-top: 27px;
   overflow: hidden;
   display: block;
   width: 100%;
-  padding: 5.4rem 0 6rem;
-  position: relative;
-
-  .title {
-    font-weight: 500;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
+  padding: 40px 0;
 
   .columns {
     display: flex;
-    margin-bottom: 1rem;
     gap: 1rem;
     flex-direction: column;
 
@@ -30,51 +23,103 @@
     }
   }
 
-  .item,
-  .description {
-    font-size: 14px;
-    margin-bottom: 0.7rem;
-    opacity: 0.7;
-    display: block;
-  }
-
-  .description {
-    line-height: 1.8;
-  }
-
-  a.item:not(.normal):hover {
-    text-decoration: underline;
-    line-height: 1.5;
-  }
-
-  .copyright {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    font-size: 14px;
-    text-align: center;
-    background-color: var(--yc-footer-copyright-background);
-    
-    .container {
-      height: 80px;
+  .accordion-item {
+    .accordion-header {
       display: flex;
       justify-content: space-between;
+      color: inherit;
       align-items: center;
-  
-      img {
-        height: 26px;
+      column-gap: 12px;
+      border-bottom: 1px solid #444444;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      cursor: pointer;
+
+      @include breakpoint('md') {
+        border-color: transparent;
+        cursor: unset;
+      }
+
+      .title {
+        color: inherit;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 120%;
+      }
+
+      .arrow {
+        transform: rotate(180deg);
+        transition: all 0.25s cubic-bezier(0.5, 0, 0.1, 1);
+
+        @include breakpoint('md') {
+          display: none;
+        }
+      }
+
+      &.active {
+        .arrow {
+          transform: unset;
+        }
+      }
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 300ms ease;
+
+      @include breakpoint('md') {
+        max-height: unset;
+        overflow: unset;
+      }
+
+      .item {
+        display: block;
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 250%;
+
+        @include breakpoint('md') {
+          font-size: 15px;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
 
-  .logo {
-    margin-bottom: 3rem;
+  .copyright-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+
+    @include breakpoint('md') {
+      border-top: 1px solid #444444;
+      padding-top: 45px;
+      margin-top: 35px;
+    }
+  }
+
+  .copyright-wrapper .copyright-title {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 250%;
+  }
+
+  .copyright-wrapper .social-media-link {
+    display: block;
+    width: 20px;
+    height: 20px;
 
     img {
-      max-height: 2.5rem;
-      object-fit: contain;
+      width: 100%;
+      height: 100%;
     }
   }
 }
