@@ -1,0 +1,485 @@
+
+
+{% assign id = 100 | rand: 2000 %}
+
+{% style %}
+  .section-featured-products-{{id}} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  .section-featured-products-{{id}} .yc-section-title {
+    text-align: {{ section.settings.section_title_position }}
+  }
+  .section-featured-products-{{id}} {
+    {% if section.settings.background_image.src %}
+    background-image: url({{ section.settings.background_image.src }});
+    {% elsif section.settings.background_color.hex %}
+    background-color: {{ section.settings.background_color.hex }};
+    {% endif %}
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 10rem;
+  }
+  .section-featured-products-{{id}} * {
+    color: {{ section.settings.text_color.hex }};
+  }
+  .section-featured-products-{{id}} .countdown-wrapper .countdown .sec .num {
+    border-color: {{ section.settings.text_color.hex }};
+  }
+
+  #yc_slider_{{ id }} .splide__arrow {
+    background: {{ section.settings.slider_desktop_arrows_background_color.hex }} !important;
+    width: 54px;
+    height: 54px;
+    margin: 0 100px;
+  }
+
+  #yc_slider_{{ id }} .splide__arrow--next {
+    border-radius: 0 8px 8px 0;
+  }
+
+  #yc_slider_{{ id }} .splide__arrow--prev {
+    border-radius: 8px 0 0 8px;
+  }
+
+  #yc_slider_{{ id }} .splide__arrow svg {
+    height: {{ section.settings.slider_arrows_content_size }}px;
+    width: {{ section.settings.slider_arrows_content_size }}px;
+    background-color: {{ section.settings.slider_mobile_arrows_background_color.hex }};
+  }
+  
+  .yc-slider__desktop .content {
+    background-color: {{ section.settings.slider_overlay_background_color.hex }};
+  }
+
+  .yc-slider__mobile .content {
+    background-color: {{ section.settings.slider_mobile_overlay_background_color.hex }};
+  }
+{% endstyle %}
+
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+{{ 'desktop-slider.css' | asset_url | stylesheet_tag }}
+{{ 'mobile-slider.css' | asset_url | stylesheet_tag }}
+{{ 'splide.min.js' | asset_url | script_tag }}
+
+<div class='yc-featured-products section-featured-products-{{id}}'>
+  <div class="container">
+    <!-- prettier-ignore -->
+    {% if section.settings.countdown_enabled %}
+      {%- render 'countdown', section_settings: section.settings -%}
+    {% endif %}
+    <h1 class='yc-section-title'>
+      {{ section.settings.title }}
+    </h1>
+    <div
+        class='splide yc-slider__{{ view }}'
+        id='yc_slider_{{ id }}'
+      >
+    <div class='splide__track'>
+      <ul class='splide__list'>
+        {%- for block in section.blocks -%}
+             <li
+              class='splide__slide'
+              {{ block.youcan_attributes }}
+            >
+                {%- render 'product-slider', item: block.settings.product, block_settings: block.settings -%}
+            </li>
+        {%- endfor -%}
+      </ul>
+      </div>
+    </div>
+</div>
+</div>
+
+<script>
+  const isMobile1 = window.matchMedia("(max-width: 760px)");
+
+  const desktopSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
+    type: '{{ section.settings.slider_transition_type }}',
+    arrows: '{{ section.settings.slider_arrows }}' ? true : false,
+    autoplay: '{{ section.settings.slider_autoplay }}' ? true : false,
+    cover: true,
+    pagination: '{{ section.settings.slider_pagination }}' ? true : false,
+    pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
+    pauseOnFocus: '{{ section.settings.slider_pause_on_focus }}' ? true : false,
+    height: `{{ section.settings.slider_height_percentage }}vh`,
+    interval: '{{ section.settings.slider_timeout | times: 1000 }}',
+    focus: 'center',
+    rewind: true,
+    drag: 'free',
+    snap: true,
+    loop: true,
+  });
+
+  const mobileSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
+    type: '{{ section.settings.slider_mobile_transition_type }}',
+    autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
+    cover: true,
+    pagination: '{{ section.settings.slider_mobile_pagination }}' ? true : false,
+    height: `{{ section.settings.slider_mobile_height_percentage }}vh`,
+    interval: '{{ section.settings.slider_mobile_timeout | times: 1000 }}',
+    focus: 'center',
+    rewind: true,
+    drag: 'free',
+    snap: true,
+    loop: true,
+  });
+
+  const mountSlider1 = () => {
+    try {
+      if (isMobile1.matches) return mobileSlider1.mount();
+      
+      return desktopSlider1.mount();
+    } catch {
+      return;
+    }
+  }
+
+  mountSlider1();
+  isMobile.addEventListener('change', mountSlider1);
+</script>
+
+{%- schema -%}
+{
+  "label": "Featured products slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "section_title_position",
+      "label": "Title position",
+      "options": [
+        {
+          "label": "left",
+          "value": "left"
+        },
+        {
+          "label": "right",
+          "value": "right"
+        },
+        {
+          "label": "center",
+          "value": "center"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 5,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 5,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color"
+    },
+    {
+      "type": "header",
+      "content": "👉 Desktop Slider Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "ℹ️ These settings will be applied to desktop devices."
+    },
+    {
+      "type": "color",
+      "id": "slider_overlay_background_color",
+      "label": "Overlay Background Color",
+      "default": "#0000007d"
+    },
+    {
+      "type": "range",
+      "id": "slider_height_percentage",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Slider height",
+      "default": 60
+    },
+
+    {
+      "type": "range",
+      "id": "slider_timeout",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "unit": "sec",
+      "label": "Timeout between slides",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "slider_arrows_content_size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Arrows Content Size",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "slider_desktop_arrows_background_color",
+      "label": "Arrows Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "select",
+      "id": "slider_transition_type",
+      "label": "Transition type",
+      "options": [
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        },
+        {
+          "value": "loop",
+          "label": "Loop"
+        }
+      ],
+      "default": "loop"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_pause_on_focus",
+      "label": "Pause on focus",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_pagination",
+      "label": "Pagination",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_arrows",
+      "label": "Arrows",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "👉 Mobile Slider Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "ℹ️ These settings will be applied to mobile devices."
+    },
+    {
+      "type": "color",
+      "id": "slider_mobile_overlay_background_color",
+      "label": "Overlay Background Color",
+      "default": "#0000007d"
+    },
+    {
+      "type": "range",
+      "id": "slider_mobile_height_percentage",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Slider height",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "slider_mobile_timeout",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "unit": "s",
+      "label": "Timeout",
+      "default": 5
+    },
+    {
+      "type": "select",
+      "id": "slider_mobile_transition_type",
+      "label": "Transition type",
+      "options": [
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        },
+        {
+          "value": "loop",
+          "label": "Loop"
+        }
+      ],
+      "default": "loop"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_pagination",
+      "label": "Pagination",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_arrows",
+      "label": "Arrows",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "header",
+      "content": "Countdown settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "ℹ️ If you want to show countdown on this section, please enable it and set the date and time."
+    },
+    {
+      "type": "checkbox",
+      "id": "countdown_enabled",
+      "label": "Enable countdown"
+    },
+    {
+      "label": "Message",
+      "id": "countdown_message",
+      "type": "richtext",
+      "default": "Hurry up! There aren't many items left in stock."
+    },
+    {
+      "label": "Year",
+      "id": "countdown_year",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Month",
+      "id": "countdown_month",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Day",
+      "id": "countdown_day",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Hour",
+      "id": "countdown_hour",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Minutes",
+      "id": "countdown_minute",
+      "type": "number",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "label": "Product",
+      "type": "product",
+      "limit": 6,
+
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "tag_text",
+          "label": "Banner text"
+        },
+        {
+          "type": "color",
+          "id": "tag_color",
+          "label": "Banner color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "tag_text_color",
+          "label": "Banner text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "select",
+          "id": "tag_position",
+          "label": "Banner position",
+          "options": [
+            {
+              "label": "Top Right",
+              "value": "top_right"
+            },
+            {
+              "label": "Top Left",
+              "value": "top_left"
+            },
+            {
+              "label": "Bottom Right",
+              "value": "bottom_right"
+            },
+            {
+              "label": "Bottom Left",
+              "value": "bottom_left"
+            }
+          ],
+          "default": "top_right"
+        }
+      ]
+    }
+  ]
+}
+{%- endschema -%}
