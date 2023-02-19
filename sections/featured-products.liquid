@@ -36,11 +36,19 @@
       {{ section.settings.title }}
     </h1>
     <div class='product-list'>
-      {%- for block in section.blocks -%}
-        <div {{ block.youcan_attributes }}>
-          {%- render 'product-preview', item: block.settings.product, block_settings: block.settings -%}
-        </div>
-      {%- endfor -%}
+      {% if section.settings.infinite_product_loader_enabled %}
+        {%- for block in section.blocks -%}
+          <div {{ block.youcan_attributes }}>
+            {%- render 'product-preview', item: block.settings.product, block_settings: block.settings -%}
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          <div {{ block.youcan_attributes }}>
+            {%- render 'product-preview', item: block.settings.product, block_settings: block.settings-%}
+          </div>
+        {%- endfor -%}
+      {% endif %}
     </div>
   </div>
 </div>
@@ -107,6 +115,25 @@
       "type": "image_picker",
       "id": "background_image",
       "label": "Background image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_compare_at_price",
+      "label": "Show compare at price",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Infinite product loader settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "ℹ️ If you want to show infinite product loader button, please enable it."
+    },
+    {
+      "type": "checkbox",
+      "id": "infinite_product_loader_enabled",
+      "label": "Enable infinite product loader"
     },
     {
       "type": "header",
