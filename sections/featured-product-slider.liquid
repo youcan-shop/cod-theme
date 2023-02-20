@@ -14,14 +14,9 @@
     text-align: {{ section.settings.section_title_position }}
   }
   .section-featured-products-{{id}} {
-    {% if section.settings.background_image.src %}
-    background-image: url({{ section.settings.background_image.src }});
-    {% elsif section.settings.background_color.hex %}
+    {% if section.settings.background_color %}
     background-color: {{ section.settings.background_color.hex }};
     {% endif %}
-    background-repeat: repeat;
-    background-position: center;
-    background-size: 10rem;
   }
   .section-featured-products-{{id}} * {
     color: {{ section.settings.text_color.hex }};
@@ -51,18 +46,19 @@
     background-color: {{ section.settings.slider_mobile_arrows_background_color.hex }};
   }
   
-  .yc-slider__desktop .content {
-    background-color: {{ section.settings.slider_overlay_background_color.hex }};
-  }
-
-  .yc-slider__mobile .content {
-    background-color: {{ section.settings.slider_mobile_overlay_background_color.hex }};
-  }
 {% endstyle %}
-
+<div class='yc-featured-products section-featured-products-{{id}}'>
+  <div class="container">
+    {% if section.settings.countdown_enabled %}
+      {%- render 'countdown', section_settings: section.settings -%}
+    {% endif %}
+    <h1 class='yc-section-title'>
+      {{ section.settings.title }}
+    </h1>
     {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
     {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
-
+  </div>
+</div>
 <script>
   const isMobile1 = window.matchMedia("(max-width: 760px)");
   const products = {{ section.blocks.size }};
@@ -118,7 +114,7 @@
 
 {%- schema -%}
 {
-  "label": "Slider11",
+  "label": "Featured Products Slider",
   "settings": [
      {
       "type": "text",
@@ -173,11 +169,6 @@
       "type": "color",
       "id": "text_color",
       "label": "Text color"
-    },
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background image"
     },
     {
       "type": "header",
@@ -235,12 +226,6 @@
     {
       "type": "paragraph",
       "content": "ℹ️ These settings will be applied to desktop devices."
-    },
-    {
-      "type": "color",
-      "id": "slider_overlay_background_color",
-      "label": "Overlay Background Color",
-      "default": "#0000007d"
     },
     {
       "type": "range",
@@ -336,12 +321,6 @@
     {
       "type": "paragraph",
       "content": "ℹ️ These settings will be applied to mobile devices."
-    },
-    {
-      "type": "color",
-      "id": "slider_mobile_overlay_background_color",
-      "label": "Overlay Background Color",
-      "default": "#0000007d"
     },
     {
       "type": "range",

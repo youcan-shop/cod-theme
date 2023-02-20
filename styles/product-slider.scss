@@ -1,0 +1,20 @@
+.product-slider {
+  .splide__arrow--next {
+    position: absolute;
+    right: 0;
+    margin: 0 -55px 0 0 !important;
+  }
+  
+  .splide__arrow--prev {
+    position: absolute;
+    left: 0;
+    margin: 0 0 0 -55px !important;
+  }
+
+  .splide__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+  }
+}
