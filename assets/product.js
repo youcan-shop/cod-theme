@@ -251,7 +251,7 @@ function updateProductDetails(parentSection, image, price, variations) {
  */
 function teleport(el, to) {
   const toEl = $(to);
-  toEl.appendChild(el);
+  toEl?.appendChild(el);
 }
 
 /**
