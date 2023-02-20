@@ -379,6 +379,73 @@
             "settings": {
                 "columns_mobile": "1"
             }
+        },
+        "section_ytf7ed64zpqpos7": {
+            "type": "featured-product-slider",
+            "settings": {
+                "padding_top": 80,
+                "padding_bottom": 80,
+                "countdown_message": "<p>ينتهي :<\/p>",
+                "countdown_year": 2024,
+                "countdown_month": 0,
+                "countdown_day": 0,
+                "countdown_hour": 0,
+                "countdown_minute": 0,
+                "show_compare_at_price": true,
+                "slider_timeout": 5,
+                "slider_arrows_content_size": 14,
+                "slider_desktop_arrows_background_color": "#FFFFFF",
+                "slider_background_color": "#E7412F",
+                "slider_mobile_arrows_background_color": "#FFFFFF",
+                "slider_transition_type": "loop",
+                "slider_autoplay": true,
+                "slider_pause_on_hover": true,
+                "slider_pause_on_focus": true,
+                "slider_pagination": true,
+                "slider_arrows": true,
+                "slider_mobile_timeout": 5,
+                "slider_mobile_transition_type": "loop",
+                "slider_mobile_autoplay": true,
+                "slider_mobile_pagination": true,
+                "slider_mobile_arrows": true,
+                "countdown_enabled": true,
+                "title": "⚡︎عرض خاص",
+                "section_title_position": "right"
+            },
+            "blocks": {
+                "block_yx43rgjmjbv47g": {
+                    "type": "product",
+                    "settings": {
+                        "product": "ce413d44-d917-4bfb-b10d-6d5cdae50252",
+                        "tag_color": "#000000",
+                        "tag_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                },
+                "block_yy1vjmbhyh0t8zq": {
+                    "type": "product",
+                    "settings": {
+                        "product": "3164ea4f-12e5-4be3-b3b0-259ad202cc15",
+                        "tag_color": "#000000",
+                        "tag_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                },
+                "block_yyy9mwvoxmghgwq": {
+                    "type": "product",
+                    "settings": {
+                        "product": "67a96ed6-c845-4e16-88b8-9299ebf5935e",
+                        "tag_color": "#000000",
+                        "tag_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                }
+            },
+            "order": [
+                "block_yx43rgjmjbv47g",
+                "block_yy1vjmbhyh0t8zq",
+                "block_yyy9mwvoxmghgwq"
+            ]
         }
     },
     "order": [
@@ -390,6 +457,7 @@
         "featured-products",
         "section_sfrr573akvf9a93",
         "section_iryt4p1dmrzxq9d",
-        "section_vr5tnn6x1kssy5a"
+        "section_vr5tnn6x1kssy5a",
+        "section_ytf7ed64zpqpos7"
     ]
 }
