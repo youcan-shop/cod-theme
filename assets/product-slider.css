@@ -3,7 +3,6 @@
 }
 .product-slider .product-block {
   width: 100%;
-  max-width: 328px;
   padding: 20px 14px;
   background-color: white;
   border-radius: 3px;
@@ -23,9 +22,4 @@
   font-size: 15px;
   line-height: 120%;
   text-decoration-line: line-through;
-}
-@media screen and (max-width: 1170px) {
-  .product-slider .product-block {
-    max-width: 260px;
-  }
 }
