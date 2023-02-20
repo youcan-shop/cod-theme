@@ -383,7 +383,7 @@
         "section_ytf7ed64zpqpos7": {
             "type": "featured-product-slider",
             "settings": {
-                "padding_top": 80,
+                "padding_top": 5,
                 "padding_bottom": 80,
                 "countdown_message": "<p>ينتهي :<\/p>",
                 "countdown_year": 2024,
@@ -453,11 +453,11 @@
         "featured-products-preview",
         "section_62tm9748qh15wfk",
         "product-column",
+        "section_ytf7ed64zpqpos7",
         "section_9nayyt0zwugfwpf",
         "featured-products",
         "section_sfrr573akvf9a93",
         "section_iryt4p1dmrzxq9d",
-        "section_vr5tnn6x1kssy5a",
-        "section_ytf7ed64zpqpos7"
+        "section_vr5tnn6x1kssy5a"
     ]
 }
