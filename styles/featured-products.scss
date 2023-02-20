@@ -16,13 +16,7 @@
     }
   }
 
-  @include breakpoint('lg') {
-    margin: auto 60px
-  }
-
-  @include breakpoint('xxl') {
-    margin: auto 155px
-  }
+ 
 
   .product-list {
     .product-block {

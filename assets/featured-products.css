@@ -16,16 +16,6 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (min-width: 992px) {
-  .yc-featured-products {
-    margin: auto 60px;
-  }
-}
-@media (min-width: 1400px) {
-  .yc-featured-products {
-    margin: auto 155px;
-  }
-}
 .yc-featured-products .product-list .product-block {
   text-align: center;
   color: var(--yc-neutral-color);
