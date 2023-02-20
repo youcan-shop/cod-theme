@@ -43,7 +43,7 @@
   #yc_slider_{{ id }} .splide__arrow svg {
     height: {{ section.settings.slider_arrows_content_size }}px;
     width: {{ section.settings.slider_arrows_content_size }}px;
-    background-color: {{ section.settings.slider_mobile_arrows_background_color.hex }};
+    fill: {{ section.settings.slider_mobile_arrows_background_color.hex }};
   }
   
 {% endstyle %}
@@ -219,6 +219,12 @@
       "type": "number",
       "default": 0
     },
+     {
+      "type": "checkbox",
+      "id": "show_compare_at_price",
+      "label": "Show compare at price",
+      "default": true
+    },
     {
       "type": "header",
       "content": "👉 Desktop Slider Settings"
@@ -261,6 +267,12 @@
     {
       "type": "color",
       "id": "slider_desktop_arrows_background_color",
+      "label": "Arrows Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "slider_mobile_arrows_background_color",
       "label": "Arrows Background Color",
       "default": "#FFFFFF"
     },

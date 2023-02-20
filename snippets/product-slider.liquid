@@ -1,4 +1,15 @@
 {{ 'product-slider.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+   .splide__slide {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+   }
+{% endstyle %}
 <div
   class='splide yc-slider__{{ view }} product-slider'
   id='yc_slider_{{ id }}'
@@ -8,6 +19,7 @@
       {%- for block in blocks %}
         <li
           class='splide__slide'
+          id='slide1'
           {{ block.youcan_attributes }}
         >
           <a
@@ -44,14 +56,9 @@
                 {% if block.settings.product.price %}
                   <span class='product-price'>{{ block.settings.product.price | money }}</span>
                 {% endif %}
-                {% if settings.show_compare_at_price and block.settings.product.compare_at_price %}
+                {% if section.settings.show_compare_at_price and block.settings.product.compare_at_price %}
                   <span class='compare-at-price'>{{ block.settings.product.compare_at_price | money }}</span>
                 {% endif %}
-              </div>
-              <div class='flex justify-center'>
-                <button class='yc-btn {% if settings.featured_products_btn_full_width %} w-full{% endif %}'>
-                  {{ 'snippets.product_preview.cta_button' | t }}
-                </button>
               </div>
             </div>
           </a>

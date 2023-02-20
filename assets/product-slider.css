@@ -8,9 +8,29 @@
   left: 0;
   margin: 0 0 0 -55px !important;
 }
-.product-slider .splide__slide {
+.product-slider .product-thumbnail img {
+  height: 270px;
+}
+.product-slider .product-block {
+  width: 100%;
+  max-width: 328px;
+  padding: 20px 14px;
+  background-color: white;
+  border-radius: 3px;
+}
+.product-slider .product-block .product-details {
+  text-align: center;
+  margin: 20px auto;
+}
+.product-slider .product-block .prices {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
+  flex-direction: column;
+  gap: 9px;
+}
+.product-slider .product-block .compare-at-price {
+  font-weight: 400;
+  color: #8D8D8D;
+  font-size: 15px;
+  line-height: 120%;
+  text-decoration-line: line-through;
 }
