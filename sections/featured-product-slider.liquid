@@ -1,9 +1,12 @@
-
+{{ 'product-slider.css' | asset_url | stylesheet_tag }}
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+{{ 'splide.min.js' | asset_url | script_tag }}
 
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  .section-featured-products-{{id}} {
+
+ .section-featured-products-{{id}} {
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
@@ -57,42 +60,16 @@
   }
 {% endstyle %}
 
-{{ 'splide.min.css' | asset_url | stylesheet_tag }}
-{{ 'desktop-slider.css' | asset_url | stylesheet_tag }}
-{{ 'mobile-slider.css' | asset_url | stylesheet_tag }}
-{{ 'splide.min.js' | asset_url | script_tag }}
-
-<div class='yc-featured-products section-featured-products-{{id}}'>
-  <div class="container">
-    <!-- prettier-ignore -->
-    {% if section.settings.countdown_enabled %}
-      {%- render 'countdown', section_settings: section.settings -%}
-    {% endif %}
-    <h1 class='yc-section-title'>
-      {{ section.settings.title }}
-    </h1>
-    <div
-        class='splide yc-slider__{{ view }}'
-        id='yc_slider_{{ id }}'
-      >
-    <div class='splide__track'>
-      <ul class='splide__list'>
-        {%- for block in section.blocks -%}
-             <li
-              class='splide__slide'
-              {{ block.youcan_attributes }}
-            >
-                {%- render 'product-slider', item: block.settings.product, block_settings: block.settings -%}
-            </li>
-        {%- endfor -%}
-      </ul>
-      </div>
-    </div>
-</div>
-</div>
+    {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
+    {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
 
 <script>
   const isMobile1 = window.matchMedia("(max-width: 760px)");
+  const products = {{ section.blocks.size }};
+      let perPage = 3;
+      if (products < 3) {
+        perPage = products;
+      }
 
   const desktopSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
     type: '{{ section.settings.slider_transition_type }}',
@@ -104,11 +81,11 @@
     pauseOnFocus: '{{ section.settings.slider_pause_on_focus }}' ? true : false,
     height: `{{ section.settings.slider_height_percentage }}vh`,
     interval: '{{ section.settings.slider_timeout | times: 1000 }}',
-    focus: 'center',
     rewind: true,
     drag: 'free',
+    perPage: perPage,
+    perMove: 1,
     snap: true,
-    loop: true,
   });
 
   const mobileSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
@@ -136,14 +113,14 @@
   }
 
   mountSlider1();
-  isMobile.addEventListener('change', mountSlider1);
+  isMobile1.addEventListener('change', mountSlider1);
 </script>
 
 {%- schema -%}
 {
-  "label": "Featured products slider",
+  "label": "Slider11",
   "settings": [
-    {
+     {
       "type": "text",
       "id": "title",
       "label": "Title"
@@ -191,6 +168,65 @@
       "type": "color",
       "id": "background_color",
       "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "header",
+      "content": "Countdown settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "ℹ️ If you want to show countdown on this section, please enable it and set the date and time."
+    },
+    {
+      "type": "checkbox",
+      "id": "countdown_enabled",
+      "label": "Enable countdown"
+    },
+    {
+      "label": "Message",
+      "id": "countdown_message",
+      "type": "richtext",
+      "default": "Hurry up! There aren't many items left in stock."
+    },
+    {
+      "label": "Year",
+      "id": "countdown_year",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Month",
+      "id": "countdown_month",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Day",
+      "id": "countdown_day",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Hour",
+      "id": "countdown_hour",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Minutes",
+      "id": "countdown_minute",
+      "type": "number",
+      "default": 0
     },
     {
       "type": "header",
@@ -364,73 +400,12 @@
       "id": "slider_mobile_arrows",
       "label": "Arrows",
       "default": true
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text color"
-    },
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background image"
-    },
-    {
-      "type": "header",
-      "content": "Countdown settings"
-    },
-    {
-      "type": "paragraph",
-      "content": "ℹ️ If you want to show countdown on this section, please enable it and set the date and time."
-    },
-    {
-      "type": "checkbox",
-      "id": "countdown_enabled",
-      "label": "Enable countdown"
-    },
-    {
-      "label": "Message",
-      "id": "countdown_message",
-      "type": "richtext",
-      "default": "Hurry up! There aren't many items left in stock."
-    },
-    {
-      "label": "Year",
-      "id": "countdown_year",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Month",
-      "id": "countdown_month",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Day",
-      "id": "countdown_day",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Hour",
-      "id": "countdown_hour",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Minutes",
-      "id": "countdown_minute",
-      "type": "number",
-      "default": 0
     }
   ],
   "blocks": [
     {
       "label": "Product",
       "type": "product",
-      "limit": 6,
-
       "settings": [
         {
           "type": "product",

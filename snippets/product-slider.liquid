@@ -1,7 +1,17 @@
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
-
+<div
+  class='splide yc-slider__{{ view }}'
+  id='yc_slider_{{ id }}'
+>
+  <div class='splide__track'>
+    <ul class='splide__list'>
+      {%- for block in blocks %}
+        <li
+          class='splide__slide'
+          {{ block.youcan_attributes }}
+        >
 <a
-  href='{{ item.url }}'
+  href='{{ block.settings.product.url }}'
   class='product-block'
 >
 
@@ -14,10 +24,10 @@
     </div>
   {% endif %}
   <div class='product-thumbnail'>
-    {% if item.thumbnail %}
+    {% if block.settings.product.thumbnail %}
       <img
         loading='lazy'
-        src='{{ item.thumbnail }}'
+        src='{{ block.settings.product.thumbnail }}'
       >
     {% else %}
       <img
@@ -27,14 +37,14 @@
     {% endif %}
   </div>
   <div class='product-details'>
-    <span class='product-title'>{{ item.name }}</span>
+    <span class='product-title'>{{ block.settings.product.name }}</span>
   </div>
   <div class='prices'>
-    {% if item.price %}
-      <span class='product-price'>{{ item.price | money }}</span>
+    {% if block.settings.product.price %}
+      <span class='product-price'>{{ block.settings.product.price | money }}</span>
     {% endif %}
-    {% if settings.show_compare_at_price and item.compare_at_price %}
-      <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
+    {% if settings.show_compare_at_price and block.settings.product.compare_at_price %}
+      <span class='compare-at-price'>{{ block.settings.product.compare_at_price | money }}</span>
     {% endif %}
   </div>
   <div class='flex justify-center'>
@@ -43,3 +53,8 @@
     </button>
   </div>
 </a>
+        </li>
+      {%- endfor %}
+    </ul>
+  </div>  
+</div>
