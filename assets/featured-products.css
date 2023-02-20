@@ -16,6 +16,16 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+@media (min-width: 992px) {
+  .yc-featured-products {
+    margin: auto 60px;
+  }
+}
+@media (min-width: 1400px) {
+  .yc-featured-products {
+    margin: auto 155px;
+  }
+}
 .yc-featured-products .product-list .product-block {
   text-align: center;
   color: var(--yc-neutral-color);
@@ -92,14 +102,18 @@
   flex-direction: column;
   gap: 12px;
 }
+.yc-featured-products .countdown-wrapper .message {
+  text-align: center;
+  font-size: 2rem;
+  display: none;
+}
 @media (min-width: 768px) {
   .yc-featured-products .countdown-wrapper {
     flex-direction: row;
   }
-}
-.yc-featured-products .countdown-wrapper .message {
-  text-align: center;
-  font-size: 2rem;
+  .yc-featured-products .countdown-wrapper .message {
+    display: block;
+  }
 }
 .yc-featured-products .countdown-wrapper .countdown {
   direction: ltr;

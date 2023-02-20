@@ -1,16 +1,4 @@
 .product-slider {
-  .splide__arrow--next {
-    position: absolute;
-    right: 0;
-    margin: 0 -55px 0 0 !important;
-  }
-  
-  .splide__arrow--prev {
-    position: absolute;
-    left: 0;
-    margin: 0 0 0 -55px !important;
-  }
-
   .product-thumbnail {
     img {
       height: 270px;
@@ -41,6 +29,10 @@
       font-size: 15px;
       line-height: 120%;
       text-decoration-line: line-through;
+    }
+
+    @media screen and (max-width: 1170px) {
+      max-width: 260px;
     }
   }
 }

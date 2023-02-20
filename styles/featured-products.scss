@@ -16,6 +16,14 @@
     }
   }
 
+  @include breakpoint('lg') {
+    margin: auto 60px
+  }
+
+  @include breakpoint('xxl') {
+    margin: auto 155px
+  }
+
   .product-list {
     .product-block {
       text-align: center;
@@ -104,14 +112,19 @@
     align-items: center;
     flex-direction: column;
     gap: 12px;
-    
-    @include breakpoint('md') {
-      flex-direction: row;
-    }
 
     .message {
       text-align: center;
       font-size: 2rem;
+      display: none;
+    }
+
+    @include breakpoint('md') {
+      flex-direction: row;
+
+      .message {
+        display: block;
+      }
     }
     .countdown {
       direction: ltr;

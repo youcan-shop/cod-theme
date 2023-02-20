@@ -10,9 +10,24 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: {{ section.settings.counter_background_color.hex }};
+    padding-bottom: {{ section.settings.counter_margin_bottom }}px;
   }
+  .section-featured-products-{{id}} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+      background-color: {{ section.settings.slider_background_color.hex }};
+    }
+
   .section-featured-products-{{id}} .yc-section-title {
     text-align: {{ section.settings.section_title_position }}
+  }
+
+  @media screen and (max-width: 850px) {
+    .section-featured-products-{{id}} .yc-section-title {
+      font-size: 16px;
+      margin: 0;
+    }
   }
   .section-featured-products-{{id}} {
     {% if section.settings.background_color %}
@@ -49,21 +64,21 @@
   
 {% endstyle %}
 <div class='yc-featured-products section-featured-products-{{id}}'>
-  <div class="container">
-    <div class="counter-wrapper">
-      <h1 class='yc-section-title'>
-        {{ section.settings.title }}
-      </h1>
-      {% if section.settings.countdown_enabled %}
-        {%- render 'countdown', section_settings: section.settings -%}
-      {% endif %}
+    <div class="counter-wrapper container">
+        <h1 class='yc-section-title'>
+          {{ section.settings.title }}
+        </h1>
+        {% if section.settings.countdown_enabled %}
+          {%- render 'countdown', section_settings: section.settings -%}
+        {% endif %}
     </div>
+  <div class="container">
     {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
     {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
   </div>
 </div>
 <script>
-  const isMobile1 = window.matchMedia("(max-width: 760px)");
+  const isMobile1 = window.matchMedia("(max-width: 850px)");
   const products = {{ section.blocks.size }};
       let perPage = 3;
       if (products < 3) {
@@ -84,6 +99,7 @@
     perPage: perPage,
     perMove: 1,
     snap: true,
+    focus  : 'center',
   });
 
   const mobileSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
@@ -91,13 +107,12 @@
     autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
     cover: true,
     pagination: '{{ section.settings.slider_mobile_pagination }}' ? true : false,
-    height: `{{ section.settings.slider_mobile_height_percentage }}vh`,
     interval: '{{ section.settings.slider_mobile_timeout | times: 1000 }}',
-    focus: 'center',
     rewind: true,
     drag: 'free',
+    perPage: 2,
+    perMove: 1,
     snap: true,
-    loop: true,
   });
 
   const mountSlider1 = () => {
@@ -266,6 +281,22 @@
       "id": "slider_background_color",
       "label": "Slider Background Color",
       "default": "#E7412F"
+    },
+    {
+      "type": "color",
+      "id": "counter_background_color",
+      "label": "Counter Background Color",
+      "default": "#E7412FFF"
+    },
+    {
+      "type": "range",
+      "id": "counter_margin_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Counter Margin Bottom",
+      "default": 0
     },
     {
       "type": "color",
