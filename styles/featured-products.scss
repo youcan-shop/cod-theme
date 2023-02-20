@@ -103,6 +103,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    gap: 12px;
     
     @include breakpoint('md') {
       flex-direction: row;
@@ -115,7 +116,6 @@
     .countdown {
       direction: ltr;
       display: flex;
-      gap: 0.5rem;
       justify-content: center;
       margin: 1rem 0;
 
@@ -125,6 +125,8 @@
       & .sec {
         text-align: center;
         width: min-content;
+        display: flex;
+        align-items: center;
         min-width: 3rem;
       }
       
@@ -136,8 +138,20 @@
         padding: 0.4rem 0.6rem;
         border-radius: 7px;
         border: 1px solid;
-        font-size: 1.6rem;
+        font-size: 32px;
+        font-weight: 600;
+        color: #FFFFFF;
         line-height: 2rem;
+      }
+
+      & .day .num,
+      & .hour .num,
+      & .min .num {
+        background: rgb(154, 148, 137);
+      }
+
+      & .sec .num {
+        background-color: #000000;
       }
       
       & .day .word,

@@ -90,6 +90,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  gap: 12px;
 }
 @media (min-width: 768px) {
   .yc-featured-products .countdown-wrapper {
@@ -103,13 +104,14 @@
 .yc-featured-products .countdown-wrapper .countdown {
   direction: ltr;
   display: flex;
-  gap: 0.5rem;
   justify-content: center;
   margin: 1rem 0;
 }
 .yc-featured-products .countdown-wrapper .countdown .day, .yc-featured-products .countdown-wrapper .countdown .hour, .yc-featured-products .countdown-wrapper .countdown .min, .yc-featured-products .countdown-wrapper .countdown .sec {
   text-align: center;
   width: min-content;
+  display: flex;
+  align-items: center;
   min-width: 3rem;
 }
 .yc-featured-products .countdown-wrapper .countdown .day .num, .yc-featured-products .countdown-wrapper .countdown .hour .num, .yc-featured-products .countdown-wrapper .countdown .min .num, .yc-featured-products .countdown-wrapper .countdown .sec .num {
@@ -117,8 +119,16 @@
   padding: 0.4rem 0.6rem;
   border-radius: 7px;
   border: 1px solid;
-  font-size: 1.6rem;
+  font-size: 32px;
+  font-weight: 600;
+  color: #FFFFFF;
   line-height: 2rem;
+}
+.yc-featured-products .countdown-wrapper .countdown .day .num, .yc-featured-products .countdown-wrapper .countdown .hour .num, .yc-featured-products .countdown-wrapper .countdown .min .num {
+  background: rgb(154, 148, 137);
+}
+.yc-featured-products .countdown-wrapper .countdown .sec .num {
+  background-color: #000000;
 }
 .yc-featured-products .countdown-wrapper .countdown .day .word, .yc-featured-products .countdown-wrapper .countdown .hour .word, .yc-featured-products .countdown-wrapper .countdown .min .word, .yc-featured-products .countdown-wrapper .countdown .sec .word {
   display: block;

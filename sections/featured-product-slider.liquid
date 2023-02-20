@@ -1,14 +1,15 @@
 {{ 'product-slider.css' | asset_url | stylesheet_tag }}
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
 {{ 'splide.min.js' | asset_url | script_tag }}
+{{ 'featured-products.css' | asset_url | stylesheet_tag }}
 
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-
- .section-featured-products-{{id}} {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
+  .counter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .section-featured-products-{{id}} .yc-section-title {
     text-align: {{ section.settings.section_title_position }}
@@ -49,12 +50,14 @@
 {% endstyle %}
 <div class='yc-featured-products section-featured-products-{{id}}'>
   <div class="container">
-    {% if section.settings.countdown_enabled %}
-      {%- render 'countdown', section_settings: section.settings -%}
-    {% endif %}
-    <h1 class='yc-section-title'>
-      {{ section.settings.title }}
-    </h1>
+    <div class="counter-wrapper">
+      <h1 class='yc-section-title'>
+        {{ section.settings.title }}
+      </h1>
+      {% if section.settings.countdown_enabled %}
+        {%- render 'countdown', section_settings: section.settings -%}
+      {% endif %}
+    </div>
     {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
     {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
   </div>
@@ -75,7 +78,6 @@
     pagination: '{{ section.settings.slider_pagination }}' ? true : false,
     pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
     pauseOnFocus: '{{ section.settings.slider_pause_on_focus }}' ? true : false,
-    height: `{{ section.settings.slider_height_percentage }}vh`,
     interval: '{{ section.settings.slider_timeout | times: 1000 }}',
     rewind: true,
     drag: 'free',
@@ -235,17 +237,6 @@
     },
     {
       "type": "range",
-      "id": "slider_height_percentage",
-      "min": 10,
-      "max": 100,
-      "step": 1,
-      "unit": "%",
-      "label": "Slider height",
-      "default": 60
-    },
-
-    {
-      "type": "range",
       "id": "slider_timeout",
       "min": 1,
       "max": 15,
@@ -272,9 +263,34 @@
     },
     {
       "type": "color",
+      "id": "slider_background_color",
+      "label": "Slider Background Color",
+      "default": "#E7412F"
+    },
+    {
+      "type": "color",
       "id": "slider_mobile_arrows_background_color",
       "label": "Arrows Background Color",
       "default": "#FFFFFF"
+    },
+    {
+      "type": "select",
+      "id": "slider_product_position",
+      "label": "Slider Product Position",
+      "options": [
+        {
+          "label": "left",
+          "value": "left"
+        },
+        {
+          "label": "right",
+          "value": "right"
+        },
+        {
+          "label": "center",
+          "value": "center"
+        }
+      ]
     },
     {
       "type": "select",
@@ -333,16 +349,6 @@
     {
       "type": "paragraph",
       "content": "ℹ️ These settings will be applied to mobile devices."
-    },
-    {
-      "type": "range",
-      "id": "slider_mobile_height_percentage",
-      "min": 10,
-      "max": 100,
-      "step": 1,
-      "unit": "%",
-      "label": "Slider height",
-      "default": 60
     },
     {
       "type": "range",

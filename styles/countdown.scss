@@ -1,4 +1,6 @@
 .countdown-wrapper {
+  display: flex;
+  align-items: center;
   margin: 20px auto;
   box-shadow: var(--yc-main-shadow);
   border-radius: 8px;
