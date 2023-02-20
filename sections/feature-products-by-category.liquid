@@ -40,6 +40,11 @@
           {%- endfor -%}
         {%- endpaginate %}
       </div>
+      {% if section.settings.link_of_collection_by_category == true %}
+        <div class='button-container'>
+          <a href='/collections/{{ category.slug }}' class='yc-btn'>{{ 'featured_products_by_category.show_more_button' | t }}</a>
+        </div>
+      {% endif %}
     </div>
   </div>
 {% endif %}
@@ -100,6 +105,12 @@
       "type": "checkbox",
       "id": "show_compare_at_price",
       "label": "Show compare at price",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "link_of_collection_by_category",
+      "label": "Link of collection by category",
       "default": true
     },
     {

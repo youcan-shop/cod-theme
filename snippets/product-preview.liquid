@@ -33,7 +33,7 @@
     {% if item.price %}
       <span class='product-price'>{{ item.price | money }}</span>
     {% endif %}
-    {% if settings.show_compare_at_price and item.compare_at_price %}
+    {% if section.settings.show_compare_at_price and item.compare_at_price %}
       <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
     {% endif %}
   </div>
