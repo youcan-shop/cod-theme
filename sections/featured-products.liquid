@@ -35,19 +35,25 @@
     <h1 class='yc-section-title'>
       {{ section.settings.title }}
     </h1>
-    <div class='product-list'>
       {% if section.settings.infinite_product_loader_enabled %}
-        {%- for block in section.blocks -%}
-          <div {{ block.youcan_attributes }}>
-            {%- render 'product-preview', item: block.settings.product, block_settings: block.settings -%}
-          </div>
-        {%- endfor -%}
+        <div class='product-list' id="infinit-scroll-loader">
+          {%- for block in section.blocks -%}
+            <div {{ block.youcan_attributes }}>
+              {%- render 'product-preview', item: block.settings.product, block_settings: block.settings -%}
+            </div>
+          {%- endfor -%}
+        </div>
+        <div class="button-container" id="loader-container">
+          <button class="yc-btn" id="loader-button">عرض المزيد</button>
+        </button>
       {%- else -%}
-        {%- for block in section.blocks -%}
-          <div {{ block.youcan_attributes }}>
-            {%- render 'product-preview', item: block.settings.product, block_settings: block.settings-%}
-          </div>
-        {%- endfor -%}
+        <div class='product-list'>
+          {%- for block in section.blocks -%}
+            <div {{ block.youcan_attributes }}>
+              {%- render 'product-preview', item: block.settings.product, block_settings: block.settings-%}
+            </div>
+          {%- endfor -%}
+        </div>
       {% endif %}
     </div>
   </div>
@@ -241,3 +247,7 @@
   ]
 }
 {%- endschema -%}
+
+{% if section.settings.infinite_product_loader_enabled %}
+  {{ 'infinit-scroll-loader.js' | asset_url | script_tag_deferred }}
+{% endif %}
