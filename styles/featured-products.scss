@@ -139,18 +139,6 @@
     }
   }
 
-  .button-container {
-    display: none;
-    max-width: max-content;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-
-    @include breakpoint('md') {
-      margin-top: 60px;
-    }
-  }
-
   .countdown-wrapper {
     display: flex;
     justify-content: space-between;

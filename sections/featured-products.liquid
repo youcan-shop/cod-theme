@@ -35,26 +35,12 @@
     <h1 class='yc-section-title'>
       {{ section.settings.title }}
     </h1>
-      {% if section.settings.infinite_product_loader_enabled %}
-        <div class='product-list' id="infinit-scroll-loader">
-          {%- for block in section.blocks -%}
-            <div {{ block.youcan_attributes }}>
-              {%- render 'product-preview', item: block.settings.product, block_settings: block.settings -%}
-            </div>
-          {%- endfor -%}
+    <div class='product-list'>
+      {%- for block in section.blocks -%}
+        <div {{ block.youcan_attributes }}>
+          {%- render 'product-preview', item: block.settings.product, block_settings: block.settings -%}
         </div>
-        <div class="button-container" id="loader-container">
-          <button class="yc-btn" id="loader-button">عرض المزيد</button>
-        </button>
-      {%- else -%}
-        <div class='product-list'>
-          {%- for block in section.blocks -%}
-            <div {{ block.youcan_attributes }}>
-              {%- render 'product-preview', item: block.settings.product, block_settings: block.settings-%}
-            </div>
-          {%- endfor -%}
-        </div>
-      {% endif %}
+      {%- endfor -%}
     </div>
   </div>
 </div>
@@ -127,19 +113,6 @@
       "id": "show_compare_at_price",
       "label": "Show compare at price",
       "default": true
-    },
-    {
-      "type": "header",
-      "content": "Infinite product loader settings"
-    },
-    {
-      "type": "paragraph",
-      "content": "ℹ️ If you want to show infinite product loader button, please enable it."
-    },
-    {
-      "type": "checkbox",
-      "id": "infinite_product_loader_enabled",
-      "label": "Enable infinite product loader"
     },
     {
       "type": "header",
@@ -247,7 +220,3 @@
   ]
 }
 {%- endschema -%}
-
-{% if section.settings.infinite_product_loader_enabled %}
-  {{ 'infinit-scroll-loader.js' | asset_url | script_tag_deferred }}
-{% endif %}
