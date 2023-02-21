@@ -78,6 +78,10 @@
     },
     "express_checkout": {
       "cta": "اشتري الآن"
+    },
+    "collection-listing": {
+      "home":  "الرئيسية",
+      "collections": "التصنيفات"
     }
   },
   "footer": {
