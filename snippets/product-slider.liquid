@@ -29,6 +29,11 @@
     fill: {{ section.settings.slider_mobile_arrows_background_color.hex }};
   }
 
+  #yc_slider_{{ id }} .tag {
+    background: {{ section.settings.tag_color.hex }}; 
+    color: {{ section.settings.tag_text_color.hex }};
+  }
+
 {% endstyle %}
 <div
   class='splide yc-slider__{{ view }} product-slider'
@@ -49,24 +54,16 @@
             {% if block_settings.tag_text %}
               <div
                 class="tag {{ block_settings.tag_position }}"
-                style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
               >
                 {{ block_settings.tag_text }}
               </div>
             {% endif %}
             <div class="product-slider">
               <div class='product-thumbnail'>
-                {% if block.settings.product.thumbnail %}
-                  <img
-                    loading='lazy'
-                    src='{{ block.settings.product.thumbnail }}'
+                 <img
+                  loading='lazy'
+                  src='{%- if block.settings.product.thumbnail -%} {{ block.settings.product.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
                   >
-                {% else %}
-                  <img
-                    loading='lazy'
-                    src='{{ 'default_product.jpeg' | asset_url }}'
-                  >
-                {% endif %}
               </div>
               <div class='product-details'>
                 <span class='product-title'>{{ block.settings.product.name }}</span>
