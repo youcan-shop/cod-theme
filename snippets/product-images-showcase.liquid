@@ -1,5 +1,16 @@
 <section class='product-images style{{ showcase_style }} {% if hidden %} hidden{% endif %}'>
   <div class='product-images-container'>
+    <div class='thumbnail-images'>
+      {% for image in images %}
+        <div class="image-container">
+          <img
+            loading='lazy'
+            onclick='previewProductImage(this)'
+            src='{{ image }}'
+            alt='{{ product.name }}'>
+        </div>
+      {% endfor %}
+    </div>
     <div id='img-zoomer-box'>
       <img
         loading='lazy'
@@ -8,16 +19,6 @@
         src='{%- if images[0] %}{{images[0]}}{%- else %}{{ 'default_product.jpeg' | asset_url }}{% endif %}'
         alt='{{ product_name }}'>
       <div id='magnified-image'></div>
-    </div>
-
-    <div class='thumbnail-images'>
-      {% for image in images %}
-        <img
-          loading='lazy'
-          onclick='previewProductImage(this)'
-          src='{{ image }}'
-          alt='{{ product.name }}'>
-      {% endfor %}
     </div>
   </div>
 </section>
