@@ -1,5 +1,24 @@
 @import 'helpers/mixins';
 .yc-featured-products {
+  padding: 0 45px;
+
+  @media screen and (max-width: 570px) {
+    padding: 0 10px;
+  }
+
+  .counter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+
+    .yc-section-title {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 600;
+    }
+  }
+
   .product-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -15,6 +34,8 @@
       grid-template-columns: repeat(3, 1fr);
     }
   }
+
+ 
 
   .product-list {
     .product-block {
@@ -155,6 +176,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    gap: 12px;
 
     @include breakpoint('md') {
       flex-direction: row;
@@ -162,13 +184,22 @@
 
     .message {
       text-align: center;
-      font-size: 2rem;
+      font-size: 23px;
+      display: none;
+    }
+
+    @include breakpoint('md') {
+      flex-direction: row;
+
+      .message {
+        display: block;
+      }
     }
     .countdown {
       direction: ltr;
       display: flex;
-      gap: 0.5rem;
       justify-content: center;
+      gap: 10px;
       margin: 1rem 0;
 
       & .day,
@@ -177,7 +208,8 @@
       & .sec {
         text-align: center;
         width: min-content;
-        min-width: 3rem;
+        display: flex;
+        align-items: center;
       }
 
       & .day .num,
@@ -188,21 +220,34 @@
         padding: 0.4rem 0.6rem;
         border-radius: 7px;
         border: 1px solid;
-        font-size: 1.6rem;
+        font-size: 32px;
+        font-weight: 600;
+        color: #FFFFFF;
         line-height: 2rem;
       }
 
-      & .day .word,
-      & .hour .word,
-      & .min .word,
-      & .sec .word {
-        display: block;
-        padding: 0.1rem 0.6rem;
-        font-size: .9rem;
-        letter-spacing: 0.5px;
-        opacity: 0.7;
+      & .day .num,
+      & .hour .num,
+      & .min .num {
+        background: rgb(154, 148, 137);
+      }
+
+      & .sec .num {
+        background-color: #000000;
+      }
+
+      .separator {
+        font-size: 40px;
       }
     }
 
+    @media screen and (max-width: 600px) {
+      & .day .num,
+      & .hour .num,
+      & .min .num,
+      & .sec .num {
+        font-size: 22px !important;
+      }
+    }
   }
 }

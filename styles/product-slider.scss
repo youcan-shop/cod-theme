@@ -1,0 +1,34 @@
+.product-slider {
+  .product-thumbnail {
+    img {
+      height: 270px;
+      object-fit: contain;
+    }
+  }
+
+  .product-block {
+    width: 100%;
+    padding: 20px 14px;
+    background-color: white;
+    border-radius: 3px;
+
+    .product-details {
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    .prices {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .compare-at-price {
+      font-weight: 400;
+      color: #8D8D8D;
+      font-size: 15px;
+      line-height: 120%;
+      text-decoration-line: line-through;
+    }
+  }
+}

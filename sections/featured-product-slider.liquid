@@ -1,0 +1,479 @@
+{{ 'product-slider.css' | asset_url | stylesheet_tag }}
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+{{ 'splide.min.js' | asset_url | script_tag }}
+{{ 'featured-products.css' | asset_url | stylesheet_tag }}
+
+{% assign id = 100 | rand: 2000 %}
+
+{% style %}
+  .counter-wrapper {
+    background-color: {{ section.settings.counter_background_color.hex }};
+    margin-bottom: {{ section.settings.counter_margin_bottom }}px;
+  }
+
+  .section-featured-products-{{id}} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+    background-color: {{ section.settings.slider_background_color.hex }};
+  }
+
+  .counter-wrapper .yc-section-title {
+    color: {{ section.settings.section_title_color.hex }} !important;
+  }
+
+  .countdown-wrapper .message {
+    color: {{ section.settings.section_title_color.hex }};
+  }
+
+  .section-featured-products-{{id}} {
+    {% if section.settings.background_color %}
+      background-color: {{ section.settings.background_color.hex }};
+    {% endif %}
+  }
+
+  .section-featured-products-{{id}} * {
+    color: {{ section.settings.text_color.hex }};
+  }
+
+  .section-featured-products-{{id}} .countdown-wrapper .countdown .sec .num {
+    border-color: {{ section.settings.text_color.hex }};
+  }
+  
+{% endstyle %}
+
+<div class='yc-featured-products section-featured-products-{{id}} container'>
+  <div class="counter-wrapper">
+        <h1 class='yc-section-title'>
+          {{ section.settings.title }}
+        </h1>
+        {% if section.settings.countdown_enabled %}
+          {%- render 'countdown', section_settings: section.settings -%}
+        {% endif %}
+  </div>
+    {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
+    {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
+</div>
+<script>
+  const isMobile1 = window.matchMedia("(max-width: 850px)");
+  const products = {{ section.blocks.size }};
+      let perPage = 3;
+      if (products < 3) {
+        perPage = products;
+      }
+
+  const desktopSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
+    type: '{{ section.settings.slider_transition_type }}',
+    arrows: '{{ section.settings.slider_arrows }}' ? true : false,
+    autoplay: '{{ section.settings.slider_autoplay }}' ? true : false,
+    cover: true,
+    pagination: '{{ section.settings.slider_pagination }}' ? true : false,
+    pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
+    pauseOnFocus: '{{ section.settings.slider_pause_on_focus }}' ? true : false,
+    interval: '{{ section.settings.slider_timeout | times: 1000 }}',
+    rewind: true,
+    drag: 'free',
+    perPage: perPage,
+    perMove: 1,
+    snap: true,
+    gap: '24px',
+    focus  : 'center',
+  });
+
+  const mobileSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
+    type: '{{ section.settings.slider_mobile_transition_type }}',
+    autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
+    cover: true,
+    pagination: '{{ section.settings.slider_mobile_pagination }}' ? true : false,
+    interval: '{{ section.settings.slider_mobile_timeout | times: 1000 }}',
+    rewind: true,
+    drag: 'free',
+    perPage: 2,
+    perMove: 1,
+    gap: '12px',
+    snap: true,
+  });
+
+  const mountSlider1 = () => {
+    try {
+      if (isMobile1.matches) return mobileSlider1.mount();
+      
+      return desktopSlider1.mount();
+    } catch {
+      return;
+    }
+  }
+
+  mountSlider1();
+  isMobile1.addEventListener('change', mountSlider1);
+</script>
+
+{%- schema -%}
+{
+  "label": "Featured Products Slider",
+  "settings": [
+     {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "color",
+      "id": "section_title_color",
+      "label": "Title color"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+     {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 5,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 20
+    },
+     {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 5,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color"
+    },
+    {
+      "type": "header",
+      "content": "Countdown settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "ℹ️ If you want to show countdown on this section, please enable it and set the date and time."
+    },
+    {
+      "type": "checkbox",
+      "id": "countdown_enabled",
+      "label": "Enable countdown"
+    },
+    {
+      "label": "Message",
+      "id": "countdown_message",
+      "type": "richtext",
+      "default": "Hurry up! There aren't many items left in stock."
+    },
+    {
+      "label": "Message color",
+      "id": "countdown_message_color",
+      "type": "color"
+    },
+    {
+      "label": "Year",
+      "id": "countdown_year",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Month",
+      "id": "countdown_month",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Day",
+      "id": "countdown_day",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Hour",
+      "id": "countdown_hour",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Minutes",
+      "id": "countdown_minute",
+      "type": "number",
+      "default": 0
+    },
+     {
+      "type": "checkbox",
+      "id": "show_compare_at_price",
+      "label": "Show compare at price",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "👉 Desktop Slider Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "ℹ️ These settings will be applied to desktop devices."
+    },
+    {
+      "type": "range",
+      "id": "slider_timeout",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "unit": "sec",
+      "label": "Timeout between slides",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "slider_arrows_content_size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Arrows Content Size",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "slider_desktop_arrows_background_color",
+      "label": "Arrows Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "slider_background_color",
+      "label": "Slider Background Color",
+      "default": "#E7412F"
+    },
+    {
+      "type": "color",
+      "id": "counter_background_color",
+      "label": "Counter Background Color",
+      "default": "#E7412FFF"
+    },
+    {
+      "type": "range",
+      "id": "counter_margin_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Counter Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "slider_mobile_arrows_background_color",
+      "label": "Arrows content color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "select",
+      "id": "slider_product_position",
+      "label": "Slider Product Position",
+      "options": [
+        {
+          "label": "left",
+          "value": "left"
+        },
+        {
+          "label": "right",
+          "value": "right"
+        },
+        {
+          "label": "center",
+          "value": "center"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "slider_transition_type",
+      "label": "Transition type",
+      "options": [
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        },
+        {
+          "value": "loop",
+          "label": "Loop"
+        }
+      ],
+      "default": "loop"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_pause_on_focus",
+      "label": "Pause on focus",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_pagination",
+      "label": "Pagination",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_arrows",
+      "label": "Arrows",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "👉 Mobile Slider Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "ℹ️ These settings will be applied to mobile devices."
+    },
+    {
+      "type": "range",
+      "id": "slider_mobile_timeout",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "unit": "s",
+      "label": "Timeout",
+      "default": 5
+    },
+    {
+      "type": "select",
+      "id": "slider_mobile_transition_type",
+      "label": "Transition type",
+      "options": [
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        },
+        {
+          "value": "loop",
+          "label": "Loop"
+        }
+      ],
+      "default": "loop"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_pagination",
+      "label": "Pagination",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_arrows",
+      "label": "Arrows",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "label": "Product",
+      "type": "product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "tag_text",
+          "label": "Banner text"
+        },
+        {
+          "type": "color",
+          "id": "tag_color",
+          "label": "Banner color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "tag_text_color",
+          "label": "Banner text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "select",
+          "id": "tag_position",
+          "label": "Banner position",
+          "options": [
+            {
+              "label": "Top Right",
+              "value": "top_right"
+            },
+            {
+              "label": "Top Left",
+              "value": "top_left"
+            },
+            {
+              "label": "Bottom Right",
+              "value": "bottom_right"
+            },
+            {
+              "label": "Bottom Left",
+              "value": "bottom_left"
+            }
+          ],
+          "default": "top_right"
+        }
+      ]
+    }
+  ]
+}
+{%- endschema -%}
