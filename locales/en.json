@@ -72,6 +72,10 @@
     },
     "express_checkout": {
       "cta": "Buy now"
+    },
+    "collection-listing": {
+      "home": "Home",
+      "collections": "Collections"
     }
   },
   "footer": {

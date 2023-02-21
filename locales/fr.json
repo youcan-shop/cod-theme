@@ -72,6 +72,10 @@
     },
     "express_checkout": {
       "cta": "Acheter maintent"
+    },
+    "collection-listing": {
+      "home":  "Accueil",
+      "collections": "Collections"
     }
   },
   "footer": {
