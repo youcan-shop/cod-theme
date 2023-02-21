@@ -1,5 +1,6 @@
 .product-slider .product-thumbnail img {
   height: 270px;
+  object-fit: contain;
 }
 .product-slider .product-block {
   width: 100%;

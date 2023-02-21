@@ -2,6 +2,7 @@
   .product-thumbnail {
     img {
       height: 270px;
+      object-fit: contain;
     }
   }
 

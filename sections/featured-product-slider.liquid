@@ -7,36 +7,34 @@
 
 {% style %}
   .counter-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: {{ section.settings.counter_background_color.hex }};
-    padding-bottom: {{ section.settings.counter_margin_bottom }}px;
+    margin-bottom: {{ section.settings.counter_margin_bottom }}px;
   }
+
   .section-featured-products-{{id}} {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
       background-color: {{ section.settings.slider_background_color.hex }};
     }
 
-  .section-featured-products-{{id}} .yc-section-title {
-    text-align: {{ section.settings.section_title_position }}
+  .counter-wrapper .yc-section-title {
+    color: {{ section.settings.section_title_color.hex }} !important;
   }
 
-  @media screen and (max-width: 850px) {
-    .section-featured-products-{{id}} .yc-section-title {
-      font-size: 16px;
-      margin: 0;
-    }
-  }
+ .countdown-wrapper .message {
+    color: {{ section.settings.section_title_color.hex }};
+ }
+
   .section-featured-products-{{id}} {
     {% if section.settings.background_color %}
     background-color: {{ section.settings.background_color.hex }};
     {% endif %}
   }
+
   .section-featured-products-{{id}} * {
     color: {{ section.settings.text_color.hex }};
   }
+
   .section-featured-products-{{id}} .countdown-wrapper .countdown .sec .num {
     border-color: {{ section.settings.text_color.hex }};
   }
@@ -63,19 +61,17 @@
   }
   
 {% endstyle %}
-<div class='yc-featured-products section-featured-products-{{id}}'>
-    <div class="counter-wrapper container">
+<div class='yc-featured-products section-featured-products-{{id}} container'>
+  <div class="counter-wrapper">
         <h1 class='yc-section-title'>
           {{ section.settings.title }}
         </h1>
         {% if section.settings.countdown_enabled %}
           {%- render 'countdown', section_settings: section.settings -%}
         {% endif %}
-    </div>
-  <div class="container">
+  </div>
     {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
     {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
-  </div>
 </div>
 <script>
   const isMobile1 = window.matchMedia("(max-width: 850px)");
@@ -141,28 +137,14 @@
       "label": "Title"
     },
     {
-      "type": "select",
-      "id": "section_title_position",
-      "label": "Title position",
-      "options": [
-        {
-          "label": "left",
-          "value": "left"
-        },
-        {
-          "label": "right",
-          "value": "right"
-        },
-        {
-          "label": "center",
-          "value": "center"
-        }
-      ]
+      "type": "color",
+      "id": "section_title_color",
+      "label": "Title color"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "min": 5,
+      "min": 0,
       "max": 160,
       "step": 1,
       "unit": "px",
@@ -207,6 +189,11 @@
       "id": "countdown_message",
       "type": "richtext",
       "default": "Hurry up! There aren't many items left in stock."
+    },
+    {
+      "label": "Message color",
+      "id": "countdown_message_color",
+      "type": "color"
     },
     {
       "label": "Year",

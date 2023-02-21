@@ -1,5 +1,20 @@
 @import 'helpers/mixins';
 .yc-featured-products {
+  padding: 0 45px;
+
+  .counter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+
+    .yc-section-title {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 600;
+    }
+  }
+
   .product-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -165,7 +180,7 @@
 
     .message {
       text-align: center;
-      font-size: 2rem;
+      font-size: 23px;
       display: none;
     }
 
@@ -191,7 +206,6 @@
         width: min-content;
         display: flex;
         align-items: center;
-        min-width: 3rem;
       }
 
       & .day .num,
@@ -223,5 +237,13 @@
       }
     }
 
+    @media screen and (max-width: 600px) {
+      & .day .num,
+      & .hour .num,
+      & .min .num,
+      & .sec .num {
+        font-size: 22px !important;
+      }
+    }
   }
 }
