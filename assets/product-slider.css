@@ -1,6 +1,10 @@
 .product-slider .product-thumbnail img {
   height: 270px;
   object-fit: contain;
+
+  @media screen and (max-width: 570px) {
+    height: 190px;
+  }
 }
 .product-slider .product-block {
   width: 100%;

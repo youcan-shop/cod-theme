@@ -2,11 +2,14 @@
 .yc-featured-products {
   padding: 0 45px;
 
+  @media screen and (max-width: 570px) {
+    padding: 0 10px;
+  }
+
   .counter-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px;
 
     .yc-section-title {
       margin: 0;

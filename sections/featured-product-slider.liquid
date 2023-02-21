@@ -12,22 +12,24 @@
   }
 
   .section-featured-products-{{id}} {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-      background-color: {{ section.settings.slider_background_color.hex }};
-    }
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+    background-color: {{ section.settings.slider_background_color.hex }};
+  }
 
   .counter-wrapper .yc-section-title {
     color: {{ section.settings.section_title_color.hex }} !important;
   }
 
- .countdown-wrapper .message {
+  .countdown-wrapper .message {
     color: {{ section.settings.section_title_color.hex }};
- }
+  }
 
   .section-featured-products-{{id}} {
     {% if section.settings.background_color %}
-    background-color: {{ section.settings.background_color.hex }};
+      background-color: {{ section.settings.background_color.hex }};
     {% endif %}
   }
 
@@ -38,29 +40,9 @@
   .section-featured-products-{{id}} .countdown-wrapper .countdown .sec .num {
     border-color: {{ section.settings.text_color.hex }};
   }
-
-  #yc_slider_{{ id }} .splide__arrow {
-    background: {{ section.settings.slider_desktop_arrows_background_color.hex }} !important;
-    width: 54px;
-    height: 54px;
-    margin: 0 100px;
-  }
-
-  #yc_slider_{{ id }} .splide__arrow--next {
-    border-radius: 0 8px 8px 0;
-  }
-
-  #yc_slider_{{ id }} .splide__arrow--prev {
-    border-radius: 8px 0 0 8px;
-  }
-
-  #yc_slider_{{ id }} .splide__arrow svg {
-    height: {{ section.settings.slider_arrows_content_size }}px;
-    width: {{ section.settings.slider_arrows_content_size }}px;
-    fill: {{ section.settings.slider_mobile_arrows_background_color.hex }};
-  }
   
 {% endstyle %}
+
 <div class='yc-featured-products section-featured-products-{{id}} container'>
   <div class="counter-wrapper">
         <h1 class='yc-section-title'>
@@ -109,7 +91,7 @@
     drag: 'free',
     perPage: 2,
     perMove: 1,
-    gap: '24px',
+    gap: '12px',
     snap: true,
   });
 
@@ -153,12 +135,32 @@
     },
     {
       "type": "range",
-      "id": "padding_bottom",
+      "id": "margin_bottom",
       "min": 5,
       "max": 160,
       "step": 1,
       "unit": "px",
       "label": "Padding Bottom",
+      "default": 20
+    },
+     {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 5,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin Bottom",
       "default": 80
     },
     {
@@ -290,7 +292,7 @@
     {
       "type": "color",
       "id": "slider_mobile_arrows_background_color",
-      "label": "Arrows Background Color",
+      "label": "Arrows content color",
       "default": "#FFFFFF"
     },
     {
