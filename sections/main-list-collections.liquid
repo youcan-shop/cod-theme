@@ -1,21 +1,15 @@
 {{ 'queries-handler.css' | asset_url | stylesheet_tag }}
-{{ 'featured-products.css' | asset_url | stylesheet_tag }}
+{{ 'collection-listing.css' | asset_url | stylesheet_tag }}
 
 {%- assign per_page = section.settings.items_per_page -%}
-<div class='yc-featured-products container'>
-  <div class='top-items'>
-    <h1 class='yc-section-title'>{{ section.settings.title }}</h1>
-    {%- render 'main-sort' -%}
-  </div>
+<div class='yc-collection-listing'>
+    {%- render 'breadcrumbs' -%}
   {%- paginate collections by per_page cod %}
-    <div class='product-list'>
+    <div class='collection-list'>
       {% for collection in items %}
         {%- render 'collection-preview', category: collection %}
       {% endfor %}
     </div>
-
-    <!-- prettier-ignore -->
-    {%- render 'main-pagination', has_more: has_more, next_page: next_page, previous_page: previous_page, current: current, last: last -%}
   {%- endpaginate %}
 </div>
 
