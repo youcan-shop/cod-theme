@@ -2,10 +2,9 @@
   <div class='product-images-container'>
     <div class='thumbnail-images'>
       {% for image in images %}
-        <div class="image-container">
+        <div class="image-container" onmouseenter='previewProductImage(this)'>
           <img
             loading='lazy'
-            onclick='previewProductImage(this)'
             src='{{ image }}'
             alt='{{ product.name }}'>
         </div>

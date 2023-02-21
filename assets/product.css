@@ -62,68 +62,49 @@
 }
 .yc-single-product .product-images.style1 .product-images-container {
   display: flex;
+  flex-direction: row;
   gap: 10px;
 }
-.yc-single-product .product-images.style1 .thumbnail-images {
+.yc-single-product .product-images.style2 .product-images-container {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+}
+.yc-single-product .product-images.style3 .product-images-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.yc-single-product .product-images.style3 .product-images-container .thumbnail-images {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 10px;
+  max-width: max-content;
+}
+.yc-single-product .product-images .product-images-container .thumbnail-images {
   display: flex;
   flex-direction: column;
   justify-content: start;
   gap: 10px;
   max-width: max-content;
 }
-.yc-single-product .product-images.style1 .thumbnail-images .image-container {
+.yc-single-product .product-images .product-images-container .thumbnail-images .image-container {
   border: 1px solid #E7E7E7;
   border-radius: 4px;
   padding: 5px;
   width: 80px;
   height: 78px;
+  cursor: pointer;
 }
-.yc-single-product .product-images.style1 .thumbnail-images img {
+.yc-single-product .product-images .product-images-container .thumbnail-images .image-container.active {
+  border-color: #000000;
+}
+.yc-single-product .product-images .product-images-container .thumbnail-images img {
   display: block;
   margin: 0 auto;
   width: auto;
   height: 100%;
-  cursor: pointer;
-}
-.yc-single-product .product-images.style1 .thumbnail-images img.active {
-  border-color: var(--yc-primary-color);
-}
-.yc-single-product .product-images.style1 .thumbnail-images img:hover {
-  transition: 0.4s ease-in-out;
-  border-color: var(--yc-primary-color);
-}
-.yc-single-product .product-images.style2 .product-images-container {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: start;
-  gap: 12px;
-  align-items: start;
-}
-.yc-single-product .product-images.style2 .main-thumbnail {
-  aspect-ratio: 1;
-  height: 100%;
-  object-fit: cover;
-}
-.yc-single-product .product-images.style2 .thumbnail-images {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  overflow: auto;
-  width: 80px;
-  height: 450px;
-}
-.yc-single-product .product-images.style2 .thumbnail-images::-webkit-scrollbar {
-  display: none;
-}
-.yc-single-product .product-images.style2 .thumbnail-images img {
-  aspect-ratio: 1;
-  width: 100%;
-  margin-bottom: 10px;
-  object-fit: cover;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-.yc-single-product .product-images.style2 .thumbnail-images img:hover {
-  border: 1px solid blanchedalmond;
 }
 .yc-single-product .product-details {
   width: 100%;

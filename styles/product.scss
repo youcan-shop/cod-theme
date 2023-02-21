@@ -63,12 +63,40 @@
       transition: opacity 0.2s;
       background-size: 112%;
     }
+
     &.style1 {
       .product-images-container {
         display: flex;
+        flex-direction: row;
         gap: 10px;
       }
+    }
 
+    &.style2 {
+      .product-images-container {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 10px;
+      }
+    }
+
+    &.style3 {
+      .product-images-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .thumbnail-images {
+          display: flex;
+          flex-direction: row;
+          justify-content: start;
+          gap: 10px;
+          max-width: max-content;
+        }
+      }
+    }
+
+    .product-images-container {
       .thumbnail-images {
         display: flex;
         flex-direction: column;
@@ -83,6 +111,11 @@
         padding: 5px;
         width: 80px;
         height: 78px;
+        cursor: pointer;
+
+        &.active {
+          border-color: #000000;
+        }
       }
 
       .thumbnail-images img {
@@ -90,53 +123,6 @@
         margin: 0 auto;
         width: auto;
         height: 100%;
-        cursor: pointer;
-
-        &.active {
-          border-color: var(--yc-primary-color);
-        }
-
-        &:hover {
-          transition: 0.4s ease-in-out;
-          border-color: var(--yc-primary-color);
-        }
-      }
-    }
-    &.style2 {
-      .product-images-container {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: start;
-        gap: 12px;
-        align-items: start;
-      }
-      .main-thumbnail {
-        aspect-ratio: 1;
-        height: 100%;
-        object-fit: cover;
-      }
-      .thumbnail-images {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        &::-webkit-scrollbar {
-          display: none;
-        }
-        overflow: auto;
-        width: 80px;
-        height: 450px;
-
-        img {
-          aspect-ratio: 1;
-          width: 100%;
-          margin-bottom: 10px;
-          object-fit: cover;
-          margin-bottom: 10px;
-          cursor: pointer;
-
-          &:hover {
-            border: 1px solid blanchedalmond;
-          }
-        }
       }
     }
   }
