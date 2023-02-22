@@ -1,4 +1,4 @@
-{%- if last > 1 -%}
+{% if last > 1 -%}
   <div class='yc-pagination-wrapper'>
     <a
       class='paginate-btn-prev {% if current <= 1 %} disabled {%- endif %}'
@@ -11,12 +11,17 @@
     </a>
 
     {% for index in (1..last) %}
-      <a
-        class='paginate-btn {% if index == current %} active {%- endif %}'
-        data-index='{{ index }}'
-      >
-        {{ index }}
-      </a>
+      {% if index <= 2 or index >= last - 1 or index == current or (index >= current - 1 and index <= current + 1) %}
+        {% if index != 1 and index != last and index != current + 1 and index != current - 1 %}
+          <a class='paginate-btn'>...</a>
+        {% endif %}
+        <a
+          class='paginate-btn {% if index == current %} active {%- endif %}'
+          data-index='{{ index }}'
+        >
+          {{ index }}
+        </a>
+      {% endif %}
     {% endfor %}
 
     <a

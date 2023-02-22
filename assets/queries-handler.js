@@ -53,9 +53,6 @@ if (searchTitle) {
   searchTitle.innerHTML = query;
 }
 
-const sortBtns = document.querySelectorAll('.sort-items-holder .pawn');
-
-
 if (sortSelect) {
   let sortField = urlParams.get('sort_field');
   
