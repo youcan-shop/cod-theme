@@ -21,10 +21,9 @@
   >
   {% assign images = product.images %}
   {% assign product_name = product.name %}
-  {% assign showcase_style = section.settings.product_images_showcase_style %}
 
   <!-- prettier-ignore -->
-  {% render 'product-images-showcase', images: images, product_name: product_name, showcase_style: showcase_style, hidden: section.settings.hide_gallery %}
+  {% render 'product-images-showcase', images: images, product_name: product_name, hidden: section.settings.hide_gallery %}
 
   <div class='product-details'>
     {%- for block in section.blocks -%}

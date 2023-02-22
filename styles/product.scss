@@ -8,7 +8,7 @@
   align-items: start;
 
   @include breakpoint('md') {
-    gap: 2vw;
+    gap: 20px;
     flex-direction: row;
   }
 
@@ -37,6 +37,10 @@
       border: 1px solid #E7E7E7;
       border-radius: 4px;
       padding: 5px;
+
+      @include breakpoint('md') {
+        height: 474px;
+      }
     }
 
     #img-zoomer-box:hover,
@@ -62,46 +66,27 @@
       background-size: 112%;
     }
 
-    &.style1 {
-      .product-images-container {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-      }
-    }
-
-    &.style2 {
-      .product-images-container {
-        display: flex;
-        flex-direction: row-reverse;
-        gap: 10px;
-      }
-    }
-
-    &.style3 {
-      .product-images-container {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-
-        .thumbnail-images {
-          display: flex;
-          flex-direction: row;
-          justify-content: start;
-          order: 1;
-          gap: 10px;
-          max-width: max-content;
-        }
-      }
-    }
-
     .product-images-container {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+
+      @include breakpoint('md') {
+        flex-direction: column;
+        gap: 20px;
+      }
+
       .thumbnail-images {
         display: flex;
         flex-direction: column;
         justify-content: start;
         gap: 10px;
         max-width: max-content;
+
+        @include breakpoint('md') {
+          flex-direction: row;
+          order: 1;
+        }
       }
 
       .thumbnail-images .image-container {
