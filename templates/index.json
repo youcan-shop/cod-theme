@@ -98,7 +98,7 @@
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
                         "tag_text": "جديد",
-                        "product": "e53d4919-b7e9-4a4b-a612-26b76241870f"
+                        "product": "2d39bfc2-2269-482d-97e8-35286c06fa8d"
                     }
                 },
                 "block_6724xikj4i64s4": {
@@ -256,6 +256,20 @@
                 "block_yy1vjmbhyh0t8zq",
                 "block_yyy9mwvoxmghgwq"
             ]
+        },
+        "section_p3bpf7007sndktq": {
+            "type": "feature-products-by-category",
+            "settings": {
+                "number_of_products": 8,
+                "show_compare_at_price": true,
+                "link_of_collection_by_category": true,
+                "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>",
+                "countdown_year": 0,
+                "countdown_month": 0,
+                "countdown_day": 0,
+                "countdown_hour": 0,
+                "countdown_minute": 0
+            }
         }
     },
     "order": [
@@ -263,6 +277,7 @@
         "featured-products-preview",
         "section_62tm9748qh15wfk",
         "product-column",
-        "section_ytf7ed64zpqpos7"
+        "section_ytf7ed64zpqpos7",
+        "section_p3bpf7007sndktq"
     ]
 }
