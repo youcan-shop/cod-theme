@@ -1,26 +1,6 @@
-<div class='sort-items-holder'>
-  <div class='commander'>{{ 'snippets.main_sort.title' | t }}</div>
-  <div class='field'>
-    <a
-      class='pawn'
-      data-value='price'
-    >
-      <span>{{ 'snippets.main_sort.price' | t }}</span>
-      <ion-icon name='chevron-down-outline'></ion-icon>
-    </a>
-    <a
-      class='pawn'
-      data-value='created_at'
-    >
-      <span>{{ 'snippets.main_sort.newest' | t }}</span>
-      <ion-icon name='chevron-down-outline'></ion-icon>
-    </a>
-    <a
-      class='pawn'
-      data-value='name'
-    >
-      <span>{{ 'snippets.main_sort.alphabetically' | t }}</span>
-      <ion-icon name='chevron-down-outline'></ion-icon>
-    </a>
-  </div>
-</div>
+<select class="sort-select">
+      <option value="price">{{ 'snippets.main_sort.price' | t }}</option>
+      <option value="created_at">{{ 'snippets.main_sort.newest' | t }}</option>
+      <option value="name">{{ 'snippets.main_sort.alphabetically' | t }}</option>
+</select>
+ 

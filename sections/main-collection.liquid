@@ -1,12 +1,29 @@
 {{ 'queries-handler.css' | asset_url | stylesheet_tag }}
-{{ 'featured-products.css' | asset_url | stylesheet_tag }}
+{{ 'product-listing.css' | asset_url | stylesheet_tag }}
 
 {%- assign per_page = section.settings.items_per_page -%}
-<div class='yc-featured-products container'>
-  <div class='top-items'>
-    <h1 class='yc-section-title'>{{ category.name }}</h1>
+<div class='yc-product-listing-container'>
+  <div class="breadcrumbs-container">
+    <div class="breadcrumbs-listings">
+      <div class="listings__item">
+        <a href="/" class="first-listing">{{ 'snippets.collection-listing.home' | t }}</a>
+      </div>
+      <div class="listings__item">
+        <img src='{{ 'left-arrow.png' | asset_url }}'>
+      </div>
+      <div class="listings__item">
+        <a href="/collections" class="second-listing">{{ 'snippets.collection-listing.collections' | t }}</a>
+      </div>
+    </div>
+
+    <div class="breadcrumbs-name">
+      <h1>{{ category.name }}</h1>
+    </div>
+  </div>
+  <div class="sort-container">
     {%- render 'main-sort' -%}
   </div>
+
   {%- paginate collection.products by per_page cod %}
     <div class='product-list'>
       {% for product in items %}

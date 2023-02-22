@@ -479,3 +479,24 @@ input:not([type=radio]),
   bottom: 8px;
   left: 8px;
 }
+
+.breadcrumbs-container .breadcrumbs-listings {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 40px auto;
+}
+.breadcrumbs-container .breadcrumbs-listings .first-listing {
+  color: #A8A8A8;
+  font-weight: 400;
+  font-size: 14px;
+}
+.breadcrumbs-container .breadcrumbs-listings .second-listing {
+  font-weight: 700;
+  color: #000000;
+  font-size: 14px;
+}
+.breadcrumbs-container .breadcrumbs-name {
+  font-weight: 700;
+  font-size: 26px;
+}
