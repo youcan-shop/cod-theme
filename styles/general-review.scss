@@ -1,0 +1,16 @@
+@import 'helpers/mixins';
+
+.yc-general-review {
+  display: none;
+
+  .yc-general-review-wrapper {
+    display: flex;
+    gap: 6px;
+
+    .general-count {
+      font-weight: 400;
+      font-size: 13px;
+      color: #707070;
+    }
+  }
+}
