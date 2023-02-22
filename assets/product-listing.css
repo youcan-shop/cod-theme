@@ -12,6 +12,10 @@
   border-radius: 4px;
   padding: 26px 5px;
 }
+.yc-product-listing-container .product-list .product-block .product-thumbnail img {
+  width: 100%;
+  height: 200px;
+}
 .yc-product-listing-container .product-list .product-block .product-details {
   margin: 14px 0;
   text-align: center;
