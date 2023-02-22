@@ -29,9 +29,7 @@
         {%- case block.type -%}
           {%- when 'product_title' -%}
             <h1 class='product-name'>{{ product.name }}</h1>
-              <div class='yc-product-reviews'>
-                <ul class='yc-reviews-wrapper reviews-block'></ul>
-              </div>
+            {%- render 'general-review' -%}
           {%- when 'product_price' -%}
             <div class='flex gap-2 items-center'>
               <h2 class='product-price'>{{ product.price | money }}</h2>
@@ -50,9 +48,7 @@
     </div>
   </div>
 
- <script>
-    const defaultAvatar = '{{ "avatar.png" | asset_url }}';
-    const productId = '{{ product_id }}';
-    const ratings = "{{ 'reviews.ratings' | t }}";
-  </script>
-{{ 'reviews-count.js' | asset_url | script_tag_deferred }}
+<script>
+  const defaultAvatar = '{{ "avatar.png" | asset_url }}';
+  const productId = '{{ product_id }}';
+</script>

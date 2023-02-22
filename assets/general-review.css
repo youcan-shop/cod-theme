@@ -1,0 +1,12 @@
+.yc-general-review {
+  display: none;
+}
+.yc-general-review .yc-general-review-wrapper {
+  display: flex;
+  gap: 6px;
+}
+.yc-general-review .yc-general-review-wrapper .general-count {
+  font-weight: 400;
+  font-size: 13px;
+  color: #707070;
+}

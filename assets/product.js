@@ -2,7 +2,7 @@ function previewProductImage(element) {
   const parentSection = element.closest('.yc-single-product');
   const thumbnail = parentSection.querySelector('.main-image');
 
-  thumbnail.src = element.src;
+  thumbnail.src = element.firstElementChild.src;
   setElementActive(element);
 }
 
