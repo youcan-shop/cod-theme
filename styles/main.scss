@@ -26,7 +26,6 @@ body {
   font-family: var(--yc-font-family);
 }
 
-// remove the sticky preview-bar
 [style*='z-index: 500; height: 54px; width: 100vw; position: fixed; padding: 4px 16px'] {
   display: none !important;
 }

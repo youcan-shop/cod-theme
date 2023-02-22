@@ -57,6 +57,8 @@ const sortBtns = document.querySelectorAll('.sort-items-holder .pawn');
 
 
 if (sortSelect) {
+  let sortField = urlParams.get('sort_field');
+  
   if (!sortField) {
     // Set a default value for sortField if it is null or undefined
     sortField = sortSelect.options[0].value;
@@ -69,14 +71,4 @@ if (sortSelect) {
     const selectedValue = sortSelect.value;
     window.location.href = convertUrlWithMultipleQuery(['sort_field', 'sort_order'], [selectedValue, convertedSortOrder]);
   });
-  
-  const sortBtnIcon = sortSelect.parentElement.querySelector('ion-icon');
-  
-  if (sortBtnIcon) {
-    if (sortOrder === 'asc') {
-      sortBtnIcon.setAttribute('name', 'chevron-up-outline');
-    } else {
-      sortBtnIcon.setAttribute('name', 'chevron-down-outline');
-    }
-  }
 }
