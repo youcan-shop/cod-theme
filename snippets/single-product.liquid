@@ -1,12 +1,5 @@
 {%- assign snippetId = 0 | rand %}
 
-{% style %}
-
-  .container {
-    padding: 0 8px !important;
-  }
-{% endstyle %}
-
 <div
   class='container yc-single-product'
   id='s-{{ snippetId }}'
@@ -40,12 +33,22 @@
           {%- when 'product_title' -%}
             <h1 class='product-name'>{{ product.name }}</h1>
           {%- when 'product_price' -%}
-            <div class='flex gap-2 items-center'>
+            <div class='product-price-container'>
               <h2 class='product-price'>{{ product.price | money }}</h2>
               {% if section.settings.show_compare_at_price %}
-                <h3>
-                  <del>{{ product.compare_at_price | money }}</del>
-                </h3>
+                <div class="compare-container">
+                  <h3 class="compare-price">
+                    <del>{{ product.compare_at_price | money }}</del>
+                  </h3>
+                  {% if section.settings.tag_text %}
+                    <div
+                      class="tag"
+                      style="background: {{ section.settings.tag_color.hex }}; color: {{ section.settings.tag_text_color.hex }};"
+                    >
+                      {{ section.settings.tag_text }}
+                    </div>
+                  {% endif %}
+                </div>
               {% endif %}
             </div>
           {%- when 'product_quantity' -%}
