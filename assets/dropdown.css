@@ -1,9 +1,6 @@
 /* ----------------------------- */
 /* ----- select-box design ----- */
 /* ----------------------------- */
-select {
-  display: none;
-}
 
 .yc-dropdown {
   box-sizing: border-box;

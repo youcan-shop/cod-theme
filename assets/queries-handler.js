@@ -6,6 +6,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const query = urlParams.get('q');
 const sortField = urlParams.get('sort_field');
 const sortOrder = urlParams.get('sort_order');
+const sortSelect = document.querySelector('.sort-select');
 let page = +urlParams.get('page[cod]');
 
 const updateUrl = (key, value, url) => {
@@ -54,28 +55,28 @@ if (searchTitle) {
 
 const sortBtns = document.querySelectorAll('.sort-items-holder .pawn');
 
-if (sortBtns) {
-  sortBtns.forEach((btn) => {
+
+if (sortSelect) {
+  if (!sortField) {
+    // Set a default value for sortField if it is null or undefined
+    sortField = sortSelect.options[0].value;
+  }
+
+  sortSelect.value = sortField;
+  
+  sortSelect.addEventListener('change', () => {
     const convertedSortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
-    btn.setAttribute(
-      'href',
-      convertUrlWithMultipleQuery(['sort_field', 'sort_order'], [btn.dataset.value, convertedSortOrder]),
-    );
-
-    const sortBtn = document.querySelector(`.sort-items-holder .pawn[data-value='${sortField}']`);
-
-    if (sortBtn) {
-      sortBtn.classList.add('active');
-
-      const sortBtnIcon = sortBtn.querySelector('ion-icon');
-
-      if (sortBtnIcon) {
-        if (sortOrder === 'asc') {
-          sortBtnIcon.setAttribute('name', 'chevron-up-outline');
-        } else {
-          sortBtnIcon.setAttribute('name', 'chevron-down-outline');
-        }
-      }
-    }
+    const selectedValue = sortSelect.value;
+    window.location.href = convertUrlWithMultipleQuery(['sort_field', 'sort_order'], [selectedValue, convertedSortOrder]);
   });
+  
+  const sortBtnIcon = sortSelect.parentElement.querySelector('ion-icon');
+  
+  if (sortBtnIcon) {
+    if (sortOrder === 'asc') {
+      sortBtnIcon.setAttribute('name', 'chevron-up-outline');
+    } else {
+      sortBtnIcon.setAttribute('name', 'chevron-down-outline');
+    }
+  }
 }
