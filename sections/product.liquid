@@ -35,6 +35,11 @@
       "type": "product_price"
     },
     {
+      "label": "Review",
+      "limit": 1,
+      "type": "general_review"
+    },
+    {
       "label": "Quantity",
       "limit": 1,
       "type": "product_quantity"
@@ -259,26 +264,27 @@
       "default": false
     },
     {
-      "type": "select",
-      "id": "product_images_showcase_style",
-      "label": "Style",
-      "options": [
-        {
-          "value": "1",
-          "label": "Thumbnails bottom"
-        },
-        {
-          "value": "2",
-          "label": "Thumbnails left"
-        }
-      ],
-      "default": "1"
-    },
-    {
       "type": "checkbox",
       "id": "show_compare_at_price",
       "label": "Show compare at price",
       "default": false
+    },
+    {
+      "type": "text",
+      "id": "tag_text",
+      "label": "Banner text"
+    },
+    {
+      "type": "color",
+      "id": "tag_color",
+      "label": "Banner color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "tag_text_color",
+      "label": "Banner text color",
+      "default": "#ffffff"
     },
     {
       "type": "number",

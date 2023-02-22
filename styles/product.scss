@@ -2,38 +2,45 @@
 
 .yc-single-product {
   display: flex;
-  gap: 5vh;
+  gap: 8px;
   margin: 25px auto;
   flex-direction: column;
   align-items: start;
 
   @include breakpoint('md') {
-    gap: 2vw;
+    gap: 20px;
     flex-direction: row;
   }
 
   .product-images {
-    width: 100%;
+    width: calc(100% + 24px);
+    margin: 0 -12px;
 
     @include breakpoint('md') {
       position: sticky;
       top: calc(var(--yc-nav-height) + 20px);
+      width: 100%;
+      margin: unset;
     }
 
     .main-image {
-      width: 100%;
-      height: 480px;
-      object-fit: cover;
+      width: auto;
+      height: 100%;
+      margin: 0 auto;
+      object-fit: contain;
     }
     #img-zoomer-box {
-      height: auto;
+      width: 100%;
+      height: 333px;
       position: relative;
       overflow: hidden;
-    }
+      border: 1px solid #E7E7E7;
+      border-radius: 4px;
+      padding: 5px;
 
-    .main-image {
-      width: 100%;
-      height: 450px;
+      @include breakpoint('md') {
+        height: 474px;
+      }
     }
 
     #img-zoomer-box:hover,
@@ -58,85 +65,63 @@
       transition: opacity 0.2s;
       background-size: 112%;
     }
-    &.style1 {
-      .thumbnail-images {
-        margin-top: 20px;
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        gap: 10px;
-        overflow: auto;
+
+    .product-images-container {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+
+      @include breakpoint('md') {
+        flex-direction: column;
+        gap: 20px;
       }
-      .thumbnail-images img {
-        display: inline-block;
-        aspect-ratio: 1;
-        height: 80px;
-        object-fit: cover;
+
+      .thumbnail-images {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 10px;
+        max-width: max-content;
+
+        @include breakpoint('md') {
+          flex-direction: row;
+          order: 1;
+        }
+      }
+
+      .thumbnail-images .image-container {
+        border: 1px solid #E7E7E7;
+        border-radius: 4px;
+        padding: 5px;
+        width: 80px;
+        height: 78px;
         cursor: pointer;
-        border: 1px solid transparent;
 
         &.active {
-          border-color: var(--yc-primary-color);
+          border-color: #000000;
         }
+      }
 
-        &:hover {
-          transition: 0.4s ease-in-out;
-          border-color: var(--yc-primary-color);
-        }
-      }
-    }
-    &.style2 {
-      .product-images-container {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: start;
-        gap: 12px;
-        align-items: start;
-      }
-      .main-thumbnail {
-        aspect-ratio: 1;
+      .thumbnail-images img {
+        display: block;
+        margin: 0 auto;
+        width: auto;
         height: 100%;
-        object-fit: cover;
-      }
-      .thumbnail-images {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        &::-webkit-scrollbar {
-          display: none;
-        }
-        overflow: auto;
-        width: 80px;
-        height: 450px;
-
-        img {
-          aspect-ratio: 1;
-          width: 100%;
-          margin-bottom: 10px;
-          object-fit: cover;
-          margin-bottom: 10px;
-          cursor: pointer;
-
-          &:hover {
-            border: 1px solid blanchedalmond;
-          }
-        }
       }
     }
   }
 
   .product-details {
     width: 100%;
-    max-width: 90vw;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 19px;
     overflow: hidden;
-    padding: 10px;
 
     .product-name {
+      font-weight: 700;
       font-size: 25px;
-      font-weight: 600;
-      margin-bottom: 25px;
+      line-height: 120%;
     }
     .product-options {
       .product-option {
@@ -167,10 +152,39 @@
     }
   }
 
+  .product-price-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
   .product-price {
-    font-size: 26px;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 120%;
     color: var(--yc-primary-color);
-    line-height: 24px;
+  }
+
+  .compare-price {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    color: #8D8D8D;
+  }
+
+  .compare-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+
+    .tag {
+      position: unset;
+      font-weight: 700;
+      font-size: 16.99px;
+      line-height: 120%;
+      padding: 4px 10px !important;
+    }
   }
 }

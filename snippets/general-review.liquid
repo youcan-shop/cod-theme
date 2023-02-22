@@ -1,0 +1,10 @@
+{{ 'general-review.css' | asset_url | stylesheet_tag }}
+
+<div class='yc-general-review'>
+  <ul class='yc-general-review-wrapper'></ul>
+</div>
+
+<script>
+  const ratings = "{{ 'reviews.ratings' | t }}";
+</script>
+{{ 'reviews-count.js' | asset_url | script_tag_deferred }}
