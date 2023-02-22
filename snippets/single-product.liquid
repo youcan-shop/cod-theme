@@ -21,10 +21,9 @@
   >
   {% assign images = product.images %}
   {% assign product_name = product.name %}
-  {% assign showcase_style = section.settings.product_images_showcase_style %}
 
   <!-- prettier-ignore -->
-  {% render 'product-images-showcase', images: images, product_name: product_name, showcase_style: showcase_style, hidden: section.settings.hide_gallery %}
+  {% render 'product-images-showcase', images: images, product_name: product_name, hidden: section.settings.hide_gallery %}
 
   <div class='product-details'>
     {%- for block in section.blocks -%}
@@ -33,14 +32,26 @@
           {%- when 'product_title' -%}
             <h1 class='product-name'>{{ product.name }}</h1>
           {%- when 'product_price' -%}
-            <div class='flex gap-2 items-center'>
+            <div class='product-price-container'>
               <h2 class='product-price'>{{ product.price | money }}</h2>
               {% if section.settings.show_compare_at_price %}
-                <h3>
-                  <del>{{ product.compare_at_price | money }}</del>
-                </h3>
+                <div class="compare-container">
+                  <h3 class="compare-price">
+                    <del>{{ product.compare_at_price | money }}</del>
+                  </h3>
+                  {% if section.settings.tag_text %}
+                    <div
+                      class="tag"
+                      style="background: {{ section.settings.tag_color.hex }}; color: {{ section.settings.tag_text_color.hex }};"
+                    >
+                      {{ section.settings.tag_text }}
+                    </div>
+                  {% endif %}
+                </div>
               {% endif %}
             </div>
+          {%- when 'general_review' -%}
+            {%- render 'general-review' -%}
           {%- when 'product_quantity' -%}
             <div class='product-quantity'>
               <label for='quantity'>{{ 'snippets.single_product.quantity' | t }}</label>

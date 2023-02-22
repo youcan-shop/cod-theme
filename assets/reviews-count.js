@@ -1,6 +1,6 @@
 (async () => {
-  const reviewsContainer = document.querySelector('.yc-product-reviews');
-  const reviewsWrapper = document.querySelector('.yc-reviews-wrapper');
+  const reviewsContainer = document.querySelector('.yc-general-review');
+  const reviewsWrapper = document.querySelector('.yc-general-review-wrapper');
   const noDataSetter = (element) => {
     if (reviewsContainer) {
       reviewsContainer.remove();
@@ -13,12 +13,12 @@
 
     reviewsContainer.style.display = 'block';
     reviewsWrapper.innerHTML = `
-      <div class='rating-stars'>
+      <li class='rating-stars'>
         <div class="yc-reviews-stars" style="--rating: ${calculateAverageRating(reviews)};" aria-label="Rating of this product is ${calculateAverageRating(reviews)} out of 5"></div>
-      </div>
-      <div class='review-count'>
+      </li>
+      <li class='general-count'>
         (${reviewCount} ${ratings})
-      </div>
+      </li>
     `;
 
     if (reviewCount === 0) {
