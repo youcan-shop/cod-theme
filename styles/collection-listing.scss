@@ -3,6 +3,7 @@
 .yc-collection-listing {
   .collection-list {
     display: grid;
+    margin-top: 60px;
     grid-template-columns: 1fr;
     gap: 12px;
     padding: 54px 20px;
@@ -62,31 +63,6 @@
   
     @include breakpoint('xxl') {
       padding: 0 250px;
-    }
-
-    .breadcrumbs-listings {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 40px auto;
-
-      .first-listing {
-        color: #A8A8A8;
-        font-weight: 400;
-        font-size: 14px;
-      }
-
-      .second-listing {
-        font-weight: 700;
-        color: #000000;
-        font-size: 14px;
-      }
-    }
-
-    .breadcrumbs-name {
-      font-weight: 700;
-      font-size: 26px;
-      margin-bottom: 60px;
     }
   }
 }

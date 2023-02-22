@@ -1,0 +1,23 @@
+.yc-product-listing-container {
+  padding: 0 16px;
+}
+@media (min-width: 768px) {
+  .yc-product-listing-container {
+    padding: 0 50px;
+  }
+}
+@media (min-width: 992px) {
+  .yc-product-listing-container {
+    padding: 0 80px;
+  }
+}
+@media (min-width: 1200px) {
+  .yc-product-listing-container {
+    padding: 0 150px;
+  }
+}
+@media (min-width: 1400px) {
+  .yc-product-listing-container {
+    padding: 0 250px;
+  }
+}

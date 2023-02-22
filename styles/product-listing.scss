@@ -1,0 +1,21 @@
+@import 'helpers/mixins';
+
+.yc-product-listing-container {
+  padding: 0 16px;
+
+  @include breakpoint('md') {
+    padding: 0 50px; 
+  }
+
+  @include breakpoint('lg') {
+    padding: 0 80px;
+  }
+
+  @include breakpoint('xl') {
+    padding: 0 150px;
+  }
+
+  @include breakpoint('xxl') {
+    padding: 0 250px;
+  }
+}
