@@ -1,6 +1,22 @@
 .yc-product-listing-container {
   padding: 0 16px;
 }
+.yc-product-listing-container .product-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media (min-width: 768px) {
+  .yc-product-listing-container .product-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+@media (min-width: 992px) {
+  .yc-product-listing-container .product-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 @media (min-width: 768px) {
   .yc-product-listing-container {
     padding: 0 50px;

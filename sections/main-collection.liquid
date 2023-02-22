@@ -20,6 +20,9 @@
       <h1>{{ category.name }}</h1>
     </div>
   </div>
+  <div class="sort-container">
+    {%- render 'main-sort' -%}
+  </div>
 
   {%- paginate collection.products by per_page cod %}
     <div class='product-list'>
