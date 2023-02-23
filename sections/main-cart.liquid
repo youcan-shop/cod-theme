@@ -3,12 +3,19 @@
 <div class='yc-cart mt-4'>
   {%- if cart and cart.items %}
     <div class='container cart-table'>
+  <div class="header-block">
     <div class="header-bar">
-      <h2 class='text-4xl'>{{ 'cart.title' | t }}</h2>
+      <h2>{{ 'cart.title' | t }}</h2>
       <p class='mt-1'>
-        {{ cart.items | size }}
-        {{ 'cart.items_count' | t }}
+        ({{ cart.items | size }}
+        {{ 'cart.items_count' | t }})
       </p>
+    </div>
+    <div class="checkout_cta">
+      <a href='{{ cart.cart_submit_url }}' class='yc-btn w-full'>
+        {{ 'cart.summary.checkout_cta' | t }}
+      </a>
+    </div>
     </div>
       <div class='flex flex-col md:flex-row gap-14'>
         <div class='w-full flex flex-col justify-between'>
@@ -16,6 +23,7 @@
             <thead>
               <tr>
                 <th></th>
+                <th>اسم المنتوج</th>
                 <th class='hidden md:block'>
                   {{ 'cart.items.quantity' | t }}
                 </th>
@@ -28,6 +36,14 @@
                   class='relative cart__item'
                   id='{{ item.id }}'
                 >
+                  <td class='product-image'>
+                    <img
+                      loading='lazy'
+                      src='{{ item.image }}'
+                      alt='product-name'
+                      class='w-24 object-cover'
+                    >
+                  </td>
                   <td class='flex gap-6'>
                     <div
                       class='cart-item-loader-spinner hidden'
@@ -36,12 +52,6 @@
                       <span class='spinner h-9 w-9'></span>
                     </div>
                     <div class='fixed'></div>
-                    <img
-                      loading='lazy'
-                      src='{{ item.image }}'
-                      alt='product-name'
-                      class='w-24 object-cover'
-                    >
                     <div class='flex flex-col items-start gap-3'>
                       <div>
                         {{ item.name }}
@@ -68,18 +78,9 @@
               {%- endfor %}
             </tbody>
           </table>
-          <a
-            href='/'
-            class='yc-btn flex gap-2 w-fit mt-5 items-center'
-          >
-            <ion-icon
-              name='arrow-back-outline'
-              class='yc-btn-responsive-icon'
-            ></ion-icon>
-            {{ 'cart.continue_shopping_cta' | t }}
-          </a>
         </div>
-        <div class='summary-box h-fit'>
+      </div>
+      <div class='summary-box h-fit'>
           <div id='summary'>
             <h1 class='text-2xl border-b pb-4'>{{ 'cart.summary.title' | t }}</h1>
             <form name='promo'>
@@ -119,13 +120,12 @@
                 <span>{{ 'cart.summary.total' | t }}</span>
                 <span>{{ cart.total | money }}</span>
               </div>
-              <button class='yc-btn mt-5 w-full'>
-                <a href='{{ cart.cart_submit_url }}'>{{ 'cart.summary.checkout_cta' | t }}</a>
-              </button>
+              <a href='{{ cart.cart_submit_url }}' class='yc-btn mt-5 w-full'>
+                {{ 'cart.summary.checkout_cta' | t }}
+              </a>
             </div>
           </div>
         </div>
-      </div>
     </div>
   {%- endif %}
   <div class='{% if cart and cart.items %}hidden {% endif %} container empty-cart pt-12'>
