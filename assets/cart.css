@@ -9,6 +9,11 @@
   max-width: 100%;
   min-width: 22rem;
 }
+.yc-cart .cart-table .header-bar {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
 .yc-cart .cart-table th {
   text-align: start;
 }

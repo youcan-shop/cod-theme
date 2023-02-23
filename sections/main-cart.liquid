@@ -3,11 +3,13 @@
 <div class='yc-cart mt-4'>
   {%- if cart and cart.items %}
     <div class='container cart-table'>
+    <div class="header-bar">
       <h2 class='text-4xl'>{{ 'cart.title' | t }}</h2>
       <p class='mt-1'>
         {{ cart.items | size }}
         {{ 'cart.items_count' | t }}
       </p>
+    </div>
       <div class='flex flex-col md:flex-row gap-14'>
         <div class='w-full flex flex-col justify-between'>
           <table class='table-auto w-full mt-7 self-baseline'>
