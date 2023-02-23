@@ -61,12 +61,6 @@
     "collection_preview": {
       "visit_cta": "زيارة"
     },
-    "main_sort": {
-      "title": "ترتيب حسب",
-      "price": "السعر",
-      "newest": "الأحدث",
-      "alphabetically": "حسب الأبجدية"
-    },
     "product_preview": {
       "cta_button": "تسوق الآن"
     },
@@ -82,6 +76,15 @@
     "collection-listing": {
       "home":  "الرئيسية",
       "collections": "التصنيفات"
+    },
+    "main_sort": {
+      "order_by": "ترتيب حسب",
+      "price_asc": "السعر: من الأقل إلى الأعلى",
+      "price_desc": "السعر: من الأعلى إلى الأقل",
+      "created_at_asc": "الأحدث",
+      "created_at_desc": "الأقدم",
+      "title_asc": "الأبجدية: من الأقل إلى الأعلى",
+      "title_desc": "الأبجدية: من الأعلى إلى الأقل"
     }
   },
   "footer": {

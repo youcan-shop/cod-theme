@@ -8,6 +8,9 @@ const sortField = urlParams.get('sort_field');
 const sortOrder = urlParams.get('sort_order');
 const sortSelect = document.querySelector('.sort-select');
 let page = +urlParams.get('page[cod]');
+const dropdown = document.querySelector('.dropdown');
+const dropdownBtn = dropdown.querySelector('.dropbtn');
+const dropdownContent = dropdown.querySelector('.dropdown-content');
 
 const updateUrl = (key, value, url) => {
   if (url.searchParams.has(key)) {
@@ -53,19 +56,60 @@ if (searchTitle) {
   searchTitle.innerHTML = query;
 }
 
-if (sortSelect) {
+// dropdown select
+if (dropdown) {
   let sortField = urlParams.get('sort_field');
-  
+  let sortOrder = urlParams.get('sort_order');
+
   if (!sortField) {
     // Set a default value for sortField if it is null or undefined
-    sortField = sortSelect.options[0].value;
+    sortField = 'price';
   }
 
-  sortSelect.value = sortField;
-  
-  sortSelect.addEventListener('change', () => {
-    const convertedSortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
-    const selectedValue = sortSelect.value;
-    window.location.href = convertUrlWithMultipleQuery(['sort_field', 'sort_order'], [selectedValue, convertedSortOrder]);
+  if (!sortOrder) {
+    // Set a default value for sortOrder if it is null or undefined
+    sortOrder = 'asc';
+  }
+
+  // Get the selected option from the URL parameters
+  const selectedOption = dropdownContent.querySelector(`[data-value="${sortField}-${sortOrder}"]`);
+
+  // Update the dropdown button text with the selected option
+  dropdownBtn.innerHTML = `<span class='order-by'>${order_by} : </span> ${selectedOption.textContent}`;
+
+  // Create a chevron icon for the dropdown button
+  const icon = document.createElement('ion-icon');
+  icon.setAttribute('name', 'chevron-down-outline');
+  icon.classList.add('dropdown-icon');
+  dropdownBtn.appendChild(icon);
+
+  // Set the font weight for the selected option
+  selectedOption.style.fontWeight = 'bold';
+
+  // Handle the click event for the dropdown button
+  dropdownBtn.addEventListener('click', () => {
+    dropdownContent.classList.toggle('show');
+  });
+
+  // Handle the click event for the options in the dropdown
+  dropdownContent.addEventListener('click', (event) => {
+    event.preventDefault();
+    const selectedValue = event.target.getAttribute('data-value');
+    const [newSortField, newSortOrder] = selectedValue.split('-');
+
+    if (newSortField !== sortField) {
+      // If a new sort field is selected, set the sort order to the default value
+      window.location.href = convertUrlWithMultipleQuery(['sort_field', 'sort_order'], [newSortField, 'asc']);
+    } else if (newSortOrder !== sortOrder) {
+      // If the same sort field is selected but with a different sort order, update the sort order
+      window.location.href = convertUrlWithMultipleQuery(['sort_field', 'sort_order'], [sortField, newSortOrder]);
+    }
+  });
+
+  // Hide the dropdown when the user clicks outside of it
+  window.addEventListener('click', (event) => {
+    if (!event.target.matches('.dropbtn, .dropbtn *')) {
+      dropdownContent.classList.remove('show');
+    }
   });
 }
