@@ -262,12 +262,13 @@ input:not([type='radio']),
   padding: 15px;
   font-size: 14px;
   line-height: 120%;
+  font-weight: 400;
   border: 1px solid #BDBDBD;
   border-radius: 8px;
+  cursor: pointer;
 
-  &:hover {
-    opacity: 0.8;
-    cursor: pointer;
+  &.active {
+    font-weight: 700;
   }
 }
 
