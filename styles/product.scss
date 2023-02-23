@@ -137,7 +137,7 @@
         }
       }
       .active {
-        border: 1px solid var(--yc-primary-color);
+        border: 1px solid #000000;
       }
     }
     .product-description {
@@ -147,8 +147,15 @@
     }
     .product-option-title {
       text-transform: capitalize;
-      margin-bottom: 5px;
-      font-weight: 500;
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 120%;
+
+      @include breakpoint('md') {
+        font-size: 18px;
+      }
     }
   }
 
@@ -186,5 +193,57 @@
       line-height: 120%;
       padding: 4px 10px !important;
     }
+  }
+}
+
+/* ----- Quantity input ----- */
+
+.quantity-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 151px;
+  border: 1px solid #BDBDBD;
+  border-radius: 4px;
+  padding: 5px;
+
+  /* Hide input arrows in Chrome, Safari, Edge, Opera */
+  .quantity-input::-webkit-outer-spin-button,
+  .quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Hide input arrows in Firefox */
+  .quantity-input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  .quantity-input {
+    width: 50%;
+    text-align: center;
+    border: none;
+    padding: 0 !important;
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    line-height: 120% !important;
+    color: #000000;
+  }
+
+  .quantity-input:focus {
+    outline: none;
+  }
+
+  .decrement-button,
+  .increment-button {
+    width: 25%;
+    height: 100%;
+    border: none;
+    color: #BDBDBD;
+    font-weight: 700;
+    font-size: 29px;
+    line-height: 120%;
+    background: none;
+    cursor: pointer;
   }
 }

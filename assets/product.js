@@ -396,3 +396,25 @@ function setup() {
 }
 
 setup();
+
+// Quantity input
+
+function manipulateQuantity() {
+  const decrementButton = document.querySelector('.decrement-button');
+  const incrementButton = document.querySelector('.increment-button');
+  const quantityInput = document.querySelector('.quantity-input');
+
+  decrementButton.addEventListener('click', () => {
+    const currentValue = parseInt(quantityInput.value);
+    if (currentValue > 1) {
+      quantityInput.value = currentValue - 1;
+    }
+  });
+
+  incrementButton.addEventListener('click', () => {
+    const currentValue = parseInt(quantityInput.value);
+    quantityInput.value = currentValue + 1;
+  });
+}
+
+manipulateQuantity();
