@@ -151,13 +151,14 @@
     }
     .product-description {
       overflow: hidden;
-      margin-top: 15px;
       color: var(--yc-neutral-light-color);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 184.5%;
     }
     .product-option-title {
       text-transform: capitalize;
       margin-top: 0;
-      margin-bottom: 14px;
       font-weight: 700;
       font-size: 16px;
       line-height: 120%;
@@ -240,7 +241,7 @@
     font-weight: 700 !important;
     font-size: 20px !important;
     line-height: 120% !important;
-    color: #000000;
+    color: var(--yc-neutral-light-color);
   }
 
   .quantity-input:focus {
