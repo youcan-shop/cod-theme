@@ -8,7 +8,7 @@ const sortField = urlParams.get('sort_field');
 const sortOrder = urlParams.get('sort_order');
 const sortSelect = document.querySelector('.sort-select');
 let page = +urlParams.get('page[cod]');
-const dropdown = document.getElementById('dropdown');
+const productFiltring = document.querySelector('#dropdown');
 const dropdownBtn = dropdown.querySelector('.dropbtn');
 const dropdownContent = dropdown.querySelector('.dropdown-content');
 
@@ -80,7 +80,7 @@ function setupDropdown(dropdownBtn, dropdownContent, convertUrlWithMultipleQuery
   });
 }
 
-if (dropdown) {
+if (productFiltring) {
   const sortField = urlParams.get('sort_field') || 'price';
   const sortOrder = urlParams.get('sort_order') || 'asc';
 
