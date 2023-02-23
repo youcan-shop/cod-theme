@@ -8,9 +8,9 @@ const sortField = urlParams.get('sort_field');
 const sortOrder = urlParams.get('sort_order');
 const sortSelect = document.querySelector('.sort-select');
 let page = +urlParams.get('page[cod]');
-const productFiltring = document.querySelector('#dropdown');
-const dropdownBtn = dropdown.querySelector('.dropbtn');
-const dropdownContent = dropdown.querySelector('.dropdown-content');
+const productFiltring = document.querySelector('#productDropdownFiltring');
+const dropdownBtn = productDropdownFiltring.querySelector('.dropbtn');
+const dropdownContent = productDropdownFiltring.querySelector('.dropdown-content');
 
 const updateUrl = (key, value, url) => {
   if (url.searchParams.has(key)) {
@@ -90,13 +90,11 @@ if (productFiltring) {
   // Update the dropdown button text with the selected option
   dropdownBtn.innerHTML = `<span class='order-by'>${order_by} : </span> ${selectedOption.textContent}`;
 
-  // Create a chevron icon for the dropdown button
   const icon = document.createElement('ion-icon');
   icon.setAttribute('name', 'chevron-down-outline');
   icon.classList.add('dropdown-icon');
   dropdownBtn.appendChild(icon);
 
-  // Set the font weight for the selected option
   selectedOption.style.fontWeight = 'bold';
 
   setupDropdown(dropdownBtn, dropdownContent, convertUrlWithMultipleQuery);
