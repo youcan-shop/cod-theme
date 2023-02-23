@@ -1,7 +1,10 @@
-{%- if last > 1 -%}
+{% assign start = current | minus: 2 %}
+{% assign end = current | plus: 2 %}
+
+{% if last > 1 %}
   <div class='yc-pagination-wrapper'>
     <a
-      class='paginate-btn-prev {% if current <= 1 %} disabled {%- endif %}'
+      class='paginate-btn-prev {% if current <= 1 %} disabled {% endif %}'
       href='{{ next_page }}'
     >
       <ion-icon
@@ -10,17 +13,41 @@
       ></ion-icon>
     </a>
 
-    {% for index in (1..last) %}
+    {% if start < 1 %}
+      {% assign end = end | plus: (1 - start) %}
+      {% assign start = 1 %}
+    {% endif %}
+
+    {% if end > last %}
+      {% assign start = start | minus: (end - last) %}
+      {% assign end = last %}
+    {% endif %}
+
+    {% if start > 1 %}
+      <a class='paginate-btn' data-index='1'>1</a>
+      {% if start > 2 %}
+        <span class='yc-pagination-separator'>...</span>
+      {% endif %}
+    {% endif %}
+
+    {% for index in (start..end) %}
       <a
-        class='paginate-btn {% if index == current %} active {%- endif %}'
+        class='paginate-btn {% if index == current %} active {% endif %}'
         data-index='{{ index }}'
       >
         {{ index }}
       </a>
     {% endfor %}
 
+    {% if end < last %}
+      {% if end < last - 1 %}
+        <span class='yc-pagination-separator'>...</span>
+      {% endif %}
+      <a class='paginate-btn' data-index='{{ last }}'>{{ last }}</a>
+    {% endif %}
+
     <a
-      class='paginate-btn-next {% if current >= last %} disabled {%- endif %}'
+      class='paginate-btn-next {% if current >= last %} disabled {% endif %}'
       href='{{ previous_page }}'
     >
       <ion-icon
@@ -29,6 +56,7 @@
       ></ion-icon>
     </a>
   </div>
-{%- endif -%}
+{% endif %}
+
 
 {{ 'queries-handler.js' | asset_url | script_tag_deferred }}

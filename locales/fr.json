@@ -76,6 +76,15 @@
     "collection-listing": {
       "home":  "Accueil",
       "collections": "Collections"
+    },
+    "product_listing": {
+      "order_by": "Trier par",
+      "price_asc": "Prix: du plus bas au plus élevé",
+      "price_desc": "Prix: du plus élevé au plus bas",
+      "created_at_asc": "Le plus récent",
+      "created_at_desc":  "Le plus ancien",
+      "title_asc": "Alphabétique: de A à Z",
+      "title_desc":  "Alphabétique: de Z à A"
     }
   },
   "footer": {

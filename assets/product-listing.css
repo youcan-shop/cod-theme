@@ -50,32 +50,58 @@
 }
 .yc-product-listing-container .sort-container {
   margin: 40px auto;
+  /* Style the dropdown button */
 }
-.yc-product-listing-container .sort-container .sort-select {
-  padding: 8px 13px;
-  border: 1px solid #E7E7E7;
+.yc-product-listing-container .sort-container #productDropdownFiltring {
+  /* Style the dropdown content */
+}
+.yc-product-listing-container .sort-container #productDropdownFiltring .dropbtn {
+  position: relative;
+  display: flex;
+  align-items: center;
   border-radius: 4px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-down'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-position: left 10px top 50%;
-  background-repeat: no-repeat;
-  background-size: 15px;
-  background-color: #fff;
-  color: #000;
+  width: 280px;
+  padding: 10px 15px;
+  border: 1px solid #E7E7E7;
+  text-align: start;
+  gap: 6px;
   font-size: 14px;
-  line-height: 22px;
-  font-weight: 400;
+  font-weight: 900;
   cursor: pointer;
-  width: 100%;
-  max-width: 200px;
 }
-.yc-product-listing-container .sort-container .sort-select option {
-  color: #000;
-  font-size: 14px;
-  line-height: 22px;
+.yc-product-listing-container .sort-container #productDropdownFiltring .dropbtn .dropdown-icon {
+  position: absolute;
+  left: 0;
+  padding-left: 10px;
+}
+.yc-product-listing-container .sort-container #productDropdownFiltring .dropbtn {
   font-weight: 400;
+}
+.yc-product-listing-container .sort-container #productDropdownFiltring .dropdown-content {
+  display: none;
+  margin-top: 5px;
+  position: absolute;
+  z-index: 1;
+  width: 280px;
+  background: #FFFFFF;
+  border: 1px solid #ECECEC;
+  box-shadow: 0px 10px 55px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+.yc-product-listing-container .sort-container #productDropdownFiltring .dropdown-content a {
+  color: black;
+  padding: 14px;
+  margin: 4px auto;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  display: block;
+}
+.yc-product-listing-container .sort-container #productDropdownFiltring .dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+.yc-product-listing-container .sort-container #productDropdownFiltring .show {
+  display: block;
 }
 @media (min-width: 768px) {
   .yc-product-listing-container {
