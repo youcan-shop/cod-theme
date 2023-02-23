@@ -115,8 +115,12 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 19px;
+    gap: 20px;
     overflow: hidden;
+
+    @include breakpoint('md') {
+      gap: 22px;
+    }
 
     .product-name {
       font-weight: 700;
@@ -124,9 +128,14 @@
       line-height: 120%;
     }
     .product-options {
-      .product-option {
-        margin-bottom: 20px;
+      display: grid;
+      gap: 27px;
 
+      @include breakpoint('md') {
+        gap: 30px;
+      }
+
+      .product-option {
         .yc-upload-preview {
           img {
             border: 1px solid var(--yc-neutral-light-color);
@@ -198,6 +207,10 @@
 
 /* ----- Quantity input ----- */
 
+.product-quantity .product-option-title {
+  margin-top: 6px !important;
+}
+
 .quantity-field {
   display: flex;
   align-items: center;
@@ -245,5 +258,10 @@
     line-height: 120%;
     background: none;
     cursor: pointer;
+    transition: all 200ms ease-in-out;
+
+    &:active {
+      scale: 1.5;
+    }
   }
 }

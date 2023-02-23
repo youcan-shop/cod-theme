@@ -252,7 +252,6 @@ input:not([type=radio]),
   flex-wrap: wrap;
   align-items: center;
   gap: 10px;
-  margin: 10px 0px;
 }
 
 .yc-options-item {
@@ -353,6 +352,9 @@ input:not([type=radio]),
   border-radius: 50%;
   border: 1px solid var(--yc-neutral-light-color);
   cursor: pointer;
+}
+.yc-colors-select .color-item:focus {
+  outline: none;
 }
 .yc-colors-select .color-item .preview {
   display: block;
