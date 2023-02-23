@@ -205,7 +205,7 @@
                 "slider_timeout": 5,
                 "slider_arrows_content_size": 14,
                 "slider_desktop_arrows_background_color": "#FFFFFF",
-                "slider_background_color": "#E7412F",
+                "slider_background_color": "#E7412FFF",
                 "slider_mobile_arrows_background_color": "#FFFFFF",
                 "slider_transition_type": "loop",
                 "slider_autoplay": true,
@@ -220,7 +220,8 @@
                 "slider_mobile_arrows": true,
                 "countdown_enabled": true,
                 "title": "⚡︎عرض خاص",
-                "section_title_position": "right"
+                "section_title_position": "right",
+                "counter_background_color": "#E7412FFF"
             },
             "blocks": {
                 "block_yx43rgjmjbv47g": {
