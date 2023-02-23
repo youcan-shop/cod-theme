@@ -52,10 +52,10 @@
   margin: 40px auto;
   /* Style the dropdown button */
 }
-.yc-product-listing-container .sort-container .dropdown {
+.yc-product-listing-container .sort-container #dropdown {
   /* Style the dropdown content */
 }
-.yc-product-listing-container .sort-container .dropdown .dropbtn {
+.yc-product-listing-container .sort-container #dropdown .dropbtn {
   position: relative;
   display: flex;
   align-items: center;
@@ -69,15 +69,15 @@
   font-weight: 900;
   cursor: pointer;
 }
-.yc-product-listing-container .sort-container .dropdown .dropbtn .dropdown-icon {
+.yc-product-listing-container .sort-container #dropdown .dropbtn .dropdown-icon {
   position: absolute;
   left: 0;
   padding-left: 10px;
 }
-.yc-product-listing-container .sort-container .dropdown .dropbtn {
+.yc-product-listing-container .sort-container #dropdown .dropbtn {
   font-weight: 400;
 }
-.yc-product-listing-container .sort-container .dropdown .dropdown-content {
+.yc-product-listing-container .sort-container #dropdown .dropdown-content {
   display: none;
   margin-top: 5px;
   position: absolute;
@@ -88,7 +88,7 @@
   box-shadow: 0px 10px 55px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
 }
-.yc-product-listing-container .sort-container .dropdown .dropdown-content a {
+.yc-product-listing-container .sort-container #dropdown .dropdown-content a {
   color: black;
   padding: 14px;
   margin: 4px auto;
@@ -97,10 +97,10 @@
   font-weight: 400;
   display: block;
 }
-.yc-product-listing-container .sort-container .dropdown .dropdown-content a:hover {
+.yc-product-listing-container .sort-container #dropdown .dropdown-content a:hover {
   background-color: #f1f1f1;
 }
-.yc-product-listing-container .sort-container .dropdown .show {
+.yc-product-listing-container .sort-container #dropdown .show {
   display: block;
 }
 @media (min-width: 768px) {

@@ -8,7 +8,7 @@ const sortField = urlParams.get('sort_field');
 const sortOrder = urlParams.get('sort_order');
 const sortSelect = document.querySelector('.sort-select');
 let page = +urlParams.get('page[cod]');
-const dropdown = document.querySelector('.dropdown');
+const dropdown = document.getElementById('dropdown');
 const dropdownBtn = dropdown.querySelector('.dropbtn');
 const dropdownContent = dropdown.querySelector('.dropdown-content');
 
@@ -57,19 +57,32 @@ if (searchTitle) {
 }
 
 // dropdown select
+function setupDropdown(dropdownBtn, dropdownContent, convertUrlWithMultipleQuery) {
+  // Handle the click event for the dropdown button
+  dropdownBtn.addEventListener('click', () => {
+    dropdownContent.classList.toggle('show');
+  });
+
+  // Handle the click event for the options in the dropdown
+  dropdownContent.addEventListener('click', (event) => {
+    event.preventDefault();
+    const selectedValue = event.target.getAttribute('data-value');
+    const [newSortField, newSortOrder] = selectedValue.split('-');
+
+    window.location.href = convertUrlWithMultipleQuery(['sort_field', 'sort_order'], [newSortField, newSortOrder]);
+  });
+
+  // Hide the dropdown when the user clicks outside of it
+  window.addEventListener('click', (event) => {
+    if (!event.target.matches('.dropbtn, .dropbtn *')) {
+      dropdownContent.classList.remove('show');
+    }
+  });
+}
+
 if (dropdown) {
-  let sortField = urlParams.get('sort_field');
-  let sortOrder = urlParams.get('sort_order');
-
-  if (!sortField) {
-    // Set a default value for sortField if it is null or undefined
-    sortField = 'price';
-  }
-
-  if (!sortOrder) {
-    // Set a default value for sortOrder if it is null or undefined
-    sortOrder = 'asc';
-  }
+  const sortField = urlParams.get('sort_field') || 'price';
+  const sortOrder = urlParams.get('sort_order') || 'asc';
 
   // Get the selected option from the URL parameters
   const selectedOption = dropdownContent.querySelector(`[data-value="${sortField}-${sortOrder}"]`);
@@ -86,30 +99,5 @@ if (dropdown) {
   // Set the font weight for the selected option
   selectedOption.style.fontWeight = 'bold';
 
-  // Handle the click event for the dropdown button
-  dropdownBtn.addEventListener('click', () => {
-    dropdownContent.classList.toggle('show');
-  });
-
-  // Handle the click event for the options in the dropdown
-  dropdownContent.addEventListener('click', (event) => {
-    event.preventDefault();
-    const selectedValue = event.target.getAttribute('data-value');
-    const [newSortField, newSortOrder] = selectedValue.split('-');
-
-    if (newSortField !== sortField) {
-      // If a new sort field is selected, set the sort order to the default value
-      window.location.href = convertUrlWithMultipleQuery(['sort_field', 'sort_order'], [newSortField, 'asc']);
-    } else if (newSortOrder !== sortOrder) {
-      // If the same sort field is selected but with a different sort order, update the sort order
-      window.location.href = convertUrlWithMultipleQuery(['sort_field', 'sort_order'], [sortField, newSortOrder]);
-    }
-  });
-
-  // Hide the dropdown when the user clicks outside of it
-  window.addEventListener('click', (event) => {
-    if (!event.target.matches('.dropbtn, .dropbtn *')) {
-      dropdownContent.classList.remove('show');
-    }
-  });
+  setupDropdown(dropdownBtn, dropdownContent, convertUrlWithMultipleQuery);
 }
