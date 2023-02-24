@@ -148,6 +148,19 @@ button {
     margin-bottom: 2px;
   }
 }
+
+.yc-btn-secondary {
+  border: 1px solid var(--yc-primary-color);
+  color: var(--yc-primary-color);
+  padding: 2px 20px;
+  border-radius: 4px;
+
+  .spinner {
+    width: 18px;
+    height: 18px;
+    margin-top: 6px;
+  }
+}
 [dir='rtl'] {
   .yc-btn {
     flex-direction: row-reverse;

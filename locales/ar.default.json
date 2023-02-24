@@ -21,7 +21,7 @@
   },
   "cart": {
     "title": "عربة التسوق",
-    "items_count": "عناصر",
+    "items_count": "منتجات",
     "items": {
       "quantity": "الكمية",
       "total": "المجموع",

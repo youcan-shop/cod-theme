@@ -3,17 +3,27 @@
 <div class='yc-cart mt-4'>
   {%- if cart and cart.items %}
     <div class='container cart-table'>
-      <h2 class='text-4xl'>{{ 'cart.title' | t }}</h2>
+  <div class="header-block">
+    <div class="header-bar">
+      <h2>{{ 'cart.title' | t }}</h2>
       <p class='mt-1'>
-        {{ cart.items | size }}
-        {{ 'cart.items_count' | t }}
+        ({{ cart.items | size }}
+        {{ 'cart.items_count' | t }})
       </p>
+    </div>
+    <div class="checkout_cta">
+      <a href='{{ cart.cart_submit_url }}' class='yc-btn w-full'>
+        {{ 'cart.summary.checkout_cta' | t }}
+      </a>
+    </div>
+    </div>
       <div class='flex flex-col md:flex-row gap-14'>
         <div class='w-full flex flex-col justify-between'>
           <table class='table-auto w-full mt-7 self-baseline'>
             <thead>
               <tr>
                 <th></th>
+                <th>اسم المنتوج</th>
                 <th class='hidden md:block'>
                   {{ 'cart.items.quantity' | t }}
                 </th>
@@ -26,6 +36,14 @@
                   class='relative cart__item'
                   id='{{ item.id }}'
                 >
+                  <td class='product-image'>
+                    <img
+                      loading='lazy'
+                      src='{{ item.image }}'
+                      alt='product-name'
+                      class='w-24 object-cover'
+                    >
+                  </td>
                   <td class='flex gap-6'>
                     <div
                       class='cart-item-loader-spinner hidden'
@@ -34,55 +52,46 @@
                       <span class='spinner h-9 w-9'></span>
                     </div>
                     <div class='fixed'></div>
-                    <img
-                      loading='lazy'
-                      src='{{ item.image }}'
-                      alt='product-name'
-                      class='w-24 object-cover'
-                    >
-                    <div class='flex flex-col items-start gap-3'>
-                      <div>
+                    <div class='flex flex-col items-start'>
+                      <div class="product-title">
                         {{ item.name }}
                       </div>
+                      <div class="product-variant">
+                          {%- render 'cart-variants', item: item -%}
+                      </div>
                       <div class='product-price'>{{ item.price | money }}</div>
-                      <div class='md:hidden quantity-on-mobile'></div>
-                      <button
-                        onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')"
-                        class='yc-btn btn-sm flex items-center gap-1'
-                      >
-                        <ion-icon
-                          name='trash'
-                          class='text-base'
-                        ></ion-icon>
-                        {{ 'cart.items.remove_cta' | t }}
-                      </button>
                     </div>
                   </td>
                   <td class='hidden md:table-cell quantity-on-desktop'>
                     {%- render 'quantity-input', item: item -%}
                   </td>
-                  <td class='total-price'>{{ item.price | times: item.quantity | money }}</td>
+                  <td>
+                  <span class="total-price">
+                    {{ item.price | times: item.quantity | money }}
+                  </span>
+                      <div class='md:hidden quantity-on-mobile'></div>
+                  </td>
+                  <td>
+                    <button
+                        onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')"
+                        class='yc-btn-close'
+                      >
+                      <ion-icon name="close-outline"></ion-icon>
+                    </button>
+                  </td>
                 </tr>
               {%- endfor %}
             </tbody>
           </table>
-          <a
-            href='/'
-            class='yc-btn flex gap-2 w-fit mt-5 items-center'
-          >
-            <ion-icon
-              name='arrow-back-outline'
-              class='yc-btn-responsive-icon'
-            ></ion-icon>
-            {{ 'cart.continue_shopping_cta' | t }}
-          </a>
         </div>
-        <div class='summary-box h-fit'>
+      </div>
+      <div class='summary-box h-fit'>
           <div id='summary'>
-            <h1 class='text-2xl border-b pb-4'>{{ 'cart.summary.title' | t }}</h1>
             <form name='promo'>
-              <div class='pt-1 mb-7 w-full'>
-                <label for='promo'>{{ 'cart.summary.promo' | t }}</label>
+              <div class='mb-7 w-full'>
+              <div class='border-b border-space'>
+                <label for='promo' class="promo">{{ 'cart.summary.promo' | t }}</label>
+                <div class="flex gap-2">
                 <input
                   type='text'
                   name='coupon'
@@ -90,10 +99,9 @@
                   placeholder='{{ "cart.summary.promo_input" | t }}'
                   class='w-full'
                 >
-              </div>
               <button
                 type='submit'
-                class='yc-btn w-full'
+                class='yc-btn-secondary'
               >
                 <span
                   class='spinner hidden'
@@ -101,11 +109,14 @@
                 ></span>
                 <span>{{ 'cart.summary.checkout_cta' | t }}</span>
               </button>
+              </div>
+              </div>
             </form>
             {%- if cart and cart.items %}
-              <div class='flex flex-col gap-1 mt-4'>
+            <div class="price-wrapper">
+              <div class='flex flex-col gap-1 price-box'>
                 {%- for item in cart.items %}
-                  <div class='flex justify-between text-sm'>
+                  <div class='flex justify-between text-sm box'>
                     <div class='capitalize'>{{ item.name }}</div>
                     <div>{{ item.price | times: item.quantity | money }}</div>
                   </div>
@@ -114,16 +125,17 @@
             {%- endif %}
             <div class='border-t mt-5'>
               <div class='flex text-sm justify-between mt-5'>
-                <span>{{ 'cart.summary.total' | t }}</span>
-                <span>{{ cart.total | money }}</span>
+                <span class="total">{{ 'cart.summary.total' | t }}</span>
+                <span class="total-price">{{ cart.total | money }}</span>
               </div>
-              <button class='yc-btn mt-5 w-full'>
-                <a href='{{ cart.cart_submit_url }}'>{{ 'cart.summary.checkout_cta' | t }}</a>
-              </button>
+              <a href='{{ cart.cart_submit_url }}' class='yc-btn mt-5 w-full'>
+                {{ 'cart.summary.checkout_cta' | t }}
+              </a>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   {%- endif %}
   <div class='{% if cart and cart.items %}hidden {% endif %} container empty-cart pt-12'>
