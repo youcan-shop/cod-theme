@@ -5,9 +5,44 @@
   --ionicon-stroke-width: 18px;
 }
 .yc-cart .summary-box {
-  padding: 1.3rem 1.5rem;
   max-width: 100%;
-  min-width: 22rem;
+  border: 1px solid #EFEFEF;
+  border-radius: 4px;
+  width: 437px;
+  float: left;
+}
+.yc-cart .summary-box .promo {
+  font-weight: 400;
+  margin-bottom: 17px;
+  font-size: 15px;
+}
+.yc-cart .summary-box input {
+  border: 1px solid #BDBDBD;
+  border-radius: 4px;
+}
+.yc-cart .summary-box .price-box {
+  margin: 25px auto 15px;
+}
+.yc-cart .summary-box .price-box .box {
+  font-weight: 400;
+  font-size: 15px;
+  color: #A8A8A8;
+}
+.yc-cart .summary-box .price-wrapper {
+  padding: 0px 18px 18px;
+}
+.yc-cart .summary-box .total {
+  font-weight: 700;
+  font-size: 14px;
+}
+.yc-cart .summary-box .total-price {
+  color: var(--yc-primary-color);
+  font-weight: 700;
+  font-size: 16px;
+}
+.yc-cart .summary-box .border-space {
+  padding-bottom: 22px;
+  padding: 0px 18px 18px;
 }
 .yc-cart .cart-table .header-block {
   display: flex;
@@ -19,7 +54,7 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  width: 70%;
+  width: 60%;
 }
 .yc-cart .cart-table .header-block .header-bar h2 {
   font-weight: 700;
@@ -32,7 +67,7 @@
   line-height: 22px;
 }
 .yc-cart .cart-table .header-block .checkout_cta {
-  width: 30%;
+  width: 40%;
 }
 .yc-cart .cart-table th {
   text-align: start;
@@ -87,7 +122,7 @@
   display: none !important;
 }
 .yc-cart table {
-  margin-top: 42px;
+  margin: 42px auto 32px;
   border: 1px solid #EDEDED;
 }
 .yc-cart .quantity-wrapper {

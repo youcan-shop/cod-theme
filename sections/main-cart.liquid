@@ -83,10 +83,11 @@
       </div>
       <div class='summary-box h-fit'>
           <div id='summary'>
-            <h1 class='text-2xl border-b pb-4'>{{ 'cart.summary.title' | t }}</h1>
             <form name='promo'>
-              <div class='pt-1 mb-7 w-full'>
-                <label for='promo'>{{ 'cart.summary.promo' | t }}</label>
+              <div class='mb-7 w-full'>
+              <div class='border-b border-space'>
+                <label for='promo' class="promo">{{ 'cart.summary.promo' | t }}</label>
+                <div class="flex gap-2">
                 <input
                   type='text'
                   name='coupon'
@@ -94,10 +95,9 @@
                   placeholder='{{ "cart.summary.promo_input" | t }}'
                   class='w-full'
                 >
-              </div>
               <button
                 type='submit'
-                class='yc-btn w-full'
+                class='yc-btn-secondary'
               >
                 <span
                   class='spinner hidden'
@@ -105,11 +105,14 @@
                 ></span>
                 <span>{{ 'cart.summary.checkout_cta' | t }}</span>
               </button>
+              </div>
+              </div>
             </form>
             {%- if cart and cart.items %}
-              <div class='flex flex-col gap-1 mt-4'>
+            <div class="price-wrapper">
+              <div class='flex flex-col gap-1 price-box'>
                 {%- for item in cart.items %}
-                  <div class='flex justify-between text-sm'>
+                  <div class='flex justify-between text-sm box'>
                     <div class='capitalize'>{{ item.name }}</div>
                     <div>{{ item.price | times: item.quantity | money }}</div>
                   </div>
@@ -118,8 +121,8 @@
             {%- endif %}
             <div class='border-t mt-5'>
               <div class='flex text-sm justify-between mt-5'>
-                <span>{{ 'cart.summary.total' | t }}</span>
-                <span>{{ cart.total | money }}</span>
+                <span class="total">{{ 'cart.summary.total' | t }}</span>
+                <span class="total-price">{{ cart.total | money }}</span>
               </div>
               <a href='{{ cart.cart_submit_url }}' class='yc-btn mt-5 w-full'>
                 {{ 'cart.summary.checkout_cta' | t }}
@@ -127,6 +130,7 @@
             </div>
           </div>
         </div>
+      </div>
     </div>
   {%- endif %}
   <div class='{% if cart and cart.items %}hidden {% endif %} container empty-cart pt-12'>
