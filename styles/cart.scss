@@ -76,6 +76,19 @@
         margin-bottom: 12px;
       }
 
+      .total-price {
+        color: var(--yc-primary-color);
+        font-weight: 700;
+        font-size: 18px;
+      }
+
+      .yc-btn-close {
+        font-size: 26px;
+        color: #4B5565;
+        float: left;
+        margin-left: 12px;
+      }
+
       .cart-item-loader-spinner {
         position: absolute;
         top: 0;
@@ -96,7 +109,7 @@
   }
 
   table {
-    margin-top: 17px;
+    margin-top: 42px;
     border: 1px solid #EDEDED;
   }
 
@@ -106,6 +119,7 @@
     border-radius: 4px;
     display: flex;
     align-items: center;
+    flex-direction: row-reverse;
     background-color: white;
 
     button {

@@ -60,6 +60,17 @@
   font-size: 16px;
   margin-bottom: 12px;
 }
+.yc-cart .cart-table tbody .total-price {
+  color: var(--yc-primary-color);
+  font-weight: 700;
+  font-size: 18px;
+}
+.yc-cart .cart-table tbody .yc-btn-close {
+  font-size: 26px;
+  color: #4B5565;
+  float: left;
+  margin-left: 12px;
+}
 .yc-cart .cart-table tbody .cart-item-loader-spinner {
   position: absolute;
   top: 0;
@@ -76,7 +87,7 @@
   display: none !important;
 }
 .yc-cart table {
-  margin-top: 17px;
+  margin-top: 42px;
   border: 1px solid #EDEDED;
 }
 .yc-cart .quantity-wrapper {
@@ -85,6 +96,7 @@
   border-radius: 4px;
   display: flex;
   align-items: center;
+  flex-direction: row-reverse;
   background-color: white;
 }
 .yc-cart .quantity-wrapper button {
