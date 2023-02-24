@@ -18,7 +18,6 @@ $sticky-checkout-padding: 20px;
 }
 
 .yc-sticky-checkout {
-  overflow: auto;
   max-width: 50rem;
   visibility: hidden;
   position: fixed;
@@ -32,18 +31,22 @@ $sticky-checkout-padding: 20px;
   height: 70vh;
   background-color: white;
   bottom: 0;
-  padding: $sticky-checkout-padding;
+  padding: 0 20px;
   padding-bottom: 0;
   display: flex;
   flex-direction: column;
-  
+
+  .sticky-product-details {
+    overflow-y: scroll;
+  }
+
   .cta-bottom-wrapper {
     position: sticky;
     bottom: 0;
     padding-bottom: $sticky-checkout-padding;
     background-color: white;
   }
-  
+
   .checkout-form {
     padding-bottom: $sticky-checkout-padding;
   }
@@ -51,19 +54,21 @@ $sticky-checkout-padding: 20px;
   .variant-card {
     margin-bottom: 15px;
   }
-  
+
   .back-icon,
   .close-icon {
     width: 40px;
     height: 40px;
-    background: #e3e3e3;
+    background: white;
+    color: #C8C8C8;
     position: absolute;
     left: 0;
-    top: 0;
+    top: -39px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 16pt;
+    border-radius: 4px 4px 0 0;
   }
 
   .step_1, .step_2 {

@@ -2,14 +2,16 @@
 
 <div id="yc-sticky-checkout" class="yc-sticky-checkout">
   <div class="step_1" id="checkout_step_1">
-    <div class="variant-card">
-      {% render 'product-card' %}
+    <div class="sticky-product-details">
+      <div class="variant-card">
+        {% render 'product-card' %}
+      </div>
+      <button class="close-icon" onclick="goToCheckoutStep(0)">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <div class="options"></div>
+      <div class="spacer"></div>
     </div>
-    <button class="close-icon" onclick="goToCheckoutStep(0)">
-      <ion-icon name="close-outline"></ion-icon>
-    </button>
-    <div class="options"></div>
-    <div class="spacer"></div>
     <div class="cta-bottom-wrapper">
       <button class="yc-btn w-full font-bold" onclick="goToCheckoutStep(2)">
         {{ settings.express_checkout_cta }}

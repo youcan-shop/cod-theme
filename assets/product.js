@@ -293,6 +293,13 @@ function teleportCheckoutElements(parentSection) {
   teleport(expressCheckoutForm, '#checkout_step_2 .checkout-form');
 }
 
+function teleportProductName() {
+  const elementContent = document.querySelector('.product-name').textContent;
+  const spanElement = document.getElementById('my-span');
+
+  spanElement.textContent = elementContent;
+}
+
 function showStickyCheckout() {
   const stickyCheckout = $('#yc-sticky-checkout');
 
@@ -317,6 +324,8 @@ function triggerCheckout(parentId) {
   showStickyCheckout();
 
   goToCheckoutStep(1);
+
+  teleportProductName();
 
   const parentSection = $(`#${parentId}`);
   teleportCheckoutElements(parentSection);
@@ -397,12 +406,12 @@ function setup() {
 
 setup();
 
-// Quantity input
+// Increment or Decrement custom quantity input
 
 function manipulateQuantity() {
-  const decrementButton = document.querySelector('.decrement-button');
-  const incrementButton = document.querySelector('.increment-button');
-  const quantityInput = document.querySelector('.quantity-input');
+  const decrementButton = $('.decrement-button');
+  const incrementButton = $('.increment-button');
+  const quantityInput = $('.quantity-input');
 
   decrementButton.addEventListener('click', () => {
     const currentValue = parseInt(quantityInput.value);

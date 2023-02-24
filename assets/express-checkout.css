@@ -15,7 +15,6 @@
   }
 }
 .yc-sticky-checkout {
-  overflow: auto;
   max-width: 50rem;
   visibility: hidden;
   position: fixed;
@@ -29,10 +28,13 @@
   height: 70vh;
   background-color: white;
   bottom: 0;
-  padding: 20px;
+  padding: 0 20px;
   padding-bottom: 0;
   display: flex;
   flex-direction: column;
+}
+.yc-sticky-checkout .sticky-product-details {
+  overflow-y: scroll;
 }
 .yc-sticky-checkout .cta-bottom-wrapper {
   position: sticky;
@@ -50,14 +52,16 @@
 .yc-sticky-checkout .close-icon {
   width: 40px;
   height: 40px;
-  background: #e3e3e3;
+  background: white;
+  color: #C8C8C8;
   position: absolute;
   left: 0;
-  top: 0;
+  top: -39px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 16pt;
+  border-radius: 4px 4px 0 0;
 }
 .yc-sticky-checkout .step_1, .yc-sticky-checkout .step_2 {
   height: 100%;
