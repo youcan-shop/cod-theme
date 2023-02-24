@@ -86,6 +86,11 @@
 .yc-cart .cart-table thead {
   border-bottom: 1px solid #eaeaea;
 }
+@media screen and (max-width: 600px) {
+  .yc-cart .cart-table thead {
+    display: none;
+  }
+}
 .yc-cart .cart-table thead th {
   font-size: 0.9rem;
   font-weight: 400 !important;
@@ -94,6 +99,10 @@
   background: #F5F5F5;
   border: 1px solid #EDEDED;
   border-radius: 0px 0px 4px 4px;
+}
+.yc-cart .cart-table .cart__item .product-image img {
+  width: 95px;
+  height: 88px;
 }
 .yc-cart .cart-table tbody td {
   padding: 10px;

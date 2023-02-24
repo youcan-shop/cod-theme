@@ -60,13 +60,17 @@
                           {%- render 'cart-variants', item: item -%}
                       </div>
                       <div class='product-price'>{{ item.price | money }}</div>
-                      <div class='md:hidden quantity-on-mobile'></div>
                     </div>
                   </td>
                   <td class='hidden md:table-cell quantity-on-desktop'>
                     {%- render 'quantity-input', item: item -%}
                   </td>
-                  <td class='total-price'>{{ item.price | times: item.quantity | money }}</td>
+                  <td>
+                  <span class="total-price">
+                    {{ item.price | times: item.quantity | money }}
+                  </span>
+                      <div class='md:hidden quantity-on-mobile'></div>
+                  </td>
                   <td>
                     <button
                         onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')"
