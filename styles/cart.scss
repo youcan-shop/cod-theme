@@ -31,6 +31,7 @@
       .box {
         font-weight: 400;
         font-size: 15px;
+        margin-bottom: 20px;
         color: #A8A8A8;
       }
     }
@@ -60,7 +61,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 9px;
 
       .header-bar {
         display: flex;
@@ -82,7 +82,8 @@
       }
 
       .checkout_cta {
-        width: 40%;
+        max-width: 100%;
+        width: 437px;
       }
     }
 
