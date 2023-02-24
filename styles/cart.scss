@@ -68,6 +68,10 @@
         gap: 9px;
         width: 60%;
 
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
+
         h2 {
           font-weight: 700;
           font-size: 21px;
@@ -84,6 +88,10 @@
       .checkout_cta {
         max-width: 100%;
         width: 437px;
+
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
       }
     }
 
@@ -94,7 +102,6 @@
     thead {
       border-bottom: 1px solid #eaeaea;
       th {
-        padding: 1rem 0;
         font-size: 0.9rem;
         font-weight: 400 !important;
       }
@@ -153,6 +160,8 @@
 
   table {
     margin: 42px auto 32px;
+    border-collapse: separate;
+    border-spacing: 0 20px;
     border: 1px solid #EDEDED;
   }
 

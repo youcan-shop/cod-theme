@@ -92,8 +92,16 @@ async function removeItem(cartItemId, productVariantId) {
       if (cartItemsBadge) {
         cartItemsBadge.innerText = 0;
       }
-      document.querySelector('.cart-table').remove();
-      document.querySelector('.empty-cart').classList.remove('hidden');
+      const cartTable = document.querySelector('.cart-table')
+      const emptyCart = document.querySelector('.empty-cart');
+
+      if (cartTable) {
+        cartTable.remove();
+      }
+
+      if (emptyCart) {
+        emptyCart.classList.remove('hidden');
+      }
     }
   } catch (e) {
     notify(e.message, 'error');
@@ -107,17 +115,17 @@ function moveQuantityWrapper() {
   const quantityOnDesktop = document.querySelector('.quantity-on-desktop');
   const quantityOnMobile = document.querySelector('.quantity-on-mobile');
 
-  if (window.innerWidth > 768) {
+  if (window.innerWidth > 768 && quantityOnDesktop) {
     quantityOnDesktop.appendChild(quantityWrapper);
 
-    if (quantityOnMobile.contains(quantityWrapper)) {
+    if (quantityOnMobile && quantityOnMobile.contains(quantityWrapper)) {
       quantityOnMobile.removeChild(quantityWrapper);
     }
   }
-  if (window.innerWidth < 768) {
+  if (window.innerWidth < 768 && quantityOnMobile) {
     quantityOnMobile.appendChild(quantityWrapper);
 
-    if (quantityOnDesktop.contains(quantityWrapper)) {
+    if (quantityOnDesktop && quantityOnDesktop.contains(quantityWrapper)) {
       quantityOnDesktop.removeChild(quantityWrapper);
     }
   }
