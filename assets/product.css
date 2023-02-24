@@ -150,6 +150,7 @@
 .yc-single-product .product-details .product-option-title {
   text-transform: capitalize;
   margin-top: 0;
+  margin-bottom: 14px;
   font-weight: 700;
   font-size: 16px;
   line-height: 120%;
@@ -192,10 +193,6 @@
 }
 
 /* ----- Quantity input ----- */
-.product-quantity .product-option-title {
-  margin-top: 6px !important;
-}
-
 .quantity-field {
   display: flex;
   align-items: center;

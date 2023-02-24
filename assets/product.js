@@ -321,6 +321,8 @@ function showStickyCheckout() {
 }
 
 function triggerCheckout(parentId) {
+  $("body").style.overflow = "hidden";
+
   showStickyCheckout();
 
   goToCheckoutStep(1);
@@ -344,6 +346,7 @@ function hideCheckout() {
 
   overlay.click();
 
+  $("body").style.overflow = "auto";
   overlay.style.zIndex = '95';
   optionsPlaceholder?.replaceWith(options);
   quantityPlaceholder?.replaceWith(quantity);

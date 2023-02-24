@@ -36,11 +36,19 @@
 .yc-sticky-checkout .sticky-product-details {
   overflow-y: scroll;
 }
+.yc-sticky-checkout .sticky-product-details .options .product-quantity {
+  margin-top: 36px;
+}
+.yc-sticky-checkout .spacer {
+  margin-top: 27px;
+}
 .yc-sticky-checkout .cta-bottom-wrapper {
   position: sticky;
   bottom: 0;
-  padding-bottom: 20px;
+  padding: 16px;
+  margin: 0 -20px;
   background-color: white;
+  border-top: 1px solid #EBEBEB;
 }
 .yc-sticky-checkout .checkout-form {
   padding-bottom: 20px;
