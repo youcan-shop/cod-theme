@@ -65,9 +65,15 @@
 
     tbody {
       td {
-        vertical-align: top;
         padding: 10px;
         background: #F5F5F5;
+      }
+
+      .product-title {
+        margin-top: 20px;
+        font-weight: 400;
+        font-size: 16px;
+        margin-bottom: 12px;
       }
 
       .cart-item-loader-spinner {
@@ -91,38 +97,41 @@
 
   table {
     margin-top: 17px;
+    border: 1px solid #EDEDED;
   }
 
   .quantity-wrapper {
-    box-shadow: 0 2px 4px rgb(0 0 0 / 11%);
     width: fit-content;
-    border: 1px solid var(--yc-primary-color);
+    border: 1px solid #BDBDBD;
+    border-radius: 4px;
     display: flex;
     align-items: center;
+    background-color: white;
 
     button {
-      width: 37px !important;
-      min-width: 37px !important;
-      max-width: 37px !important;
-      height: 37px !important;
-      min-height: 37px !important;
-      max-height: 37px !important;
+      width: 34px !important;
+      min-width: 34px !important;
+      max-width: 34px !important;
+      height: 34px !important;
+      min-height: 34px !important;
+      max-height: 34px !important;
+      background-color: transparent;
+      font-size: 18px;
+      color: #B7B7B7;
     }
 
     input {
-      width: 37px !important;
-      min-width: 37px !important;
-      max-width: 37px !important;
-      height: 37px !important;
-      min-height: 37px !important;
-      max-height: 37px !important;
-      box-shadow: none !important;
-      border: 1px solid var(--yc-primary-color) !important;
-      border-top: none !important;
-      border-bottom: none !important;
+      width: 34px !important;
+      min-width: 34px !important;
+      max-width: 34px !important;
+      height: 34px !important;
+      min-height: 34px !important;
+      max-height: 34px !important;
       margin: 0 !important;
       padding: 0 !important;
+      background-color: white;
       display: flex;
+      border: 0;
       align-items: center;
       justify-content: center;
       text-align: center;

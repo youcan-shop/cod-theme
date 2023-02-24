@@ -1,0 +1,15 @@
+{% dump item.variations %}
+
+{% for option in item -%}
+<div
+      class='product-option'
+      id='option-{{ option.name }}-{{ option.type }}'
+    >
+      <label
+        class='product-option-title'
+        for='{{ option.name }}'
+      >
+        {{- option.name -}}
+      </label>
+      </div>
+    {% endfor %}

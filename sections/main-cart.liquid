@@ -53,21 +53,14 @@
                     </div>
                     <div class='fixed'></div>
                     <div class='flex flex-col items-start gap-3'>
-                      <div>
+                      <div class="product-title">
                         {{ item.name }}
+                      </div>
+                      <div class="product-variant">
+                          {%- render 'cart-variants', item: item -%}
                       </div>
                       <div class='product-price'>{{ item.price | money }}</div>
                       <div class='md:hidden quantity-on-mobile'></div>
-                      <button
-                        onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')"
-                        class='yc-btn btn-sm flex items-center gap-1'
-                      >
-                        <ion-icon
-                          name='trash'
-                          class='text-base'
-                        ></ion-icon>
-                        {{ 'cart.items.remove_cta' | t }}
-                      </button>
                     </div>
                   </td>
                   <td class='hidden md:table-cell quantity-on-desktop'>
