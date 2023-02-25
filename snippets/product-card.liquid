@@ -62,5 +62,20 @@
       <span class="product-price"></span>
       <span class="off"></span>
     </div>
+    <div class="product-variations"></div>
+    <ul class="selected-product-variants">
+      {% for option in product.options -%}
+        <li class='selected-item'>
+          <span>{{- option.name -}} :</span>
+          {% case option.type %}
+            {% when 'textual_buttons' %}
+            <div id="variant-textual-button">
+            </div>
+            {% when 'color_base_buttons' %}
+              <div id="variant-color-base-button"></div>
+          {% endcase %}
+        </li>
+      {%- endfor %}
+    </ul>
   </div>
 </div>

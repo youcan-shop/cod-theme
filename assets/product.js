@@ -430,3 +430,40 @@ function manipulateQuantity() {
 }
 
 manipulateQuantity();
+
+// Show selected variants in the last step on sticky express checkout
+
+function getSelectedVariants() {
+  const variants = document.querySelectorAll('.product-options > div');
+
+  if (!variants || !variants.length) return null;
+
+  const selectedVariants = {};
+  variants.forEach((variant) => {
+    const variantType = variant.id.split('-')[2];
+
+    switch (variantType) {
+      case 'dropdown':
+        variant.querySelector('select')?.value;
+        break;
+      case 'textual_buttons':
+          variant.querySelector('.yc-options-item.active')?.innerText;
+        break;
+      case 'radio_buttons':
+          variant.querySelector('input:checked')?.value;
+        break;
+      case 'image_based_buttons':
+          variant.querySelector('.yc-image-options-item.active img')?.alt;
+        break;
+      case 'upload_image_zone':
+      'upload-zone';
+        break;
+      case 'color_base_buttons':
+        variant.querySelector('.color-item.active')?.innerText;
+        break;
+    }
+  });
+  return selectedVariants;
+}
+
+getSelectedVariants();
