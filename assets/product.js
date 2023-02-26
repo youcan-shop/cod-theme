@@ -406,7 +406,7 @@ function getSelectedVariants() {
   return selectedVariants;
 }
 
-// Clear selected variants if return back to checkout_step_1
+// Clear selected variants if the user return back to checkout_step_1
 
 function clearSelectedVariants() {
   const variantElems = document.querySelectorAll('[id*="variant_"]');
