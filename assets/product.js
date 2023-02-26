@@ -373,14 +373,13 @@ function getSelectedVariants() {
       document.getElementById('variant_4'),
       document.getElementById('variant_5'),
     ];
-
     const variantValues = [
       variant.querySelector('.yc-options-item.active')?.textContent,
       variant.querySelector('.color-item.active .preview')?.cloneNode(true),
       variant.querySelector('input:checked')?.value,
       variant.querySelector('select')?.value,
       variant.querySelector('.yc-image-options-item.active img')?.alt,
-    ]
+    ];
 
     switch (variantType) {
       case 'textual_buttons':
@@ -407,7 +406,7 @@ function getSelectedVariants() {
   return selectedVariants;
 }
 
-// Clear selected variant if return back to checkout_step_1
+// Clear selected variants if return back to checkout_step_1
 
 function clearSelectedVariants() {
   const variantElems = document.querySelectorAll('[id*="variant_"]');
