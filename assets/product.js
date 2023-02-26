@@ -406,6 +406,13 @@ function getSelectedVariants() {
   return selectedVariants;
 }
 
+// Show selected quantity in checkout_step_2
+
+function getSelectedQuantity() {
+  const quantityValue = $('.product-quantity input')?.value;
+  $('#variant_quantity').innerHTML = `<span class='quantity-value'>x${quantityValue}</span`;
+}
+
 // Clear selected variants if the user return back to checkout_step_1
 
 function clearSelectedVariants() {
@@ -430,6 +437,7 @@ function goToCheckoutStep(step) {
     case 2:
       $('#checkout_step_2').style.display = 'flex';
       getSelectedVariants();
+      getSelectedQuantity();
       break;
     default:
       hideCheckout();

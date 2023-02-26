@@ -91,6 +91,13 @@
     height: 100%;
     border-radius: 50%;
   }
+
+  #variant_quantity .quantity-value {
+    color: black;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 120%;
+  }
 {% endstyle %}
 
 <div class="yc-product-card">
@@ -131,7 +138,8 @@
         </li>
       {%- endfor %}
       <li class='selected-item'>
-        quantity: X1
+        <span>{{ 'snippets.single_product.quantity' | t }}&nbsp;:</span>
+        <div id='variant_quantity'></div>
       </li>
     </ul>
   </section>
