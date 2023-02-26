@@ -332,6 +332,7 @@ function triggerCheckout(parentId) {
 
   overlay.addEventListener('click', () => {
     hideCheckout();
+    teleport(productCard, '#checkout_step_1 .variant-card-1');
   });
 }
 
@@ -354,7 +355,7 @@ function hideCheckout() {
   // stickyCheckout.style.opacity = '0';
 }
 
-// Show selected variants in the last step on sticky express checkout
+// Show selected variants in checkout_step_2
 
 function getSelectedVariants() {
   const variants = document.querySelectorAll('.product-options > div');
@@ -365,33 +366,57 @@ function getSelectedVariants() {
   variants.forEach((variant) => {
     const variantType = variant.id.split('-')[2];
     const newParents = [
-      document.getElementById('textual-button-variant_0'),
-      document.getElementById('color-base-button-variant_1'),
+      document.getElementById('variant_0'),
+      document.getElementById('variant_1'),
+      document.getElementById('variant_2'),
+      document.getElementById('variant_3'),
+      document.getElementById('variant_4'),
+      document.getElementById('variant_5'),
     ];
+
+    const variantValues = [
+      variant.querySelector('.yc-options-item.active')?.textContent,
+      variant.querySelector('.color-item.active .preview')?.cloneNode(true),
+      variant.querySelector('input:checked')?.value,
+      variant.querySelector('select')?.value,
+      variant.querySelector('.yc-image-options-item.active img')?.alt,
+    ]
 
     switch (variantType) {
       case 'textual_buttons':
-        variant.querySelector('.yc-options-item.active')?.textContent;
+        newParents[0].innerHTML = `<span class='yc-textual-item'>${variantValues[0]}</span`;
       break;
       case 'color_base_buttons':
-        const copyChild =  variant.querySelector('.color-item.active .preview')?.cloneNode(true);
-        newParents[1].appendChild(copyChild);
+        newParents[1].appendChild(variantValues[1]);
         break;
       case 'radio_buttons':
-        variant.querySelector('input:checked')?.value;
+        newParents[2].innerHTML = `<span>${variantValues[2]}</span`;
       break;
       case 'dropdown':
-        variant.querySelector('select')?.value;
+        newParents[3].innerHTML = `<span>${variantValues[3]}</span`;
         break;
       case 'image_based_buttons':
-          variant.querySelector('.yc-image-options-item.active img')?.alt;
+        newParents[4].innerHTML = `<span>${variantValues[4]}</span`;
         break;
       case 'upload_image_zone':
-      'upload-zone';
+        // newParents[5].innerHTML = `<span>${variantValues[5]}</span`;
+        // 'upload-zone';
         break;
     }
   });
   return selectedVariants;
+}
+
+// Clear selected variant if return back to checkout_step_1
+
+function clearSelectedVariants() {
+  const variantElems = document.querySelectorAll('[id*="variant_"]');
+
+  variantElems.forEach(elem => {
+    while (elem.firstChild) {
+      elem.removeChild(elem.firstChild);
+    }
+  });
 }
 
 function goToCheckoutStep(step) {
@@ -401,6 +426,7 @@ function goToCheckoutStep(step) {
   switch (step) {
     case 1:
       $('#checkout_step_1').style.display = 'flex';
+      clearSelectedVariants();
       break;
     case 2:
       $('#checkout_step_2').style.display = 'flex';

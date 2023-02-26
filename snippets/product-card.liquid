@@ -66,7 +66,7 @@
     font-size: 16px !important;
   }
 
-  #textual-button-variant_0 .yc-textual-item {
+  #variant_0 .yc-textual-item {
     padding: 6.5px 10px;
     text-align: center;
     border: 1px solid black;
@@ -75,7 +75,7 @@
     border-radius: 8px;
   }
 
-  #color-base-button-variant_1 {
+  #variant_1 {
     width: 29px;
     height: 29px;
     border: 1px solid black;
@@ -83,14 +83,13 @@
     padding: 2.5px;
   }
 
-  #color-base-button-variant_1 .preview {
+  #variant_1 .preview {
     display: block;
     width: 100%;
     height: 100%;
     border-radius: 50%;
   }
 {% endstyle %}
-
 
 <div class="yc-product-card">
   <section class="section-1">
@@ -115,11 +114,17 @@
           <span>{{- option.name -}}&nbsp;:</span>
           {% case option.type %}
             {% when 'textual_buttons' %}
-              <div id="textual-button-variant_0">
-                <span class="yc-textual-item"></span>
-              </div>
+              <div id="variant_0"></div>
             {% when 'color_base_buttons' %}
-              <div id="color-base-button-variant_1"></div>
+              <div id="variant_1"></div>
+            {% when 'radio_buttons' %}
+              <div id="variant_2"></div>
+            {% when 'dropdown' %}
+              <div id="variant_3"></div>
+            {% when 'image_based_buttons' %}
+              <div id="variant_4"></div>
+            {% when 'upload_image_zone' %}
+              <div id="variant_5"></div>
           {% endcase %}
         </li>
       {%- endfor %}
