@@ -3,11 +3,30 @@
     width: 100%;
     background: #F5F5F5;
     border-radius: 4px;
+    margin: 26px 0 20px 0;
+  }
+
+  .yc-product-card .section-1 {
     display: flex;
     align-items: start;
     gap: 14px;
-    margin: 26px 0 20px 0;
+    padding: 10px
+  }
+
+  .yc-product-card .section-2 {
+    border-top: 1px solid #EBEBEB;
+  }
+
+  .yc-product-card .section-2 .selected-variants {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 10px;
+  }
+
+  .yc-product-card .section-2 .selected-variants .selected-item {
+    display: flex;
+    gap: 10px;
   }
 
   .yc-product-card .image {
@@ -46,36 +65,67 @@
   .yc-product-card .price .product-price {
     font-size: 16px !important;
   }
+
+  #textual-button-variant_0 .yc-textual-item {
+    padding: 6.5px 10px;
+    text-align: center;
+    border: 1px solid black;
+    color: black;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+  #color-base-button-variant_1 {
+    width: 29px;
+    height: 29px;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 2.5px;
+  }
+
+  #color-base-button-variant_1 .preview {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
 {% endstyle %}
 
 
 <div class="yc-product-card">
-  <div class="image">
-    <img
-      class="main-image"
-      src="{{ 'default_product.jpeg' | asset_url }}"
-      alt="product image">
-  </div>
-  <div class="details">
-    <span class="product-name" id="my-span"></span>
-    <div class="price">
-      <span class="product-price"></span>
-      <span class="off"></span>
+  <section class="section-1">
+    <div class="image">
+      <img
+        class="main-image"
+        src="{{ 'default_product.jpeg' | asset_url }}"
+        alt="product image">
     </div>
-    <div class="product-variations"></div>
-    <ul class="selected-product-variants">
+    <div class="details">
+      <span class="product-name" id="product--name"></span>
+      <div class="price">
+        <span class="product-price"></span>
+        <span class="off"></span>
+      </div>
+    </div>
+  </section>
+  <section class="section-2">
+    <ul class="selected-variants">
       {% for option in product.options -%}
         <li class='selected-item'>
-          <span>{{- option.name -}} :</span>
+          <span>{{- option.name -}}&nbsp;:</span>
           {% case option.type %}
             {% when 'textual_buttons' %}
-            <div id="variant-textual-button">
-            </div>
+              <div id="textual-button-variant_0">
+                <span class="yc-textual-item"></span>
+              </div>
             {% when 'color_base_buttons' %}
-              <div id="variant-color-base-button"></div>
+              <div id="color-base-button-variant_1"></div>
           {% endcase %}
         </li>
       {%- endfor %}
+      <li class='selected-item'>
+        quantity: X1
+      </li>
     </ul>
-  </div>
+  </section>
 </div>

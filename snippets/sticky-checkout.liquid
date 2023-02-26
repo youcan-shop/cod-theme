@@ -3,7 +3,7 @@
 <div id="yc-sticky-checkout" class="yc-sticky-checkout">
   <div class="step_1" id="checkout_step_1">
     <div class="sticky-product-details">
-      <div class="variant-card">
+      <div class="variant-card-1">
         {% render 'product-card' %}
       </div>
       <button class="close-icon" onclick="goToCheckoutStep(0)">
@@ -13,16 +13,14 @@
       <div class="spacer"></div>
     </div>
     <div class="cta-bottom-wrapper">
-      <button class="yc-btn w-full font-bold" onclick="goToCheckoutStep(2)">
+      <button class="yc-btn w-full font-bold" onclick="goToCheckoutStep(2); teleport(productCard, '#checkout_step_2 .variant-card-2')">
         {{ settings.express_checkout_cta }}
       </button>
     </div>
   </div>
   <div class="step_2" id="checkout_step_2">
-    <div class="variant-card">
-      {% render 'product-card' %}
-    </div>
-    <button class="back-icon" onclick="goToCheckoutStep(1)">
+    <div class="variant-card-2"></div>
+    <button class="back-icon" onclick="goToCheckoutStep(1); teleport(productCard, '#checkout_step_1 .variant-card-1')">
       <ion-icon name="return-up-back-outline"></ion-icon>
     </button>
     <div class="checkout-form"></div>

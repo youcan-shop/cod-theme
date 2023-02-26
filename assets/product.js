@@ -266,9 +266,8 @@ function createPlaceholderDiv(id) {
   return div;
 }
 
-const expressCheckoutForm = document.querySelector(
-  '#express-checkout-form'
-);
+const expressCheckoutForm = document.querySelector('#express-checkout-form');
+const productCard = document.querySelector('.yc-product-card');
 
 teleport(expressCheckoutForm, '#checkout_step_2');
 
@@ -295,9 +294,8 @@ function teleportCheckoutElements(parentSection) {
 
 function teleportProductName() {
   const elementContent = document.querySelector('.product-name').textContent;
-  const spanElement = document.getElementById('my-span');
 
-  spanElement.textContent = elementContent;
+  document.getElementById('product--name').textContent = elementContent;
 }
 
 function showStickyCheckout() {
@@ -356,6 +354,46 @@ function hideCheckout() {
   // stickyCheckout.style.opacity = '0';
 }
 
+// Show selected variants in the last step on sticky express checkout
+
+function getSelectedVariants() {
+  const variants = document.querySelectorAll('.product-options > div');
+
+  if (!variants || !variants.length) return null;
+
+  const selectedVariants = {};
+  variants.forEach((variant) => {
+    const variantType = variant.id.split('-')[2];
+    const newParents = [
+      document.getElementById('textual-button-variant_0'),
+      document.getElementById('color-base-button-variant_1'),
+    ];
+
+    switch (variantType) {
+      case 'textual_buttons':
+        variant.querySelector('.yc-options-item.active')?.textContent;
+      break;
+      case 'color_base_buttons':
+        const copyChild =  variant.querySelector('.color-item.active .preview')?.cloneNode(true);
+        newParents[1].appendChild(copyChild);
+        break;
+      case 'radio_buttons':
+        variant.querySelector('input:checked')?.value;
+      break;
+      case 'dropdown':
+        variant.querySelector('select')?.value;
+        break;
+      case 'image_based_buttons':
+          variant.querySelector('.yc-image-options-item.active img')?.alt;
+        break;
+      case 'upload_image_zone':
+      'upload-zone';
+        break;
+    }
+  });
+  return selectedVariants;
+}
+
 function goToCheckoutStep(step) {
   $('#checkout_step_1').style.display = 'none';
   $('#checkout_step_2').style.display = 'none';
@@ -366,6 +404,7 @@ function goToCheckoutStep(step) {
       break;
     case 2:
       $('#checkout_step_2').style.display = 'flex';
+      getSelectedVariants();
       break;
     default:
       hideCheckout();
@@ -430,40 +469,3 @@ function manipulateQuantity() {
 }
 
 manipulateQuantity();
-
-// Show selected variants in the last step on sticky express checkout
-
-function getSelectedVariants() {
-  const variants = document.querySelectorAll('.product-options > div');
-
-  if (!variants || !variants.length) return null;
-
-  const selectedVariants = {};
-  variants.forEach((variant) => {
-    const variantType = variant.id.split('-')[2];
-
-    switch (variantType) {
-      case 'dropdown':
-        variant.querySelector('select')?.value;
-        break;
-      case 'textual_buttons':
-          variant.querySelector('.yc-options-item.active')?.innerText;
-        break;
-      case 'radio_buttons':
-          variant.querySelector('input:checked')?.value;
-        break;
-      case 'image_based_buttons':
-          variant.querySelector('.yc-image-options-item.active img')?.alt;
-        break;
-      case 'upload_image_zone':
-      'upload-zone';
-        break;
-      case 'color_base_buttons':
-        variant.querySelector('.color-item.active')?.innerText;
-        break;
-    }
-  });
-  return selectedVariants;
-}
-
-getSelectedVariants();

@@ -60,7 +60,7 @@ $sticky-checkout-padding: 20px;
     padding-bottom: $sticky-checkout-padding;
   }
 
-  .variant-card {
+  .variant-card-1, .variant-card-2 {
     margin-bottom: 15px;
   }
 
@@ -91,4 +91,12 @@ $sticky-checkout-padding: 20px;
     animation: slideFromBottom 0.2s ease-in-out;
     will-change: transform;
   }
+}
+
+.step_1 .yc-product-card .section-2 {
+  display: none;
+}
+
+.step_2 .yc-product-card .section-2 {
+  display: block;
 }
