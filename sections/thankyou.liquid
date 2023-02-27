@@ -28,7 +28,43 @@
     </div>
   </div>
 
-  <div class='order-details-wrapper'>
+  <div class="orders-detail-wrapper">
+    {% comment %}
+     TO DO: Add variants when the data is provided
+    {% endcomment %}
+  </div>
+        {% dump order %}
+
+  <div class="order-details">
+    <h2>ملخص الفاتورة</h2>
+    <div class="table-content">
+    <div class="head">
+      <div class="item">
+          السلع
+        </div>
+        <div class="data-item">
+          {{ order.total | money }}
+        </div>
+    </div>
+    <div class="head">
+      <div class="item">
+        الشحن والتسليم
+      </div>
+      <div class="data-item">
+        {{ order.shippingCost | money }}
+      </div>
+    </div>
+    <div class="total-price-head">
+      <div class="item">
+        إجمالي المبلغ
+      </div>
+      <div class="data-item">
+        {{ order.total | money }}
+      </div>
+    </div>
+  </div>
+</div>
+
     <div class='order-details'>
       <div class='title'>
         {{ 'thankyou.details.title' | t }}
@@ -73,7 +109,6 @@
         </div>
       </div>
     </div>
-  </div>
 </div>
 
 {%- schema -%}

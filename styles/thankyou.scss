@@ -52,7 +52,7 @@
     }
   }
 
-  .order-details {
+  .order-details1 {
     margin: 2rem auto;
     max-width: 600px;
 
@@ -182,6 +182,60 @@
           table td:last-child {
             border-bottom: 0;
           }
+        }
+      }
+    }
+  }
+
+  .order-details {
+    border: 1px solid #EBEBEB;
+    padding: 24px 28px;
+    border-radius: 4px;
+
+    h2 {
+      font-weight: 600;
+      line-height: 22px;
+      color: #000000;
+      font-weight: 700;
+    }
+
+    .table-content {
+      margin-bottom: 2px;
+
+      .head {
+        display: flex;
+        margin-top: 12px;
+        justify-content: space-between;
+        align-items: center;
+
+        .item {
+          font-weight: 400;
+          font-size: 14px;
+        }
+
+        .data-item {
+          font-weight: 700;
+          font-size: 14px;
+        }
+      }
+
+      .total-price-head {
+        display: flex;
+        margin-top: 20px;
+        padding-top: 15px;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #EBEBEB;
+
+        .item {
+          font-weight: 700;
+          line-height: 22px;
+        }
+
+        .data-item {
+          font-weight: 700;
+          font-size: 16px;
+          color: var(--yc-primary-color);
         }
       }
     }
