@@ -26,6 +26,11 @@
 .thankyou-page-container .thankyou-wrapper .content-wrapper .heading .title {
   display: block;
 }
+@media screen and (max-width: 768px) {
+  .thankyou-page-container .thankyou-wrapper .content-wrapper .heading .title {
+    font-size: 24px;
+  }
+}
 .thankyou-page-container .thankyou-wrapper .content-wrapper .description {
   margin-top: 15px;
   opacity: 0.9;
