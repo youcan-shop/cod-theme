@@ -9,10 +9,6 @@
     }
   {% endif %}
 
-  .custom-checkout-{{ checkout_id }} {
-    grid-gap: {{ settings.inputs_gap }}px;
-  }
-
   .custom-checkout-{{ checkout_id }} label {
     font-size: {{ settings.label_text_size }}px;
 
@@ -75,7 +71,6 @@
     <div class='express-checkout-title'>{{ settings.form_title }}</div>
     {%- for field in checkout.fields %}
       <div class='express-checkout-field'>
-        <label for='{{ field.name }}'>{{ field.display_name }}</label>
         <input
           type='{{ field.type }}'
           class='w-full'
