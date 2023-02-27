@@ -1,3 +1,17 @@
+
+function updateNameOfCustomFields() {
+  const customFieldElements = document.querySelectorAll('[id^="custom_field"]');
+
+  if(customFieldElements) {
+    customFieldElements.forEach(element => {
+      const nameOfInput = element.getAttribute('name');
+      element.setAttribute('name', `extra_fields.${nameOfInput}`);
+    });
+  }
+}
+
+updateNameOfCustomFields();
+
 async function placeOrder() {
   const expressCheckoutForm = document.querySelector('#express-checkout-form');
 
