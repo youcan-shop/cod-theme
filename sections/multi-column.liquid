@@ -8,6 +8,18 @@
     color: {{ section.settings.text_color.hex }};
   }
 
+  @media screen and (min-width: 1024px) {
+    .multi-column-{{ id }} {
+      padding: 0 150px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    .multi-column-{{ id }} {
+      padding: 0 240px;
+    }
+  }
+
   .multi-column-{{ id }} .yc-section-title{
     text-align: {{ section.settings.section_title_position }};
     font-weight: 700;
