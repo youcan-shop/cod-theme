@@ -162,7 +162,7 @@ button:focus {
 .yc-btn-secondary--large {
   border: 1px solid var(--yc-primary-color);
   color: var(--yc-primary-color);
-  padding: 15px 140px;
+  padding: 14px 140px;
   border-radius: 4px;
   display: flex;
   font-weight: 700;
@@ -171,6 +171,11 @@ button:focus {
   align-items: center;
   gap: 10px;
   width: 100%;
+}
+.yc-btn-secondary--large:hover {
+  background: var(--yc-primary-color);
+  color: white;
+  transition: all 0.2s ease-in;
 }
 
 [dir=rtl] .yc-btn {
