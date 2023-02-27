@@ -41,7 +41,7 @@
                       "is_sticky": false,
                       "input_border_radius": 4,
                       "input_text_size": 13,
-                      "input_placeholder_color": "#A8A8A8",
+                      "input_placeholder_color": "#A8A8A8FF",
                       "input_text_color": "#000000FF",
                       "input_background_color": "#FFFFFFFF",
                       "input_border_color": "#000000FF",
@@ -66,15 +66,30 @@
           ],
           "settings": {}
       },
-      "section_kl230iysvlo3xtbp": {
-          "type": "product-reviews",
+      "section_9209tvd04btv1wj": {
+          "type": "main-express-checkout",
           "settings": {
-              "reviews_title": "تقييمات العملاء"
+              "label_text_size": 16,
+              "express_checkout_cta": "Buy now",
+              "is_sticky": false,
+              "button_padding": 12,
+              "button_background_color": "#E7412FFF",
+              "button_text_color": "#FFFFFFFF",
+              "button_text_size": 16,
+              "button_border_radius": 4,
+              "inputs_gap": 5,
+              "input_padding": 12,
+              "input_border_color": "#000000FF",
+              "input_background_color": "#FFFFFFFF",
+              "input_text_color": "#000000FF",
+              "input_placeholder_color": "#A8A8A8FF",
+              "input_text_size": 16,
+              "input_border_radius": 4
           }
       }
   },
   "order": [
       "product",
-      "section_kl230iysvlo3xtbp"
+      "section_9209tvd04btv1wj"
   ]
 }
