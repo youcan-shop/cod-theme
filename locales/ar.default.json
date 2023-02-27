@@ -46,13 +46,13 @@
     "title": "شكرا",
     "subtitle": "تم استلام طلبك.",
     "description": "سيتصل بك فريقنا لتأكيد طلبك",
-    "return_cta": "عودة إلى المتجر",
+    "return_cta": "الصفحة الرئيسية ",
     "details": {
-      "title": "تفاصيل الطلب",
+      "title": "ملخص الفاتورة",
       "payment_status": "حالة الدفع",
-      "shipping_cost": "تكلفة الشحن",
-      "total": "المجموع",
-      "product": "منتج",
+      "shipping_cost": "الشحن والتسليم",
+      "total": "إجمالي المبلغ",
+      "product": "السلع",
       "one_piece_price": "سعر قطعة واحدة",
       "quantity": "الكمية"
     }
