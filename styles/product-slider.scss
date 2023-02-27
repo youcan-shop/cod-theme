@@ -10,6 +10,12 @@
     }
   }
 
+  .splide__pagination {
+    display: flex !important;
+    justify-content: center;
+    margin-bottom: -36px;
+  }
+
   .product-block {
     width: 100%;
     background-color: white;

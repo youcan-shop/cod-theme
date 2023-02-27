@@ -215,23 +215,19 @@
       & .min .num,
       & .sec .num {
         display: block;
-        padding: 0.4rem 0.6rem;
-        border-radius: 7px;
-        border: 1px solid;
-        font-size: 32px;
+        padding: 0.3rem 0.5rem;
+        border-radius: 6px;
+        font-size: 29px;
         font-weight: 600;
         color: #FFFFFF;
         line-height: 2rem;
+        border: 0;
+        background-color: rgb(154, 148, 137);
       }
 
-      & .day .num,
-      & .hour .num,
-      & .min .num {
-        background: rgb(154, 148, 137);
-      }
-
-      & .sec .num {
+      & .day .num {
         background-color: #000000;
+        border: 0;
       }
 
       .separator {
