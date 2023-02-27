@@ -170,12 +170,9 @@
   color: #000000;
   font-weight: 700;
 }
-.thankyou-page-container .order-details .table-content {
-  margin-bottom: 2px;
-}
 .thankyou-page-container .order-details .table-content .head {
   display: flex;
-  margin-top: 12px;
+  margin-top: 15px;
   justify-content: space-between;
   align-items: center;
 }
@@ -203,4 +200,7 @@
   font-weight: 700;
   font-size: 16px;
   color: var(--yc-primary-color);
+}
+.thankyou-page-container .home-page {
+  margin-top: 50px;
 }

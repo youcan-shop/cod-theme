@@ -200,11 +200,9 @@
     }
 
     .table-content {
-      margin-bottom: 2px;
-
       .head {
         display: flex;
-        margin-top: 12px;
+        margin-top: 15px;
         justify-content: space-between;
         align-items: center;
 
@@ -239,5 +237,9 @@
         }
       }
     }
+  }
+
+  .home-page {
+    margin-top: 50px;
   }
 }
