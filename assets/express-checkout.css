@@ -1,7 +1,45 @@
+@media (min-width: 768px) {
+  #express-checkout-form {
+    border: 2px solid #F33520;
+    background: #F8F8F8;
+    box-shadow: 1px -1px 23px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    padding: 20px;
+    grid-gap: 18px;
+  }
+}
+
 .express-checkout-fields {
+  border: 2px solid #F33520;
+  background: #F8F8F8;
+  box-shadow: 1px -1px 23px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 2px;
+  grid-gap: 14px;
+  padding: 10px;
+}
+@media (min-width: 768px) {
+  .express-checkout-fields {
+    border: unset;
+    background: unset;
+    box-shadow: unset;
+    padding: unset;
+  }
+}
+
+.express-checkout-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 144%;
+}
+
+.express-checkout-field label {
+  margin-top: 0 !important;
+}
+
+.express-checkout-button {
+  margin-top: 8px;
 }
 
 @keyframes slideFromBottom {
@@ -76,6 +114,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.yc-sticky-checkout #checkout_step_2 {
+  overflow-y: scroll;
 }
 .yc-sticky-checkout #checkout_step_1, .yc-sticky-checkout #checkout_step_2 {
   animation: slideFromBottom 0.2s ease-in-out;
