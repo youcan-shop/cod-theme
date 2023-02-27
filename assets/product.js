@@ -310,12 +310,12 @@ function showStickyCheckout() {
   stickyCheckout.style.transform = 'translateY(0)';
   // stickyCheckout.style.opacity = '1';
 
-  const makeModalCenter = () => {
-    stickyCheckout.style.left = `${(window.innerWidth - stickyCheckout.offsetWidth) / 2}px`;
-  }
+  // const makeModalCenter = () => {
+  //   stickyCheckout.style.left = `${(window.innerWidth - stickyCheckout.offsetWidth) / 2}px`;
+  // }
 
-  makeModalCenter();
-  window.addEventListener('resize', makeModalCenter);
+  // makeModalCenter();
+  // window.addEventListener('resize', makeModalCenter);
 }
 
 function triggerCheckout(parentId) {
@@ -502,3 +502,15 @@ function manipulateQuantity() {
 }
 
 manipulateQuantity();
+
+
+// Desktop checkout
+
+function desktopStickyCheckout() {
+  if(window.innerWidth >= 768) {
+    const closeButton = $('#checkout_step_1 .close-icon');
+    goToCheckoutStep(2);
+    teleport(productCard, '#checkout_step_2 .variant-card-2');
+    $('#checkout_step_2 .back-icon').replaceWith(closeButton);
+  }
+}
