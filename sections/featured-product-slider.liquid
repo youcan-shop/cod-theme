@@ -6,25 +6,47 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  .counter-wrapper {
-    background-color: {{ section.settings.counter_background_color.hex }};
-    margin-bottom: {{ section.settings.counter_margin_bottom }}px;
-  }
-
   .section-featured-products-{{id}} {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
     margin-top: {{ section.settings.margin_top }}px;
     margin-bottom: {{ section.settings.margin_bottom }}px;
-    background-color: {{ section.settings.slider_background_color.hex }};
+  }
+
+  @media screen and (min-width: 768px) {
+    .section-featured-products-{{id}} {
+      padding: 0 70px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .section-featured-products-{{id}} {
+      padding: 0 100px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    .section-featured-products-{{id}} {
+      padding: 0 200px;
+    }
+  }
+
+  .bg-color-{{id}} {
+    padding: 45px;
+    background-color: #E7412F;
+    border-radius: 6px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .bg-color-{{id}} {
+      padding: 12px;
+    }
   }
 
   .counter-wrapper .yc-section-title {
-    color: {{ section.settings.section_title_color.hex }} !important;
+    color: #fff;
   }
 
   .countdown-wrapper .message {
-    color: {{ section.settings.section_title_color.hex }};
+    color: #fff;
   }
 
   .section-featured-products-{{id}} {
@@ -44,16 +66,18 @@
 {% endstyle %}
 
 <div class='yc-featured-products section-featured-products-{{id}} container'>
-  <div class="counter-wrapper">
-        <h1 class='yc-section-title'>
-          {{ section.settings.title }}
-        </h1>
-        {% if section.settings.countdown_enabled %}
-          {%- render 'countdown', section_settings: section.settings -%}
-        {% endif %}
+  <div class='bg-color-{{id}}'>
+    <div class="counter-wrapper">
+          <h1 class='yc-section-title'>
+            {{ section.settings.title }}
+          </h1>
+          {% if section.settings.countdown_enabled %}
+            {%- render 'countdown', section_settings: section.settings -%}
+          {% endif %}
+    </div>
+      {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
+      {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
   </div>
-    {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
-    {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
 </div>
 <script>
   const isMobile1 = window.matchMedia("(max-width: 850px)");
@@ -117,31 +141,6 @@
       "type": "text",
       "id": "title",
       "label": "Title"
-    },
-    {
-      "type": "color",
-      "id": "section_title_color",
-      "label": "Title color"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 160,
-      "step": 1,
-      "unit": "px",
-      "label": "Padding Top",
-      "default": 80
-    },
-     {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 5,
-      "max": 160,
-      "step": 1,
-      "unit": "px",
-      "label": "Padding Bottom",
-      "default": 20
     },
      {
       "type": "range",
@@ -266,18 +265,6 @@
       "id": "slider_desktop_arrows_background_color",
       "label": "Arrows Background Color",
       "default": "#FFFFFF"
-    },
-    {
-      "type": "color",
-      "id": "slider_background_color",
-      "label": "Slider Background Color",
-      "default": "#E7412F"
-    },
-    {
-      "type": "color",
-      "id": "counter_background_color",
-      "label": "Counter Background Color",
-      "default": "#E7412FFF"
     },
     {
       "type": "range",

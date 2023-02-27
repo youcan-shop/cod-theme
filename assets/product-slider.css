@@ -1,14 +1,14 @@
 .product-slider .product-thumbnail img {
-  height: 270px;
+  height: 230px;
   object-fit: contain;
-
-  @media screen and (max-width: 570px) {
-    height: 190px;
+}
+@media screen and (max-width: 767px) {
+  .product-slider .product-thumbnail img {
+    height: 200px;
   }
 }
 .product-slider .product-block {
   width: 100%;
-  padding: 20px 14px;
   background-color: white;
   border-radius: 3px;
 }
