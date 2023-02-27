@@ -1,9 +1,5 @@
 @import 'helpers/mixins';
 .yc-featured-products {
-  @media screen and (max-width: 570px) {
-    padding: 0 10px;
-  }
-
   .counter-wrapper {
     display: flex;
     justify-content: space-between;
@@ -27,9 +23,16 @@
     @include breakpoint('md') {
       grid-template-columns: repeat(3, 1fr);
       gap: 26px;
+      padding: 40px;
     }
     @include breakpoint('lg') {
       grid-template-columns: repeat(3, 1fr);
+      padding: 0 120px;
+    }
+
+    @include breakpoint('xl') {
+      grid-template-columns: repeat(4, 1fr);
+      padding: 0 180px;
     }
   }
 
@@ -72,7 +75,7 @@
       .product-thumbnail img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         transition: 0.2s ease-in-out;
 
         &:hover {
