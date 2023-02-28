@@ -191,6 +191,7 @@
   justify-content: center;
   gap: 4px;
   margin: 0;
+  max-width: 236px;
 }
 .yc-featured-products .countdown-wrapper .countdown .day, .yc-featured-products .countdown-wrapper .countdown .hour, .yc-featured-products .countdown-wrapper .countdown .min, .yc-featured-products .countdown-wrapper .countdown .sec {
   text-align: center;
