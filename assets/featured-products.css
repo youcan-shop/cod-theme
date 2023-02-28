@@ -189,7 +189,7 @@
   direction: ltr;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 4px;
   margin: 0;
 }
 .yc-featured-products .countdown-wrapper .countdown .day, .yc-featured-products .countdown-wrapper .countdown .hour, .yc-featured-products .countdown-wrapper .countdown .min, .yc-featured-products .countdown-wrapper .countdown .sec {
@@ -213,8 +213,10 @@
   background-color: #000000;
   border: 0;
 }
-.yc-featured-products .countdown-wrapper .countdown .separator {
+.yc-featured-products .countdown-wrapper .countdown .dots {
+  color: white;
   font-size: 40px;
+  margin-top: -17px;
 }
 @media screen and (max-width: 600px) {
   .yc-featured-products .countdown-wrapper .day .num, .yc-featured-products .countdown-wrapper .hour .num, .yc-featured-products .countdown-wrapper .min .num, .yc-featured-products .countdown-wrapper .sec .num {

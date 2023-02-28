@@ -200,7 +200,7 @@
       direction: ltr;
       display: flex;
       justify-content: center;
-      gap: 10px;
+      gap: 4px;
       margin: 0;
 
       & .day,
@@ -233,8 +233,10 @@
         border: 0;
       }
 
-      .separator {
+      .dots {
+        color: white;
         font-size: 40px;
+        margin-top: -17px;
       }
     }
 
