@@ -19,15 +19,6 @@
                   "type": "product_variants",
                   "settings": {}
               },
-              "block_1am54q3ocikdah6": {
-                  "type": "add_to_cart",
-                  "settings": {
-                      "text_content": "أضف إلى السلة",
-                      "is_sticky": true,
-                      "background_color": "#B83375FF",
-                      "text_color": "#ffffff"
-                  }
-              },
               "block_bqucb72r61sazu": {
                   "type": "product_description",
                   "settings": {}
@@ -38,7 +29,7 @@
                       "button_background_color": "#E7412F",
                       "express_checkout_cta": "اشتري الآن",
                       "form_title": "للطلب يرجى ملء هذا النموذج سنتصل بكم في أقرب وقت ممكن!",
-                      "is_sticky": false,
+                      "is_sticky": true,
                       "input_border_radius": 4,
                       "input_text_size": 13,
                       "input_placeholder_color": "#A8A8A8FF",
@@ -56,18 +47,28 @@
           },
           "order": [
               "block_02hsdiizyoqxr4i",
-              "block_pzioaso3gj4cbaw",
               "block_03x0mpf3samste",
+              "block_pzioaso3gj4cbaw",
               "block_0cgb9qnrmae2tlc",
               "block_08c3kk0zsiefipf",
               "block_bqucb72r61sazu",
-              "block_1am54q3ocikdah6",
               "block_c3yr5q7hebgkvhl"
           ],
-          "settings": {}
+          "settings": {
+              "show_compare_at_price": true,
+              "tag_text": "خصم بقيمه 40% ",
+              "tag_color": "#F33520"
+          }
+      },
+      "section_5hprcshvo24mjm9": {
+          "type": "product-reviews",
+          "settings": {
+              "reviews_title": "Reviews"
+          }
       }
   },
   "order": [
-      "product"
+      "product",
+      "section_5hprcshvo24mjm9"
   ]
 }
