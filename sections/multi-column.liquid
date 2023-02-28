@@ -31,6 +31,7 @@
     grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
     grid-gap: 2vw;
     align-items: center;
+    padding: 20px 0;
   }
 
   .column-block {
@@ -45,6 +46,14 @@
     font-weight: 700;
     font-size: 18px;    
     color: #000000;
+  }
+
+  .column-block .column-description {
+    margin: 12px auto;
+    font-size: 15px;
+    color: #000000;
+    font-weight: 400;
+    line-height: 24px;
   }
 
   .column-block .column-image {
@@ -83,7 +92,8 @@
   }
 {% endstyle %}
 
-<div class='multi-column-{{ id }} container'>
+<div class='multi-column-{{ id }}'>
+  <div class="container">
     <h3 class='yc-section-title'>{{ section.settings.title }}</h3>
     <div class='multi-column-blocks'>
       {% for block in section.blocks %}
@@ -104,6 +114,9 @@
           {% if block_setting.heading %}
             <h4 class='column-title'>{{ block_setting.heading }}</h4>
           {% endif %}
+          {% if block_setting.description %}
+            <p class='column-description'>{{ block_setting.description }}</p>
+          {% endif %}
           {% if block_setting.link_label %}
             <a
               class='yc-btn'
@@ -115,6 +128,7 @@
         </div>
       {% endfor %}
     </div>
+  </div>
 </div>
 
 {% schema %}
@@ -135,6 +149,11 @@
           "id": "heading",
           "type": "text",
           "label": "Heading"
+        },
+        {
+          "id": "description",
+          "type": "text",
+          "label": "Description"
         },
         {
           "id": "link_label",
