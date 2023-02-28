@@ -1,7 +1,7 @@
 @import 'helpers/mixins';
 
 .product-images-container {
-  padding: 0 10px;
+  padding: 0 20px;
 
   @include breakpoint('md') {
     padding: 0 50px;
