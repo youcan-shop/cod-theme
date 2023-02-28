@@ -38,11 +38,7 @@
       grid-template-columns: repeat(4, 1fr);
       padding: 0 180px;
     }
-  }
 
- 
-
-  .product-list {
     .product-block {
       text-align: center;
       color: var(--yc-neutral-color);
@@ -144,6 +140,7 @@
 
         .product-price {
           font-weight: 700;
+          color: var(--yc-primary-color);
           font-size: 17px;
           line-height: 120%;
 
@@ -156,6 +153,7 @@
         .compare-at-price {
           text-decoration: line-through;
           opacity: 0.5;
+          font-size: 15px;
         }
 
         .product-thumbnail:hover img {

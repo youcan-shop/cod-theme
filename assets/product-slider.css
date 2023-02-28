@@ -7,6 +7,25 @@
     height: 200px;
   }
 }
+.product-slider .prices {
+  margin: 20px 0 0;
+  text-align: center;
+  padding-bottom: 12px;
+}
+.product-slider .prices .product-price {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--yc-primary-color);
+  line-height: 24px;
+}
+.product-slider .prices .compare-price {
+  color: #8D8D8D;
+  font-size: 16px;
+  margin-top: 5px;
+  font-weight: 400;
+  text-decoration-line: line-through;
+}
 .product-slider .splide__pagination {
   display: flex !important;
   justify-content: center;

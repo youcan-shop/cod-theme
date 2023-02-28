@@ -139,6 +139,7 @@
 }
 .yc-featured-products .product-list .product-block .prices .product-price {
   font-weight: 700;
+  color: var(--yc-primary-color);
   font-size: 17px;
   line-height: 120%;
 }
@@ -150,6 +151,7 @@
 .yc-featured-products .product-list .product-block .prices .compare-at-price {
   text-decoration: line-through;
   opacity: 0.5;
+  font-size: 15px;
 }
 .yc-featured-products .product-list .product-block .prices .product-thumbnail:hover img {
   transform: scale(1.1);

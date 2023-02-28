@@ -10,6 +10,28 @@
     }
   }
 
+  .prices {
+    margin: 20px 0 0;
+    text-align: center;
+    padding-bottom: 12px;
+
+    .product-price {
+      font-size: 24px;
+      font-weight: 600;
+      text-align: center;
+      color: var(--yc-primary-color);
+      line-height: 24px;
+    }
+
+    .compare-price {
+      color: #8D8D8D;
+      font-size: 16px;
+      margin-top: 5px;
+      font-weight: 400;
+      text-decoration-line: line-through;
+    }
+  }
+
   .splide__pagination {
     display: flex !important;
     justify-content: center;
