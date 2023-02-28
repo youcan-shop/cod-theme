@@ -488,14 +488,14 @@ function manipulateQuantity() {
   const incrementButton = $('.increment-button');
   const quantityInput = $('.quantity-input');
 
-  decrementButton.addEventListener('click', () => {
+  decrementButton?.addEventListener('click', () => {
     const currentValue = parseInt(quantityInput.value);
     if (currentValue > 1) {
       quantityInput.value = currentValue - 1;
     }
   });
 
-  incrementButton.addEventListener('click', () => {
+  incrementButton?.addEventListener('click', () => {
     const currentValue = parseInt(quantityInput.value);
     quantityInput.value = currentValue + 1;
   });
