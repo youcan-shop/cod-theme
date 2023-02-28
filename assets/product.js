@@ -266,8 +266,7 @@ function createPlaceholderDiv(id) {
   return div;
 }
 
-const expressCheckoutForm = document.querySelector('#express-checkout-form');
-const productCard = document.querySelector('.yc-product-card');
+const expressCheckoutForm = $('#express-checkout-form');
 
 teleport(expressCheckoutForm, '#checkout_step_2');
 
@@ -293,9 +292,22 @@ function teleportCheckoutElements(parentSection) {
 }
 
 function teleportProductName() {
-  const elementContent = document.querySelector('.product-name').textContent;
+  const elementContent = $('.product-name').textContent;
 
   document.getElementById('product--name').textContent = elementContent;
+}
+
+function teleportProductCard(step) {
+  const productCard = $('.yc-product-card');
+
+  switch (step) {
+    case 1:
+      teleport(productCard, '#checkout_step_1 .variant-card-1');
+      break;
+    case 2:
+      teleport(productCard, '#checkout_step_2 .variant-card-2');
+      break;
+  }
 }
 
 function showStickyCheckout() {
@@ -308,14 +320,6 @@ function showStickyCheckout() {
   // Show the checkout
   stickyCheckout.style.visibility = 'visible';
   stickyCheckout.style.transform = 'translateY(0)';
-  // stickyCheckout.style.opacity = '1';
-
-  // const makeModalCenter = () => {
-  //   stickyCheckout.style.left = `${(window.innerWidth - stickyCheckout.offsetWidth) / 2}px`;
-  // }
-
-  // makeModalCenter();
-  // window.addEventListener('resize', makeModalCenter);
 }
 
 function triggerCheckout(parentId) {
@@ -332,7 +336,7 @@ function triggerCheckout(parentId) {
 
   overlay.addEventListener('click', () => {
     hideCheckout();
-    teleport(productCard, '#checkout_step_1 .variant-card-1');
+    teleportProductCard(1);
   });
 }
 
@@ -432,10 +436,12 @@ function goToCheckoutStep(step) {
   switch (step) {
     case 1:
       $('#checkout_step_1').style.display = 'flex';
+      teleportProductCard(1);
       clearSelectedVariants();
       break;
     case 2:
       $('#checkout_step_2').style.display = 'flex';
+      teleportProductCard(2);
       getSelectedVariants();
       getSelectedQuantity();
       break;
@@ -510,7 +516,7 @@ function desktopStickyCheckout() {
   if(window.innerWidth >= 768) {
     const closeButton = $('#checkout_step_1 .close-icon');
     goToCheckoutStep(2);
-    teleport(productCard, '#checkout_step_2 .variant-card-2');
+    teleportProductCard(2);
     $('#checkout_step_2 .back-icon').replaceWith(closeButton);
   }
 }
