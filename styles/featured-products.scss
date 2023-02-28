@@ -1,21 +1,19 @@
 @import 'helpers/mixins';
 .yc-featured-products {
-  padding: 0 45px;
-
-  @media screen and (max-width: 570px) {
-    padding: 0 10px;
-  }
-
   .counter-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 12px;
+    padding-bottom: 24px;
 
     .yc-section-title {
       margin: 0;
       font-size: 26px;
       font-weight: 600;
+
+      @media screen and (max-width: 767px) {
+        font-size: 18px;
+      }
     }
   }
 
@@ -29,9 +27,16 @@
     @include breakpoint('md') {
       grid-template-columns: repeat(3, 1fr);
       gap: 26px;
+      padding: 40px;
     }
     @include breakpoint('lg') {
       grid-template-columns: repeat(3, 1fr);
+      padding: 0 120px;
+    }
+
+    @include breakpoint('xl') {
+      grid-template-columns: repeat(4, 1fr);
+      padding: 0 180px;
     }
   }
 
@@ -74,7 +79,7 @@
       .product-thumbnail img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         transition: 0.2s ease-in-out;
 
         &:hover {
@@ -199,8 +204,9 @@
       direction: ltr;
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin: 1rem 0;
+      gap: 4px;
+      margin: 0;
+      max-width: 236px;
 
       & .day,
       & .hour,
@@ -217,27 +223,25 @@
       & .min .num,
       & .sec .num {
         display: block;
-        padding: 0.4rem 0.6rem;
-        border-radius: 7px;
-        border: 1px solid;
-        font-size: 32px;
+        padding: 0.3rem 0.5rem;
+        border-radius: 6px;
+        font-size: 29px;
         font-weight: 600;
         color: #FFFFFF;
         line-height: 2rem;
+        border: 0;
+        background-color: #EE7A6D;
       }
 
-      & .day .num,
-      & .hour .num,
-      & .min .num {
-        background: rgb(154, 148, 137);
-      }
-
-      & .sec .num {
+      & .day .num {
         background-color: #000000;
+        border: 0;
       }
 
-      .separator {
+      .dots {
+        color: white;
         font-size: 40px;
+        margin-top: -17px;
       }
     }
 

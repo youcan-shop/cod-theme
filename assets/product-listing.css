@@ -10,12 +10,16 @@
 .yc-product-listing-container .product-list .product-block .product-thumbnail {
   border: 1px solid #EFEFEF;
   border-radius: 4px;
-  padding: 26px 5px;
+  overflow: hidden;
 }
 .yc-product-listing-container .product-list .product-block .product-thumbnail img {
   width: 100%;
   height: 200px;
   object-fit: contain;
+  transition: all 0.2s ease-in-out;
+}
+.yc-product-listing-container .product-list .product-block .product-thumbnail img:hover {
+  transform: scale(1.1);
 }
 .yc-product-listing-container .product-list .product-block .product-details {
   margin: 14px 0;
@@ -90,10 +94,10 @@
 }
 .yc-product-listing-container .sort-container #productDropdownFiltring .dropdown-content a {
   color: black;
-  padding: 14px;
-  margin: 4px auto;
+  padding: 10px;
+  margin: 3px auto;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   display: block;
 }

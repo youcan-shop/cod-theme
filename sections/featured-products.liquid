@@ -8,16 +8,6 @@
   .section-featured-products-{{id}} .yc-section-title {
     text-align: {{ section.settings.section_title_position }}
   }
-  .section-featured-products-{{id}} {
-    {% if section.settings.background_image.src %}
-    background-image: url({{ section.settings.background_image.src }});
-    {% elsif section.settings.background_color.hex %}
-    background-color: {{ section.settings.background_color.hex }};
-    {% endif %}
-    background-repeat: repeat;
-    background-position: center;
-    background-size: 10rem;
-  }
   .section-featured-products-{{id}} * {
     color: {{ section.settings.text_color.hex }};
   }
@@ -27,7 +17,6 @@
 {% endstyle %}
 
 <div class='yc-featured-products section-featured-products-{{id}} container'>
-  <div class="container">
     <!-- prettier-ignore -->
     {% if section.settings.countdown_enabled %}
       {%- render 'countdown', section_settings: section.settings -%}
@@ -42,7 +31,6 @@
         </div>
       {%- endfor -%}
     </div>
-  </div>
 </div>
 
 {%- schema -%}
@@ -95,18 +83,8 @@
     },
     {
       "type": "color",
-      "id": "background_color",
-      "label": "Background color"
-    },
-    {
-      "type": "color",
       "id": "text_color",
       "label": "Text color"
-    },
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background image"
     },
     {
       "type": "checkbox",

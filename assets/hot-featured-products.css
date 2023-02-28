@@ -3,7 +3,7 @@
   align-items: center;
   font-size: 26px;
   padding: 0;
-  margin-bottom: 40px;
+  margin: 0 auto 40px;
 }
 .yc-featured-products .hot-product-list {
   display: grid;
@@ -20,23 +20,30 @@
 @media (min-width: 992px) {
   .yc-featured-products .hot-product-list {
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-    padding: 0 60px;
+    padding: 0 50px;
   }
 }
 .yc-featured-products .product-box {
-  padding: 12px 5px;
   border: 1px solid #E7E7E7;
   position: relative;
   width: 100%;
+}
+.yc-featured-products .product-thumbnail {
+  overflow: hidden;
 }
 .yc-featured-products .product-thumbnail img {
   width: 100%;
   height: 190px;
   object-fit: contain;
+  transition: 0.2s ease-in-out;
+}
+.yc-featured-products .product-thumbnail img:hover {
+  transform: scale(1.1);
 }
 .yc-featured-products .prices {
   margin: 20px 0 0;
   text-align: center;
+  padding-bottom: 12px;
 }
 .yc-featured-products .prices .product-price {
   font-size: 24px;

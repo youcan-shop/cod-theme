@@ -1,21 +1,18 @@
-.yc-featured-products {
-  padding: 0 45px;
-}
-@media screen and (max-width: 570px) {
-  .yc-featured-products {
-    padding: 0 10px;
-  }
-}
 .yc-featured-products .counter-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 12px;
+  padding-bottom: 24px;
 }
 .yc-featured-products .counter-wrapper .yc-section-title {
   margin: 0;
   font-size: 26px;
   font-weight: 600;
+}
+@media screen and (max-width: 767px) {
+  .yc-featured-products .counter-wrapper .yc-section-title {
+    font-size: 18px;
+  }
 }
 .yc-featured-products .product-list {
   display: grid;
@@ -28,11 +25,19 @@
   .yc-featured-products .product-list {
     grid-template-columns: repeat(3, 1fr);
     gap: 26px;
+    padding: 40px;
   }
 }
 @media (min-width: 992px) {
   .yc-featured-products .product-list {
     grid-template-columns: repeat(3, 1fr);
+    padding: 0 120px;
+  }
+}
+@media (min-width: 1200px) {
+  .yc-featured-products .product-list {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 180px;
   }
 }
 .yc-featured-products .product-list .product-block {
@@ -73,7 +78,7 @@
 .yc-featured-products .product-list .product-block .product-thumbnail img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: 0.2s ease-in-out;
 }
 .yc-featured-products .product-list .product-block .product-thumbnail img:hover {
@@ -189,8 +194,9 @@
   direction: ltr;
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin: 1rem 0;
+  gap: 4px;
+  margin: 0;
+  max-width: 236px;
 }
 .yc-featured-products .countdown-wrapper .countdown .day, .yc-featured-products .countdown-wrapper .countdown .hour, .yc-featured-products .countdown-wrapper .countdown .min, .yc-featured-products .countdown-wrapper .countdown .sec {
   text-align: center;
@@ -200,22 +206,23 @@
 }
 .yc-featured-products .countdown-wrapper .countdown .day .num, .yc-featured-products .countdown-wrapper .countdown .hour .num, .yc-featured-products .countdown-wrapper .countdown .min .num, .yc-featured-products .countdown-wrapper .countdown .sec .num {
   display: block;
-  padding: 0.4rem 0.6rem;
-  border-radius: 7px;
-  border: 1px solid;
-  font-size: 32px;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  font-size: 29px;
   font-weight: 600;
   color: #FFFFFF;
   line-height: 2rem;
+  border: 0;
+  background-color: #EE7A6D;
 }
-.yc-featured-products .countdown-wrapper .countdown .day .num, .yc-featured-products .countdown-wrapper .countdown .hour .num, .yc-featured-products .countdown-wrapper .countdown .min .num {
-  background: rgb(154, 148, 137);
-}
-.yc-featured-products .countdown-wrapper .countdown .sec .num {
+.yc-featured-products .countdown-wrapper .countdown .day .num {
   background-color: #000000;
+  border: 0;
 }
-.yc-featured-products .countdown-wrapper .countdown .separator {
+.yc-featured-products .countdown-wrapper .countdown .dots {
+  color: white;
   font-size: 40px;
+  margin-top: -17px;
 }
 @media screen and (max-width: 600px) {
   .yc-featured-products .countdown-wrapper .day .num, .yc-featured-products .countdown-wrapper .hour .num, .yc-featured-products .countdown-wrapper .min .num, .yc-featured-products .countdown-wrapper .sec .num {
