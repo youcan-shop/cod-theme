@@ -31,7 +31,7 @@
 @media (min-width: 992px) {
   .yc-featured-products .product-list {
     grid-template-columns: repeat(3, 1fr);
-    padding: 0 120px;
+    padding: 0 80px;
   }
 }
 @media (min-width: 1200px) {
