@@ -92,7 +92,8 @@
   }
 {% endstyle %}
 
-<div class='multi-column-{{ id }} container'>
+<div class='multi-column-{{ id }}'>
+  <div class="container">
     <h3 class='yc-section-title'>{{ section.settings.title }}</h3>
     <div class='multi-column-blocks'>
       {% for block in section.blocks %}
@@ -127,6 +128,7 @@
         </div>
       {% endfor %}
     </div>
+  </div>
 </div>
 
 {% schema %}
