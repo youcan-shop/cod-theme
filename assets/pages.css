@@ -1,82 +1,100 @@
 .yc-page {
-  margin: 5rem auto;
+  margin: 0 auto 5rem;
+  padding: 0 20px;
+}
+.yc-page .yc-page-container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  text-align: center;
   font-family: inherit;
 }
-.yc-page, .yc-page * {
+.yc-page .yc-page-container, .yc-page .yc-page-container * {
   font-family: inherit;
 }
-.yc-page h1 {
+.yc-page .yc-page-container h1 {
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.2rem;
 }
-.yc-page h2 {
+.yc-page .yc-page-container h2 {
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.2rem;
 }
-.yc-page h3 {
+.yc-page .yc-page-container h3 {
   font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.2rem;
 }
-.yc-page h4 {
+.yc-page .yc-page-container h4 {
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.2rem;
 }
-.yc-page h5 {
+.yc-page .yc-page-container h5 {
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.2rem;
 }
-.yc-page h6 {
+.yc-page .yc-page-container h6 {
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.2rem;
 }
-.yc-page p {
+.yc-page .yc-page-container p {
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.5;
-  margin-bottom: 1.2rem;
+  line-height: 31.68px;
+  margin-bottom: 28px;
 }
-.yc-page a {
+.yc-page .yc-page-container a {
   color: var(--yc-primary-color);
   text-decoration: underline;
   transition: all 0.3s ease;
 }
-.yc-page a:hover {
+.yc-page .yc-page-container a:hover {
   color: var(--yc-primary-color);
 }
-.yc-page b, .yc-page b *, .yc-page strong, .yc-page strong * {
+.yc-page .yc-page-container b, .yc-page .yc-page-container b *, .yc-page .yc-page-container strong, .yc-page .yc-page-container strong * {
   font-weight: 600 !important;
 }
-.yc-page ul {
+.yc-page .yc-page-container ul {
   list-style: disc;
   margin-left: 1rem;
   margin-bottom: 1rem;
 }
-.yc-page ol {
+.yc-page .yc-page-container ol {
   list-style: decimal;
   margin-left: 1rem;
   margin-bottom: 1rem;
 }
-.yc-page li {
+.yc-page .yc-page-container li {
   margin-bottom: 0.5rem;
 }
-.yc-page img {
+.yc-page .yc-page-container img {
   max-width: 100%;
   height: auto;
 }
-.yc-page table {
+.yc-page .yc-page-container table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .yc-page {
+    padding: 0 80px;
+  }
+}
+@media (min-width: 992px) {
+  .yc-page {
+    padding: 0 155px;
+  }
 }
