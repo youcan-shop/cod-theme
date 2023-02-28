@@ -2,44 +2,69 @@
 
 .yc-product-reviews {
   display: none;
-  
 
   .yc-reviews-wrapper {
     display: grid;
-    gap: var(--yc-reviews-gap);
-    grid-template-columns: 1fr;
-    margin: 0 auto 2rem;
+    gap: 17px;
 
     @include breakpoint('md') {
-      grid-template-columns: repeat(var(--yc-reviews-items_per_row), 1fr);
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint('lg') {
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .review-item {
-      .header {
-        .image {
-          aspect-ratio: 1/1;
-          width: 100%;
-          object-fit: cover;
-        }
+      border: 1px solid #EBEBEB;
+      border-radius: 4px;
+      background-color: white;
+      padding: 22px 20px 26px 20px;
 
-        .name {
-          text-align: center;
-          font-size: var(--yc-reviews-name-font-size);
-          margin: 11px auto;
+      .header {
+        display: flex;
+        justify-content: space-between;
+
+        .profil {
+          display: flex;
+          gap: 18px;
+
+          .image {
+            width: 49px;
+            height: 49px;
+            border-radius: 50%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+          }
+
+          .info {
+            display: grid;
+            gap: 3px;
+          }
+
+          .info .name {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 120%;
+          }
+
+          .info .created-at-date {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 120%;
+          }
         }
       }
 
       .content {
-        text-align: center;
-        font-size: var(--yc-reviews-content-font-size);
+        margin-top: 20px;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 145%;
       }
     }
-
-    .review-item__empty {
-      margin: auto;
-    }
   }
-  
+
   .reviews-block {
     display: flex;
     margin: 0;
