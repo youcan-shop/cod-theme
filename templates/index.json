@@ -219,7 +219,9 @@
                 "countdown_month": 0,
                 "countdown_day": 0,
                 "countdown_hour": 0,
-                "countdown_minute": 0
+                "countdown_minute": 0,
+                "row_desktop": 3,
+                "show_product_title": true
             },
             "blocks": {
                 "block_62cu74z1u3r4yoh": {
@@ -275,10 +277,83 @@
                 "block_64waj9ir17xt2wn",
                 "block_65q3qlgzob9nf1"
             ]
+        },
+        "section_sxdipwpvyyjc9pl": {
+            "type": "featured-products",
+            "settings": {
+                "title": " 🔥 المنتجات الأكثر رواجًا ",
+                "section_title_position": "center",
+                "row_desktop": 5,
+                "show_product_title": false,
+                "padding_top": 80,
+                "padding_bottom": 80,
+                "show_compare_at_price": true,
+                "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>",
+                "countdown_year": 0,
+                "countdown_month": 0,
+                "countdown_day": 0,
+                "countdown_hour": 0,
+                "countdown_minute": 0,
+                "rows_mobile": "2"
+            },
+            "blocks": {
+                "block_t9xl58mgfbthz46": {
+                    "type": "product",
+                    "settings": {
+                        "product": "e53d4919-b7e9-4a4b-a612-26b76241870f",
+                        "tag_color": "#000000",
+                        "tag_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                },
+                "block_tazes9cn7e9q3e": {
+                    "type": "product",
+                    "settings": {
+                        "product": "3164ea4f-12e5-4be3-b3b0-259ad202cc15",
+                        "tag_color": "#000000",
+                        "tag_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                },
+                "block_tbx6jp5m2i8cd3r": {
+                    "type": "product",
+                    "settings": {
+                        "product": "17fb3b16-1abb-4ec7-9147-a863cb374a9d",
+                        "tag_color": "#000000",
+                        "tag_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                },
+                "block_tcs0ynsuopilcfi": {
+                    "type": "product",
+                    "settings": {
+                        "product": "ce413d44-d917-4bfb-b10d-6d5cdae50252",
+                        "tag_color": "#000000",
+                        "tag_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                },
+                "block_tdszvxh5jiruj8l": {
+                    "type": "product",
+                    "settings": {
+                        "tag_color": "#000000",
+                        "tag_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                }
+            },
+            "order": [
+                "block_t9xl58mgfbthz46",
+                "block_tazes9cn7e9q3e",
+                "block_tbx6jp5m2i8cd3r",
+                "block_tcs0ynsuopilcfi",
+                "block_tdszvxh5jiruj8l"
+            ]
         }
     },
     "order": [
         "section_qum9qooyrwe3uz",
+        "section_sxdipwpvyyjc9pl",
         "section_62tm9748qh15wfk",
         "product-column",
         "section_ytf7ed64zpqpos7",
