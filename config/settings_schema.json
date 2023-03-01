@@ -99,6 +99,10 @@
             "label": "Roboto"
           },
           {
+            "value": "Noto+Kufi+Arabic",
+            "label": "Noto Kufi Arabic"
+          },
+          {
             "value": "Readex Pro",
             "label": "Readex Pro"
           },
@@ -223,7 +227,7 @@
             "label": "Roboto"
           },
           {
-            "value": "Open Sans",
+            "value": "Open Sans", 
             "label": "Open Sans"
           },
           {

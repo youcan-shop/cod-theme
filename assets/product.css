@@ -27,7 +27,7 @@
   width: auto;
   height: 100%;
   margin: 0 auto;
-  object-fit: contain;
+  object-fit: cover;
 }
 .yc-single-product .product-images #img-zoomer-box {
   width: 100%;

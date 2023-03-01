@@ -37,7 +37,7 @@
 @media (min-width: 1200px) {
   .yc-featured-products .product-list {
     grid-template-columns: repeat(4, 1fr);
-    padding: 0 180px;
+    padding: 0 140px;
   }
 }
 .yc-featured-products .product-list .product-block {
@@ -78,7 +78,7 @@
 .yc-featured-products .product-list .product-block .product-thumbnail img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   transition: 0.2s ease-in-out;
 }
 .yc-featured-products .product-list .product-block .product-thumbnail img:hover {
@@ -145,7 +145,7 @@
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .prices .product-price {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 .yc-featured-products .product-list .product-block .prices .compare-at-price {
