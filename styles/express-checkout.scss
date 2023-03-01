@@ -61,37 +61,36 @@ $sticky-checkout-padding: 20px;
   transition: 0.3s ease;
   transition-property: all;
   will-change: transform, opacity;
-  margin: auto;
   z-index: 99999;
   width: 100%;
   height: 70vh;
   background-color: white;
   left: 0;
   bottom: 0;
-  padding: 0 20px;
   padding-bottom: 0;
-  display: flex;
-  flex-direction: column;
 
   @include breakpoint('md') {
-    height: 40vh;
+    height: 42vh;
   }
 
   .sticky-product-details {
     overflow-y: scroll;
+    padding: 0 20px;
+    margin-bottom: 90px;
+
     .options .product-quantity {
       margin-top: 36px;
     }
   }
   .spacer {
-    margin-top: 27px;
+    margin-top: 20px;
   }
 
   .cta-bottom-wrapper {
-    position: sticky;
+    width: 100%;
+    position: fixed;
     bottom: 0;
     padding: 16px 20px;
-    margin: 0 -20px;
     background-color: white;
     border-top: 1px solid #EBEBEB;
   }
@@ -102,13 +101,22 @@ $sticky-checkout-padding: 20px;
 
   .step-2-wrapper {
     overflow-y: scroll;
+    padding: 0 20px;
+    margin-bottom: 90px;
+
+    @include breakpoint('md') {
+      padding: unset;
+      max-width: 940px;
+      padding: 0 20px;
+      margin: 0 auto 100px auto;
+    }
   }
 
   .step_1, .step_2 {
+    position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
   }
 
   .step_1 .yc-product-card .section-2 {
@@ -122,8 +130,6 @@ $sticky-checkout-padding: 20px;
   #checkout_step_1, #checkout_step_2 {
     animation: slideFromBottom 0.2s ease-in-out;
     will-change: transform;
-    max-width: 900px;
-    margin: 0 auto;
   }
 
   .variant-card-1, .variant-card-2 {
@@ -137,7 +143,7 @@ $sticky-checkout-padding: 20px;
     background: white;
     color: #C8C8C8;
     position: absolute;
-    left: 0;
+    left: 20px;
     top: -39px;
     display: flex;
     align-items: center;
@@ -146,14 +152,14 @@ $sticky-checkout-padding: 20px;
     border-radius: 4px 4px 0 0;
 
     @include breakpoint('md') {
-      right: 0;
+      left: unset;
     }
   }
 
   .sticky-desktop-wrapper {
     @include breakpoint('md') {
-      display: flex;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 20px;
       margin-top: 30px;
 

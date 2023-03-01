@@ -57,37 +57,35 @@
   transition: 0.3s ease;
   transition-property: all;
   will-change: transform, opacity;
-  margin: auto;
   z-index: 99999;
   width: 100%;
   height: 70vh;
   background-color: white;
   left: 0;
   bottom: 0;
-  padding: 0 20px;
   padding-bottom: 0;
-  display: flex;
-  flex-direction: column;
 }
 @media (min-width: 768px) {
   .yc-sticky-checkout {
-    height: 40vh;
+    height: 42vh;
   }
 }
 .yc-sticky-checkout .sticky-product-details {
   overflow-y: scroll;
+  padding: 0 20px;
+  margin-bottom: 90px;
 }
 .yc-sticky-checkout .sticky-product-details .options .product-quantity {
   margin-top: 36px;
 }
 .yc-sticky-checkout .spacer {
-  margin-top: 27px;
+  margin-top: 20px;
 }
 .yc-sticky-checkout .cta-bottom-wrapper {
-  position: sticky;
+  width: 100%;
+  position: fixed;
   bottom: 0;
   padding: 16px 20px;
-  margin: 0 -20px;
   background-color: white;
   border-top: 1px solid #EBEBEB;
 }
@@ -96,12 +94,22 @@
 }
 .yc-sticky-checkout .step-2-wrapper {
   overflow-y: scroll;
+  padding: 0 20px;
+  margin-bottom: 90px;
+}
+@media (min-width: 768px) {
+  .yc-sticky-checkout .step-2-wrapper {
+    padding: unset;
+    max-width: 940px;
+    padding: 0 20px;
+    margin: 0 auto 100px auto;
+  }
 }
 .yc-sticky-checkout .step_1, .yc-sticky-checkout .step_2 {
+  position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .yc-sticky-checkout .step_1 .yc-product-card .section-2 {
   display: none;
@@ -112,8 +120,6 @@
 .yc-sticky-checkout #checkout_step_1, .yc-sticky-checkout #checkout_step_2 {
   animation: slideFromBottom 0.2s ease-in-out;
   will-change: transform;
-  max-width: 900px;
-  margin: 0 auto;
 }
 .yc-sticky-checkout .variant-card-1, .yc-sticky-checkout .variant-card-2 {
   margin-bottom: 15px;
@@ -125,7 +131,7 @@
   background: white;
   color: #C8C8C8;
   position: absolute;
-  left: 0;
+  left: 20px;
   top: -39px;
   display: flex;
   align-items: center;
@@ -136,13 +142,13 @@
 @media (min-width: 768px) {
   .yc-sticky-checkout .back-icon,
   .yc-sticky-checkout .close-icon {
-    right: 0;
+    left: unset;
   }
 }
 @media (min-width: 768px) {
   .yc-sticky-checkout .sticky-desktop-wrapper {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
     margin-top: 30px;
   }
