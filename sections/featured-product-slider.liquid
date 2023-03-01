@@ -80,7 +80,7 @@
   </div>
 </div>
 <script>
-  const isMobile1 = window.matchMedia("(max-width: 850px)");
+  const isMobile1 = window.matchMedia("(max-width: 768px)");
   const products = {{ section.blocks.size }};
       let perPage = 3;
       if (products < 3) {
@@ -101,7 +101,7 @@
     perPage: perPage,
     perMove: 1,
     snap: true,
-    gap: '24px',
+    gap: '20px',
     focus  : 'center',
   });
 
@@ -135,7 +135,7 @@
 
 {%- schema -%}
 {
-  "label": "Featured Products Slider",
+  "label": "Products Slider",
   "settings": [
      {
       "type": "text",

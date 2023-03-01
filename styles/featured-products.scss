@@ -10,6 +10,7 @@
       margin: 0;
       font-size: 26px;
       font-weight: 600;
+      text-align: start;
 
       @media screen and (max-width: 767px) {
         font-size: 18px;
@@ -202,7 +203,6 @@
       justify-content: center;
       gap: 4px;
       margin: 0;
-      max-width: 236px;
 
       & .day,
       & .hour,
@@ -219,25 +219,35 @@
       & .min .num,
       & .sec .num {
         display: block;
-        padding: 0.3rem 0.5rem;
+        padding: 0.2rem 0.5rem;
         border-radius: 6px;
         font-size: 29px;
         font-weight: 600;
         color: #FFFFFF;
-        line-height: 2rem;
         border: 0;
         background-color: #EE7A6D;
       }
 
-      & .day .num {
+      & .sec .num {
         background-color: #000000;
         border: 0;
+        width: 41px;
+        display: flex;
+        justify-content: center;
+
+        @media screen and (max-width: 600px) {
+          width: 35px;
+        }
       }
 
       .dots {
         color: white;
         font-size: 40px;
         margin-top: -17px;
+      }
+
+      @media screen and (max-width: 600px) {
+        gap: 1px;
       }
     }
 
@@ -246,7 +256,8 @@
       & .hour .num,
       & .min .num,
       & .sec .num {
-        font-size: 22px !important;
+        font-size: 19px !important;
+        padding: 8px !important;
       }
     }
   }

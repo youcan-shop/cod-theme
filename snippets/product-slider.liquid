@@ -36,6 +36,12 @@
     color: {{ section.settings.tag_text_color.hex }};
   }
 
+  @media screen and (max-width: 768px) {
+    #yc_slider_{{ id }} .product-details {
+      display: none;
+    }
+  }
+
 {% endstyle %}
 <div
   class='splide yc-slider__{{ view }} product-slider'

@@ -1,12 +1,8 @@
 .product-slider {
   .product-thumbnail {
     img {
-      height: 230px;
+      height: 220px;
       object-fit: contain;
-
-      @media screen and (max-width: 767px) {
-        height: 200px;
-      }
     }
   }
 
@@ -45,7 +41,7 @@
 
     .product-details {
       text-align: center;
-      margin: 20px auto;
+      margin: 8px auto;
     }
 
     .prices {

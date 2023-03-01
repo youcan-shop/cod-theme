@@ -8,6 +8,7 @@
   margin: 0;
   font-size: 26px;
   font-weight: 600;
+  text-align: start;
 }
 @media screen and (max-width: 767px) {
   .yc-featured-products .counter-wrapper .yc-section-title {
@@ -195,7 +196,6 @@
   justify-content: center;
   gap: 4px;
   margin: 0;
-  max-width: 236px;
 }
 .yc-featured-products .countdown-wrapper .countdown .day, .yc-featured-products .countdown-wrapper .countdown .hour, .yc-featured-products .countdown-wrapper .countdown .min, .yc-featured-products .countdown-wrapper .countdown .sec {
   text-align: center;
@@ -205,18 +205,25 @@
 }
 .yc-featured-products .countdown-wrapper .countdown .day .num, .yc-featured-products .countdown-wrapper .countdown .hour .num, .yc-featured-products .countdown-wrapper .countdown .min .num, .yc-featured-products .countdown-wrapper .countdown .sec .num {
   display: block;
-  padding: 0.3rem 0.5rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 6px;
   font-size: 29px;
   font-weight: 600;
   color: #FFFFFF;
-  line-height: 2rem;
   border: 0;
   background-color: #EE7A6D;
 }
-.yc-featured-products .countdown-wrapper .countdown .day .num {
+.yc-featured-products .countdown-wrapper .countdown .sec .num {
   background-color: #000000;
   border: 0;
+  width: 41px;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 600px) {
+  .yc-featured-products .countdown-wrapper .countdown .sec .num {
+    width: 35px;
+  }
 }
 .yc-featured-products .countdown-wrapper .countdown .dots {
   color: white;
@@ -224,7 +231,13 @@
   margin-top: -17px;
 }
 @media screen and (max-width: 600px) {
+  .yc-featured-products .countdown-wrapper .countdown {
+    gap: 1px;
+  }
+}
+@media screen and (max-width: 600px) {
   .yc-featured-products .countdown-wrapper .day .num, .yc-featured-products .countdown-wrapper .hour .num, .yc-featured-products .countdown-wrapper .min .num, .yc-featured-products .countdown-wrapper .sec .num {
-    font-size: 22px !important;
+    font-size: 19px !important;
+    padding: 8px !important;
   }
 }
