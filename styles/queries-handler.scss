@@ -81,7 +81,6 @@
       border: 0;
 
       &.disabled {
-        background-color: var(--yc-neutral-light-color);
         cursor: not-allowed;
         color: rgba(0, 0, 0, 0.2);
       }

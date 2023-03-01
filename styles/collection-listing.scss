@@ -4,7 +4,7 @@
   .collection-list {
     display: grid;
     margin-top: 60px;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     padding: 54px 20px;
     background-color: #F2F2F2;
@@ -28,7 +28,6 @@
     }
 
     @include breakpoint('sm') {
-      grid-template-columns: repeat(2, 1fr);
       padding: 54px 30px;
     }
 

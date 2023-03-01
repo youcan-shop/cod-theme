@@ -70,7 +70,6 @@
   border: 0;
 }
 .yc-pagination-wrapper .paginate-btn-prev.disabled, .yc-pagination-wrapper .paginate-btn-next.disabled {
-  background-color: var(--yc-neutral-light-color);
   cursor: not-allowed;
   color: rgba(0, 0, 0, 0.2);
 }

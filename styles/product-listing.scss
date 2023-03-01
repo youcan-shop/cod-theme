@@ -6,13 +6,13 @@
   .product-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 30px 12px;
     margin-top: 40px;
 
     .product-block {
       .product-thumbnail {
         border: 1px solid #EFEFEF;
-        border-radius: 4px;
+        border-radius: 2px;
         overflow: hidden;
 
         img {
@@ -29,7 +29,7 @@
 
       .product-details {
         margin: 14px 0;
-        text-align: center;
+        text-align: start;
         
         .product-title {
           font-weight: 400;
@@ -40,7 +40,7 @@
 
       .prices {
         display: flex;
-        justify-content: center;
+        justify-content: start;
         gap: 5px;
 
         .product-price {
@@ -55,6 +55,15 @@
     @include breakpoint('md') {
       grid-template-columns: repeat(3, 1fr);
       gap: 30px 20px;
+      .product-block {
+        .product-details {
+          text-align: center;
+        }
+
+        .prices {
+          justify-content: center;
+        }
+      }
     }
 
     @include breakpoint('lg') {
