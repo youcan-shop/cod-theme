@@ -99,7 +99,7 @@ const hideOverlay = () => {
       document.body.style.overflowY = 'auto';
       overlay.style.visibility = 'hidden';
       overlay.style.opacity = '0';
-      drawer.style.transform = 'translateX(-150vw)';
+      drawer.style.transform = 'translateX(150vw)';
     }
   });
 }

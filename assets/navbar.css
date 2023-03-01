@@ -180,9 +180,9 @@
   background-color: var(--yc-drawer-background);
   transition-duration: 0.2s;
   transition-property: opacity, transform;
-  transform: translateX(-150vw);
+  transform: translateX(150vw);
   position: fixed;
-  left: 0;
+  right: 0;
   top: 0;
   height: 100vh;
   width: 314px;
