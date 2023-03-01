@@ -19,7 +19,6 @@
   #yc_slider_{{ id }} .splide__arrow svg {
     height: {{ section.settings.slider_arrows_content_size }}px;
     width: {{ section.settings.slider_arrows_content_size }}px;
-    background-color: {{ section.settings.slider_mobile_arrows_background_color.hex }};
   }
   
   .yc-slider__desktop .content {
@@ -29,6 +28,14 @@
   .yc-slider__mobile .content {
     background-color: {{ section.settings.slider_mobile_overlay_background_color.hex }};
   }
+  
+  #yc_slider_{{ id }} .splide__pagination {
+    {% if section.settings.slider_pagination == true %}
+      display: block !important;
+      text-align: center;
+    {% endif %}
+  }
+  
 {% endstyle %}
 
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
@@ -258,12 +265,6 @@
       "type": "checkbox",
       "id": "slider_mobile_pagination",
       "label": "Pagination",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "slider_mobile_arrows",
-      "label": "Arrows",
       "default": true
     }
   ],
