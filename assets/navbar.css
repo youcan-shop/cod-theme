@@ -190,14 +190,14 @@
   z-index: 99;
 }
 .navigation-drawer .logo {
-  padding: 21px 19px;
+  padding: 20px 16px;
   display: block;
 }
 .navigation-drawer .logo img {
   max-height: 40px;
 }
 .navigation-drawer .items {
-  padding: 21px 19px;
+  padding: 20px 16px;
   border-top: 1px solid;
 }
 .navigation-drawer .items,
@@ -229,6 +229,23 @@
 .navigation-drawer .close-drawer-btn .close-svg {
   color: #C8C8C8;
   font-size: 1.6rem;
+}
+.navigation-drawer .mobile-search {
+  padding: 20px 16px;
+}
+.navigation-drawer .mobile-search input {
+  border: 1px solid #E4E4E4;
+  border-radius: 4px;
+  color: #A8A8A8;
+  padding: 20px;
+}
+.navigation-drawer .mobile-search input:focus {
+  border: 1px solid #000000;
+  color: #000000;
+}
+.navigation-drawer .mobile-search .search-icon {
+  position: absolute;
+  transform: translate(30px, -7px);
 }
 
 .global-overlay,
