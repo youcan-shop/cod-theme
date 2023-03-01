@@ -190,13 +190,14 @@
   z-index: 99;
 }
 .navigation-drawer .logo {
-  padding: 3rem 1rem;
+  padding: 21px 19px;
+  display: block;
 }
 .navigation-drawer .logo img {
-  max-height: 70px;
+  max-height: 40px;
 }
 .navigation-drawer .items {
-  padding: 1rem 1.15rem;
+  padding: 21px 19px;
   border-top: 1px solid;
 }
 .navigation-drawer .items,

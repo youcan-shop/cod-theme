@@ -221,14 +221,16 @@
   }
 
   .logo {
-    padding: 3rem 1rem;
+    padding: 21px 19px;
+    display: block;
+
     img {
-      max-height: 70px;
+      max-height: 40px;
     }
   }
 
   .items {
-    padding: 1rem 1.15rem;
+    padding: 21px 19px;
     border-top: 1px solid;
 
     &,
