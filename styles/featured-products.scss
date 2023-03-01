@@ -20,13 +20,14 @@
   .product-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    gap: 10px;
     justify-content: center;
     overflow: hidden;
+    align-items: stretch;
 
     @include breakpoint('md') {
       grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
+      gap: 15px;
       padding: 40px;
     }
     @include breakpoint('lg') {
@@ -98,8 +99,8 @@
           line-height: 120%;
 
           @include breakpoint('md') {
-            font-weight: 700;
-            font-size: 18px;
+            font-weight: 600;
+            font-size: 17px;
           }
         }
       }

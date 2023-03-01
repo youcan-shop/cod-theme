@@ -20,13 +20,18 @@
 
   .section-featured-products-{{id}} .product-container-{{id}} {
     display: grid;
-    grid-template-columns: repeat({{ section.settings.row_desktop }}, 1fr) !important;
-    align-items: center;
+    grid-template-columns: repeat({{ section.settings.rows_desktop }}, minmax(0, 1fr)) !important;
   }
 
   @media screen and (max-width: 1024px) {
     .section-featured-products-{{id}} .product-container-{{id}} {
-      grid-template-columns: repeat({{ section.settings.rows_mobile }}, 1fr) !important;
+      grid-template-columns: repeat({{ section.settings.rows_tablet }}, minmax(0, 1fr)) !important;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-featured-products-{{id}} .product-container-{{id}} {
+      grid-template-columns: repeat({{ section.settings.rows_mobile }}, minmax(0, 1fr)) !important;
     }
   }
 
@@ -84,11 +89,19 @@
     },
     {
       "type": "range",
-      "id": "row_desktop",
+      "id": "rows_desktop",
       "min": 2,
       "max": 5,
       "step": 1,
       "label": "Number of rows on desktop"
+    },
+    {
+      "type": "range",
+      "id": "rows_tablet",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Number of rows on tablet"
     },
     {
       "type": "select",

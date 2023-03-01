@@ -17,14 +17,15 @@
 .yc-featured-products .product-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  gap: 10px;
   justify-content: center;
   overflow: hidden;
+  align-items: stretch;
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list {
     grid-template-columns: repeat(3, 1fr);
-    gap: 26px;
+    gap: 15px;
     padding: 40px;
   }
 }
@@ -101,8 +102,8 @@
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .product-details .product-title {
-    font-weight: 700;
-    font-size: 18px;
+    font-weight: 600;
+    font-size: 17px;
   }
 }
 .yc-featured-products .product-list .product-block:hover .yc-btn {
