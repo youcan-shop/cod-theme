@@ -10,6 +10,11 @@
     text-align: {{ section.settings.section_title_position }}
   }
 
+  .product-item-{{id}} {
+    border: 1px solid #E7E7E7;
+    border-radius: 4px;
+  }
+
   .section-featured-products-{{id}} * {
     color: {{ section.settings.text_color.hex }};
   }
@@ -52,7 +57,7 @@
     </h1>
     <div class='product-list product-container-{{id}}'>
       {%- for block in section.blocks -%}
-        <div {{ block.youcan_attributes }}>
+        <div {{ block.youcan_attributes }} class="product-item-{{id}}">
           {%- render 'product-preview', item: block.settings.product, block_settings: block.settings -%}
         </div>
       {%- endfor -%}

@@ -23,6 +23,11 @@
   .section-featured-products-by-category-{{id}} * {
     color: {{ section.settings.text_color.hex }};
   }
+
+  .section-featured-products-by-category-{{id}} .product-item-{{id}} {
+    border: 1px solid #E7E7E7;
+    border-radius: 4px;
+  }
 {% endstyle %}
 
 {% if category %}
@@ -36,7 +41,9 @@
       <div class='product-list'>
         {%- paginate collection.products by number_of_products id category_id: category.id %}
           {%- for item in items -%}
+          <div {{ block.youcan_attributes }} class="product-item-{{id}}">
             {%- render 'product-preview', item: item -%}
+          </div>
           {%- endfor -%}
         {%- endpaginate %}
       </div>
