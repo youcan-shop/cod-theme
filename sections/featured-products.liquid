@@ -5,14 +5,35 @@
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
+
   .section-featured-products-{{id}} .yc-section-title {
     text-align: {{ section.settings.section_title_position }}
   }
+
   .section-featured-products-{{id}} * {
     color: {{ section.settings.text_color.hex }};
   }
+
   .section-featured-products-{{id}} .countdown-wrapper .countdown .sec .num {
     border-color: {{ section.settings.text_color.hex }};
+  }
+
+  .section-featured-products-{{id}} .product-container-{{id}} {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.row_desktop }}, 1fr) !important;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .section-featured-products-{{id}} .product-container-{{id}} {
+      grid-template-columns: repeat({{ section.settings.rows_mobile }}, 1fr) !important;
+    }
+  }
+
+  .product-container-{{id}} .product-title {
+    {% if section.settings.show_product_title == false %}
+      display: none;
+    {% endif %}
   }
 {% endstyle %}
 
@@ -24,7 +45,7 @@
     <h1 class='yc-section-title'>
       {{ section.settings.title }}
     </h1>
-    <div class='product-list'>
+    <div class='product-list product-container-{{id}}'>
       {%- for block in section.blocks -%}
         <div {{ block.youcan_attributes }}>
           {%- render 'product-preview', item: block.settings.product, block_settings: block.settings -%}
@@ -60,6 +81,36 @@
           "value": "center"
         }
       ]
+    },
+    {
+      "type": "range",
+      "id": "row_desktop",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "label": "Number of rows on desktop"
+    },
+    {
+      "type": "select",
+      "id": "rows_mobile",
+      "label": "Number of rows on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 Rows"
+        },
+        {
+          "value": "2",
+          "label": "2 Rows"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_title",
+      "label": "Show product title",
+      "default": true
     },
     {
       "type": "range",
