@@ -32,11 +32,12 @@
     }
     @include breakpoint('lg') {
       grid-template-columns: repeat(3, 1fr);
+      padding: 70px;
     }
 
     @include breakpoint('xl') {
       grid-template-columns: repeat(4, 1fr);
-      padding: 0 140px;
+      padding: 0 150px;
     }
 
     .product-block {

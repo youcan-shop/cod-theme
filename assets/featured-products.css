@@ -32,12 +32,13 @@
 @media (min-width: 992px) {
   .yc-featured-products .product-list {
     grid-template-columns: repeat(3, 1fr);
+    padding: 70px;
   }
 }
 @media (min-width: 1200px) {
   .yc-featured-products .product-list {
     grid-template-columns: repeat(4, 1fr);
-    padding: 0 140px;
+    padding: 0 150px;
   }
 }
 .yc-featured-products .product-list .product-block {

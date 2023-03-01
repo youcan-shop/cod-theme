@@ -30,7 +30,7 @@
 
   @media screen and (max-width: 1024px) {
     .section-featured-products-{{id}} .product-container-{{id}} {
-      grid-template-columns: repeat({{ section.settings.rows_tablet }}, minmax(0, 1fr)) !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     }
   }
 
@@ -99,14 +99,6 @@
       "max": 5,
       "step": 1,
       "label": "Number of rows on desktop"
-    },
-    {
-      "type": "range",
-      "id": "rows_tablet",
-      "min": 2,
-      "max": 4,
-      "step": 1,
-      "label": "Number of rows on tablet"
     },
     {
       "type": "select",
