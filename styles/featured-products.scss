@@ -33,7 +33,6 @@
     }
     @include breakpoint('lg') {
       grid-template-columns: repeat(3, 1fr);
-      padding: 70px;
     }
 
     @include breakpoint('xl') {
