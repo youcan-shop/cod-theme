@@ -80,6 +80,7 @@
 .yc-featured-products .product-list .product-block .product-details {
   text-align: start;
   margin-top: 12px;
+  padding: 0 6px;
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .product-details {
@@ -89,7 +90,7 @@
 }
 .yc-featured-products .product-list .product-block .product-details .product-title {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 120%;
 }
 @media (min-width: 768px) {
@@ -115,6 +116,7 @@
   align-items: start;
   gap: 7px;
   margin-top: 12px;
+  padding: 0 6px;
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .prices {
@@ -145,6 +147,7 @@
   text-decoration: line-through;
   opacity: 0.5;
   font-size: 15px;
+  font-weight: 500;
 }
 .yc-featured-products .product-list .product-block .prices .product-thumbnail:hover img {
   transform: scale(1.1);

@@ -80,6 +80,7 @@
       .product-details {
         text-align: start;
         margin-top: 12px;
+        padding: 0 6px;
 
         @include breakpoint('md') {
           margin-top: 10px;
@@ -88,7 +89,7 @@
 
         .product-title {
           font-weight: 400;
-          font-size: 14px;
+          font-size: 15px;
           line-height: 120%;
 
           @include breakpoint('md') {
@@ -119,6 +120,7 @@
         align-items: start;
         gap: 7px;
         margin-top: 12px;
+        padding: 0 6px;
 
         @include breakpoint('md') {
           align-items: center;
@@ -148,6 +150,7 @@
           text-decoration: line-through;
           opacity: 0.5;
           font-size: 15px;
+          font-weight: 500;
         }
 
         .product-thumbnail:hover img {
