@@ -212,7 +212,7 @@
   right: 0;
   top: 0;
   height: 100vh;
-  width: 314px;
+  width: 18rem;
   opacity: 0;
   z-index: 99;
 
@@ -247,6 +247,25 @@
   .items-wrapper,
   .items {
     border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .close-drawer-btn {
+    float: left;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px 0 0 4px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-40px, 12px);
+
+    .close-svg {
+      color: #C8C8C8;
+      font-size: 1.6rem;
+
+    }
   }
 }
 

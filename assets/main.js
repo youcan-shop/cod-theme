@@ -93,16 +93,26 @@ const showOverlay = () => {
 
 const hideOverlay = () => {
   const overlay = document.querySelector('.global-overlay');
+  const drawerBtn = document.querySelector('.close-drawer-btn');
 
-  overlay.addEventListener('click', function (e) {
+  const closeDrawer = () => {
+    document.body.style.overflowY = 'auto';
+    overlay.style.visibility = 'hidden';
+    overlay.style.opacity = '0';
+    drawer.style.transform = 'translateX(150vw)';
+  };
+
+  if (drawerBtn) {
+    drawerBtn.addEventListener('click', closeDrawer);
+  }
+
+  overlay.addEventListener('click', (e) => {
     if (e.target === overlay) {
-      document.body.style.overflowY = 'auto';
-      overlay.style.visibility = 'hidden';
-      overlay.style.opacity = '0';
-      drawer.style.transform = 'translateX(150vw)';
+      closeDrawer();
     }
   });
-}
+};
+
 
 if (overlay) {
   hideOverlay();
