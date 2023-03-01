@@ -100,11 +100,17 @@ label {
 }
 
 .yc-section-title {
-  font-size: 2rem;
-  margin: 2rem 0 2.5rem;
-  font-weight: 500;
+  font-size: 26px;
+  margin: 40px auto;
+  font-weight: 600;
   opacity: 0.9;
   text-align: center;
+
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+    font-weight: 400;
+    margin: 20px auto;
+  }
 }
 button {
   background: transparent;
