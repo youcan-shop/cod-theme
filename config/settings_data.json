@@ -1,6 +1,6 @@
 {
     "current": {
-        "font_family": "Almarai",
+        "font_family": "Noto+Kufi+Arabic",
         "theme_direction": "rtl",
         "primary_color": "#F33520",
         "sections": {
@@ -82,7 +82,10 @@
             }
         },
         "success_color": "#1EBA54FF",
-        "error_color": "#DF1E2FFF"
+        "error_color": "#DF1E2FFF",
+        "meta_title": "COD Theme",
+        "navbar_height": 60,
+        "navbar_links_hover_transparency": 0.69999999999999996
     },
     "presets": {
         "Default": {}
