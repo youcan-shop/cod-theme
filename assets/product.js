@@ -454,6 +454,7 @@ function goToCheckoutStep(step) {
       break;
     case 2:
       $('#checkout_step_2').style.display = 'flex';
+      $(' #express-checkout-form').style.display = 'block';
       teleportProductCard(2);
       getSelectedVariants();
       getSelectedQuantity();
