@@ -382,7 +382,7 @@ function getSelectedVariants() {
 
     const variantValues = [
       variant.querySelector('.yc-options-item.active')?.textContent,
-      variant.querySelector('.color-item.active .preview')?.cloneNode(true),
+      variant.querySelector('.color-item.active .preview')?.outerHTML,
       variant.querySelector('input:checked')?.value,
       variant.querySelector('select')?.value,
       variant.querySelector('.yc-image-options-item.active img')?.alt,
@@ -390,9 +390,10 @@ function getSelectedVariants() {
 
     const createdElements = [
       createAndSetText(variantName, variantValues[0], 'yc-textual-item'),
-      createAndSetText(variantName, variantValues[1]),
+      createAndSetText(variantName, variantValues[1], 'colored-button'),
       createAndSetText(variantName, variantValues[2]),
       createAndSetText(variantName, variantValues[3]),
+      createAndSetText(variantName, variantValues[4]),
     ]
 
     let variantOption = document.createElement('div');
@@ -402,16 +403,16 @@ function getSelectedVariants() {
         variantOption = createdElements[0].element;
       break;
       case 'color_base_buttons':
-        `<div class='colored-button'>${variantOption = variantValues[1]}</div>`;
+        variantOption = createdElements[1].element;;
         break;
       case 'radio_buttons':
-        variantOption = createdElements[1].element;
+        variantOption = createdElements[2].element;
       break;
       case 'dropdown':
-        variantOption = createdElements[2].element;
+        variantOption = createdElements[3].element;
         break;
       case 'image_based_buttons':
-        variantOption = createdElements[3].element;
+        variantOption = createdElements[4].element;
         break;
       case 'upload_image_zone':
         // newParents[5].innerHTML = `<span>${variantValues[5]}</span`;

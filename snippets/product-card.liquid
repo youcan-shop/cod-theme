@@ -17,20 +17,6 @@
     border-top: 1px solid #EBEBEB;
   }
 
-  .yc-product-card .section-2 .selected-variants {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    padding: 10px;
-    gap: 10px;
-  }
-
-  .yc-product-card .section-2 .selected-variants .selected-item {
-    display: flex;
-    gap: 10px;
-  }
-
   .yc-product-card .image {
     width: 62px;
     height: 52px;
@@ -68,8 +54,24 @@
     font-size: 16px !important;
   }
 
-  #selected-product-variants .yc-textual-item,
-  #variant_0 .yc-textual-item {
+  .selected-preview {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  #selected-product-variants,
+  #selected-product-variants div,
+  .quantity-preview {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #selected-product-variants .yc-textual-item {
     padding: 6.5px 10px;
     text-align: center;
     border: 1px solid black;
@@ -78,7 +80,8 @@
     border-radius: 8px;
   }
 
-  .colored-button {
+  #selected-product-variants .colored-button {
+    display: block;
     width: 29px;
     height: 29px;
     border: 1px solid black;
@@ -86,15 +89,13 @@
     padding: 2.5px;
   }
 
-  #selected-product-variants .preview,
-  #variant_1 .preview {
+  #selected-product-variants .preview {
     display: block;
     width: 100%;
     height: 100%;
     border-radius: 50%;
   }
 
-  #selected-product-variants .quantity-value,
   #variant_quantity .quantity-value {
     color: black;
     font-weight: 700;
@@ -120,12 +121,11 @@
     </div>
   </section>
   <section class="section-2">
-
-    <ul class="selected-variants">
-      <li class='selected-item'>
+    <ul class="selected-preview">
+      <li>
         <div id="selected-product-variants"></div>
       </li>
-      <li class='selected-item'>
+      <li class='quantity-preview'>
         <span>{{ 'snippets.single_product.quantity' | t }}&nbsp;:</span>
         <div id='variant_quantity'></div>
       </li>
