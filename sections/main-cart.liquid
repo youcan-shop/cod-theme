@@ -101,9 +101,10 @@
         </div>
       </div>
       <div class="cart-table-body">
-        <div class="cart-table-row">
+        <div>
           {% for item in cart.items %}
-            <div class="cart-item" id='{{ item.id }}'>
+          <div id="{{ item.id }}" class="cart-table-row">
+            <div class="cart-item">
               <img
                 loading='lazy'
                 src='{{ item.image }}'
@@ -119,17 +120,18 @@
                   To be added when variants are added from the backend.
                 {% endcomment %}
               </div>
+                <div class='product-price'>{{ item.price | money }}</div>
             </div>
             <div class="cart-item">
               {%- render 'quantity-input', item: item -%}
             </div>
             <div class="cart-item">
             <div
-                      class='cart-item-loader-spinner hidden'
-                      id='loading__{{ item.id }}'
-                    >
-                      <span class='spinner h-9 w-9'></span>
-                    </div>
+              class='cart-item-loader-spinner hidden'
+              id='loading__{{ item.id }}'
+            >
+              <span class='spinner h-8 w-8'></span>
+            </div>
               <span class="total-price">
                 {{ item.price | times: item.quantity | money }}
               </span>
@@ -142,6 +144,7 @@
                 <ion-icon name="close-outline"></ion-icon>
               </button>
             </div>
+          </div>
           {% endfor %}
         </div>
       </div>

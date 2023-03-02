@@ -139,8 +139,8 @@
     margin: 42px auto;
 
     .cart-table-head {
-      display: flex;
-      justify-content: space-evenly;
+      display: grid;
+      grid-template-columns: repeat(4 1fr);
       align-items: center;
       border: 1px solid #EDEDED;
       border-radius: 4px 4px 0px 0px;
@@ -156,8 +156,8 @@
       border-radius: 0px 0px 4px 4px;
 
       .cart-table-row {
-        display: flex;
-        justify-content: space-around;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
         align-items: center;
 
         .cart-item {
