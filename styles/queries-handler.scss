@@ -1,47 +1,5 @@
 @import 'helpers/mixins';
 
-/* ---------------- */
-/* ----- sort ----- */
-/* ---------------- */
-.top-items {
-  margin-bottom: 40px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-
-  @include breakpoint('md') {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .yc-section-title {
-    margin-bottom: 10px;
-  }
-
-  .sort-items-holder {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-direction: column;
-
-    @include breakpoint('md') {
-      flex-direction: row;
-    }
-
-    .commander {
-      font-weight: 400;
-      white-space: nowrap;
-    }
-
-    .field {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-  }
-}
-
 /* ---------------------- */
 /* ----- pagination ----- */
 /* ---------------------- */
