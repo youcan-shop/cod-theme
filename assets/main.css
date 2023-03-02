@@ -470,7 +470,8 @@ input:not([type=radio]),
   z-index: 999;
 }
 .sticky-elements-container .is_sticky {
-  width: 300px;
+  width: 100%;
+  max-width: 800px;
 }
 
 .splide {
