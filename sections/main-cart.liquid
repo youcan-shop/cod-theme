@@ -93,11 +93,56 @@
         <div class="item-head>
           اسم المنتوج
         </div>
-        <div class="item-head>
+        <div class="item-head">
           الكمية
         </div>
-        <div class="item-head>
+        <div class="item-head">
           الثمن
+        </div>
+      </div>
+      <div class="cart-table-body">
+        <div class="cart-table-row">
+          {% for item in cart.items %}
+            <div class="cart-item" id='{{ item.id }}'>
+              <img
+                loading='lazy'
+                src='{{ item.image }}'
+                alt='product-name'
+              >
+            </div>
+            <div class="cart-item">
+              <div class="product-title">
+                {{ item.name }}
+              </div>
+              <div class="product-variant">
+                {% comment %}
+                  To be added when variants are added from the backend.
+                {% endcomment %}
+              </div>
+            </div>
+            <div class="cart-item">
+              {%- render 'quantity-input', item: item -%}
+            </div>
+            <div class="cart-item">
+            <div
+                      class='cart-item-loader-spinner hidden'
+                      id='loading__{{ item.id }}'
+                    >
+                      <span class='spinner h-9 w-9'></span>
+                    </div>
+              <span class="total-price">
+                {{ item.price | times: item.quantity | money }}
+              </span>
+            </div>
+            <div class="cart-item">
+              <button
+                onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')"
+                class='yc-btn-close'
+              >
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+          {% endfor %}
         </div>
       </div>
     </div>
