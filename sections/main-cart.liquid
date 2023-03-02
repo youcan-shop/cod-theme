@@ -17,7 +17,6 @@
       </a>
     </div>
     </div>
-    {% comment %}
       <div class='flex flex-col md:flex-row gap-14'>
         <div class='w-full flex flex-col justify-between'>
           <table class='table-auto w-full mt-7 self-baseline'>
@@ -86,70 +85,6 @@
           </table>
         </div>
       </div>
-    {% endcomment %}
-    <div class="cart-table-wrapper">
-      <div class="cart-table-head">
-        <div class="item-head></div>
-        <div class="item-head>
-          اسم المنتوج
-        </div>
-        <div class="item-head">
-          الكمية
-        </div>
-        <div class="item-head">
-          الثمن
-        </div>
-      </div>
-      <div class="cart-table-body">
-        <div>
-          {% for item in cart.items %}
-          <div id="{{ item.id }}" class="cart-table-row">
-            <div class="cart-item">
-              <img
-                loading='lazy'
-                src='{{ item.image }}'
-                alt='product-name'
-              >
-            </div>
-            <div class="cart-item">
-              <div class="product-title">
-                {{ item.name }}
-              </div>
-              <div class="product-variant">
-                {% comment %}
-                  To be added when variants are added from the backend.
-                {% endcomment %}
-              </div>
-                <div class='product-price'>{{ item.price | money }}</div>
-            </div>
-            <div class="cart-item">
-              {%- render 'quantity-input', item: item -%}
-            </div>
-            <div class="cart-item">
-            <div
-              class='cart-item-loader-spinner hidden'
-              id='loading__{{ item.id }}'
-            >
-              <span class='spinner h-8 w-8'></span>
-            </div>
-              <span class="total-price">
-                {{ item.price | times: item.quantity | money }}
-              </span>
-            </div>
-            <div class="cart-item">
-              <button
-                onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')"
-                class='yc-btn-close'
-              >
-                <ion-icon name="close-outline"></ion-icon>
-              </button>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-
       <div class='summary-box h-fit'>
           <div id='summary'>
             <form name='promo'>
