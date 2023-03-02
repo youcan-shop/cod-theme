@@ -67,7 +67,7 @@
   .yc-featured-products .product-list .product-block .product-thumbnail {
     border: unset;
     border-radius: unset;
-    max-height: 345px;
+    max-height: 335px;
   }
 }
 .yc-featured-products .product-list .product-block .product-thumbnail img {
@@ -123,8 +123,7 @@
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .prices {
     align-items: center;
-    margin-top: 16px;
-    margin-bottom: 25px;
+    margin: 15px auto 20px;
     gap: 10px;
   }
 }
