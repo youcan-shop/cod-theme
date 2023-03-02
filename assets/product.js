@@ -361,22 +361,25 @@ function hideCheckout() {
 
 // Show selected variants in checkout_step_2
 
+function createAndSetText(tagType = '', tagValue = '', cssClass = '') {
+  const element = document.createElement('div');
+  element.innerHTML = `<span>${tagType} :</span>
+                      <span class=${cssClass}>${tagValue}</span>
+                      `;
+  return { element: element };
+}
+
 function getSelectedVariants() {
   const variants = document.querySelectorAll('.product-options > div');
 
   if (!variants || !variants.length) return null;
 
-  const selectedVariants = {};
+  document.querySelector('#selected-product-variants').innerHTML = '';
+
   variants.forEach((variant) => {
     const variantType = variant.id.split('-')[2];
-    const newParents = [
-      document.getElementById('variant_0'),
-      document.getElementById('variant_1'),
-      document.getElementById('variant_2'),
-      document.getElementById('variant_3'),
-      document.getElementById('variant_4'),
-      document.getElementById('variant_5'),
-    ];
+    const variantName = variant.id.split('-')[1];
+
     const variantValues = [
       variant.querySelector('.yc-options-item.active')?.textContent,
       variant.querySelector('.color-item.active .preview')?.cloneNode(true),
@@ -385,29 +388,39 @@ function getSelectedVariants() {
       variant.querySelector('.yc-image-options-item.active img')?.alt,
     ];
 
+    const createdElements = [
+      createAndSetText(variantName, variantValues[0], 'yc-textual-item'),
+      createAndSetText(variantName, variantValues[1]),
+      createAndSetText(variantName, variantValues[2]),
+      createAndSetText(variantName, variantValues[3]),
+    ]
+
+    let variantOption = document.createElement('div');
+
     switch (variantType) {
       case 'textual_buttons':
-        newParents[0].innerHTML = `<span class='yc-textual-item'>${variantValues[0]}</span`;
+        variantOption = createdElements[0].element;
       break;
       case 'color_base_buttons':
-        newParents[1].appendChild(variantValues[1]);
+        `<div class='colored-button'>${variantOption = variantValues[1]}</div>`;
         break;
       case 'radio_buttons':
-        newParents[2].innerHTML = `<span>${variantValues[2]}</span`;
+        variantOption = createdElements[1].element;
       break;
       case 'dropdown':
-        newParents[3].innerHTML = `<span>${variantValues[3]}</span`;
+        variantOption = createdElements[2].element;
         break;
       case 'image_based_buttons':
-        newParents[4].innerHTML = `<span>${variantValues[4]}</span`;
+        variantOption = createdElements[3].element;
         break;
       case 'upload_image_zone':
         // newParents[5].innerHTML = `<span>${variantValues[5]}</span`;
         // 'upload-zone';
         break;
     }
+
+    document.querySelector('#selected-product-variants').appendChild(variantOption);
   });
-  return selectedVariants;
 }
 
 // Show selected quantity in checkout_step_2

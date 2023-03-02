@@ -68,6 +68,7 @@
     font-size: 16px !important;
   }
 
+  #selected-product-variants .yc-textual-item,
   #variant_0 .yc-textual-item {
     padding: 6.5px 10px;
     text-align: center;
@@ -77,7 +78,7 @@
     border-radius: 8px;
   }
 
-  #variant_1 {
+  .colored-button {
     width: 29px;
     height: 29px;
     border: 1px solid black;
@@ -85,6 +86,7 @@
     padding: 2.5px;
   }
 
+  #selected-product-variants .preview,
   #variant_1 .preview {
     display: block;
     width: 100%;
@@ -92,6 +94,7 @@
     border-radius: 50%;
   }
 
+  #selected-product-variants .quantity-value,
   #variant_quantity .quantity-value {
     color: black;
     font-weight: 700;
@@ -117,26 +120,11 @@
     </div>
   </section>
   <section class="section-2">
+
     <ul class="selected-variants">
-      {% for option in product.options -%}
-        <li class='selected-item'>
-          <span>{{- option.name -}}&nbsp;:</span>
-          {% case option.type %}
-            {% when 'textual_buttons' %}
-              <div id="variant_0"></div>
-            {% when 'color_base_buttons' %}
-              <div id="variant_1"></div>
-            {% when 'radio_buttons' %}
-              <div id="variant_2"></div>
-            {% when 'dropdown' %}
-              <div id="variant_3"></div>
-            {% when 'image_based_buttons' %}
-              <div id="variant_4"></div>
-            {% when 'upload_image_zone' %}
-              <div id="variant_5"></div>
-          {% endcase %}
-        </li>
-      {%- endfor %}
+      <li class='selected-item'>
+        <div id="selected-product-variants"></div>
+      </li>
       <li class='selected-item'>
         <span>{{ 'snippets.single_product.quantity' | t }}&nbsp;:</span>
         <div id='variant_quantity'></div>
