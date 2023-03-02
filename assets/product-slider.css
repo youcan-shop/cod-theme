@@ -1,6 +1,7 @@
 .product-slider .product-thumbnail img {
   height: 230px;
-  object-fit: contain;
+  width: 100%;
+  object-fit: cover;
 }
 .product-slider .prices {
   margin: 20px 0 0;

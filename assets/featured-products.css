@@ -73,7 +73,7 @@
 .yc-featured-products .product-list .product-block .product-thumbnail img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: 0.2s ease-in-out;
 }
 .yc-featured-products .product-list .product-block .product-thumbnail img:hover {
