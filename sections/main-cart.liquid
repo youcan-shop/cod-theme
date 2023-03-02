@@ -49,7 +49,7 @@
                       class='cart-item-loader-spinner hidden'
                       id='loading__{{ item.id }}'
                     >
-                      <span class='spinner h-9 w-9'></span>
+                      <span class='spinner h-8 w-8'></span>
                     </div>
                     <div class='fixed'></div>
                     <div class='flex flex-col items-start'>
@@ -65,13 +65,13 @@
                   <td class='hidden md:table-cell quantity-on-desktop'>
                     {%- render 'quantity-input', item: item -%}
                   </td>
-                  <td>
+                  <td class='total-price-table'>
                   <span class="total-price">
                     {{ item.price | times: item.quantity | money }}
                   </span>
                       <div class='md:hidden quantity-on-mobile'></div>
                   </td>
-                  <td>
+                  <td class="close-btn">
                     <button
                         onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')"
                         class='yc-btn-close'

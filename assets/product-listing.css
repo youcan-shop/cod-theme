@@ -15,7 +15,7 @@
 .yc-product-listing-container .product-list .product-block .product-thumbnail img {
   width: 100%;
   height: 220px;
-  object-fit: cover;
+  object-fit: contain;
   transition: all 0.2s ease-in-out;
 }
 .yc-product-listing-container .product-list .product-block .product-thumbnail img:hover {

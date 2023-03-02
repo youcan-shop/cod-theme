@@ -116,26 +116,52 @@
       background: #F5F5F5;
       border: 1px solid #EDEDED;
       border-radius: 0px 0px 4px 4px;
+      position: relative;
 
       .product-image {
         img {
-          width: 95px;
-          height: 88px;
+          width: 100px;
+          height: 95px;
+        }
+
+        @media screen and (max-width: 500px) {
+            width: 100px;
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        .close-btn button {
+          position: absolute;
+          left: 0;
+          top: 0;
+          padding-left: 0;
         }
       }
     }
 
     tbody {
       td {
-        padding: 10px;
         background: #F5F5F5;
+        padding: 6px;
       }
 
       .product-title {
         margin-top: 20px;
         font-weight: 400;
+        width: 85%;
         font-size: 16px;
         margin-bottom: 12px;
+      }
+
+      .total-price-table {
+        line-height: 35px;
+    
+        @media screen and (max-width: 600px) {
+          display: flex;
+          justify-content: space-around;
+          flex-direction: row-reverse;
+          align-items: center;
+        }
       }
 
       .total-price {
@@ -213,6 +239,17 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+    }
+
+    @media screen and (max-width: 420px) {
+      button, input {
+        width: 24px !important;
+        min-width: 24px !important;
+        max-width: 24px !important;
+        height: 24px !important;
+        min-height: 24px !important;
+        max-height: 24px !important;
+      }
     }
   }
 }

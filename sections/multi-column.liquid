@@ -31,7 +31,7 @@
     grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
     grid-gap: 2vw;
     align-items: stretch;
-    padding: 20px 0;
+    padding: 10px 0;
   }
 
   .column-block {
@@ -110,6 +110,15 @@
               loading='lazy'
             >
           </div>
+          {% else %}
+          <div class="column-image-wrapper">
+            <img
+              class='column-image'
+              src='{{ 'default_product.jpeg' | asset_url }}'
+              loading='lazy'
+            >
+          </div>
+
           {% endif %}
           {% if block_setting.heading %}
             <h4 class='column-title'>{{ block_setting.heading }}</h4>
