@@ -359,7 +359,12 @@ function hideCheckout() {
   // stickyCheckout.style.opacity = '0';
 }
 
-// Show selected variants in checkout_step_2
+/**
+ * Create div that has children with specific content
+ * @param {string} tagType type name of selected variant
+ * @param {string} tagValue the value of the selected variant
+ * @param {string} cssClass CSS styling class
+ */
 
 function createAndSetText(tagType = '', tagValue = '', cssClass = '') {
   const element = document.createElement('div');
@@ -369,12 +374,14 @@ function createAndSetText(tagType = '', tagValue = '', cssClass = '') {
   return { element: element };
 }
 
+// Show selected variants in checkout_step_2
+
 function getSelectedVariants() {
   const variants = document.querySelectorAll('.product-options > div');
 
   if (!variants || !variants.length) return null;
 
-  document.querySelector('#selected-product-variants').innerHTML = '';
+  $('#selected-product-variants').innerHTML = '';
 
   variants.forEach((variant) => {
     const variantType = variant.id.split('-')[2];
@@ -385,7 +392,8 @@ function getSelectedVariants() {
       variant.querySelector('.color-item.active .preview')?.outerHTML,
       variant.querySelector('input:checked')?.value,
       variant.querySelector('select')?.value,
-      variant.querySelector('.yc-image-options-item.active img')?.alt,
+      variant.querySelector('.yc-image-options-item.active img')?.outerHTML,
+      variant.querySelector(' .yc-upload-preview img')?.outerHTML,
     ];
 
     const createdElements = [
@@ -393,7 +401,8 @@ function getSelectedVariants() {
       createAndSetText(variantName, variantValues[1], 'colored-button'),
       createAndSetText(variantName, variantValues[2]),
       createAndSetText(variantName, variantValues[3]),
-      createAndSetText(variantName, variantValues[4]),
+      createAndSetText(variantName, variantValues[4], 'image-container'),
+      createAndSetText(variantName, variantValues[5], 'image-container'),
     ]
 
     let variantOption = document.createElement('div');
@@ -403,7 +412,7 @@ function getSelectedVariants() {
         variantOption = createdElements[0].element;
       break;
       case 'color_base_buttons':
-        variantOption = createdElements[1].element;;
+        variantOption = createdElements[1].element;
         break;
       case 'radio_buttons':
         variantOption = createdElements[2].element;
@@ -415,8 +424,7 @@ function getSelectedVariants() {
         variantOption = createdElements[4].element;
         break;
       case 'upload_image_zone':
-        // newParents[5].innerHTML = `<span>${variantValues[5]}</span`;
-        // 'upload-zone';
+        variantOption = createdElements[5].element;
         break;
     }
 
@@ -525,13 +533,13 @@ function manipulateQuantity() {
 manipulateQuantity();
 
 
-// Desktop checkout
+// Desktop sticky checkout UI
 
 function desktopStickyCheckout() {
   if(window.innerWidth >= 768) {
     const closeButton = $('#checkout_step_1 .close-icon');
     goToCheckoutStep(2);
     teleportProductCard(2);
-    $('#checkout_step_2 .back-icon').replaceWith(closeButton);
+    $('#checkout_step_2 .back-icon')?.replaceWith(closeButton);
   }
 }
