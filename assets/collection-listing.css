@@ -9,7 +9,7 @@
 .yc-collection-listing .collection-list .collection-thumbnail img {
   width: 100%;
   height: 280px;
-  object-fit: cover;
+  object-fit: contain;
 }
 .yc-collection-listing .collection-list .collection-details {
   margin-top: 24px;
