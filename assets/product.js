@@ -362,7 +362,7 @@ function hideCheckout() {
 /**
  * Create div that has children with specific content
  * @param {string} tagType type name of selected variant
- * @param {string} tagValue the value of the selected variant
+ * @param {string, HTMLElement} tagValue the value of the selected variant
  * @param {string} cssClass CSS styling class
  */
 
@@ -432,6 +432,28 @@ function getSelectedVariants() {
   });
 }
 
+// Increment or Decrement custom quantity input
+
+function manipulateQuantity() {
+  const decrementButton = $('.decrement-button');
+  const incrementButton = $('.increment-button');
+  const quantityInput = $('.quantity-input');
+
+  decrementButton?.addEventListener('click', () => {
+    const currentValue = parseInt(quantityInput.value);
+    if (currentValue > 1) {
+      quantityInput.value = currentValue - 1;
+    }
+  });
+
+  incrementButton?.addEventListener('click', () => {
+    const currentValue = parseInt(quantityInput.value);
+    quantityInput.value = currentValue + 1;
+  });
+}
+
+manipulateQuantity();
+
 // Show selected quantity in checkout_step_2
 
 function getSelectedQuantity() {
@@ -439,17 +461,7 @@ function getSelectedQuantity() {
   $('#variant_quantity').innerHTML = `<span class='quantity-value'>x${quantityValue}</span`;
 }
 
-// Clear selected variants if the user return back to checkout_step_1
-
-function clearSelectedVariants() {
-  const variantElems = document.querySelectorAll('[id*="variant_"]');
-
-  variantElems.forEach(elem => {
-    while (elem.firstChild) {
-      elem.removeChild(elem.firstChild);
-    }
-  });
-}
+// Sticky checkout steps conditions
 
 function goToCheckoutStep(step) {
   $('#checkout_step_1').style.display = 'none';
@@ -459,7 +471,6 @@ function goToCheckoutStep(step) {
     case 1:
       $('#checkout_step_1').style.display = 'flex';
       teleportProductCard(1);
-      clearSelectedVariants();
       break;
     case 2:
       $('#checkout_step_2').style.display = 'flex';
@@ -471,6 +482,17 @@ function goToCheckoutStep(step) {
     default:
       hideCheckout();
       break;
+  }
+}
+
+// Desktop sticky checkout UI
+
+function desktopStickyCheckout() {
+  if(window.innerWidth >= 768) {
+    const closeButton = $('#checkout_step_1 .close-icon');
+    goToCheckoutStep(2);
+    teleportProductCard(2);
+    $('#checkout_step_2 .back-icon')?.replaceWith(closeButton);
   }
 }
 
@@ -509,37 +531,3 @@ function setup() {
 }
 
 setup();
-
-// Increment or Decrement custom quantity input
-
-function manipulateQuantity() {
-  const decrementButton = $('.decrement-button');
-  const incrementButton = $('.increment-button');
-  const quantityInput = $('.quantity-input');
-
-  decrementButton?.addEventListener('click', () => {
-    const currentValue = parseInt(quantityInput.value);
-    if (currentValue > 1) {
-      quantityInput.value = currentValue - 1;
-    }
-  });
-
-  incrementButton?.addEventListener('click', () => {
-    const currentValue = parseInt(quantityInput.value);
-    quantityInput.value = currentValue + 1;
-  });
-}
-
-manipulateQuantity();
-
-
-// Desktop sticky checkout UI
-
-function desktopStickyCheckout() {
-  if(window.innerWidth >= 768) {
-    const closeButton = $('#checkout_step_1 .close-icon');
-    goToCheckoutStep(2);
-    teleportProductCard(2);
-    $('#checkout_step_2 .back-icon')?.replaceWith(closeButton);
-  }
-}
