@@ -286,8 +286,10 @@ function teleportCheckoutElements(parentSection) {
   options.parentElement.appendChild(optionsPlaceholder);
 
   // teleport elements
-  teleport(options, '#checkout_step_1 .options');
-  teleport(quantity, '#checkout_step_1 .options');
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    teleport(options, '#checkout_step_1 .options');
+    teleport(quantity, '#checkout_step_1 .options');
+  }
   teleport(expressCheckoutForm, '#checkout_step_2 .checkout-form');
 }
 
@@ -351,12 +353,14 @@ function hideCheckout() {
 
   $("body").style.overflow = "auto";
   overlay.style.zIndex = '95';
-  optionsPlaceholder?.replaceWith(options);
-  quantityPlaceholder?.replaceWith(quantity);
+
+  if (window.matchMedia("(max-width: 768px)").matches && options && quantity) {
+    optionsPlaceholder?.replaceWith(options);
+    quantityPlaceholder?.replaceWith(quantity);
+  }
 
   stickyCheckout.style.visibility = 'hidden';
   stickyCheckout.style.transform = 'translateY(100%)';
-  // stickyCheckout.style.opacity = '0';
 }
 
 /**
