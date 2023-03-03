@@ -294,7 +294,7 @@ function teleportCheckoutElements(parentSection) {
 function teleportProductName() {
   const elementContent = $('.product-name').textContent;
 
-  document.getElementById('product--name').textContent = elementContent;
+  $('#product-name').textContent = elementContent;
 }
 
 function teleportProductCard(step) {
@@ -387,48 +387,36 @@ function getSelectedVariants() {
     const variantType = variant.id.split('-')[2];
     const variantName = variant.id.split('-')[1];
 
-    const variantValues = [
-      variant.querySelector('.yc-options-item.active')?.textContent,
-      variant.querySelector('.color-item.active .preview')?.outerHTML,
-      variant.querySelector('input:checked')?.value,
-      variant.querySelector('select')?.value,
-      variant.querySelector('.yc-image-options-item.active img')?.outerHTML,
-      variant.querySelector(' .yc-upload-preview img')?.outerHTML,
-    ];
-
-    const createdElements = [
-      createAndSetText(variantName, variantValues[0], 'yc-textual-item'),
-      createAndSetText(variantName, variantValues[1], 'colored-button'),
-      createAndSetText(variantName, variantValues[2]),
-      createAndSetText(variantName, variantValues[3]),
-      createAndSetText(variantName, variantValues[4], 'image-container'),
-      createAndSetText(variantName, variantValues[5], 'image-container'),
-    ]
-
     let variantOption = document.createElement('div');
 
     switch (variantType) {
       case 'textual_buttons':
-        variantOption = createdElements[0].element;
+        const textualButton =  variant.querySelector('.yc-options-item.active')?.textContent;
+        variantOption = createAndSetText(variantName, textualButton, 'yc-textual-item').element;
       break;
       case 'color_base_buttons':
-        variantOption = createdElements[1].element;
+        const colorBaseButton = variant.querySelector('.color-item.active .preview')?.outerHTML;
+        variantOption = createAndSetText(variantName, colorBaseButton, 'colored-button').element;
         break;
       case 'radio_buttons':
-        variantOption = createdElements[2].element;
+        const radioButton = variant.querySelector('input:checked')?.value;
+        variantOption = createAndSetText(variantName, radioButton).element;
       break;
       case 'dropdown':
-        variantOption = createdElements[3].element;
+        const dropDown = variant.querySelector('select')?.value;
+        variantOption = createAndSetText(variantName, dropDown).element;
         break;
       case 'image_based_buttons':
-        variantOption = createdElements[4].element;
+        const imageBasedButton = variant.querySelector('.yc-image-options-item.active img')?.outerHTML;
+        variantOption = createAndSetText(variantName, imageBasedButton, 'image-container').element;
         break;
       case 'upload_image_zone':
-        variantOption = createdElements[5].element;
+        const uploadImageZone = variant.querySelector(' .yc-upload-preview img')?.outerHTML;
+        variantOption = createAndSetText(variantName, uploadImageZone, 'image-container').element;
         break;
     }
 
-    document.querySelector('#selected-product-variants').appendChild(variantOption);
+    $('#selected-product-variants').appendChild(variantOption);
   });
 }
 
