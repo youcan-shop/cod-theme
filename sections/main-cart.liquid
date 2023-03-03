@@ -17,117 +17,47 @@
       </a>
     </div>
     </div>
-    {% comment %} 
-      <div class='flex flex-col md:flex-row gap-14'>
-        <div class='w-full flex flex-col justify-between'>
-          <table class='table-auto w-full mt-7 self-baseline'>
-            <thead>
-              <tr>
-                <th></th>
-                <th>اسم المنتوج</th>
-                <th class='hidden md:block'>
-                  {{ 'cart.items.quantity' | t }}
-                </th>
-                <th>{{ 'cart.items.total' | t }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {%- for item in cart.items %}
-                <tr
-                  class='relative cart__item'
-                  id='{{ item.id }}'
-                >
-                  <td class='product-image'>
-                    <img
-                      loading='lazy'
-                      src='{{ item.image }}'
-                      alt='product-name'
-                      class='w-24 object-cover'
-                    >
-                  </td>
-                  <td class='flex gap-6'>
-                    <div
-                      class='cart-item-loader-spinner hidden'
-                      id='loading__{{ item.id }}'
-                    >
-                      <span class='spinner h-8 w-8'></span>
-                    </div>
-                    <div class='fixed'></div>
-                    <div class='flex flex-col items-start'>
-                      <div class="product-title">
-                        {{ item.name }}
-                      </div>
-                      <div class="product-variant">
-                          {%- render 'cart-variants', item: item -%}
-                      </div>
-                      <div class='product-price'>{{ item.price | money }}</div>
-                    </div>
-                  </td>
-                  <td class='hidden md:table-cell quantity-on-desktop'>
-                    {%- render 'quantity-input', item: item -%}
-                  </td>
-                  <td class='total-price-table'>
-                  <span class="total-price">
-                    {{ item.price | times: item.quantity | money }}
-                  </span>
-                      <div class='md:hidden quantity-on-mobile'></div>
-                  </td>
-                  <td class="close-btn">
-                    <button
-                        onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')"
-                        class='yc-btn-close'
-                      >
-                      <ion-icon name="close-outline"></ion-icon>
-                    </button>
-                  </td>
-                </tr>
-              {%- endfor %}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    {% endcomment %}
     <div class="table-container">
-  <div class="row header">
-    <div class="cell"></div>
-    <div class="cell">اسم المنتوج</div>
-    <div class="cell">الكمية</div>
-    <div class="cell">المجموع</div>
-    <div class="cell adjust-space"></div>
-  </div>
-  {% for item in cart.items %}
-  <div class="row cart__item" id='{{ item.id }}'>
-    <div class="cell">
-        <div class='product-image'>
-          <img loading='lazy' src='{{ item.image }}' alt='product-name' class='object-cover'>
+    <div class="row header">
+      <div class="cell"></div>
+      <div class="cell">اسم المنتوج</div>
+      <div class="cell">الكمية</div>
+      <div class="cell">المجموع</div>
+      <div class="cell adjust-space"></div>
+    </div>
+    {% for item in cart.items %}
+      <div class="row cart__item" id='{{ item.id }}'>
+        <div class="cell">
+            <div class='product-image'>
+              <img loading='lazy' src='{{ item.image }}' alt='product-name' class='object-cover'>
+            </div>
         </div>
-    </div>
-    <div class='cell '>
-      <div class="product-title">{{ item.name }}</div>
-      <div class="product-variant">
-        {% comment %} To be added when variants are added on the backend {% endcomment %}
+        <div class='cell '>
+          <div class="product-title">{{ item.name }}</div>
+          <div class="product-variant">
+            {% comment %} To be added when variants are added on the backend {% endcomment %}
+          </div>
+          <div class='product-price'>{{ item.price | money }}</div>
+        </div>
+        <div class='cell'>
+          {%- render 'quantity-input', item: item -%}
+        </div>
+        <div class='cell total-price-table'>
+            <div
+              class='cart-item-loader-spinner hidden'
+              id='loading__{{ item.id }}'
+            >
+            <span class='spinner h-7 w-7'></span>
+          </div>
+          <span class="total-price">{{ item.price | times: item.quantity | money }}</span>
+        </div>
+        <div class="cell adjust-space close-btn">
+          <button onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')" class='yc-btn-close'>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
       </div>
-      <div class='product-price'>{{ item.price | money }}</div>
-    </div>
-    <div class='cell'>
-      {%- render 'quantity-input', item: item -%}
-    </div>
-    <div class='cell total-price-table'>
-        <div
-          class='cart-item-loader-spinner hidden'
-          id='loading__{{ item.id }}'
-        >
-        <span class='spinner h-7 w-7'></span>
-      </div>
-      <span class="total-price">{{ item.price | times: item.quantity | money }}</span>
-    </div>
-    <div class="cell adjust-space close-btn">
-      <button onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')" class='yc-btn-close'>
-        <ion-icon name="close-outline"></ion-icon>
-      </button>
-    </div>
-  </div>
-  {% endfor %}
+    {% endfor %}
 </div>
 
 
