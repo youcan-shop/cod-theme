@@ -1,50 +1,30 @@
-{% style %}
-  .yc-product-card {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 40px;
-  }
-
-  .yc-product-card .image {
-    width: 120px;
-    aspect-ratio: 1;
-    max-width: 30%;
-  }
-
-  .yc-product-card .details {
-    flex-grow: 1;
-  }
-
-  .yc-product-card .price {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    gap: 10px;
-  }
-
-  .yc-product-card .price .main {
-    font-size: 18pt;
-    font-weight: bold;
-  }
-{% endstyle %}
-
+{{ 'product-card.css' | asset_url | stylesheet_tag }}
 
 <div class="yc-product-card">
-  <div class="image">
-    <img
-      class="main-image"
-      src="{{ 'default_product.jpeg' | asset_url }}"
-      alt="product image">
-  </div>
-  <div class="details">
-    <div class="price">
-      <span class="product-price"></span>
-      <span class="off"></span>
+  <section class="section-1">
+    <div class="image">
+      <img
+        class="main-image"
+        src="{{ 'default_product.jpeg' | asset_url }}"
+        alt="product image">
     </div>
-    <div class="product-variations"></div>
-  </div>
-  <div class="other-info"></div>
+    <div class="details">
+      <span class="product-name" id="product-name"></span>
+      <div class="price">
+        <span class="product-price"></span>
+        <span class="off"></span>
+      </div>
+    </div>
+  </section>
+  <section class="section-2">
+    <ul class="selected-preview">
+      <li>
+        <div id="selected-product-variants"></div>
+      </li>
+      <li class='quantity-preview'>
+        <span>{{ 'snippets.single_product.quantity' | t }}&nbsp;:</span>
+        <div id='variant_quantity'></div>
+      </li>
+    </ul>
+  </section>
 </div>

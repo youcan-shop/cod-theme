@@ -4,17 +4,16 @@
 
 {% style %}
   {% if is_sticky %}
-  body {
-    padding-bottom: 80px;
-  }
+    body {
+      padding-bottom: 80px;
+    }
 
- 
-
+    #express-checkout-form {
+      display: none;
+    }
 
   {% endif %}
-  .custom-checkout-{{ checkout_id }} {
-    grid-gap: {{ settings.inputs_gap }}px;
-  }
+
   .custom-checkout-{{ checkout_id }} label {
     font-size: {{ settings.label_text_size }}px;
 
@@ -74,13 +73,13 @@
   onsubmit="return false;"
 >
   <div class='express-checkout-fields'>
+    <div class='express-checkout-title'>{{ settings.form_title }}</div>
     {%- for field in checkout.fields %}
       <div class='express-checkout-field'>
-        <label for='f-{{ field.name }}'>{{ field.display_name }}</label>
         <input
           type='{{ field.type }}'
           class='w-full'
-          id='f-{{ field.name }}'
+          id='{{ field.name }}'
           name='{{ field.name }}'
           placeholder='{{ field.placeholder }}'
           {% if field.required %}
@@ -94,11 +93,10 @@
       </div>
     {%- endfor %}
   </div>
-
-  {% if is_sticky == false %} 
+  {% if is_sticky == false %}
   <button
     type='submit'
-    class='yc-btn w-full express-checkout-button mt-8'
+    class='yc-btn w-full express-checkout-button'
     onclick='placeOrder(this)'
   >
     <span
@@ -108,7 +106,6 @@
     <span>{{ settings.express_checkout_cta }}</span>
   </button>
   {% endif %}
-  
 </form>
 
 {{ 'express-checkout.js' | asset_url | script_tag_deferred }}

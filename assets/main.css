@@ -252,17 +252,19 @@ input:not([type=radio]),
   flex-wrap: wrap;
   align-items: center;
   gap: 10px;
-  margin: 10px 0px;
 }
 
 .yc-options-item {
-  padding: 10px 25px;
+  padding: 15px;
   font-size: 14px;
-  border: 1px solid var(--yc-neutral-light-color);
-}
-.yc-options-item:hover {
-  opacity: 0.8;
+  line-height: 120%;
+  font-weight: 400;
+  border: 1px solid #BDBDBD;
+  border-radius: 8px;
   cursor: pointer;
+}
+.yc-options-item.active {
+  font-weight: 700;
 }
 
 .yc-image-options-list {
@@ -345,21 +347,26 @@ input:not([type=radio]),
   gap: 10px;
 }
 .yc-colors-select .color-item {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 10px;
-  border: 1px solid var(--yc-neutral-light-color);
-  padding: 6px 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid #E7E7E7;
   cursor: pointer;
 }
+.yc-colors-select .color-item:focus {
+  outline: none;
+}
 .yc-colors-select .color-item .preview {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border-radius: 9999px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.yc-colors-select .color-item .value {
+  opacity: 0;
+}
+.yc-colors-select .color-item.active {
+  padding: 4px;
 }
 
 /* --------------------------- */
@@ -463,7 +470,8 @@ input:not([type=radio]),
   z-index: 999;
 }
 .sticky-elements-container .is_sticky {
-  width: 300px;
+  width: 100%;
+  max-width: 800px;
 }
 
 .splide {

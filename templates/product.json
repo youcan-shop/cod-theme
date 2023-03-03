@@ -1,63 +1,74 @@
 {
   "sections": {
-    "product": {
-      "type": "product",
-      "blocks": {
-        "block_02hsdiizyoqxr4i": {
-          "type": "product_title",
-          "settings": {}
-        },
-        "block_03x0mpf3samste": {
-          "type": "product_price",
-          "settings": {}
-        },
-        "block_08c3kk0zsiefipf": {
-          "type": "product_quantity",
-          "settings": {}
-        },
-        "block_0cgb9qnrmae2tlc": {
-          "type": "product_variants",
-          "settings": {}
-        },
-        "block_1am54q3ocikdah6": {
-          "type": "add_to_cart",
+      "product": {
+          "type": "product",
+          "blocks": {
+              "block_02hsdiizyoqxr4i": {
+                  "type": "product_title",
+                  "settings": {}
+              },
+              "block_03x0mpf3samste": {
+                  "type": "product_price",
+                  "settings": {}
+              },
+              "block_08c3kk0zsiefipf": {
+                  "type": "product_quantity",
+                  "settings": {}
+              },
+              "block_0cgb9qnrmae2tlc": {
+                  "type": "product_variants",
+                  "settings": {}
+              },
+              "block_bqucb72r61sazu": {
+                  "type": "product_description",
+                  "settings": {}
+              },
+              "block_c3yr5q7hebgkvhl": {
+                  "type": "express_checkout",
+                  "settings": {
+                      "button_background_color": "#E7412F",
+                      "express_checkout_cta": "اشتري الآن",
+                      "form_title": "للطلب يرجى ملء هذا النموذج سنتصل بكم في أقرب وقت ممكن!",
+                      "is_sticky": true,
+                      "input_border_radius": 4,
+                      "input_text_size": 13,
+                      "input_placeholder_color": "#A8A8A8FF",
+                      "input_text_color": "#000000FF",
+                      "input_background_color": "#FFFFFFFF",
+                      "input_border_color": "#000000FF",
+                      "button_text_color": "#FFFFFFFF",
+                      "button_border_radius": 4
+                  }
+              },
+              "block_pzioaso3gj4cbaw": {
+                  "type": "general_review",
+                  "settings": {}
+              }
+          },
+          "order": [
+              "block_02hsdiizyoqxr4i",
+              "block_03x0mpf3samste",
+              "block_pzioaso3gj4cbaw",
+              "block_0cgb9qnrmae2tlc",
+              "block_08c3kk0zsiefipf",
+              "block_bqucb72r61sazu",
+              "block_c3yr5q7hebgkvhl"
+          ],
           "settings": {
-            "text_content": "أضف إلى السلة",
-            "is_sticky": true,
-            "background_color": "#B83375FF",
-            "text_color": "#ffffff"
+              "show_compare_at_price": true,
+              "tag_text": "خصم بقيمه 40% ",
+              "tag_color": "#F33520"
           }
-        },
-        "block_bqucb72r61sazu": {
-          "type": "product_description",
-          "settings": {}
-        },
-        "block_c3yr5q7hebgkvhl": {
-          "type": "express_checkout",
-          "settings": {
-            "button_background_color": "#B83375FF",
-            "express_checkout_cta": "اشتري الآن"
-          }
-        }
       },
-      "order": [
-        "block_02hsdiizyoqxr4i",
-        "block_03x0mpf3samste",
-        "block_08c3kk0zsiefipf",
-        "block_0cgb9qnrmae2tlc",
-        "block_1am54q3ocikdah6",
-        "block_bqucb72r61sazu",
-        "block_c3yr5q7hebgkvhl"
-      ],
-      "settings": {}
-    },
-    "section_kl230iysvlo3xtbp": {
-      "type": "product-reviews",
-      "settings": {
-        "product": "5f865c86-c8dc-48b6-8bcb-2525bc762430",
-        "reviews_title": "تقييمات العملاء"
+      "section_5hprcshvo24mjm9": {
+          "type": "product-reviews",
+          "settings": {
+              "reviews_title": "توصيات من زبنائنا"
+          }
       }
-    }
   },
-  "order": ["product", "section_kl230iysvlo3xtbp"]
+  "order": [
+      "product",
+      "section_5hprcshvo24mjm9"
+  ]
 }

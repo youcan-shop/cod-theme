@@ -3,31 +3,58 @@
 }
 .yc-product-reviews .yc-reviews-wrapper {
   display: grid;
-  gap: var(--yc-reviews-gap);
-  grid-template-columns: 1fr;
-  margin: 0 auto 2rem;
+  gap: 17px;
 }
 @media (min-width: 768px) {
   .yc-product-reviews .yc-reviews-wrapper {
-    grid-template-columns: repeat(var(--yc-reviews-items_per_row), 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-.yc-product-reviews .yc-reviews-wrapper .review-item .header .image {
+@media (min-width: 992px) {
+  .yc-product-reviews .yc-reviews-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.yc-product-reviews .yc-reviews-wrapper .review-item {
+  border: 1px solid #EBEBEB;
+  border-radius: 4px;
+  background-color: white;
+  padding: 22px 20px 26px 20px;
+}
+.yc-product-reviews .yc-reviews-wrapper .review-item .header {
+  display: flex;
+  justify-content: space-between;
+}
+.yc-product-reviews .yc-reviews-wrapper .review-item .header .profil {
+  display: flex;
+  gap: 18px;
+}
+.yc-product-reviews .yc-reviews-wrapper .review-item .header .profil .image {
+  width: 49px;
+  height: 49px;
+  border-radius: 50%;
   aspect-ratio: 1/1;
-  width: 100%;
   object-fit: cover;
 }
-.yc-product-reviews .yc-reviews-wrapper .review-item .header .name {
-  text-align: center;
-  font-size: var(--yc-reviews-name-font-size);
-  margin: 11px auto;
+.yc-product-reviews .yc-reviews-wrapper .review-item .header .profil .info {
+  display: grid;
+  gap: 3px;
+}
+.yc-product-reviews .yc-reviews-wrapper .review-item .header .profil .info .name {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 120%;
+}
+.yc-product-reviews .yc-reviews-wrapper .review-item .header .profil .info .created-at-date {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
 }
 .yc-product-reviews .yc-reviews-wrapper .review-item .content {
-  text-align: center;
-  font-size: var(--yc-reviews-content-font-size);
-}
-.yc-product-reviews .yc-reviews-wrapper .review-item__empty {
-  margin: auto;
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 145%;
 }
 .yc-product-reviews .reviews-block {
   display: flex;

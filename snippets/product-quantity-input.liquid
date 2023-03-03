@@ -1,0 +1,17 @@
+<div class='product-quantity'>
+  <label class="product-option-title" for='quantity'>{{ 'snippets.single_product.quantity' | t }}</label>
+  <div class="quantity-field">
+    <button class="increment-button">+</button>
+    <input
+      type='number'
+      class='quantity-input'
+      id='quantity'
+      name='quantity'
+      min='1'
+      value='1'
+    >
+    <button class="decrement-button">-</button>
+  </div>
+</div>
+
+{{ 'product-quantity-input.js' | asset_url | script_tag_deferred }}

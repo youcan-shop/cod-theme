@@ -5,23 +5,17 @@
 {% schema %}
 {
   "label": "Express Checkout",
-  "templates": ["index", "product"],
+  "templates": ["index"],
   "limit": 1,
   "settings": [
     {
       "type": "header",
-      "content": "Label settings"
+      "content": "Title settings"
     },
     {
-      "label": "Text size",
-      "id": "label_text_size",
-      "type": "number",
-      "default": 16
-    },
-    {
-      "label": "Text color",
-      "id": "label_text_color",
-      "type": "color"
+      "label": "Form title",
+      "id": "form_title",
+      "type": "text"
     },
     {
       "type": "header",
@@ -36,7 +30,7 @@
       "label": "Sticky button",
       "id": "is_sticky",
       "type": "checkbox",
-      "default": true
+      "default": false
     },
     {
       "label": "Padding",
@@ -69,12 +63,6 @@
     {
       "type": "header",
       "content": "Input settings"
-    },
-    {
-      "label": "Gap between inputs",
-      "id": "inputs_gap",
-      "type": "number",
-      "default": 5
     },
     {
       "label": "Padding",
