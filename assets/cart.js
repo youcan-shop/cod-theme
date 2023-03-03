@@ -110,26 +110,3 @@ async function removeItem(cartItemId, productVariantId) {
   }
 }
 
-function moveQuantityWrapper() {
-  const quantityWrapper = document.querySelector('.quantity-wrapper');
-  const quantityOnDesktop = document.querySelector('.quantity-on-desktop');
-  const quantityOnMobile = document.querySelector('.quantity-on-mobile');
-
-  if (window.innerWidth > 768 && quantityOnDesktop) {
-    quantityOnDesktop.appendChild(quantityWrapper);
-
-    if (quantityOnMobile && quantityOnMobile.contains(quantityWrapper)) {
-      quantityOnMobile.removeChild(quantityWrapper);
-    }
-  }
-  if (window.innerWidth < 768 && quantityOnMobile) {
-    quantityOnMobile.appendChild(quantityWrapper);
-
-    if (quantityOnDesktop && quantityOnDesktop.contains(quantityWrapper)) {
-      quantityOnDesktop.removeChild(quantityWrapper);
-    }
-  }
-}
-
-moveQuantityWrapper();
-window.addEventListener('resize', moveQuantityWrapper);
