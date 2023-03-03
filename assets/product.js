@@ -504,11 +504,19 @@ function setup() {
   singleProductSections.forEach((section) => {
     const productDetails = section.querySelector('.product-options');
 
-    if (productDetails) {
+    if(typeof getSelectedVariant(section) === 'undefined'){
+      const variant = variants[0]
+      updateProductDetails(
+        section,
+        variant.image,
+        variant.price,
+        variant.variations
+      );
+    }
+    else if (productDetails) {
       const observer = new MutationObserver(() => {
         const selectedVariant = getSelectedVariant(section);
         const variantIdInput = section.querySelector('#variantId');
-
         variantIdInput.value = selectedVariant.id;
 
         updateProductDetails(
@@ -518,7 +526,6 @@ function setup() {
           selectedVariant.variations
         );
       });
-
       observer.observe(productDetails, {
         attributes: true,
         childList: true,
