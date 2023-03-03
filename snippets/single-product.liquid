@@ -20,7 +20,7 @@
     style='display: none'
   >
   {% assign images = product.images %}
-  {% assign product_name = product.name %} 
+  {% assign product_name = product.name %}
 
   <!-- prettier-ignore -->
   {% render 'product-images-showcase', images: images, product_name: product_name, hidden: section.settings.hide_gallery %}
@@ -34,7 +34,7 @@
           {%- when 'product_price' -%}
             <div class='product-price-container'>
               <h2 class='product-price'>{{ product.price | money }}</h2>
-              {% if section.settings.show_compare_at_price %}
+              {% if section.settings.show_compare_at_price and product.compare_at_price != nil %}
                 <div class="compare-container">
                   <h3 class="compare-price">
                     <del>{{ product.compare_at_price | money }}</del>
