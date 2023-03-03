@@ -4,47 +4,6 @@
 .yc-cart .empty-cart ion-icon {
   --ionicon-stroke-width: 18px;
 }
-.yc-cart .summary-box {
-  max-width: 100%;
-  border: 1px solid #EFEFEF;
-  border-radius: 4px;
-  width: 437px;
-  float: left;
-}
-.yc-cart .summary-box .promo {
-  font-weight: 400;
-  margin-bottom: 17px;
-  font-size: 15px;
-}
-.yc-cart .summary-box input {
-  border: 1px solid #BDBDBD;
-  border-radius: 4px;
-}
-.yc-cart .summary-box .price-box {
-  margin: 25px auto 15px;
-}
-.yc-cart .summary-box .price-box .box {
-  font-weight: 400;
-  font-size: 15px;
-  margin-bottom: 20px;
-  color: #A8A8A8;
-}
-.yc-cart .summary-box .price-wrapper {
-  padding: 0px 18px 18px;
-}
-.yc-cart .summary-box .total {
-  font-weight: 700;
-  font-size: 14px;
-}
-.yc-cart .summary-box .total-price {
-  color: var(--yc-primary-color);
-  font-weight: 700;
-  font-size: 16px;
-}
-.yc-cart .summary-box .border-space {
-  padding-bottom: 22px;
-  padding: 0px 18px 18px;
-}
 .yc-cart .cart-table .header-block {
   display: flex;
   align-items: center;
@@ -78,6 +37,52 @@
 @media screen and (max-width: 768px) {
   .yc-cart .cart-table .header-block .checkout_cta {
     display: none;
+  }
+}
+.yc-cart .cart-table .summary-box {
+  max-width: 100%;
+  border: 1px solid #EFEFEF;
+  border-radius: 4px;
+  width: 437px;
+  float: left;
+}
+.yc-cart .cart-table .summary-box .promo {
+  font-weight: 400;
+  margin-bottom: 17px;
+  font-size: 15px;
+}
+.yc-cart .cart-table .summary-box input {
+  border: 1px solid #BDBDBD;
+  border-radius: 4px;
+}
+.yc-cart .cart-table .summary-box .price-box {
+  margin: 25px auto 15px;
+}
+.yc-cart .cart-table .summary-box .price-box .box {
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #A8A8A8;
+}
+.yc-cart .cart-table .summary-box .price-wrapper {
+  padding: 0px 18px 18px;
+}
+.yc-cart .cart-table .summary-box .total {
+  font-weight: 700;
+  font-size: 14px;
+}
+.yc-cart .cart-table .summary-box .total-price {
+  color: var(--yc-primary-color);
+  font-weight: 700;
+  font-size: 16px;
+}
+.yc-cart .cart-table .summary-box .border-space {
+  padding-bottom: 22px;
+  padding: 0px 18px 18px;
+}
+@media screen and (max-width: 768px) {
+  .yc-cart .cart-table .summary-box {
+    width: 100%;
   }
 }
 .yc-cart .quantity-wrapper {
@@ -175,6 +180,7 @@
   font-weight: 400;
   font-size: 16.5px;
   margin-bottom: 10px;
+  width: 86%;
 }
 .table-container .row .cell .total-price {
   color: var(--yc-primary-color);
@@ -198,23 +204,22 @@
   }
   .table-container .row {
     flex-wrap: wrap;
-    flex-direction: row;
-    align-items: flex-start;
     justify-content: center;
+    align-items: start;
   }
   .table-container .cell {
     flex-basis: 20%;
+    padding: 10px;
     text-align: start;
-    padding: 10px;
   }
-  .table-container .header .cell {
-    flex-basis: 50%;
-    padding: 10px;
+  .table-container .cell:first-child, .table-container .cell:nth-child(odd) {
+    flex-basis: 20%;
   }
-  .table-container .row .cell {
-    flex-basis: 50%;
-    padding: 10px;
-    align-items: start;
+  .table-container .cell:nth-child(even) {
+    flex-basis: 80%;
+  }
+  .table-container .cell:last-child {
+    flex-basis: 100%;
   }
   .table-container .close-btn button {
     position: absolute;
@@ -222,25 +227,25 @@
     top: 0;
     margin: 10px;
   }
-}
-@media screen and (max-width: 767px) {
-  .table-container .row .cell:first-child {
-    flex-basis: 35%;
-  }
-  .table-container .row .cell:nth-child(2) {
-    flex-basis: 65%;
-  }
-  .table-container .row .cell:nth-child(n+3) {
-    flex-basis: 35%;
-  }
-  .table-container .row .cell:nth-child(n+4) {
-    flex-basis: 65%;
-  }
   .table-container .product-image img {
     width: 100%;
     height: 100%;
   }
   .table-container .product-title {
     width: 86%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .table-container .row .cell:first-child,
+  .table-container .row .cell:nth-child(n+3) {
+    flex-basis: 35%;
+  }
+  .table-container .row .cell:nth-child(2),
+  .table-container .row .cell:nth-child(n+4) {
+    flex-basis: 65%;
+  }
+  .table-container .product-image img {
+    width: 100%;
+    height: 100%;
   }
 }
