@@ -65,6 +65,11 @@
   height: 400px;
   object-fit: cover;
 }
+@media screen and (max-width: 768px) {
+  .product-images-container .product-block .image-box img {
+    height: 330px;
+  }
+}
 .product-images-container .product-block .buy-btn {
   width: 100%;
 }

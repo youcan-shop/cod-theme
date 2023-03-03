@@ -132,12 +132,12 @@
 }
 @media screen and (max-width: 520px) {
   .yc-cart .quantity-wrapper button, .yc-cart .quantity-wrapper input {
-    width: 25px !important;
+    width: 26px !important;
     min-width: 25px !important;
     max-width: 25px !important;
-    height: 25px !important;
-    min-height: 25px !important;
-    max-height: 25px !important;
+    height: 27px !important;
+    min-height: 27px !important;
+    max-height: 27px !important;
   }
 }
 

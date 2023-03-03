@@ -1,7 +1,12 @@
 .product-slider .product-thumbnail img {
-  height: 230px;
+  height: 250px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
+}
+@media screen and (max-width: 900px) {
+  .product-slider .product-thumbnail img {
+    height: 190px;
+  }
 }
 .product-slider .prices {
   margin: 20px 0 0;
