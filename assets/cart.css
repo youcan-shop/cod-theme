@@ -67,6 +67,13 @@
 .yc-cart .cart-table .summary-box .price-wrapper {
   padding: 0px 18px 18px;
 }
+.yc-cart .cart-table .summary-box .price-wrapper .capitalize {
+  width: 80%;
+}
+.yc-cart .cart-table .summary-box .price-wrapper .item-price {
+  width: 20%;
+  text-align: end;
+}
 .yc-cart .cart-table .summary-box .total {
   font-weight: 700;
   font-size: 14px;
@@ -193,6 +200,7 @@
 }
 .table-container .row .adjust-space {
   flex-basis: 5%;
+  padding: 0;
 }
 .table-container .row .close-btn {
   font-size: 25px;

@@ -92,7 +92,7 @@
                 {%- for item in cart.items %}
                   <div class='flex justify-between text-sm box'>
                     <div class='capitalize'>{{ item.name }}</div>
-                    <div>{{ item.price | times: item.quantity | money }}</div>
+                    <div class="item-price">{{ item.price | times: item.quantity | money }}</div>
                   </div>
                 {%- endfor %}
               </div>

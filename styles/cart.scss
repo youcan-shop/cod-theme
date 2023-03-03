@@ -76,6 +76,15 @@
       
       .price-wrapper {
         padding: 0px 18px 18px;
+
+        .capitalize {
+          width: 80%;
+        }
+
+        .item-price {
+          width: 20%;
+          text-align: end;
+        }
       }
       .total {
         font-weight: 700;
@@ -220,6 +229,7 @@
 
     .adjust-space {
       flex-basis: calc(100% / 20);
+      padding: 0;
     }
 
     .close-btn {
