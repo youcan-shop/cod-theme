@@ -1,0 +1,120 @@
+.yc-product-card {
+  width: 100%;
+  background: #F5F5F5;
+  border-radius: 4px;
+  margin-top: 26px;
+}
+
+.yc-product-card .section-1 {
+  display: flex;
+  align-items: start;
+  gap: 14px;
+  padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .yc-product-card .section-1,
+  .yc-product-card .selected-preview {
+    padding: 20px;
+  }
+}
+.yc-product-card .section-2 {
+  border-top: 1px solid #EBEBEB;
+}
+
+.yc-product-card .image {
+  width: 62px;
+  height: 52px;
+  background: white;
+  padding: 3px;
+  flex-shrink: 0;
+}
+
+.yc-product-card .image .main-image {
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.yc-product-card .details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.yc-product-card .product-name {
+  font-size: 15px !important;
+  margin-top: 4px;
+}
+
+.yc-product-card .price {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+
+.yc-product-card .price .product-price {
+  font-size: 16px !important;
+}
+
+.selected-preview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+#selected-product-variants,
+#selected-product-variants div,
+.quantity-preview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+#selected-product-variants .yc-textual-item {
+  padding: 6.5px 10px;
+  text-align: center;
+  border: 1px solid black;
+  color: black;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+#selected-product-variants .colored-button {
+  display: block;
+  width: 29px;
+  height: 29px;
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 2.5px;
+}
+
+#selected-product-variants .preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+#variant_quantity .quantity-value {
+  color: black;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 120%;
+}
+
+#selected-product-variants .image-container {
+  width: 40px;
+  height: auto;
+}
+
+#selected-product-variants .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
