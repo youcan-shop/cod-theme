@@ -36,7 +36,6 @@
       overflow: hidden;
       border: 1px solid #E7E7E7;
       border-radius: 4px;
-      padding: 5px;
 
       @include breakpoint('md') {
         height: 474px;
@@ -92,7 +91,6 @@
       .thumbnail-images .image-container {
         border: 1px solid #E7E7E7;
         border-radius: 4px;
-        padding: 5px;
         width: 80px;
         height: 78px;
         cursor: pointer;
@@ -116,7 +114,6 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    overflow: hidden;
 
     @include breakpoint('md') {
       gap: 22px;

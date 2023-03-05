@@ -1,3 +1,5 @@
+{{ 'countdown.css' | asset_url | stylesheet_tag }}
+
 {%- assign snippetId = 0 | rand %}
 
 <div
@@ -60,7 +62,7 @@
             <section class='product-description '>{{ product.description }}</section>
           {%- when 'countdown_timer' %}
             <!-- prettier-ignore -->
-            {%- render 'countdown', message: block.settings.countdown_message, countdown_year: block.settings.countdown_year, countdown_month: block.settings.countdown_month, countdown_day: block.settings.countdown_day, countdown_hour: block.settings.countdown_hour, countdown_minute: block.settings.countdown_minute -%}
+              {%- render 'countdown', section_settings: block.settings -%}
           {%- when 'stock' -%}
             <!-- prettier-ignore -->
             {% render 'stock', stock_items_left: block.settings.stock_items_left, total_stock_items: block.settings.total_stock_items %}
