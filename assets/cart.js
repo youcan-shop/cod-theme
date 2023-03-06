@@ -113,7 +113,6 @@ async function removeItem(cartItemId, productVariantId) {
     document.getElementById(cartItemId).remove();
     document.getElementById(`cart-item-${cartItemId}`).remove();
 
-    // when the cart-item is removed, update the total price
     updateTotalPrice();
     
     const cartItemsBadge = document.getElementById('cart-items-badge');
