@@ -16,8 +16,8 @@ async function addPromo(e) {
   }
 }
 
-function updateDOM(cartItemId, productVariantId, quantity) {
-  const inputHolder = document.getElementById(cartItemId);
+function updateCart(item, quantity, totalPriceSelector, cartItemId, productVariantId) {
+  const inputHolder = document.getElementById(item);
   const input = inputHolder.querySelector(`input[id="${productVariantId}"]`);
   input.value = quantity;
   const decrease = input.previousElementSibling;
@@ -26,7 +26,7 @@ function updateDOM(cartItemId, productVariantId, quantity) {
   const productPrice = inputHolder.querySelector('.product-price').innerText;
   const currency = productPrice.split(' ')[0];
   const price = productPrice.split(' ')[1];
-  const totalPrice = inputHolder.querySelector('.total-price');
+  const totalPrice = inputHolder.querySelector(totalPriceSelector);
 
   decrease
     .querySelector('button')
@@ -42,15 +42,25 @@ function updateDOM(cartItemId, productVariantId, quantity) {
   }
 }
 
-function updatePrice(cartItemUniqueId) {
-  const inputHolder = document.getElementById(`cart-item-${cartItemUniqueId}`);
-  const updatedQuantity = document.querySelector('.total-price').textContent;
-  const itemPrices = inputHolder.querySelectorAll('.item-price');
-  
-  // loop through all the item prices and update their text content
-  itemPrices.forEach((itemPrice) => {
-    itemPrice.textContent = updatedQuantity;
+function updateDOM(cartItemId, productVariantId, quantity) {
+  updateCart(cartItemId, quantity, '.total-price', cartItemId, productVariantId);
+}
+
+function updatePrice(cartItemUniqueId, productVariantId, quantity) {
+  updateCart(`cart-item-${cartItemUniqueId}`, quantity, '.item-price', cartItemUniqueId, productVariantId);
+
+  // Calculate total price
+  let totalPrice = 0;
+  const itemPrices = document.querySelectorAll('.item-price');
+  itemPrices.forEach(itemPrice => {
+    console.log(itemPrice.innerText.substring(1));
+    totalPrice += parseFloat(itemPrice.innerText.substring(1));
+    console.log(totalPrice);
   });
+
+  // Update total price display
+  const totalPriceElement = document.querySelector('.item-total-price');
+  totalPriceElement.innerText = `$${totalPrice.toFixed(2)}`;
 }
 
 
@@ -64,7 +74,7 @@ async function updateQuantity(cartItemId, productVariantId, quantity) {
     stopLoad(`#loading__${cartItemId}`);
   }
   updateDOM(cartItemId, productVariantId, quantity);
-  updatePrice(cartItemId);
+  updatePrice(cartItemId,productVariantId,quantity);
 }
 
 
@@ -75,7 +85,7 @@ async function updateOnchange(cartItemId, productVariantId) {
 
   await updateQuantity(cartItemId, productVariantId, quantity);
   updateDOM(cartItemId, productVariantId, quantity);
-  updatePrice(cartItemId);
+  updatePrice(cartItemId,productVariantId,quantity);
 }
 
 async function decreaseQuantity(cartItemId, productVariantId, quantity) {
