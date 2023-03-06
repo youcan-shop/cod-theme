@@ -5,9 +5,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  background-color: black;
   padding: 20px;
-  color: white;
 }
 .countdown-wrapper .message p {
   font-weight: 700;
@@ -20,19 +18,17 @@
   align-items: center;
   gap: 4px;
 }
-.countdown-wrapper .countdown *:not(.dots) {
+.countdown-wrapper .countdown *:not(.dots, .num) {
   min-width: 37px;
   padding: 5px;
   text-align: center;
   border-radius: 6px;
-  background-color: #EE7A6D;
+  background-color: rgba(225, 225, 225, 0.3607843137);
 }
 .countdown-wrapper .countdown .num {
   font-weight: 700;
   font-size: 22px;
   line-height: 120%;
-  color: white;
-  padding: 0;
 }
 .countdown-wrapper .countdown .dots {
   max-width: max-content;

@@ -5,9 +5,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  background-color: black;
   padding: 20px;
-  color: white;
 
   .message p {
     font-weight: 700;
@@ -21,20 +19,18 @@
     align-items: center;
     gap: 4px;
 
-    & *:not(.dots) {
+    & *:not(.dots, .num) {
       min-width: 37px;
       padding: 5px;
       text-align: center;
       border-radius: 6px;
-      background-color: #EE7A6D;
+      background-color: #e1e1e15c;
     }
 
     .num {
       font-weight: 700;
       font-size: 22px;
       line-height: 120%;
-      color: white;
-      padding: 0;
     }
 
     .dots {
