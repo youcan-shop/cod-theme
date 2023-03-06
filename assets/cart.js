@@ -42,27 +42,28 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
   }
 }
 
+function updateTotalPrice() {
+  let totalPrice = 0;
+  let currency;
+  const itemPrices = document.querySelectorAll('.item-price');
+  itemPrices.forEach(itemPrice => {
+    currency = itemPrice.innerText.split(' ')[0];
+    const price = itemPrice.innerText.split(' ')[1];
+    totalPrice += Number(price);
+  });
+
+  const totalPriceElement = document.querySelector('.item-total-price');
+  totalPriceElement.innerText = `${currency} ${totalPrice}`;
+}
+
 function updateDOM(cartItemId, productVariantId, quantity) {
   updateCart(cartItemId, quantity, '.total-price', cartItemId, productVariantId);
+  updateTotalPrice();
 }
 
 function updatePrice(cartItemUniqueId, productVariantId, quantity) {
   updateCart(`cart-item-${cartItemUniqueId}`, quantity, '.item-price', cartItemUniqueId, productVariantId);
-
-  // Calculate total price
-  let totalPrice = 0;
-  const itemPrices = document.querySelectorAll('.item-price');
-  itemPrices.forEach(itemPrice => {
-    console.log(itemPrice.innerText.substring(1));
-    totalPrice += parseFloat(itemPrice.innerText.substring(1));
-    console.log(totalPrice);
-  });
-
-  // Update total price display
-  const totalPriceElement = document.querySelector('.item-total-price');
-  totalPriceElement.innerText = `$${totalPrice.toFixed(2)}`;
 }
-
 
 async function updateQuantity(cartItemId, productVariantId, quantity) {
   load(`#loading__${cartItemId}`);
@@ -75,6 +76,7 @@ async function updateQuantity(cartItemId, productVariantId, quantity) {
   }
   updateDOM(cartItemId, productVariantId, quantity);
   updatePrice(cartItemId,productVariantId,quantity);
+  updateTotalPrice();
 }
 
 
@@ -86,7 +88,12 @@ async function updateOnchange(cartItemId, productVariantId) {
   await updateQuantity(cartItemId, productVariantId, quantity);
   updateDOM(cartItemId, productVariantId, quantity);
   updatePrice(cartItemId,productVariantId,quantity);
+  updateTotalPrice();
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateTotalPrice();
+});
 
 async function decreaseQuantity(cartItemId, productVariantId, quantity) {
   if (quantity < 1) {
