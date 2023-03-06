@@ -5,7 +5,7 @@
     display: grid;
     margin-top: 60px;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px 14px;
+    gap: 34px 14px;
     padding: 54px 20px;
     background-color: #F2F2F2;
 
@@ -20,8 +20,8 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        max-height: 100%;
-        transform: translate(-50%,-50%) scale(1);
+        height: 100%;
+        transform: translate(-50%,-50%);
         transition: transform .25s ease;
 
         &:hover {
@@ -29,8 +29,6 @@
         }
       }
     }
-    
-    
 
     .collection-details {
       margin-top: 20px;
@@ -56,11 +54,11 @@
     }
 
     @include breakpoint('xl') {
-      padding: 54px 150px;
+      padding: 54px 180px;
     }
   
     @include breakpoint('xxl') {
-      padding: 54px 250px;
+      padding: 54px 270px;
     }
   }
 
@@ -76,11 +74,11 @@
     }
 
     @include breakpoint('xl') {
-      padding: 0 150px;
+      padding: 0 180px;
     }
   
     @include breakpoint('xxl') {
-      padding: 0 250px;
+      padding: 0 270px;
     }
   }
 }
