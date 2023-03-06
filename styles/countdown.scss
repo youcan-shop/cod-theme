@@ -1,3 +1,5 @@
+@import 'helpers/mixins';
+
 .countdown-wrapper {
   width: calc(100% + 40px);
   margin: 0 -20px;
@@ -6,6 +8,12 @@
   justify-content: space-between;
   gap: 20px;
   padding: 20px;
+
+  @include breakpoint('md') {
+    width: 100%;
+    margin: 0;
+    border-radius: 4px;
+  }
 
   .message p {
     font-weight: 700;
