@@ -38,6 +38,7 @@
 
     if(reviews) {
       convertDate();
+      showMoreReviews();
     }
 
     if (reviews.length === 0) {
@@ -59,5 +60,27 @@ function convertDate() {
     const year = originalDate.getFullYear().toString();
     const formattedDate = `${day}.${month}.${year}`;
     date.textContent = formattedDate;
+  });
+}
+
+function showMoreReviews() {
+  const reviewsWrapper = $('#reviews-wrapper');
+  const showMoreButton = $('#show-more');
+
+  for (let i = 0; i < 3; i++) {
+    reviewsWrapper.children[i].classList.add("visible");
+  }
+
+  if(reviewsWrapper.children.length > 3) {
+    showMoreButton.style.display = "block";
+  }
+
+  showMoreButton?.addEventListener("click", () => {
+
+    for (let i = 3; i < reviewsWrapper.children.length; i++) {
+      reviewsWrapper.children[i].classList.add("visible");
+    }
+
+    showMoreButton.style.display = "none";
   });
 }

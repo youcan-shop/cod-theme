@@ -1,5 +1,6 @@
 .yc-product-reviews {
   display: none;
+  margin-bottom: 27px;
 }
 .yc-product-reviews .yc-reviews-wrapper {
   display: grid;
@@ -20,6 +21,10 @@
   border-radius: 4px;
   background-color: white;
   padding: 22px 20px 26px 20px;
+  display: none;
+}
+.yc-product-reviews .yc-reviews-wrapper .review-item.visible {
+  display: block;
 }
 .yc-product-reviews .yc-reviews-wrapper .review-item .header {
   display: flex;
@@ -66,4 +71,8 @@
   font-weight: 400;
   font-size: 13px;
   color: #707070;
+}
+.yc-product-reviews #show-more {
+  display: none;
+  margin: 27px auto 0 auto;
 }
