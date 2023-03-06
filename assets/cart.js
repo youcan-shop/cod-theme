@@ -111,7 +111,8 @@ async function removeItem(cartItemId, productVariantId) {
   try {
     await youcanjs.cart.removeItem({ cartItemId, productVariantId });
     document.getElementById(cartItemId).remove();
-
+    document.getElementById(`cart-item-${cartItemId}`).remove();
+    
     const cartItemsBadge = document.getElementById('cart-items-badge');
 
     const cartItems = document.querySelectorAll('.cart__item');
