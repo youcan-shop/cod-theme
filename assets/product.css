@@ -139,10 +139,12 @@
 }
 .yc-single-product .product-details .product-description {
   overflow: hidden;
-  color: var(--yc-neutral-light-color);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 184.5%;
+}
+.yc-single-product .product-details .product-description * {
+  font-family: var(--yc-font-family);
+}
+.yc-single-product .product-details .product-description strong {
+  font-weight: 700;
 }
 .yc-single-product .product-details .product-option-title {
   text-transform: capitalize;

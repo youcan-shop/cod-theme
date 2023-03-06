@@ -43,12 +43,26 @@
               "block_pzioaso3gj4cbaw": {
                   "type": "general_review",
                   "settings": {}
+              },
+              "block_oivb67hwueuk80m": {
+                  "type": "countdown_timer",
+                  "settings": {
+                      "countdown_message": "<p>عرض لفترة محدودة<\/p>",
+                      "background_color": "#000000FF",
+                      "text_color": "#FFFFFFFF",
+                      "countdown_year": 2024,
+                      "countdown_month": 1,
+                      "countdown_day": 1,
+                      "countdown_hour": 1,
+                      "countdown_minute": 1
+                  }
               }
           },
           "order": [
               "block_02hsdiizyoqxr4i",
               "block_03x0mpf3samste",
               "block_pzioaso3gj4cbaw",
+              "block_oivb67hwueuk80m",
               "block_0cgb9qnrmae2tlc",
               "block_08c3kk0zsiefipf",
               "block_bqucb72r61sazu",
