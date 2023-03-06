@@ -142,6 +142,7 @@
 }
 .yc-single-product .product-details .product-description * {
   font-family: var(--yc-font-family);
+  line-height: 184.5%;
 }
 .yc-single-product .product-details .product-description strong {
   font-weight: 700;
