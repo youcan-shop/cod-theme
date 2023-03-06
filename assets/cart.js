@@ -42,6 +42,18 @@ function updateDOM(cartItemId, productVariantId, quantity) {
   }
 }
 
+function updatePrice(cartItemUniqueId) {
+  const inputHolder = document.getElementById(`cart-item-${cartItemUniqueId}`);
+  const updatedQuantity = document.querySelector('.total-price').textContent;
+  const itemPrices = inputHolder.querySelectorAll('.item-price');
+  
+  // loop through all the item prices and update their text content
+  itemPrices.forEach((itemPrice) => {
+    itemPrice.textContent = updatedQuantity;
+  });
+}
+
+
 async function updateQuantity(cartItemId, productVariantId, quantity) {
   load(`#loading__${cartItemId}`);
   try {
@@ -52,7 +64,9 @@ async function updateQuantity(cartItemId, productVariantId, quantity) {
     stopLoad(`#loading__${cartItemId}`);
   }
   updateDOM(cartItemId, productVariantId, quantity);
+  updatePrice(cartItemId);
 }
+
 
 async function updateOnchange(cartItemId, productVariantId) {
   const inputHolder = document.getElementById(cartItemId);
@@ -61,6 +75,7 @@ async function updateOnchange(cartItemId, productVariantId) {
 
   await updateQuantity(cartItemId, productVariantId, quantity);
   updateDOM(cartItemId, productVariantId, quantity);
+  updatePrice(cartItemId);
 }
 
 async function decreaseQuantity(cartItemId, productVariantId, quantity) {

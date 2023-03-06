@@ -90,17 +90,23 @@
             <div class="price-wrapper">
               <div class='flex flex-col gap-1 price-box'>
                 {%- for item in cart.items %}
-                  <div class='flex justify-between text-sm box'>
+                  <div class='flex justify-between text-sm box' id='cart-item-{{ item.id }}'>
                     <div class='capitalize'>{{ item.name }}</div>
-                    <div class="item-price">{{ item.price | times: item.quantity | money }}</div>
-                  </div>
+                    <div
+                      class='cart-item-loader-spinner hidden'
+                      id='loading__{{ item.id }}'
+                    >
+                      <span class='spinner h-7 w-7'></span>
+                    </div> 
+                    <span class="item-price" data-price="{{ item.price | money }}">{{ item.price | times: item.quantity | money }}</span>
+                    </div>
                 {%- endfor %}
               </div>
             {%- endif %}
             <div class='border-t mt-5'>
               <div class='flex text-sm justify-between mt-5'>
                 <span class="total">{{ 'cart.summary.total' | t }}</span>
-                <span class="total-price">{{ cart.total | money }}</span>
+                <span class="item-total-price">test</span>
               </div>
               <a href='{{ cart.cart_submit_url }}' class='yc-btn mt-5 w-full'>
                 {{ 'cart.summary.checkout_cta' | t }}
