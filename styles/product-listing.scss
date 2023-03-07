@@ -93,6 +93,19 @@
   }
 }
 
+.search-page {
+  @include breakpoint('md') {
+    padding: 0 40px;
+  }
+  @include breakpoint('lg') {
+    padding: 0 70px;
+  }
+
+  @include breakpoint('xl') {
+    padding: 0 150px;
+  }
+}
+
 /* Dropdown Button (sort) */
 .sort-container {
   margin: 40px auto;

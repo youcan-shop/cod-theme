@@ -45,6 +45,7 @@
   border-radius: 4px;
   width: 437px;
   float: left;
+  margin-bottom: 40px;
 }
 .yc-cart .cart-table .summary-box .promo {
   font-weight: 400;
@@ -212,7 +213,7 @@
   font-size: 25px;
   color: #4B5565;
 }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 767px) {
   .table-container .header {
     display: none;
   }
@@ -221,19 +222,9 @@
     justify-content: center;
     align-items: start;
   }
-  .table-container .cell {
-    flex-basis: 20%;
-    padding: 10px;
-    text-align: start;
-  }
-  .table-container .cell:first-child, .table-container .cell:nth-child(odd) {
-    flex-basis: 20%;
-  }
-  .table-container .cell:nth-child(even) {
-    flex-basis: 80%;
-  }
-  .table-container .cell:last-child {
-    flex-basis: 100%;
+  .table-container .row .cell .product-image img {
+    width: 140px;
+    height: 90px;
   }
   .table-container .close-btn button {
     position: absolute;
@@ -241,15 +232,9 @@
     top: 0;
     margin: 10px;
   }
-  .table-container .product-image img {
-    width: 100%;
-    height: 100%;
-  }
   .table-container .product-title {
-    width: 86%;
+    width: 87%;
   }
-}
-@media screen and (max-width: 767px) {
   .table-container .row .cell:first-child,
   .table-container .row .cell:nth-child(n+3) {
     flex-basis: 35%;
@@ -257,9 +242,5 @@
   .table-container .row .cell:nth-child(2),
   .table-container .row .cell:nth-child(n+4) {
     flex-basis: 65%;
-  }
-  .table-container .product-image img {
-    width: 100%;
-    height: 100%;
   }
 }
