@@ -202,6 +202,7 @@
 .table-container .row .cell .product-image img {
   width: 140px;
   height: 110px;
+  object-fit: contain;
 }
 .table-container .row .adjust-space {
   flex-basis: 5%;
