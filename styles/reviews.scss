@@ -4,6 +4,24 @@
   display: none;
   margin-bottom: 27px;
 
+  .head {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    margin-bottom: 24px;
+
+    @include breakpoint('md') {
+      align-items: center;
+      margin-bottom: 50px;
+    }
+
+    .yc-section-title {
+      text-align: unset;
+      margin: unset;
+    }
+  }
+
   .yc-reviews-wrapper {
     display: grid;
     gap: 17px;
