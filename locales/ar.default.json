@@ -1,4 +1,7 @@
 {
+  "general":{
+    "show_more_button": "عرض المزيد"
+  },
   "navbar": {
     "search": {
       "placeholder": "أدخل الكلمة الرئيسية للبحث عنها..."
@@ -9,9 +12,6 @@
   },
   "featured_products": {
     "title": "المنتجات المميزة"
-  },
-  "featured_products_by_category": {
-    "show_more_button": "عرض المزيد"
   },
   "featured_collections": {
     "title": "مجموعات مميزة"

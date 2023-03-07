@@ -9,36 +9,39 @@
 
   try {
     const reviews = await youcanjs.product.fetchReviews(productId).data();
+    const maxReviewsToShow = 3;
 
     reviewsContainer.style.display = 'block';
-    reviews.forEach((review) => {
+
+    for (let i = 0; i < maxReviewsToShow && i < reviews.length; i++) {
+      const review = reviews[i];
       const reviewItem = document.createElement('li');
+
       reviewItem.classList.add('review-item');
-      reviewItem.innerHTML = `
-        <div class='header'>
-          <div class="profil">
-            <img loading='lazy' class='image' src=${review.images_urls[0] || defaultAvatar} />
-            <div class='info'>
-              <span class='name'>${review.first_name || ''} ${review.last_name || ''}</span>
-              <span class='created-at-date'>${review.created_at}</span>
-            </div>
-          </div>
-          <div class='yc-reviews-stars'
-              style="--rating: ${review.ratings};"
-              aria-label="Rating of this product is ${review.ratings} out of 5"
-          >
-          </div>
-        </div>
-        <div class='content'>
-          ${review.content === null ? '' : review.content}
-        </div>
-      `;
+      createElement(reviewItem, review);
       reviewsWrapper.appendChild(reviewItem);
-    });
+    }
+
+    if(reviews.length > maxReviewsToShow) {
+      const showMoreButton = $('#show-more');
+
+      showMoreButton.style.display = "block";
+      showMoreButton?.addEventListener("click", () => {
+        for (let i = maxReviewsToShow; i < reviews.length; i++) {
+          const review = reviews[i];
+          const reviewItem = document.createElement('li');
+
+          reviewItem.classList.add('review-item');
+          createElement(reviewItem, review);
+          reviewsWrapper.appendChild(reviewItem);
+        }
+
+        showMoreButton.style.display = "none";
+      });
+    }
 
     if(reviews) {
       convertDate();
-      showMoreReviews();
     }
 
     if (reviews.length === 0) {
@@ -48,6 +51,28 @@
     noDataSetter();
   }
 })();
+
+function createElement(element, index) {
+  element.innerHTML = `
+        <div class='header'>
+          <div class="profil">
+            <img loading='lazy' class='image' src=${index.images_urls[0] || defaultAvatar} />
+            <div class='info'>
+              <span class='name'>${index.first_name || ''} ${index.last_name || ''}</span>
+              <span class='created-at-date'>${index.created_at}</span>
+            </div>
+          </div>
+          <div class='yc-reviews-stars'
+              style="--rating: ${index.ratings};"
+              aria-label="Rating of this product is ${index.ratings} out of 5"
+          >
+          </div>
+        </div>
+        <div class='content'>
+          ${index.content === null ? '' : index.content}
+        </div>
+      `;
+}
 
 function convertDate() {
   const createdAtDate = document.querySelectorAll('.created-at-date');
@@ -60,27 +85,5 @@ function convertDate() {
     const year = originalDate.getFullYear().toString();
     const formattedDate = `${day}.${month}.${year}`;
     date.textContent = formattedDate;
-  });
-}
-
-function showMoreReviews() {
-  const reviewsWrapper = $('#reviews-wrapper');
-  const showMoreButton = $('#show-more');
-
-  for (let i = 0; i < 3; i++) {
-    reviewsWrapper.children[i].classList.add("visible");
-  }
-
-  if(reviewsWrapper.children.length > 3) {
-    showMoreButton.style.display = "block";
-  }
-
-  showMoreButton?.addEventListener("click", () => {
-
-    for (let i = 3; i < reviewsWrapper.children.length; i++) {
-      reviewsWrapper.children[i].classList.add("visible");
-    }
-
-    showMoreButton.style.display = "none";
   });
 }
