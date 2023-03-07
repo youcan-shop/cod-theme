@@ -1,452 +1,452 @@
 [
-  {
-      "label": "General Settings",
-      "settings": [
-          {
-              "type": "text",
-              "id": "meta_title",
-              "label": "Title"
-          },
-          {
-              "type": "select",
-              "id": "theme_direction",
-              "label": "Theme direction",
-              "options": [
-                  {
-                      "value": "rtl",
-                      "label": "Right to left"
-                  },
-                  {
-                      "value": "ltr",
-                      "label": "left to right"
-                  }
-              ],
-              "default": "ltr"
-          },
-          {
-              "type": "text",
-              "id": "meta_description",
-              "label": "Meta description"
-          },
-          {
-              "type": "text",
-              "id": "meta_keywords",
-              "label": "Meta keywords"
-          },
-          {
-              "type": "image_picker",
-              "id": "og_image",
-              "label": "Meta Open Graph Image"
-          },
-          {
-              "type": "image_picker",
-              "id": "favicon",
-              "label": "Favicon"
-          }
-      ]
-  },
-  {
-      "label": "Color Palette",
-      "settings": [
-          {
-              "type": "color",
-              "id": "primary_color",
-              "label": "Primary",
-              "default": "#aa2e66"
-          },
-          {
-              "type": "color",
-              "id": "success_color",
-              "label": "Success",
-              "default": "#4AB380"
-          },
-          {
-              "type": "color",
-              "id": "error_color",
-              "label": "Error",
-              "default": "#773740"
-          },
-          {
-              "type": "color",
-              "id": "warning_color",
-              "label": "Warning",
-              "default": "#F2962F"
-          },
-          {
-              "type": "color",
-              "id": "neutral_color",
-              "label": "Neutral",
-              "default": "#16191B"
-          },
-          {
-              "type": "color",
-              "id": "neutral_light_color",
-              "label": "Neutral Light",
-              "default": "#e3e3e3"
-          }
-      ]
-  },
-  {
-      "label": "Additional Styles",
-      "settings": [
-          {
-              "type": "select",
-              "id": "font_family",
-              "label": "Font family",
-              "options": [
-                  {
-                      "value": "Roboto",
-                      "label": "Roboto"
-                  },
-                  {
-                      "value": "Noto+Kufi+Arabic",
-                      "label": "Noto Kufi Arabic"
-                  },
-                  {
-                      "value": "Readex Pro",
-                      "label": "Readex Pro"
-                  },
-                  {
-                      "value": "Almarai",
-                      "label": "Almarai"
-                  },
-                  {
-                      "value": "Noto Sans Arabic",
-                      "label": "Noto Sans Arabic"
-                  },
-                  {
-                      "value": "Cairo",
-                      "label": "Cairo"
-                  },
-                  {
-                      "value": "Open Sans",
-                      "label": "Open Sans"
-                  },
-                  {
-                      "value": "Lato",
-                      "label": "Lato"
-                  },
-                  {
-                      "value": "Oswald",
-                      "label": "Oswald"
-                  },
-                  {
-                      "value": "Raleway",
-                      "label": "Raleway"
-                  },
-                  {
-                      "value": "Montserrat",
-                      "label": "Montserrat"
-                  }
-              ],
-              "default": "Roboto"
-          },
-          {
-              "type": "text",
-              "id": "transition",
-              "label": "Transition",
-              "default": "all 0.3s ease-in-out"
-          }
-      ]
-  },
-  {
-      "label": "Navbar",
-      "settings": [
-          {
-              "type": "image_picker",
-              "id": "navbar_logo",
-              "label": "Logo"
-          },
-          {
-              "type": "range",
-              "id": "navbar_height",
-              "min": 20,
-              "max": 150,
-              "step": 1,
-              "unit": "px",
-              "label": "Height",
-              "default": 60
-          },
-          {
-              "type": "color",
-              "id": "navbar_background_color",
-              "label": "Background color",
-              "default": "#FFFFFF"
-          },
-          {
-              "type": "color",
-              "id": "navbar_links_color",
-              "label": "Items and links color"
-          },
-          {
-              "type": "color",
-              "id": "cart_badge_color",
-              "label": "Cart badge color"
-          },
-          {
-              "type": "range",
-              "id": "navbar_links_hover_transparency",
-              "min": 0,
-              "max": 1,
-              "step": 0.10000000000000001,
-              "unit": "",
-              "label": "Links hover transparency",
-              "default": 0.80000000000000004
-          },
-          {
-              "type": "select",
-              "id": "navbar_links_font_weight",
-              "label": "Links font weight",
-              "options": [
-                  {
-                      "value": "300",
-                      "label": "Light"
-                  },
-                  {
-                      "value": "400",
-                      "label": "Normal"
-                  },
-                  {
-                      "value": "500",
-                      "label": "Bold"
-                  },
-                  {
-                      "value": "700",
-                      "label": "Heavy"
-                  }
-              ],
-              "default": "400"
-          },
-          {
-              "type": "select",
-              "id": "navbar_font_family",
-              "label": "Font family",
-              "options": [
-                  {
-                      "value": "Roboto",
-                      "label": "Roboto"
-                  },
-                  {
-                      "value": "Open Sans",
-                      "label": "Open Sans"
-                  },
-                  {
-                      "value": "Almarai",
-                      "label": "Almarai"
-                  },
-                  {
-                      "value": "Lato",
-                      "label": "Lato"
-                  },
-                  {
-                      "value": "Oswald",
-                      "label": "Oswald"
-                  },
-                  {
-                      "value": "Raleway",
-                      "label": "Raleway"
-                  },
-                  {
-                      "value": "Montserrat",
-                      "label": "Montserrat"
-                  }
-              ]
-          },
-          {
-              "type": "checkbox",
-              "id": "full_width",
-              "label": "Full width navbar",
-              "default": false
-          },
-          {
-              "type": "checkbox",
-              "id": "navbar_shadow",
-              "label": "Show navbar shadow",
-              "default": false
-          },
-          {
-              "type": "checkbox",
-              "id": "navbar_always_on_top",
-              "label": "Navbar always on top",
-              "default": false
-          }
-      ]
-  },
-  {
-      "label": "Mobile sidebar",
-      "settings": [
-          {
-              "type": "color",
-              "id": "drawer_background_color",
-              "label": "Background color",
-              "default": "#FFFFFF"
-          },
-          {
-              "type": "color",
-              "id": "drawer_links_color",
-              "label": "Items and links color"
-          },
-          {
-              "type": "range",
-              "id": "drawer_links_hover_transparency",
-              "min": 0,
-              "max": 1,
-              "step": 0.10000000000000001,
-              "unit": "",
-              "label": "Links hover transparency",
-              "default": 0.80000000000000004
-          },
-          {
-              "type": "select",
-              "id": "drawer_links_font_weight",
-              "label": "Links font weight",
-              "options": [
-                  {
-                      "value": "300",
-                      "label": "Light"
-                  },
-                  {
-                      "value": "400",
-                      "label": "Normal"
-                  },
-                  {
-                      "value": "500",
-                      "label": "Bold"
-                  },
-                  {
-                      "value": "700",
-                      "label": "Heavy"
-                  }
-              ],
-              "default": "400"
-          },
-          {
-              "type": "select",
-              "id": "drawer_font_family",
-              "label": "Font family",
-              "options": [
-                  {
-                      "value": "Roboto",
-                      "label": "Roboto"
-                  },
-                  {
-                      "value": "Open Sans",
-                      "label": "Open Sans"
-                  },
-                  {
-                      "value": "Lato",
-                      "label": "Lato"
-                  },
-                  {
-                      "value": "Oswald",
-                      "label": "Oswald"
-                  },
-                  {
-                      "value": "Raleway",
-                      "label": "Raleway"
-                  },
-                  {
-                      "value": "Montserrat",
-                      "label": "Montserrat"
-                  }
-              ]
-          }
-      ]
-  },
-  {
-      "label": "Notification Toast",
-      "settings": [
-          {
-              "type": "select",
-              "id": "notification_toast_position",
-              "label": "Position",
-              "options": [
-                  {
-                      "value": "top-right",
-                      "label": "Top right"
-                  },
-                  {
-                      "value": "top-left",
-                      "label": "Top left"
-                  },
-                  {
-                      "value": "bottom-right",
-                      "label": "Bottom right"
-                  },
-                  {
-                      "value": "bottom-left",
-                      "label": "Bottom left"
-                  }
-              ],
-              "default": "top-right"
-          },
-          {
-              "type": "range",
-              "id": "notification_toast_height",
-              "label": "Height",
-              "min": 30,
-              "max": 200,
-              "step": 1,
-              "unit": "px",
-              "default": 50
-          },
-          {
-              "type": "range",
-              "id": "notification_toast_font_size",
-              "label": "Text size",
-              "min": 10,
-              "max": 30,
-              "step": 1,
-              "unit": "px",
-              "default": 16
-          },
-          {
-              "type": "color",
-              "id": "notification_toast_background_color",
-              "label": "Background color",
-              "default": "#222"
-          },
-          {
-              "type": "color",
-              "id": "notification_toast_text_color",
-              "label": "Text color",
-              "default": "#fff"
-          },
-          {
-              "type": "range",
-              "id": "notification_toast_border_radius",
-              "label": "Border radius",
-              "min": 0,
-              "max": 50,
-              "step": 1,
-              "unit": "px",
-              "default": 5
-          },
-          {
-              "type": "range",
-              "id": "notification_toast_border_width",
-              "label": "Border width",
-              "min": 0,
-              "max": 10,
-              "step": 1,
-              "unit": "px",
-              "default": 0
-          },
-          {
-              "type": "color",
-              "id": "notification_toast_border_color",
-              "label": "Border color",
-              "default": "#000"
-          },
-          {
-              "type": "range",
-              "id": "notification_toast_font_weight",
-              "label": "Text weight",
-              "min": 100,
-              "max": 900,
-              "step": 100,
-              "default": 400
-          }
-      ]
-  }
+    {
+        "label": "General Settings",
+        "settings": [
+            {
+                "type": "text",
+                "id": "meta_title",
+                "label": "Title"
+            },
+            {
+                "type": "select",
+                "id": "theme_direction",
+                "label": "Theme direction",
+                "options": [
+                    {
+                        "value": "rtl",
+                        "label": "Right to left"
+                    },
+                    {
+                        "value": "ltr",
+                        "label": "left to right"
+                    }
+                ],
+                "default": "ltr"
+            },
+            {
+                "type": "text",
+                "id": "meta_description",
+                "label": "Meta description"
+            },
+            {
+                "type": "text",
+                "id": "meta_keywords",
+                "label": "Meta keywords"
+            },
+            {
+                "type": "image_picker",
+                "id": "og_image",
+                "label": "Meta Open Graph Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "favicon",
+                "label": "Favicon"
+            }
+        ]
+    },
+    {
+        "label": "Color Palette",
+        "settings": [
+            {
+                "type": "color",
+                "id": "primary_color",
+                "label": "Primary",
+                "default": "#aa2e66"
+            },
+            {
+                "type": "color",
+                "id": "success_color",
+                "label": "Success",
+                "default": "#4AB380"
+            },
+            {
+                "type": "color",
+                "id": "error_color",
+                "label": "Error",
+                "default": "#773740"
+            },
+            {
+                "type": "color",
+                "id": "warning_color",
+                "label": "Warning",
+                "default": "#F2962F"
+            },
+            {
+                "type": "color",
+                "id": "neutral_color",
+                "label": "Neutral",
+                "default": "#16191B"
+            },
+            {
+                "type": "color",
+                "id": "neutral_light_color",
+                "label": "Neutral Light",
+                "default": "#e3e3e3"
+            }
+        ]
+    },
+    {
+        "label": "Additional Styles",
+        "settings": [
+            {
+                "type": "select",
+                "id": "font_family",
+                "label": "Font family",
+                "options": [
+                    {
+                        "value": "Roboto",
+                        "label": "Roboto"
+                    },
+                    {
+                        "value": "Noto+Kufi+Arabic",
+                        "label": "Noto Kufi Arabic"
+                    },
+                    {
+                        "value": "Readex Pro",
+                        "label": "Readex Pro"
+                    },
+                    {
+                        "value": "Almarai",
+                        "label": "Almarai"
+                    },
+                    {
+                        "value": "Noto Sans Arabic",
+                        "label": "Noto Sans Arabic"
+                    },
+                    {
+                        "value": "Cairo",
+                        "label": "Cairo"
+                    },
+                    {
+                        "value": "Open Sans",
+                        "label": "Open Sans"
+                    },
+                    {
+                        "value": "Lato",
+                        "label": "Lato"
+                    },
+                    {
+                        "value": "Oswald",
+                        "label": "Oswald"
+                    },
+                    {
+                        "value": "Raleway",
+                        "label": "Raleway"
+                    },
+                    {
+                        "value": "Montserrat",
+                        "label": "Montserrat"
+                    }
+                ],
+                "default": "Roboto"
+            },
+            {
+                "type": "text",
+                "id": "transition",
+                "label": "Transition",
+                "default": "all 0.3s ease-in-out"
+            }
+        ]
+    },
+    {
+        "label": "Navbar",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "navbar_logo",
+                "label": "Logo"
+            },
+            {
+                "type": "range",
+                "id": "navbar_height",
+                "min": 20,
+                "max": 150,
+                "step": 1,
+                "unit": "px",
+                "label": "Height",
+                "default": 60
+            },
+            {
+                "type": "color",
+                "id": "navbar_background_color",
+                "label": "Background color",
+                "default": "#FFFFFF"
+            },
+            {
+                "type": "color",
+                "id": "navbar_links_color",
+                "label": "Items and links color"
+            },
+            {
+                "type": "color",
+                "id": "cart_badge_color",
+                "label": "Cart badge color"
+            },
+            {
+                "type": "range",
+                "id": "navbar_links_hover_transparency",
+                "min": 0,
+                "max": 1,
+                "step": 0.10000000000000001,
+                "unit": "",
+                "label": "Links hover transparency",
+                "default": 0.80000000000000004
+            },
+            {
+                "type": "select",
+                "id": "navbar_links_font_weight",
+                "label": "Links font weight",
+                "options": [
+                    {
+                        "value": "300",
+                        "label": "Light"
+                    },
+                    {
+                        "value": "400",
+                        "label": "Normal"
+                    },
+                    {
+                        "value": "500",
+                        "label": "Bold"
+                    },
+                    {
+                        "value": "700",
+                        "label": "Heavy"
+                    }
+                ],
+                "default": "400"
+            },
+            {
+                "type": "select",
+                "id": "navbar_font_family",
+                "label": "Font family",
+                "options": [
+                    {
+                        "value": "Roboto",
+                        "label": "Roboto"
+                    },
+                    {
+                        "value": "Open Sans",
+                        "label": "Open Sans"
+                    },
+                    {
+                        "value": "Almarai",
+                        "label": "Almarai"
+                    },
+                    {
+                        "value": "Lato",
+                        "label": "Lato"
+                    },
+                    {
+                        "value": "Oswald",
+                        "label": "Oswald"
+                    },
+                    {
+                        "value": "Raleway",
+                        "label": "Raleway"
+                    },
+                    {
+                        "value": "Montserrat",
+                        "label": "Montserrat"
+                    }
+                ]
+            },
+            {
+                "type": "checkbox",
+                "id": "full_width",
+                "label": "Full width navbar",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "navbar_shadow",
+                "label": "Show navbar shadow",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "navbar_always_on_top",
+                "label": "Navbar always on top",
+                "default": false
+            }
+        ]
+    },
+    {
+        "label": "Mobile sidebar",
+        "settings": [
+            {
+                "type": "color",
+                "id": "drawer_background_color",
+                "label": "Background color",
+                "default": "#FFFFFF"
+            },
+            {
+                "type": "color",
+                "id": "drawer_links_color",
+                "label": "Items and links color"
+            },
+            {
+                "type": "range",
+                "id": "drawer_links_hover_transparency",
+                "min": 0,
+                "max": 1,
+                "step": 0.10000000000000001,
+                "unit": "",
+                "label": "Links hover transparency",
+                "default": 0.80000000000000004
+            },
+            {
+                "type": "select",
+                "id": "drawer_links_font_weight",
+                "label": "Links font weight",
+                "options": [
+                    {
+                        "value": "300",
+                        "label": "Light"
+                    },
+                    {
+                        "value": "400",
+                        "label": "Normal"
+                    },
+                    {
+                        "value": "500",
+                        "label": "Bold"
+                    },
+                    {
+                        "value": "700",
+                        "label": "Heavy"
+                    }
+                ],
+                "default": "400"
+            },
+            {
+                "type": "select",
+                "id": "drawer_font_family",
+                "label": "Font family",
+                "options": [
+                    {
+                        "value": "Roboto",
+                        "label": "Roboto"
+                    },
+                    {
+                        "value": "Open Sans",
+                        "label": "Open Sans"
+                    },
+                    {
+                        "value": "Lato",
+                        "label": "Lato"
+                    },
+                    {
+                        "value": "Oswald",
+                        "label": "Oswald"
+                    },
+                    {
+                        "value": "Raleway",
+                        "label": "Raleway"
+                    },
+                    {
+                        "value": "Montserrat",
+                        "label": "Montserrat"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "label": "Notification Toast",
+        "settings": [
+            {
+                "type": "select",
+                "id": "notification_toast_position",
+                "label": "Position",
+                "options": [
+                    {
+                        "value": "top-right",
+                        "label": "Top right"
+                    },
+                    {
+                        "value": "top-left",
+                        "label": "Top left"
+                    },
+                    {
+                        "value": "bottom-right",
+                        "label": "Bottom right"
+                    },
+                    {
+                        "value": "bottom-left",
+                        "label": "Bottom left"
+                    }
+                ],
+                "default": "top-right"
+            },
+            {
+                "type": "range",
+                "id": "notification_toast_height",
+                "label": "Height",
+                "min": 30,
+                "max": 200,
+                "step": 1,
+                "unit": "px",
+                "default": 50
+            },
+            {
+                "type": "range",
+                "id": "notification_toast_font_size",
+                "label": "Text size",
+                "min": 10,
+                "max": 30,
+                "step": 1,
+                "unit": "px",
+                "default": 16
+            },
+            {
+                "type": "color",
+                "id": "notification_toast_background_color",
+                "label": "Background color",
+                "default": "#222"
+            },
+            {
+                "type": "color",
+                "id": "notification_toast_text_color",
+                "label": "Text color",
+                "default": "#fff"
+            },
+            {
+                "type": "range",
+                "id": "notification_toast_border_radius",
+                "label": "Border radius",
+                "min": 0,
+                "max": 50,
+                "step": 1,
+                "unit": "px",
+                "default": 5
+            },
+            {
+                "type": "range",
+                "id": "notification_toast_border_width",
+                "label": "Border width",
+                "min": 0,
+                "max": 10,
+                "step": 1,
+                "unit": "px",
+                "default": 0
+            },
+            {
+                "type": "color",
+                "id": "notification_toast_border_color",
+                "label": "Border color",
+                "default": "#000"
+            },
+            {
+                "type": "range",
+                "id": "notification_toast_font_weight",
+                "label": "Text weight",
+                "min": 100,
+                "max": 900,
+                "step": 100,
+                "default": 400
+            }
+        ]
+    }
 ]

@@ -84,6 +84,22 @@
   }
 }
 
+@media (min-width: 768px) {
+  .search-page {
+    padding: 0 40px;
+  }
+}
+@media (min-width: 992px) {
+  .search-page {
+    padding: 0 70px;
+  }
+}
+@media (min-width: 1200px) {
+  .search-page {
+    padding: 0 150px;
+  }
+}
+
 /* Dropdown Button (sort) */
 .sort-container {
   margin: 40px auto;
