@@ -39,9 +39,3 @@
   font-size: 12px;
   line-height: 140.5%;
 }
-@media (min-width: 768px) {
-  .accordion .accordion-content {
-    max-height: unset;
-    overflow: unset;
-  }
-}
