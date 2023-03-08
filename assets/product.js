@@ -474,16 +474,7 @@ function setup() {
   singleProductSections.forEach((section) => {
     const productDetails = section.querySelector('.product-options');
 
-    if(typeof getSelectedVariant(section) === 'undefined'){
-      const variant = variants[0]
-      updateProductDetails(
-        section,
-        variant.image,
-        variant.price,
-        variant.variations
-      );
-    }
-    else if (productDetails) {
+    if (productDetails) {
       const observer = new MutationObserver(() => {
         const selectedVariant = getSelectedVariant(section);
         const variantIdInput = section.querySelector('#variantId');
@@ -496,6 +487,7 @@ function setup() {
           selectedVariant.variations
         );
       });
+
       observer.observe(productDetails, {
         attributes: true,
         childList: true,
