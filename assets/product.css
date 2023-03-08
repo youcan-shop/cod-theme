@@ -36,7 +36,6 @@
   overflow: hidden;
   border: 1px solid #E7E7E7;
   border-radius: 4px;
-  padding: 5px;
 }
 @media (min-width: 768px) {
   .yc-single-product .product-images #img-zoomer-box {
@@ -91,7 +90,6 @@
 .yc-single-product .product-images .product-images-container .thumbnail-images .image-container {
   border: 1px solid #E7E7E7;
   border-radius: 4px;
-  padding: 5px;
   width: 80px;
   height: 78px;
   cursor: pointer;
@@ -110,7 +108,6 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  overflow: hidden;
 }
 @media (min-width: 768px) {
   .yc-single-product .product-details {
@@ -142,10 +139,13 @@
 }
 .yc-single-product .product-details .product-description {
   overflow: hidden;
-  color: var(--yc-neutral-light-color);
-  font-weight: 400;
-  font-size: 14px;
+}
+.yc-single-product .product-details .product-description * {
+  font-family: var(--yc-font-family);
   line-height: 184.5%;
+}
+.yc-single-product .product-details .product-description strong {
+  font-weight: 700;
 }
 .yc-single-product .product-details .product-option-title {
   text-transform: capitalize;
