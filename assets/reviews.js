@@ -27,8 +27,9 @@
 
     if (pagination.totalPages > 1) {
       showMoreButton.style.display = 'block';
-      showMoreButton.addEventListener('click', async () => {
+      showMoreButton?.addEventListener('click', async () => {
         const response = res.next();
+
         reviews = await response.data();
         reviewsWrapper.append(...reviews.map(review => createReviewItem(review)));
 
