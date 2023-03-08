@@ -473,6 +473,14 @@ function setup() {
 
   singleProductSections.forEach((section) => {
     const productDetails = section.querySelector('.product-options');
+    const variant = variants[0]
+
+    updateProductDetails(
+      section,
+      variant.image,
+      variant.price,
+      variant.variations
+    );
 
     if (productDetails) {
       const observer = new MutationObserver(() => {
