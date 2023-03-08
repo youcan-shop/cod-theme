@@ -12,6 +12,7 @@
 
   const createReviewItem = (review) => {
     const reviewItem = document.createElement('li');
+
     reviewItem.classList.add('review-item');
     createElement(reviewItem, review);
     return reviewsWrapper.appendChild(reviewItem);
