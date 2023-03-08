@@ -84,7 +84,8 @@
         max-width: max-content;
 
         @include breakpoint('md') {
-          flex-direction: row;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
           order: 1;
         }
       }
@@ -96,6 +97,11 @@
         width: 80px;
         height: 78px;
         cursor: pointer;
+
+        @include breakpoint('md') {
+          width: 100%;
+          height: 100%;
+        }
 
         &.active {
           border-color: #000000;
