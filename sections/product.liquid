@@ -5,6 +5,11 @@
     padding-top: {{ section.settings.padding_top}}px;
     padding-bottom: {{ section.settings.padding_bottom}}px;
   }
+
+  .countdown-wrapper {
+    background-color: {{ block.settings.background_color.hex }};
+    color: {{ block.settings.text_color.hex }};
+  }
 {%- endstyle -%}
 
 <section class='product_customization'>
@@ -77,7 +82,19 @@
           "label": "Message",
           "id": "countdown_message",
           "type": "richtext",
-          "default": "hurry up! There aren't many items left in stock."
+          "default": "عرض لفترة محدودة"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#FFFFFF"
         },
         {
           "label": "Year",
@@ -133,6 +150,44 @@
           "id": "text_color",
           "type": "color",
           "default": "#ffffff"
+        }
+      ]
+    },
+    {
+      "label": "Accordion",
+      "type": "accordion",
+      "settings": [
+        {
+          "label": "Title",
+          "id": "accordion_title",
+          "type": "text"
+        },
+        {
+          "label": "Details",
+          "id": "accordion_details",
+          "type": "richtext"
+        },
+        {
+          "label": "Background Color",
+          "id": "background_color",
+          "type": "color",
+          "default": "#F7F7F7"
+        },
+        {
+          "label": "Text Color",
+          "id": "text_color",
+          "type": "color",
+          "default": "#000000"
+        },
+        {
+          "label": "Margin bottom",
+          "id": "margin_bottom",
+          "min": 5,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "type": "range",
+          "default": 14
         }
       ]
     },
@@ -299,6 +354,8 @@
 {%- javascript -%}
   const variantStr = `{{ selected_product.variants | json }}`;
   const variants = JSON.parse(variantStr.slice(1, -1));
+  const ratings = "{{ 'reviews.ratings' | t }}";
+  const productId = '{{ selected_product.id }}';
 {%- endjavascript -%}
 
 {{ 'product.js' | asset_url | script_tag_deferred }}

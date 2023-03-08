@@ -1,37 +1,53 @@
+@import 'helpers/mixins';
+
 .countdown-wrapper {
+  width: calc(100% + 40px);
+  margin: 0 -20px;
   display: flex;
   align-items: center;
-  margin: 20px auto;
-  box-shadow: var(--yc-main-shadow);
-  border-radius: 8px;
+  justify-content: space-between;
+  gap: 20px;
   padding: 20px;
-  max-width: 600px;
-  text-align: center;
+
+  @include breakpoint('md') {
+    width: 100%;
+    margin: 0;
+    border-radius: 4px;
+  }
+
+  .message p {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+  }
 
   .countdown {
+    direction: ltr;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 14px;
+    gap: 4px;
 
-    .unit-parent {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    & *:not(.dots, .num) {
+      min-width: 37px;
+      padding: 5px;
       text-align: center;
-      font-size: 25px;
+      border-radius: 6px;
+      background-color: #e1e1e15c;
+    }
 
-      .unit {
-        font-size: 14px;
-        opacity: 0.7;
-      }
+    .num {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 120%;
+    }
+
+    .dots {
+      max-width: max-content;
+      height: fit-content;
+      font-size: 34px;
+      font-weight: 700;
+      margin-top: -11px;
     }
   }
-
-  .message {
-    margin-bottom: 14px;
-    text-align: center;
-  }
 }
+
