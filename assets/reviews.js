@@ -31,7 +31,6 @@
         const response = res.next();
 
         reviews = await response.data();
-
         reviewsWrapper.append(...reviews.map(review => createReviewItem(review)));
 
         if (pagination.totalPages >= pagination.currentPage) {
