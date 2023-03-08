@@ -1,42 +1,42 @@
 (async () => {
-  const reviewsContainer = document.querySelector('.yc-product-reviews');
-  const reviewsWrapper = document.querySelector('.yc-reviews-wrapper');
-  const noDataSetter = (element) => {
-    if (reviewsContainer) {
-      reviewsContainer.remove();
-    }
-  };
+  const reviewsContainer = $('.yc-product-reviews');
+  const reviewsWrapper = $('.yc-reviews-wrapper');
+  const showMoreButton = $('#show-more');
+  let reviews = [];
+
+    const noDataSetter = (element) => {
+      if (reviewsContainer) {
+        reviewsContainer.remove();
+      }
+    };
+
+  const createReviewItem = (review) => {
+    const reviewItem = document.createElement('li');
+    reviewItem.classList.add('review-item');
+    createElement(reviewItem, review);
+    return reviewsWrapper.appendChild(reviewItem);
+  }
 
   try {
-    const reviews = await youcanjs.product.fetchReviews(productId).data();
-    const maxReviewsToShow = 3;
+    const res = youcanjs.product.fetchReviews(productId, { limit: 3 });
 
-    reviewsContainer.style.display = 'block';
+    reviews = await res.data();
 
-    for (let i = 0; i < maxReviewsToShow && i < reviews.length; i++) {
-      const review = reviews[i];
-      const reviewItem = document.createElement('li');
+    reviewsWrapper.append(...reviews.map(review => createReviewItem(review)));
+    const pagination = res.pagination();
 
-      reviewItem.classList.add('review-item');
-      createElement(reviewItem, review);
-      reviewsWrapper.appendChild(reviewItem);
-    }
+    if (pagination.totalPages > 1) {
+      showMoreButton.style.display = 'block';
+      showMoreButton.addEventListener('click', async () => {
+        const response = res.next();
 
-    if(reviews.length > maxReviewsToShow) {
-      const showMoreButton = $('#show-more');
+        reviews = await response.data();
 
-      showMoreButton.style.display = "block";
-      showMoreButton?.addEventListener("click", () => {
-        for (let i = maxReviewsToShow; i < reviews.length; i++) {
-          const review = reviews[i];
-          const reviewItem = document.createElement('li');
+        reviewsWrapper.append(...reviews.map(review => createReviewItem(review)));
 
-          reviewItem.classList.add('review-item');
-          createElement(reviewItem, review);
-          reviewsWrapper.appendChild(reviewItem);
+        if (pagination.totalPages >= pagination.currentPage) {
+          showMoreButton.style.display = 'none';
         }
-
-        showMoreButton.style.display = "none";
       });
     }
 

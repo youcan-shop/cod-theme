@@ -1,7 +1,6 @@
 @import 'helpers/mixins';
 
 .yc-product-reviews {
-  display: none;
   margin-bottom: 27px;
 
   .head {
@@ -53,7 +52,7 @@
             height: 49px;
             border-radius: 50%;
             aspect-ratio: 1/1;
-            object-fit: cover;
+            object-fit: contain;
           }
 
           .info {

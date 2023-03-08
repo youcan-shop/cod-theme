@@ -1,5 +1,4 @@
 .yc-product-reviews {
-  display: none;
   margin-bottom: 27px;
 }
 .yc-product-reviews .head {
@@ -52,7 +51,7 @@
   height: 49px;
   border-radius: 50%;
   aspect-ratio: 1/1;
-  object-fit: cover;
+  object-fit: contain;
 }
 .yc-product-reviews .yc-reviews-wrapper .review-item .header .profil .info {
   display: grid;
