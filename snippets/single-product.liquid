@@ -94,10 +94,19 @@ const desktopSlider = new Splide(`#yc_slider_{{ uniqID }}.yc-slider__desktop`, {
   rewind: true,
   perPage: 4,
   perMove: 1,
-  gap: '20px',
+  gap: '10px',
   drag: 'free',
   snap: true,
-  loop: true,
+
+  breakpoints: {
+    1024: {
+      perPage: 3,
+    },
+    768: {
+      direction: 'ttb',
+      height: '250px',
+    },
+  },
 });
 desktopSlider.mount();
 

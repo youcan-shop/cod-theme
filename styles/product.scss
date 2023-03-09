@@ -78,12 +78,38 @@
       .thumbnail-images {
         display: flex;
         flex-direction: column;
-        justify-content: start;
-        gap: 10px;
+        justify-content: center;
         max-width: max-content;
 
         @include breakpoint('md') {
           order: 1;
+          padding: 0 40px;
+        }
+      }
+
+      .splide__arrow--next {
+        right: 0;
+      }
+
+      .splide__arrow--prev {
+        left: 0;
+      }
+
+      .splide__arrow {
+        display: block;
+        
+        @media screen and (max-width: 768px) {
+          left: 50%;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .splide__arrow--prev {
+          top: 0;
+        }
+
+        .splide__arrow--next {
+          bottom: 0;
         }
       }
 
