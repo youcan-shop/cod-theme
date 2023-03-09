@@ -1,14 +1,20 @@
-<section class='product-images {% if hidden %} hidden{% endif %}'>
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+{{ 'splide.min.js' | asset_url | script_tag }}
+
+<section class='product-images {% if hidden %} hidden{% endif %} splide yc-slider__{{ view }}'
+id='yc_slider_{{ id }}'>
   <div class='product-images-container'>
-    <div class='thumbnail-images'>
-      {% for image in images %}
-        <div class="image-container" onmouseenter='previewProductImage(this)'>
-          <img
-            loading='lazy'
-            src='{{ image }}'
-            alt='{{ product.name }}'>
-        </div>
-      {% endfor %}
+    <div class='thumbnail-images splide__track'>
+      <ul class="splide__list">
+        {% for image in images %}
+          <li class="image-container splide__slide" onmouseenter='previewProductImage(this)'>
+            <img
+              loading='lazy'
+              src='{{ image }}'
+              alt='{{ product.name }}'>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
     <div id='img-zoomer-box'>
       <img
@@ -21,3 +27,4 @@
     </div>
   </div>
 </section>
+
