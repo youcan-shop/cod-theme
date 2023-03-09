@@ -88,46 +88,40 @@
 </div>
 
 <script>
-  const isMobile2 = window.matchMedia("(max-width: 768px)");
-  const products = {{ section.blocks.size }};
-      let perPage = 3;
-      if (products < 3) {
-        perPage = products;
-      }
+  const isMobile = window.matchMedia("(max-width: 760px)");
 
-  const desktopSlider2 = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
+  const desktopSlider = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
     arrows: true,
     cover: true,
+    focus: 'center',
     rewind: true,
-    drag: 'free',
     perPage: 3,
-    perMove: 1,
+    drag: 'free',
     snap: true,
-    gap: '20px',
-    focus  : 'center',
+    loop: true,
   });
 
-  const mobileSlider2 = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
+  const mobileSlider = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
     arrows: true,
     cover: true,
+    focus: 'center',
     rewind: true,
+    perPage: 3,
     drag: 'free',
-    perPage: 2,
-    perMove: 1,
-    gap: '12px',
     snap: true,
+    loop: true,
   });
 
-  const mountSlider2 = () => {
+  const mountSlider = () => {
     try {
-      if (isMobile2.matches) return mobileSlider2.mount();
+      if (isMobile.matches) return mobileSlider.mount();
       
-      return desktopSlider2.mount();
+      return desktopSlider.mount();
     } catch {
       return;
     }
   }
 
-  mountSlider2();
-  isMobile2.addEventListener('change', mountSlider2);
+  mountSlider();
+  isMobile.addEventListener('change', mountSlider);
 </script>
