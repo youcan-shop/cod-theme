@@ -227,11 +227,14 @@ function updateProductDetails(parentSection, image, price, variations) {
 
   if (price) {
     const productPrices = parentSection.querySelectorAll('.product-price');
+    const showStickyCheckoutPrice = $('#sticky-price');
 
     productPrices.forEach(productPrice => {
       productPrice.innerHTML = `${
         String(productPrice.innerHTML).split(' ')[0]
       } ${price}`;
+
+      showStickyCheckoutPrice.innerHTML = productPrice.innerHTML;
     })
   }
 
