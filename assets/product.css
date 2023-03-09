@@ -83,8 +83,6 @@
 }
 @media (min-width: 768px) {
   .yc-single-product .product-images .product-images-container .thumbnail-images {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     order: 1;
   }
 }
