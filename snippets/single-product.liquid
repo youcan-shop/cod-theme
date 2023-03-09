@@ -89,33 +89,16 @@
 </div>
 <script>
  
-
-document.addEventListener( 'DOMContentLoaded', function () {
-    var main = new Splide( '#img-zoomer-box', {
-      type      : 'fade',
-      rewind    : true,
-      pagination: true,
-      arrows    : false,
-    } );
-  
-  
-    var thumbnails = new Splide( '#thumbnail-carousel', {
-      fixedWidth  : 100,
-      fixedHeight : 60,
-      gap         : 10,
-      rewind      : true,
-      pagination  : true,
-      isNavigation: true,
-      breakpoints : {
-        600: {
-          fixedWidth : 60,
-          fixedHeight: 44,
-        },
-      },
-    } );
-  
-    main.sync(thumbnails).mount();
-    thumbnails.mount();
-  } );
+const desktopSlider = new Splide(`#yc_slider_{{ uniqID }}.yc-slider__desktop`, {
+  arrows: true,
+  rewind: true,
+  perPage: 4,
+  perMove: 1,
+  gap: '20px',
+  drag: 'free',
+  snap: true,
+  loop: true,
+});
+desktopSlider.mount();
 
 </script>

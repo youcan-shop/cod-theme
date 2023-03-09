@@ -3,7 +3,7 @@
 
 <section class='product-images {% if hidden %} hidden{% endif %}'>
   <div class='product-images-container'>
-    <div class='thumbnail-images splide yc-slider__{{ view }}' id='thumbnail-carousel'>
+    <div class='thumbnail-images splide yc-slider__{{ view }}' id='yc_slider_{{id}}'>
       <div class="splide__track">
         <ul class="splide__list">
           {% for image in images %}
@@ -17,9 +17,10 @@
         </ul>
       </div>
     </div>
-    <div id='img-zoomer-box' class='main-image'>
+    <div id='img-zoomer-box'>
       <img
         loading='lazy'
+        class='main-image'
         class='main-thumbnail'
         src='{%- if images[0] %}{{images[0]}}{%- else %}{{ 'default_product.jpeg' | asset_url }}{% endif %}'
         alt='{{ product_name }}'>
