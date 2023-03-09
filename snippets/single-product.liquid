@@ -88,11 +88,12 @@
 
 </div>
 <script>
- 
+const products = {{ product.images.size }};
+
 const desktopSlider = new Splide(`#yc_slider_{{ uniqID }}.yc-slider__desktop`, {
-  arrows: true,
+  arrows: products > 3 ? true : false,
   rewind: true,
-  perPage: 4,
+  perPage: products > 3 ? 4 : products,
   perMove: 1,
   gap: '10px',
   drag: 'free',
@@ -100,14 +101,23 @@ const desktopSlider = new Splide(`#yc_slider_{{ uniqID }}.yc-slider__desktop`, {
 
   breakpoints: {
     1024: {
-      perPage: 3,
+      perPage: products >= 3 ? 3 : products,
     },
     768: {
       direction: 'ttb',
       height: '250px',
+      padding: 0,
     },
   },
 });
+
+desktopSlider.on('mounted', () => {
+  if (products > 3) {
+    document.querySelector('.yc-slider__desktop').style.padding = '0 40px';
+  }
+});
+
 desktopSlider.mount();
+
 
 </script>
