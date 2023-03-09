@@ -3,7 +3,7 @@
 {{ 'splide.min.js' | asset_url | script_tag }}
 
 {%- assign snippetId = 0 | rand %}
-{% assign id = 100 | rand: 2000 %}
+{% assign uniqID = 100 | rand: 2000 %}
 
 <div
   class='container yc-single-product'
@@ -28,7 +28,7 @@
   {% assign product_name = product.name %}
 
   <!-- prettier-ignore -->
-  {% render 'product-images-showcase', images: images, product_name: product_name, hidden: section.settings.hide_gallery, slider_arrows: section.settings.slider_arrows, slider_arrows_mobile: section.settings.slider_mobile_autoplay, id: id , view: 'desktop' -%}
+  {% render 'product-images-showcase', images: images, product_name: product_name, hidden: section.settings.hide_gallery, slider_arrows: section.settings.slider_arrows, slider_arrows_mobile: section.settings.slider_mobile_autoplay, id: uniqID , view: 'desktop' -%}
 
   <div class='product-details'>
     {%- for block in section.blocks -%}
@@ -85,15 +85,11 @@
       </div>
     {%- endfor -%}
   </div>
+
 </div>
-
 <script>
-  const isMobile = window.matchMedia("(max-width: 760px)");
-
-  const desktopSlider = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
+  const desktopSlider = new Splide(`#yc_slider_{{ uniqID }}.yc-slider__desktop`, {
     arrows: true,
-    cover: true,
-    focus: 'center',
     rewind: true,
     perPage: 3,
     drag: 'free',
@@ -101,27 +97,5 @@
     loop: true,
   });
 
-  const mobileSlider = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
-    arrows: true,
-    cover: true,
-    focus: 'center',
-    rewind: true,
-    perPage: 3,
-    drag: 'free',
-    snap: true,
-    loop: true,
-  });
-
-  const mountSlider = () => {
-    try {
-      if (isMobile.matches) return mobileSlider.mount();
-      
-      return desktopSlider.mount();
-    } catch {
-      return;
-    }
-  }
-
-  mountSlider();
-  isMobile.addEventListener('change', mountSlider);
+  desktopSlider.mount();
 </script>
