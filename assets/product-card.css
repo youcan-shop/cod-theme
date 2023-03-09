@@ -55,8 +55,11 @@
   gap: 10px;
 }
 
-.yc-product-card .price .product-price {
-  font-size: 16px !important;
+.yc-product-card #sticky-price {
+  font-weight: 700;
+  line-height: 120%;
+  color: var(--yc-primary-color);
+  font-size: 16px;
 }
 
 .selected-preview {
