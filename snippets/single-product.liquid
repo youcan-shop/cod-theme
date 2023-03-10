@@ -90,11 +90,10 @@
 
 <script defer>
 const products = {{ product.images.size }};
-
 const desktopSlider = new Splide(`#yc_slider_{{ uniqID }}.yc-slider__desktop`, {
-  arrows: products > 3 ? true : false,
+  arrows: products > 3,
   rewind: true,
-  perPage: products > 3 ? 4 : products,
+  perPage: Math.min(products, 4),
   perMove: 1,
   gap: '10px',
   drag: 'free',
@@ -102,7 +101,7 @@ const desktopSlider = new Splide(`#yc_slider_{{ uniqID }}.yc-slider__desktop`, {
 
   breakpoints: {
     1024: {
-      perPage: products >= 3 ? 3 : products,
+      perPage: Math.min(products, 3),
     },
     768: {
       direction: 'ttb',
@@ -112,7 +111,7 @@ const desktopSlider = new Splide(`#yc_slider_{{ uniqID }}.yc-slider__desktop`, {
 });
 
 desktopSlider.on('mounted', () => {
-  if (products > 4) {
+  if (products >= 3 && window.innerWidth < 1024 || products > 4) {
     document.querySelector('.yc-slider__desktop').style.padding = '0 40px';
   }
 
@@ -126,5 +125,5 @@ desktopSlider.on('mounted', () => {
 });
 
 desktopSlider.mount();
-
 </script>
+

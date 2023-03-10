@@ -76,11 +76,15 @@
 .yc-single-product .product-images .product-images-container .thumbnail-images {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
 }
 @media (min-width: 768px) {
   .yc-single-product .product-images .product-images-container .thumbnail-images {
     order: 1;
+  }
+}
+@media screen and (max-width: 768px) {
+  .yc-single-product .product-images .product-images-container .thumbnail-images {
+    margin-left: 10px;
   }
 }
 .yc-single-product .product-images .product-images-container .splide__arrow--next {
