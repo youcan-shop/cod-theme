@@ -77,7 +77,6 @@
       .thumbnail-images {
         display: flex;
         flex-direction: column;
-        margin-left: 10px;
 
         @include breakpoint('md') {
           order: 1;
@@ -94,9 +93,11 @@
 
       .splide__slide {
         height: 77px !important;
+        margin-left: 10px;
 
         @include breakpoint('md') {
           height: 100% !important;
+          margin: 0;
         }
       }
 

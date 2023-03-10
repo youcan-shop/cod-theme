@@ -76,7 +76,6 @@
 .yc-single-product .product-images .product-images-container .thumbnail-images {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
 }
 @media (min-width: 768px) {
   .yc-single-product .product-images .product-images-container .thumbnail-images {
@@ -91,10 +90,12 @@
 }
 .yc-single-product .product-images .product-images-container .splide__slide {
   height: 77px !important;
+  margin-left: 10px;
 }
 @media (min-width: 768px) {
   .yc-single-product .product-images .product-images-container .splide__slide {
     height: 100% !important;
+    margin: 0;
   }
 }
 .yc-single-product .product-images .product-images-container .splide__arrow {
