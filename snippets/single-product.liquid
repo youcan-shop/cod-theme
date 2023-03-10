@@ -106,7 +106,7 @@ const desktopSlider = new Splide(`#yc_slider_{{ uniqID }}.yc-slider__desktop`, {
     },
     768: {
       direction: 'ttb',
-      height: '250px',
+      height: '255px',
     },
   },
 });
@@ -114,6 +114,10 @@ const desktopSlider = new Splide(`#yc_slider_{{ uniqID }}.yc-slider__desktop`, {
 desktopSlider.on('mounted', () => {
   if (products > 4) {
     document.querySelector('.yc-slider__desktop').style.padding = '0 40px';
+  }
+
+  if (products > 3) {
+    document.querySelector('.thumbnail-images').style.justifyContent = 'center';
   }
 
   if (window.innerWidth < 768) {

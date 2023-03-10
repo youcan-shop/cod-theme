@@ -78,7 +78,6 @@
       .thumbnail-images {
         display: flex;
         flex-direction: column;
-        justify-content: center;
 
         @include breakpoint('md') {
           order: 1;
@@ -91,6 +90,14 @@
 
       .splide__arrow--prev {
         left: 0;
+      }
+
+      .splide__slide {
+        height: 78px !important;
+
+        @include breakpoint('md') {
+          height: 100%;
+        }
       }
 
       .splide__arrow {
