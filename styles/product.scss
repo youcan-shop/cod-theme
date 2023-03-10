@@ -94,9 +94,22 @@
       }
 
       .splide__arrow {
+        width: 16px;
+        height: 16px;
+
         @media screen and (max-width: 768px) {
-          display: block;
+          display: flex;
+          width: 36px;
+          height: 36px;
+          border-radius: 8px;
+          border: 1px solid #EDEDED;
+          box-shadow: 4px 10px 76px rgba(0, 0, 0, 0.14);
           left: 50%;
+
+          svg {
+            width: 14px;
+            height: 14px;
+          }
         }
       }
 
