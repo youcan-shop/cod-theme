@@ -110,6 +110,20 @@ $sticky-checkout-padding: 20px;
       padding: 0 20px;
       margin: 0 auto 100px auto;
     }
+
+    .close-icon {
+      display: none;
+
+      @include breakpoint('md') {
+        display: block;
+      }
+    }
+
+    .back-icon {
+      @include breakpoint('md') {
+        display: none;
+      }
+    }
   }
 
   .step_1, .step_2 {
