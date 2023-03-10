@@ -105,10 +105,10 @@
 .yc-single-product .product-images .product-images-container .splide__arrow {
   width: 16px;
   height: 16px;
+  display: flex !important;
 }
 @media screen and (max-width: 767px) {
   .yc-single-product .product-images .product-images-container .splide__arrow {
-    display: flex;
     width: 36px;
     height: 36px;
     border-radius: 8px;

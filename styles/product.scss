@@ -107,9 +107,9 @@
       .splide__arrow {
         width: 16px;
         height: 16px;
+        display: flex !important; 
 
         @media screen and (max-width: 767px) {
-          display: flex;
           width: 36px;
           height: 36px;
           border-radius: 8px;
