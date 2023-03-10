@@ -66,7 +66,6 @@
 .yc-single-product .product-images .product-images-container {
   display: flex;
   flex-direction: row;
-  gap: 10px;
 }
 @media (min-width: 768px) {
   .yc-single-product .product-images .product-images-container {
@@ -77,15 +76,57 @@
 .yc-single-product .product-images .product-images-container .thumbnail-images {
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  gap: 10px;
-  max-width: max-content;
 }
 @media (min-width: 768px) {
   .yc-single-product .product-images .product-images-container .thumbnail-images {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     order: 1;
+  }
+}
+@media screen and (max-width: 767px) {
+  .yc-single-product .product-images .product-images-container .thumbnail-images {
+    margin-left: 10px;
+  }
+}
+.yc-single-product .product-images .product-images-container .splide__arrow--next {
+  right: 0;
+}
+.yc-single-product .product-images .product-images-container .splide__arrow--prev {
+  left: 0;
+}
+.yc-single-product .product-images .product-images-container .splide__slide {
+  height: 77px !important;
+}
+@media (min-width: 768px) {
+  .yc-single-product .product-images .product-images-container .splide__slide {
+    height: 100% !important;
+    margin: 0;
+  }
+}
+.yc-single-product .product-images .product-images-container .splide__arrow {
+  width: 16px;
+  height: 16px;
+  display: flex !important;
+}
+@media screen and (max-width: 767px) {
+  .yc-single-product .product-images .product-images-container .splide__arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid #EDEDED;
+    box-shadow: 4px 10px 76px rgba(0, 0, 0, 0.14);
+    left: 50%;
+  }
+  .yc-single-product .product-images .product-images-container .splide__arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .yc-single-product .product-images .product-images-container .splide__arrow--prev {
+    top: 0;
+  }
+  .yc-single-product .product-images .product-images-container .splide__arrow--next {
+    bottom: 0;
   }
 }
 .yc-single-product .product-images .product-images-container .thumbnail-images .image-container {
@@ -107,8 +148,16 @@
 .yc-single-product .product-images .product-images-container .thumbnail-images img {
   display: block;
   margin: 0 auto;
-  width: auto;
-  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+  height: 150px;
+  object-fit: contain;
+}
+@media screen and (max-width: 768px) {
+  .yc-single-product .product-images .product-images-container .thumbnail-images img {
+    max-height: 100%;
+    min-height: 100%;
+  }
 }
 .yc-single-product .product-details {
   width: 100%;
