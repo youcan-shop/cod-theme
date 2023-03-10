@@ -7,12 +7,16 @@
       <div class="splide__track">
         <ul class="splide__list">
           {% for image in images %}
+            {% if images.size > 1 %}
             <li class="image-container splide__slide" onmouseenter='previewProductImage(this)'>
-              <img
-                loading='lazy'
-                src='{{ image }}'
-                alt='{{ product.name }}'>
+                <img
+                  loading='lazy'
+                  class='thumbnail-image'
+                  src='{{ image | img_url: 'thumb' }}'
+                  data-image='{{ image | img_url: '1024x1024' }}'
+                  alt='{{ product_name }}'>
             </li>
+            {% endif %}
           {% endfor %}
         </ul>
       </div>
