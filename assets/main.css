@@ -271,13 +271,15 @@ input:not([type=radio]),
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
 }
 .yc-image-options-list .yc-image-options-item {
   aspect-ratio: 1;
-  height: 80px;
+  width: 62px;
+  height: 52px;
+  padding: 3px;
   border: 1px solid var(--yc-neutral-light-color);
-  padding: 5px;
+  border-radius: 4px;
   cursor: pointer;
 }
 .yc-image-options-list .yc-image-options-item img {
