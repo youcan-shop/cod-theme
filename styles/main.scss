@@ -316,37 +316,65 @@ input:not([type='radio']),
   border: 1px solid var(--yc-neutral-light-color);
 }
 
-.yc-radio {
-  input[type='radio'] {
-    display: none;
-  }
-  .yc-radio-buttons {
-    width: 20px;
-    height: 20px;
-    background-color: var(--yc-neutral-light-color);
-    border-radius: 50%;
-    position: relative;
-    cursor: pointer;
-    transition: all 0.2s;
-    span {
-      margin-left: 28px;
-      margin-right: 28px;
-      margin-bottom: 5px;
-      display: inline-block;
-      width: 350px;
-    }
-  }
 
-  input[type='radio']:checked + .yc-radio-buttons::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    background-color: var(--yc-primary-color);
+/* --------------------------- */
+/* ----- custom radio button ----- */
+/* --------------------------- */
+.yc-radio {
+  display: grid;
+  gap: 16px;
+
+  .yc-radio-buttons {
+    position: relative;
+    display: inline-flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    gap: 12px;
+    margin: 0;
+    align-items: center;
+    cursor: pointer;
+
+    input[type='radio'] {
+      display: none;
+    }
+
+    .checkmark {
+      position: relative;
+      display: inline-block;
+      height: 26px;
+      width: 26px;
+      background-color: white;
+      border-radius: 50%;
+      border: 1px solid var(--yc-neutral-light-color);
+
+      &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 12px;
+        height: 12px;
+        background-color: white;
+        border-radius: 50%;
+      }
+    }
+
+    input[type='radio']:checked + .checkmark {
+      background: var(--yc-primary-color);
+    }
+
+    &:hover .checkmark {
+      background-color: #f5f5f5;
+    }
+
+    .label-text {
+      color: var(--yc-neutral);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 120%;
+    }
   }
 }
 
