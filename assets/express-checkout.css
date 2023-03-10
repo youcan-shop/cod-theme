@@ -105,6 +105,19 @@
     margin: 0 auto 100px auto;
   }
 }
+.yc-sticky-checkout .step-2-wrapper .close-icon {
+  display: none;
+}
+@media (min-width: 768px) {
+  .yc-sticky-checkout .step-2-wrapper .close-icon {
+    display: block;
+  }
+}
+@media (min-width: 768px) {
+  .yc-sticky-checkout .step-2-wrapper .back-icon {
+    display: none;
+  }
+}
 .yc-sticky-checkout .step_1, .yc-sticky-checkout .step_2 {
   position: relative;
   height: 100%;
