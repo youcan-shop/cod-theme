@@ -137,9 +137,13 @@
   display: block;
   margin: 0 auto;
   width: auto;
-  max-height: 140px;
-  min-height: 100px;
+  height: 100%;
   object-fit: cover;
+}
+@media (min-width: 768px) {
+  .yc-single-product .product-images .product-images-container .thumbnail-images img {
+    height: 140px;
+  }
 }
 .yc-single-product .product-details {
   width: 100%;

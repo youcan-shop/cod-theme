@@ -144,9 +144,12 @@
         display: block;
         margin: 0 auto;
         width: auto;
-        max-height: 140px;
-        min-height: 100px;
+        height: 100%;
         object-fit: cover;
+
+        @include breakpoint('md') {
+          height: 140px;
+        }
       }
     }
   }
