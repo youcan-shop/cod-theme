@@ -90,11 +90,11 @@
   left: 0;
 }
 .yc-single-product .product-images .product-images-container .splide__slide {
-  height: 78px !important;
+  height: 78px;
 }
 @media (min-width: 768px) {
   .yc-single-product .product-images .product-images-container .splide__slide {
-    height: 100%;
+    height: 100% !important;
   }
 }
 .yc-single-product .product-images .product-images-container .splide__arrow {
