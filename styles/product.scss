@@ -82,7 +82,7 @@
           order: 1;
         }
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 767px) {
           margin-left: 10px;
         }
       }
@@ -108,7 +108,7 @@
         width: 16px;
         height: 16px;
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 767px) {
           display: flex;
           width: 36px;
           height: 36px;
@@ -124,7 +124,7 @@
         }
       }
 
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 767px) {
         .splide__arrow--prev {
           top: 0;
         }
