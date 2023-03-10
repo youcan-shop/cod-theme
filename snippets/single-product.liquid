@@ -28,7 +28,7 @@
   {% assign product_name = product.name %}
 
   <!-- prettier-ignore -->
-  {% render 'product-images-showcase', images: images, product_name: product_name, hidden: section.settings.hide_gallery, slider_arrows: section.settings.slider_arrows, slider_arrows_mobile: section.settings.slider_mobile_autoplay, id: uniqID , view: 'desktop' -%}
+  {% render 'product-images-showcase', images: images, product_name: product_name, hidden: section.settings.hide_gallery, id: uniqID , view: 'desktop' -%}
 
   <div class='product-details'>
     {%- for block in section.blocks -%}
@@ -87,6 +87,7 @@
   </div>
 
 </div>
+
 <script>
 const products = {{ product.images.size }};
 
@@ -119,6 +120,7 @@ desktopSlider.on('mounted', () => {
     document.querySelector('.yc-slider__desktop').style.padding = '0';
   }
 });
+
 
 desktopSlider.mount();
 
