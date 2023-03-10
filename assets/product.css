@@ -144,7 +144,8 @@
 .yc-single-product .product-images .product-images-container .thumbnail-images img {
   display: block;
   margin: 0 auto;
-  width: auto;
+  width: 100%;
+  border-radius: 4px;
   max-height: 200px;
   min-height: 100px;
   object-fit: cover;
