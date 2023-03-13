@@ -102,6 +102,16 @@
     margin: 0;
   }
 }
+@media screen and (max-width: 767px) {
+  .yc-single-product .product-images .product-images-container .splide__slide {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .yc-single-product .product-images .product-images-container .splide__list {
+    flex-direction: column;
+  }
+}
 .yc-single-product .product-images .product-images-container .splide__arrow {
   width: 16px;
   height: 16px;
