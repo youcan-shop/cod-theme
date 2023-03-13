@@ -110,7 +110,7 @@ const desktopSlider = new Splide(`#yc_slider_{{ uniqID }}.yc-slider__desktop`, {
   },
 });
 
-desktopSlider.on('mounted', () => {
+desktopSlider.on('resize', () => {
   if (products >= 3 && window.innerWidth < 1024 || products >= 4) {
     document.querySelector('.yc-slider__desktop').style.padding = '0 40px';
   }
