@@ -17,7 +17,34 @@ function convertDate() {
   };
 }
 
-(async () => {
+/**
+ * Creates a review template
+ * 
+ * @param {Object} review - Review object.
+ * @returns {String} - Review template.
+ */
+function reviewTemplate(review) {
+  return `
+    <div class='header'>
+      <div class="profil">
+        <img loading='lazy' class='image' src='${review.images_urls[0] || defaultAvatar}' />
+        <div class='info'>
+          <span class='name'>${review.first_name || ''} ${review.last_name || ''}</span>
+          <span class='created-at-date'>${review.created_at}</span>
+        </div>
+      </div>
+      <div class='yc-reviews-stars'
+           style='--rating: ${review.ratings}'
+           aria-label="Rating of this product is ${review.ratings} out of 5"
+      ></div>
+    </div>
+    <div class='content'>
+      ${review.content === null ? '' : review.content}
+    </div>
+  `;
+}
+
+const setupReviews = async () => {
   const reviewsContainer = $('.yc-product-reviews');
   const reviewsWrapper = $('.yc-reviews-wrapper');
   const showMoreButton = $('#show-more');
@@ -98,31 +125,8 @@ function convertDate() {
   } catch (error) {
     noDataSetter();
   }
-})();
+};
 
-/**
- * Creates a review template
- * 
- * @param {Object} review - Review object.
- * @returns {String} - Review template.
- */
-function reviewTemplate(review) {
-  return `
-    <div class='header'>
-      <div class="profil">
-        <img loading='lazy' class='image' src='${review.images_urls[0] || defaultAvatar}' />
-        <div class='info'>
-          <span class='name'>${review.first_name || ''} ${review.last_name || ''}</span>
-          <span class='created-at-date'>${review.created_at}</span>
-        </div>
-      </div>
-      <div class='yc-reviews-stars'
-           style='--rating: ${review.ratings}'
-           aria-label="Rating of this product is ${review.ratings} out of 5"
-      ></div>
-    </div>
-    <div class='content'>
-      ${review.content === null ? '' : review.content}
-    </div>
-  `;
-}
+document.addEventListener('DOMContentLoaded', () => {
+  setupReviews();
+});
