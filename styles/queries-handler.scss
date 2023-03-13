@@ -12,7 +12,10 @@
   padding: 1rem 2rem;
   border-radius: 8px;
   width: fit-content;
-  max-width: 270px;
+  
+  @include max-screen('xs') {
+    max-width: 270px;
+  }
 
   .paginate-btn {
     &,
