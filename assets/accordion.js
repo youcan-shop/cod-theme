@@ -2,7 +2,7 @@ function setupAccordion() {
   const accordionHeaders = document.querySelectorAll(".accordion-header");
 
   accordionHeaders.forEach((accordion) => {
-    accordion.addEventListener("click", () => {
+    accordion.addEventListener("click", function () {
       this.classList.toggle("active");
       
       const accordionContent = this.nextElementSibling;
