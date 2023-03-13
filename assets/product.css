@@ -102,12 +102,12 @@
     margin: 0;
   }
 }
-@media screen and (max-width: 767px) {
+@media (max-width: 768px) {
   .yc-single-product .product-images .product-images-container .splide__slide {
     width: 100% !important;
   }
 }
-@media screen and (max-width: 767px) {
+@media (max-width: 768px) {
   .yc-single-product .product-images .product-images-container .splide__list {
     flex-direction: column;
   }

@@ -103,13 +103,13 @@
           margin: 0;
         }
 
-        @media screen and (max-width: 767px) {
+        @include max-screen('md') {
           width: 100% !important;
         }
       }
 
       .splide__list {
-        @media screen and (max-width: 767px) {
+        @include max-screen('md') {
           flex-direction: column;
         }
       }
