@@ -58,18 +58,18 @@
           .info {
             display: grid;
             gap: 3px;
-          }
-
-          .info .name {
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 120%;
-          }
-
-          .info .created-at-date {
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 120%;
+          
+            .name {
+              font-weight: 700;
+              font-size: 18px;
+              line-height: 120%;
+            }
+          
+            .created-at-date {
+              font-weight: 400;
+              font-size: 12px;
+              line-height: 120%;
+            }
           }
         }
       }
