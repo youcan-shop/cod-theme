@@ -123,13 +123,9 @@ const resizedIcons = () => {
     document.querySelector('.yc-slider__desktop').style.padding = '0';
   }
 }
-desktopSlider.on('mounted', () => {
-  resizedIcons();
-});
 
-desktopSlider.on('resize', () => {
-  resizedIcons();
-});
+desktopSlider.on('mounted', resizedIcons);
+desktopSlider.on('resize', resizedIcons);
 
 desktopSlider.mount();
 </script>
