@@ -55,7 +55,7 @@ const setupReviews = async () => {
    * 
    * @param {HTMLElement} element - The element you want to target
    */
-  const noDataSetter = () => {
+  const removeReviewsIfNone = () => {
     if (reviewsContainer) {
       reviewsContainer.remove();
     }
@@ -120,10 +120,10 @@ const setupReviews = async () => {
       return convertDate();
     }
 
-    return noDataSetter();
+    return removeReviewsIfNone();
 
   } catch (error) {
-    noDataSetter();
+    removeReviewsIfNone();
   }
 };
 
