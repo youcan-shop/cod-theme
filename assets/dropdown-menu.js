@@ -40,5 +40,3 @@ if(dropdownOptions) {
     });
   });
 }
-
-
