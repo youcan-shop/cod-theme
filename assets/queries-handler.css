@@ -11,6 +11,11 @@
   border-radius: 8px;
   width: fit-content;
 }
+@media (max-width: 425px) {
+  .yc-pagination-wrapper {
+    max-width: 270px;
+  }
+}
 .yc-pagination-wrapper .paginate-btn, .yc-pagination-wrapper .paginate-btn-prev, .yc-pagination-wrapper .paginate-btn-next {
   width: 2.3rem;
   height: 2.3rem;
