@@ -12,14 +12,14 @@
       </label>
       {% case option.type %}
         {% when 'dropdown' %}
-          <select
-            class='yc-dropdown'
-            name='{{ option.name }}'
-          >
-            {% for item in option.values %}
-              <option value='{{ item }}'>{{ item }}</option>
-            {% endfor %}
-          </select>
+          <div class="dropdown-input" onclick='showDropDownMenu()'>
+            <span class="dropbtn"></span>
+            <ul class="dropdown-content" name='{{ option.name }}'>
+              {% for item in option.values %}
+                <li value='{{ item }}'>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </div>
         {% when 'textual_buttons' %}
           <ul class='yc-options-list'>
             {% for item in option.values %}
@@ -84,3 +84,5 @@
     </div>
   {%- endfor %}
 </div>
+
+{{ 'dropdown-menu.js' | asset_url | script_tag_deferred }}

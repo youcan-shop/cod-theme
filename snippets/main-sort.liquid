@@ -1,4 +1,4 @@
-<div id="productDropdownFiltring">
+<div class="dropdown-input" id="productDropdownFiltring">
   <span class="dropbtn"></span>
   <div class="dropdown-content">
     <a href="#" data-value="price-asc">{{ 'snippets.main_sort.price_asc' | t }}</a>
@@ -13,3 +13,5 @@
 <script>
   const order_by = "{{ 'snippets.main_sort.order_by' | t }}";
 </script>
+
+{{ 'dropdown-menu.js' | asset_url | script_tag_deferred }}

@@ -364,6 +364,9 @@ input:not([type=radio]),
   line-height: 120%;
 }
 
+/* -------------------------------- */
+/* ----- custom colors button ----- */
+/* -------------------------------- */
 .yc-colors-select {
   display: flex;
   flex-wrap: wrap;
@@ -392,6 +395,62 @@ input:not([type=radio]),
 }
 .yc-colors-select .color-item.active {
   padding: 4px;
+}
+
+/* ---------------------------------- */
+/* ----- custom dropdwown input ----- */
+/* ---------------------------------- */
+.dropdown-input {
+  /* Style the dropdown content */
+}
+.dropdown-input .dropbtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  width: 280px;
+  padding: 10px 15px;
+  border: 1px solid #E7E7E7;
+  text-align: start;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.dropdown-input .dropbtn .dropdown-icon {
+  position: absolute;
+  left: 0;
+  padding-left: 10px;
+}
+.dropdown-input .dropdown-content {
+  display: none;
+  margin-top: 5px;
+  position: absolute;
+  z-index: 1;
+  width: 280px;
+  background: #FFFFFF;
+  border: 1px solid #ECECEC;
+  box-shadow: 0px 10px 55px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+.dropdown-input .dropdown-content li {
+  color: black;
+  padding: 10px;
+  margin: 3px auto;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  display: block;
+  cursor: pointer;
+}
+.dropdown-input .dropdown-content li:hover {
+  background-color: #f1f1f1;
+}
+.dropdown-input .dropdown-content li.selected {
+  font-weight: bold;
+}
+.dropdown-input .show {
+  display: block;
 }
 
 /* --------------------------- */
