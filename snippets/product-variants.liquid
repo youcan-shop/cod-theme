@@ -12,9 +12,12 @@
       </label>
       {% case option.type %}
         {% when 'dropdown' %}
-          <div class="dropdown-input" onclick='showDropDownMenu()'>
-            <span class="dropbtn"></span>
-            <ul class="dropdown-content" name='{{ option.name }}'>
+          <div class='dropdown-input' onclick='showDropDownMenu()'>
+            <div class='dropbtn'>
+              <span class='option-name'>hello</span>
+              <ion-icon name='chevron-down-outline' class='dropdown-icon'/>
+            </div>
+            <ul class='dropdown-content' name='{{ option.name }}'>
               {% for item in option.values %}
                 <li value='{{ item }}'>{{ item }}</li>
               {% endfor %}

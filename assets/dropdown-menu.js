@@ -26,7 +26,7 @@ function selectOption(e) {
   });
 
   selectedOption.classList.add('selected');
-  dropdownBtn.textContent = selectedOption.textContent;
+  dropdownBtn.firstElementChild.textContent = selectedOption.textContent;
 }
 
 if(dropdownOptions) {
@@ -35,7 +35,7 @@ if(dropdownOptions) {
 
     window.addEventListener('DOMContentLoaded', (event) => {
       if (option.classList.contains('selected')) {
-        dropdownBtn.textContent = option.textContent;
+        dropdownBtn.firstElementChild.textContent = option.textContent;
       }
     });
   });
