@@ -4,17 +4,15 @@
 function convertDate() {
   const createdAtDate = document.querySelectorAll('.created-at-date');
 
-  if (createdAtDate && createdAtDate.length) {
-    createdAtDate.forEach(date => {
-      const originalDateString = date.textContent;
-      const originalDate = new Date(originalDateString);
-      const day = originalDate.getDate().toString().padStart(2, '0');
-      const month = (originalDate.getMonth() + 1).toString().padStart(2, '0');
-      const year = originalDate.getFullYear().toString();
-      const formattedDate = `${day}.${month}.${year}`;
-      date.textContent = formattedDate;
-    });
-  };
+  createdAtDate.forEach(date => {
+    const originalDateString = date.textContent;
+    const originalDate = new Date(originalDateString);
+    const day = originalDate.getDate().toString().padStart(2, '0');
+    const month = (originalDate.getMonth() + 1).toString().padStart(2, '0');
+    const year = originalDate.getFullYear().toString();
+    const formattedDate = `${day}.${month}.${year}`;
+    date.textContent = formattedDate;
+  });
 }
 
 /**
