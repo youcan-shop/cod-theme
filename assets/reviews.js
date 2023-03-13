@@ -4,7 +4,7 @@
 function convertDate() {
   const createdAtDate = document.querySelectorAll('.created-at-date');
 
-  if (createdAtDate) {
+  if (createdAtDate && createdAtDate.length) {
     createdAtDate.forEach(date => {
       const originalDateString = date.textContent;
       const originalDate = new Date(originalDateString);
