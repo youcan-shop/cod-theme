@@ -25,6 +25,7 @@ COD-theme includes the following sections and pages to help you get started:
 - Featured products
 - Featured products by category
 - Featured collections
+- Products Slider
 - Reviews
 - Multi-column
 - Video
