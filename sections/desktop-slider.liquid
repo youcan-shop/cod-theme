@@ -35,7 +35,6 @@
       text-align: center;
     {% endif %}
   }
-  
 {% endstyle %}
 
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
@@ -43,8 +42,8 @@
 {{ 'mobile-slider.css' | asset_url | stylesheet_tag }}
 {{ 'splide.min.js' | asset_url | script_tag }}
 
-{% render 'slider', blocks: section.blocks, id: id , view: 'desktop' %}
-{% render 'slider', blocks: section.blocks, id: id , view: 'mobile' %}
+{% render 'slider', blocks: section.blocks, id: id, view: 'desktop' %}
+{% render 'slider', blocks: section.blocks, id: id, view: 'mobile' %}
 
 <script>
   const isMobile = window.matchMedia("(max-width: 760px)");
