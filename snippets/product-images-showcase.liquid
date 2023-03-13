@@ -26,7 +26,7 @@
         loading='lazy'
         class='main-image'
         class='main-thumbnail'
-        src='{%- if images[0] %}{{images}}{%- else %}{{ 'default_product.jpeg' | asset_url }}{% endif %}'
+        src='{%- if images[0] %}{{images[0]}}{%- else %}{{ 'default_product.jpeg' | asset_url }}{% endif %}'
         alt='{{ product_name }}'>
       <div id='magnified-image'></div>
     </div>
