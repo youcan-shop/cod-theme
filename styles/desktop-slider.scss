@@ -57,11 +57,14 @@
       margin-bottom: 2rem;
     }
 
-    @for $i from 1 through 3 {
-      h#{$i} {
-        font-size: calc(4rem / $i);
-        @extend .headers;
-      }
+    h1 {
+      font-size: 2rem;
+      @extend .headers;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      @extend .headers;
     }
 
     p {

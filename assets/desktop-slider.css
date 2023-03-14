@@ -43,19 +43,16 @@
   color: black !important;
   margin-top: 1rem;
 }
-.yc-slider__desktop .content .headers, .yc-slider__desktop .content h3, .yc-slider__desktop .content h2, .yc-slider__desktop .content h1 {
+.yc-slider__desktop .content .headers, .yc-slider__desktop .content h2, .yc-slider__desktop .content h1 {
   font-weight: 700;
   line-height: 0.5;
   margin-bottom: 2rem;
 }
 .yc-slider__desktop .content h1 {
-  font-size: 4rem;
-}
-.yc-slider__desktop .content h2 {
   font-size: 2rem;
 }
-.yc-slider__desktop .content h3 {
-  font-size: 1.3333333333rem;
+.yc-slider__desktop .content h2 {
+  font-size: 1.5rem;
 }
 .yc-slider__desktop .content p {
   margin-top: 1rem;
