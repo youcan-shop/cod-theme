@@ -98,13 +98,12 @@
         display: flex;
         align-items: center;
         gap: 7px;
-        margin-top: 8px;
         padding: 0 6px;
 
         @include breakpoint('md') {
           align-items: center;
           margin: 15px auto 20px;
-          gap: 10px;
+          gap: 2.91px;
         }
 
         @include breakpoint('lg') {
@@ -126,8 +125,9 @@
 
         .compare-at-price {
           text-decoration: line-through;
+          text-transform: uppercase;
           opacity: 0.5;
-          font-size: 15px;
+          font-size: 13px;
           font-weight: 500;
         }
 
