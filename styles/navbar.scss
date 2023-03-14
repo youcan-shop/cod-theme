@@ -33,7 +33,7 @@
 
   .yc-navbar {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     height: var(--yc-nav-height);
     z-index: 100;
@@ -41,10 +41,6 @@
 
     *:not(span):not(input) {
       @extend .items-configs;
-    }
-
-    @include breakpoint('md') {
-      grid-template-columns: repeat(3, 1fr);
     }
 
     :first-child {
@@ -72,11 +68,6 @@
 
       .search {
         font-size: 1.5rem;
-        display: none;
-
-        @include breakpoint('md') {
-          display: flex;
-        }
       }
       .cart {
         font-size: 1.5rem;
@@ -109,23 +100,19 @@
 
     .logo {
       img {
-        height: calc(var(--yc-nav-height) - 20px);
+        height: calc(var(--yc-nav-height) - 20px);  
         max-height: 40px;
       }
     }
 
-    .menu {
+    .menu-list {
       display: none;
+      list-style: none;
+      gap: 32px;
 
       @include breakpoint('md') {
         display: flex;
       }
-    }
-
-    .menu-list {
-      display: flex;
-      list-style: none;
-      gap: 32px;
     }
 
     .menu-item {
