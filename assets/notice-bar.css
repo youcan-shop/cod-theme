@@ -7,10 +7,13 @@
   align-items: center;
   padding: 8px 0 10px 0;
   justify-content: center;
-  column-gap: 12px;
+  column-gap: 8px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.yc-notice .content p {
+  font-weight: 600;
 }
 .yc-notice .content img {
   height: 17px;
@@ -34,7 +37,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0 12px 0;
+  padding: 15px;
   gap: 12px;
   background-color: var(--yc-notice-background-color-mobile);
   height: var(--yc-notice-height-mobile);
