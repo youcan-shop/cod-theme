@@ -112,8 +112,7 @@ function selectDefaultOptions(parentSection) {
 
     switch (optionType) {
       case 'dropdown':
-        option.querySelector('select').value =
-          option.querySelector('select').options[0].value;
+        option.querySelector('.dropdown-content li:first-child').classList.add('selected');
         break;
       case 'textual_buttons':
         option.querySelector('.yc-options-item').classList.add('active');
@@ -155,7 +154,7 @@ function getSelectedOptions(parentSection) {
 
     switch (optionType) {
       case 'dropdown':
-        selectedOptions[optionName] = option.querySelector('select')?.value;
+        selectedOptions[optionName] = option.querySelector('.dropdown-content li.selected')?.innerText;
         break;
       case 'textual_buttons':
         selectedOptions[optionName] = option.querySelector(
@@ -427,7 +426,7 @@ function showSelectedVariants() {
         variantOption = createAndSetText(variantName, radioButton).element;
       break;
       case 'dropdown':
-        const dropDown = variant.querySelector('select')?.value;
+        const dropDown = variant.querySelector('.dropdown-content li.selected')?.innerText;
         variantOption = createAndSetText(variantName, dropDown).element;
         break;
       case 'image_based_buttons':

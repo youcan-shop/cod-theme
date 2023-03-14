@@ -12,14 +12,17 @@
       </label>
       {% case option.type %}
         {% when 'dropdown' %}
-          <select
-            class='yc-dropdown'
-            name='{{ option.name }}'
-          >
-            {% for item in option.values %}
-              <option value='{{ item }}'>{{ item }}</option>
-            {% endfor %}
-          </select>
+          <div class='dropdown-input' onclick='showDropDownMenu()'>
+            <div class='dropbtn'>
+              <span class='option-name'>hello</span>
+              <ion-icon name='chevron-down-outline' class='dropdown-icon'/>
+            </div>
+            <ul class='dropdown-content' name='{{ option.name }}'>
+              {% for item in option.values %}
+                <li value='{{ item }}'>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </div>
         {% when 'textual_buttons' %}
           <ul class='yc-options-list'>
             {% for item in option.values %}
@@ -32,22 +35,15 @@
             {% endfor %}
           </ul>
         {% when 'radio_buttons' %}
-          {% for item in option.values %}
-            <div class='yc-radio'>
-              <input
-                type='radio'
-                id='{{ item }}'
-                name='{{ option.name }}'
-                value='{{ item }}'
-              >
-              <label
-                class='yc-radio-buttons'
-                for='{{ item }}'
-              >
-                <span>{{ item }}</span>
+          <div class='yc-radio'>
+            {% for item in option.values %}
+              <label class='yc-radio-buttons' for='{{ item }}'>
+                <input type='radio'  id='{{ item }}' name='{{ option.name }}' value='{{ item }}'>
+                <span class='checkmark'></span>
+                <span class='label-text'>{{ item }}</span>
               </label>
-            </div>
-          {% endfor %}
+            {% endfor %}
+          </div>
         {% when 'image_based_buttons' %}
           <ul class='yc-image-options-list'>
             {% for item in option.values %}
@@ -91,3 +87,5 @@
     </div>
   {%- endfor %}
 </div>
+
+{{ 'dropdown-menu.js' | asset_url | script_tag_deferred }}
