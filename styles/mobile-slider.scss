@@ -31,14 +31,16 @@
     .headers {
       font-weight: 700;
       line-height: 1.2;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
 
-    @for $i from 1 through 3 {
-      h#{$i} {
-        font-size: calc(3rem / $i);
-        @extend .headers;
-      }
+    h1 {
+      font-size: 1.7rem;
+      @extend .headers;
+    }
+    h2 {
+      font-size: 1.3rem;
+      @extend .headers;
     }
 
     p {
