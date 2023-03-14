@@ -8,9 +8,11 @@
                 "slider_pause_on_hover": true,
                 "slider_timeout": 3,
                 "slider_mobile_timeout": 4,
-                "slider_arrows_content_size": 15,
+                "slider_arrows_content_size": 22,
                 "slider_arrows": true,
-                "slider_height_percentage": 60
+                "slider_height_percentage": 60,
+                "slider_desktop_arrows_color": "#FFFFFFFF",
+                "slider_desktop_arrows_background_color": "#FFFFFF00"
             },
             "blocks": {
                 "block_qw91o394p69bv8l": {

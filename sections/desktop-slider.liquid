@@ -16,9 +16,10 @@
     border-radius: 8px;
   }
 
-  #yc_slider_{{ id }} .splide__arrow svg {
+  #yc_slider_{{ id }} .splide__arrow svg path {
     height: {{ section.settings.slider_arrows_content_size }}px;
     width: {{ section.settings.slider_arrows_content_size }}px;
+    fill: {{ section.settings.slider_desktop_arrows_color.hex }};
   }
   
   .yc-slider__desktop .content {
@@ -51,9 +52,11 @@
   const slider = document.querySelector(`#yc_slider_{{ id }}`);
 
   const desktopSlider = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
+    arrowPath: 'M0.821351 2.8036C0.699407 2.68165 0.602677 2.53688 0.536681 2.37755C0.470685 2.21822 0.436716 2.04746 0.436716 1.875C0.436716 1.70254 0.470685 1.53178 0.536681 1.37245C0.602677 1.21312 0.699407 1.06835 0.821352 0.946406C0.943297 0.824462 1.08807 0.72773 1.2474 0.661734C1.40672 0.595738 1.57749 0.56177 1.74995 0.56177C1.9224 0.56177 2.09317 0.595738 2.2525 0.661734C2.41183 0.727731 2.5566 0.824462 2.67854 0.946406L15.8035 14.0714C15.9256 14.1933 16.0224 14.3381 16.0884 14.4974C16.1545 14.6567 16.1885 14.8275 16.1885 15C16.1885 15.1725 16.1545 15.3433 16.0884 15.5026C16.0224 15.6619 15.9256 15.8067 15.8035 15.9286L2.67854 29.0536C2.43226 29.2999 2.09823 29.4382 1.74994 29.4382C1.40165 29.4382 1.06763 29.2999 0.821349 29.0536C0.575071 28.8073 0.436713 28.4733 0.436713 28.125C0.436713 27.7767 0.575072 27.4427 0.821349 27.1964L13.0194 15L0.821351 2.8036Z',
     type: '{{ section.settings.slider_transition_type }}',
     arrows: '{{ section.settings.slider_arrows }}' ? true : false,
     autoplay: '{{ section.settings.slider_autoplay }}' ? true : false,
+    autoplay: false,
     cover: true,
     pagination: '{{ section.settings.slider_pagination }}' ? true : false,
     pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
@@ -148,6 +151,12 @@
       "type": "color",
       "id": "slider_desktop_arrows_background_color",
       "label": "Arrows Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "slider_desktop_arrows_color",
+      "label": "Arrows Color",
       "default": "#FFFFFF"
     },
     {
