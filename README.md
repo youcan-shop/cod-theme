@@ -1,4 +1,4 @@
-# COD-THEME
+# COD-THEME V3
 
 COD-theme is a starter template to initialize a cash on delivery theme, it includes prebuilt sections and snippets that you can customize to create your own COD theme.
 
