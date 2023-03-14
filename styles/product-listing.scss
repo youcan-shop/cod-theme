@@ -109,18 +109,28 @@
 .sort-container {
   margin: 40px auto;
 
-  #productDropdownFiltring .dropdown-content {
-    a {
-      color: black;
-      padding: 10px;
-      margin: 3px auto;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 400;
-      display: block;
+  #productDropdownFiltring {
+    .dropbtn {
+      @include breakpoint('md') {
+        max-width: 280px;
+      }
+    }
+    .dropdown-content {
+      @include breakpoint('md') {
+        max-width: 280px;
+      }
+      a {
+        color: black;
+        padding: 10px;
+        margin: 3px auto;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 400;
+        display: block;
 
-      &:hover {
-        background-color: #f1f1f1;
+        &:hover {
+          background-color: #f1f1f1;
+        }
       }
     }
   }
