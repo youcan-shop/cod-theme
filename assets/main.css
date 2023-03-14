@@ -173,11 +173,11 @@ button:focus {
 .yc-btn-secondary--large {
   border: 1px solid var(--yc-primary-color);
   color: var(--yc-primary-color);
-  padding: 14px;
+  padding: 10px;
   border-radius: 4px;
   display: flex;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 14px;
   justify-content: center;
   align-items: center;
   gap: 10px;

@@ -61,7 +61,7 @@
       .product-details {
         text-align: start;
         margin-top: 12px;
-        padding: 0 6px;
+        padding: 10px 6px;
 
         @include breakpoint('md') {
           margin-top: 10px;
@@ -77,21 +77,6 @@
             font-size: 18px;
           }
         }
-      }
-
-      &:hover {
-        .yc-btn {
-          opacity: 1;
-        }
-      }
-
-      .yc-btn {
-        display: block;
-        position: absolute;
-        bottom: 117px;
-        width: 80%;
-        opacity: 0;
-        border-radius: 4px;
       }
 
       .prices {
