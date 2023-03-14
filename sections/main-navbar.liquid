@@ -42,7 +42,7 @@
           <div class='menu'>
             <ul class='menu-list'>
               {% for item in main-link-list.links %}
-                <li class='menu-item {%-if item.active-%} active {%-endif%}'>
+                <li class='menu-item item{%-if item.active-%} active {%-endif%}'>
                   <a href='{{ item.url }}'>{{ item.title }}</a>
                 </li>
               {% endfor %}
