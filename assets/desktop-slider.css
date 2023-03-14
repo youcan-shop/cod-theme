@@ -1,3 +1,6 @@
+.splide .splide__pagination {
+  bottom: 42px;
+}
 .splide .splide__pagination .splide__pagination__page {
   transform: none;
   width: 28px;
@@ -42,17 +45,17 @@
 }
 .yc-slider__desktop .content .headers, .yc-slider__desktop .content h3, .yc-slider__desktop .content h2, .yc-slider__desktop .content h1 {
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 0.5;
   margin-bottom: 2rem;
 }
 .yc-slider__desktop .content h1 {
-  font-size: 3rem;
+  font-size: 4rem;
 }
 .yc-slider__desktop .content h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 .yc-slider__desktop .content h3 {
-  font-size: 1rem;
+  font-size: 1.3333333333rem;
 }
 .yc-slider__desktop .content p {
   margin-top: 1rem;

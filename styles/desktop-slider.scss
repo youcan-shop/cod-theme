@@ -1,7 +1,9 @@
 @import 'helpers/mixins';
 
 .splide {
-  .splide__pagination {
+    .splide__pagination {
+      bottom: 42px;
+
     .splide__pagination__page {
       transform: none;
       width: 28px;
@@ -51,13 +53,13 @@
 
     .headers {
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 0.5;
       margin-bottom: 2rem;
     }
 
     @for $i from 1 through 3 {
       h#{$i} {
-        font-size: calc(3rem / $i);
+        font-size: calc(4rem / $i);
         @extend .headers;
       }
     }
