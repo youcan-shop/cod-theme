@@ -12,6 +12,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.yc-notice .content p {
+  font-weight: 600;
+}
 .yc-notice .content img {
   height: 17px;
   width: 18px;
@@ -28,9 +31,6 @@
   .yc-notice.desktop .content {
     color: var(--yc-notice-text-color-desktop);
     font-size: var(--yc-notice-font-size-desktop);
-  }
-  .yc-notice.desktop .content p {
-    font-weight: 600;
   }
 }
 .yc-notice.mobile {

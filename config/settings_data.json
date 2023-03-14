@@ -1,6 +1,6 @@
 {
     "current": {
-        "font_family": "Almarai",
+        "font_family": "Cairo",
         "theme_direction": "rtl",
         "primary_color": "#F33520",
         "sections": {
@@ -9,8 +9,8 @@
                 "settings": {
                     "notice_bar_content_desktop": "<p>توصيل واستبدال سريع<\/p>",
                     "notice_bar_content_mobile": "<p>توصيل واستبدال سريع<\/p>",
-                    "notice_bar_content_font_size_desktop": 12,
-                    "notice_bar_content_font_size_mobile": 12,
+                    "notice_bar_content_font_size_desktop": 16,
+                    "notice_bar_content_font_size_mobile": 14,
                     "notice_bar_height_desktop": 50,
                     "notice_bar_height_mobile": 45,
                     "notice_bar_background_color_desktop": "#E52B2A",

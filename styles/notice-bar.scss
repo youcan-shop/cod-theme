@@ -13,6 +13,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
 
+    p {
+      font-weight: 600;
+    }
+
     img {
       height: 17px;
       width: 18px;
@@ -30,10 +34,6 @@
       .content {
         color: var(--yc-notice-text-color-desktop);
         font-size: var(--yc-notice-font-size-desktop);
-
-        p {
-          font-weight: 600;
-        }
       }
     }
   }
