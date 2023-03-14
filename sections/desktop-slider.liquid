@@ -2,9 +2,13 @@
 
 {% style %}
   #yc_slider_{{ id }} .splide__arrow {
+    outline: none;
+  }
+
+  #yc_slider_{{ id }} .splide__arrow {
     background: {{ section.settings.slider_desktop_arrows_background_color.hex }} !important;
-    width: 54px;
-    height: 54px;
+    width: var(--yc-slider-arrows-size);
+    height: var(--yc-slider-arrows-size);
     margin: 0 100px;
   }
 

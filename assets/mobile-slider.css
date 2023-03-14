@@ -24,19 +24,16 @@
   color: black !important;
   margin-top: 1rem;
 }
-.yc-slider__mobile .content .headers, .yc-slider__mobile .content h3, .yc-slider__mobile .content h2, .yc-slider__mobile .content h1 {
+.yc-slider__mobile .content .headers, .yc-slider__mobile .content h2, .yc-slider__mobile .content h1 {
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .yc-slider__mobile .content h1 {
-  font-size: 3rem;
+  font-size: 1.7rem;
 }
 .yc-slider__mobile .content h2 {
-  font-size: 1.5rem;
-}
-.yc-slider__mobile .content h3 {
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 .yc-slider__mobile .content p {
   margin-top: 1rem;
