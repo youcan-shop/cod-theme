@@ -13,8 +13,8 @@
   text-overflow: ellipsis;
 }
 .yc-notice .content img {
-  height: 17px;
-  width: 18px;
+  height: 15px;
+  width: 20px;
 }
 .yc-notice.desktop {
   display: none;
