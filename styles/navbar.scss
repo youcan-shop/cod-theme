@@ -38,7 +38,6 @@
     height: var(--yc-nav-height);
     z-index: 100;
     background-color: var(--yc-nav-background);
-    padding: 0 20px;
 
     *:not(span):not(input) {
       @extend .items-configs;
@@ -46,11 +45,6 @@
 
     @include breakpoint('md') {
       grid-template-columns: repeat(3, 1fr);
-      padding: 0 40px;
-    }
-
-    @include breakpoint('lg') {
-      padding: 0 140px;
     }
 
     :first-child {
@@ -131,7 +125,7 @@
     .menu-list {
       display: flex;
       list-style: none;
-      gap: 50px;
+      gap: 32px;
     }
 
     .menu-item {

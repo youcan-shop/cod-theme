@@ -33,7 +33,22 @@ body {
 .container {
   max-width: 1440px !important;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 15px;
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    padding: 0 60px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 140px;
+  }
 }
 .container.fluid {
   max-width: 100%;
@@ -77,6 +92,12 @@ label {
   font-size: 14px;
   margin: 12px 0 6px 0;
   display: block;
+}
+
+.lead,
+.content p {
+  font-size: 1.2em !important;
+  line-height: 1.6em !important;
 }
 
 .border,

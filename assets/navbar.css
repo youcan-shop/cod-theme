@@ -34,17 +34,10 @@
   height: var(--yc-nav-height);
   z-index: 100;
   background-color: var(--yc-nav-background);
-  padding: 0 20px;
 }
 @media (min-width: 768px) {
   .yc-header .yc-navbar {
     grid-template-columns: repeat(3, 1fr);
-    padding: 0 40px;
-  }
-}
-@media (min-width: 992px) {
-  .yc-header .yc-navbar {
-    padding: 0 140px;
   }
 }
 .yc-header .yc-navbar :first-child {
@@ -115,7 +108,7 @@
 .yc-header .yc-navbar .menu-list {
   display: flex;
   list-style: none;
-  gap: 50px;
+  gap: 32px;
 }
 .yc-header .yc-navbar .menu-item a {
   color: var(--yc-nav-links-color);
