@@ -42,6 +42,11 @@
     padding: 0 40px;
   }
 }
+@media (min-width: 992px) {
+  .yc-header .yc-navbar {
+    padding: 0 140px;
+  }
+}
 .yc-header .yc-navbar :first-child {
   justify-self: start;
 }
