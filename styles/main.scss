@@ -32,7 +32,7 @@ body {
 .container {
   max-width: 1440px !important;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 20px;
 
   @include breakpoint('md') {
     padding: 0 30px;
