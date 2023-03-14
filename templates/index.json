@@ -219,9 +219,9 @@
                 "title": " 🔥 المنتجات الأكثر رواجًا ",
                 "section_title_position": "center",
                 "row_desktop": 5,
-                "show_product_title": false,
+                "show_product_title": true,
                 "padding_top": 22,
-                "padding_bottom": 22,
+                "padding_bottom": 56,
                 "show_compare_at_price": true,
                 "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>",
                 "countdown_year": 0,
@@ -239,8 +239,8 @@
                         "tag_color": "#FF0025FF",
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
-                        "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d",
-                        "tag_text": "جديد"
+                        "tag_text": "جديد",
+                        "product": "54e3f8c5-b206-4ef9-b6ef-2d673d2f83a8"
                     }
                 },
                 "block_tazes9cn7e9q3e": {
@@ -249,8 +249,8 @@
                         "tag_color": "#FF0025FF",
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
-                        "product": "ce17d5cf-4607-4f0b-9996-6a2d616c0112",
-                        "tag_text": "جديد"
+                        "tag_text": "جديد",
+                        "product": "54e3f8c5-b206-4ef9-b6ef-2d673d2f83a8"
                     }
                 },
                 "block_tbx6jp5m2i8cd3r": {
@@ -260,7 +260,7 @@
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
                         "tag_text": "جديد",
-                        "product": "e74763a8-673d-4b32-b87a-83ad8f448446"
+                        "product": "54e3f8c5-b206-4ef9-b6ef-2d673d2f83a8"
                     }
                 },
                 "block_tcs0ynsuopilcfi": {
@@ -270,7 +270,7 @@
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
                         "tag_text": "جديد",
-                        "product": "2d39bfc2-2269-482d-97e8-35286c06fa8d"
+                        "product": "54e3f8c5-b206-4ef9-b6ef-2d673d2f83a8"
                     }
                 }
             },
