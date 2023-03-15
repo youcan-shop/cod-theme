@@ -163,6 +163,7 @@ button:focus {
   justify-content: center;
   align-items: center;
   border-radius: 4px;
+  font-family: var(--yc-font-family);
 }
 .yc-btn-secondary .spinner {
   width: 18px;
@@ -182,6 +183,7 @@ button:focus {
   align-items: center;
   gap: 10px;
   width: 100%;
+  font-family: var(--yc-font-family);
 }
 .yc-btn-secondary--large:hover {
   background: var(--yc-primary-color);

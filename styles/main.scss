@@ -164,6 +164,7 @@ button {
   justify-content: center;
   align-items: center;
   border-radius: 4px;
+  font-family: var(--yc-font-family);
 
   .spinner {
     width: 18px;
@@ -184,6 +185,7 @@ button {
   align-items: center;
   gap: 10px;
   width: 100%;
+  font-family: var(--yc-font-family);
 
   &:hover {
     background: var(--yc-primary-color);

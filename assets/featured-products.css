@@ -56,7 +56,7 @@
 .yc-featured-products .product-list .product-block .product-details {
   text-align: start;
   margin-top: 12px;
-  padding: 10px 6px;
+  padding: 10px 15%;
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .product-details {
@@ -77,6 +77,7 @@
 .yc-featured-products .product-list .product-block .prices {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 7px;
   padding: 0 6px;
 }
@@ -84,7 +85,7 @@
   .yc-featured-products .product-list .product-block .prices {
     align-items: center;
     margin: 8px auto;
-    gap: 2.91px;
+    gap: 8px;
   }
 }
 @media (min-width: 992px) {
@@ -94,22 +95,23 @@
   }
 }
 .yc-featured-products .product-list .product-block .prices .product-price {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--yc-primary-color);
-  font-size: 17px;
+  font-size: 20px;
   line-height: 120%;
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .prices .product-price {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 .yc-featured-products .product-list .product-block .prices .compare-at-price {
   text-decoration: line-through;
   text-transform: uppercase;
   opacity: 0.5;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 300;
+  color: #9B9B9B;
 }
 .yc-featured-products .product-list .product-block .prices .product-thumbnail:hover img {
   transform: scale(1.1);
