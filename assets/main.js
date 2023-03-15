@@ -97,18 +97,17 @@ function notify(msg, type = 'success', timeout = 3000) {
 /* ----------------------------- */
 const overlay = document.querySelector('.global-overlay');
 const drawer = document.querySelector('.navbar-drawer');
+const menuIcon = document.querySelector('.menu-toggler ion-icon');
+const drawerBtn = document.querySelector('.close-drawer-btn');
 
 const toggleDrawerIcon = () => {
-  const menuIcon = document.querySelector('.menu-toggler ion-icon');
   if (menuIcon.getAttribute('name') === 'menu-outline') {
     menuIcon.setAttribute('name', 'close-outline');
-  } 
-  
-  else {
-    menuIcon.setAttribute('name', 'menu-outline');    
-    closeDrawer();
+  } else {
+    menuIcon.setAttribute('name', 'menu-outline');  
+    closeDrawer();  
   }
-}
+};
 
 const showOverlay = () => {
   overlay.style.visibility = 'visible';
@@ -123,7 +122,6 @@ const closeDrawer = () => {
 };
 
 const hideOverlay = () => {
-  const drawerBtn = document.querySelector('.close-drawer-btn');
   if (drawerBtn) {
     drawerBtn.addEventListener('click', closeDrawer);
   }
@@ -135,11 +133,7 @@ const hideOverlay = () => {
   });
 };
 
-if (overlay) {
-  hideOverlay();
-}
-
-function openDrawer(el) {
+const openDrawer = (el) => {
   const targetedDrawer = document.querySelector(`.navigation-drawer${el}`);
   const navbar = document.querySelector('.yc-navbar');
 
@@ -155,7 +149,13 @@ function openDrawer(el) {
   }
 
   document.body.style.overflowY = 'hidden';
+};
+
+if (overlay) {
+  hideOverlay();
+  overlay.addEventListener('click', toggleDrawerIcon);
 }
+
 
 
 /* ------------------ */
