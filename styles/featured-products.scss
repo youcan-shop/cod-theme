@@ -62,11 +62,9 @@
 
       .product-details {
         text-align: start;
-        margin-top: 12px;
-        padding: 10px 15%;
+        padding: 10% 15%;
 
         @include breakpoint('md') {
-          margin-top: 10px;
           text-align: center;
         }
 

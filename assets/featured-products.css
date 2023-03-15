@@ -57,12 +57,10 @@
 }
 .yc-featured-products .product-list .product-block .product-details {
   text-align: start;
-  margin-top: 12px;
-  padding: 10px 15%;
+  padding: 10% 15%;
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .product-details {
-    margin-top: 10px;
     text-align: center;
   }
 }
