@@ -182,7 +182,7 @@
 
 .navigation-drawer {
   background-color: var(--yc-drawer-background);
-  transition-duration: 0.2s;
+  transition-duration: 0.05s;
   transition-property: opacity, transform;
   transform: translateY(-100%);
   position: fixed;
@@ -218,7 +218,6 @@
   border-color: rgba(0, 0, 0, 0.1);
 }
 .navigation-drawer .close-drawer-btn {
-  float: left;
   cursor: pointer;
   width: 40px;
   height: 40px;
@@ -227,7 +226,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translate(-40px, 12px);
 }
 .navigation-drawer .close-drawer-btn .close-svg {
   color: #C8C8C8;
