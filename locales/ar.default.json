@@ -1,6 +1,7 @@
 {
   "general":{
-    "show_more_button": "عرض المزيد"
+    "show_more_button": "عرض المزيد",
+    "buy_now": "اشتري الأن"
   },
   "navbar": {
     "search": {

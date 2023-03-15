@@ -1,4 +1,7 @@
 {
+  "general": {
+    "buy_now": "Acheter maintent"
+  },
   "navbar": {
     "search": {
       "placeholder": "Entrez un mot-clé à rechercher..."

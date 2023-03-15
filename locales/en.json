@@ -1,4 +1,7 @@
 {
+  "general": {
+    "buy_now": "Buy now"
+  },
   "navbar": {
     "search": {
       "placeholder": "Enter keyword to search for..."
