@@ -1,6 +1,17 @@
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
+{%- assign productId = 0 | rand %}
 
-<a href='{{ item.url }}' class='product-block'>
+{%  style  %}
+.discount_count .percentage {
+  position:absolute;
+  top:12px;
+  right: 12px;
+
+  background: red
+}
+{% endstyle %}
+
+<a href='{{ item.url }}' class='product-block' id="product_{{productId}}">
 
   {% if block_settings.tag_text %}
     <div class="tag {{ block_settings.tag_position }}" style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}">
@@ -29,3 +40,16 @@
     </button>
   </div>
 </a>
+
+<script>
+  const price = {{item.price}}  
+  const compareAtPrice = {{item.compare_at_price}}
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const percentage = ((price * 100) / compareAtPrice).toFixed(2);
+  
+    const discount = document.createElement('discount_count').innerHTML = `<span class="tag percentage">${percentage}%</span>`
+    console.log(document.querySelector('#product_{{productId}}'))
+    document.querySelector('#product_{{productId}}').appendChild(discount);
+  })
+</script>
