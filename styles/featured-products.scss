@@ -61,16 +61,24 @@
       }
 
       .product-details {
-        text-align: start;
+        text-align: center;
         padding: 10% 15%;
+
+        .yc-btn-secondary--large {
+          display: none;
+          @include breakpoint('md') {
+            display: block;
+          }
+        }
 
         @include breakpoint('md') {
           text-align: center;
         }
 
         .product-title {
-          font-weight: 300;
-          font-size: 15px;
+          font-weight: 600;
+          font-size: 12px;
+          margin-bottom: 5px;
 
           @include breakpoint('md') {
             font-weight: 300;
@@ -82,19 +90,16 @@
       .prices {
         display: flex;
         align-items: center;
+        flex-direction: column;
         justify-content: center;
         gap: 7px;
         padding: 0 6px;
 
         @include breakpoint('md') {
+          flex-direction: row;
           align-items: center;
           margin: 8px auto;
-          gap: 8px;
-        }
-
-        @include breakpoint('lg') {
-          flex-direction: column;
-          justify-content: center;
+          gap: 4px;
         }
 
         .product-price {
