@@ -96,46 +96,38 @@ function notify(msg, type = 'success', timeout = 3000) {
 /* ----- navigation-drawer ----- */
 /* ----------------------------- */
 const overlay = document.querySelector('.global-overlay');
-const drawer = document.querySelector('.navigation-drawer');
+const drawer = document.querySelector('.navbar-drawer');
+
+const toggleDrawerIcon = () => {
+  const menuIcon = document.querySelector('.menu-toggler ion-icon');
+  if (menuIcon.getAttribute('name') === 'menu-outline') {
+    menuIcon.setAttribute('name', 'close-outline');
+  } else {
+    menuIcon.setAttribute('name', 'menu-outline');
+  }
+}
 
 const toggleDrawer = () => {
-  const menuIcon = document.querySelector('.menu-toggler ion-icon');
-  const drawer = document.querySelector('.navbar-drawer');
-
-  if (drawer.classList.contains('open')) {
-    // Drawer is open, show menu icon
-    menuIcon.setAttribute('name', 'menu-outline');
-  } else {
-    // Drawer is closed, show close icon
-    menuIcon.setAttribute('name', 'close-outline');
-  }
-
   drawer.classList.toggle('open');
+  toggleDrawerIcon();
 };
 
 const showOverlay = () => {
-  const overlay = document.querySelector('.global-overlay');
   overlay.style.visibility = 'visible';
   overlay.style.opacity = '1';
 };
 
+const closeDrawer = () => {
+  document.body.style.overflowY = 'auto';
+  overlay.style.visibility = 'hidden';
+  overlay.style.opacity = '0';
+  drawer.style.transform = 'translateY(-100%)';
+  drawer.style.marginTop = '0';
+  toggleDrawerIcon();
+};
+
 const hideOverlay = () => {
-  const overlay = document.querySelector('.global-overlay');
   const drawerBtn = document.querySelector('.close-drawer-btn');
-  const drawer = document.querySelector('.navbar-drawer');
-  const menuIcon = document.querySelector('.menu-toggler ion-icon');
-
-  const closeDrawer = () => {
-    document.body.style.overflowY = 'auto';
-    overlay.style.visibility = 'hidden';
-    overlay.style.opacity = '0';
-    drawer.style.transform = 'translateY(-100%)';
-    drawer.style.marginTop = '0';
-
-    // Switch the icon back to the menu icon
-    menuIcon.setAttribute('name', 'menu-outline');
-  };
-
   if (drawerBtn) {
     drawerBtn.addEventListener('click', closeDrawer);
   }
@@ -151,8 +143,6 @@ if (overlay) {
   hideOverlay();
 }
 
-let noticeHeight = notice?.offsetHeight;
-
 function openDrawer(el) {
   const targetedDrawer = document.querySelector(`.navigation-drawer${el}`);
   const navbar = document.querySelector('.yc-navbar');
@@ -165,12 +155,9 @@ function openDrawer(el) {
     if (navbar && noticeOnMobile) {
       targetedDrawer.style.marginTop = `${navbar.offsetHeight + noticeOnMobile.offsetHeight}px`;
     }
-
-    // Switch the icon to the close icon
-    const menuIcon = document.querySelector('.menu-toggler ion-icon');
-    menuIcon.setAttribute('name', 'close-outline');
   }
 }
+
 
 /* ------------------ */
 /* ----- search ----- */
