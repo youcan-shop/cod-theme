@@ -9,6 +9,8 @@ function uploadImage(element) {
   const imagePreview = parentSection.querySelector('.yc-upload-preview');
   const imageWrapper = imagePreview.querySelector('.yc-image-preview');
   const progressContainer =  imagePreview.querySelector('.progress-container');
+  const imageName = $('.yc-image-info .image-name');
+  const imageSize = $('.yc-image-info .image-size');
   const closePreviewButton = $('#close-preview');
   let uploadedImageLink = parentSection.querySelector('#yc-upload-link');
 
@@ -30,6 +32,8 @@ function uploadImage(element) {
         uploadArea.style.display = 'none';
         imagePreview.style.display = 'block';
         imageWrapper.style.opacity = 0.4;
+        imageName.innerText = this.files[0].name;
+        getFileSize(this.files[0]);
         progressContainer.style.display = "block";
 
         const preview = document.createElement('img');
@@ -52,6 +56,23 @@ function uploadImage(element) {
       uploadedImageLink.value = res.link;
     }
   });
+
+  function getFileSize(file) {
+    const fileSizeInBytes = file.size;
+    const fileSizeInKB = fileSizeInBytes / 1024;
+    const fileSizeInMB = fileSizeInKB / 1024;
+
+    if (fileSizeInMB > 2) {
+      file.src = '';
+      imageName.innerText = 'please provide a file size below than 2mb';
+    }
+
+    if (fileSizeInMB < 1) {
+      return imageSize.innerText = fileSizeInKB.toFixed(2) + " Kb";
+    } else {
+      return imageSize.innerText = fileSizeInMB.toFixed(2) + " Mb";
+    }
+  }
 
   function smoothProgressBar() {
     const progressBar = document.querySelector('.progress-bar');
