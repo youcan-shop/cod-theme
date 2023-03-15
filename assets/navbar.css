@@ -8,7 +8,7 @@
 .yc-header {
   background-color: var(--yc-nav-background);
   transition: opacity 0.3s, transform 0.3s;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #E9E9E9;
 }
 .yc-header.nav-fixed.fixed {
   position: fixed;
@@ -210,7 +210,7 @@
 }
 .navigation-drawer .items-wrapper,
 .navigation-drawer .items {
-  border-color: rgba(0, 0, 0, 0.1);
+  border-color: #E9E9E9;
   font-size: 14px;
 }
 .navigation-drawer .close-drawer-btn {
