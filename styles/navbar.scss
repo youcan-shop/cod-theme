@@ -228,7 +228,8 @@
 
 
   .items {
-    padding: 22px 24px;
+    padding: 22px 0;
+    margin: auto 24px;
     border-top: 1px solid;
 
     &,
@@ -249,7 +250,7 @@
 
   .items-wrapper,
   .items {
-    border-color: rgba(0, 0, 0, 0.1);
+    border-color: #E9E9E9;
     font-size: 14px;
   }
 
