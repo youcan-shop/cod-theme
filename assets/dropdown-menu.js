@@ -1,6 +1,6 @@
 const dropdownBtn = $('.dropbtn');
 const dropdownContent = $('.dropdown-content');
-const dropdownOptions = dropdownContent.querySelectorAll('li');
+const dropdownOptions = dropdownContent?.querySelectorAll('li');
 
 function showDropDownMenu(customContent) {
   if(customContent) {

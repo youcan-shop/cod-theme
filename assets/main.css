@@ -290,19 +290,27 @@ input:not([type=radio]),
 
 .yc-upload {
   border: 1px dashed var(--yc-neutral-light-color);
+  color: var(--yc-neutral-color);
   width: 100%;
   height: 120px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  border-radius: 8px;
+  gap: 12px;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 120%;
   cursor: pointer;
 }
 .yc-upload input {
   display: none;
 }
-.yc-upload .upload-msg {
-  margin-left: 5px;
+.yc-upload .upload-icon {
+  width: 22px;
+  height: 22px;
+  color: #A7A7A7;
 }
 
 .yc-number {
