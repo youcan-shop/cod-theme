@@ -102,15 +102,13 @@ const toggleDrawerIcon = () => {
   const menuIcon = document.querySelector('.menu-toggler ion-icon');
   if (menuIcon.getAttribute('name') === 'menu-outline') {
     menuIcon.setAttribute('name', 'close-outline');
-  } else {
-    menuIcon.setAttribute('name', 'menu-outline');
+  } 
+  
+  else {
+    menuIcon.setAttribute('name', 'menu-outline');    
+    closeDrawer();
   }
 }
-
-const toggleDrawer = () => {
-  drawer.classList.toggle('open');
-  toggleDrawerIcon();
-};
 
 const showOverlay = () => {
   overlay.style.visibility = 'visible';
@@ -119,11 +117,9 @@ const showOverlay = () => {
 
 const closeDrawer = () => {
   document.body.style.overflowY = 'auto';
-  overlay.style.visibility = 'hidden';
   overlay.style.opacity = '0';
   drawer.style.transform = 'translateY(-100%)';
   drawer.style.marginTop = '0';
-  toggleDrawerIcon();
 };
 
 const hideOverlay = () => {
@@ -155,7 +151,10 @@ function openDrawer(el) {
     if (navbar && noticeOnMobile) {
       targetedDrawer.style.marginTop = `${navbar.offsetHeight + noticeOnMobile.offsetHeight}px`;
     }
+    toggleDrawerIcon();
   }
+
+  document.body.style.overflowY = 'hidden';
 }
 
 
