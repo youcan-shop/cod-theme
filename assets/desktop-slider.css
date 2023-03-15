@@ -19,10 +19,7 @@
   color: #000000;
 }
 .yc-slider__desktop .content .caption {
-  line-height: 53px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  line-height: 55px;
 }
 .yc-slider__desktop .content > div {
   max-width: 30rem;
