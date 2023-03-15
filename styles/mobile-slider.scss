@@ -13,19 +13,16 @@
     align-items: center;
     * {
       background-color: transparent !important;
-      color: white !important;
+      color: #000000;
     }
 
     & > div {
-      max-width: 30rem;
       position: relative;
       z-index: 3;
     }
-
-    .yc-btn {
-      background-color: white !important;
-      color: black !important;
-      margin-top: 1rem;
+    
+    .caption {
+      line-height: 39px;
     }
 
     .headers {
@@ -43,9 +40,17 @@
     p {
       margin-top: 1rem;
     }
+  }
 
-    .btn-holder {
-      text-align: center;
+  .btn-holder {
+    text-align: center;
+    margin-top: 38px;
+
+    .yc-btn-slider {
+      font-size: 14px;
+      background-color: var(--yc-primary-color) !important;
+      color: #ffffff;
+      padding: 12px 18px;
     }
   }
 }
