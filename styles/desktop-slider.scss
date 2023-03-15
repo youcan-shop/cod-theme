@@ -17,7 +17,14 @@
 
     * {
       background-color: transparent !important;
-      color: white !important;
+      color: #000000;
+    }
+
+    .caption {
+      line-height: 53px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
     & > div {
@@ -26,16 +33,9 @@
       z-index: 3;
     }
 
-    .yc-btn {
-      background-color: white !important;
-      color: black !important;
-      margin-top: 1rem;
-    }
-
     .headers {
       font-weight: 700;
       line-height: 1.2;
-      margin-bottom: 2rem;
     }
 
     @for $i from 1 through 3 {
@@ -50,10 +50,17 @@
     }
 
     .btn-holder {
-      margin-top: 2rem;
       display: flex;
       text-align: center;
       justify-content: center;
+
+      .yc-btn-slider {
+        font-size: 14px;
+        background-color: var(--yc-primary-color) !important;
+        color: #ffffff;
+        margin-top: 38px;
+        padding: 12px 18px;
+      }
     }
 
     .container {

@@ -27,7 +27,6 @@
 .yc-slider__mobile .content .headers, .yc-slider__mobile .content h3, .yc-slider__mobile .content h2, .yc-slider__mobile .content h1 {
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 2rem;
 }
 .yc-slider__mobile .content h1 {
   font-size: 3rem;
@@ -42,6 +41,5 @@
   margin-top: 1rem;
 }
 .yc-slider__mobile .content .btn-holder {
-  margin-top: 2rem;
   text-align: center;
 }
