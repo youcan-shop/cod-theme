@@ -563,6 +563,10 @@ input:not([type='radio']),
     bottom: 8px;
     left: 8px;
   }
+
+  &.discount {
+    top: 10%
+  }
 }
 
 .breadcrumbs-container {

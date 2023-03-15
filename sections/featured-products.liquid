@@ -165,6 +165,10 @@
           "label": "Product"
         },
         {
+          "type": "header",
+          "content": "Banner text"
+        },
+        {
           "type": "text",
           "id": "tag_text",
           "label": "Banner text"
@@ -185,6 +189,55 @@
           "type": "select",
           "id": "tag_position",
           "label": "Banner position",
+          "options": [
+            {
+              "label": "Top Right",
+              "value": "top_right"
+            },
+            {
+              "label": "Top Left",
+              "value": "top_left"
+            },
+            {
+              "label": "Bottom Right",
+              "value": "bottom_right"
+            },
+            {
+              "label": "Bottom Left",
+              "value": "bottom_left"
+            }
+          ],
+          "default": "top_right"
+        },
+        {
+          "type": "header",
+          "content": "% Discount tag settings"
+        },
+        {
+          "type": "paragraph",
+          "content": "ℹ️ These settings will be applied to the discount tag"
+        },
+        {
+          "type": "text",
+          "id": "discount_text",
+          "label": "Discount text"
+        },
+        {
+          "type": "color",
+          "id": "discount_color",
+          "label": "Discount color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "discount_text_color",
+          "label": "Discount text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "select",
+          "id": "discount_position",
+          "label": "Discount position",
           "options": [
             {
               "label": "Top Right",

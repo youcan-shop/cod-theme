@@ -531,6 +531,9 @@ input:not([type=radio]),
   bottom: 8px;
   left: 8px;
 }
+.tag.discount {
+  top: 10%;
+}
 
 .breadcrumbs-container .breadcrumbs-listings {
   display: flex;

@@ -1,23 +1,33 @@
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
 {%- assign productId = 0 | rand %}
 
-{%  style  %}
-.discount_count .percentage {
-  position:absolute;
-  top:12px;
-  right: 12px;
+{% style %}
+  .discount_count .percentage {
+    position: absolute;
+    top: 12px;
+    right: 12px;
 
-  background: red
-}
+    background: red
+  }
 {% endstyle %}
 
-<a href='{{ item.url }}' class='product-block' id="product_{{productId}}">
+<a
+  href='{{ item.url }}'
+  class='product-block'
+  id="product_{{productId}}">
 
   {% if block_settings.tag_text %}
     <div class="tag {{ block_settings.tag_position }}" style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}">
       {{ block_settings.tag_text }}
     </div>
   {% endif %}
+
+  {% if block_settings.discount_text %}
+    <div class="tag discount {{ block_settings.discount_position }}" style="background: {{ block_settings.discount_color.hex }}; color: {{ block_settings.discount_text_color.hex }}">
+      {{ block_settings.discount_text }}
+    </div>
+  {% endif %}
+
   <div class='product-thumbnail'>
     {% if item.thumbnail %}
       <img loading='lazy' src='{{ item.thumbnail }}'>
@@ -40,16 +50,3 @@
     </button>
   </div>
 </a>
-
-<script>
-  const price = {{item.price}}  
-  const compareAtPrice = {{item.compare_at_price}}
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const percentage = ((price * 100) / compareAtPrice).toFixed(2);
-  
-    const discount = document.createElement('discount_count').innerHTML = `<span class="tag percentage">${percentage}%</span>`
-    console.log(document.querySelector('#product_{{productId}}'))
-    document.querySelector('#product_{{productId}}').appendChild(discount);
-  })
-</script>
