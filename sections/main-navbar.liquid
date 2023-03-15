@@ -102,32 +102,6 @@
     <div class='close-drawer-btn'>
       <ion-icon name="close-outline" class='close-svg'></ion-icon>
     </div>
-    <div class='logo flex items-center justify-center'>
-      <a href='/'>
-        <img
-          loading='lazy'
-          src='{%- if section.settings.navbar_logo.src -%} {{ section.settings.navbar_logo.src }} {%- else -%} {{ 'cod-logo.png' | asset_url }} {%- endif -%}'
-        >
-      </a>
-    </div>
-      <form
-        action='/search'
-        method='GET'
-        class='mobile-search w-full flex gap-1 items-center'
-        >
-        <input
-          placeholder='{{ 'navbar.search.placeholder' | t }}'
-          type='text'
-          name='q'
-          value=''
-          class='w-full'
-        >
-        <button
-          type='submit'
-        >
-          <ion-icon name="search-outline" class="search-icon"></ion-icon>
-        </button>
-      </form>
     <div class='flex flex-col items-wrapper'>
       {% for item in main-link-list.links %}
         <a
