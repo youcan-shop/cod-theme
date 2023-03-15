@@ -42,10 +42,10 @@
             "settings": {
                 "columns_desktop": 4,
                 "columns_mobile": "2",
-                "title": "ما يميزنا",
-                "margin_bottom": 50,
-                "margin_top": 5,
-                "background_color": "#FFFFFFFF"
+                "title": "",
+                "margin_bottom": 88,
+                "margin_top": 60,
+                "background_color": "#F6F9FF"
             },
             "blocks": {
                 "block_c9qx028mi12btfk4": {
@@ -53,7 +53,7 @@
                     "settings": {
                         "heading": "الدفع عند الإستلام",
                         "description": "<p>شحن مجاني في الوطن العربي<\/p>",
-                        "image": "Money-2MgoqigDoQszGeex1W3chDW61MQ.png"
+                        "image": "Vector (2)-2N3JpCb4MIlB57wgjpHrmzf9NCT.png"
                     }
                 },
                 "block_cc11ny9wgf589l": {
@@ -61,13 +61,13 @@
                     "settings": {
                         "heading": "الشحن مجاني",
                         "description": "<p>ضمان استعادة الاموال<\/p>",
-                        "image": "Truck-2MgoltIsoVPSGh7dSevcxBgl5I5.png"
+                        "image": "Swap-2N3Jj7CljaQfLY2pJmV1stXJRw5.png"
                     }
                 },
                 "block_cee6rpyw7oltwqg": {
                     "type": "columnn",
                     "settings": {
-                        "image": "Group 970-2Mgou2v3p2LwSqIOcRKCjYMKRAR.png",
+                        "image": "Vector (1)-2N3JffZljaujvPGtYiFBgsmFYuK.png",
                         "heading": "ضمان حقيقي",
                         "description": "<p>ضمان استعادة الاموال<\/p>"
                     }
@@ -77,7 +77,7 @@
                     "settings": {
                         "heading": "خدمة ما بعد البيع",
                         "description": "<p>لا تقلق بشأن الأمن بعد الآن<\/p>",
-                        "image": "Group 969-2MgoyDEcm8kBWR6VZH7WZH1GARU.png"
+                        "image": "Vector-2N3Jc3LIwm5fjq1rHcFDfl6eEFA.png"
                     }
                 }
             },
