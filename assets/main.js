@@ -148,8 +148,6 @@ const openDrawer = (el) => {
     }
     toggleDrawerIcon();
   }
-
-  document.body.style.overflowY = 'hidden';
 };
 
 if (overlay) {
