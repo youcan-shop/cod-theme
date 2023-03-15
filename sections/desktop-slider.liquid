@@ -2,18 +2,10 @@
 
 {% style %}
   #yc_slider_{{ id }} .splide__arrow {
-    background: {{ section.settings.slider_desktop_arrows_background_color.hex }} !important;
-    width: 54px;
-    height: 54px;
-    margin: 0 100px;
-  }
-
-  #yc_slider_{{ id }} .splide__arrow--next {
-    border-radius: 8px;
-  }
-
-  #yc_slider_{{ id }} .splide__arrow--prev {
-    border-radius: 8px;
+    border: 1px solid #000000;
+    width: 42px;
+    height: 42px;
+    margin: 0 44px;
   }
 
   #yc_slider_{{ id }} .splide__arrow svg {
@@ -144,12 +136,6 @@
       "unit": "px",
       "label": "Arrows Content Size",
       "default": 14
-    },
-    {
-      "type": "color",
-      "id": "slider_desktop_arrows_background_color",
-      "label": "Arrows Background Color",
-      "default": "#FFFFFF"
     },
     {
       "type": "select",
