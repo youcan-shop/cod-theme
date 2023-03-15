@@ -34,6 +34,18 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 
+  @include breakpoint('md') {
+    padding: 0 30px;
+  }
+
+  @include breakpoint('lg') {
+    padding: 0 60px;
+  }
+
+  @include breakpoint('xl') {
+    padding: 0 140px;
+  }
+
   &.fluid {
     max-width: 100%;
     min-width: 100%;
@@ -79,12 +91,6 @@ label {
   font-size: 14px;
   margin: 12px 0 6px 0;
   display: block;
-}
-
-.lead,
-.content p {
-  font-size: 1.2em !important;
-  line-height: 1.6em !important;
 }
 
 .border,

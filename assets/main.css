@@ -35,6 +35,21 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+@media (min-width: 768px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    padding: 0 60px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 140px;
+  }
+}
 .container.fluid {
   max-width: 100%;
   min-width: 100%;

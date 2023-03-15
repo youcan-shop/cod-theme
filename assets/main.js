@@ -3,28 +3,43 @@
 /* ------------------ */
 const fixedNavbar = document.querySelector('.nav-fixed');
 const notice = document.querySelector('.yc-notice');
+const noticeOnDesktop = document.querySelector('.yc-notice.desktop');
+const noticeOnMobile = document.querySelector('.yc-notice.mobile');
 
-const makeNavbarFixed = () => {
-  document.body.style.paddingTop = fixedNavbar.offsetHeight + 'px';
+function makeNavbarFixed() {
+  document.body.style.paddingTop = `${fixedNavbar.offsetHeight}px`;
   fixedNavbar.classList.add('fixed');
-};
-
-const makeNavbarStatic = () => {
-  document.body.style.paddingTop = '0';
-  fixedNavbar.classList.remove('fixed');
-};
-
-function toggleNavbar() {
-  if (window.scrollY >= fixedNavbar.offsetHeight + notice.offsetHeight) {
-    makeNavbarFixed();
-  } else {
-    makeNavbarStatic();
+  if (noticeOnMobile) {
+    noticeOnMobile.style.display = 'none';
   }
 }
 
-if (fixedNavbar && notice) {
-  toggleNavbar();
-  window.addEventListener('scroll', toggleNavbar);
+function makeNavbarStatic() {
+  document.body.style.paddingTop = '';
+  fixedNavbar.classList.remove('fixed');
+  if (noticeOnMobile) {
+    noticeOnMobile.style.display = '';
+  }
+}
+
+function handleScroll() {
+  if (fixedNavbar && noticeOnDesktop) {
+    const navbarHeight = fixedNavbar.offsetHeight;
+    const noticeHeight = noticeOnDesktop.offsetHeight;
+    const scrollTop = window.scrollY || window.pageYOffset;
+
+    if (scrollTop >= navbarHeight + noticeHeight) {
+      makeNavbarFixed();
+    } else {
+      makeNavbarStatic();
+    }
+  }
+}
+
+if (fixedNavbar && noticeOnDesktop) {
+  handleScroll();
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('resize', handleScroll);
 }
 
 /* -------------------------- */
@@ -81,27 +96,32 @@ function notify(msg, type = 'success', timeout = 3000) {
 /* ----- navigation-drawer ----- */
 /* ----------------------------- */
 const overlay = document.querySelector('.global-overlay');
-const drawer = document.querySelector('.navigation-drawer');
+const drawer = document.querySelector('.navbar-drawer');
+const menuIcon = document.querySelector('.menu-toggler ion-icon');
+const drawerBtn = document.querySelector('.close-drawer-btn');
+
+const toggleDrawerIcon = () => {
+  if (menuIcon.getAttribute('name') === 'menu-outline') {
+    menuIcon.setAttribute('name', 'close-outline');
+  } else {
+    menuIcon.setAttribute('name', 'menu-outline');  
+    closeDrawer();  
+  }
+};
 
 const showOverlay = () => {
-  const overlay = document.querySelector('.global-overlay');
-
-  document.body.style.overflowY = 'hidden';
   overlay.style.visibility = 'visible';
   overlay.style.opacity = '1';
-}
+};
+
+const closeDrawer = () => {
+  document.body.style.overflowY = 'auto';
+  overlay.style.opacity = '0';
+  drawer.style.transform = 'translateY(-100%)';
+  drawer.style.marginTop = '0';
+};
 
 const hideOverlay = () => {
-  const overlay = document.querySelector('.global-overlay');
-  const drawerBtn = document.querySelector('.close-drawer-btn');
-
-  const closeDrawer = () => {
-    document.body.style.overflowY = 'auto';
-    overlay.style.visibility = 'hidden';
-    overlay.style.opacity = '0';
-    drawer.style.transform = 'translateX(150vw)';
-  };
-
   if (drawerBtn) {
     drawerBtn.addEventListener('click', closeDrawer);
   }
@@ -113,25 +133,31 @@ const hideOverlay = () => {
   });
 };
 
-
-if (overlay) {
-  hideOverlay();
-}
-
-function openDrawer(el) {
+const openDrawer = (el) => {
   const targetedDrawer = document.querySelector(`.navigation-drawer${el}`);
+  const navbar = document.querySelector('.yc-navbar');
+
   if (targetedDrawer) {
     showOverlay();
     targetedDrawer.style.transform = 'none';
     targetedDrawer.style.opacity = '1';
+
+    if (navbar && noticeOnMobile) {
+      targetedDrawer.style.marginTop = `${navbar.offsetHeight + noticeOnMobile.offsetHeight}px`;
+    }
+    toggleDrawerIcon();
   }
+};
+
+if (overlay) {
+  hideOverlay();
+  overlay.addEventListener('click', toggleDrawerIcon);
 }
 
 /* ------------------ */
 /* ----- search ----- */
 /* ------------------ */
 const searchHolder = document.getElementById('searchInputHolder');
-let noticeHeight = notice?.offsetHeight;
 
 function openSearch() {
   const isNavBarFixed = fixedNavbar?.classList.contains('fixed');

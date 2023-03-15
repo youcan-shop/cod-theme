@@ -34,16 +34,15 @@
                     }
                 },
                 "order": [
-                    "block_gkk8ae6rzniqule",
                     "block_glpfko4s63fm6kj",
+                    "block_gkk8ae6rzniqule",
                     "block_gmrv273jdps9sso"
                 ],
                 "settings": {
-                    "cart_badge_color": "#B83375FF",
-                    "navbar_logo": "image-2IqyhOl7b1bbMBEPS5JD0G2MrcW.png",
-                    "navbar_links_color": "#000000FF",
-                    "navbar_background_color": "#FFFFFFFF",
-                    "navbar_height": 85,
+                    "cart_badge_color": "#7F7F7FFF",
+                    "navbar_links_color": "#FFFFFFFF",
+                    "navbar_background_color": "#000000FF",
+                    "navbar_height": 80,
                     "navbar_always_on_top": true
                 }
             },
@@ -85,7 +84,9 @@
         "error_color": "#DF1E2FFF",
         "meta_title": "COD Theme",
         "navbar_height": 60,
-        "navbar_links_hover_transparency": 0.69999999999999996
+        "navbar_links_hover_transparency": 0.69999999999999996,
+        "neutral_light_color": "#E3E3E3FF",
+        "neutral_color": "#16191BFF"
     },
     "presets": {
         "Default": {}
