@@ -8,7 +8,7 @@ function uploadImage(element) {
   const uploadArea = parentSection.querySelector('.yc-upload');
   const imagePreview = parentSection.querySelector('.yc-upload-preview');
   const imageWrapper = imagePreview.querySelector('.yc-image-preview');
-  const progressBar =  imagePreview.querySelector('.progress-bar');
+  const progressContainer =  imagePreview.querySelector('.progress-container');
   const closePreviewButton = $('#close-preview');
   let uploadedImageLink = parentSection.querySelector('#yc-upload-link');
 
@@ -19,24 +19,18 @@ function uploadImage(element) {
       const reader = new FileReader();
       reader.readAsDataURL(this.files[0]);
 
-      reader.addEventListener("loadstart", () => {
-        console.log('file start uploading');
-        uploadArea.style.display = 'none';
-        imagePreview.style.display = 'block';
-        imageWrapper.style.opacity = 0.4;
-        progressBar.style.display = "block";
-      });
-
       reader.addEventListener("load", () => {
-        console.log('File loaded successfully');
         const base64 = reader.result;
         const previews = parentSection.querySelectorAll('.yc-image-preview .yc-image img');
 
         previews.forEach((preview) => {
           preview.remove();
         });
-        imageWrapper.style.opacity = 1;
-        progressBar.style.display = "none";
+
+        uploadArea.style.display = 'none';
+        imagePreview.style.display = 'block';
+        imageWrapper.style.opacity = 0.4;
+        progressContainer.style.display = "block";
 
         const preview = document.createElement('img');
         preview.src = base64;
@@ -48,14 +42,8 @@ function uploadImage(element) {
           uploadInput.value = '';
           preview.remove();
         });
-      });
 
-      reader.addEventListener("progress", (event) => {
-        console.log('Progress event fired');
-        if (event.lengthComputable) {
-          const percent = (event.loaded / event.total) * 100;
-          progressBar.setAttribute("value", percent);
-        }
+        smoothProgressBar();
       });
 
       const res = await youcanjs.product.upload(this.files[0]);
@@ -64,7 +52,24 @@ function uploadImage(element) {
       uploadedImageLink.value = res.link;
     }
   });
+
+  function smoothProgressBar() {
+    const progressBar = document.querySelector('.progress-bar');
+    let progress = 0;
+    progressBar.style.width = progress;
+    const interval = setInterval(() => {
+      if (progress >= 100) {
+        setTimeout(() => {
+          progressContainer.style.display = 'none';
+          imageWrapper.style.opacity = 1;
+        }, 1000);
+        clearInterval(interval);
+        return;
+      }
+      progress += 10;
+      progressBar.style.width = `${progress}%`;
+    }, 200);
+
+    progressBar.style.transition = 'width 1s ease-in-out';
+  }
 }
-
-
-

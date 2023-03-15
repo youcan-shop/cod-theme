@@ -67,7 +67,7 @@
     "single_product": {
       "quantity": "الكمية",
       "variants": {
-        "upload": "تحميل صورة"
+        "upload": "تحميل صورة (PNG, JPEG)"
       }
     },
     "express_checkout": {

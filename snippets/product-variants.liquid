@@ -61,7 +61,7 @@
           </ul>
         {% when 'upload_image_zone' %}
           <div class='yc-upload' onclick='uploadImage(this)'>
-            <ion-icon name='cloud-upload-outline'></ion-icon>
+            <ion-icon class='upload-icon' name='cloud-upload-outline'></ion-icon>
             <span class='upload-msg'>{{ 'snippets.single_product.variants.upload' | t }}</span>
           </div>
           <section class='yc-upload-preview'>
@@ -77,7 +77,9 @@
                 <ion-icon name="close-outline"  style="zoom:2.0;"></ion-icon>
               </button>
             </div>
-            <progress value="0" max="100" class='progress-bar'></progress>
+            <div class="progress-container">
+              <div class="progress-bar"></div>
+            </div>
           </section>
         {% when 'color_base_buttons' %}
           <ul class='yc-colors-select'>
