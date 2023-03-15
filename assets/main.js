@@ -154,8 +154,6 @@ if (overlay) {
   overlay.addEventListener('click', toggleDrawerIcon);
 }
 
-
-
 /* ------------------ */
 /* ----- search ----- */
 /* ------------------ */
