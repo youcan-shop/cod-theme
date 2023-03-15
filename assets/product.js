@@ -6,54 +6,6 @@ function previewProductImage(element) {
   setElementActive(element);
 }
 
-/**
- * Upload image input handler
- * @param {HTMLElement} element
- */
-function uploadImage(element) {
-  const parentSection = element.closest('.yc-single-product');
-  const uploadInput = parentSection.querySelector('#yc-upload');
-  let uploadedImageLink = parentSection.querySelector('#yc-upload-link');
-
-  uploadInput.click();
-
-  uploadInput.addEventListener('change', async function () {
-    if (this.files && this.files[0]) {
-      const reader = new FileReader();
-      reader.readAsDataURL(this.files[0]);
-
-      reader.onload = function () {
-        const base64 = reader.result;
-
-        const previews = parentSection.querySelectorAll(
-          '.yc-upload-preview img'
-        );
-        previews.forEach((preview) => {
-          preview.remove();
-        });
-
-        const uploadArea = parentSection.querySelector('.yc-upload');
-        uploadArea.style.display = 'none';
-
-        const preview = document.createElement('img');
-        preview.src = base64;
-
-        preview.addEventListener('click', function () {
-          uploadArea.style.display = 'flex';
-          uploadInput.value = '';
-          preview.remove();
-        });
-        parentSection.querySelector('.yc-upload-preview').appendChild(preview);
-      };
-
-      const res = await youcanjs.product.upload(this.files[0]);
-      if (res.error) return notify(res.error, 'error');
-
-      uploadedImageLink.value = res.link;
-    }
-  });
-}
-
 (function productImageHoverZoomer() {
   const singleProductImagesPreview = document.querySelectorAll(
     '.product-images-container'
