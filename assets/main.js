@@ -2,6 +2,7 @@
 /* ----- navbar ----- */
 /* ------------------ */
 const fixedNavbar = document.querySelector('.nav-fixed');
+const notice = document.querySelector('.yc-notice');
 const noticeOnDesktop = document.querySelector('.yc-notice.desktop');
 const noticeOnMobile = document.querySelector('.yc-notice.mobile');
 
