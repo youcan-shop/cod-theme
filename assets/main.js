@@ -42,7 +42,6 @@ if (fixedNavbar && noticeOnDesktop) {
   window.addEventListener('resize', handleScroll);
 }
 
-
 /* -------------------------- */
 /* ----- spinner-loader ----- */
 /* -------------------------- */
