@@ -56,6 +56,26 @@ body {
   width: 100%;
 }
 
+.slider-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .slider-container {
+    margin: 0 30px;
+  }
+}
+@media (min-width: 992px) {
+  .slider-container {
+    margin: 0 60px;
+  }
+}
+@media (min-width: 1200px) {
+  .slider-container {
+    margin: 0 140px;
+  }
+}
+
 input,
 textarea,
 button,
