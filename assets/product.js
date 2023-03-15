@@ -386,7 +386,7 @@ function showSelectedVariants() {
         variantOption = createAndSetText(variantName, imageBasedButton, 'image-container').element;
         break;
       case 'upload_image_zone':
-        const uploadImageZone = variant.querySelector(' .yc-upload-preview img')?.outerHTML;
+        const uploadImageZone = variant.querySelector('.yc-image-preview .yc-image img')?.outerHTML;
         variantOption = createAndSetText(variantName, uploadImageZone, 'image-container').element;
         break;
     }

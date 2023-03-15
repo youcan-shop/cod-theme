@@ -33,7 +33,6 @@ function uploadImage(element) {
         imagePreview.style.display = 'block';
         imageWrapper.style.opacity = 0.4;
         imageName.innerText = this.files[0].name;
-        getFileSize(this.files[0]);
         progressContainer.style.display = "block";
 
         const preview = document.createElement('img');
@@ -47,6 +46,7 @@ function uploadImage(element) {
           preview.remove();
         });
 
+        getFileSize(this.files[0], preview);
         smoothProgressBar();
       });
 
@@ -57,14 +57,16 @@ function uploadImage(element) {
     }
   });
 
-  function getFileSize(file) {
+  function getFileSize(file, source) {
     const fileSizeInBytes = file.size;
     const fileSizeInKB = fileSizeInBytes / 1024;
     const fileSizeInMB = fileSizeInKB / 1024;
 
     if (fileSizeInMB > 2) {
-      file.src = '';
-      imageName.innerText = 'please provide a file size below than 2mb';
+      source.src = '';
+      source.style.height = "40px";
+      imageName.style.color = "red";
+      imageName.innerText = sizeBigMessage;
     }
 
     if (fileSizeInMB < 1) {
