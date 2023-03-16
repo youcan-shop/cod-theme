@@ -1,10 +1,12 @@
 @import 'helpers/mixins';
+@import 'countdown';
+
 .yc-featured-products {
   .counter-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding-bottom: 24px;
+    padding: 24px 0;
 
     .yc-section-title {
       margin: 0;
@@ -12,8 +14,22 @@
       font-weight: 600;
       text-align: start;
 
-      @media screen and (max-width: 767px) {
+      @include max-screen('md') {
         font-size: 18px;
+      }
+    }
+  }
+
+  .splide {
+    padding: 37px 0 5rem 0;
+
+    .splide__pagination__page {
+      background-color: var(--yc-primary-color);
+      opacity: 0.3;
+
+      &.is-active {
+        background-color: var(--yc-primary-color);
+        opacity: 1;
       }
     }
   }
@@ -32,10 +48,11 @@
 
     .product-block {
       text-align: center;
-      color: var(--yc-neutral-color);
       display: flex;
       flex-direction: column;
       position: relative;
+      background: #FFFFFF;
+      border-radius: 5px;
 
       .product-thumbnail {
         border-radius: 3px;
@@ -53,7 +70,7 @@
           object-fit: cover;
           transform: translate(-50%,-50%);
           transition: transform .25s ease;
-  
+
           &:hover {
             transform: translate(-50%,-50%) scale(1.1);
           }
@@ -61,6 +78,9 @@
       }
 
       .product-details {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
         text-align: center;
         padding: 10% 15%;
 
@@ -79,7 +99,6 @@
         .product-title {
           font-weight: 600;
           font-size: 12px;
-          margin-bottom: 5px;
 
           @include breakpoint('md') {
             font-weight: 300;
@@ -91,17 +110,8 @@
       .prices {
         display: flex;
         align-items: center;
-        flex-direction: column;
         justify-content: center;
         gap: 7px;
-        padding: 0 6px;
-
-        @include breakpoint('md') {
-          flex-direction: row;
-          align-items: center;
-          margin: 8px auto;
-          gap: 4px;
-        }
 
         .product-price {
           font-weight: 600;
@@ -109,11 +119,11 @@
           font-size: 20px;
           line-height: 120%;
 
-          @include breakpoint('md') {
-            font-size: 20px;
+          @include max-screen('md') {
+            font-size: 14px;
+            line-height: 17px;
           }
         }
-
 
         .compare-at-price {
           text-decoration: line-through;
@@ -121,7 +131,12 @@
           opacity: 0.5;
           font-size: 18px;
           font-weight: 300;
-          color: #9B9B9B
+          color: #9B9B9B;
+
+          @include max-screen('md') {
+            font-size: 12px;
+            line-height: 15px;
+          }
         }
 
         .product-thumbnail:hover img {
@@ -139,95 +154,6 @@
 
     @include breakpoint('md') {
       margin-top: 60px;
-    }
-  }
-
-  .countdown-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    gap: 12px;
-
-    @include breakpoint('md') {
-      flex-direction: row;
-    }
-
-    .message {
-      text-align: center;
-      font-size: 23px;
-      display: none;
-    }
-
-    @include breakpoint('md') {
-      flex-direction: row;
-
-      .message {
-        display: block;
-      }
-    }
-    .countdown {
-      direction: ltr;
-      display: flex;
-      justify-content: center;
-      gap: 4px;
-      margin: 0;
-
-      & .day,
-      & .hour,
-      & .min,
-      & .sec {
-        text-align: center;
-        width: min-content;
-        display: flex;
-        align-items: center;
-      }
-
-      & .day .num,
-      & .hour .num,
-      & .min .num,
-      & .sec .num {
-        display: block;
-        padding: 0.2rem 0.5rem;
-        border-radius: 6px;
-        font-size: 29px;
-        font-weight: 600;
-        color: #FFFFFF;
-        border: 0;
-        background-color: #EE7A6D;
-      }
-
-      & .sec .num {
-        background-color: #000000;
-        border: 0;
-        width: 42px;
-        display: flex;
-        justify-content: center;
-
-        @media screen and (max-width: 600px) {
-          width: 35px;
-        }
-      }
-
-      .dots {
-        color: white;
-        font-size: 40px;
-        margin-top: -11px;
-      }
-
-      @media screen and (max-width: 600px) {
-        gap: 1px;
-      }
-    }
-
-    @media screen and (max-width: 600px) {
-      & .day .num,
-      & .hour .num,
-      & .min .num,
-      & .sec .num {
-        font-size: 19px !important;
-        padding: 8px !important;
-      }
     }
   }
 }

@@ -8,21 +8,16 @@
                 "slider_pause_on_hover": true,
                 "slider_timeout": 3,
                 "slider_mobile_timeout": 4,
-                "slider_arrows_content_size": 22,
+                "slider_arrows_content_size": 15,
                 "slider_arrows": true,
-                "slider_height_percentage": 60,
-                "slider_desktop_arrows_color": "#FFFFFFFF",
-                "slider_desktop_arrows_background_color": "#FFFFFF00",
-                "slider_autoplay": false,
-                "slider_mobile_autoplay": false,
-                "slider_pagination": true
+                "slider_height_percentage": 60
             },
             "blocks": {
                 "block_qw91o394p69bv8l": {
                     "type": "image_picker",
                     "settings": {
                         "image": "OFS-1-large_5f874119-097b-4f1a-b218-1bd46b883c7c_1400x733_crop_center-2JwtY66cwrwPKjilC2MItTG0pfr.jpeg",
-                        "caption": "<h1>Lenovo QT82 TWS Wireless BT<\/h1><h1>Headphone<\/h1>",
+                        "caption": "<h2>هذا هو شريط تمرير سطح المكتب<\/h2><p>في النشر والتصميم الجرافيكي ، هو عنصر نائب شائع الاستخدام.<\/p>",
                         "button_text": "Visit Now 🔥",
                         "button_font_weight": "500"
                     }
@@ -224,9 +219,9 @@
                 "title": " 🔥 المنتجات الأكثر رواجًا ",
                 "section_title_position": "center",
                 "row_desktop": 5,
-                "show_product_title": true,
+                "show_product_title": false,
                 "padding_top": 22,
-                "padding_bottom": 56,
+                "padding_bottom": 22,
                 "show_compare_at_price": true,
                 "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>",
                 "countdown_year": 0,
@@ -241,41 +236,41 @@
                 "block_t9xl58mgfbthz46": {
                     "type": "product",
                     "settings": {
-                        "tag_color": "#EB5838",
+                        "tag_color": "#FF0025FF",
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
-                        "tag_text": "جديد",
-                        "product": "54e3f8c5-b206-4ef9-b6ef-2d673d2f83a8"
+                        "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d",
+                        "tag_text": "جديد"
                     }
                 },
                 "block_tazes9cn7e9q3e": {
                     "type": "product",
                     "settings": {
-                        "tag_color": "#EB5838",
+                        "tag_color": "#FF0025FF",
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
-                        "tag_text": "جديد",
-                        "product": "54e3f8c5-b206-4ef9-b6ef-2d673d2f83a8"
+                        "product": "ce17d5cf-4607-4f0b-9996-6a2d616c0112",
+                        "tag_text": "جديد"
                     }
                 },
                 "block_tbx6jp5m2i8cd3r": {
                     "type": "product",
                     "settings": {
-                        "tag_color": "#EB5838",
+                        "tag_color": "#FF0025FF",
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
                         "tag_text": "جديد",
-                        "product": "54e3f8c5-b206-4ef9-b6ef-2d673d2f83a8"
+                        "product": "e74763a8-673d-4b32-b87a-83ad8f448446"
                     }
                 },
                 "block_tcs0ynsuopilcfi": {
                     "type": "product",
                     "settings": {
-                        "tag_color": "#EB5838",
+                        "tag_color": "#FF0025FF",
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
                         "tag_text": "جديد",
-                        "product": "54e3f8c5-b206-4ef9-b6ef-2d673d2f83a8"
+                        "product": "2d39bfc2-2269-482d-97e8-35286c06fa8d"
                     }
                 }
             },
@@ -291,7 +286,7 @@
             "settings": {
                 "margin_top": 20,
                 "margin_bottom": 20,
-                "countdown_message": "<p>ينتهي :<\/p>",
+                "countdown_message": "<p>سارع قبل فوات الأوان<\/p>",
                 "countdown_year": 2023,
                 "countdown_month": 4,
                 "countdown_day": 2,
@@ -310,7 +305,9 @@
                 "slider_mobile_autoplay": true,
                 "slider_mobile_pagination": true,
                 "slider_mobile_arrows": true,
-                "countdown_enabled": true
+                "countdown_enabled": true,
+                "background_color": "#F6F9FF",
+                "text_color": "#3C415F"
             },
             "blocks": {
                 "block_emefi1dpsjc8dxl": {

@@ -1,8 +1,19 @@
 @import 'helpers/mixins';
 
 .splide {
-    .splide__pagination {
-      bottom: 42px;
+  .splide__arrow {
+    outline: none;
+    width: var(--yc-slider-arrows-size);
+    height: var(--yc-slider-arrows-size);
+    margin: 0 100px;
+
+    svg {
+      fill: var(--yc-primary-color);
+    }
+  }
+
+  .splide__pagination {
+    bottom: 42px;
 
     .splide__pagination__page {
       transform: none;

@@ -1,46 +1,49 @@
 .countdown-wrapper {
-  width: calc(100% + 40px);
-  margin: 0 -20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  padding: 20px;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
 }
-@media (min-width: 768px) {
-  .countdown-wrapper {
-    width: 100%;
-    margin: 0;
-    border-radius: 4px;
-  }
-}
-.countdown-wrapper .message p {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 120%;
+.countdown-wrapper .message {
+  text-align: center;
+  font-size: 23px;
 }
 .countdown-wrapper .countdown {
   direction: ltr;
   display: flex;
-  align-items: center;
-  gap: 4px;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
 }
-.countdown-wrapper .countdown *:not(.dots, .num) {
-  min-width: 37px;
-  padding: 5px;
+.countdown-wrapper .countdown .day, .countdown-wrapper .countdown .hour, .countdown-wrapper .countdown .min, .countdown-wrapper .countdown .sec {
   text-align: center;
-  border-radius: 6px;
-  background-color: rgba(225, 225, 225, 0.3607843137);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 .countdown-wrapper .countdown .num {
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 120%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 29px;
+  font-weight: 600;
+  height: 49px;
+  width: 52px;
+  font-weight: 300;
+  font-size: 24px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid currentColor;
+}
+.countdown-wrapper .countdown .sec .num {
+  border-width: 2px;
+}
+.countdown-wrapper .countdown .sec .word {
+  font-weight: 400;
 }
 .countdown-wrapper .countdown .dots {
-  max-width: max-content;
-  height: fit-content;
-  font-size: 34px;
-  font-weight: 700;
+  font-size: 40px;
   margin-top: -11px;
 }

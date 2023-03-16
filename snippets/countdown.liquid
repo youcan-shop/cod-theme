@@ -10,13 +10,25 @@
 <div class="countdown-wrapper">
   <div class='message'>{{ section_settings.countdown_message }}</div>
   <div class="countdown" id="count-{{ id }}" data-date="{{ section_settings.countdown_day }}-{{ section_settings.countdown_month }}-{{ section_settings.countdown_year }}" data-time="{{ section_settings.countdown_hour }}:{{ section_settings.countdown_minute }}">
-    <div class="day"><span class="num"></span></div>
+    <div class="day">
+      <span class="num"></span>
+      <span class="word">{{ 'snippets.countdown.day' | t }}</span>
+    </div>
     <div class="dots">:</div>
-    <div class="hour"><span class="num"></span></div>
+    <div class="hour">
+      <span class="num"></span>
+      <span class="word">{{ 'snippets.countdown.hour' | t }}</span>
+    </div>
     <div class="dots">:</div>
-    <div class="min"><span class="num"></span></div>
+    <div class="min">
+      <span class="num"></span>
+      <span class="word">{{ 'snippets.countdown.minute' | t }}</span>
+    </div>
     <div class="dots">:</div>
-    <div class="sec"><span class="num"></span></div>
+    <div class="sec">
+      <span class="num"></span>
+      <span class="word">{{ 'snippets.countdown.second' | t }}</span>
+    </div>
   </div>
 </div>
 

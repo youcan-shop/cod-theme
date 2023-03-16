@@ -88,6 +88,12 @@
       "created_at_desc": "Oldest",
       "title_asc": "Alphabetically: A-Z",
       "title_desc": "Alphabetically: Z-A"
+    },
+    "countdown": {
+      "day": "Day",
+      "hour": "Hour",
+      "minute": "Minute",
+      "second": "Second"
     }
   },
   "footer": {
