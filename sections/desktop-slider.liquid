@@ -1,26 +1,14 @@
+
+
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  #yc_slider_{{ id }} .splide__arrow {
-    background: {{ section.settings.slider_desktop_arrows_background_color.hex }} !important;
-    width: 54px;
-    height: 54px;
-    margin: 0 100px;
-  }
-
-  #yc_slider_{{ id }} .splide__arrow--next {
-    border-radius: 8px;
-  }
-
-  #yc_slider_{{ id }} .splide__arrow--prev {
-    border-radius: 8px;
-  }
 
   #yc_slider_{{ id }} .splide__arrow svg {
     height: {{ section.settings.slider_arrows_content_size }}px;
     width: {{ section.settings.slider_arrows_content_size }}px;
   }
-  
+
   .yc-slider__desktop .content {
     background-color: {{ section.settings.slider_overlay_background_color.hex }};
   }
@@ -48,9 +36,7 @@
 
 <script>
   const isMobile = window.matchMedia("(max-width: 760px)");
-
   const slider = document.querySelector(`#yc_slider_{{ id }}`);
-
   const desktopSlider = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
     type: '{{ section.settings.slider_transition_type }}',
     arrows: '{{ section.settings.slider_arrows }}' ? true : false,
@@ -67,9 +53,9 @@
     snap: true,
     loop: true,
   });
-
   const mobileSlider = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
     type: '{{ section.settings.slider_mobile_transition_type }}',
+    arrows: '{{ section.settings.slider_arrows_mobile }}' ? true : false,
     autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
     cover: true,
     pagination: '{{ section.settings.slider_mobile_pagination }}' ? true : false,
@@ -81,7 +67,6 @@
     snap: true,
     loop: true,
   });
-
   const mountSlider = () => {
     try {
       if (isMobile.matches) return mobileSlider.mount();
@@ -91,7 +76,6 @@
       return;
     }
   }
-
   mountSlider();
   isMobile.addEventListener('change', mountSlider);
 </script>
@@ -144,12 +128,6 @@
       "unit": "px",
       "label": "Arrows Content Size",
       "default": 14
-    },
-    {
-      "type": "color",
-      "id": "slider_desktop_arrows_background_color",
-      "label": "Arrows Background Color",
-      "default": "#FFFFFF"
     },
     {
       "type": "select",
@@ -214,6 +192,12 @@
       "id": "slider_mobile_overlay_background_color",
       "label": "Overlay Background Color",
       "default": "#0000007d"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_arrows_mobile",
+      "label": "Arrows",
+      "default": true
     },
     {
       "type": "range",

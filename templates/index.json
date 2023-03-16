@@ -6,20 +6,26 @@
                 "slider_transition_type": "slide",
                 "slider_mobile_pagination": true,
                 "slider_pause_on_hover": true,
-                "slider_timeout": 3,
+                "slider_timeout": 6,
                 "slider_mobile_timeout": 4,
-                "slider_arrows_content_size": 15,
+                "slider_arrows_content_size": 13,
                 "slider_arrows": true,
-                "slider_height_percentage": 60
+                "slider_height_percentage": 60,
+                "slider_autoplay": true,
+                "slider_pagination": false,
+                "slider_mobile_autoplay": true,
+                "slider_mobile_overlay_background_color": "#ffffff00",
+                "slider_overlay_background_color": "#ffffff00"
             },
             "blocks": {
                 "block_qw91o394p69bv8l": {
                     "type": "image_picker",
                     "settings": {
-                        "image": "OFS-1-large_5f874119-097b-4f1a-b218-1bd46b883c7c_1400x733_crop_center-2JwtY66cwrwPKjilC2MItTG0pfr.jpeg",
-                        "caption": "<h2>هذا هو شريط تمرير سطح المكتب<\/h2><p>في النشر والتصميم الجرافيكي ، هو عنصر نائب شائع الاستخدام.<\/p>",
-                        "button_text": "Visit Now 🔥",
-                        "button_font_weight": "500"
+                        "caption": "<p>أحدث ما وصلنا<\/p><h2>أجدد المنتجات صارت بين ايديكم<\/h2>",
+                        "button_text": "عرض المزيد",
+                        "button_font_weight": "700",
+                        "image": "ee-2N3ZbRScSrzCWzYniuOzuyqGChY.png",
+                        "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d"
                     }
                 },
                 "block_qx88dcfkmfmqpeh": {
