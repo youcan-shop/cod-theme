@@ -152,55 +152,6 @@
       "id": "show_compare_at_price",
       "label": "Show compare at price",
       "default": true
-    },
-    {
-      "type": "header",
-      "content": "Countdown settings"
-    },
-    {
-      "type": "paragraph",
-      "content": "ℹ️ If you want to show countdown on this section, please enable it and set the date and time."
-    },
-    {
-      "type": "checkbox",
-      "id": "countdown_enabled",
-      "label": "Enable countdown"
-    },
-    {
-      "label": "Message",
-      "id": "countdown_message",
-      "type": "richtext",
-      "default": "Hurry up! There aren't many items left in stock."
-    },
-    {
-      "label": "Year",
-      "id": "countdown_year",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Month",
-      "id": "countdown_month",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Day",
-      "id": "countdown_day",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Hour",
-      "id": "countdown_hour",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Minutes",
-      "id": "countdown_minute",
-      "type": "number",
-      "default": 0
     }
   ],
   "blocks": [
@@ -212,6 +163,10 @@
           "type": "product",
           "id": "product",
           "label": "Product"
+        },
+        {
+          "type": "header",
+          "content": "Banner text"
         },
         {
           "type": "text",
@@ -234,6 +189,55 @@
           "type": "select",
           "id": "tag_position",
           "label": "Banner position",
+          "options": [
+            {
+              "label": "Top Right",
+              "value": "top_right"
+            },
+            {
+              "label": "Top Left",
+              "value": "top_left"
+            },
+            {
+              "label": "Bottom Right",
+              "value": "bottom_right"
+            },
+            {
+              "label": "Bottom Left",
+              "value": "bottom_left"
+            }
+          ],
+          "default": "top_right"
+        },
+        {
+          "type": "header",
+          "content": "% Discount tag settings"
+        },
+        {
+          "type": "paragraph",
+          "content": "ℹ️ These settings will be applied to the discount tag"
+        },
+        {
+          "type": "text",
+          "id": "discount_text",
+          "label": "Discount text"
+        },
+        {
+          "type": "color",
+          "id": "discount_color",
+          "label": "Discount color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "discount_text_color",
+          "label": "Discount text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "select",
+          "id": "discount_position",
+          "label": "Discount position",
           "options": [
             {
               "label": "Top Right",

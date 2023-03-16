@@ -1,40 +1,52 @@
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
+{%- assign productId = 0 | rand %}
+
+{% style %}
+  .discount_count .percentage {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    background: red
+  }
+{% endstyle %}
 
 <a
   href='{{ item.url }}'
   class='product-block'
->
+  id="product_{{ productId }}">
 
   {% if block_settings.tag_text %}
-    <div
-      class="tag {{ block_settings.tag_position }}"
-      style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
-    >
+    <div class="tag {{ block_settings.tag_position }}" style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}">
       {{ block_settings.tag_text }}
     </div>
   {% endif %}
+
+  {% if block_settings.discount_text %}
+    <div class="tag discount {{ block_settings.discount_position }}" style="background: {{ block_settings.discount_color.hex }}; color: {{ block_settings.discount_text_color.hex }}">
+      {{ block_settings.discount_text }}
+    </div>
+  {% endif %}
+
   <div class='product-thumbnail'>
     {% if item.thumbnail %}
-      <img
-        loading='lazy'
-        src='{{ item.thumbnail }}'
-      >
+      <img loading='lazy' src='{{ item.thumbnail }}'>
     {% else %}
-      <img
-        loading='lazy'
-        src='{{ 'default_product.jpeg' | asset_url }}'
-      >
+      <img loading='lazy' src='{{ 'default_product.jpeg' | asset_url }}'>
     {% endif %}
   </div>
   <div class='product-details'>
     <span class='product-title'>{{ item.name }}</span>
-  </div>
-  <div class='prices'>
-    {% if item.price %}
-      <span class='product-price'>{{ item.price | money }}</span>
-    {% endif %}
-    {% if section.settings.show_compare_at_price and item.compare_at_price %}
-      <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
-    {% endif %}
+    <div class='prices'>
+      {% if item.price %}
+        <span class='product-price'>{{ item.price | money }}</span>
+      {% endif %}
+      {% if section.settings.show_compare_at_price and item.compare_at_price %}
+        <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
+      {% endif %}
+    </div>
+    <button class="yc-btn-secondary--large">
+      {{ 'general.buy_now' | t }}
+    </button>
   </div>
 </a>

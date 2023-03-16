@@ -2,7 +2,7 @@
     "current": {
         "font_family": "Almarai",
         "theme_direction": "rtl",
-        "primary_color": "#F33520",
+        "primary_color": "#3C415FFF",
         "sections": {
             "notice-bar": {
                 "type": "notice-bar",
