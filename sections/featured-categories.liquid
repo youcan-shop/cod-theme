@@ -1,0 +1,40 @@
+{{ 'featured-categories.css' | asset_url | stylesheet_tag }}
+
+<div class='featured-categories container'>
+  {%- for block in section.blocks -%}
+    <div class='category-block'>
+      <a
+        href='/collections/{{ block.settings.category.slug }}'
+        class='product-block'
+        {{ block.youcan_attributes }}>
+        <div class="category-text">
+          <h2 class="category-name">{{ block.settings.category.name }}</h2>
+          <p class="slug-name">{{ block.settings.category.slug }}</p>
+        </div>
+        {% if block.settings.category.image %}
+            <img src='{{ block.settings.category.image }}' class="category-img">
+        {% endif %}
+      </a>
+    </div>
+  {%- endfor -%}
+</div>
+
+{%- schema -%}
+  {
+    "label": "Featured Categories",
+    "blocks": [
+      {
+        "label": "Category",
+        "limit": 2,
+        "type": "category",
+        "settings": [
+          {
+            "type": "category",
+            "id": "category",
+            "label": "Category"
+          }
+        ]
+      }
+    ]
+  }
+{%- endschema -%}
