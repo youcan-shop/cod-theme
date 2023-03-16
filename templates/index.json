@@ -347,10 +347,40 @@
                 "block_ev668bf3ta5fpr6",
                 "block_f0s1vbvg2wv18tp"
             ]
+        },
+        "section_w8aee5exj9b6oml": {
+            "type": "featured-categories",
+            "settings": {
+                "paddding_top": 100,
+                "padding_bottom": 100,
+                "margin_top": 45,
+                "margin_bottom": 30,
+                "category_name_color": "#FFFFFFFF",
+                "category_slug_color": "#FFFFFFFF"
+            },
+            "blocks": {
+                "block_wbu86ctdxrq6id": {
+                    "type": "category",
+                    "settings": {
+                        "category": "6442aaf9-1426-4f22-aa3c-5c4a4b1c62a8"
+                    }
+                },
+                "block_wd5vyimpbgeilo": {
+                    "type": "category",
+                    "settings": {
+                        "category": "3128f8ae-0d9d-4931-9a53-bad47dc6086b"
+                    }
+                }
+            },
+            "order": [
+                "block_wbu86ctdxrq6id",
+                "block_wd5vyimpbgeilo"
+            ]
         }
     },
     "order": [
         "section_qum9qooyrwe3uz",
+        "section_w8aee5exj9b6oml",
         "section_sxdipwpvyyjc9pl",
         "section_62tm9748qh15wfk",
         "section_b3g5zwjngmukzqp",
