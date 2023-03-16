@@ -68,9 +68,16 @@
         font-size: 15px;    
       }
 
+     .column-block {
+        flex-direction: row;
+        gap: 24px;
+        border-bottom: 1px solid #E0E0E0;
+        padding: 12px 0;
+      }
+
     .column-image-wrapper {
-      width: 75px;
-      height: 75px;
+      width: 80px;
+      height: 80px;
     }
   }
 {% endstyle %}
@@ -102,12 +109,14 @@
           </div>
 
           {% endif %}
-          {% if block_setting.heading %}
-            <h4 class='column-title'>{{ block_setting.heading }}</h4>
-          {% endif %}
-          {% if block_setting.description %}
-            <p class='column-description'>{{ block_setting.description }}</p>
-          {% endif %}
+          <div class="mobile-wrapper">
+            {% if block_setting.heading %}
+              <h4 class='column-title'>{{ block_setting.heading }}</h4>
+            {% endif %}
+            {% if block_setting.description %}
+              <p class='column-description'>{{ block_setting.description }}</p>
+            {% endif %}
+          </div>
         </div>
       {% endfor %}
     </div>
