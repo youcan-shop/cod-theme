@@ -285,7 +285,9 @@ function updateProductDetails(parentSection, image, price, variations) {
         String(productPrice.innerHTML).split(' ')[0]
       } ${price}`;
 
-      showStickyCheckoutPrice.innerHTML = productPrice.innerHTML;
+      if(showStickyCheckoutPrice) {
+        showStickyCheckoutPrice.innerHTML = productPrice.innerHTML;
+      }
     })
   }
 
