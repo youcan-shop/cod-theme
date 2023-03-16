@@ -1,0 +1,13 @@
+{% case name %}
+    {% when 'cart' %}
+    <svg width="{% if width %}{{ width }}{% else %}20{% endif %}" height="{% if height %}{{ height }}{% else %}20{% endif %}" viewBox="0 0 25 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.69231 1.38525L1 6.30833V23.5391C1 24.1919 1.25934 24.818 1.72097 25.2797C2.1826 25.7413 2.8087 26.0006 3.46154 26.0006H20.6923C21.3451 26.0006 21.9713 25.7413 22.4329 25.2797C22.8945 24.818 23.1538 24.1919 23.1538 23.5391V6.30833L19.4615 1.38525H4.69231Z" stroke="#3C415F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M1 6.30811H23.1538" stroke="#3C415F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M17 11.2314C17 12.5371 16.4813 13.7893 15.558 14.7126C14.6348 15.6358 13.3826 16.1545 12.0769 16.1545C10.7712 16.1545 9.519 15.6358 8.59574 14.7126C7.67249 13.7893 7.15381 12.5371 7.15381 11.2314" stroke="#3C415F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    {% when 'search' %}
+        <svg width="{% if width %}{{ width }}{% else %}20{% endif %}" height="{% if height %}{{ height }}{% else %}20{% endif %}" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.5 27C20.299 27 25 22.299 25 16.5C25 10.701 20.299 6 14.5 6C8.70101 6 4 10.701 4 16.5C4 22.299 8.70101 27 14.5 27Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M21.9258 23.9258L28.0008 30.0008" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+{% endcase %}

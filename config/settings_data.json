@@ -40,11 +40,11 @@
                 ],
                 "settings": {
                     "cart_badge_color": "#B83375FF",
-                    "navbar_logo": "image-2IqyhOl7b1bbMBEPS5JD0G2MrcW.png",
                     "navbar_links_color": "#000000FF",
                     "navbar_background_color": "#FFFFFFFF",
                     "navbar_height": 85,
-                    "navbar_always_on_top": true
+                    "navbar_always_on_top": true,
+                    "navbar_logo": "Frame 16794 (1)-2N5gGh3keeNQGvSFjFyZngI5QC7.png"
                 }
             },
             "main-footer": {

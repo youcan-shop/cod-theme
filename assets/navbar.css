@@ -119,6 +119,22 @@
   font-weight: 400;
   height: 100%;
   text-decoration: none;
+  position: relative;
+}
+.yc-header .yc-navbar .menu-item.active a {
+  color: var(--yc-primary-color);
+  font-weight: 600;
+}
+.yc-header .yc-navbar .menu-item.active ::after {
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  border-radius: 50%;
+  right: 0;
+  width: 40%;
+  height: 2px;
+  background-color: var(--yc-primary-color);
 }
 .yc-header .yc-navbar .menu-item a,
 .yc-header .yc-navbar .corner a {
