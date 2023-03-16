@@ -43,8 +43,8 @@
                 "columns_desktop": 4,
                 "columns_mobile": "2",
                 "title": "",
-                "margin_bottom": 88,
-                "margin_top": 60,
+                "margin_bottom": 20,
+                "margin_top": 20,
                 "background_color": "#F6F9FF"
             },
             "blocks": {
