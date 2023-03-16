@@ -66,6 +66,7 @@
 
         .yc-btn-secondary--large {
           display: none;
+          
           @include breakpoint('md') {
             display: block;
           }
