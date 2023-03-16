@@ -347,12 +347,40 @@
                 "block_ev668bf3ta5fpr6",
                 "block_f0s1vbvg2wv18tp"
             ]
+        },
+        "section_f64y49sqauq9rtg": {
+            "type": "featured-categories",
+            "settings": {
+                "category_name_color": "#FFFFFFFF",
+                "category_slug_color": "#FFFFFFFF",
+                "margin_top": 10,
+                "margin_bottom": 10
+            },
+            "blocks": {
+                "block_fcpiz0453rsfvm7": {
+                    "type": "category",
+                    "settings": {
+                        "category": "6442aaf9-1426-4f22-aa3c-5c4a4b1c62a8"
+                    }
+                },
+                "block_fdrx2bk34sekvt8": {
+                    "type": "category",
+                    "settings": {
+                        "category": "3128f8ae-0d9d-4931-9a53-bad47dc6086b"
+                    }
+                }
+            },
+            "order": [
+                "block_fcpiz0453rsfvm7",
+                "block_fdrx2bk34sekvt8"
+            ]
         }
     },
     "order": [
         "section_qum9qooyrwe3uz",
-        "section_sxdipwpvyyjc9pl",
         "section_62tm9748qh15wfk",
+        "section_f64y49sqauq9rtg",
+        "section_sxdipwpvyyjc9pl",
         "section_b3g5zwjngmukzqp",
         "product-column",
         "section_609gq1tx2x0aaa",
