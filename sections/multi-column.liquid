@@ -46,7 +46,8 @@
 
   .column-block .column-image {
     object-fit: contain;
-    width: 44px;
+    aspect-ratio: 1;
+    width: 43px;
     height: auto;
   }
 
@@ -83,6 +84,11 @@
       .column-block:last-child {
         border-bottom: none;
       }
+
+    .column-image-wrapper {
+      width: 55px;
+      height: auto;
+    }
   }
 {% endstyle %}
 
