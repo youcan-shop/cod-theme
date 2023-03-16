@@ -53,23 +53,6 @@ body {
   }
 }
 
-.slider-container {
-  max-width: 1440px;
-  margin: 0 auto;
-
-  @include breakpoint('md') {
-    margin: 0 30px;
-  }
-
-  @include breakpoint('lg') {
-    margin: 0 60px;
-  }
-
-  @include breakpoint('xl') {
-    margin: 0 140px;
-  }
-}
-
 input,
 textarea,
 button,

@@ -5,6 +5,13 @@
     display: none;
   }
 
+  .splide__arrow {
+    border: 1px solid #000000;
+    width: 40px;
+    height: 40px;
+    display: flex;
+  }
+
   .content {
     height: 100%;
     display: flex;
@@ -23,6 +30,12 @@
     
     .caption {
       line-height: 39px;
+      max-width: 80%;
+      margin: 0 auto;
+
+      @include breakpoint('xs') {
+        max-width: 90%;
+      }
     }
 
     .headers {

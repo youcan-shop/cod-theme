@@ -3,6 +3,12 @@
     display: none;
   }
 }
+.yc-slider__mobile .splide__arrow {
+  border: 1px solid #000000;
+  width: 40px;
+  height: 40px;
+  display: flex;
+}
 .yc-slider__mobile .content {
   height: 100%;
   display: flex;
@@ -20,6 +26,13 @@
 }
 .yc-slider__mobile .content .caption {
   line-height: 39px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+@media (min-width: 425px) {
+  .yc-slider__mobile .content .caption {
+    max-width: 90%;
+  }
 }
 .yc-slider__mobile .content .headers, .yc-slider__mobile .content h3, .yc-slider__mobile .content h2, .yc-slider__mobile .content h1 {
   font-weight: 700;
