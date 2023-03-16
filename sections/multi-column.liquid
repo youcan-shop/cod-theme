@@ -46,15 +46,13 @@
 
   .column-block .column-image {
     object-fit: contain;
-    aspect-ratio: 1;
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: auto;
   }
 
   .column-image-wrapper {
     display: flex;
     justify-content: center;
-    align-items: center;
   }
 
   @media screen and (min-width: 1024px) {
@@ -71,7 +69,8 @@
     }
 
     .column-block .column-title {
-        font-size: 15px;    
+        font-size: 15px;   
+        margin-top: 0; 
       }
 
      .column-block {
@@ -84,11 +83,6 @@
       .column-block:last-child {
         border-bottom: none;
       }
-
-    .column-image-wrapper {
-      width: 80px;
-      height: 80px;
-    }
   }
 {% endstyle %}
 
