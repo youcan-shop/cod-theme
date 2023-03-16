@@ -7,13 +7,13 @@
             "notice-bar": {
                 "type": "notice-bar",
                 "settings": {
-                    "notice_bar_content_desktop": "<p>الشحن المجاني متاح لجميع الطلبات<\/p>",
+                    "notice_bar_content_desktop": "<p>شحن مجاني ومنتج من إختيارك عند شرائك بقيمة 400ج.م أو أكثر<\/p>",
                     "notice_bar_content_mobile": "<p>الشحن المجاني متاح لجميع الطلبات<\/p>",
                     "notice_bar_content_font_size_desktop": 13,
                     "notice_bar_content_font_size_mobile": 12,
-                    "notice_bar_height_desktop": 45,
+                    "notice_bar_height_desktop": 50,
                     "notice_bar_height_mobile": 45,
-                    "notice_bar_background_color_desktop": "#F33520FF",
+                    "notice_bar_background_color_desktop": "#3C415F",
                     "notice_bar_background_color_mobile": "#E72E25FF"
                 }
             },

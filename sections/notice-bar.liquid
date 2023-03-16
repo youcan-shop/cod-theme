@@ -26,7 +26,6 @@
 {%- if section.settings.notice_bar_show_desktop %}
   <div class='yc-notice desktop'>
     <div class='content container '>
-      <img src='{%- if section.settings.notice_bar_logo.src -%} {{ section.settings.notice_bar_logo.src }} {%- else -%} {{ 'Truck.png' | asset_url }} {%- endif -%}'>
       {{ section.settings.notice_bar_content_desktop }}
     </div>
   </div>
@@ -34,7 +33,6 @@
 
 {%- if section.settings.notice_bar_show_mobile %}
   <div class='yc-notice mobile container'>
-    <img src='{%- if section.settings.notice_bar_logo.src -%} {{ section.settings.notice_bar_logo.src }} {%- else -%} {{ 'Truck.png' | asset_url }} {%- endif -%}'>
     <div class='content'>{{ section.settings.notice_bar_content_mobile }}</div>
   </div>
 {%- endif %}
@@ -53,11 +51,6 @@
       "id": "notice_bar_content_desktop",
       "label": "Content",
       "default": "Special offer: free delivery, pay on delivery, faster and order now"
-    },
-    {
-      "type": "image_picker",
-      "id": "notice_bar_logo",
-      "label": "Notice bar logo"
     },
     {
       "type": "range",
