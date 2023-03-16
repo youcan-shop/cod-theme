@@ -1,5 +1,24 @@
 @import 'helpers/mixins';
 
+.splide {
+    .splide__pagination {
+      bottom: 42px;
+
+    .splide__pagination__page {
+      transform: none;
+      width: 28px;
+      border-radius: 6px;
+      height: 3px;
+      opacity: 1;
+      background-color: rgba(white, 0.4);
+
+      &.is-active {
+        background-color: white;
+      }
+    }
+  }
+}
+
 .yc-slider__desktop {
   display: none;
 
@@ -34,15 +53,18 @@
 
     .headers {
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 0.5;
       margin-bottom: 2rem;
     }
 
-    @for $i from 1 through 3 {
-      h#{$i} {
-        font-size: calc(3rem / $i);
-        @extend .headers;
-      }
+    h1 {
+      font-size: 2rem;
+      @extend .headers;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      @extend .headers;
     }
 
     p {
