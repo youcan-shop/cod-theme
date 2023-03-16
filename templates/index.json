@@ -46,52 +46,45 @@
         "section_62tm9748qh15wfk": {
             "type": "multi-column",
             "settings": {
-                "columns_desktop": 4,
-                "columns_mobile": "2",
-                "title": "ما يميزنا",
+                "columns_desktop": 3,
+                "columns_mobile": "1",
+                "title": "",
                 "margin_bottom": 50,
-                "margin_top": 5,
+                "margin_top": 30,
                 "background_color": "#FFFFFFFF"
             },
             "blocks": {
                 "block_c9qx028mi12btfk4": {
                     "type": "columnn",
                     "settings": {
-                        "heading": "الدفع عند الإستلام",
-                        "description": "<p>شحن مجاني في الوطن العربي<\/p>",
-                        "image": "Money-2MgoqigDoQszGeex1W3chDW61MQ.png"
+                        "heading": "الشحن مجاني",
+                        "description": "سواء كانت الماركة محلية أم عالمية، نحن نوصل آخرصيحات الموضة من كل مكان إلى عتبة دارك.",
+                        "link": "dsfsd",
+                        "link_label": "dsf",
+                        "image": "1-2N5n9Yo4es3xgZc1v9pLyJ4Jfl0.png"
                     }
                 },
                 "block_cc11ny9wgf589l": {
                     "type": "columnn",
                     "settings": {
-                        "heading": "الشحن مجاني",
-                        "description": "<p>ضمان استعادة الاموال<\/p>",
-                        "image": "Truck-2MgoltIsoVPSGh7dSevcxBgl5I5.png"
+                        "heading": "الدفع عند الإستلام",
+                        "description": "سواء كانت الماركة محلية أم عالمية، نحن نوصل آخرصيحات الموضة من كل مكان إلى عتبة دارك.",
+                        "image": "2-2N5nEBrZV8UKdHJk96NIR0zaY5i.png"
                     }
                 },
                 "block_cee6rpyw7oltwqg": {
                     "type": "columnn",
                     "settings": {
-                        "image": "Group 970-2Mgou2v3p2LwSqIOcRKCjYMKRAR.png",
                         "heading": "ضمان حقيقي",
-                        "description": "<p>ضمان استعادة الاموال<\/p>"
-                    }
-                },
-                "block_cgovtb6di7fywh8": {
-                    "type": "columnn",
-                    "settings": {
-                        "heading": "خدمة ما بعد البيع",
-                        "description": "<p>لا تقلق بشأن الأمن بعد الآن<\/p>",
-                        "image": "Group 969-2MgoyDEcm8kBWR6VZH7WZH1GARU.png"
+                        "description": "سواء كانت الماركة محلية أم عالمية، نحن نوصل آخرصيحات الموضة من كل مكان إلى عتبة دارك.",
+                        "image": "3-2N5nItt5wKBOIUNzq6UmZGSHsDv.png"
                     }
                 }
             },
             "order": [
                 "block_c9qx028mi12btfk4",
                 "block_cc11ny9wgf589l",
-                "block_cee6rpyw7oltwqg",
-                "block_cgovtb6di7fywh8"
+                "block_cee6rpyw7oltwqg"
             ]
         },
         "product-column": {
@@ -351,8 +344,8 @@
     },
     "order": [
         "section_qum9qooyrwe3uz",
-        "section_sxdipwpvyyjc9pl",
         "section_62tm9748qh15wfk",
+        "section_sxdipwpvyyjc9pl",
         "section_b3g5zwjngmukzqp",
         "product-column",
         "section_609gq1tx2x0aaa",
