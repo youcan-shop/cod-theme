@@ -57,6 +57,12 @@
     align-items: center;
   }
 
+  @media screen and (min-width: 1024px) {
+    .multi-column-{{ id }} .multi-column-blocks {
+      margin: auto 45px;
+    }
+  }
+
   @media only screen and (max-width: 600px) {
     .multi-column-{{ id }} .multi-column-blocks {
       grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
