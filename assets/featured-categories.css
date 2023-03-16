@@ -3,3 +3,41 @@
   grid-template-columns: repeat(2, 1fr);
   margin: 30px auto;
 }
+.featured-categories .category-block {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.featured-categories .category-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+}
+.featured-categories .category-text .category-name {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+}
+.featured-categories .category-text .slug-name {
+  margin-top: 6px;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 48px;
+}
+.featured-categories .category-link {
+  background-color: var(--yc-primary-color);
+  padding: 12px 18px;
+  width: 100%;
+  max-width: 120px;
+  margin: 36px auto 0;
+}
+.featured-categories .category-link a {
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  font-size: 13px;
+}
