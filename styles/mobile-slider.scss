@@ -5,6 +5,13 @@
     display: none;
   }
 
+  .splide__arrow {
+    border: 1px solid #000000;
+    width: 40px;
+    height: 40px;
+    display: flex;
+  }
+
   .content {
     height: 100%;
     display: flex;
@@ -13,25 +20,27 @@
     align-items: center;
     * {
       background-color: transparent !important;
-      color: white !important;
+      color: #000000;
     }
 
     & > div {
-      max-width: 30rem;
       position: relative;
       z-index: 3;
     }
+    
+    .caption {
+      line-height: 39px;
+      max-width: 75%;
+      margin: 0 auto;
 
-    .yc-btn {
-      background-color: white !important;
-      color: black !important;
-      margin-top: 1rem;
+      @include breakpoint('xs') {
+        max-width: 90%;
+      }
     }
 
     .headers {
       font-weight: 700;
       line-height: 1.2;
-      margin-bottom: 2rem;
     }
 
     @for $i from 1 through 3 {
@@ -44,10 +53,17 @@
     p {
       margin-top: 1rem;
     }
+  }
 
-    .btn-holder {
-      margin-top: 2rem;
-      text-align: center;
+  .btn-holder {
+    text-align: center;
+    margin-top: 38px;
+
+    .yc-btn-slider {
+      font-size: 14px;
+      background-color: var(--yc-primary-color) !important;
+      color: #ffffff;
+      padding: 12px 18px;
     }
   }
 }
