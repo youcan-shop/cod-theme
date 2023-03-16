@@ -2,22 +2,11 @@
 
 {% style %}
   .multi-column-{{ id }} {
-    margin-top: {{ section.settings.margin_top }}px;
-    margin-bottom: {{ section.settings.margin_bottom }}px;
+    padding: 32px 0;
+    padding-top: {{ section.settings.margin_top }}px;
+    padding-bottom: {{ section.settings.margin_bottom }}px;
     background-color: {{ section.settings.background_color.hex }};
     color: {{ section.settings.text_color.hex }};
-  }
-
-  @media screen and (min-width: 1024px) {
-    .multi-column-{{ id }} {
-      padding: 0 150px;
-    }
-  }
-
-  @media screen and (min-width: 1440px) {
-    .multi-column-{{ id }} {
-      padding: 0 240px;
-    }
   }
 
   .multi-column-{{ id }} .yc-section-title{
@@ -31,7 +20,6 @@
     grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
     grid-gap: 2vw;
     align-items: stretch;
-    padding: 10px 0;
   }
 
   .column-block {
@@ -94,7 +82,10 @@
 
 <div class='multi-column-{{ id }}'>
   <div class="container">
+    {% if section.settings.title %}
     <h3 class='yc-section-title'>{{ section.settings.title }}</h3>
+    {% endif %}
+    
     <div class='multi-column-blocks'>
       {% for block in section.blocks %}
         {% assign block_setting = block.settings %}
