@@ -14,11 +14,10 @@
   }
 {% endstyle %}
 
-<div class='featured-categories container'>
+<div class='featured-categories categories-container'>
   {%- for block in section.blocks -%}
     <div class='category-block'>
-      <a
-        href='/collections/{{ block.settings.category.slug }}'
+      <div
         class='product-block'
         {{ block.youcan_attributes }}>
         <div class="category-text">
@@ -35,7 +34,7 @@
         {% if block.settings.category.image %}
             <img src='{{ block.settings.category.image }}' class="category-img">
         {% endif %}
-      </a>
+      </div>
     </div>
   {%- endfor -%}
 </div> 
