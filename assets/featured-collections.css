@@ -30,6 +30,7 @@
 .yc-featured-collections .category-block .product-block img {
   width: 100%;
   height: 500px;
+  object-fit: cover;
 }
 .yc-featured-collections .category-text {
   position: absolute;
