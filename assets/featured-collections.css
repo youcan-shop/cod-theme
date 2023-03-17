@@ -50,6 +50,11 @@
   font-size: 32px;
   line-height: 48px;
 }
+@media (max-width: 768px) {
+  .yc-featured-collections .category-text .slug-name {
+    line-height: 32px;
+  }
+}
 .yc-featured-collections .category-link {
   background-color: var(--yc-primary-color);
   padding: 12px 18px;
