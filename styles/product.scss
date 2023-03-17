@@ -117,7 +117,7 @@
       .splide__arrow {
         width: 16px;
         height: 16px;
-        display: flex !important; 
+        display: flex !important;
 
         @media screen and (max-width: 767px) {
           width: 36px;
@@ -283,10 +283,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 151px;
-  border: 1px solid #BDBDBD;
+  width: 181px;
   border-radius: 4px;
   padding: 5px;
+  gap:15px;
 
   /* Hide input arrows in Chrome, Safari, Edge, Opera */
   .quantity-input::-webkit-outer-spin-button,
@@ -301,11 +301,13 @@
   }
 
   .quantity-input {
-    width: 50%;
+    width: 58px;
     text-align: center;
     border: none;
+    border: 1px solid #E6E6E6;
+    border-radius: 5px;
     padding: 0 !important;
-    font-weight: 700 !important;
+    font-weight: 300 !important;
     font-size: 20px !important;
     line-height: 120% !important;
     color: black;
@@ -317,15 +319,17 @@
 
   .decrement-button,
   .increment-button {
-    width: 25%;
-    height: 100%;
+    width: 37px;
+    height: 37px;
     border: none;
-    color: #BDBDBD;
-    font-weight: 700;
-    font-size: 29px;
+    color: black;
+    font-weight: 200;
+    background-color: #F3F3F3;
+    border-radius: 5px;
+    font-size: 18px;
     line-height: 120%;
-    background: none;
     cursor: pointer;
+
     transition: all 200ms ease-in-out;
 
     &:active {
