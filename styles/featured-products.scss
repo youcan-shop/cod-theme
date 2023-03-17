@@ -1,23 +1,5 @@
 @import 'helpers/mixins';
 .yc-featured-products {
-  .counter-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 24px;
-
-    .yc-section-title {
-      margin: 0;
-      font-size: 26px;
-      font-weight: 700;
-      text-align: start;
-
-      @media screen and (max-width: 767px) {
-        font-size: 18px;
-      }
-    }
-  }
-
   .product-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

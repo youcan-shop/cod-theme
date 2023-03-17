@@ -10,35 +10,14 @@
     text-align: {{ section.settings.section_title_position }}
   }
 
-  .product-item-{{id}} {
-    border: 1px solid #E7E7E7;
-    border-radius: 4px;
-  }
-
   .section-featured-products-{{id}} * {
     color: {{ section.settings.text_color.hex }};
   }
-
-  .section-featured-products-{{id}} .countdown-wrapper .countdown .sec .num {
-    border-color: {{ section.settings.text_color.hex }};
-  }
-
-  .section-featured-products-{{id}} .product-container-{{id}} {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-
 
   @media screen and (max-width: 768px) {
     .section-featured-products-{{id}} .product-container-{{id}} {
       grid-template-columns: repeat({{ section.settings.rows_mobile }}, minmax(0, 1fr)) !important;
     }
-  }
-
-  .product-container-{{id}} .product-title {
-    {% if section.settings.show_product_title == false %}
-      display: none;
-    {% endif %}
   }
 {% endstyle %}
 
