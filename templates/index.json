@@ -238,8 +238,8 @@
                         "tag_color": "#FF0025FF",
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
-                        "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d",
-                        "tag_text": "جديد"
+                        "tag_text": "جديد",
+                        "product": "b01a3054-7105-4a12-aaff-c9d9aaa45f48"
                     }
                 },
                 "block_tazes9cn7e9q3e": {
@@ -248,8 +248,8 @@
                         "tag_color": "#FF0025FF",
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
-                        "product": "ce17d5cf-4607-4f0b-9996-6a2d616c0112",
-                        "tag_text": "جديد"
+                        "tag_text": "جديد",
+                        "product": "6a875592-56bb-4d49-b3de-c2ad9dd57f42"
                     }
                 },
                 "block_tbx6jp5m2i8cd3r": {
@@ -259,7 +259,7 @@
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
                         "tag_text": "جديد",
-                        "product": "e74763a8-673d-4b32-b87a-83ad8f448446"
+                        "product": "596f0239-5ef2-4551-927b-faae4a3d2a8d"
                     }
                 },
                 "block_tcs0ynsuopilcfi": {
@@ -269,7 +269,7 @@
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
                         "tag_text": "جديد",
-                        "product": "2d39bfc2-2269-482d-97e8-35286c06fa8d"
+                        "product": "44b479c6-96f8-47f6-a5d0-ee4502b019a7"
                     }
                 }
             },
@@ -343,7 +343,10 @@
         },
         "section_id3c10cu8d0hetfi": {
             "type": "featured-collections",
-            "settings": {},
+            "settings": {
+                "category_name_color": "#FFFFFFFF",
+                "category_slug_color": "#FFFFFFFF"
+            },
             "blocks": {
                 "block_iglpes2gmminbwu": {
                     "type": "category",
