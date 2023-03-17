@@ -1,11 +1,8 @@
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
-{{ 'reviews.css' | asset_url | stylesheet_tag }}
 
-<a
-  href='{{ item.url }}'
+<div
   class='product-block'
 >
-
   {% if block_settings.tag_text %}
     <div
       class="tag {{ block_settings.tag_position }}"
@@ -27,24 +24,28 @@
       >
     {% endif %}
   </div>
-
-  {%- render 'general-review' -%}
+  <div class="product-reviews">
+    {%- render 'general-review' -%}
+  </div>
   <div class='product-details'>
     <span class='product-title'>{{ item.name }}</span>
   </div>
   <div class='prices'>
-    {% if item.price %}
-      <span class='product-price'>{{ item.price | money }}</span>
-    {% endif %}
     {% if section.settings.show_compare_at_price and item.compare_at_price %}
       <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
     {% endif %}
+    {% if item.price %}
+      <span class='product-price'>{{ item.price | money }}</span>
+    {% endif %}
   </div>
-</a>
-
+  <div class="product-link">
+    <a href="{{ item.url }}" class="yc-btn">
+     Buy now
+    </a>
+  </div>
+</div>
 
 <script>
-  const defaultAvatar = '{{ "avatar.png" | asset_url }}';
-  const productId = '{{ product_id }}';
-  const ratings = "{{ 'reviews.ratings' | t }}";
+  const productsId = '{{ product_id }}';
+  const productsRatings = "{{ 'reviews.ratings' | t }}";
 </script>

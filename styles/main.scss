@@ -134,21 +134,17 @@ button {
 .yc-btn {
   background: var(--yc-primary-color) !important;
   color: white !important;
-  padding: 0 2rem;
+  padding: 12px;
   transition: all 0.15s ease-in-out 0s;
   letter-spacing: 1px;
   cursor: pointer;
   pointer-events: auto;
   border: 0;
-  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
 
-  &:not(.btn-sm) {
-    height: 44px;
-  }
   & > * {
     color: white !important;
   }

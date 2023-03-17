@@ -1,7 +1,7 @@
 .yc-featured-products .product-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 32px 12px;
   justify-content: center;
   overflow: hidden;
   align-items: stretch;
@@ -35,52 +35,45 @@
 .yc-featured-products .product-list .product-block .product-thumbnail img:hover {
   transform: translate(-50%, -50%) scale(1.1);
 }
+.yc-featured-products .product-list .product-block .product-reviews {
+  margin-top: 18px;
+}
+.yc-featured-products .product-list .product-block .product-reviews .general-count {
+  display: none;
+}
 .yc-featured-products .product-list .product-block .product-details {
-  text-align: start;
   margin-top: 12px;
   padding: 0 6px;
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .product-details {
-    margin-top: 10px;
+    margin-top: 12px;
     text-align: center;
   }
 }
 .yc-featured-products .product-list .product-block .product-details .product-title {
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 120%;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 17px;
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .product-details .product-title {
     font-weight: 600;
-    font-size: 17px;
+    font-size: 14px;
   }
-}
-.yc-featured-products .product-list .product-block:hover .yc-btn {
-  opacity: 1;
-}
-.yc-featured-products .product-list .product-block .yc-btn {
-  display: block;
-  position: absolute;
-  bottom: 117px;
-  width: 80%;
-  opacity: 0;
-  border-radius: 4px;
 }
 .yc-featured-products .product-list .product-block .prices {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  gap: 7px;
-  margin-top: 12px;
+  gap: 4px;
+  margin: 12px auto 15px;
   padding: 0 6px;
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .prices {
     align-items: center;
-    margin: 15px auto 20px;
-    gap: 12px;
+    margin: 15px auto 26px;
+    gap: 6px;
   }
 }
 @media (min-width: 992px) {
@@ -91,23 +84,33 @@
 }
 .yc-featured-products .product-list .product-block .prices .product-price {
   font-weight: 700;
-  color: var(--yc-primary-color);
-  font-size: 17px;
-  line-height: 120%;
+  color: #000000;
+  font-size: 18px;
+  line-height: 22px;
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .prices .product-price {
+    color: var(--yc-primary-color);
     font-size: 22px;
   }
 }
 .yc-featured-products .product-list .product-block .prices .compare-at-price {
   text-decoration: line-through;
-  opacity: 0.5;
-  font-size: 15px;
-  font-weight: 500;
+  color: #757575;
+  font-size: 14px;
+  font-weight: 400;
 }
 .yc-featured-products .product-list .product-block .prices .product-thumbnail:hover img {
   transform: scale(1.1);
+}
+.yc-featured-products .product-list .product-block .product-link {
+  width: 80%;
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .yc-featured-products .product-list .product-block .product-link {
+    width: 70%;
+  }
 }
 .yc-featured-products .button-container {
   max-width: max-content;

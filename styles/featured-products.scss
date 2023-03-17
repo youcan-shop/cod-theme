@@ -3,7 +3,7 @@
   .product-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 32px 12px;
     justify-content: center;
     overflow: hidden;
     align-items: stretch;
@@ -39,55 +39,46 @@
         }
       }
 
+      .product-reviews {
+        margin-top: 18px;
+
+        .general-count {
+          display: none;
+        }
+      }
+
       .product-details {
-        text-align: start;
         margin-top: 12px;
         padding: 0 6px;
 
         @include breakpoint('md') {
-          margin-top: 10px;
+          margin-top: 12px;
           text-align: center;
         }
 
         .product-title {
-          font-weight: 400;
-          font-size: 15px;
-          line-height: 120%;
+          font-weight: 500;
+          font-size: 13px;
+          line-height: 17px;
 
           @include breakpoint('md') {
             font-weight: 600;
-            font-size: 17px;
+            font-size: 14px;
           }
         }
-      }
-
-      &:hover {
-        .yc-btn {
-          opacity: 1;
-        }
-      }
-
-      .yc-btn {
-        display: block;
-        position: absolute;
-        bottom: 117px;
-        width: 80%;
-        opacity: 0;
-        border-radius: 4px;
       }
 
       .prices {
         display: flex;
         flex-direction: column;
-        align-items: start;
-        gap: 7px;
-        margin-top: 12px;
+        gap: 4px;
+        margin: 12px auto 15px;
         padding: 0 6px;
 
         @include breakpoint('md') {
           align-items: center;
-          margin: 15px auto 20px;
-          gap: 12px;
+          margin: 15px auto 26px;
+          gap: 6px;
         }
 
         @include breakpoint('lg') {
@@ -97,11 +88,12 @@
 
         .product-price {
           font-weight: 700;
-          color: var(--yc-primary-color);
-          font-size: 17px;
-          line-height: 120%;
+          color: #000000;
+          font-size: 18px;
+          line-height: 22px;
 
           @include breakpoint('md') {
+            color: var(--yc-primary-color);
             font-size: 22px;
           }
         }
@@ -109,13 +101,21 @@
 
         .compare-at-price {
           text-decoration: line-through;
-          opacity: 0.5;
-          font-size: 15px;
-          font-weight: 500;
+          color: #757575;
+          font-size: 14px;
+          font-weight: 400;
         }
 
         .product-thumbnail:hover img {
           transform: scale(1.1);
+        }
+      }
+      .product-link {
+        width: 80%;
+        margin: auto;
+
+        @include breakpoint('md') {
+          width: 70%;
         }
       }
     }
