@@ -1,30 +1,30 @@
-.categories-container {
+.yc-featured-container {
   max-width: 1440px !important;
   margin: 0 auto;
 }
 @media (min-width: 992px) {
-  .categories-container {
+  .yc-featured-container {
     padding: 0 60px;
   }
 }
 @media (min-width: 1200px) {
-  .categories-container {
+  .yc-featured-container {
     padding: 0 140px;
   }
 }
 
-.featured-categories {
+.yc-featured-collections {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin: 30px auto;
 }
-.featured-categories .category-block {
+.yc-featured-collections .category-block {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.featured-categories .category-text {
+.yc-featured-collections .category-text {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -32,32 +32,32 @@
   text-align: center;
   width: 90%;
 }
-.featured-categories .category-text .category-name {
+.yc-featured-collections .category-text .category-name {
   font-weight: 600;
   font-size: 18px;
   line-height: 25px;
 }
-.featured-categories .category-text .slug-name {
+.yc-featured-collections .category-text .slug-name {
   margin-top: 6px;
   font-weight: 800;
   font-size: 32px;
   line-height: 48px;
 }
-.featured-categories .category-link {
+.yc-featured-collections .category-link {
   background-color: var(--yc-primary-color);
   padding: 12px 18px;
   width: 100%;
   max-width: 120px;
   margin: 36px auto 0;
 }
-.featured-categories .category-link a {
+.yc-featured-collections .category-link a {
   font-weight: 700;
   text-align: center;
   color: white;
   font-size: 13px;
 }
 @media (max-width: 768px) {
-  .featured-categories {
+  .yc-featured-collections {
     overflow-x: auto;
     overflow-y: hidden; /* hide the vertical scrollbar */
     white-space: nowrap;
@@ -65,28 +65,28 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS devices */
   }
-  .featured-categories::-webkit-scrollbar {
+  .yc-featured-collections::-webkit-scrollbar {
     display: none;
   }
-  .featured-categories .category-text .category-name {
+  .yc-featured-collections .category-text .category-name {
     font-size: 15px;
   }
-  .featured-categories .category-text .slug-name {
+  .yc-featured-collections .category-text .slug-name {
     margin-top: 4px;
     font-size: 24px;
   }
-  .featured-categories .category-link {
+  .yc-featured-collections .category-link {
     margin: 16px auto 0;
     max-width: 110px;
   }
-  .featured-categories .category-block {
+  .yc-featured-collections .category-block {
     width: 75vw;
     height: 300px;
     scroll-snap-align: start;
   }
 }
 @media (max-width: 576px) {
-  .featured-categories .category-block {
+  .yc-featured-collections .category-block {
     height: 258px;
   }
 }

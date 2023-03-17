@@ -1,6 +1,6 @@
 @import 'helpers/_mixins';
 
-.categories-container {
+.yc-featured-container {
   max-width: 1440px !important;
   margin: 0 auto;
 
@@ -13,7 +13,7 @@
   }
 }
 
-.featured-categories {
+.yc-featured-collections {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin: 30px auto;
