@@ -4,15 +4,9 @@
 .yc-product-reviews .head {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   gap: 20px;
-  margin-bottom: 24px;
-}
-@media (min-width: 768px) {
-  .yc-product-reviews .head {
-    align-items: center;
-    margin-bottom: 50px;
-  }
+  margin-bottom: 26px;
 }
 .yc-product-reviews .head .yc-section-title {
   text-align: unset;
@@ -33,18 +27,26 @@
   }
 }
 .yc-product-reviews .yc-reviews-wrapper .review-item {
-  border: 1px solid #EBEBEB;
-  border-radius: 4px;
-  background-color: white;
-  padding: 22px 20px 26px 20px;
+  border-radius: 5px;
+  background-color: var(--yc-neutral-light-color);
+  padding: 24px 21px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 .yc-product-reviews .yc-reviews-wrapper .review-item .header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 .yc-product-reviews .yc-reviews-wrapper .review-item .header .profil {
   display: flex;
-  gap: 18px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 .yc-product-reviews .yc-reviews-wrapper .review-item .header .profil .image {
   width: 49px;
@@ -55,28 +57,30 @@
 }
 .yc-product-reviews .yc-reviews-wrapper .review-item .header .profil .info {
   display: grid;
-  gap: 3px;
+  gap: 8px;
 }
 .yc-product-reviews .yc-reviews-wrapper .review-item .header .profil .info .name {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 120%;
-}
-.yc-product-reviews .yc-reviews-wrapper .review-item .header .profil .info .created-at-date {
   font-weight: 400;
-  font-size: 12px;
-  line-height: 120%;
+  font-size: 16px;
+  line-height: 20px;
 }
 .yc-product-reviews .yc-reviews-wrapper .review-item .content {
-  margin-top: 20px;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 145%;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+}
+.yc-product-reviews .yc-reviews-wrapper .review-item .created-at-date {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+  color: #9B9B9B;
 }
 .yc-product-reviews .reviews-block {
   display: flex;
   margin: 0;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
 }
 .yc-product-reviews .review-count {
@@ -87,4 +91,7 @@
 .yc-product-reviews #show-more {
   display: none;
   margin: 27px auto 0 auto;
+  width: auto;
+  padding-right: 24px;
+  padding-left: 24px;
 }

@@ -344,6 +344,13 @@
                 "block_ev668bf3ta5fpr6",
                 "block_f0s1vbvg2wv18tp"
             ]
+        },
+        "section_eu2qwo8fndlwkf": {
+            "type": "product-reviews",
+            "settings": {
+                "reviews_title": "أراء المشترين",
+                "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d"
+            }
         }
     },
     "order": [
@@ -353,6 +360,7 @@
         "section_b3g5zwjngmukzqp",
         "product-column",
         "section_609gq1tx2x0aaa",
-        "section_p3bpf7007sndktq"
+        "section_p3bpf7007sndktq",
+        "section_eu2qwo8fndlwkf"
     ]
 }

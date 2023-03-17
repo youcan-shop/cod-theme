@@ -138,6 +138,10 @@
   src='https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.esm.js'
 ></script>
 
+{% javascript %}
+  const defaultAvatar = '{{ "avatar.png" | asset_url }}';
+{% endjavascript %}
+
 {{ 'main.css' | asset_url | stylesheet_tag }}
 {{ 'utils.css' | asset_url | stylesheet_tag }}
 {{ 'dropdown.css' | asset_url | stylesheet_tag }}

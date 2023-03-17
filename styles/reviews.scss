@@ -6,14 +6,9 @@
   .head {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     gap: 20px;
-    margin-bottom: 24px;
-
-    @include breakpoint('md') {
-      align-items: center;
-      margin-bottom: 50px;
-    }
+    margin-bottom: 26px;
 
     .yc-section-title {
       text-align: unset;
@@ -34,18 +29,26 @@
     }
 
     .review-item {
-      border: 1px solid #EBEBEB;
-      border-radius: 4px;
-      background-color: white;
-      padding: 22px 20px 26px 20px;
+      border-radius: 5px;
+      background-color: var(--yc-neutral-light-color);
+      padding: 24px 21px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
 
       .header {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
 
         .profil {
           display: flex;
-          gap: 18px;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
 
           .image {
             width: 49px;
@@ -57,28 +60,30 @@
 
           .info {
             display: grid;
-            gap: 3px;
+            gap: 8px;
           
             .name {
-              font-weight: 700;
-              font-size: 18px;
-              line-height: 120%;
-            }
-          
-            .created-at-date {
               font-weight: 400;
-              font-size: 12px;
-              line-height: 120%;
+              font-size: 16px;
+              line-height: 20px;
             }
           }
         }
       }
 
       .content {
-        margin-top: 20px;
-        font-weight: 400;
-        font-size: 13px;
-        line-height: 145%;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 30px;
+        text-align: center;
+      }
+
+      .created-at-date {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 30px;
+        text-align: center;
+        color: #9B9B9B
       }
     }
   }
@@ -86,7 +91,7 @@
   .reviews-block {
     display: flex;
     margin: 0;
-    gap: 6px;
+    gap: 8px;
     align-items: center;
   }
 
@@ -99,5 +104,8 @@
   #show-more {
     display: none;
     margin: 27px auto 0 auto;
+    width: auto;
+    padding-right: 24px;
+    padding-left: 24px;
   }
 }
