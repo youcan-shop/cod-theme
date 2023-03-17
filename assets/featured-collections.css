@@ -72,7 +72,6 @@
   .yc-featured-collections {
     overflow-x: auto;
     overflow-y: hidden; /* hide the vertical scrollbar */
-    white-space: nowrap;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS devices */
