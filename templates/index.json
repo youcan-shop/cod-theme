@@ -136,8 +136,9 @@
                 "countdown_minute": 0,
                 "padding_top": 20,
                 "padding_bottom": 30,
-                "category": "2bab572d-5197-418d-9072-1f0b82ff9fb8",
-                "section_title_position": "center"
+                "section_title_position": "center",
+                "category": "9cf0de11-01c8-43d2-8fd9-fc153f25e9e0",
+                "background_color": "#FFFFFFFF"
             }
         },
         "section_609gq1tx2x0aaa": {

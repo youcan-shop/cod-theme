@@ -173,6 +173,23 @@ button {
   }
 }
 
+.yc-btn-tertiary {
+  border: 1px solid #E6E6E6;
+  color: #9B9B9B;
+  padding: 14px 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  font-family: var(--yc-font-family);
+
+  .spinner {
+    width: 18px;
+    height: 18px;
+    margin-top: 6px;
+  }
+}
+
 .yc-btn-secondary--large {
   border: 1px solid var(--yc-primary-color);
   color: var(--yc-primary-color);

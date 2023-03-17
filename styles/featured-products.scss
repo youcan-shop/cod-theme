@@ -35,10 +35,10 @@
   }
 
   .product-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
+    justify-content: start;
     overflow: hidden;
     align-items: stretch;
 
@@ -86,7 +86,7 @@
 
         .yc-btn-secondary--large {
           display: none;
-          
+
           @include breakpoint('md') {
             display: block;
           }

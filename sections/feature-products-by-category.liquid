@@ -11,9 +11,7 @@
     text-align: {{ section.settings.section_title_position }}
   }
   .section-featured-products-by-category-{{id}} {
-    {% if section.settings.background_image.src %}
-    background-image: url({{ section.settings.background_image.src }});
-    {% elsif section.settings.background_color.hex %}
+    {% if section.settings.background_color.hex %}
     background-color: {{ section.settings.background_color.hex }};
     {% endif %}
     background-repeat: repeat;
@@ -33,10 +31,6 @@
 {% if category %}
   <div class='yc-featured-products section-featured-products-by-category-{{id}}'>
     <div class="container">
-      <!-- prettier-ignore -->
-      {% if section.settings.countdown_enabled %}
-        {%- render 'countdown', section_settings: section.settings -%}
-      {% endif %}
       <h1 class='yc-section-title'>{{ category.name }}</h1>
       <div class='product-list'>
         {%- paginate collection.products by number_of_products id category_id: category.id %}
@@ -49,7 +43,7 @@
       </div>
       {% if section.settings.link_of_collection_by_category == true %}
         <div class='button-container'>
-          <a href='/collections/{{ category.slug }}' class='yc-btn'>{{ 'general.show_more_button' | t }}</a>
+          <a href='/collections/{{ category.slug }}' class='yc-btn-tertiary'>{{ 'general.show_more_button' | t }}</a>
         </div>
       {% endif %}
     </div>
@@ -129,60 +123,6 @@
       "type": "color",
       "id": "text_color",
       "label": "Text color"
-    },
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background image"
-    },
-    {
-      "type": "header",
-      "content": "Countdown settings"
-    },
-    {
-      "type": "paragraph",
-      "content": "ℹ️ If you want to show countdown on this section, please enable it and set the date and time."
-    },
-    {
-      "type": "checkbox",
-      "id": "countdown_enabled",
-      "label": "Enable countdown"
-    },
-    {
-      "label": "Message",
-      "id": "countdown_message",
-      "type": "richtext",
-      "default": "Hurry up! There aren't many items left in stock."
-    },
-    {
-      "label": "Year",
-      "id": "countdown_year",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Month",
-      "id": "countdown_month",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Day",
-      "id": "countdown_day",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Hour",
-      "id": "countdown_hour",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Minutes",
-      "id": "countdown_minute",
-      "type": "number",
-      "default": 0
     }
   ]
 }
