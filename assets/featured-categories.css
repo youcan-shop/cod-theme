@@ -2,11 +2,6 @@
   max-width: 1440px !important;
   margin: 0 auto;
 }
-@media (min-width: 768px) {
-  .categories-container {
-    padding: 0 30px;
-  }
-}
 @media (min-width: 992px) {
   .categories-container {
     padding: 0 60px;
