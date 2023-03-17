@@ -1,74 +1,109 @@
-.yc-featured-collections .yc-featured-container {
-  display: flex;
-  column-gap: 2px;
-  align-items: center;
-}
-.yc-featured-collections .yc-featured-container img {
-  width: 24px;
-  height: 24px;
-}
-.yc-featured-collections .yc-featured-container .yc-section-title {
-  font-size: 26px;
-  margin: 0;
-}
-.yc-featured-collections .collections-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-}
-@media (min-width: 768px) {
-  .yc-featured-collections .collections-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.yc-featured-container {
+  max-width: 1440px !important;
+  margin: 0 auto;
 }
 @media (min-width: 992px) {
-  .yc-featured-collections .collections-list {
-    grid-template-columns: repeat(4, 1fr);
+  .yc-featured-container {
+    padding: 0 60px;
   }
 }
-.yc-featured-collections .collections-list .collection-block {
+@media (min-width: 1200px) {
+  .yc-featured-container {
+    padding: 0 140px;
+  }
+}
+
+.yc-featured-collections {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 30px auto;
+}
+.yc-featured-collections .category-block {
   position: relative;
-  background: gray;
-  display: inline-block;
-  aspect-ratio: 4/5;
-  overflow: hidden;
-  transition: 0.3s ease-in-out;
-}
-.yc-featured-collections .collections-list .collection-block .collection-details, .yc-featured-collections .collections-list .collection-block .collection-thumbnail img {
-  transition: all 0.3s ease-in-out;
-}
-.yc-featured-collections .collections-list .collection-block:hover .collection-details {
-  transform: translateY(0);
-}
-.yc-featured-collections .collections-list .collection-block:hover .collection-thumbnail img {
-  transform: scale(1.3);
-}
-.yc-featured-collections .collections-list .collection-block .collection-thumbnail {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transition: 0.3s ease-in-out;
-}
-.yc-featured-collections .collections-list .collection-block .collection-thumbnail img {
-  width: 100%;
-  height: 100%;
-}
-.yc-featured-collections .collections-list .collection-block .collection-details {
-  transition: 0.3s ease-in-out;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  margin: auto;
-  background: linear-gradient(0deg, #534b40, transparent);
-  color: white;
-  text-align: center;
-  padding: 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  width: 100%;
 }
-@media (min-width: 768px) {
-  .yc-featured-collections .collections-list .collection-block .collection-details {
-    transform: translateY(100px);
+.yc-featured-collections .category-block .product-block {
+  width: 100%;
+}
+.yc-featured-collections .category-block .product-block img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+.yc-featured-collections .category-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+}
+.yc-featured-collections .category-text .category-name {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+}
+.yc-featured-collections .category-text .slug-name {
+  margin-top: 6px;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 48px;
+}
+@media (max-width: 768px) {
+  .yc-featured-collections .category-text .slug-name {
+    line-height: 32px;
+  }
+}
+.yc-featured-collections .category-link {
+  background-color: var(--yc-primary-color);
+  padding: 12px 18px;
+  width: 100%;
+  max-width: 120px;
+  margin: 36px auto 0;
+}
+.yc-featured-collections .category-link a {
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  font-size: 13px;
+}
+@media (max-width: 992px) {
+  .yc-featured-collections .category-block img {
+    height: 400px !important;
+  }
+}
+@media (max-width: 768px) {
+  .yc-featured-collections {
+    overflow-x: auto;
+    overflow-y: hidden; /* hide the vertical scrollbar */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS devices */
+  }
+  .yc-featured-collections::-webkit-scrollbar {
+    display: none;
+  }
+  .yc-featured-collections .category-text .category-name {
+    font-size: 15px;
+  }
+  .yc-featured-collections .category-text .slug-name {
+    margin-top: 4px;
+    font-size: 24px;
+  }
+  .yc-featured-collections .category-link {
+    margin: 16px auto 0;
+    max-width: 110px;
+  }
+  .yc-featured-collections .category-block {
+    width: 75vw;
+    height: 320px;
+    scroll-snap-align: start;
+  }
+}
+@media (max-width: 576px) {
+  .yc-featured-collections .category-block {
+    height: 258px;
   }
 }

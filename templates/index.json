@@ -340,11 +340,36 @@
                 "block_ev668bf3ta5fpr6",
                 "block_f0s1vbvg2wv18tp"
             ]
+        },
+        "section_id3c10cu8d0hetfi": {
+            "type": "featured-collections",
+            "settings": {},
+            "blocks": {
+                "block_iglpes2gmminbwu": {
+                    "type": "category",
+                    "settings": {
+                        "category": "6442aaf9-1426-4f22-aa3c-5c4a4b1c62a8",
+                        "category_name": "فساتين زفاف"
+                    }
+                },
+                "block_kxa7zlfobr2d4w": {
+                    "type": "category",
+                    "settings": {
+                        "category": "5c4185a7-fffd-48e0-9064-9ed0b7b31d88",
+                        "category_name": "فساتين زفاف"
+                    }
+                }
+            },
+            "order": [
+                "block_iglpes2gmminbwu",
+                "block_kxa7zlfobr2d4w"
+            ]
         }
     },
     "order": [
         "section_qum9qooyrwe3uz",
         "section_62tm9748qh15wfk",
+        "section_id3c10cu8d0hetfi",
         "section_sxdipwpvyyjc9pl",
         "section_b3g5zwjngmukzqp",
         "product-column",
