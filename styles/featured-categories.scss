@@ -74,9 +74,30 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS devices */
 
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-text {
+      .category-name {
+        font-size: 15px;
+      }
+  
+      .slug-name {
+        margin-top: 4px;
+        font-size: 24px;
+      }
+    }
+
+    .category-link {
+      margin: 16px auto 0;
+      max-width: 110px;
+    }
+
     .category-block {
       width: 75vw;
       height: 300px;
+      scroll-snap-align: start;
     }
   }
 

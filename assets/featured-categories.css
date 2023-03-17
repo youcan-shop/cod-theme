@@ -70,9 +70,24 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS devices */
   }
+  .featured-categories::-webkit-scrollbar {
+    display: none;
+  }
+  .featured-categories .category-text .category-name {
+    font-size: 15px;
+  }
+  .featured-categories .category-text .slug-name {
+    margin-top: 4px;
+    font-size: 24px;
+  }
+  .featured-categories .category-link {
+    margin: 16px auto 0;
+    max-width: 110px;
+  }
   .featured-categories .category-block {
     width: 75vw;
     height: 300px;
+    scroll-snap-align: start;
   }
 }
 @media (max-width: 576px) {
