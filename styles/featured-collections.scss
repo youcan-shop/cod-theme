@@ -21,8 +21,17 @@
   .category-block {
     position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
+    width: 100%;
+
+    .product-block {
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: 500px;
+      }
+    }
   }
 
   .category-text {
@@ -62,6 +71,12 @@
     }
   }
 
+  @include max-screen ('lg') {
+    .category-block img {
+      height: 400px !important;
+    }
+  }
+
   @include max-screen ('md') {
     overflow-x: auto;
     overflow-y: hidden; /* hide the vertical scrollbar */
@@ -92,7 +107,7 @@
 
     .category-block {
       width: 75vw;
-      height: 300px;
+      height: 320px;
       scroll-snap-align: start;
     }
   }

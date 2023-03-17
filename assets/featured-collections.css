@@ -21,8 +21,15 @@
 .yc-featured-collections .category-block {
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
+  width: 100%;
+}
+.yc-featured-collections .category-block .product-block {
+  width: 100%;
+}
+.yc-featured-collections .category-block .product-block img {
+  width: 100%;
+  height: 500px;
 }
 .yc-featured-collections .category-text {
   position: absolute;
@@ -56,6 +63,11 @@
   color: white;
   font-size: 13px;
 }
+@media (max-width: 992px) {
+  .yc-featured-collections .category-block img {
+    height: 400px !important;
+  }
+}
 @media (max-width: 768px) {
   .yc-featured-collections {
     overflow-x: auto;
@@ -81,7 +93,7 @@
   }
   .yc-featured-collections .category-block {
     width: 75vw;
-    height: 300px;
+    height: 320px;
     scroll-snap-align: start;
   }
 }
