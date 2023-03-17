@@ -51,7 +51,7 @@
 .yc-product-reviews .yc-reviews-wrapper .review-item .header .profil .image {
   width: 49px;
   height: 49px;
-  border-radius: 50%;
+  border-radius: 5px;
   aspect-ratio: 1/1;
   object-fit: contain;
 }
