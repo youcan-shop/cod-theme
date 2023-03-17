@@ -7,7 +7,7 @@
 .yc-featured-products .counter-wrapper .yc-section-title {
   margin: 0;
   font-size: 26px;
-  font-weight: 600;
+  font-weight: 700;
   text-align: start;
 }
 @media screen and (max-width: 767px) {
@@ -23,22 +23,9 @@
   overflow: hidden;
   align-items: stretch;
 }
-@media (min-width: 768px) {
-  .yc-featured-products .product-list {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    padding: 0 40px;
-  }
-}
 @media (min-width: 992px) {
   .yc-featured-products .product-list {
-    grid-template-columns: repeat(3, 1fr);
-    padding: 0 70px;
-  }
-}
-@media (min-width: 1200px) {
-  .yc-featured-products .product-list {
-    padding: 0 150px;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 .yc-featured-products .product-list .product-block {

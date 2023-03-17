@@ -25,14 +25,9 @@
 
   .section-featured-products-{{id}} .product-container-{{id}} {
     display: grid;
-    grid-template-columns: repeat({{ section.settings.rows_desktop }}, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  @media screen and (max-width: 1024px) {
-    .section-featured-products-{{id}} .product-container-{{id}} {
-      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    }
-  }
 
   @media screen and (max-width: 768px) {
     .section-featured-products-{{id}} .product-container-{{id}} {
@@ -48,10 +43,6 @@
 {% endstyle %}
 
 <div class='yc-featured-products section-featured-products-{{id}} container'>
-    <!-- prettier-ignore -->
-    {% if section.settings.countdown_enabled %}
-      {%- render 'countdown', section_settings: section.settings -%}
-    {% endif %}
     <h1 class='yc-section-title'>
       {{ section.settings.title }}
     </h1>
@@ -91,14 +82,6 @@
           "value": "center"
         }
       ]
-    },
-    {
-      "type": "range",
-      "id": "rows_desktop",
-      "min": 2,
-      "max": 5,
-      "step": 1,
-      "label": "Number of rows on desktop"
     },
     {
       "type": "select",
@@ -152,55 +135,6 @@
       "id": "show_compare_at_price",
       "label": "Show compare at price",
       "default": true
-    },
-    {
-      "type": "header",
-      "content": "Countdown settings"
-    },
-    {
-      "type": "paragraph",
-      "content": "ℹ️ If you want to show countdown on this section, please enable it and set the date and time."
-    },
-    {
-      "type": "checkbox",
-      "id": "countdown_enabled",
-      "label": "Enable countdown"
-    },
-    {
-      "label": "Message",
-      "id": "countdown_message",
-      "type": "richtext",
-      "default": "Hurry up! There aren't many items left in stock."
-    },
-    {
-      "label": "Year",
-      "id": "countdown_year",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Month",
-      "id": "countdown_month",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Day",
-      "id": "countdown_day",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Hour",
-      "id": "countdown_hour",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Minutes",
-      "id": "countdown_minute",
-      "type": "number",
-      "default": 0
     }
   ],
   "blocks": [
