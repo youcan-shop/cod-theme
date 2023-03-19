@@ -35,12 +35,6 @@
 .yc-featured-products .product-list .product-block .product-thumbnail img:hover {
   transform: translate(-50%, -50%) scale(1.1);
 }
-.yc-featured-products .product-list .product-block .product-reviews {
-  margin-top: 18px;
-}
-.yc-featured-products .product-list .product-block .product-reviews .general-count {
-  display: none;
-}
 .yc-featured-products .product-list .product-block .product-details {
   margin-top: 12px;
   padding: 0 6px;

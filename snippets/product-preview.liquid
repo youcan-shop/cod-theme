@@ -24,9 +24,6 @@
       >
     {% endif %}
   </div>
-  <div class="product-reviews">
-    {%- render 'general-review' -%}
-  </div>
   <div class='product-details'>
     <span class='product-title'>{{ item.name }}</span>
   </div>
@@ -44,9 +41,3 @@
     </a>
   </div>
 </div>
-
-
-<script>
-  const productId1 = '{{ productReviewsId }}';
-  console.log(productId1);
-</script>
