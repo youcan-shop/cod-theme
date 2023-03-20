@@ -4,23 +4,36 @@
   .yc-{{ uniq }}-add-to-cart button {
     background: {{ background_color.hex }} !important;
     color: {{ text_color.hex }} !important;
+    border: 1px solid {{ border_color.hex }} !important;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 9px;
+    font-family: var(--yc-font-family);
   }
+
   .yc-{{ uniq }}-add-to-cart button span {
-    font-weight: 600;
+    font-weight: 400;
+  }
+
+  .yc-{{ uniq }}-add-to-cart button .btn-content {
+    display: flex;
+    gap: 10px;
   }
 {%- endstyle -%}
 
 <div class='yc-{{ uniq }}-add-to-cart{% if is_sticky %} is_sticky{% endif %}'>
   <button
-    class='yc-btn'
     onclick='addToCart("{{ snippetId }}")'
   >
     <span
       class='spinner hidden'
       id='loading__cart'
     ></span>
-    <span>
+    <span class="btn-content" >
+      {% render 'icon', name: 'bag' %}
       {{ text }}
     </span>
   </button>

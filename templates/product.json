@@ -1,121 +1,132 @@
 {
-  "sections": {
-      "product": {
-          "type": "product",
-          "blocks": {
-              "block_02hsdiizyoqxr4i": {
-                  "type": "product_title",
-                  "settings": {}
-              },
-              "block_03x0mpf3samste": {
-                  "type": "product_price",
-                  "settings": {}
-              },
-              "block_08c3kk0zsiefipf": {
-                  "type": "product_quantity",
-                  "settings": {}
-              },
-              "block_0cgb9qnrmae2tlc": {
-                  "type": "product_variants",
-                  "settings": {}
-              },
-              "block_bqucb72r61sazu": {
-                  "type": "product_description",
-                  "settings": {}
-              },
-              "block_c3yr5q7hebgkvhl": {
-                  "type": "express_checkout",
-                  "settings": {
-                      "button_background_color": "#E7412F",
-                      "express_checkout_cta": "اشتري الآن",
-                      "form_title": "للطلب يرجى ملء هذا النموذج سنتصل بكم في أقرب وقت ممكن!",
-                      "is_sticky": true,
-                      "input_border_radius": 4,
-                      "input_text_size": 13,
-                      "input_placeholder_color": "#A8A8A8FF",
-                      "input_text_color": "#000000FF",
-                      "input_background_color": "#FFFFFFFF",
-                      "input_border_color": "#000000FF",
-                      "button_text_color": "#FFFFFFFF",
-                      "button_border_radius": 4
-                  }
-              },
-              "block_pzioaso3gj4cbaw": {
-                  "type": "general_review",
-                  "settings": {}
-              },
-              "block_oivb67hwueuk80m": {
-                  "type": "countdown_timer",
-                  "settings": {
-                      "countdown_message": "<p>عرض لفترة محدودة<\/p>",
-                      "background_color": "#000000FF",
-                      "text_color": "#FFFFFFFF",
-                      "countdown_year": 2024,
-                      "countdown_month": 1,
-                      "countdown_day": 1,
-                      "countdown_hour": 1,
-                      "countdown_minute": 1
-                  }
-              },
-              "block_jdwjeadhbkzk4s": {
-                  "type": "accordion",
-                  "settings": {
-                      "accordion_title": "التوصيل",
-                      "accordion_details": "<p>الشحن مجانا والدفع عند التسليم. يتم التوصيل عادةً في أيام عمل 1-3<\/p>",
-                      "background_color": "#F7F7F7",
-                      "text_color": "#000000",
-                      "margin_bottom": 14
-                  }
-              },
-              "block_sm3wh95w328cf1g": {
-                  "type": "accordion",
-                  "settings": {
-                      "accordion_title": "سياسة الاسترجاع",
-                      "accordion_details": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة <\/span><\/p>",
-                      "background_color": "#F7F7F7",
-                      "text_color": "#000000",
-                      "margin_bottom": 14
-                  }
-              },
-              "block_unbb3x62m5i7q6g": {
-                  "type": "accordion",
-                  "settings": {
-                      "accordion_title": "30 يوم ضمان",
-                      "accordion_details": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي<\/span><\/p>",
-                      "background_color": "#F7F7F7",
-                      "text_color": "#000000",
-                      "margin_bottom": 14
-                  }
-              }
-          },
-          "order": [
-              "block_02hsdiizyoqxr4i",
-              "block_03x0mpf3samste",
-              "block_pzioaso3gj4cbaw",
-              "block_oivb67hwueuk80m",
-              "block_0cgb9qnrmae2tlc",
-              "block_08c3kk0zsiefipf",
-              "block_bqucb72r61sazu",
-              "block_c3yr5q7hebgkvhl",
-              "block_jdwjeadhbkzk4s",
-              "block_sm3wh95w328cf1g",
-              "block_unbb3x62m5i7q6g"
-          ],
-          "settings": {
-              "show_compare_at_price": true,
-              "tag_text": "خصم بقيمه 40% ",
-              "tag_color": "#F33520"
-          }
-      },
-      "section_5hprcshvo24mjm9": {
-          "type": "product-reviews",
-          "settings": {
-              "reviews_title": "توصيات من زبنائنا"
-          }
-      }
-  },
-  "order": [
-      "product",
-      "section_5hprcshvo24mjm9"
-  ]
+    "sections": {
+        "product": {
+            "type": "product",
+            "blocks": {
+                "block_02hsdiizyoqxr4i": {
+                    "type": "product_title",
+                    "settings": {}
+                },
+                "block_03x0mpf3samste": {
+                    "type": "product_price",
+                    "settings": {}
+                },
+                "block_08c3kk0zsiefipf": {
+                    "type": "product_quantity",
+                    "settings": {}
+                },
+                "block_0cgb9qnrmae2tlc": {
+                    "type": "product_variants",
+                    "settings": {}
+                },
+                "block_bqucb72r61sazu": {
+                    "type": "product_description",
+                    "settings": {}
+                },
+                "block_c3yr5q7hebgkvhl": {
+                    "type": "express_checkout",
+                    "settings": {
+                        "button_background_color": "#E7412F",
+                        "express_checkout_cta": "اشتري الآن",
+                        "form_title": "للطلب يرجى ملء هذا النموذج سنتصل بكم في أقرب وقت ممكن!",
+                        "is_sticky": true,
+                        "input_border_radius": 4,
+                        "input_text_size": 13,
+                        "input_placeholder_color": "#A8A8A8FF",
+                        "input_text_color": "#000000FF",
+                        "input_background_color": "#FFFFFFFF",
+                        "input_border_color": "#000000FF",
+                        "button_text_color": "#FFFFFFFF",
+                        "button_border_radius": 4
+                    }
+                },
+                "block_pzioaso3gj4cbaw": {
+                    "type": "general_review",
+                    "settings": {}
+                },
+                "block_oivb67hwueuk80m": {
+                    "type": "countdown_timer",
+                    "settings": {
+                        "countdown_message": "<p>عرض لفترة محدودة<\/p>",
+                        "background_color": "#000000FF",
+                        "text_color": "#FFFFFFFF",
+                        "countdown_year": 2024,
+                        "countdown_month": 1,
+                        "countdown_day": 1,
+                        "countdown_hour": 1,
+                        "countdown_minute": 1
+                    }
+                },
+                "block_jdwjeadhbkzk4s": {
+                    "type": "accordion",
+                    "settings": {
+                        "accordion_title": "التوصيل",
+                        "accordion_details": "<p>الشحن مجانا والدفع عند التسليم. يتم التوصيل عادةً في أيام عمل 1-3<\/p>",
+                        "background_color": "#F7F7F7",
+                        "text_color": "#000000",
+                        "margin_bottom": 14
+                    }
+                },
+                "block_sm3wh95w328cf1g": {
+                    "type": "accordion",
+                    "settings": {
+                        "accordion_title": "سياسة الاسترجاع",
+                        "accordion_details": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة <\/span><\/p>",
+                        "background_color": "#F7F7F7",
+                        "text_color": "#000000",
+                        "margin_bottom": 14
+                    }
+                },
+                "block_unbb3x62m5i7q6g": {
+                    "type": "accordion",
+                    "settings": {
+                        "accordion_title": "30 يوم ضمان",
+                        "accordion_details": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي<\/span><\/p>",
+                        "background_color": "#F7F7F7",
+                        "text_color": "#000000",
+                        "margin_bottom": 14
+                    }
+                },
+                "block_dka5us8zuuzfuf": {
+                    "type": "add_to_cart",
+                    "settings": {
+                        "text_content": "أضف إلى السلة ",
+                        "is_sticky": false,
+                        "background_color": "#ffffff",
+                        "Border Color": "#3C415F",
+                        "text_color": "#3C415F"
+                    }
+                }
+            },
+            "order": [
+                "block_02hsdiizyoqxr4i",
+                "block_03x0mpf3samste",
+                "block_pzioaso3gj4cbaw",
+                "block_oivb67hwueuk80m",
+                "block_0cgb9qnrmae2tlc",
+                "block_08c3kk0zsiefipf",
+                "block_dka5us8zuuzfuf",
+                "block_bqucb72r61sazu",
+                "block_c3yr5q7hebgkvhl",
+                "block_jdwjeadhbkzk4s",
+                "block_sm3wh95w328cf1g",
+                "block_unbb3x62m5i7q6g"
+            ],
+            "settings": {
+                "show_compare_at_price": true,
+                "tag_text": "خصم بقيمه 40% ",
+                "tag_color": "#F33520"
+            }
+        },
+        "section_5hprcshvo24mjm9": {
+            "type": "product-reviews",
+            "settings": {
+                "reviews_title": "توصيات من زبنائنا"
+            }
+        }
+    },
+    "order": [
+        "product",
+        "section_5hprcshvo24mjm9"
+    ]
 }
