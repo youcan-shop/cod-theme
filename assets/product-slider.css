@@ -2,18 +2,29 @@
   position: relative;
   overflow: hidden;
   padding: 0 0 100%;
-  height: 0;
+  height: 417px;
 }
 .product-slider .product-thumbnail img {
   position: absolute;
   top: 50%;
   left: 50%;
   height: 100%;
+  width: 100%;
   transform: translate(-50%, -50%);
   transition: transform 0.25s ease;
 }
 .product-slider .product-thumbnail img:hover {
   transform: translate(-50%, -50%) scale(1.1);
+}
+@media (max-width: 768px) {
+  .product-slider .product-thumbnail {
+    height: 340px;
+  }
+}
+@media (max-width: 576px) {
+  .product-slider .product-thumbnail {
+    height: 267px;
+  }
 }
 .product-slider .prices {
   margin: 20px 0 0;

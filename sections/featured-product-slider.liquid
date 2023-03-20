@@ -10,38 +10,8 @@
     margin-top: {{ section.settings.margin_top }}px;
     margin-bottom: {{ section.settings.margin_bottom }}px;
   }
-
-  @media screen and (min-width: 768px) {
-    .section-featured-products-{{id}} {
-      padding: 0 70px;
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    .section-featured-products-{{id}} {
-      padding: 0 100px;
-    }
-  }
-
-  @media screen and (min-width: 1440px) {
-    .section-featured-products-{{id}} {
-      padding: 0 150px;
-    }
-  }
-
-  .bg-color-{{id}} {
-    padding: 45px;
-    background-color: #E7412F;
-    border-radius: 6px;
-  }
-
-  @media screen and (max-width: 768px) {
-    .bg-color-{{id}} {
-      padding: 40px 10px 45px;
-    }
-  }
-
-  .counter-wrapper .yc-section-title {
+ 
+  .counter-wrapper .product-slider-title {
     color: {{ section.settings.text_color.hex }};
   }
 
@@ -62,9 +32,8 @@
 {% endstyle %}
 
 <div class='yc-featured-products section-featured-products-{{id}} container'>
-  <div class='bg-color-{{id}}'>
     <div class="counter-wrapper">
-          <h1 class='yc-section-title'>
+          <h1 class='product-slider-title'>
             {{ section.settings.title }}
           </h1>
           {% if section.settings.countdown_enabled %}
@@ -73,7 +42,6 @@
     </div>
       {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
       {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
-  </div>
 </div>
 <script>
   const isMobile1 = window.matchMedia("(max-width: 768px)");

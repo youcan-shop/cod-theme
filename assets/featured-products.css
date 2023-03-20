@@ -2,6 +2,15 @@
   font-size: 26px;
   font-weight: 700;
 }
+.yc-featured-products .product-slider-title {
+  font-size: 26px;
+  font-weight: 700;
+}
+.yc-featured-products .counter-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .yc-featured-products .product-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
