@@ -206,9 +206,11 @@
                         "tag_position": "top_right",
                         "tag_text": "جديد",
                         "product": "b01a3054-7105-4a12-aaff-c9d9aaa45f48",
-                        "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>",
+                        "countdown_message": "<p><br><\/p>",
                         "tag_price_text": "45%-",
-                        "tag_price_color": "#E52B2A"
+                        "tag_price_color": "#E52B2A",
+                        "countdown_enabled": true,
+                        "countdown_year": 2024
                     }
                 },
                 "block_tazes9cn7e9q3e": {

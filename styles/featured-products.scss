@@ -42,6 +42,14 @@
             transform: translate(-50%,-50%) scale(1.1);
           }
         }
+        
+        @include max-screen('md') {
+          height: 340px;
+        }
+
+        @include max-screen('sm') {
+          height: 267px;
+        }
       }
 
       .product-details {
@@ -55,7 +63,7 @@
 
         .product-title {
           font-weight: 500;
-          font-size: 13px;
+          font-size: 12px;
           line-height: 17px;
 
           @include breakpoint('md') {
@@ -85,12 +93,11 @@
 
         .product-price {
           font-weight: 700;
-          color: #000000;
           font-size: 18px;
           line-height: 22px;
+          color: var(--yc-primary-color);
 
           @include breakpoint('md') {
-            color: var(--yc-primary-color);
             font-size: 22px;
           }
         }
