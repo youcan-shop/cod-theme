@@ -537,31 +537,42 @@ input:not([type='radio']),
 .tag {
   position: absolute;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
+  flex-direction: column;
+  gap: 8px;
   z-index: 1;
-  padding: 4px 13px;
-  border-radius: 4px;
+
+  .tag-text, .tag-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 31px;
+    height: 31px;
+    padding: 13px;
+    padding: 20px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 12px;
+  }
 
   &.top_right {
-    top: 8px;
-    right: 8px;
+    top: 14px;
+    right: 14px;
   }
 
   &.bottom_right {
-    bottom: 8px;
-    right: 8px;
+    bottom: 14px;
+    right: 14px;
   }
 
   &.top_left {
-    top: 8px;
-    left: 8px;
+    top: 14px;
+    left: 14px;
   }
 
   &.bottom_left {
-    bottom: 8px;
-    left: 8px;
+    bottom: 14px;
+    left: 14px;
   }
 }
 

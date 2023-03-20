@@ -3,14 +3,23 @@
 <div
   class='product-block'
 >
-  {% if block_settings.tag_text %}
-    <div
-      class="tag {{ block_settings.tag_position }}"
+  <div class="tag {{ block_settings.tag_position }}">
+  {% if block_settings.tag_text %} 
+    <div class="tag-text"
       style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
     >
       {{ block_settings.tag_text }}
     </div>
   {% endif %}
+  {% if block_settings.tag_price_text %} 
+    <div class="tag-price"
+      style="background: {{ block_settings.tag_price_color.hex }}; color: {{ block_settings.tag_price_text_color.hex }}"
+    >
+      {{ block_settings.tag_price_text }}
+    </div>
+  {% endif %}
+  </div>
+
   <div class='product-thumbnail'>
     {% if item.thumbnail %}
       <img
