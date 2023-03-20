@@ -1,18 +1,22 @@
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
 
-<a
-  href='{{ item.url }}'
-  class='product-block'
->
-
-  {% if block_settings.tag_text %}
-    <div
-      class="tag {{ block_settings.tag_position }}"
+  <div class="tag {{ block_settings.tag_position }}">
+  {% if block_settings.tag_text %} 
+    <div class="tag-text"
       style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
     >
       {{ block_settings.tag_text }}
     </div>
   {% endif %}
+  {% if block_settings.price_reduction_text %} 
+    <div class="tag-price"
+      style="background: {{ block_settings.tag_price_color.hex }}; color: {{ block_settings.price_reduction_text_color.hex }}"
+    >
+      {{ block_settings.price_reduction_text }}
+    </div>
+  {% endif %}
+  </div>
+
   <div class='product-thumbnail'>
     {% if item.thumbnail %}
       <img
@@ -26,15 +30,21 @@
       >
     {% endif %}
   </div>
-  <div class='product-details'>
-    <span class='product-title'>{{ item.name }}</span>
-  </div>
-  <div class='prices'>
-    {% if item.price %}
-      <span class='product-price'>{{ item.price | money }}</span>
+    <div class='product-details'>
+      <span class='product-title'>{{ item.name }}</span>
+    </div>
+    <div class='prices'>
+      {% if section.settings.show_compare_at_price and item.compare_at_price %}
+        <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
+      {% endif %}
+      {% if item.price %}
+        <span class='product-price'>{{ item.price | money }}</span>
+      {% endif %}
+    </div>
+    {% if block_settings.product %}
+      <div class="product-link">
+        <a href="{{ item.url }}" class="yc-btn">
+          {{ 'snippets.product_preview.cta_button' | t }}
+        </a>
+      </div>
     {% endif %}
-    {% if section.settings.show_compare_at_price and item.compare_at_price %}
-      <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
-    {% endif %}
-  </div>
-</a>

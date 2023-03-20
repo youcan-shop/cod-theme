@@ -7,31 +7,12 @@
   }
 
   .section-featured-products-{{id}} .yc-section-title {
-    text-align: {{ section.settings.section_title_position }}
-  }
-
-  .product-item-{{id}} {
-    border: 1px solid #E7E7E7;
-    border-radius: 4px;
+    display: flex;
+    justify-content: {{ section.settings.section_title_position }}
   }
 
   .section-featured-products-{{id}} * {
     color: {{ section.settings.text_color.hex }};
-  }
-
-  .section-featured-products-{{id}} .countdown-wrapper .countdown .sec .num {
-    border-color: {{ section.settings.text_color.hex }};
-  }
-
-  .section-featured-products-{{id}} .product-container-{{id}} {
-    display: grid;
-    grid-template-columns: repeat({{ section.settings.rows_desktop }}, minmax(0, 1fr)) !important;
-  }
-
-  @media screen and (max-width: 1024px) {
-    .section-featured-products-{{id}} .product-container-{{id}} {
-      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    }
   }
 
   @media screen and (max-width: 768px) {
@@ -39,25 +20,15 @@
       grid-template-columns: repeat({{ section.settings.rows_mobile }}, minmax(0, 1fr)) !important;
     }
   }
-
-  .product-container-{{id}} .product-title {
-    {% if section.settings.show_product_title == false %}
-      display: none;
-    {% endif %}
-  }
 {% endstyle %}
 
 <div class='yc-featured-products section-featured-products-{{id}} container'>
-    <!-- prettier-ignore -->
-    {% if section.settings.countdown_enabled %}
-      {%- render 'countdown', section_settings: section.settings -%}
-    {% endif %}
     <h1 class='yc-section-title'>
       {{ section.settings.title }}
     </h1>
     <div class='product-list product-container-{{id}}'>
       {%- for block in section.blocks -%}
-        <div {{ block.youcan_attributes }} class="product-item-{{id}}">
+        <div {{ block.youcan_attributes }} class="product-block">
           {%- render 'product-preview', item: block.settings.product, block_settings: block.settings -%}
         </div>
       {%- endfor -%}
@@ -93,14 +64,6 @@
       ]
     },
     {
-      "type": "range",
-      "id": "rows_desktop",
-      "min": 2,
-      "max": 5,
-      "step": 1,
-      "label": "Number of rows on desktop"
-    },
-    {
       "type": "select",
       "id": "rows_mobile",
       "label": "Number of rows on mobile",
@@ -115,12 +78,6 @@
         }
       ],
       "default": "2"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_product_title",
-      "label": "Show product title",
-      "default": true
     },
     {
       "type": "range",
@@ -152,61 +109,13 @@
       "id": "show_compare_at_price",
       "label": "Show compare at price",
       "default": true
-    },
-    {
-      "type": "header",
-      "content": "Countdown settings"
-    },
-    {
-      "type": "paragraph",
-      "content": "ℹ️ If you want to show countdown on this section, please enable it and set the date and time."
-    },
-    {
-      "type": "checkbox",
-      "id": "countdown_enabled",
-      "label": "Enable countdown"
-    },
-    {
-      "label": "Message",
-      "id": "countdown_message",
-      "type": "richtext",
-      "default": "Hurry up! There aren't many items left in stock."
-    },
-    {
-      "label": "Year",
-      "id": "countdown_year",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Month",
-      "id": "countdown_month",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Day",
-      "id": "countdown_day",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Hour",
-      "id": "countdown_hour",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Minutes",
-      "id": "countdown_minute",
-      "type": "number",
-      "default": 0
     }
   ],
   "blocks": [
     {
       "label": "Product",
       "type": "product",
+      "limit": 8,
       "settings": [
         {
           "type": "product",
@@ -221,13 +130,30 @@
         {
           "type": "color",
           "id": "tag_color",
-          "label": "Banner color",
-          "default": "#000000"
+          "label": "Banner background color",
+          "default": "#FFFFFFFF"
         },
         {
           "type": "color",
           "id": "tag_text_color",
           "label": "Banner text color",
+          "default": "#E52B2AFF"
+        },
+        {
+          "type": "text",
+          "id": "price_reduction_text",
+          "label": "Banner price text"
+        },
+        {
+          "type": "color",
+          "id": "tag_price_color",
+          "label": "Price reduction background color",
+          "default": "#E52B2AFF"
+        },
+        {
+          "type": "color",
+          "id": "price_reduction_text_color",
+          "label": "Price reduction text color",
           "default": "#ffffff"
         },
         {

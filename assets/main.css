@@ -137,20 +137,16 @@ button:focus {
 .yc-btn {
   background: var(--yc-primary-color) !important;
   color: white !important;
-  padding: 0 2rem;
+  padding: 12px;
   transition: all 0.15s ease-in-out 0s;
   letter-spacing: 1px;
   cursor: pointer;
   pointer-events: auto;
   border: 0;
-  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
-}
-.yc-btn:not(.btn-sm) {
-  height: 44px;
 }
 .yc-btn > * {
   color: white !important;
@@ -515,28 +511,36 @@ input:not([type=radio]),
 .tag {
   position: absolute;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
+  flex-direction: column;
+  gap: 8px;
   z-index: 1;
-  padding: 4px 13px;
-  border-radius: 4px;
+}
+.tag .tag-text, .tag .tag-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 5px;
+  min-width: 41px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 12px;
 }
 .tag.top_right {
-  top: 8px;
-  right: 8px;
+  top: 14px;
+  right: 14px;
 }
 .tag.bottom_right {
-  bottom: 8px;
-  right: 8px;
+  bottom: 14px;
+  right: 14px;
 }
 .tag.top_left {
-  top: 8px;
-  left: 8px;
+  top: 14px;
+  left: 14px;
 }
 .tag.bottom_left {
-  bottom: 8px;
-  left: 8px;
+  bottom: 14px;
+  left: 14px;
 }
 
 .breadcrumbs-container .breadcrumbs-listings {
