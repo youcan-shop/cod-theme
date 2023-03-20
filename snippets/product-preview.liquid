@@ -44,9 +44,11 @@
       <span class='product-price'>{{ item.price | money }}</span>
     {% endif %}
   </div>
+  {% if block_settings.product %}
   <div class="product-link">
     <a href="{{ item.url }}" class="yc-btn">
       {{ 'snippets.product_preview.cta_button' | t }}
     </a>
   </div>
+  {% endif %}
 </div>
