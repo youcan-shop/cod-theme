@@ -35,9 +35,12 @@
       <span class='product-price'>{{ item.price | money }}</span>
     {% endif %}
   </div>
+    {% if block_settings.countdown_enabled %}
+    {%- render 'countdown', section_settings: block_settings -%}
+    {% endif %}
   <div class="product-link">
     <a href="{{ item.url }}" class="yc-btn">
-     Buy now
+      {{ 'snippets.product_preview.cta_button' | t }}
     </a>
   </div>
 </div>

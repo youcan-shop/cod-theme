@@ -8,6 +8,10 @@
     overflow: hidden;
     align-items: stretch;
 
+    @include breakpoint('md') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
     @include breakpoint('lg') {
       grid-template-columns: repeat(4, 1fr);
     }
@@ -69,7 +73,7 @@
 
         @include breakpoint('md') {
           align-items: center;
-          margin: 15px auto 26px;
+          margin: 12px auto 24px;
           gap: 6px;
         }
 
@@ -103,8 +107,13 @@
         }
       }
       .product-link {
-        width: 80%;
+        width: 78%;
         margin: auto;
+
+        a {
+          font-weight: 700;
+          font-size: 13px;
+        }
 
         @include breakpoint('md') {
           width: 70%;
