@@ -198,9 +198,9 @@
                 "margin_top": 20,
                 "margin_bottom": 20,
                 "countdown_enabled": true,
-                "countdown_year": 0,
-                "countdown_month": 0,
-                "countdown_day": 0,
+                "countdown_year": 2023,
+                "countdown_month": 3,
+                "countdown_day": 30,
                 "countdown_hour": 0,
                 "countdown_minute": 0,
                 "show_compare_at_price": true,
@@ -222,10 +222,10 @@
                     "type": "product",
                     "settings": {
                         "product": "44b479c6-96f8-47f6-a5d0-ee4502b019a7",
-                        "tag_text": "dsfdf",
+                        "tag_text": "جديد",
                         "tag_color": "#000000",
                         "tag_text_color": "#ffffff",
-                        "price_reduction_text": "sdf",
+                        "price_reduction_text": "-55%",
                         "tag_price_color": "#E52B2AFF",
                         "price_reduction_text_color": "#ffffff",
                         "tag_position": "top_right"
@@ -239,7 +239,9 @@
                         "tag_text_color": "#ffffff",
                         "tag_price_color": "#E52B2AFF",
                         "price_reduction_text_color": "#ffffff",
-                        "tag_position": "top_right"
+                        "tag_position": "top_right",
+                        "tag_text": "جديد",
+                        "price_reduction_text": "-44%"
                     }
                 },
                 "block_n3xnx6jncb6x0ui": {
