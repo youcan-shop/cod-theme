@@ -12,9 +12,9 @@
   }
 
   .counter-wrapper {
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: space-between;
+    grid-template-columns: repeat(3, 1fr);
     background-color: #F5F5F5;
     padding: 24px 32px;
     margin-bottom: 33px;
@@ -169,7 +169,7 @@
 
   .countdown-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 12px;

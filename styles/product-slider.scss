@@ -62,6 +62,11 @@
     margin-bottom: -36px;
   }
 
+  .splide__arrows {
+    position: absolute;
+    transform: translate(128px, -72px);
+  }
+
   .product-block {
     width: 100%;
     position: relative;

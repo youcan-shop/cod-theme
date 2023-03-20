@@ -39,6 +39,7 @@
           {% if section.settings.countdown_enabled %}
             {%- render 'countdown', section_settings: section.settings -%}
           {% endif %}
+          <div class="slider-arrows"></div>
     </div>
 
       {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}

@@ -55,6 +55,10 @@
   justify-content: center;
   margin-bottom: -36px;
 }
+.product-slider .splide__arrows {
+  position: absolute;
+  transform: translate(128px, -72px);
+}
 .product-slider .product-block {
   width: 100%;
   position: relative;
