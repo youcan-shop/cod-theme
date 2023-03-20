@@ -57,8 +57,7 @@
 }
 .product-slider .product-block {
   width: 100%;
-  background-color: white;
-  border-radius: 3px;
+  position: relative;
 }
 .product-slider .product-block .product-details {
   margin-top: 12px;

@@ -31,11 +31,6 @@
     fill: #000;
   }
 
-  #yc_slider_{{ id }} .tag {
-    background: #E7412F;
-    color: {{ section.settings.tag_text_color.hex }};
-  }
-
   @media screen and (max-width: 768px) {
     #yc_slider_{{ id }} .splide__arrow {
     display: none;
@@ -63,19 +58,19 @@
             class='product-block'
           >
 
-          <div class="tag {{ block_settings.tag_position }}">
-            {% if block_settings.tag_text %} 
+          <div class="tag {{ block.settings.tag_position }}">
+            {% if block.settings.tag_text %} 
               <div class="tag-text"
-                style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
+                style="background: {{ block.settings.tag_color.hex }}; color: {{ block.settings.tag_text_color.hex }}"
               >
-                {{ block_settings.tag_text }}
+                {{ block.settings.tag_text }}
               </div>
             {% endif %}
-            {% if block_settings.price_reduction_text %} 
+            {% if block.settings.price_reduction_text %} 
               <div class="tag-price"
-                style="background: {{ block_settings.tag_price_color.hex }}; color: {{ block_settings.price_reduction_text_color.hex }}"
+                style="background: {{ block.settings.tag_price_color.hex }}; color: {{ block.settings.price_reduction_text_color.hex }}"
               >
-                {{ block_settings.price_reduction_text }}
+                {{ block.settings.price_reduction_text }}
               </div>
             {% endif %}
             </div>
