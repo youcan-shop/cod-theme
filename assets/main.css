@@ -297,6 +297,7 @@ input:not([type=radio]),
   border: 1px solid var(--yc-neutral-light-color);
   padding: 5px;
   cursor: pointer;
+  border-radius: 5px;
 }
 .yc-image-options-list .yc-image-options-item img {
   width: 100%;
@@ -306,12 +307,14 @@ input:not([type=radio]),
 
 .yc-upload {
   border: 1px dashed var(--yc-neutral-light-color);
+  border-radius: 5px;
   width: 100%;
   height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  font-size: 18px;
   cursor: pointer;
 }
 .yc-upload input {
@@ -367,9 +370,9 @@ input:not([type=radio]),
 .yc-colors-select .color-item {
   width: 34px;
   height: 34px;
-  border-radius: 50%;
-  border: 1px solid #E7E7E7;
+  border-radius: 5px;
   cursor: pointer;
+  padding: 2px;
 }
 .yc-colors-select .color-item:focus {
   outline: none;
@@ -378,13 +381,10 @@ input:not([type=radio]),
   display: block;
   width: 100%;
   height: 100%;
-  border-radius: 50%;
+  border-radius: 5px;
 }
 .yc-colors-select .color-item .value {
   opacity: 0;
-}
-.yc-colors-select .color-item.active {
-  padding: 4px;
 }
 
 /* --------------------------- */

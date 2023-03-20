@@ -10,4 +10,6 @@
         <path d="M14.5 27C20.299 27 25 22.299 25 16.5C25 10.701 20.299 6 14.5 6C8.70101 6 4 10.701 4 16.5C4 22.299 8.70101 27 14.5 27Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M21.9258 23.9258L28.0008 30.0008" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
+    {% when 'chevron_down' %}
+        <svg xmlns="http://www.w3.org/2000/svg" width="{% if width %}{{ width }}{% else %}20{% endif %}" height="{% if height %}{{ height }}{% else %}20{% endif %}" viewBox="0 0 256 256"><path fill="currentColor" d="m212.24 100.24l-80 80a6 6 0 0 1-8.48 0l-80-80a6 6 0 0 1 8.48-8.48L128 167.51l75.76-75.75a6 6 0 0 1 8.48 8.48Z"/></svg>
 {% endcase %}

@@ -12,14 +12,7 @@
       </label>
       {% case option.type %}
         {% when 'dropdown' %}
-          <select
-            class='yc-dropdown'
-            name='{{ option.name }}'
-          >
-            {% for item in option.values %}
-              <option value='{{ item }}'>{{ item }}</option>
-            {% endfor %}
-          </select>
+          {% render 'custom-select', data: option.values, format: true %}
         {% when 'textual_buttons' %}
           <ul class='yc-options-list'>
             {% for item in option.values %}
