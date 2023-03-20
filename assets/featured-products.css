@@ -28,6 +28,7 @@
   flex-direction: column;
   position: relative;
   align-items: stretch;
+  height: 100%;
 }
 .yc-featured-products .product-list .product-block .product-thumbnail {
   position: relative;
@@ -60,6 +61,7 @@
 .yc-featured-products .product-list .product-block .product-details {
   margin-top: 12px;
   padding: 0 6px;
+  flex-grow: 1;
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .product-details {
