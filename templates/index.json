@@ -351,6 +351,17 @@
                 "reviews_title": "أراء المشترين",
                 "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d"
             }
+        },
+        "section_bkwyk2l0m8boffr": {
+            "type": "main-video",
+            "settings": {
+                "title": "مميزاتنا",
+                "title_position": "left",
+                "video_type": "youtube",
+                "video_link": "https:\/\/youtu.be\/YpGjaJ1ettI",
+                "video_height": 500,
+                "video_width": 100
+            }
         }
     },
     "order": [
@@ -361,6 +372,7 @@
         "product-column",
         "section_609gq1tx2x0aaa",
         "section_p3bpf7007sndktq",
-        "section_eu2qwo8fndlwkf"
+        "section_eu2qwo8fndlwkf",
+        "section_bkwyk2l0m8boffr"
     ]
 }

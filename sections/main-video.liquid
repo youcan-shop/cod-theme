@@ -1,53 +1,11 @@
-{% schema %}
-{
-  "label": "Video",
-  "settings": [
-    {
-      "type": "select",
-      "id": "video_type",
-      "label": "Video Type",
-      "options": [
-        {
-          "value": "youtube",
-          "label": "Youtube"
-        },
-        {
-          "value": "facebook",
-          "label": "Facebook"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "id": "video_link",
-      "label": "Video Link",
-      "accept": ["youtube", "vimeo"]
-    },
-    {
-      "type": "range",
-      "id": "video_height",
-      "label": "Video Height",
-      "min": 100,
-      "max": 1000,
-      "step": 10,
-      "unit": "px",
-      "default": 500
-    },
-    {
-      "type": "range",
-      "id": "video_width",
-      "label": "Video Width's Percentage",
-      "min": 10,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "default": 100
-    }
-  ]
-}
-{% endschema %}
+{{ 'video.css' | asset_url | stylesheet_tag }}
 
-<div class='flex items-center justify-center'>
+<div class='video-section'>
+  {% if section.settings.title %}
+    <div class="yc-section-title container" style="text-align: {{ section.settings.title_position }};">
+      {{ section.settings.title }}
+    </div>
+  {% endif %}
   {% if section.settings.video_link %}
     {% if section.settings.video_type == 'youtube' %}
       <iframe
@@ -83,3 +41,76 @@
 </script>
 
 {{ 'video.js' | asset_url | script_tag_deferred }}
+
+{% schema %}
+  {
+    "label": "Video",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "select",
+        "id": "title_position",
+        "label": "Title Position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "video_type",
+        "label": "Video Type",
+        "options": [
+          {
+            "value": "youtube",
+            "label": "Youtube"
+          },
+          {
+            "value": "facebook",
+            "label": "Facebook"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "video_link",
+        "label": "Video Link",
+        "accept": ["youtube", "vimeo"]
+      },
+      {
+        "type": "range",
+        "id": "video_height",
+        "label": "Video Height",
+        "min": 100,
+        "max": 1000,
+        "step": 10,
+        "unit": "px",
+        "default": 500
+      },
+      {
+        "type": "range",
+        "id": "video_width",
+        "label": "Video Width's Percentage",
+        "min": 10,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "default": 100
+      }
+    ]
+  }
+  {% endschema %}
