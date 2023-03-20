@@ -545,15 +545,13 @@ input:not([type='radio']),
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 31px;
-    height: 31px;
-    padding: 13px;
-    padding: 20px;
+    padding: 13px 5px;
     border-radius: 50%;
     font-weight: 700;
     font-size: 14px;
     line-height: 12px;
-  }
+}
+
 
   &.top_right {
     top: 14px;
