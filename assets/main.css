@@ -520,6 +520,7 @@ input:not([type=radio]),
   justify-content: center;
   align-items: center;
   padding: 13px 5px;
+  min-width: 41px;
   border-radius: 50%;
   font-weight: 700;
   font-size: 14px;
