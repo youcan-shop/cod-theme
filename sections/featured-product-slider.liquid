@@ -42,11 +42,7 @@
   }
 
   .counter-wrapper .yc-section-title {
-    color: #fff;
-  }
-
-  .countdown-wrapper .message {
-    color: #fff;
+    color: {{ section.settings.text_color.hex }};
   }
 
   .section-featured-products-{{id}} {
@@ -59,7 +55,7 @@
     color: {{ section.settings.text_color.hex }};
   }
 
-  .section-featured-products-{{id}} .countdown-wrapper .countdown .sec .num {
+  .section-featured-products-{{id}} .countdown-wrapper .countdown .num {
     border-color: {{ section.settings.text_color.hex }};
   }
   
@@ -128,7 +124,6 @@
       return;
     }
   }
-
   mountSlider1();
   isMobile1.addEventListener('change', mountSlider1);
 </script>
@@ -185,17 +180,6 @@
       "type": "checkbox",
       "id": "countdown_enabled",
       "label": "Enable countdown"
-    },
-    {
-      "label": "Message",
-      "id": "countdown_message",
-      "type": "richtext",
-      "default": "Hurry up! There aren't many items left in stock."
-    },
-    {
-      "label": "Message color",
-      "id": "countdown_message_color",
-      "type": "color"
     },
     {
       "label": "Year",

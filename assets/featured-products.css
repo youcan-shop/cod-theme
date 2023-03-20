@@ -156,25 +156,21 @@
     flex-direction: row;
   }
 }
-.yc-featured-products .countdown-wrapper .message {
-  text-align: center;
-  font-size: 23px;
-  display: none;
-}
 @media (min-width: 768px) {
   .yc-featured-products .countdown-wrapper {
     flex-direction: row;
-  }
-  .yc-featured-products .countdown-wrapper .message {
-    display: block;
   }
 }
 .yc-featured-products .countdown-wrapper .countdown {
   direction: ltr;
   display: flex;
   justify-content: center;
-  gap: 4px;
+  gap: 8px;
+  align-items: center;
   margin: 0;
+}
+.yc-featured-products .countdown-wrapper .countdown .countdown-icon {
+  font-size: 20px;
 }
 .yc-featured-products .countdown-wrapper .countdown .day, .yc-featured-products .countdown-wrapper .countdown .hour, .yc-featured-products .countdown-wrapper .countdown .min, .yc-featured-products .countdown-wrapper .countdown .sec {
   text-align: center;
@@ -182,32 +178,29 @@
   display: flex;
   align-items: center;
 }
-.yc-featured-products .countdown-wrapper .countdown .day .num, .yc-featured-products .countdown-wrapper .countdown .hour .num, .yc-featured-products .countdown-wrapper .countdown .min .num, .yc-featured-products .countdown-wrapper .countdown .sec .num {
+.yc-featured-products .countdown-wrapper .countdown .day .num, .yc-featured-products .countdown-wrapper .countdown .hour .num, .yc-featured-products .countdown-wrapper .countdown .min .num {
   display: block;
-  padding: 0.2rem 0.5rem;
-  border-radius: 6px;
   font-size: 29px;
   font-weight: 600;
-  color: #FFFFFF;
-  border: 0;
-  background-color: #EE7A6D;
+  color: #000000;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 13px;
 }
-.yc-featured-products .countdown-wrapper .countdown .sec .num {
-  background-color: #000000;
+.yc-featured-products .countdown-wrapper .countdown .min .num {
+  color: #E52B2A;
+  font-weight: 700;
   border: 0;
-  width: 42px;
-  display: flex;
-  justify-content: center;
 }
 @media screen and (max-width: 600px) {
-  .yc-featured-products .countdown-wrapper .countdown .sec .num {
+  .yc-featured-products .countdown-wrapper .countdown .min .num {
     width: 35px;
   }
 }
 .yc-featured-products .countdown-wrapper .countdown .dots {
-  color: white;
-  font-size: 40px;
-  margin-top: -11px;
+  color: #000000;
+  font-size: 27px;
+  margin-top: -4px;
 }
 @media screen and (max-width: 600px) {
   .yc-featured-products .countdown-wrapper .countdown {
