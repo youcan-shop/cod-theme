@@ -1,3 +1,6 @@
+.yc-featured-products {
+  position: relative;
+}
 .yc-featured-products .yc-section-title {
   font-size: 26px;
   font-weight: 700;
@@ -10,6 +13,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #F5F5F5;
+  padding: 24px 32px;
+  margin-bottom: 33px;
 }
 .yc-featured-products .product-list {
   display: grid;
