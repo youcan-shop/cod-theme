@@ -1,15 +1,21 @@
 @import 'helpers/mixins';
 .yc-featured-products {
+  .yc-section-title {
+    font-size: 26px;
+    font-weight: 700;
+  }
+  
   .product-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px 12px;
+    gap: 30px 8px;
     justify-content: center;
     overflow: hidden;
     align-items: stretch;
 
     @include breakpoint('md') {
       grid-template-columns: repeat(3, 1fr);
+      gap: 32px 12px;
     }
 
     @include breakpoint('lg') {
