@@ -1,8 +1,5 @@
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
 
-<div
-  class='product-block'
->
   <div class="tag {{ block_settings.tag_position }}">
   {% if block_settings.tag_text %} 
     <div class="tag-text"
@@ -51,4 +48,3 @@
     </a>
   </div>
   {% endif %}
-</div>
