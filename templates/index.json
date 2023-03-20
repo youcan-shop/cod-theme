@@ -182,7 +182,7 @@
             "type": "featured-products",
             "settings": {
                 "title": "وصلنا حديثاً",
-                "section_title_position": "center",
+                "section_title_position": "right",
                 "row_desktop": 5,
                 "show_product_title": false,
                 "padding_top": 22,
