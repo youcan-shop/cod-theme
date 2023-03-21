@@ -65,6 +65,13 @@
   .splide__arrows {
     position: absolute;
     transform: translate(128px, -72px);
+
+    @media screen and (max-width: 845px) {
+      transform: translate(40px, 90px);
+      left: 50%; 
+      bottom: 0;
+      margin-bottom: 100px;
+    }
   }
 
   .product-block {
@@ -83,6 +90,8 @@
       }
 
       .product-title {
+        display: flex;
+        justify-content: center;
         font-weight: 500;
         font-size: 12px;
         line-height: 17px;

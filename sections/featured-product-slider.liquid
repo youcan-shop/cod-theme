@@ -49,7 +49,7 @@
   const isMobile1 = window.matchMedia("(max-width: 768px)");
   const products = {{ section.blocks.size }};
       let perPage = 4;
-      if (products <= 4) {
+      if (products < 4) {
         perPage = products;
       }
 

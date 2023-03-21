@@ -5,10 +5,6 @@
   font-size: 26px;
   font-weight: 700;
 }
-.yc-featured-products .product-slider-title {
-  font-size: 26px;
-  font-weight: 700;
-}
 .yc-featured-products .counter-wrapper {
   display: grid;
   align-items: center;
@@ -16,6 +12,21 @@
   background-color: #F5F5F5;
   padding: 24px 32px;
   margin-bottom: 33px;
+  position: relative;
+}
+.yc-featured-products .counter-wrapper .product-slider-title {
+  font-size: 26px;
+  font-weight: 700;
+}
+@media screen and (max-width: 845px) {
+  .yc-featured-products .counter-wrapper {
+    grid-template-columns: 1fr;
+    background-color: white;
+    gap: 29px;
+  }
+  .yc-featured-products .counter-wrapper .product-slider-title {
+    text-align: center;
+  }
 }
 .yc-featured-products .product-list {
   display: grid;
@@ -159,23 +170,6 @@
     margin-top: 60px;
   }
 }
-.yc-featured-products .countdown-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 12px;
-}
-@media (min-width: 768px) {
-  .yc-featured-products .countdown-wrapper {
-    flex-direction: row;
-  }
-}
-@media (min-width: 768px) {
-  .yc-featured-products .countdown-wrapper {
-    flex-direction: row;
-  }
-}
 .yc-featured-products .countdown-wrapper .countdown {
   direction: ltr;
   display: flex;
@@ -216,15 +210,4 @@
   color: #000000;
   font-size: 27px;
   margin-top: -4px;
-}
-@media screen and (max-width: 600px) {
-  .yc-featured-products .countdown-wrapper .countdown {
-    gap: 1px;
-  }
-}
-@media screen and (max-width: 600px) {
-  .yc-featured-products .countdown-wrapper .day .num, .yc-featured-products .countdown-wrapper .hour .num, .yc-featured-products .countdown-wrapper .min .num, .yc-featured-products .countdown-wrapper .sec .num {
-    font-size: 19px !important;
-    padding: 8px !important;
-  }
 }
