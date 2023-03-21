@@ -257,19 +257,20 @@ input:not([type='radio']),
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
 }
 .yc-options-item {
-  padding: 15px;
+  padding: 12px 18px;
+  font-weight: 500;
   font-size: 14px;
-  line-height: 120%;
-  font-weight: 400;
-  border: 1px solid #BDBDBD;
-  border-radius: 8px;
+  line-height: 150%;
+  border: 1px solid #000000;
   cursor: pointer;
+  opacity: 0.5;
 
   &.active {
     font-weight: 700;
+    opacity: 1;
   }
 }
 

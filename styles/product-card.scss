@@ -1,3 +1,5 @@
+@import 'helpers/mixins';
+
 .yc-product-card {
   width: 100%;
   background: #F5F5F5;
@@ -71,22 +73,26 @@
   gap: 10px;
 }
 
-#selected-product-variants,
+#selected-product-variants {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
 #selected-product-variants div,
 .quantity-preview {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
-}
-
-#selected-product-variants .yc-textual-item {
-  padding: 6.5px 10px;
-  text-align: center;
-  border: 1px solid black;
-  color: black;
+  gap: 4px;
+  font-weight: 400;
   font-size: 12px;
-  border-radius: 8px;
+  line-height: 150%;
+
+  @include breakpoint('md') {
+    font-size: 14px;
+  }
 }
 
 #selected-product-variants .colored-button {
@@ -103,13 +109,6 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-}
-
-#variant_quantity .quantity-value {
-  color: black;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 120%;
 }
 
 #selected-product-variants .image-container {

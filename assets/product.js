@@ -448,7 +448,7 @@ function showSelectedVariants() {
 
 function showSelectedQuantity() {
   const quantityValue = $('.product-quantity input')?.value;
-  $('#variant_quantity').innerHTML = `<span class='quantity-value'>x${quantityValue}</span`;
+  $('#variant_quantity').innerHTML = `<span class='quantity-value'>${quantityValue}</span`;
 }
 
 // Sticky checkout steps conditions
