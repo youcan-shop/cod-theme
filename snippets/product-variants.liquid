@@ -64,14 +64,27 @@
             {% endfor %}
           </ul>
         {% when 'upload_image_zone' %}
-          <div
-            class='yc-upload'
-            onclick='uploadImage(this)'
-          >
-            <ion-icon name='cloud-upload-outline'></ion-icon>
+          <div class='yc-upload' onclick='uploadImage(this)'>
+            <ion-icon class='upload-icon' name='cloud-upload-outline'></ion-icon>
             <span class='upload-msg'>{{ 'snippets.single_product.variants.upload' | t }}</span>
           </div>
-          <div class='yc-upload-preview'></div>
+          <section class='yc-upload-preview'>
+            <div class='yc-upload-wrapper'>
+              <div class='yc-image-preview'>
+                <span class='yc-image'></span>
+                <div class='yc-image-info'>
+                  <span class='image-name'></span>
+                  <span class='image-size'></span>
+                </div>
+              </div>
+              <button type='button' id='close-preview'>
+                <ion-icon name="close-outline"  style="zoom:2.0;"></ion-icon>
+              </button>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar"></div>
+            </div>
+          </section>
         {% when 'color_base_buttons' %}
           <ul class='yc-options-list'>
             {% for item in option.values %}

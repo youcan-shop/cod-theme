@@ -277,46 +277,6 @@ input:not([type='radio']),
   }
 }
 
-.yc-image-options-list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-
-  .yc-image-options-item {
-    aspect-ratio: 1;
-    height: 80px;
-    border: 1px solid var(--yc-neutral-light-color);
-    padding: 5px;
-    cursor: pointer;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-}
-
-.yc-upload {
-  border: 1px dashed var(--yc-neutral-light-color);
-  width: 100%;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  cursor: pointer;
-
-  input {
-    display: none;
-  }
-  .upload-msg {
-    margin-left: 5px;
-  }
-}
-
 .yc-number {
   padding: 10px 25px;
   border: 1px solid var(--yc-neutral-light-color);
