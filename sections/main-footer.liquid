@@ -2,17 +2,38 @@
 
 {% style %}
   :root  {
-    --yc-footer-background-color: {%- if section.settings.footer_background_color -%}
-      {{ section.settings.footer_background_color.hex }}
-    {%- else -%}
-      var(--yc-primary-color){%- endif -%};
+    --yc-footer-background-color: {{ section.settings.footer_background_color.hex }};
     --yc-footer-text-color: {{ section.settings.footer_text_color.hex }};
-    --yc-footer-copyright-background: {{ section.settings.footer_copyright_background.hex }};
+    --yc-footer-border-color: {{ section.settings.footer_border_color.hex }};
   }
 {% endstyle %}
 
 <footer class='yc-footer'>
   <div class="columns container">
+    {%- if section.settings.footer_logo.src -%}
+      <div class='footer-logo column'>
+        <img loading='lazy' src='{{ section.settings.footer_logo.src }}'>
+      </div>
+    {% else %}
+      <div class='footer-logo column'>
+        <img loading='lazy' src='{{ 'black-default-logo.png' | asset_url }}'>
+      </div>
+    {%- endif -%}
+    {%- if section.settings.mention_and_social_media -%}
+      <div class='social-media-links column'>
+        {%- for block in section.blocks -%}
+          {%- if block.settings.social_media_icon_image.src -%}
+            <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
+              <img loading='lazy' class='image' src="{{ block.settings.social_media_icon_image.src }}">
+            </a>
+            {% else %}
+            <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
+              <img loading='lazy' src='{{ 'default_product.jpeg' | asset_url }}'>
+            </a>
+          {%- endif -%}
+        {%- endfor %}
+      </div>
+    {%- endif -%}
     {%- for linklist in link-lists -%}
       {%- if linklist.links | count > 0  and linklist != main-link-list -%}
         <div class="accordion-item column">
@@ -31,21 +52,13 @@
       {%- endif -%}
     {%- endfor -%}
   </div>
-  {%- if section.settings.mention_and_social_media -%}
     <div class="container">
       <div class="copyright-wrapper" {{ block.youcan_attributes }}>
         <div class="copyright-title">
           {{ section.settings.mention }}
         </div>
-        <div class="spacer"></div>
-        {%- for block in section.blocks -%}
-          <a class="social-media-link" href="{{ block.settings.social_media_url }}" target="_blank">
-            <img src="{{ block.settings.social_media_icon_image.src }}">
-          </a>
-        {%- endfor %}
       </div>
     </div>
-  {%- endif -%}
 </footer>
 
 {{ 'accordion.js' | asset_url | script_tag_deferred }}
@@ -60,15 +73,27 @@
       "content": "Footer menu can be managed from your [Menu settings](https:\/\/seller-area.youcan.shop\/admin\/menus)"
     },
     {
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "Logo"
+    },
+    {
       "type": "color",
       "id": "footer_background_color",
-      "label": "Background Color"
+      "label": "Background Color",
+      "default": "#FFFFFFFF"
     },
     {
       "type": "color",
       "id": "footer_text_color",
       "label": "Text Color",
-      "default": "#fff"
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "footer_border_color",
+      "label": "Border color",
+      "default": "#ebebeb"
     },
     {
       "type": "checkbox",
