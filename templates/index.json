@@ -196,7 +196,7 @@
             "settings": {
                 "title": "عرض لفترة محدودة",
                 "margin_top": 20,
-                "margin_bottom": 20,
+                "margin_bottom": 80,
                 "countdown_enabled": true,
                 "countdown_year": 2023,
                 "countdown_month": 3,
@@ -209,12 +209,12 @@
                 "slider_autoplay": true,
                 "slider_pause_on_hover": true,
                 "slider_pause_on_focus": true,
-                "slider_pagination": true,
+                "slider_pagination": false,
                 "slider_arrows": true,
                 "slider_mobile_timeout": 5,
                 "slider_mobile_transition_type": "loop",
                 "slider_mobile_autoplay": true,
-                "slider_mobile_pagination": true,
+                "slider_mobile_pagination": false,
                 "slider_mobile_arrows": true
             },
             "blocks": {
