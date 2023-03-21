@@ -62,7 +62,6 @@ const countdown = (target) => {
     $(`${target} .day .num`).innerHTML = addZero(days);
     $(`${target} .hour .num`).innerHTML = addZero(hours);
     $(`${target} .min .num`).innerHTML = addZero(minutes);
-    $(`${target} .sec .num`).innerHTML = addZero(seconds);
 
     if (distance < 0) {
       clearInterval(updateTime);

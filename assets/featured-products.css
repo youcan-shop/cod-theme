@@ -1,6 +1,33 @@
+.yc-featured-products {
+  position: relative;
+}
 .yc-featured-products .yc-section-title {
   font-size: 26px;
   font-weight: 700;
+}
+.yc-featured-products .counter-wrapper {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: #F5F5F5;
+  padding: 24px 32px;
+  margin-bottom: 33px;
+  position: relative;
+}
+.yc-featured-products .counter-wrapper .product-slider-title {
+  font-size: 26px;
+  font-weight: 700;
+}
+@media screen and (max-width: 845px) {
+  .yc-featured-products .counter-wrapper {
+    grid-template-columns: 1fr;
+    background-color: white;
+    margin-bottom: 8px;
+  }
+  .yc-featured-products .counter-wrapper .product-slider-title {
+    text-align: center;
+    margin-bottom: 22px;
+  }
 }
 .yc-featured-products .product-list {
   display: grid;
@@ -144,37 +171,16 @@
     margin-top: 60px;
   }
 }
-.yc-featured-products .countdown-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  gap: 12px;
-}
-@media (min-width: 768px) {
-  .yc-featured-products .countdown-wrapper {
-    flex-direction: row;
-  }
-}
-.yc-featured-products .countdown-wrapper .message {
-  text-align: center;
-  font-size: 23px;
-  display: none;
-}
-@media (min-width: 768px) {
-  .yc-featured-products .countdown-wrapper {
-    flex-direction: row;
-  }
-  .yc-featured-products .countdown-wrapper .message {
-    display: block;
-  }
-}
 .yc-featured-products .countdown-wrapper .countdown {
   direction: ltr;
   display: flex;
   justify-content: center;
-  gap: 4px;
+  gap: 8px;
+  align-items: center;
   margin: 0;
+}
+.yc-featured-products .countdown-wrapper .countdown .countdown-icon {
+  font-size: 20px;
 }
 .yc-featured-products .countdown-wrapper .countdown .day, .yc-featured-products .countdown-wrapper .countdown .hour, .yc-featured-products .countdown-wrapper .countdown .min, .yc-featured-products .countdown-wrapper .countdown .sec {
   text-align: center;
@@ -182,41 +188,27 @@
   display: flex;
   align-items: center;
 }
-.yc-featured-products .countdown-wrapper .countdown .day .num, .yc-featured-products .countdown-wrapper .countdown .hour .num, .yc-featured-products .countdown-wrapper .countdown .min .num, .yc-featured-products .countdown-wrapper .countdown .sec .num {
+.yc-featured-products .countdown-wrapper .countdown .day .num, .yc-featured-products .countdown-wrapper .countdown .hour .num, .yc-featured-products .countdown-wrapper .countdown .min .num {
   display: block;
-  padding: 0.2rem 0.5rem;
-  border-radius: 6px;
   font-size: 29px;
   font-weight: 600;
-  color: #FFFFFF;
-  border: 0;
-  background-color: #EE7A6D;
+  color: #000000;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 13px;
 }
-.yc-featured-products .countdown-wrapper .countdown .sec .num {
-  background-color: #000000;
+.yc-featured-products .countdown-wrapper .countdown .min .num {
+  color: #E52B2A;
+  font-weight: 700;
   border: 0;
-  width: 42px;
-  display: flex;
-  justify-content: center;
 }
 @media screen and (max-width: 600px) {
-  .yc-featured-products .countdown-wrapper .countdown .sec .num {
+  .yc-featured-products .countdown-wrapper .countdown .min .num {
     width: 35px;
   }
 }
 .yc-featured-products .countdown-wrapper .countdown .dots {
-  color: white;
-  font-size: 40px;
-  margin-top: -11px;
-}
-@media screen and (max-width: 600px) {
-  .yc-featured-products .countdown-wrapper .countdown {
-    gap: 1px;
-  }
-}
-@media screen and (max-width: 600px) {
-  .yc-featured-products .countdown-wrapper .day .num, .yc-featured-products .countdown-wrapper .hour .num, .yc-featured-products .countdown-wrapper .min .num, .yc-featured-products .countdown-wrapper .sec .num {
-    font-size: 19px !important;
-    padding: 8px !important;
-  }
+  color: #000000;
+  font-size: 27px;
+  margin-top: -4px;
 }

@@ -10,43 +10,9 @@
     margin-top: {{ section.settings.margin_top }}px;
     margin-bottom: {{ section.settings.margin_bottom }}px;
   }
-
-  @media screen and (min-width: 768px) {
-    .section-featured-products-{{id}} {
-      padding: 0 70px;
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    .section-featured-products-{{id}} {
-      padding: 0 100px;
-    }
-  }
-
-  @media screen and (min-width: 1440px) {
-    .section-featured-products-{{id}} {
-      padding: 0 150px;
-    }
-  }
-
-  .bg-color-{{id}} {
-    padding: 45px;
-    background-color: #E7412F;
-    border-radius: 6px;
-  }
-
-  @media screen and (max-width: 768px) {
-    .bg-color-{{id}} {
-      padding: 40px 10px 45px;
-    }
-  }
-
-  .counter-wrapper .yc-section-title {
-    color: #fff;
-  }
-
-  .countdown-wrapper .message {
-    color: #fff;
+ 
+  .counter-wrapper .product-slider-title {
+    color: {{ section.settings.text_color.hex }};
   }
 
   .section-featured-products-{{id}} {
@@ -59,31 +25,31 @@
     color: {{ section.settings.text_color.hex }};
   }
 
-  .section-featured-products-{{id}} .countdown-wrapper .countdown .sec .num {
+  .section-featured-products-{{id}} .countdown-wrapper .countdown .num {
     border-color: {{ section.settings.text_color.hex }};
   }
   
 {% endstyle %}
 
 <div class='yc-featured-products section-featured-products-{{id}} container'>
-  <div class='bg-color-{{id}}'>
     <div class="counter-wrapper">
-          <h1 class='yc-section-title'>
+          <h1 class='product-slider-title'>
             {{ section.settings.title }}
           </h1>
           {% if section.settings.countdown_enabled %}
             {%- render 'countdown', section_settings: section.settings -%}
           {% endif %}
+          <div class="slider-arrows"></div>
     </div>
+
       {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
       {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
-  </div>
 </div>
 <script>
   const isMobile1 = window.matchMedia("(max-width: 768px)");
   const products = {{ section.blocks.size }};
-      let perPage = 3;
-      if (products < 3) {
+      let perPage = 4;
+      if (products < 4) {
         perPage = products;
       }
 
@@ -101,8 +67,13 @@
     perPage: perPage,
     perMove: 1,
     snap: true,
-    gap: '20px',
-    focus  : 'center',
+    gap: '12px',
+
+    breakpoints: {
+      1024: {
+        perPage: perPage >= 3 ? 3 : perPage,
+      },
+    },
   });
 
   const mobileSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
@@ -110,12 +81,13 @@
     autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
     cover: true,
     pagination: '{{ section.settings.slider_mobile_pagination }}' ? true : false,
+    arrows: '{{ section.settings.slider_mobile_arrows }}' ? true : false,
     interval: '{{ section.settings.slider_mobile_timeout | times: 1000 }}',
     rewind: true,
     drag: 'free',
     perPage: 2,
     perMove: 1,
-    gap: '12px',
+    gap: '8px',
     snap: true,
   });
 
@@ -128,7 +100,6 @@
       return;
     }
   }
-
   mountSlider1();
   isMobile1.addEventListener('change', mountSlider1);
 </script>
@@ -185,17 +156,6 @@
       "type": "checkbox",
       "id": "countdown_enabled",
       "label": "Enable countdown"
-    },
-    {
-      "label": "Message",
-      "id": "countdown_message",
-      "type": "richtext",
-      "default": "Hurry up! There aren't many items left in stock."
-    },
-    {
-      "label": "Message color",
-      "id": "countdown_message_color",
-      "type": "color"
     },
     {
       "label": "Year",
@@ -383,6 +343,23 @@
           "type": "color",
           "id": "tag_text_color",
           "label": "Banner text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "text",
+          "id": "price_reduction_text",
+          "label": "Banner price text"
+        },
+        {
+          "type": "color",
+          "id": "tag_price_color",
+          "label": "Price reduction background color",
+          "default": "#E52B2AFF"
+        },
+        {
+          "type": "color",
+          "id": "price_reduction_text_color",
+          "label": "Price reduction text color",
           "default": "#ffffff"
         },
         {
