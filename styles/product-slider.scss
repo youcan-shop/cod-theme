@@ -7,6 +7,10 @@
     padding: 0 0 100%;  
     height: 417px;
 
+    &:hover + .product-link {
+      display: block !important;
+    }
+
     img {
       position: absolute;
       top: 50%;
@@ -138,17 +142,6 @@
         font-size: 14px;
         font-weight: 400;
       }
-
-      .product-thumbnail:hover {
-        img {
-          transform: scale(1.1);
-        }
-
-        .product-link {
-          position: absolute;
-          bottom: 0;
-        }
-      }
     }
 
     .product-link {
@@ -162,8 +155,13 @@
       }
 
       @include breakpoint('md') {
-        width: 70%;
         display: none;
+        width: 78%;
+        position: absolute;
+        z-index: 1;
+        top: 74%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
   }
