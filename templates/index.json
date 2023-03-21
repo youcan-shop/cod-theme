@@ -1,349 +1,349 @@
 {
-    "sections": {
-        "section_qum9qooyrwe3uz": {
-            "type": "desktop-slider",
-            "settings": {
-                "slider_transition_type": "slide",
-                "slider_mobile_pagination": true,
-                "slider_pause_on_hover": true,
-                "slider_timeout": 6,
-                "slider_mobile_timeout": 4,
-                "slider_arrows_content_size": 13,
-                "slider_arrows": true,
-                "slider_height_percentage": 60,
-                "slider_autoplay": true,
-                "slider_pagination": false,
-                "slider_mobile_autoplay": true,
-                "slider_mobile_overlay_background_color": "#ffffff00",
-                "slider_overlay_background_color": "#ffffff00"
-            },
-            "blocks": {
-                "block_qw91o394p69bv8l": {
-                    "type": "image_picker",
-                    "settings": {
-                        "caption": "<p>أحدث ما وصلنا<\/p><h2>أجدد المنتجات صارت بين ايديكم<\/h2>",
-                        "button_text": "عرض المزيد",
-                        "button_font_weight": "700",
-                        "image": "ee-2N3ZbRScSrzCWzYniuOzuyqGChY.png",
-                        "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d"
-                    }
-                },
-                "block_qx88dcfkmfmqpeh": {
-                    "type": "image_picker",
-                    "settings": {
-                        "image": "poster-club-edit_1200x608_crop_center-2JwtlvlpxunYvxe4TtyDkiBU7hO.jpeg",
-                        "button_font_weight": "500",
-                        "caption": "<p><br><\/p>",
-                        "button_text": ""
-                    }
-                }
-            },
-            "order": [
-                "block_qw91o394p69bv8l",
-                "block_qx88dcfkmfmqpeh"
-            ]
-        },
-        "section_62tm9748qh15wfk": {
-            "type": "multi-column",
-            "settings": {
-                "columns_desktop": 3,
-                "columns_mobile": "1",
-                "title": "",
-                "margin_bottom": 50,
-                "margin_top": 50,
-                "background_color": "#FFFFFFFF"
-            },
-            "blocks": {
-                "block_c9qx028mi12btfk4": {
-                    "type": "columnn",
-                    "settings": {
-                        "heading": "الشحن مجاني",
-                        "description": "سواء كانت الماركة محلية أم عالمية، نحن نوصل آخرصيحات الموضة من كل مكان إلى عتبة دارك.",
-                        "link": "dsfsd",
-                        "link_label": "dsf",
-                        "image": "1-2N5n9Yo4es3xgZc1v9pLyJ4Jfl0.png"
-                    }
-                },
-                "block_cc11ny9wgf589l": {
-                    "type": "columnn",
-                    "settings": {
-                        "heading": "الدفع عند الإستلام",
-                        "description": "سواء كانت الماركة محلية أم عالمية، نحن نوصل آخرصيحات الموضة من كل مكان إلى عتبة دارك.",
-                        "image": "2-2N5nEBrZV8UKdHJk96NIR0zaY5i.png"
-                    }
-                },
-                "block_cee6rpyw7oltwqg": {
-                    "type": "columnn",
-                    "settings": {
-                        "heading": "ضمان حقيقي",
-                        "description": "سواء كانت الماركة محلية أم عالمية، نحن نوصل آخرصيحات الموضة من كل مكان إلى عتبة دارك.",
-                        "image": "3-2N5nItt5wKBOIUNzq6UmZGSHsDv.png"
-                    }
-                }
-            },
-            "order": [
-                "block_c9qx028mi12btfk4",
-                "block_cc11ny9wgf589l",
-                "block_cee6rpyw7oltwqg"
-            ]
-        },
-        "section_sxdipwpvyyjc9pl": {
-            "type": "featured-products",
-            "settings": {
-                "title": "وصلنا حديثاً",
-                "section_title_position": "right",
-                "row_desktop": 5,
-                "show_product_title": false,
-                "padding_top": 22,
-                "padding_bottom": 22,
-                "show_compare_at_price": true,
-                "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>",
-                "countdown_year": 0,
-                "countdown_month": 0,
-                "countdown_day": 0,
-                "countdown_hour": 0,
-                "countdown_minute": 0,
-                "rows_mobile": "2",
-                "rows_desktop": 4
-            },
-            "blocks": {
-                "block_t9xl58mgfbthz46": {
-                    "type": "product",
-                    "settings": {
-                        "tag_color": "#FFFFFFFF",
-                        "tag_text_color": "#E52B2AFF",
-                        "tag_position": "top_right",
-                        "tag_text": "جديد",
-                        "product": "b01a3054-7105-4a12-aaff-c9d9aaa45f48",
-                        "countdown_message": "<p><br><\/p>",
-                        "tag_price_text": "45%-",
-                        "tag_price_color": "#E52B2A",
-                        "countdown_enabled": true,
-                        "countdown_year": 2024,
-                        "price_reduction_text": "45%-"
-                    }
-                },
-                "block_tazes9cn7e9q3e": {
-                    "type": "product",
-                    "settings": {
-                        "tag_color": "#FF0025FF",
-                        "tag_text_color": "#ffffff",
-                        "tag_position": "top_right",
-                        "tag_text": "",
-                        "product": "6a875592-56bb-4d49-b3de-c2ad9dd57f42",
-                        "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>",
-                        "tag_price_text": ""
-                    }
-                },
-                "block_tbx6jp5m2i8cd3r": {
-                    "type": "product",
-                    "settings": {
-                        "tag_color": "#FF0025FF",
-                        "tag_text_color": "#ffffff",
-                        "tag_position": "top_right",
-                        "tag_text": "",
-                        "product": "596f0239-5ef2-4551-927b-faae4a3d2a8d",
-                        "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>"
-                    }
-                },
-                "block_tcs0ynsuopilcfi": {
-                    "type": "product",
-                    "settings": {
-                        "tag_color": "#FF0025FF",
-                        "tag_text_color": "#ffffff",
-                        "tag_position": "top_right",
-                        "tag_text": "",
-                        "product": "44b479c6-96f8-47f6-a5d0-ee4502b019a7",
-                        "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>"
-                    }
-                }
-            },
-            "order": [
-                "block_t9xl58mgfbthz46",
-                "block_tazes9cn7e9q3e",
-                "block_tbx6jp5m2i8cd3r",
-                "block_tcs0ynsuopilcfi"
-            ]
-        },
-        "section_id3c10cu8d0hetfi": {
-            "type": "featured-collections",
-            "settings": {
-                "category_name_color": "#FFFFFFFF",
-                "category_slug_color": "#FFFFFFFF"
-            },
-            "blocks": {
-                "block_iglpes2gmminbwu": {
-                    "type": "category",
-                    "settings": {
-                        "category": "6442aaf9-1426-4f22-aa3c-5c4a4b1c62a8",
-                        "category_name": "فساتين زفاف"
-                    }
-                },
-                "block_kxa7zlfobr2d4w": {
-                    "type": "category",
-                    "settings": {
-                        "category": "5c4185a7-fffd-48e0-9064-9ed0b7b31d88",
-                        "category_name": "فساتين زفاف"
-                    }
-                }
-            },
-            "order": [
-                "block_iglpes2gmminbwu",
-                "block_kxa7zlfobr2d4w"
-            ]
-        },
-        "section_mtk7dtud7u8wjuh": {
-            "type": "featured-product-slider",
-            "settings": {
-                "title": "عرض لفترة محدودة",
-                "margin_top": 20,
-                "margin_bottom": 80,
-                "countdown_enabled": true,
-                "countdown_year": 2023,
-                "countdown_month": 3,
-                "countdown_day": 30,
-                "countdown_hour": 0,
-                "countdown_minute": 0,
-                "show_compare_at_price": true,
-                "slider_timeout": 5,
-                "slider_transition_type": "loop",
-                "slider_autoplay": true,
-                "slider_pause_on_hover": true,
-                "slider_pause_on_focus": true,
-                "slider_pagination": false,
-                "slider_arrows": true,
-                "slider_mobile_timeout": 5,
-                "slider_mobile_transition_type": "loop",
-                "slider_mobile_autoplay": true,
-                "slider_mobile_pagination": false,
-                "slider_mobile_arrows": true
-            },
-            "blocks": {
-                "block_n29hpfisc69ngz": {
-                    "type": "product",
-                    "settings": {
-                        "product": "44b479c6-96f8-47f6-a5d0-ee4502b019a7",
-                        "tag_text": "جديد",
-                        "tag_color": "#000000",
-                        "tag_text_color": "#ffffff",
-                        "price_reduction_text": "-55%",
-                        "tag_price_color": "#E52B2AFF",
-                        "price_reduction_text_color": "#ffffff",
-                        "tag_position": "top_right"
-                    }
-                },
-                "block_n34xfb6nyyxc7yh": {
-                    "type": "product",
-                    "settings": {
-                        "product": "596f0239-5ef2-4551-927b-faae4a3d2a8d",
-                        "tag_color": "#000000",
-                        "tag_text_color": "#ffffff",
-                        "tag_price_color": "#E52B2AFF",
-                        "price_reduction_text_color": "#ffffff",
-                        "tag_position": "top_right",
-                        "tag_text": "جديد",
-                        "price_reduction_text": "-44%"
-                    }
-                },
-                "block_n3xnx6jncb6x0ui": {
-                    "type": "product",
-                    "settings": {
-                        "product": "6a875592-56bb-4d49-b3de-c2ad9dd57f42",
-                        "tag_color": "#000000",
-                        "tag_text_color": "#ffffff",
-                        "tag_price_color": "#E52B2AFF",
-                        "price_reduction_text_color": "#ffffff",
-                        "tag_position": "top_right"
-                    }
-                },
-                "block_n4pefo4i6gg6jq": {
-                    "type": "product",
-                    "settings": {
-                        "product": "7bd4d1f4-bc1e-4fc7-a52d-c431ebb5a0f5",
-                        "tag_color": "#000000",
-                        "tag_text_color": "#ffffff",
-                        "tag_price_color": "#E52B2AFF",
-                        "price_reduction_text_color": "#ffffff",
-                        "tag_position": "top_right"
-                    }
-                },
-                "block_n5ltvxcr4hl23ul": {
-                    "type": "product",
-                    "settings": {
-                        "product": "6a875592-56bb-4d49-b3de-c2ad9dd57f42",
-                        "tag_color": "#000000",
-                        "tag_text_color": "#ffffff",
-                        "tag_price_color": "#E52B2AFF",
-                        "price_reduction_text_color": "#ffffff",
-                        "tag_position": "top_right"
-                    }
-                }
-            },
-            "order": [
-                "block_n29hpfisc69ngz",
-                "block_n34xfb6nyyxc7yh",
-                "block_n3xnx6jncb6x0ui",
-                "block_n4pefo4i6gg6jq",
-                "block_n5ltvxcr4hl23ul"
-            ]
-        },
-        "section_uwz3xwnfpqj86w8": {
-            "type": "featured-products",
-            "settings": {
-                "title": "Product section",
-                "rows_mobile": "2",
-                "padding_top": 5,
-                "padding_bottom": 5,
-                "show_compare_at_price": true
-            },
-            "blocks": {
-                "block_v2rerxgr37e4eel": {
-                    "type": "product",
-                    "settings": {
-                        "product": "44b479c6-96f8-47f6-a5d0-ee4502b019a7",
-                        "tag_color": "#FFFFFFFF",
-                        "tag_text_color": "#E52B2AFF",
-                        "tag_price_color": "#E52B2AFF",
-                        "price_reduction_text_color": "#ffffff",
-                        "tag_position": "top_right"
-                    }
-                },
-                "block_v3oafhjpa3vmmyb": {
-                    "type": "product",
-                    "settings": {
-                        "product": "596f0239-5ef2-4551-927b-faae4a3d2a8d",
-                        "tag_color": "#FFFFFFFF",
-                        "tag_text_color": "#E52B2AFF",
-                        "tag_price_color": "#E52B2AFF",
-                        "price_reduction_text_color": "#ffffff",
-                        "tag_position": "top_right"
-                    }
-                },
-                "block_v4k857iuti4xnmy": {
-                    "type": "product",
-                    "settings": {
-                        "product": "6a875592-56bb-4d49-b3de-c2ad9dd57f42",
-                        "tag_color": "#FFFFFFFF",
-                        "tag_text_color": "#E52B2AFF",
-                        "tag_price_color": "#E52B2AFF",
-                        "price_reduction_text_color": "#ffffff",
-                        "tag_position": "top_right"
-                    }
-                }
-            },
-            "order": [
-                "block_v2rerxgr37e4eel",
-                "block_v3oafhjpa3vmmyb",
-                "block_v4k857iuti4xnmy"
-            ]
-        }
-    },
-    "order": [
-        "section_qum9qooyrwe3uz",
-        "section_62tm9748qh15wfk",
-        "section_id3c10cu8d0hetfi",
-        "section_sxdipwpvyyjc9pl",
-        "section_mtk7dtud7u8wjuh",
-        "section_uwz3xwnfpqj86w8"
-    ]
+  "sections": {
+      "section_qum9qooyrwe3uz": {
+          "type": "desktop-slider",
+          "settings": {
+              "slider_transition_type": "slide",
+              "slider_mobile_pagination": true,
+              "slider_pause_on_hover": true,
+              "slider_timeout": 6,
+              "slider_mobile_timeout": 4,
+              "slider_arrows_content_size": 13,
+              "slider_arrows": true,
+              "slider_height_percentage": 60,
+              "slider_autoplay": true,
+              "slider_pagination": false,
+              "slider_mobile_autoplay": true,
+              "slider_mobile_overlay_background_color": "#ffffff00",
+              "slider_overlay_background_color": "#ffffff00"
+          },
+          "blocks": {
+              "block_qw91o394p69bv8l": {
+                  "type": "image_picker",
+                  "settings": {
+                      "caption": "<p>أحدث ما وصلنا<\/p><h2>أجدد المنتجات صارت بين ايديكم<\/h2>",
+                      "button_text": "عرض المزيد",
+                      "button_font_weight": "700",
+                      "image": "ee-2N3ZbRScSrzCWzYniuOzuyqGChY.png",
+                      "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d"
+                  }
+              },
+              "block_qx88dcfkmfmqpeh": {
+                  "type": "image_picker",
+                  "settings": {
+                      "image": "poster-club-edit_1200x608_crop_center-2JwtlvlpxunYvxe4TtyDkiBU7hO.jpeg",
+                      "button_font_weight": "500",
+                      "caption": "<p><br><\/p>",
+                      "button_text": ""
+                  }
+              }
+          },
+          "order": [
+              "block_qw91o394p69bv8l",
+              "block_qx88dcfkmfmqpeh"
+          ]
+      },
+      "section_62tm9748qh15wfk": {
+          "type": "multi-column",
+          "settings": {
+              "columns_desktop": 3,
+              "columns_mobile": "1",
+              "title": "",
+              "margin_bottom": 50,
+              "margin_top": 50,
+              "background_color": "#FFFFFFFF"
+          },
+          "blocks": {
+              "block_c9qx028mi12btfk4": {
+                  "type": "columnn",
+                  "settings": {
+                      "heading": "الشحن مجاني",
+                      "description": "سواء كانت الماركة محلية أم عالمية، نحن نوصل آخرصيحات الموضة من كل مكان إلى عتبة دارك.",
+                      "link": "dsfsd",
+                      "link_label": "dsf",
+                      "image": "1-2N5n9Yo4es3xgZc1v9pLyJ4Jfl0.png"
+                  }
+              },
+              "block_cc11ny9wgf589l": {
+                  "type": "columnn",
+                  "settings": {
+                      "heading": "الدفع عند الإستلام",
+                      "description": "سواء كانت الماركة محلية أم عالمية، نحن نوصل آخرصيحات الموضة من كل مكان إلى عتبة دارك.",
+                      "image": "2-2N5nEBrZV8UKdHJk96NIR0zaY5i.png"
+                  }
+              },
+              "block_cee6rpyw7oltwqg": {
+                  "type": "columnn",
+                  "settings": {
+                      "heading": "ضمان حقيقي",
+                      "description": "سواء كانت الماركة محلية أم عالمية، نحن نوصل آخرصيحات الموضة من كل مكان إلى عتبة دارك.",
+                      "image": "3-2N5nItt5wKBOIUNzq6UmZGSHsDv.png"
+                  }
+              }
+          },
+          "order": [
+              "block_c9qx028mi12btfk4",
+              "block_cc11ny9wgf589l",
+              "block_cee6rpyw7oltwqg"
+          ]
+      },
+      "section_sxdipwpvyyjc9pl": {
+          "type": "featured-products",
+          "settings": {
+              "title": "وصلنا حديثاً",
+              "section_title_position": "right",
+              "row_desktop": 5,
+              "show_product_title": false,
+              "padding_top": 22,
+              "padding_bottom": 22,
+              "show_compare_at_price": true,
+              "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>",
+              "countdown_year": 0,
+              "countdown_month": 0,
+              "countdown_day": 0,
+              "countdown_hour": 0,
+              "countdown_minute": 0,
+              "rows_mobile": "2",
+              "rows_desktop": 4
+          },
+          "blocks": {
+              "block_t9xl58mgfbthz46": {
+                  "type": "product",
+                  "settings": {
+                      "tag_color": "#FFFFFFFF",
+                      "tag_text_color": "#E52B2AFF",
+                      "tag_position": "top_right",
+                      "tag_text": "جديد",
+                      "countdown_message": "<p><br><\/p>",
+                      "tag_price_text": "45%-",
+                      "tag_price_color": "#E52B2A",
+                      "countdown_enabled": true,
+                      "countdown_year": 2024,
+                      "price_reduction_text": "45%-",
+                      "product": "40f790d7-7731-4d9f-9610-765a9d44ad83"
+                  }
+              },
+              "block_tazes9cn7e9q3e": {
+                  "type": "product",
+                  "settings": {
+                      "tag_color": "#FF0025FF",
+                      "tag_text_color": "#ffffff",
+                      "tag_position": "top_right",
+                      "tag_text": "",
+                      "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>",
+                      "tag_price_text": "",
+                      "product": "26357fbd-1afe-4c28-bd86-90b61b5a0dd7"
+                  }
+              },
+              "block_tbx6jp5m2i8cd3r": {
+                  "type": "product",
+                  "settings": {
+                      "tag_color": "#FF0025FF",
+                      "tag_text_color": "#ffffff",
+                      "tag_position": "top_right",
+                      "tag_text": "",
+                      "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>",
+                      "product": "cb8500cb-2c25-4947-9124-4453f86db1f0"
+                  }
+              },
+              "block_tcs0ynsuopilcfi": {
+                  "type": "product",
+                  "settings": {
+                      "tag_color": "#FF0025FF",
+                      "tag_text_color": "#ffffff",
+                      "tag_position": "top_right",
+                      "tag_text": "",
+                      "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>",
+                      "product": "18b4e350-6fca-46c9-bafa-606428e92e67"
+                  }
+              }
+          },
+          "order": [
+              "block_t9xl58mgfbthz46",
+              "block_tazes9cn7e9q3e",
+              "block_tbx6jp5m2i8cd3r",
+              "block_tcs0ynsuopilcfi"
+          ]
+      },
+      "section_id3c10cu8d0hetfi": {
+          "type": "featured-collections",
+          "settings": {
+              "category_name_color": "#FFFFFFFF",
+              "category_slug_color": "#FFFFFFFF"
+          },
+          "blocks": {
+              "block_iglpes2gmminbwu": {
+                  "type": "category",
+                  "settings": {
+                      "category": "6442aaf9-1426-4f22-aa3c-5c4a4b1c62a8",
+                      "category_name": "فساتين زفاف"
+                  }
+              },
+              "block_kxa7zlfobr2d4w": {
+                  "type": "category",
+                  "settings": {
+                      "category": "5c4185a7-fffd-48e0-9064-9ed0b7b31d88",
+                      "category_name": "فساتين زفاف"
+                  }
+              }
+          },
+          "order": [
+              "block_iglpes2gmminbwu",
+              "block_kxa7zlfobr2d4w"
+          ]
+      },
+      "section_mtk7dtud7u8wjuh": {
+          "type": "featured-product-slider",
+          "settings": {
+              "title": "عرض لفترة محدودة",
+              "margin_top": 20,
+              "margin_bottom": 80,
+              "countdown_enabled": true,
+              "countdown_year": 2023,
+              "countdown_month": 3,
+              "countdown_day": 30,
+              "countdown_hour": 0,
+              "countdown_minute": 0,
+              "show_compare_at_price": true,
+              "slider_timeout": 5,
+              "slider_transition_type": "loop",
+              "slider_autoplay": true,
+              "slider_pause_on_hover": true,
+              "slider_pause_on_focus": true,
+              "slider_pagination": false,
+              "slider_arrows": true,
+              "slider_mobile_timeout": 5,
+              "slider_mobile_transition_type": "loop",
+              "slider_mobile_autoplay": true,
+              "slider_mobile_pagination": false,
+              "slider_mobile_arrows": true
+          },
+          "blocks": {
+              "block_n29hpfisc69ngz": {
+                  "type": "product",
+                  "settings": {
+                      "product": "44b479c6-96f8-47f6-a5d0-ee4502b019a7",
+                      "tag_text": "جديد",
+                      "tag_color": "#000000",
+                      "tag_text_color": "#ffffff",
+                      "price_reduction_text": "-55%",
+                      "tag_price_color": "#E52B2AFF",
+                      "price_reduction_text_color": "#ffffff",
+                      "tag_position": "top_right"
+                  }
+              },
+              "block_n34xfb6nyyxc7yh": {
+                  "type": "product",
+                  "settings": {
+                      "product": "596f0239-5ef2-4551-927b-faae4a3d2a8d",
+                      "tag_color": "#000000",
+                      "tag_text_color": "#ffffff",
+                      "tag_price_color": "#E52B2AFF",
+                      "price_reduction_text_color": "#ffffff",
+                      "tag_position": "top_right",
+                      "tag_text": "جديد",
+                      "price_reduction_text": "-44%"
+                  }
+              },
+              "block_n3xnx6jncb6x0ui": {
+                  "type": "product",
+                  "settings": {
+                      "product": "6a875592-56bb-4d49-b3de-c2ad9dd57f42",
+                      "tag_color": "#000000",
+                      "tag_text_color": "#ffffff",
+                      "tag_price_color": "#E52B2AFF",
+                      "price_reduction_text_color": "#ffffff",
+                      "tag_position": "top_right"
+                  }
+              },
+              "block_n4pefo4i6gg6jq": {
+                  "type": "product",
+                  "settings": {
+                      "product": "7bd4d1f4-bc1e-4fc7-a52d-c431ebb5a0f5",
+                      "tag_color": "#000000",
+                      "tag_text_color": "#ffffff",
+                      "tag_price_color": "#E52B2AFF",
+                      "price_reduction_text_color": "#ffffff",
+                      "tag_position": "top_right"
+                  }
+              },
+              "block_n5ltvxcr4hl23ul": {
+                  "type": "product",
+                  "settings": {
+                      "product": "6a875592-56bb-4d49-b3de-c2ad9dd57f42",
+                      "tag_color": "#000000",
+                      "tag_text_color": "#ffffff",
+                      "tag_price_color": "#E52B2AFF",
+                      "price_reduction_text_color": "#ffffff",
+                      "tag_position": "top_right"
+                  }
+              }
+          },
+          "order": [
+              "block_n29hpfisc69ngz",
+              "block_n34xfb6nyyxc7yh",
+              "block_n3xnx6jncb6x0ui",
+              "block_n4pefo4i6gg6jq",
+              "block_n5ltvxcr4hl23ul"
+          ]
+      },
+      "section_uwz3xwnfpqj86w8": {
+          "type": "featured-products",
+          "settings": {
+              "title": "Product section",
+              "rows_mobile": "2",
+              "padding_top": 5,
+              "padding_bottom": 5,
+              "show_compare_at_price": true
+          },
+          "blocks": {
+              "block_v2rerxgr37e4eel": {
+                  "type": "product",
+                  "settings": {
+                      "product": "44b479c6-96f8-47f6-a5d0-ee4502b019a7",
+                      "tag_color": "#FFFFFFFF",
+                      "tag_text_color": "#E52B2AFF",
+                      "tag_price_color": "#E52B2AFF",
+                      "price_reduction_text_color": "#ffffff",
+                      "tag_position": "top_right"
+                  }
+              },
+              "block_v3oafhjpa3vmmyb": {
+                  "type": "product",
+                  "settings": {
+                      "product": "596f0239-5ef2-4551-927b-faae4a3d2a8d",
+                      "tag_color": "#FFFFFFFF",
+                      "tag_text_color": "#E52B2AFF",
+                      "tag_price_color": "#E52B2AFF",
+                      "price_reduction_text_color": "#ffffff",
+                      "tag_position": "top_right"
+                  }
+              },
+              "block_v4k857iuti4xnmy": {
+                  "type": "product",
+                  "settings": {
+                      "product": "6a875592-56bb-4d49-b3de-c2ad9dd57f42",
+                      "tag_color": "#FFFFFFFF",
+                      "tag_text_color": "#E52B2AFF",
+                      "tag_price_color": "#E52B2AFF",
+                      "price_reduction_text_color": "#ffffff",
+                      "tag_position": "top_right"
+                  }
+              }
+          },
+          "order": [
+              "block_v2rerxgr37e4eel",
+              "block_v3oafhjpa3vmmyb",
+              "block_v4k857iuti4xnmy"
+          ]
+      }
+  },
+  "order": [
+      "section_qum9qooyrwe3uz",
+      "section_62tm9748qh15wfk",
+      "section_id3c10cu8d0hetfi",
+      "section_sxdipwpvyyjc9pl",
+      "section_mtk7dtud7u8wjuh",
+      "section_uwz3xwnfpqj86w8"
+  ]
 }
