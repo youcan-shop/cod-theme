@@ -7,7 +7,7 @@
 {%- endif %}
 
 {%- if selected_product %}
-  {%- render 'reviews', reviews_title: section.settings.reviews_title, product_id: selected_product.id -%}
+  {%- render 'reviews', reviews_title: section.settings.reviews_title, reviews_product_id: selected_product.id -%}
 {%- endif %}
 
 {% schema %}
