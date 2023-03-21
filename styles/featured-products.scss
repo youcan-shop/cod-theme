@@ -23,10 +23,11 @@
     @media screen and (max-width: 845px) {
       grid-template-columns: 1fr;
       background-color: white;
-      gap: 29px;
+      margin-bottom: 8px;
 
       .product-slider-title {
         text-align: center;
+        margin-bottom: 22px;
       }
     }
   }

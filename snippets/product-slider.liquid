@@ -36,7 +36,7 @@
           class='splide__slide'
           {{ block.youcan_attributes }}
         >
-          <a
+          <div
             href='{{ block.settings.product.url }}'
             class='product-block'
           >
@@ -75,8 +75,13 @@
                   <span class='compare-at-price'>{{ block.settings.product.compare_at_price | money }}</span>
                 {% endif %}
               </div>
+              <div class="product-link">
+                <a href="{{ item.url }}" class="yc-btn">
+                  {{ 'snippets.product_preview.cta_button' | t }}
+                </a>
+              </div>
             </div>
-          </a>
+          </div>
         </li>
       {%- endfor %}
     </ul>

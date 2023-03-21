@@ -68,6 +68,12 @@
     perMove: 1,
     snap: true,
     gap: '12px',
+
+    breakpoints: {
+      1024: {
+        perPage: perPage >= 3 ? 3 : perPage,
+      },
+    },
   });
 
   const mobileSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {

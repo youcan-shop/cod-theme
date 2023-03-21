@@ -22,10 +22,11 @@
   .yc-featured-products .counter-wrapper {
     grid-template-columns: 1fr;
     background-color: white;
-    gap: 29px;
+    margin-bottom: 8px;
   }
   .yc-featured-products .counter-wrapper .product-slider-title {
     text-align: center;
+    margin-bottom: 22px;
   }
 }
 .yc-featured-products .product-list {

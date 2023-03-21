@@ -67,10 +67,9 @@
     transform: translate(128px, -72px);
 
     @media screen and (max-width: 845px) {
-      transform: translate(40px, 90px);
+      transform: translate(44px, 60px);
       left: 50%; 
       bottom: 0;
-      margin-bottom: 100px;
     }
   }
 
@@ -142,6 +141,20 @@
 
       .product-thumbnail:hover img {
         transform: scale(1.1);
+      }
+    }
+
+    .product-link {
+      width: 78%;
+      margin: auto;
+
+      a {
+        font-weight: 700;
+        font-size: 13px;
+      }
+
+      @include breakpoint('md') {
+        width: 70%;
       }
     }
   }
