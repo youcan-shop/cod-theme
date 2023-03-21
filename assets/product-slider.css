@@ -154,3 +154,11 @@
 .product-slider .product-thumbnail:hover .product-link {
   display: block;
 }
+.product-slider .product-link-mobile {
+  margin: 15px auto 30px;
+  width: 85%;
+}
+.product-slider .product-link-mobile a {
+  font-weight: 700;
+  font-size: 13px;
+}

@@ -165,4 +165,14 @@
         display: block;
     }
   }
+
+  .product-link-mobile {
+    margin: 15px auto 30px;
+    width: 85%;
+
+    a {
+      font-weight: 700;
+      font-size: 13px;
+    }
+  }
 }

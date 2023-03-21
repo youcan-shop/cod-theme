@@ -79,6 +79,11 @@
                   <span class='compare-at-price'>{{ block.settings.product.compare_at_price | money }}</span>
                 {% endif %}
               </div>
+              <div class="product-link-mobile md:hidden">
+                <a href="{{ block.settings.product.url }}" class="yc-btn">
+                  {{ 'snippets.product_preview.cta_button' | t }}
+                </a>
+              </div>  
             </div>
           </div>
         </li>
