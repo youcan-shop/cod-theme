@@ -73,17 +73,13 @@
           </div>
           <div class='yc-upload-preview'></div>
         {% when 'color_base_buttons' %}
-          <ul class='yc-colors-select'>
+          <ul class='yc-options-list'>
             {% for item in option.values %}
               <li
                 onclick='setElementActive(this)'
-                class='color-item'
+                class='yc-colors-item'
               >
-                <span
-                  class='preview'
-                  style='background-color: {{ item.preview }}'
-                ></span>
-                <span class='value'>{{ item.value }}</span>
+                {{ item.value }}
               </li>
             {% endfor %}
           </ul>
