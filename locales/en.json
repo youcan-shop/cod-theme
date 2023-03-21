@@ -22,7 +22,8 @@
     "items": {
       "quantity": "Quantity",
       "total": "Total",
-      "remove_cta": "Remove"
+      "remove_cta": "Remove",
+      "product": "Product Name"
     },
     "summary": {
       "title": "Order Summary",

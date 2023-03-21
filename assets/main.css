@@ -223,14 +223,7 @@ h6,
 p,
 div,
 span {
-  font-weight: 300;
-}
-
-.nice-select .nice-select-dropdown,
-.yc-cart .summary-box,
-.yc-pagination {
-  box-shadow: var(--yc-primary-shadow) !important;
-  border: 1px solid #f2f2f2 !important;
+  font-weight: 400;
 }
 
 input:not([type=radio]),

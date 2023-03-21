@@ -21,12 +21,13 @@
     "title": "مجموعات"
   },
   "cart": {
-    "title": "عربة التسوق",
-    "items_count": "منتجات",
+    "title": "حقيبة التسوق",
+    "items_count": "منتجات في عربة التسوق الخاصة بك",
     "items": {
       "quantity": "الكمية",
-      "total": "المجموع",
-      "remove_cta": "إزالة"
+      "total": "الثمن",
+      "remove_cta": "إزالة",
+      "product": "اسم المنتوج"
     },
     "summary": {
       "title": "ملخص الطلب",

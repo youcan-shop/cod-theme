@@ -1,7 +1,9 @@
 <div class='quantity-wrapper'>
   <div class='decrease'>
     <button onclick="decreaseQuantity('{{ item.id }}', '{{ item.product_variant_id }}', '{{ item.quantity | minus: 1 }}')">
-      -
+      <svg width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 0.646973H11" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </button>
   </div>
   <input
@@ -12,7 +14,10 @@
   >
   <div class='increase'>
     <button onclick="increaseQuantity('{{ item.id }}', '{{ item.product_variant_id }}', '{{ item.quantity | plus: 1 }}')">
-      +
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 5.64697H11" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M6 0.646973V10.647" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </button>
   </div>
 </div>
