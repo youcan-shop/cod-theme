@@ -12,7 +12,6 @@
 {% javascript %}
   const defaultAvatar = '{{ "avatar.png" | asset_url }}';
   const productId = '{{ reviews_product_id }}';
-  const ratings = "{{ 'reviews.ratings' | t }}";
 {% endjavascript %}
 
 {{ 'reviews.js' | asset_url | script_tag_deferred }}
