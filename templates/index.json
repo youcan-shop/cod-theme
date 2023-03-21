@@ -285,6 +285,56 @@
                 "block_n4pefo4i6gg6jq",
                 "block_n5ltvxcr4hl23ul"
             ]
+        },
+        "section_uwz3xwnfpqj86w8": {
+            "type": "featured-products",
+            "settings": {
+                "title": "Product section",
+                "rows_mobile": "2",
+                "padding_top": 5,
+                "padding_bottom": 5,
+                "show_compare_at_price": true
+            },
+            "blocks": {
+                "block_v2rerxgr37e4eel": {
+                    "type": "product",
+                    "settings": {
+                        "product": "44b479c6-96f8-47f6-a5d0-ee4502b019a7",
+                        "tag_color": "#FFFFFFFF",
+                        "tag_text_color": "#E52B2AFF",
+                        "tag_price_color": "#E52B2AFF",
+                        "price_reduction_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                },
+                "block_v3oafhjpa3vmmyb": {
+                    "type": "product",
+                    "settings": {
+                        "product": "596f0239-5ef2-4551-927b-faae4a3d2a8d",
+                        "tag_color": "#FFFFFFFF",
+                        "tag_text_color": "#E52B2AFF",
+                        "tag_price_color": "#E52B2AFF",
+                        "price_reduction_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                },
+                "block_v4k857iuti4xnmy": {
+                    "type": "product",
+                    "settings": {
+                        "product": "6a875592-56bb-4d49-b3de-c2ad9dd57f42",
+                        "tag_color": "#FFFFFFFF",
+                        "tag_text_color": "#E52B2AFF",
+                        "tag_price_color": "#E52B2AFF",
+                        "price_reduction_text_color": "#ffffff",
+                        "tag_position": "top_right"
+                    }
+                }
+            },
+            "order": [
+                "block_v2rerxgr37e4eel",
+                "block_v3oafhjpa3vmmyb",
+                "block_v4k857iuti4xnmy"
+            ]
         }
     },
     "order": [
@@ -292,6 +342,7 @@
         "section_62tm9748qh15wfk",
         "section_id3c10cu8d0hetfi",
         "section_sxdipwpvyyjc9pl",
-        "section_mtk7dtud7u8wjuh"
+        "section_mtk7dtud7u8wjuh",
+        "section_uwz3xwnfpqj86w8"
     ]
 }

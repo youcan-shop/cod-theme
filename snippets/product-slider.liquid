@@ -37,7 +37,6 @@
           {{ block.youcan_attributes }}
         >
           <div
-            href='{{ block.settings.product.url }}'
             class='product-block'
           >
 
@@ -63,6 +62,11 @@
                   loading='lazy'
                   src='{%- if block.settings.product.thumbnail -%} {{ block.settings.product.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
                   >
+                  <div class="product-link">
+                    <a href="{{ block.settings.product.url }}" class="yc-btn">
+                      {{ 'snippets.product_preview.cta_button' | t }}
+                    </a>
+                  </div>
               </div>
               <div class='product-details'>
                 <span class='product-title'>{{ block.settings.product.name }}</span>
@@ -74,11 +78,6 @@
                 {% if section.settings.show_compare_at_price and block.settings.product.compare_at_price %}
                   <span class='compare-at-price'>{{ block.settings.product.compare_at_price | money }}</span>
                 {% endif %}
-              </div>
-              <div class="product-link">
-                <a href="{{ item.url }}" class="yc-btn">
-                  {{ 'snippets.product_preview.cta_button' | t }}
-                </a>
               </div>
             </div>
           </div>
