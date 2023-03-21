@@ -134,9 +134,14 @@
 .product-slider .product-block .prices .product-thumbnail:hover img {
   transform: scale(1.1);
 }
+.product-slider .product-block .prices .product-thumbnail:hover .product-link {
+  position: absolute;
+  bottom: 0;
+}
 .product-slider .product-block .product-link {
   width: 78%;
   margin: auto;
+  display: block;
 }
 .product-slider .product-block .product-link a {
   font-weight: 700;
@@ -145,5 +150,6 @@
 @media (min-width: 768px) {
   .product-slider .product-block .product-link {
     width: 70%;
+    display: none;
   }
 }

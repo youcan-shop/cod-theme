@@ -139,14 +139,22 @@
         font-weight: 400;
       }
 
-      .product-thumbnail:hover img {
-        transform: scale(1.1);
+      .product-thumbnail:hover {
+        img {
+          transform: scale(1.1);
+        }
+
+        .product-link {
+          position: absolute;
+          bottom: 0;
+        }
       }
     }
 
     .product-link {
       width: 78%;
       margin: auto;
+      display: block;
 
       a {
         font-weight: 700;
@@ -155,6 +163,7 @@
 
       @include breakpoint('md') {
         width: 70%;
+        display: none;
       }
     }
   }
