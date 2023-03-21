@@ -23,9 +23,9 @@ function reviewTemplate(review) {
           style='--rating: ${review.ratings}'
           aria-label="Rating of this product is ${review.ratings} out of 5">
       </div>
-    </div>
-    <div class='content'>
+      <div class='content'>
       ${review.content === null ? '' : review.content}
+    </div>
     </div>
     <div class="profil">
         <img loading='lazy' class='image' src='${review.images_urls[0] || defaultAvatar}' />

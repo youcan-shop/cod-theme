@@ -39,7 +39,6 @@
 .yc-product-reviews .yc-reviews-wrapper .review-item .profil {
   display: flex;
   gap: 12px;
-  margin-top: 60px;
 }
 .yc-product-reviews .yc-reviews-wrapper .review-item .profil .image {
   width: 49px;
