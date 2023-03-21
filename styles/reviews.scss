@@ -35,13 +35,15 @@
 
       .header {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        gap: 12px;
       }
 
       .profil {
         display: flex;
         gap: 12px;
         margin-top: 60px;
+        
 
         .image {
           width: 49px;
@@ -71,7 +73,6 @@
         line-height: 26px;
         font-weight: 400;
         font-size: 13px;
-        margin-top: 12px;
       }
     }
   }

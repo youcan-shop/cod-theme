@@ -33,7 +33,8 @@
 }
 .yc-product-reviews .yc-reviews-wrapper .review-item .header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 12px;
 }
 .yc-product-reviews .yc-reviews-wrapper .review-item .profil {
   display: flex;
@@ -63,7 +64,6 @@
   line-height: 26px;
   font-weight: 400;
   font-size: 13px;
-  margin-top: 12px;
 }
 .yc-product-reviews .reviews-block {
   display: flex;
