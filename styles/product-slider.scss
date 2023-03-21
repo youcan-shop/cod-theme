@@ -35,7 +35,7 @@
 
   .splide__arrows {
     position: absolute;
-    transform: translate(128px, -72px);
+    transform: translate(128px, -73.5px);
 
     @media screen and (max-width: 845px) {
       transform: translate(44px, 25px);
@@ -75,7 +75,7 @@
 
     .prices {
       display: flex;
-      flex-direction: column;
+      flex-direction: column-reverse;
       gap: 4px;
       margin: 12px auto 15px;
       padding: 0 6px;
