@@ -2,18 +2,17 @@
 
 <div class='yc-product-reviews container'>
   <div class='head'>
-    <h1 class='yc-section-title'>{{ reviews_title }}</h1>
-
-    {%- render 'general-review' -%}
+    <h1 class='yc-reviews-title'>{{ reviews_title }}</h1>
   </div>
 
   <ul class='yc-reviews-wrapper' id="reviews-wrapper"></ul>
-
   <button class='yc-btn' id='show-more'>{{ 'general.show_more_button' | t }}</button>
 </div>
 
 {% javascript %}
   const defaultAvatar = '{{ "avatar.png" | asset_url }}';
+  const productId = '{{ reviews_product_id }}';
+  const ratings = "{{ 'reviews.ratings' | t }}";
 {% endjavascript %}
 
 {{ 'reviews.js' | asset_url | script_tag_deferred }}
