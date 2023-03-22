@@ -1,6 +1,7 @@
 {{ 'express-checkout.css' | asset_url | stylesheet_tag }}
 
 <div id="yc-sticky-checkout" class="yc-sticky-checkout">
+  <span class="close-icon" onclick="hideCheckout()">{%  render 'icon'. name: 'close'  %}</span>
   <div id="checkout_step" class="container">
     {% render 'product-card' %}
     <div class="checkout-form"></div>

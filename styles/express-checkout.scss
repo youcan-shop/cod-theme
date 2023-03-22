@@ -92,6 +92,13 @@ $sticky-checkout-padding: 20px;
     align-items: center;
   }
 
+  .close-icon {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    cursor: pointer;
+  }
+
   #checkout_step {
     flex-direction: column;
     justify-content: center;

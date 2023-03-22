@@ -87,6 +87,12 @@
     align-items: center;
   }
 }
+.yc-sticky-checkout .close-icon {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  cursor: pointer;
+}
 .yc-sticky-checkout #checkout_step {
   flex-direction: column;
   justify-content: center;

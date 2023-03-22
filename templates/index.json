@@ -105,7 +105,7 @@
                 }
             },
             "settings": {
-                "background_color": "#FFF9F4",
+                "background_color": "#ffffff",
                 "show_compare_at_price": true,
                 "padding_top": 50,
                 "padding_bottom": 50,

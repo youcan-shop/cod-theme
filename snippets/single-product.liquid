@@ -60,9 +60,7 @@
           {%- when 'product_quantity' -%}
               {%- render 'product-quantity-input' -%}
           {%- when 'product_variants' -%}
-            {% render 'product-variants', options: product.options %}
-          {%- when 'product_description' -%}
-            <section class='product-description '>{{ product.description }}</section>
+            {% render 'product-variants', options: product.options %}            
           {%- when 'countdown_timer' %}
             <!-- prettier-ignore -->
               {%- render 'countdown', section_settings: block.settings -%}
@@ -85,7 +83,11 @@
       </div>
     {%- endfor -%}
   </div>
+    
+</div>
 
+<div class="container">
+  <section class='product-description '>{{ product.description }}</section>
 </div>
 
 <script defer>

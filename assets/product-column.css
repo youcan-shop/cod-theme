@@ -1,21 +1,6 @@
 .product-images-container {
   padding: 0 20px;
 }
-@media (min-width: 768px) {
-  .product-images-container {
-    padding: 0 50px;
-  }
-}
-@media (min-width: 992px) {
-  .product-images-container {
-    padding: 0 100px;
-  }
-}
-@media (min-width: 1400px) {
-  .product-images-container {
-    padding: 0 280px;
-  }
-}
 .product-images-container .product-block {
   display: flex;
   justify-content: center;
