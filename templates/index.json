@@ -293,6 +293,15 @@
                 "reviews_title": "توصيات من زبنائنا",
                 "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d"
             }
+        },
+        "section_iugi49itahcmlhw": {
+            "type": "main-video",
+            "settings": {
+                "video_type": "facebook",
+                "video_link": "https:\/\/fb.watch\/jqAsJV3tr_\/",
+                "video_height": 500,
+                "video_width": 100
+            }
         }
     },
     "order": [
@@ -301,6 +310,7 @@
         "section_id3c10cu8d0hetfi",
         "section_sxdipwpvyyjc9pl",
         "section_mtk7dtud7u8wjuh",
-        "section_vnib23zu82hrh6l"
+        "section_vnib23zu82hrh6l",
+        "section_iugi49itahcmlhw"
     ]
 }
