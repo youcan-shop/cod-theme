@@ -72,10 +72,11 @@
 
         .collection-button {
           background-color: var(--yc-primary-color);
-          width: 101px;
+          min-width: 101px;
           display: block;
           margin: 24px auto 0;
           font-weight: 700;
+          padding: 13px 18px;
           font-size: 13px;
         }
         
