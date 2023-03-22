@@ -1,5 +1,4 @@
-<a
-  href='/collections/{{ category.slug }}'
+<div
   class='collection-block'
   {{ block.youcan_attributes }}
 >
@@ -15,8 +14,10 @@
         src='{{ 'default_product.jpeg' | asset_url }}'
       >
     {% endif %}
+    <div class='collection-details'>
+      <span class='collection-name'>{{ category.name }}</span>
+      <span class='collection-description'>{{ category.description }}</span>
+      <a href='/collections/{{ category.slug }}' class='collection-button yc-btn'>عرض المزيد</a>
+    </div>
   </div>
-  <div class='collection-details'>
-    <span class='collection-name'>{{ category.name }}</span>
-  </div>
-</a>
+</div>
