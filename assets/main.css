@@ -280,35 +280,131 @@ input:not([type=radio]),
   border: 1px solid var(--yc-neutral-light-color);
 }
 
-.yc-radio input[type=radio] {
-  display: none;
+/* ---------------------------------- */
+/* ----- custom radio button ----- */
+/* ---------------------------------- */
+.yc-radio {
+  display: grid;
+  gap: 16px;
 }
 .yc-radio .yc-radio-buttons {
-  width: 20px;
-  height: 20px;
-  background-color: var(--yc-neutral-light-color);
-  border-radius: 50%;
   position: relative;
+  display: inline-flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  gap: 12px;
+  margin: 0;
+  align-items: center;
   cursor: pointer;
-  transition: all 0.2s;
 }
-.yc-radio .yc-radio-buttons span {
-  margin-left: 28px;
-  margin-right: 28px;
-  margin-bottom: 5px;
+.yc-radio .yc-radio-buttons input[type=radio] {
+  display: none;
+}
+.yc-radio .yc-radio-buttons .checkmark {
+  position: relative;
   display: inline-block;
-  width: 350px;
+  height: 26px;
+  width: 26px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  border: 1px solid #B7B7B7;
 }
-.yc-radio input[type=radio]:checked + .yc-radio-buttons::before {
+.yc-radio .yc-radio-buttons .checkmark:after {
   content: "";
   position: absolute;
+  display: block;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
+  background-color: #FFFFFF;
   border-radius: 50%;
-  background-color: var(--yc-primary-color);
+}
+.yc-radio .yc-radio-buttons input[type=radio]:checked + .checkmark {
+  border-color: #000000;
+}
+.yc-radio .yc-radio-buttons input[type=radio]:checked + .checkmark::after {
+  background: #000000;
+}
+.yc-radio .yc-radio-buttons:hover .checkmark {
+  background-color: #f5f5f5;
+}
+.yc-radio .yc-radio-buttons .label-text {
+  color: var(--yc-neutral-color);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+}
+
+/* ---------------------------------- */
+/* ----- custom dropdwown input ----- */
+/* ---------------------------------- */
+.dropdown-input {
+  position: relative;
+  border: 1px solid #ECECEC;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 570px;
+  /* Style the dropdown content */
+}
+.dropdown-input .dropbtn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: start;
+  gap: 6px;
+}
+.dropdown-input .dropbtn * {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 120%;
+}
+.dropdown-input .dropbtn .dropdown-icon {
+  position: absolute;
+  left: 0;
+  padding-left: 10px;
+}
+.dropdown-input .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 38px;
+  left: -1px;
+  z-index: 1;
+  width: 100.4%;
+  background: #FFFFFF;
+  border: 1px solid #ECECEC;
+  border-top: none;
+}
+@media (min-width: 768px) {
+  .dropdown-input .dropdown-content {
+    width: 100.3%;
+  }
+}
+.dropdown-input .dropdown-content li {
+  color: black;
+  padding: 10px 15px;
+  margin: 3px auto;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  display: block;
+  cursor: pointer;
+}
+.dropdown-input .dropdown-content li:hover {
+  background-color: #f1f1f1;
+}
+.dropdown-input .dropdown-content li.selected {
+  font-weight: bold;
+}
+.dropdown-input.black-border {
+  border-color: #000000;
+}
+.dropdown-input .show {
+  display: block;
+  border-color: #000000;
 }
 
 /* --------------------------- */

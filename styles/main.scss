@@ -282,37 +282,146 @@ input:not([type='radio']),
   border: 1px solid var(--yc-neutral-light-color);
 }
 
+/* ---------------------------------- */
+/* ----- custom radio button ----- */
+/* ---------------------------------- */
 .yc-radio {
-  input[type='radio'] {
-    display: none;
-  }
+  display: grid;
+  gap: 16px;
+
   .yc-radio-buttons {
-    width: 20px;
-    height: 20px;
-    background-color: var(--yc-neutral-light-color);
-    border-radius: 50%;
     position: relative;
+    display: inline-flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    gap: 12px;
+    margin: 0;
+    align-items: center;
     cursor: pointer;
-    transition: all 0.2s;
-    span {
-      margin-left: 28px;
-      margin-right: 28px;
-      margin-bottom: 5px;
+
+    input[type='radio'] {
+      display: none;
+    }
+
+    .checkmark {
+      position: relative;
       display: inline-block;
-      width: 350px;
+      height: 26px;
+      width: 26px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      border: 1px solid #B7B7B7;
+
+      &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 12px;
+        height: 12px;
+        background-color: #FFFFFF;
+        border-radius: 50%;
+      }
+    }
+
+    input[type='radio']:checked + .checkmark {
+      border-color: #000000;
+    }
+
+    input[type='radio']:checked + .checkmark::after {
+      background: #000000;
+    }
+
+    &:hover .checkmark {
+      background-color: #f5f5f5;
+    }
+
+    .label-text {
+      color: var(--yc-neutral-color);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 120%;
+    }
+  }
+}
+
+/* ---------------------------------- */
+/* ----- custom dropdwown input ----- */
+/* ---------------------------------- */
+.dropdown-input {
+  position: relative;
+  border: 1px solid #ECECEC;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 570px;
+
+  .dropbtn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: start;
+    gap: 6px;
+
+    & * {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 120%;
+    }
+
+    .dropdown-icon {
+      position: absolute;
+      left: 0;
+      padding-left: 10px;
     }
   }
 
-  input[type='radio']:checked + .yc-radio-buttons::before {
-    content: '';
+  /* Style the dropdown content */
+  .dropdown-content {
+    display: none;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    background-color: var(--yc-primary-color);
+    top: 38px;
+    left: -1px;
+    z-index: 1;
+    width: 100.4%;
+    background: #FFFFFF;
+    border: 1px solid #ECECEC;
+    border-top: none;
+
+    @include breakpoint('md') {
+      width: 100.3%;
+    }
+
+    li {
+      color: black;
+      padding: 10px 15px;
+      margin: 3px auto;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 120%;
+      display: block;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f1f1f1;
+      }
+
+      &.selected {
+        font-weight: bold;
+      }
+    }
+  }
+
+  &.black-border {
+    border-color: #000000;
+  }
+
+  .show {
+    display: block;
+    border-color: #000000;
   }
 }
 
