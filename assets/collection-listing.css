@@ -22,7 +22,6 @@
   display: grid;
   margin-top: 40px;
   grid-template-columns: 1fr;
-  background-color: #F2F2F2;
 }
 @media (min-width: 576px) {
   .yc-collection-listing .collection-list {
@@ -33,19 +32,17 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-  padding: 0 0 100%;
-  height: 0;
+  display: flex;
+  flex-direction: column;
 }
 .yc-collection-listing .collection-list .collection-thumbnail img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.25s ease;
+  width: 100%;
+  height: auto;
+  flex: 1;
+  transition: all 0.25s ease;
 }
 .yc-collection-listing .collection-list .collection-thumbnail img:hover {
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: scale(1.1);
 }
 .yc-collection-listing .collection-list .collection-thumbnail .collection-details {
   display: flex;
