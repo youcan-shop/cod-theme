@@ -13,42 +13,45 @@
 
 <footer class='yc-footer'>
   <div class="columns container">
+    <div class="column logo">
+      <img src="{{ section.settings.footer_logo.src }}">
+    </div>
+
     {%- for linklist in link-lists -%}
       {%- if linklist.links | count > 0  and linklist != main-link-list -%}
-        <div class="accordion-item column">
-          <div class='accordion-header'>
+        <div class="column">
+          <div class="links">
             <h1 class="title">{{ linklist.title }}</h1>
-            <svg class="arrow" width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.01947 7.41357L7.56174 1.50241L14.104 7.41357" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="accordion-content">
+
             {%- for item in linklist.links -%}
-                <a class="item" href="{{ item.url }}">{{ item.title }}</a>
+              <a class="item" href="{{ item.url }}">{{ item.title }}</a>
             {%- endfor -%}
           </div>
         </div>
       {%- endif -%}
     {%- endfor -%}
+
+    <div class="column social-media">
+      {%- for block in section.blocks -%}
+        <a class="social-media-link" href="{{ block.settings.social_media_url }}" target="_blank">
+          <img src="{{ block.settings.social_media_icon_image.src }}">
+        </a>
+      {%- endfor %}
+    </div>
   </div>
-  {%- if section.settings.mention_and_social_media -%}
-    <div class="container">
-      <div class="copyright-wrapper" {{ block.youcan_attributes }}>
+  {%- if section.settings.copyright_and_social_media -%}
+    <div class="copyright-wrapper" {{ block.youcan_attributes }}>
+      <div class="container">
         <div class="copyright-title">
-          {{ section.settings.mention }}
+          {{ section.settings.copyright }}
         </div>
-        <div class="spacer"></div>
-        {%- for block in section.blocks -%}
-          <a class="social-media-link" href="{{ block.settings.social_media_url }}" target="_blank">
-            <img src="{{ block.settings.social_media_icon_image.src }}">
-          </a>
-        {%- endfor %}
+        <div class="copyright-image">
+          <img src="{{ section.settings.copyright_image.src }}">
+        </div>
       </div>
     </div>
   {%- endif -%}
 </footer>
-
-{{ 'accordion.js' | asset_url | script_tag_deferred }}
 
 {%- schema -%}
 {
@@ -58,6 +61,11 @@
     {
       "type": "paragraph",
       "content": "Footer menu can be managed from your [Menu settings](https:\/\/seller-area.youcan.shop\/admin\/menus)"
+    },
+    {
+        "type": "image_picker",
+        "id": "footer_logo",
+        "label": "Logo"
     },
     {
       "type": "color",
@@ -72,14 +80,19 @@
     },
     {
       "type": "checkbox",
-      "id": "mention_and_social_media",
-      "label": "Mention & Social media",
+      "id": "copyright_and_social_media",
+      "label": "Copyright & Social media",
       "default": true
     },
     {
       "type": "richtext",
-      "id": "mention",
-      "label": "Mention content"
+      "id": "copyright",
+      "label": "Copyright content"
+    },
+    {
+      "type": "image_picker",
+      "id": "copyright_image",
+      "label": "Copyright image"
     }
   ],
   "blocks": [

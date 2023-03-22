@@ -50,27 +50,33 @@
             "main-footer": {
                 "type": "main-footer",
                 "settings": {
-                    "footer_background_color": "#000000",
+                    "footer_background_color": "#3C415F",
                     "mention_and_social_media": true,
-                    "mention": "<p>made with ❤️ by YouCan<\/p>"
+                    "mention": "<p>جميع الحقوق محفوظة2023<\/p>",
+                    "footer_logo": "untitled (5)-2NNASOm8V90nDKvk5iel6w06KP8.png",
+                    "copyright": "<p>جميع الحقوق محفوظة2023<\/p>",
+                    "copyright_image": "untitled (6)-2NNHfAONNDSLFc3DPqrL5tERh4z.png"
                 },
                 "blocks": {
                     "block_social": {
                         "type": "social-media",
                         "settings": {
-                            "social_media_icon_image": "InstagramLogo-2Ls7ER18h4Gq3v3Ep9WbRtQJJfx.png"
+                            "social_media_icon_image": "untitled-2NMs6zT0eQIZZJR8DKeE20QQsoS.png",
+                            "social_media_url": "https:\/\/www.google.com\/"
                         }
                     },
                     "block_nlltx86k7y4b93k": {
                         "type": "social-media",
                         "settings": {
-                            "social_media_icon_image": "FacebookLogo-2Ls8VdaIiSBR4QDXchzGWkuNZgk.png"
+                            "social_media_icon_image": "untitled (4)-2NMs7aINYxLEIJZv3i9wkMyLn6r.png",
+                            "social_media_url": "https:\/\/www.google.com\/"
                         }
                     },
                     "block_o07mmbhyf997iu": {
                         "type": "social-media",
                         "settings": {
-                            "social_media_icon_image": "WhatsappLogo-2Ls8YMiusO4JlG2IfHjxpaYXJke.png"
+                            "social_media_icon_image": "untitled (3)-2NMsFUfpe6adxpPbwlXjdceEN1N.png",
+                            "social_media_url": "https:\/\/www.google.com\/"
                         }
                     }
                 },

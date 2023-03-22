@@ -6,102 +6,58 @@
   overflow: hidden;
   display: block;
   width: 100%;
-  padding: 40px 0;
+  padding-top: 50px;
 
   .columns {
     display: flex;
-    gap: 1rem;
+    gap: 2.5rem;
     flex-direction: column;
+
+    @include breakpoint('md') {
+      gap: 1rem;
+      flex-direction: row;
+    }
 
     .column {
       flex: 1 1 0;
+
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .title {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
     }
 
-    @include breakpoint('md') {
-      flex-direction: row;
-    }
-  }
-
-  .accordion-item {
-    .accordion-header {
+    .social-media {
       display: flex;
-      justify-content: space-between;
-      color: inherit;
-      align-items: center;
-      column-gap: 12px;
-      border-bottom: 1px solid #444444;
-      padding-bottom: 12px;
-      margin-bottom: 12px;
-      cursor: pointer;
-
-      @include breakpoint('md') {
-        border-color: transparent;
-        cursor: unset;
-      }
-
-      .title {
-        color: inherit;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 120%;
-      }
-
-      .arrow {
-        transform: rotate(180deg);
-        transition: all 0.25s cubic-bezier(0.5, 0, 0.1, 1);
-
-        @include breakpoint('md') {
-          display: none;
-        }
-      }
-
-      &.active {
-        .arrow {
-          transform: unset;
-        }
-      }
-    }
-
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: all 300ms ease;
-
-      @include breakpoint('md') {
-        max-height: unset;
-        overflow: unset;
-      }
-
-      .item {
-        display: block;
-        font-weight: 300;
-        font-size: 13px;
-        line-height: 250%;
-
-        @include breakpoint('md') {
-          font-size: 15px;
-        }
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
+      gap: 36px;
     }
   }
 
   .copyright-wrapper {
     width: 100%;
-    display: flex;
-    gap: 12px;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 27px;
+    padding: 22px 0;
 
-    @include breakpoint('md') {
-      border-top: 1px solid #444444;
-      padding-top: 45px;
-      margin-top: 35px;
+    &, * {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 30px;
+    }
+
+    .container {
+      display: flex;
+      gap: 12px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
     }
   }
 
