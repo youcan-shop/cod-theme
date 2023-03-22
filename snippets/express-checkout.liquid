@@ -76,6 +76,8 @@
     <div class='express-checkout-title'>{{ settings.form_title }}</div>
     {%- for field in checkout.fields %}
       <div class='express-checkout-field'>
+        <label>{{ field.display_name }}</label>
+
         <input
           type='{{ field.type }}'
           class='w-full'
@@ -93,7 +95,6 @@
       </div>
     {%- endfor %}
   </div>
-  {% if is_sticky == false %}
   <button
     type='submit'
     class='yc-btn w-full express-checkout-button'
@@ -105,7 +106,6 @@
     ></span>
     <span>{{ settings.express_checkout_cta }}</span>
   </button>
-  {% endif %}
 </form>
 
 {{ 'express-checkout.js' | asset_url | script_tag_deferred }}

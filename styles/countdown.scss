@@ -3,13 +3,13 @@
 .countdown-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   flex-direction: column;
   gap: 16px;
 
   .message {
     text-align: center;
-    font-size: 23px;
+    font-size: 18px;
   }
 
   .countdown {
@@ -34,12 +34,11 @@
       align-items: center;
       justify-content: center;
       border-radius: 6px;
-      font-size: 29px;
       font-weight: 600;
       height: 49px;
       width: 52px;
       font-weight: 300;
-      font-size: 24px;
+      font-size: 16px;
       background-color: white;
       border-radius: 5px;
       border: 1px solid currentColor;

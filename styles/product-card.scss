@@ -1,74 +1,32 @@
 .yc-product-card {
   width: 100%;
-  background: #F5F5F5;
-  border-radius: 4px;
-  margin-top: 26px;
-}
-
-.yc-product-card .section-1 {
-  display: flex;
-  align-items: start;
-  gap: 14px;
-  padding: 10px;
-}
-
-@media screen and (min-width: 768px) {
-  .yc-product-card .section-1,
-  .yc-product-card .selected-preview {
-    padding: 20px;
-  }
-}
-
-.yc-product-card .section-2 {
-  border-top: 1px solid #EBEBEB;
-}
-
-.yc-product-card .image {
-  width: 62px;
-  height: 52px;
-  background: white;
-  padding: 3px;
-  flex-shrink: 0;
-}
-
-.yc-product-card .image .main-image {
-  width: auto;
   height: 100%;
-  margin: 0 auto;
-  object-fit: contain;
-}
+  background: #F8F8F8;
+  border: 1px solid #E6E6E6;
+  border-radius: 5px 5px 0px 0px;
+  padding: 36px;
 
-.yc-product-card .details {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
 
-.yc-product-card .product-name {
-  font-size: 15px !important;
-  margin-top: 4px;
-}
+  .main-image {
+    border: 1px solid #E6E6E6;
+    border-radius: 5px;
+    width: 189px;
+    height: 177.97px;
+    margin: auto;
+  }
+  .details {
+    margin: 15px 0;
+    text-align: center;
 
-.yc-product-card .price {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  gap: 10px;
-}
-
-.yc-product-card #sticky-price {
-  font-weight: 700;
-  line-height: 120%;
-  color: var(--yc-primary-color);
-  font-size: 16px;
-}
-
-.selected-preview {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 10px;
-  gap: 10px;
+    .product-name, .price {
+      font-size: 16px;
+      color: var(--yc-primary-color);
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
 }
 
 #selected-product-variants,
@@ -77,14 +35,16 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 10px;
+  font-size: 14px;
+  color: #4A4A4A;
 }
 
 #selected-product-variants .yc-textual-item {
   padding: 6.5px 10px;
   text-align: center;
-  border: 1px solid black;
-  color: black;
+  border: 1px solid #4A4A4A;
   font-size: 12px;
   border-radius: 8px;
 }
@@ -93,7 +53,7 @@
   display: block;
   width: 29px;
   height: 29px;
-  border: 1px solid black;
+  border: 1px solid #4A4A4A;
   border-radius: 50%;
   padding: 2.5px;
 }
@@ -106,7 +66,7 @@
 }
 
 #variant_quantity .quantity-value {
-  color: black;
+  color: #4A4A4A;
   font-weight: 700;
   font-size: 15px;
   line-height: 120%;
