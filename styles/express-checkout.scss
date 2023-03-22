@@ -88,7 +88,6 @@ $sticky-checkout-padding: 20px;
 
   @include breakpoint('md') {
     height: 50vh;
-    display: flex;
     align-items: center;
   }
 
