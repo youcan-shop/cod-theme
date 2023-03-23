@@ -2,32 +2,36 @@
 {{ 'product-listing.css' | asset_url | stylesheet_tag }}
 
 {%- assign per_page = section.settings.items_per_page -%}
-<div class='yc-product-listing-container'>
-  <div class="breadcrumbs-container">
-    <div class="breadcrumbs-listings">
-      <div class="listings__item">
-        <a href="/" class="first-listing">{{ 'snippets.collection-listing.home' | t }}</a>
+<div class='yc-product-listing-container container'>
+  <div class="header-wrapper">
+    <div class="breadcrumbs-container">
+      <div class="breadcrumbs-listings">
+        <div class="listings__item">
+          <a href="/" class="first-listing">{{ 'snippets.collection-listing.home' | t }}</a>
+        </div>
+        <div class="listings__item">
+          <img src='{{ 'left-arrow.png' | asset_url }}'>
+        </div>
+        <div class="listings__item">
+          <a href="/collections" class="second-listing">{{ 'snippets.collection-listing.collections' | t }}</a>
+        </div>
       </div>
-      <div class="listings__item">
-        <img src='{{ 'left-arrow.png' | asset_url }}'>
-      </div>
-      <div class="listings__item">
-        <a href="/collections" class="second-listing">{{ 'snippets.collection-listing.collections' | t }}</a>
-      </div>
-    </div>
 
-    <div class="breadcrumbs-name">
-      <h1>{{ category.name }}</h1>
+      <div class="breadcrumbs-name">
+        <h1>{{ category.name }}</h1>
+      </div>
     </div>
-  </div>
-  <div class="sort-container">
-    {%- render 'main-sort' -%}
+    <div class="sort-container">
+      {%- render 'main-sort' -%}
+    </div>
   </div>
 
   {%- paginate collection.products by per_page cod %}
     <div class='product-list'>
       {% for product in items %}
-        {% render 'product-preview', item: product %}
+        <div class="product-block">
+          {% render 'product-preview', item: product %}
+        </div>
       {% endfor %}
     </div>
 
@@ -47,6 +51,12 @@
       "id": "items_per_page",
       "label": "Collections per page",
       "default": 10
+    },
+    {
+      "type": "checkbox",
+      "id": "show_compare_at_price",
+      "label": "Show compare at price",
+      "default": true
     }
   ]
 }

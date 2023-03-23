@@ -1,52 +1,100 @@
 @import 'helpers/mixins';
 
 .yc-product-listing-container {
-  padding: 0 16px;
-
   .product-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px 12px;
-    margin-top: 40px;
+    gap: 30px 8px;
+    margin-top: 36px;
 
     .product-block {
       .product-thumbnail {
-        border: 1px solid #EFEFEF;
-        border-radius: 3px;
         position: relative;
         overflow: hidden;
-        padding: 0 0 100%;
-        height: 0;
+        padding: 0 0 100%;  
+        height: 417px;
 
         img {
           position: absolute;
           top: 50%;
           left: 50%;
+          width: 100%;
           height: 100%;
           transform: translate(-50%,-50%);
           transition: transform .25s ease;
-
+  
           &:hover {
             transform: translate(-50%,-50%) scale(1.1);
           }
         }
+
+        @include max-screen('md') {
+          height: 340px;
+        }
+
+        @include max-screen('sm') {
+          height: 267px;
+        }
+
+        .product-link {
+          width: 78%;
+          margin: auto;
+          display: none;
+    
+          a {
+            font-weight: 700;
+            font-size: 13px;
+          }
+    
+          @include breakpoint('md') {
+            width: 80%;
+            position: absolute;
+            z-index: 1;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+    
+        &:hover .product-link {
+          @include breakpoint('md') {
+            display: block;
+          }
+        }
+      }
+
+      .product-link-mobile {
+        margin: 15px auto 30px;
+        width: 85%;
+    
+        a {
+          font-weight: 700;
+          font-size: 13px;
+        }
       }
 
       .product-details {
-        margin: 14px 0;
-        text-align: start;
+        margin: 12px 0;
+        text-align: center;
 
         .product-title {
-          font-weight: 400;
-          font-size: 16px;
+          font-weight: 500;
+          font-size: 12px;
           line-height: 22px;
+
+          @include breakpoint('md') {
+            font-size: 14px;
+            font-weight: 600;
+          }
         }
       }
 
       .prices {
         display: flex;
-        justify-content: start;
-        gap: 5px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 4px;
 
         .product-price {
           font-weight: 700;
@@ -55,18 +103,22 @@
           color: var(--yc-primary-color);
         }
       }
+
+      .compare-at-price {
+        font-size: 14px;
+        font-weight: 400;
+        color: #A3A3A3;
+        text-decoration-line: line-through;
+      }
     }
 
     @include breakpoint('md') {
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px 20px;
-      .product-block {
-        .product-details {
-          text-align: center;
-        }
+      gap: 32px 12px;
 
+      .product-block {
         .prices {
-          justify-content: center;
+          flex-direction: row;
         }
       }
     }
@@ -74,22 +126,6 @@
     @include breakpoint('lg') {
       grid-template-columns: repeat(4, 1fr);
     }
-  }
-
-  @include breakpoint('md') {
-    padding: 0 50px;
-  }
-
-  @include breakpoint('lg') {
-    padding: 0 80px;
-  }
-
-  @include breakpoint('xl') {
-    padding: 0 150px;
-  }
-
-  @include breakpoint('xxl') {
-    padding: 0 250px;
   }
 }
 
@@ -106,29 +142,39 @@
   }
 }
 
-.sort-container {
-  margin: 40px auto;
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
 
+  .sort-container {
+    display: flex;
+    align-items: flex-end;
 
+    #productDropdownFiltring {
+      max-width: 350px;
 
-  #productDropdownFiltring {
-    max-width: 350px;
+      .dropdown-content {
+        top: 40px;
+        a {
+          color: black;
+          padding: 10px;
+          margin: 3px auto;
+          text-decoration: none;
+          font-size: 13px;
+          font-weight: 400;
+          display: block;
 
-    .dropdown-content {
-      top: 45px;
-      a {
-        color: black;
-        padding: 10px;
-        margin: 3px auto;
-        text-decoration: none;
-        font-size: 13px;
-        font-weight: 400;
-        display: block;
-
-        &:hover {
-          background-color: #f1f1f1;
+          &:hover {
+            background-color: #f1f1f1;
+          }
         }
       }
     }
+  }
+
+  @include max-screen('sm') {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
   }
 }

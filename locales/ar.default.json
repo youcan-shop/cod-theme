@@ -79,7 +79,7 @@
       "collections": "التصنيفات"
     },
     "main_sort": {
-      "order_by": "ترتيب حسب",
+      "order_by": "صنف ب",
       "price_asc": "السعر: من الأقل إلى الأعلى",
       "price_desc": "السعر: من الأعلى إلى الأقل",
       "created_at_asc": "الأحدث",

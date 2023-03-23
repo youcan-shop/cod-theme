@@ -11,6 +11,7 @@
 
 {% javascript %}
   const defaultAvatar = '{{ "avatar.png" | asset_url }}';
+  const productId = '{{ reviews_product_id }}';
 {% endjavascript %}
 
 {{ 'reviews.js' | asset_url | script_tag_deferred }}

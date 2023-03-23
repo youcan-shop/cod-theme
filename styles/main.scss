@@ -198,10 +198,6 @@ button {
 [dir='rtl'] {
   .yc-btn {
     flex-direction: row-reverse;
-
-    .yc-btn-responsive-icon {
-      transform: rotate(180deg);
-    }
   }
 }
 
@@ -402,6 +398,16 @@ span {
         font-weight: bold;
       }
     }
+  }
+
+  .dropbtnSpace {
+    padding-left: 15px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  .dropbtnSpace + .dropdown-content {
+      width: 100.9%;
   }
 
   &.black-border {

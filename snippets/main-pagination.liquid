@@ -7,10 +7,7 @@
       class='paginate-btn-prev {% if current <= 1 %} disabled {% endif %}'
       href='{{ next_page }}'
     >
-      <ion-icon
-        name='arrow-back-outline'
-        class='yc-btn-responsive-icon'
-      ></ion-icon>
+    <ion-icon name="chevron-back-outline"></ion-icon>
     </a>
 
     {% if start < 1 %}
@@ -50,10 +47,7 @@
       class='paginate-btn-next {% if current >= last %} disabled {% endif %}'
       href='{{ previous_page }}'
     >
-      <ion-icon
-        name='arrow-forward-outline'
-        class='yc-btn-responsive-icon'
-      ></ion-icon>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
     </a>
   </div>
 {% endif %}

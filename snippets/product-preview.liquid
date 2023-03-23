@@ -29,6 +29,11 @@
         src='{{ 'default_product.jpeg' | asset_url }}'
       >
     {% endif %}
+    <div class="product-link">
+      <a href="{{ item.url }}" class="yc-btn">
+        {{ 'snippets.product_preview.cta_button' | t }}
+      </a>
+    </div>  
   </div>
     <div class='product-details'>
       <span class='product-title'>{{ item.name }}</span>
@@ -41,10 +46,8 @@
         <span class='product-price'>{{ item.price | money }}</span>
       {% endif %}
     </div>
-    {% if block_settings.product %}
-      <div class="product-link">
-        <a href="{{ item.url }}" class="yc-btn">
-          {{ 'snippets.product_preview.cta_button' | t }}
-        </a>
-      </div>
-    {% endif %}
+    <div class="product-link-mobile md:hidden">
+      <a href="{{ item.url }}" class="yc-btn">
+        {{ 'snippets.product_preview.cta_button' | t }}
+      </a>
+    </div>  

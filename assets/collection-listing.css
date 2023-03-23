@@ -30,6 +30,7 @@
 }
 .yc-collection-listing .collection-list .collection-thumbnail {
   width: 100%;
+  height: 100%;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -37,11 +38,11 @@
 }
 .yc-collection-listing .collection-list .collection-thumbnail img {
   width: 100%;
-  height: auto;
+  max-height: 500px;
   flex: 1;
   transition: all 0.25s ease;
 }
-.yc-collection-listing .collection-list .collection-thumbnail img:hover {
+.yc-collection-listing .collection-list .collection-thumbnail:hover img {
   transform: scale(1.1);
 }
 .yc-collection-listing .collection-list .collection-thumbnail .collection-details {
