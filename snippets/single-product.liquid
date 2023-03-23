@@ -76,7 +76,9 @@
               {%- render 'accordion', accordion_title: block.settings.accordion_title, accordion_details: block.settings.accordion_details, background_color: block.settings.background_color, text_color: block.settings.text_color, margin_bottom: block.settings.margin_bottom -%}
           {%- when 'express_checkout' -%}
             <!-- prettier-ignore -->
-            {% render 'express-checkout', checkout: checkout, is_sticky: block.settings.is_sticky, settings: block.settings %}
+            <div class='express-checkout-container'>
+              {% render 'express-checkout', checkout: checkout, is_sticky: block.settings.is_sticky, settings: block.settings %}
+            </div>
             {% if block.settings.is_sticky %}
             {% render 'sticky-checkout', settings: block.settings %}
             <button class="yc-btn is_sticky font-bold" onclick="triggerCheckout(`s-{{ snippetId }}`)">{{ block.settings.express_checkout_cta }}</button>
@@ -117,7 +119,7 @@ const resizedIcons = () => {
 
   if (products > 3) {
     document.querySelector('.thumbnail-images').style.justifyContent = 'center';
-  } 
+  }
 
   if (window.innerWidth < 768) {
     document.querySelector('.yc-slider__desktop').style.padding = '0';

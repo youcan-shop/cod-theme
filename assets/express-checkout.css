@@ -1,31 +1,14 @@
-@media (min-width: 768px) {
-  #express-checkout-form {
-    border: 2px solid #F33520;
-    background: #F8F8F8;
-    box-shadow: 1px -1px 23px rgba(0, 0, 0, 0.04);
-    border-radius: 4px;
-    padding: 20px;
-    grid-gap: 18px;
-  }
+#express-checkout-form {
+  padding: 20px;
 }
 
 .express-checkout-fields {
-  border: 2px solid #F33520;
-  background: #F8F8F8;
-  box-shadow: 1px -1px 23px rgba(0, 0, 0, 0.04);
-  border-radius: 4px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 14px;
-  padding: 10px;
 }
-@media (min-width: 768px) {
-  .express-checkout-fields {
-    border: unset;
-    background: unset;
-    box-shadow: unset;
-    padding: unset;
-  }
+.express-checkout-fields input {
+  font-weight: 500;
+  line-height: 120%;
 }
 
 .express-checkout-title {
@@ -34,10 +17,8 @@
   line-height: 144%;
 }
 
-.express-checkout-button {
-  width: 100%;
-  max-width: 900px;
-  margin: 8px auto 0 auto;
+.express-checkout-button span {
+  font-weight: 700;
 }
 
 @keyframes slideFromBottom {

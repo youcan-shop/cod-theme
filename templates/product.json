@@ -26,18 +26,21 @@
               "block_c3yr5q7hebgkvhl": {
                   "type": "express_checkout",
                   "settings": {
-                      "button_background_color": "#E7412F",
+                      "button_background_color": "#E52B2A",
                       "express_checkout_cta": "اشتري الآن",
                       "form_title": "للطلب يرجى ملء هذا النموذج سنتصل بكم في أقرب وقت ممكن!",
                       "is_sticky": true,
-                      "input_border_radius": 4,
+                      "input_border_radius": 0,
                       "input_text_size": 13,
                       "input_placeholder_color": "#A8A8A8FF",
                       "input_text_color": "#000000FF",
                       "input_background_color": "#FFFFFFFF",
                       "input_border_color": "#000000FF",
                       "button_text_color": "#FFFFFFFF",
-                      "button_border_radius": 4
+                      "button_border_radius": 0,
+                      "input_padding": 15,
+                      "button_text_size": 14,
+                      "inputs_gap": 16
                   }
               },
               "block_pzioaso3gj4cbaw": {
