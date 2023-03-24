@@ -5,7 +5,7 @@
 <div class='yc-collection-listing'>
     {%- render 'breadcrumbs' -%}
   {%- paginate collections by per_page cod %}
-    <div class='collection-list'>
+    <div class='collection-list container'>
       {% for collection in items %}
         {%- render 'collection-preview', category: collection %}
       {% endfor %}

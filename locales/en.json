@@ -14,7 +14,8 @@
     "title": "Featured Collections"
   },
   "list_collections": {
-    "title": "Collections"
+    "title": "Collections",
+    "category-show": "Show more"
   },
   "cart": {
     "title": "Shopping Cart",

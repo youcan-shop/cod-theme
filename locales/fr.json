@@ -14,7 +14,8 @@
     "title": "Collections en vedette .."
   },
   "list_collections": {
-    "title": "Collections"
+    "title": "Collections",
+    "category-show": "Catégories"
   },
   "cart": {
     "title": "Panier d'achat",
