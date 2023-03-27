@@ -1,79 +1,111 @@
-.thankyou-page-container {
+.thankyou-page-bg {
+  background-color: #F7F7F7;
+}
+.thankyou-page-bg .thankyou-page-container {
   max-width: 440px;
   width: 100%;
-  margin: 10px auto 80px;
+  margin: auto;
+  padding: 110px 0 100px;
 }
-@media screen and (max-width: 768px) {
-  .thankyou-page-container {
-    padding: 0 16px;
+@media (max-width: 768px) {
+  .thankyou-page-bg .thankyou-page-container {
+    padding: 56px 16px;
   }
 }
-.thankyou-page-container .thankyou-wrapper {
+.thankyou-page-bg .thankyou-page-container .thankyou-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.thankyou-page-container .thankyou-wrapper .content-wrapper {
+.thankyou-page-bg .thankyou-page-container .thankyou-wrapper .content-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.thankyou-page-container .thankyou-wrapper .content-wrapper .heading {
+.thankyou-page-bg .thankyou-page-container .thankyou-wrapper .content-wrapper .heading {
+  margin-top: 22px;
   line-height: 42px;
+  text-align: center;
 }
-.thankyou-page-container .thankyou-wrapper .content-wrapper .heading .title {
+.thankyou-page-bg .thankyou-page-container .thankyou-wrapper .content-wrapper .heading .title {
   display: block;
+  font-weight: 800;
 }
 @media screen and (max-width: 768px) {
-  .thankyou-page-container .thankyou-wrapper .content-wrapper .heading .title {
+  .thankyou-page-bg .thankyou-page-container .thankyou-wrapper .content-wrapper .heading .title {
     font-size: 24px;
   }
 }
-.thankyou-page-container .thankyou-wrapper .content-wrapper .description {
-  margin-top: 15px;
-  opacity: 0.9;
-  text-align: center;
-  font-size: 15px;
+.thankyou-page-bg .thankyou-page-container .thankyou-wrapper .content-wrapper .heading .subtitle {
   font-weight: 400;
-  line-height: 1.5rem;
+  font-size: 24px;
+}
+@media (max-width: 768px) {
+  .thankyou-page-bg .thankyou-page-container .thankyou-wrapper .content-wrapper .heading .subtitle {
+    font-size: 20px;
+  }
+}
+.thankyou-page-bg .thankyou-page-container .thankyou-wrapper .content-wrapper .description {
+  margin-top: 16px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+  margin-bottom: 33px;
 }
 @media (min-width: 768px) {
-  .thankyou-page-container .thankyou-wrapper .content-wrapper .description {
+  .thankyou-page-bg .thankyou-page-container .thankyou-wrapper .content-wrapper .description {
     font-size: 16px;
     line-height: 2rem;
   }
 }
-.thankyou-page-container .thankyou-wrapper .content-wrapper .yc-btn {
+.thankyou-page-bg .thankyou-page-container .thankyou-wrapper .content-wrapper .yc-btn {
   margin-top: 2rem;
+  font-weight: 700;
+  font-size: 14px;
 }
-.thankyou-page-container .order-details {
-  border: 1px solid #EBEBEB;
-  padding: 24px 28px;
-  border-radius: 4px;
+.thankyou-page-bg .thankyou-page-container .order-info {
+  padding: 20px 24px;
+  background-color: #FFF;
+  margin-bottom: 6px;
 }
-.thankyou-page-container .order-details h2 {
+.thankyou-page-bg .thankyou-page-container .order-info .variant-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+.thankyou-page-bg .thankyou-page-container .order-info .variant-price {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--yc-primary-color);
+  margin-top: 14px;
+}
+.thankyou-page-bg .thankyou-page-container .order-details {
+  padding: 20px 24px;
+  background-color: #FFF;
+}
+.thankyou-page-bg .thankyou-page-container .order-details h2 {
   font-weight: 600;
   line-height: 22px;
   color: #000000;
   font-weight: 700;
 }
-.thankyou-page-container .order-details .table-content .head {
+.thankyou-page-bg .thankyou-page-container .order-details .table-content .head {
   display: flex;
   margin-top: 15px;
   justify-content: space-between;
   align-items: center;
 }
-.thankyou-page-container .order-details .table-content .head .item {
+.thankyou-page-bg .thankyou-page-container .order-details .table-content .head .item {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 13px;
 }
-.thankyou-page-container .order-details .table-content .head .data-item {
+.thankyou-page-bg .thankyou-page-container .order-details .table-content .head .data-item {
   font-weight: 700;
   font-size: 14px;
 }
-.thankyou-page-container .order-details .table-content .total-price-head {
+.thankyou-page-bg .thankyou-page-container .order-details .table-content .total-price-head {
   display: flex;
   margin-top: 20px;
   padding-top: 15px;
@@ -81,15 +113,32 @@
   align-items: center;
   border-top: 1px solid #EBEBEB;
 }
-.thankyou-page-container .order-details .table-content .total-price-head .item {
+.thankyou-page-bg .thankyou-page-container .order-details .table-content .total-price-head .item {
   font-weight: 700;
-  line-height: 22px;
+  line-height: 16px;
 }
-.thankyou-page-container .order-details .table-content .total-price-head .data-item {
+.thankyou-page-bg .thankyou-page-container .order-details .table-content .total-price-head .data-item {
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
   color: var(--yc-primary-color);
 }
-.thankyou-page-container .home-page {
-  margin-top: 50px;
+.thankyou-page-bg .thankyou-page-container .home-page {
+  margin-top: 33px;
+}
+.thankyou-page-bg .thankyou-page-container .home-page .yc-btn-back {
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  font-size: 14px;
+  color: #FFF;
+  background-color: var(--yc-primary-color);
+  padding: 12px 18px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid var(--yc-primary-color);
+}
+.thankyou-page-bg .thankyou-page-container .home-page .yc-btn-back:hover {
+  background-color: transparent;
+  color: #000000;
+  transition: all 0.2s ease-in;
 }

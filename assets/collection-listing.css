@@ -30,15 +30,25 @@
 }
 .yc-collection-listing .collection-list .collection-thumbnail {
   width: 100%;
-  height: 100%;
+  height: 356px;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
+@media (min-width: 768px) {
+  .yc-collection-listing .collection-list .collection-thumbnail {
+    height: 420px;
+  }
+}
+@media (min-width: 992px) {
+  .yc-collection-listing .collection-list .collection-thumbnail {
+    height: 500px;
+  }
+}
 .yc-collection-listing .collection-list .collection-thumbnail img {
   width: 100%;
-  max-height: 500px;
+  height: 100%;
   flex: 1;
   transition: all 0.25s ease;
 }

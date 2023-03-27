@@ -1,110 +1,166 @@
 @import 'helpers/mixins';
-.thankyou-page-container {
-  max-width: 440px;
-  width: 100%;
-  margin: 10px auto 80px;
 
-  @media screen and (max-width: 768px) {
-    padding: 0 16px;
-  }
+.thankyou-page-bg {
+  background-color: #F7F7F7;
 
-  .thankyou-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .thankyou-page-container {
+    max-width: 440px;
+    width: 100%;
+    margin: auto;
+    padding: 110px 0 100px;
 
-    .content-wrapper {
+    @include max-screen('md') {
+      padding: 56px 16px;
+    }
+
+    .thankyou-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
 
-      .heading {
-        line-height: 42px;
+      .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
-        .title {
-          display: block;
+        .heading {
+          margin-top: 22px;
+          line-height: 42px;
+          text-align: center;
 
-          @media screen and (max-width: 768px) {
+          .title {
+            display: block;
+            font-weight: 800;
+
+            @media screen and (max-width: 768px) {
+              font-size: 24px;
+            }
+          }
+
+          .subtitle {
+            font-weight: 400;
             font-size: 24px;
+
+            @include max-screen('md') {
+              font-size: 20px;
+            }
+          }
+        }
+
+        .description {
+          margin-top: 16px;
+          text-align: center;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 26px;
+          margin-bottom: 33px;
+
+          @include breakpoint('md') {
+            font-size: 16px;
+            line-height: 2rem;
+          }
+        }
+
+        .yc-btn {
+          margin-top: 2rem;
+          font-weight: 700;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .order-info {
+      padding: 20px 24px;
+      background-color: #FFF;
+      margin-bottom: 6px;
+
+      .variant-name {
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .variant-price {
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--yc-primary-color);
+        margin-top: 14px;
+      }
+    }
+
+    .order-details {
+      padding: 20px 24px;
+      background-color: #FFF;
+
+      h2 {
+        font-weight: 600;
+        line-height: 22px;
+        color: #000000;
+        font-weight: 700;
+      }
+
+      .table-content {
+        .head {
+          display: flex;
+          margin-top: 15px;
+          justify-content: space-between;
+          align-items: center;
+
+          .item {
+            font-weight: 400;
+            font-size: 13px;
+          }
+
+          .data-item {
+            font-weight: 700;
+            font-size: 14px;
+          }
+        }
+
+        .total-price-head {
+          display: flex;
+          margin-top: 20px;
+          padding-top: 15px;
+          justify-content: space-between;
+          align-items: center;
+          border-top: 1px solid #EBEBEB;
+
+          .item {
+            font-weight: 700;
+            line-height: 16px;
+          }
+
+          .data-item {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--yc-primary-color);
           }
         }
       }
+    }
 
-      .description {
-        margin-top: 15px;
-        opacity: 0.9;
+    .home-page {
+      margin-top: 33px;
+    
+      .yc-btn-back {
+        display: block;
+        width: 100%;
+        font-weight: 700;
+        font-size: 14px;
+        color: #FFF;
+        background-color: var(--yc-primary-color);
+        padding: 12px 18px;
+        width: 100%;
         text-align: center;
-        font-size: 15px;
-        font-weight: 400;
-        line-height: 1.5rem;
+        border: 1px solid var(--yc-primary-color);
 
-        @include breakpoint('md') {
-          font-size: 16px;
-          line-height: 2rem;
-        }
-      }
-
-      .yc-btn {
-        margin-top: 2rem;
-      }
-    }
-  }
-
-  .order-details {
-    border: 1px solid #EBEBEB;
-    padding: 24px 28px;
-    border-radius: 4px;
-
-    h2 {
-      font-weight: 600;
-      line-height: 22px;
-      color: #000000;
-      font-weight: 700;
-    }
-
-    .table-content {
-      .head {
-        display: flex;
-        margin-top: 15px;
-        justify-content: space-between;
-        align-items: center;
-
-        .item {
-          font-weight: 400;
-          font-size: 14px;
-        }
-
-        .data-item {
-          font-weight: 700;
-          font-size: 14px;
-        }
-      }
-
-      .total-price-head {
-        display: flex;
-        margin-top: 20px;
-        padding-top: 15px;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 1px solid #EBEBEB;
-
-        .item {
-          font-weight: 700;
-          line-height: 22px;
-        }
-
-        .data-item {
-          font-weight: 700;
-          font-size: 16px;
-          color: var(--yc-primary-color);
+        &:hover {
+          background-color: transparent;
+          color: #000000;
+          transition: all .2s ease-in;
         }
       }
     }
-  }
-
-  .home-page {
-    margin-top: 50px;
   }
 }
