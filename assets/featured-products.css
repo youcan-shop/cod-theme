@@ -150,6 +150,7 @@
 .yc-featured-products .product-list .product-block .product-link {
   width: 78%;
   margin: auto;
+  display: none;
 }
 .yc-featured-products .product-list .product-block .product-link a {
   font-weight: 700;
@@ -157,7 +158,17 @@
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .product-link {
-    width: 70%;
+    width: 80%;
+    position: absolute;
+    z-index: 1;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@media (min-width: 768px) {
+  .yc-featured-products .product-list .product-block:hover .product-link {
+    display: block;
   }
 }
 .yc-featured-products .button-container {

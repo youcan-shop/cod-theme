@@ -161,19 +161,20 @@ button:focus {
 }
 
 .yc-btn-secondary {
-  border: 1px solid var(--yc-primary-color);
   color: var(--yc-primary-color);
-  padding: 2px 20px;
   width: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  background: #F1F1F1 !important;
+  color: #A4A4A4;
+  padding: 7px 20px;
 }
 .yc-btn-secondary .spinner {
   width: 18px;
   height: 18px;
-  margin-top: 6px;
 }
 
 .yc-btn-secondary--large {
@@ -211,7 +212,6 @@ span {
   font-weight: 300;
 }
 
-.yc-cart .summary-box,
 .yc-pagination {
   box-shadow: var(--yc-primary-shadow) !important;
   border: 1px solid #f2f2f2 !important;

@@ -155,14 +155,26 @@
       .product-link {
         width: 78%;
         margin: auto;
-
+        display: none;
+  
         a {
           font-weight: 700;
           font-size: 13px;
         }
-
+  
         @include breakpoint('md') {
-          width: 70%;
+          width: 80%;
+          position: absolute;
+          z-index: 1;
+          top: 90%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      &:hover .product-link {
+        @include breakpoint('md') {
+          display: block;
         }
       }
     }

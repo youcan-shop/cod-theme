@@ -27,7 +27,8 @@
       "promo_input": "Enter your code",
       "promo_cta": "Apply",
       "total": "Total cost",
-      "checkout_cta": "Checkout"
+      "checkout_cta": "Checkout",
+      "product_name": "goods"
     },
     "empty": {
       "title": "Your cart is currently empty.",

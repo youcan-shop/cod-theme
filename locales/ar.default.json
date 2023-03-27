@@ -34,7 +34,8 @@
       "promo_input": "أدخل رمزك",
       "promo_cta": "تطبيق",
       "total": "التكلفة الإجمالية",
-      "checkout_cta": "الدفع"
+      "checkout_cta": "الدفع", 
+      "product_name": "السلع"
     },
     "empty": {
       "title": "عربتك فارغة حاليًا.",

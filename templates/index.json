@@ -175,15 +175,15 @@
                 "block_iglpes2gmminbwu": {
                     "type": "category",
                     "settings": {
-                        "category": "6442aaf9-1426-4f22-aa3c-5c4a4b1c62a8",
-                        "category_name": "فساتين زفاف"
+                        "category_name": "فساتين زفاف",
+                        "category": "3128f8ae-0d9d-4931-9a53-bad47dc6086b"
                     }
                 },
                 "block_kxa7zlfobr2d4w": {
                     "type": "category",
                     "settings": {
-                        "category": "5c4185a7-fffd-48e0-9064-9ed0b7b31d88",
-                        "category_name": "فساتين زفاف"
+                        "category_name": "فساتين زفاف",
+                        "category": "11f81a9e-73b2-401d-a1fa-45e98d120b32"
                     }
                 }
             },
@@ -291,7 +291,7 @@
             "type": "product-reviews",
             "settings": {
                 "reviews_title": "توصيات من زبنائنا",
-                "product": "b01a3054-7105-4a12-aaff-c9d9aaa45f48"
+                "product": "44b479c6-96f8-47f6-a5d0-ee4502b019a7"
             }
         },
         "section_iugi49itahcmlhw": {
@@ -309,8 +309,8 @@
         "section_62tm9748qh15wfk",
         "section_id3c10cu8d0hetfi",
         "section_sxdipwpvyyjc9pl",
+        "section_iugi49itahcmlhw",
         "section_mtk7dtud7u8wjuh",
-        "section_vnib23zu82hrh6l",
-        "section_iugi49itahcmlhw"
+        "section_vnib23zu82hrh6l"
     ]
 }

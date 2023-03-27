@@ -21,13 +21,14 @@
       "total": "Total",
       "remove_cta": "Supprimer"
     },
-    "summary": {
+    "summary": { 
       "title": "Résumé de la commande",
       "promo": "Code promotionnel",
       "promo_input": "Entrez votre code",
       "promo_cta": "Appliquer",
       "total": "Coût total",
-      "checkout_cta": "Paiement"
+      "checkout_cta": "Paiement",
+      "product_name": "marchandises"
     },
     "empty": {
       "title": "Votre panier est actuellement vide.",
