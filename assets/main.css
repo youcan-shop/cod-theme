@@ -299,7 +299,7 @@ input:not([type=radio]),
 }
 
 .yc-upload {
-  border: 1px dashed #9B9B9B;
+  border: 1px dashed var(--yc-neutral-light-color);
   border-radius: 5px;
   width: 100%;
   height: 120px;

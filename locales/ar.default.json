@@ -49,7 +49,8 @@
     "title": "شكرا",
     "subtitle": "تم استلام طلبك.",
     "description": "سيتصل بك فريقنا لتأكيد طلبك",
-    "return_cta": "الصفحة الرئيسية ",
+    "return_cta": "استمر في التسوق",
+    "order_summary": "ملخص الفاتورة",
     "details": {
       "title": "ملخص الفاتورة",
       "payment_status": "حالة الدفع",

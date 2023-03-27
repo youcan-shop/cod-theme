@@ -1,20 +1,20 @@
 {
-  "label": "Collection",
-  "layout": "theme",
-  "sections": {
-      "thankyou": {
-          "type": "thankyou",
-          "settings": {
-              "title": "لقد تم تسجيل طلبك بنجاح, ",
-              "subtitle": "شكرا لك على اختيار متجرنا .",
-              "title_size": 30,
-              "title_color": "#8DC347",
-              "subtitle_color": "#020202FF",
-              "description": "<p>نحن سعداء لاختيارك متجرنا ونتمنى ان تكون تجربتك مع منتجاتنا جد مميزة، سنرسل لك تأكيدا بالشحن بمجرد شحن طلبك.<\/p>"
-          }
-      }
-  },
-  "order": [
-      "thankyou"
-  ]
+    "label": "Collection",
+    "layout": "theme",
+    "sections": {
+        "thankyou": {
+            "type": "thankyou",
+            "settings": {
+                "title": "لقد تم تسجيل طلبك بنجاح",
+                "subtitle": "شكرا لك على اختيار متجرنا .",
+                "title_size": 30,
+                "title_color": "#66A138",
+                "subtitle_color": "#3C415F",
+                "description": "<p>نحن سعداء لاختيارك متجرنا ونتمنى ان تكون تجربتك مع منتجاتنا جد مميزة، <\/p><p><strong>سنرسل لك تأكيدا بالشحن بمجرد شحن طلبك.<\/strong><\/p>"
+            }
+        }
+    },
+    "order": [
+        "thankyou"
+    ]
 }

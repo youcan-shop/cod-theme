@@ -1,11 +1,16 @@
 @import 'helpers/mixins';
+
 .thankyou-page-container {
-  max-width: 440px;
+  max-width: 500px;
   width: 100%;
   margin: 10px auto 80px;
 
   @media screen and (max-width: 768px) {
     padding: 0 16px;
+  }
+
+  .thankyou-image {
+    margin-bottom: 32px;
   }
 
   .thankyou-wrapper {
@@ -19,6 +24,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      color: var(--yc-primary-color);
 
       .heading {
         line-height: 42px;
@@ -52,28 +58,60 @@
     }
   }
 
+  .invoice-summary-title {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .orders-detail-wrapper {
+    border-radius: 5px 5px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 26px;
+    border: 1px solid #E6E6E6;
+    border-bottom: none;
+    max-height: 350px;
+    overflow: auto;
+
+    .variant {
+      display: flex;
+      justify-content: space-between;
+
+      h2 {
+        color: var(--yc-primary-color);
+        font-weight: 400;
+      }
+    }
+  }
+
   .order-details {
-    border: 1px solid #EBEBEB;
-    padding: 24px 28px;
-    border-radius: 4px;
+    border-radius: 0px 0px 5px 5px;
+    border: 1px solid #E6E6E6;
+    padding: 24px;
+    background-color: #FAFAFA;
 
     h2 {
-      font-weight: 600;
-      line-height: 22px;
-      color: #000000;
-      font-weight: 700;
+      font-weight: 400;
+      color: #333;
     }
 
     .table-content {
       .head {
         display: flex;
-        margin-top: 15px;
+        margin-bottom: 24px;
         justify-content: space-between;
         align-items: center;
 
-        .item {
+        .item,
+        .data-item {
           font-weight: 400;
           font-size: 14px;
+          line-height: 17px;
+          color: #757575;
         }
 
         .data-item {
@@ -84,21 +122,18 @@
 
       .total-price-head {
         display: flex;
-        margin-top: 20px;
-        padding-top: 15px;
+        margin-top: 26px;
+        padding: 14px 0;
         justify-content: space-between;
         align-items: center;
-        border-top: 1px solid #EBEBEB;
+        border-top: 1px solid #333;
+        border-bottom: 1px solid #333;
 
-        .item {
-          font-weight: 700;
-          line-height: 22px;
-        }
-
+        .item,
         .data-item {
-          font-weight: 700;
-          font-size: 16px;
-          color: var(--yc-primary-color);
+          font-weight: 400;
+          color: #333;
+          line-height: 20px;
         }
       }
     }

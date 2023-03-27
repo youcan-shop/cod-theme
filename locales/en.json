@@ -46,6 +46,7 @@
     "subtitle": "Your order has been received.",
     "description": "Our team will be in touch to confirm your request.<br/>We value your trust and appreciate your willingness to communicate with us.<br/>We are always here to serve you.",
     "return_cta": "Return to shop",
+    "order_summary": "Order Summary",
     "details": {
       "title": "Order details",
       "payment_status": "Payment Status",
