@@ -8,48 +8,61 @@
   <div
     class='product-block'
   >
-  <div class='image-box'>
-  {% if block_settings.tag_text %}
-    <div
-      class="tag {{ block_settings.tag_position }}"
-      style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
-    >
-      {{ block_settings.tag_text }}
-    </div>
-  {% endif %}
-    <img
-      loading='lazy'
-      class='main-image'
-      class='main-thumbnail'
-      src='{%- if images[0] %}{{images[0]}}{%- else %}{{ 'default_product.jpeg' | asset_url }}{% endif %}'
-      alt='{{ product_name }}'>
-  </div>
-  <div class='product-details'>
-    {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when 'product_title' -%}
-            <h1 class='product-name'>{{ product.name }}</h1>
-            {%- render 'general-review' -%}
-          {%- when 'product_price' -%}
-            <div class='flex gap-2 items-center'>
-              <h2 class='product-price'>{{ product.price | money }}</h2>
-              {% if section.settings.show_compare_at_price %}
-                <h3>
-                  <del class="product-compare-price">{{ product.compare_at_price | money }}</del>
-                </h3>
-              {% endif %}
+    <div class='product-details'>
+      {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'product_title' -%}
+              {%- render 'general-review' -%}
+              <h1 class='product-name'>{{ product.name }}</h1>
+                {% if block_settings.description %}
+              <div class="description">
+                  <p>{{ block_settings.description }}</p>
+              </div>
+            {% endif %}
+
+            {%- when 'product_price' -%}
+              <div class='flex gap-3 items-center'>
+                {% if section.settings.show_compare_at_price %}
+                  <h3>
+                    <del class="product-compare-price">{{ product.compare_at_price | money }}</del>
+                  </h3>
+                {% endif %}
+                <h2 class='product-price'>{{ product.price | money }}</h2>
+              </div>
+            {%- when 'product_description' -%}
+              <section class='product-description '>{{ product.description }}</section>
+          {%- endcase -%}
+      {%- endfor -%}
+      <a href='{{ product.url }}' class='yc-btn buy-btn'>إتمام الشراء</a>
+      </div>
+        <div class='image-box'>
+          <div class="tag {{ block_settings.tag_position }}">
+            {% if block_settings.tag_text %} 
+              <div class="tag-text"
+                style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
+              >
+                {{ block_settings.tag_text }}
+              </div>
+            {% endif %}
+            {% if block_settings.price_reduction_text %} 
+              <div class="tag-price"
+                style="background: {{ block_settings.tag_price_color.hex }}; color: {{ block_settings.price_reduction_text_color.hex }}"
+              >
+                {{ block_settings.price_reduction_text }}
+              </div>
+            {% endif %}
             </div>
-          {%- when 'product_description' -%}
-            <section class='product-description '>{{ product.description }}</section>
-        {%- endcase -%}
-    {%- endfor -%}
-    <a href='{{ product.url }}' class='yc-btn buy-btn'>إتمام الشراء</a>
-    </div>
+        <img
+          loading='lazy'
+          class='main-image'
+          class='main-thumbnail'
+          src='{%- if images[0] %}{{images[0]}}{%- else %}{{ 'default_product.jpeg' | asset_url }}{% endif %}'
+          alt='{{ product_name }}'>
+      </div>
     </div>
   </div>
 
 <script>
-  const defaultAvatar = '{{ "avatar.png" | asset_url }}';
-  const productId = '{{ product_id }}';
+  const productColumnId = '{{ product_id }}';
   const ratings = "{{ 'reviews.ratings' | t }}";
 </script>
