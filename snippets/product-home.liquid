@@ -34,6 +34,11 @@
           {%- endcase -%}
       {%- endfor -%}
       <a href='{{ product.url }}' class='yc-btn buy-btn'>إتمام الشراء</a>
+      {% if block_settings.countdown_enabled %}
+        <div class="countdown-block">
+          {%- render 'countdown', section_settings: block_settings -%}
+        </div>
+      {% endif %}
       </div>
         <div class='image-box'>
           <div class="tag {{ block_settings.tag_position }}">

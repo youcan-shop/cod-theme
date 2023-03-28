@@ -1,47 +1,57 @@
 @import 'helpers/mixins';
 
+ 
+
 .countdown-wrapper {
-  width: calc(100% + 40px);
-  margin: 0 -20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px;
-
-  @include breakpoint('md') {
-    width: 100%;
-    margin: 0;
-    border-radius: 4px;
-  }
-
   .countdown {
     direction: ltr;
     display: flex;
+    justify-content: center;
+    gap: 8px;
     align-items: center;
-    gap: 4px;
+    margin: 0;
 
-    & *:not(.dots, .num) {
-      min-width: 37px;
-      padding: 5px;
-      text-align: center;
-      border-radius: 6px;
-      background-color: #e1e1e15c;
+    .countdown-icon {
+      font-size: 20px;
     }
 
-    .num {
+    & .day,
+    & .hour,
+    & .min,
+    & .sec {
+      text-align: center;
+      width: min-content;
+      display: flex;
+      align-items: center;
+    }
+
+    & .day .num,
+    & .hour .num,
+    & .min .num
+    {
+      display: block;
+      font-size: 29px;
+      font-weight: 600;
+      color: #000000;
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 13px;
+    }
+
+    & .min .num {
+      color: #E52B2A;
       font-weight: 700;
-      font-size: 22px;
-      line-height: 120%;
+      border: 0;
+
+      @media screen and (max-width: 600px) {
+        width: 35px;
+      }
     }
 
     .dots {
-      max-width: max-content;
-      height: fit-content;
-      font-size: 34px;
-      font-weight: 700;
-      margin-top: -11px;
+      color: #000000;
+      font-size: 27px;
+      margin-top: -4px;
     }
   }
 }
-

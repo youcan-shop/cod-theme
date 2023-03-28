@@ -6,7 +6,7 @@
     border: 1px solid #E2E2E2;
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 18px;
     width: 100%;
 
     .product-details {
@@ -49,6 +49,10 @@
       font-weight: 500;
       font-size: 14px;
       line-height: 28px;
+    }
+
+    .countdown-block {
+      background-color: #F5F5F5;
     }
 
     .image-box {
