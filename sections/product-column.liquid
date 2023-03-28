@@ -6,6 +6,14 @@
     padding-bottom: {{ section.settings.padding_bottom}}px;
   }
 
+    {% if section.settings.show_description_on_mobile == false %}
+      @media screen and (max-width: 768px) {
+        .product-column-description {
+          display: none;
+        }
+      }
+    {% endif %}
+
   .product_customization { 
     background-color: {{ section.settings.background_color.hex }};
   } 
@@ -37,6 +45,12 @@
         "type": "text",
         "id": "description",
         "label": "Product description"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_description_on_mobile",
+        "label": "Sow description on mobile",
+        "default": true
       },
       {
         "type": "checkbox",

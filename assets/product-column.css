@@ -33,7 +33,7 @@
   gap: 27px;
   flex-direction: column;
 }
-.product-images-container .product-block .description p {
+.product-images-container .product-block .product-column-description p {
   font-weight: 400;
   font-size: 14px;
   line-height: 26px;
