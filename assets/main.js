@@ -85,7 +85,7 @@ function notify(msg, type = 'success', timeout = 3000) {
   icons.forEach((icon) => icon.style.display = 'none');
   alert.querySelector(`.icon-${type}`).style.display = 'block';
   alert.querySelector('.alert-msg').innerText = msg;
-  
+
   alert.classList.add(type);
   alert.classList.add('show');
 
@@ -104,8 +104,8 @@ const toggleDrawerIcon = () => {
   if (menuIcon.getAttribute('name') === 'menu-outline') {
     menuIcon.setAttribute('name', 'close-outline');
   } else {
-    menuIcon.setAttribute('name', 'menu-outline');  
-    closeDrawer();  
+    menuIcon.setAttribute('name', 'menu-outline');
+    closeDrawer();
   }
 };
 
@@ -208,4 +208,29 @@ overlay.addEventListener('click', closeSearch);
   });
 
   document.body.append(elementsContainer);
+
+  desktopStickyElements(elementsContainer);
 })();
+
+function desktopStickyElements(elementsContainer) {
+  const elementsWrapper = document.createElement('div');
+  const emptySpacer = document.createElement('div');
+
+  elementsWrapper.classList.add('sticky-elements-wrapper');
+  emptySpacer.classList.add('sticky-empty-spacer');
+  elementsWrapper.appendChild(elementsContainer);
+  elementsWrapper.appendChild(emptySpacer);
+  document.body.append(elementsWrapper);
+
+  if (window.matchMedia("(min-width: 768px)").matches) {
+    elementsWrapper.classList.add('container');
+  }
+
+  window.addEventListener('resize', () => {
+    if(window.innerWidth >= 768) {
+      elementsWrapper.classList.add('container');
+    } else if(window.innerWidth < 768) {
+      elementsWrapper.classList.remove('container');
+    }
+  })
+}

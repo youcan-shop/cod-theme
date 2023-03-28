@@ -12,6 +12,10 @@
     flex-direction: row;
   }
 
+  .margin-top {
+    margin-top: 20px;
+  }
+
   .product-images {
     width: calc(100% + 24px);
     margin: 0 -12px;
@@ -181,11 +185,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-
-    @include breakpoint('md') {
-      gap: 22px;
-    }
 
     .product-name {
       font-weight: 700;
@@ -194,11 +193,6 @@
     }
     .product-options {
       display: grid;
-      gap: 27px;
-
-      @include breakpoint('md') {
-        gap: 30px;
-      }
 
       .product-option {
         .active {
@@ -326,7 +320,7 @@
     .product-option-title {
       text-transform: capitalize;
       margin-top: 0;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       font-weight: 700;
       font-size: 16px;
       line-height: 120%;

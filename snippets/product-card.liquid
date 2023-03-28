@@ -1,7 +1,7 @@
 {{ 'product-card.css' | asset_url | stylesheet_tag }}
 
 <div class="yc-product-card">
-  <section class="section-1">
+  <section class="product-card-wrapper">
     <div class="image">
       <img
         class="main-image"
@@ -10,21 +10,18 @@
     </div>
     <div class="details">
       <span class="product-name" id="product-name"></span>
+      <ul class="selected-preview">
+        <li>
+          <div id="selected-product-variants"></div>
+        </li>
+        <li class='quantity-preview'>
+          <span>{{ 'snippets.single_product.quantity' | t }}&nbsp;:</span>
+          <div id='variant_quantity'></div>
+        </li>
+      </ul>
       <div class="price">
         <span id="sticky-price"></span>
-        <span class="off"></span>
       </div>
     </div>
-  </section>
-  <section class="section-2">
-    <ul class="selected-preview">
-      <li>
-        <div id="selected-product-variants"></div>
-      </li>
-      <li class='quantity-preview'>
-        <span>{{ 'snippets.single_product.quantity' | t }}&nbsp;:</span>
-        <div id='variant_quantity'></div>
-      </li>
-    </ul>
   </section>
 </div>
