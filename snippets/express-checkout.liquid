@@ -84,17 +84,19 @@
         ></div>
       </div>
     {%- endfor %}
-    <button
-      type='submit'
-      class='yc-btn w-full express-checkout-button'
-      onclick='placeOrder(this)'
-    >
-      <span
-        class='spinner hidden e'
-        id='loading__checkout'
-      ></span>
-      <span>{{ settings.express_checkout_cta }}</span>
-    </button>
+    {% if is_sticky == false %}
+      <button
+        type='submit'
+        class='yc-btn w-full express-checkout-button'
+        onclick='placeOrder(this)'
+      >
+        <span
+          class='spinner hidden e'
+          id='loading__checkout'
+        ></span>
+        <span>{{ settings.express_checkout_cta }}</span>
+      </button>
+    {% endif %}
   </div>
 </form>
 

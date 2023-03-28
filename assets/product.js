@@ -324,7 +324,7 @@ function createPlaceholderDiv(id) {
 
 const expressCheckoutForm = $('#express-checkout-form');
 
-teleport(expressCheckoutForm, '#checkout_step_2 .checkout-form');
+teleport(expressCheckoutForm, '#checkout_step_2 .sticky-checkout-form');
 
 /**
  * Teleport variants and quantity to sticky checkout section
@@ -341,29 +341,15 @@ function teleportCheckoutElements(parentSection) {
   options.parentElement.appendChild(optionsPlaceholder);
 
   // teleport elements
-  if (window.matchMedia("(max-width: 768px)").matches) {
-    teleport(options, '#checkout_step_1 .options');
-    teleport(quantity, '#checkout_step_1 .options');
-  }
+  teleport(options, '#checkout_step_1 .options');
+  teleport(quantity, '#checkout_step_1 .options');
+
 }
 
 function teleportProductName() {
   const elementContent = $('.product-name').textContent;
 
   $('#product-name').textContent = elementContent;
-}
-
-function teleportProductCard(step) {
-  const productCard = $('.yc-product-card');
-
-  switch (step) {
-    case 1:
-      teleport(productCard, '#checkout_step_1 .variant-card-1');
-      break;
-    case 2:
-      teleport(productCard, '#checkout_step_2 .variant-card-2');
-      break;
-  }
 }
 
 function showStickyCheckout() {
@@ -388,17 +374,30 @@ function triggerCheckout(parentId) {
 
   teleportProductName();
 
-  if (window.matchMedia("(max-width: 768px)").matches) {
-    goToCheckoutStep(1);
-  } else {
-    goToCheckoutStep(2);
-  }
+  goToCheckoutStep(1);
 
   overlay.addEventListener('click', () => {
     hideCheckout();
   });
 
   window.addEventListener("resize", responsiveStickyCheckout);
+
+  // hide sticky checkout after click outside on Desktop version
+  if (window.matchMedia("(min-width: 768px)").matches) {
+    const firstCheckoutStep = $("#checkout_step_1");
+    const secondCheckoutStep = $("#checkout_step_2");
+
+    document.addEventListener("mousedown", function(event) {
+      if(event.target !== firstCheckoutStep && !firstCheckoutStep.contains(event.target) && firstCheckoutStep.style.display === 'flex') {
+        hideCheckout();
+      } else if(event.target !== secondCheckoutStep && !secondCheckoutStep.contains(event.target) && secondCheckoutStep.style.display === 'flex') {
+        hideCheckout();
+      }
+    });
+
+    // remove css class padding class on desktop
+    document.querySelectorAll('#checkout_container_1, #checkout_container_2').forEach(element => element.classList.remove('no-padding'));
+  }
 }
 
 function responsiveStickyCheckout() {
@@ -406,9 +405,10 @@ function responsiveStickyCheckout() {
   const options = $('.product-options');
 
   if(window.innerWidth >= 768) {
-    goToCheckoutStep(2);
+    document.querySelectorAll('#checkout_container_1, #checkout_container_2').forEach(element => element.classList.remove('no-padding'));
   } else if (window.innerWidth < 768) {
     goToCheckoutStep(1);
+    document.querySelectorAll('#checkout_container_1, #checkout_container_2').forEach(element => element.classList.add('no-padding'));
     teleport(options, '#checkout_step_1 .options');
     teleport(quantity, '#checkout_step_1 .options');
   }
@@ -507,18 +507,20 @@ function showSelectedQuantity() {
 // Sticky checkout steps conditions
 
 function goToCheckoutStep(step) {
-  $('#checkout_step_1').style.display = 'none';
-  $('#checkout_step_2').style.display = 'none';
+  document.querySelectorAll('#checkout_container_1, #checkout_step_1, #checkout_container_2, #checkout_step_2').forEach(
+    element => element.style.display = 'none');
 
   switch (step) {
     case 1:
-      $('#checkout_step_1').style.display = 'flex';
-      teleportProductCard(1);
+      document.querySelectorAll('#checkout_container_1, #checkout_step_1').forEach(
+        element => element.style.display = 'flex');
+      document.querySelectorAll('#checkout_container_2, #checkout_step_2').forEach(
+        element => element.style.display = 'none');
       break;
     case 2:
-      $('#checkout_step_2').style.display = 'flex';
+      document.querySelectorAll('#checkout_container_2, #checkout_step_2').forEach(
+        element => element.style.display = 'flex');
       $(' #express-checkout-form').style.display = 'block';
-      teleportProductCard(2);
       showSelectedVariants();
       showSelectedQuantity();
       break;

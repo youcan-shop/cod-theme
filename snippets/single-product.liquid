@@ -5,6 +5,18 @@
 {%- assign snippetId = 0 | rand %}
 {% assign uniqID = 100 | rand: 2000 %}
 
+{%- style -%}
+{% for block in section.blocks %}
+  {% if block.type == 'express_checkout' %}
+    {% if block.settings.is_sticky %}
+      .product-options, .product-quantity {
+        display: none !important;
+      }
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{%- endstyle -%}
+
 <div
   class='container yc-single-product'
   id='s-{{ snippetId }}'
@@ -35,9 +47,9 @@
       <div {{ block.youcan_attributes }}>
         {%- case block.type -%}
           {%- when 'product_title' -%}
-            <h1 class='product-name'>{{ product.name }}</h1>
+            <h1 class='product-name margin-top'>{{ product.name }}</h1>
           {%- when 'product_price' -%}
-            <div class='product-price-container'>
+            <div class='product-price-container margin-top'>
               <h2 class='product-price'>{{ product.price | money }}</h2>
               {% if section.settings.show_compare_at_price and product.compare_at_price != nil %}
                 <div class="compare-container">
@@ -56,31 +68,37 @@
               {% endif %}
             </div>
           {%- when 'general_review' -%}
-            {%- render 'general-review' -%}
+            <div class='margin-top'>
+              {%- render 'general-review' -%}
+            </div>
           {%- when 'product_quantity' -%}
               {%- render 'product-quantity-input' -%}
           {%- when 'product_variants' -%}
             {% render 'product-variants', options: product.options %}
           {%- when 'product_description' -%}
-            <section class='product-description '>{{ product.description }}</section>
+            <section class='product-description margin-top'>{{ product.description }}</section>
           {%- when 'countdown_timer' %}
-            <!-- prettier-ignore -->
+            <div class='margin-top'>
               {%- render 'countdown', section_settings: block.settings -%}
+            </div>
           {%- when 'stock' -%}
-            <!-- prettier-ignore -->
-            {% render 'stock', stock_items_left: block.settings.stock_items_left, total_stock_items: block.settings.total_stock_items %}
+            <div class='margin-top'>
+              {% render 'stock', stock_items_left: block.settings.stock_items_left, total_stock_items: block.settings.total_stock_items %}
+            </div>
           {%- when 'add_to_cart' -%}
-            <!-- prettier-ignore -->
-            {% render 'add-to-cart', text: block.settings.text_content, is_sticky: block.settings.is_sticky, background_color: block.settings.background_color, text_color: block.settings.text_color, snippetId: snippetId %}
+            <div class='margin-top'>
+              {% render 'add-to-cart', text: block.settings.text_content, is_sticky: block.settings.is_sticky, background_color: block.settings.background_color, text_color: block.settings.text_color, snippetId: snippetId %}
+            </div>
             {%- when 'accordion' -%}
-              {%- render 'accordion', accordion_title: block.settings.accordion_title, accordion_details: block.settings.accordion_details, background_color: block.settings.background_color, text_color: block.settings.text_color, margin_bottom: block.settings.margin_bottom -%}
+              <div class='margin-top'>
+                {%- render 'accordion', accordion_title: block.settings.accordion_title, accordion_details: block.settings.accordion_details, background_color: block.settings.background_color, text_color: block.settings.text_color, margin_bottom: block.settings.margin_bottom -%}
+              </div>
           {%- when 'express_checkout' -%}
-            <!-- prettier-ignore -->
-            <div class='express-checkout-container'>
+            <div class='express-checkout-container margin-top'>
               {% render 'express-checkout', checkout: checkout, is_sticky: block.settings.is_sticky, settings: block.settings %}
             </div>
             {% if block.settings.is_sticky %}
-            {% render 'sticky-checkout', settings: block.settings %}
+            {% render 'sticky-checkout', settings: block.settings%}
             <button class="yc-btn is_sticky font-bold" onclick="triggerCheckout(`s-{{ snippetId }}`)">{{ block.settings.express_checkout_cta }}</button>
             {% endif %}
         {%- endcase -%}

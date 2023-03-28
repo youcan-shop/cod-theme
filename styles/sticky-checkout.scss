@@ -1,0 +1,167 @@
+@import 'helpers/mixins';
+
+.yc-sticky-checkout {
+  visibility: hidden;
+  position: fixed;
+  transform: translateY(100%);
+  transition: 0.3s ease;
+  transition-property: all;
+  will-change: transform, opacity;
+  z-index: 99999;
+  width: 100%;
+  height: 70vh;
+  background-color: white;
+  left: 0;
+  bottom: 0;
+  padding-bottom: 0;
+
+  @include breakpoint('md') {
+    background-color: transparent;
+    height: 60vh;
+  }
+
+  .sticky-product-details {
+    overflow-y: scroll;
+    padding: 20px;
+
+    .variant-panel {
+      margin-bottom: unset;
+    }
+
+    .options .product-quantity {
+      margin-top: 24px;
+    }
+  }
+
+  .cta-bottom-wrapper {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 0 20px 20px 20px;
+    background-color: white;
+  }
+
+  .sticky-checkout-form #express-checkout-form {
+    padding: 0;
+  }
+
+  .sticky-container {
+    height: 100%;
+
+    @include breakpoint('md') {
+      display: flex;
+      gap: 20px;
+      position: fixed;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 0);
+      max-height: 621px;
+    }
+
+    &.no-padding {
+      padding: 0;
+    }
+
+    .empty-spacer {
+      display: none;
+
+      @include breakpoint('md') {
+        display: block;
+        flex: 1 1 50%;
+      }
+    }
+
+    .product-options {
+      display: grid !important;
+    }
+
+    .product-quantity {
+      display: block !important;
+    }
+  }
+
+  .step-2-wrapper {
+    overflow-y: scroll;
+    padding: 20px;
+
+    .variant-panel {
+      @include max-screen('md') {
+        margin-bottom: unset;
+        padding-bottom: unset;
+        border-bottom: none;
+
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .step_1, .step_2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint('md') {
+      position: unset;
+      background-color: white;
+      flex: 1 1 50%;
+      order: 2;
+    }
+  }
+
+  #checkout_step_1, #checkout_step_2 {
+    animation: slideFromBottom 0.2s ease-in-out;
+    will-change: transform;
+  }
+
+  .variant-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--yc-neutral-light-color);
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    font-weight: 500;
+
+    span {
+      display: block;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 150%;
+    }
+
+    .exit-button,
+    .back-button {
+      width: max-content;
+      position: absolute;
+      top: -42px;
+      left: 20px;
+
+      @include breakpoint('md') {
+        position: unset;
+        top: unset;
+        left: unset;
+      }
+
+      ion-icon {
+        font-size: 37px;
+        color: #ffffff;
+
+        @include breakpoint('md') {
+          color: #000000;
+        }
+      }
+    }
+  }
+
+  .variant-card {
+    margin-bottom: 16px;
+
+    @include breakpoint('md') {
+      display: none;
+    }
+  }
+}
