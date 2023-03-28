@@ -92,7 +92,11 @@
         >
         <div
           class='validation-error'
-          data-error='{{ field.name }}'
+          {% if field.custom %}
+            data-error='extra_fields.{{ field.name }}'
+          {% else %}
+            data-error='{{ field.name }}'
+          {% endif %}
         ></div>
       </div>
     {%- endfor %}
