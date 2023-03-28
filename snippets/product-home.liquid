@@ -3,6 +3,17 @@
 {% assign product_name = product.name %}
 {{ 'reviews.css' | asset_url | stylesheet_tag }}
 
+{%- style -%}
+.tag-text {
+  background-color: {{ block_settings.tag_color.hex }};
+  color: {{ block_settings.tag_text_color.hex }};
+}
+
+.tag-price {
+  background-color: {{ block_settings.tag_price_color.hex }};
+  color: {{ block_settings.price_reduction_text_color.hex }};
+}
+{% endstyle %}
 
 <div class='product-images-container container'>
   <div
@@ -48,16 +59,12 @@
         <div class='image-box'>
           <div class="tag {{ block_settings.tag_position }}">
             {% if block_settings.tag_text %} 
-              <div class="tag-text"
-                style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
-              >
+              <div class="tag-text">
                 {{ block_settings.tag_text }}
               </div>
             {% endif %}
             {% if block_settings.price_reduction_text %} 
-              <div class="tag-price"
-                style="background: {{ block_settings.tag_price_color.hex }}; color: {{ block_settings.price_reduction_text_color.hex }}"
-              >
+              <div class="tag-price">
                 {{ block_settings.price_reduction_text }}
               </div>
             {% endif %}

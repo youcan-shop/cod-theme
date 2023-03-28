@@ -29,11 +29,6 @@
   font-weight: 700;
   border: 0;
 }
-@media screen and (max-width: 600px) {
-  .countdown-wrapper .countdown .min .num {
-    width: 35px;
-  }
-}
 .countdown-wrapper .countdown .dots {
   color: #000000;
   font-size: 27px;
