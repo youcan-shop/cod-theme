@@ -1,55 +1,47 @@
 @import 'helpers/mixins';
 
 .product-images-container {
-  padding: 0 20px;
-
-  @include breakpoint('md') {
-    padding: 0 50px;
-  }
-
-  @include breakpoint('lg') {
-    padding: 0 100px;
-  }
-
-  @include breakpoint('xxl') {
-    padding: 0 280px;
-  }
-
   .product-block {
+    padding: 36px 32px;
+    border: 1px solid #E2E2E2;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 32px;
+    gap: 12px;
     width: 100%;
 
     .product-details {
       display: flex;
-      row-gap: 10px;
+      row-gap: 18px;
       flex-direction: column;
       width: 50%;
     }
 
     .product-name {
       color: #000000;
-      font-weight: 700;
-      font-size: 30px;
-      line-height: 36px;
+      font-weight: 400;
+      font-size: 32px;
 
       @media screen and (max-width: 768px) {
         font-size: 24px;
       }
     }
 
+    .description p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 26px;
+    }
+
     .product-price {
       color: var(--yc-primary-color);
       font-weight: 700;
-      font-size: 27px;
+      font-size: 32px;
     }
 
     .product-compare-price {
-      color: #8D8D8D;
-      font-weight: 400;
-      font-size: 17px;
+      color: #656565;
+      font-weight: 500;
+      font-size: 24px;
       line-height: 23px;
     }
 
