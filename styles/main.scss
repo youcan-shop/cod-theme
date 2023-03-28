@@ -146,6 +146,8 @@ button {
   align-items: center;
   justify-content: center;
   gap: 5px;
+  font-weight: 700;
+  font-size: 13px;
 
   & > * {
     color: white !important;
@@ -587,7 +589,7 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 13px 5px;
+    padding: 14px 5px;
     min-width: 41px;
     border-radius: 50%;
     font-weight: 700;

@@ -1,41 +1,36 @@
-.countdown-wrapper {
-  width: calc(100% + 40px);
-  margin: 0 -20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px;
-}
-@media (min-width: 768px) {
-  .countdown-wrapper {
-    width: 100%;
-    margin: 0;
-    border-radius: 4px;
-  }
-}
 .countdown-wrapper .countdown {
   direction: ltr;
   display: flex;
+  justify-content: center;
+  gap: 8px;
   align-items: center;
-  gap: 4px;
+  margin: 0;
 }
-.countdown-wrapper .countdown *:not(.dots, .num) {
-  min-width: 37px;
-  padding: 5px;
+.countdown-wrapper .countdown .countdown-icon {
+  font-size: 20px;
+}
+.countdown-wrapper .countdown .day, .countdown-wrapper .countdown .hour, .countdown-wrapper .countdown .min, .countdown-wrapper .countdown .sec {
   text-align: center;
-  border-radius: 6px;
-  background-color: rgba(225, 225, 225, 0.3607843137);
+  width: min-content;
+  display: flex;
+  align-items: center;
 }
-.countdown-wrapper .countdown .num {
+.countdown-wrapper .countdown .day .num, .countdown-wrapper .countdown .hour .num, .countdown-wrapper .countdown .min .num {
+  display: block;
+  font-size: 29px;
+  font-weight: 600;
+  color: #000000;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 13px;
+}
+.countdown-wrapper .countdown .min .num {
+  color: #E52B2A;
   font-weight: 700;
-  font-size: 22px;
-  line-height: 120%;
+  border: 0;
 }
 .countdown-wrapper .countdown .dots {
-  max-width: max-content;
-  height: fit-content;
-  font-size: 34px;
-  font-weight: 700;
-  margin-top: -11px;
+  color: #000000;
+  font-size: 27px;
+  margin-top: -4px;
 }

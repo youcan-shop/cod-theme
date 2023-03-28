@@ -6,15 +6,17 @@
     padding-bottom: {{ section.settings.padding_bottom}}px;
   }
 
+    {% if section.settings.show_description_on_mobile == false %}
+      @media screen and (max-width: 768px) {
+        .product-column-description {
+          display: none;
+        }
+      }
+    {% endif %}
+
   .product_customization { 
     background-color: {{ section.settings.background_color.hex }};
   } 
-
-  @media screen and (max-width: 768px) {
-    .product_customization {
-      display: {% if section.settings.show_product %}block{% else %}none{% endif %};
-    }
-  }
   
 {%- endstyle -%}
 
@@ -40,21 +42,26 @@
         "type": "product"
       },
       {
+        "type": "text",
+        "id": "description",
+        "label": "Product description"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_description_on_mobile",
+        "label": "Sow description on mobile",
+        "default": true
+      },
+      {
         "type": "checkbox",
         "id": "show_compare_at_price",
         "label": "Show compare at price",
-        "default": false
+        "default": true
       },
       {
         "type": "color",
         "id": "background_color",
         "label": "Background color"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_product",
-        "label": "Show product on mobile",
-        "default": true
       },
       {
         "type": "number",
@@ -86,6 +93,23 @@
           "default": "#ffffff"
         },
         {
+          "type": "text",
+          "id": "price_reduction_text",
+          "label": "Banner price text"
+        },
+        {
+          "type": "color",
+          "id": "tag_price_color",
+          "label": "Price reduction background color",
+          "default": "#E52B2AFF"
+        },
+        {
+          "type": "color",
+          "id": "price_reduction_text_color",
+          "label": "Price reduction text color",
+          "default": "#ffffff"
+        },
+        {
           "type": "select",
           "id": "tag_position",
           "label": "Banner position",
@@ -108,7 +132,56 @@
             }
           ],
           "default": "top_right"
-        }
+        },
+        {
+      "type": "header",
+      "content": "Countdown settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "ℹ️ If you want to show countdown on this section, please enable it and set the date and time."
+    },
+    {
+      "type": "checkbox",
+      "id": "countdown_enabled",
+      "label": "Enable countdown"
+    },
+    {
+      "label": "Year",
+      "id": "countdown_year",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Month",
+      "id": "countdown_month",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Day",
+      "id": "countdown_day",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Hour",
+      "id": "countdown_hour",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "label": "Minutes",
+      "id": "countdown_minute",
+      "type": "number",
+      "default": 0
+    },
+     {
+      "type": "checkbox",
+      "id": "show_compare_at_price",
+      "label": "Show compare at price",
+      "default": true
+    }
     ],
     "blocks": [
       {
@@ -120,11 +193,6 @@
         "label": "Price",
         "limit": 1,
         "type": "product_price"
-      },
-      {
-        "label": "Description",
-        "limit": 1,
-        "type": "product_description"
       }
     ]
   }

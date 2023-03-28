@@ -13,6 +13,9 @@
   "list_collections": {
     "title": "Collections"
   },
+  "product_column": {
+    "end": "expires in"
+  },
   "cart": {
     "title": "Shopping Cart",
     "items_count": "items",
