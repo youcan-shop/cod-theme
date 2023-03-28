@@ -302,6 +302,41 @@
                 "video_height": 500,
                 "video_width": 100
             }
+        },
+        "section_elct0ov0jkibcl3m": {
+            "type": "product-column",
+            "settings": {
+                "product": "596f0239-5ef2-4551-927b-faae4a3d2a8d",
+                "description": "sdfsdffsd",
+                "show_compare_at_price": true,
+                "padding_top": 10,
+                "padding_bottom": 10,
+                "tag_color": "#000000",
+                "tag_text_color": "#ffffff",
+                "tag_price_color": "#E52B2AFF",
+                "price_reduction_text_color": "#ffffff",
+                "tag_position": "top_right",
+                "countdown_enabled": true,
+                "countdown_year": 2024,
+                "countdown_month": 0,
+                "countdown_day": 0,
+                "countdown_hour": 0,
+                "countdown_minute": 0
+            },
+            "blocks": {
+                "block_fc4ymcdckiozr39": {
+                    "type": "product_title",
+                    "settings": {}
+                },
+                "block_fd46eoqcpm4v65p": {
+                    "type": "product_price",
+                    "settings": {}
+                }
+            },
+            "order": [
+                "block_fc4ymcdckiozr39",
+                "block_fd46eoqcpm4v65p"
+            ]
         }
     },
     "order": [
@@ -311,6 +346,7 @@
         "section_sxdipwpvyyjc9pl",
         "section_iugi49itahcmlhw",
         "section_mtk7dtud7u8wjuh",
+        "section_elct0ov0jkibcl3m",
         "section_vnib23zu82hrh6l"
     ]
 }

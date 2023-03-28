@@ -98,7 +98,7 @@
 
       img {
         width: 100%;
-        height: 550px;
+        height: 500px;
         object-fit: fill;
 
         @media screen and (max-width: 768px) {
@@ -122,6 +122,11 @@
       .product-details {
         width: 100%;
       }
+
+      .product-name {
+        font-weight: 600;
+        font-size: 21px;
+      }
       
       .price-wrapper {
         justify-content: center;
@@ -139,6 +144,7 @@
 
       .top-block {
         text-align: center;
+        gap: 16px;
         
         .yc-general-review-wrapper {
           justify-content: center;
