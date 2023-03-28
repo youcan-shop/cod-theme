@@ -14,6 +14,9 @@
   "featured_products": {
     "title": "المنتجات المميزة"
   },
+  "product_column": {
+    "end": "ينتهي في"
+  },
   "featured_collections": {
     "title": "مجموعات مميزة"
   },

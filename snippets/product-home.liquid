@@ -12,15 +12,17 @@
       {%- for block in section.blocks -%}
           {%- case block.type -%} 
             {%- when 'product_title' -%}
-              {%- render 'general-review' -%}
-              <h1 class='product-name'>{{ product.name }}</h1>
-                {% if block_settings.description %}
-              <div class="description">
-                  <p>{{ block_settings.description }}</p>
-              </div>
+              <div class="top-block">
+                {%- render 'general-review' -%}
+                <h1 class='product-name'>{{ product.name }}</h1>
+                  {% if block_settings.description %}
+                <div class="description">
+                    <p>{{ block_settings.description }}</p>
+                </div>
             {% endif %}
-
-            {%- when 'product_price' -%}
+            </div>
+            <div class="bottom-block">
+              {%- when 'product_price' -%}
               <div class='flex gap-3 items-center'>
                 {% if section.settings.show_compare_at_price %}
                   <h3>
@@ -31,14 +33,17 @@
               </div>
             {%- when 'product_description' -%}
               <section class='product-description '>{{ product.description }}</section>
-          {%- endcase -%}
-      {%- endfor -%}
-      <a href='{{ product.url }}' class='yc-btn buy-btn'>إتمام الشراء</a>
-      {% if block_settings.countdown_enabled %}
-        <div class="countdown-block">
-          {%- render 'countdown', section_settings: block_settings -%}
-        </div>
-      {% endif %}
+              {%- endcase -%}
+              {%- endfor -%}
+              <a href='{{ product.url }}' class='yc-btn buy-btn'>إتمام الشراء</a>
+              {% if block_settings.countdown_enabled %}
+                <div class="countdown-block">
+                  <span>{{ 'product_column.end' | t }} :</span>
+                  {%- render 'countdown', section_settings: block_settings -%}
+                </div>
+              {% endif %}
+          </div>
+            
       </div>
         <div class='image-box'>
           <div class="tag {{ block_settings.tag_position }}">
