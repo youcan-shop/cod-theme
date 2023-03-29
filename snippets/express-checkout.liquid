@@ -80,7 +80,11 @@
           type='{{ field.type }}'
           class='w-full'
           id='{{ field.name }}'
-          name='{{ field.name }}'
+          {% if field.custom %}
+            name='extra_fields[{{ field.name }}]'
+          {% else %}
+            name='{{ field.name }}'
+          {% endif %}
           placeholder='{{ field.placeholder }}'
           {% if field.required %}
             required
@@ -88,7 +92,11 @@
         >
         <div
           class='validation-error'
-          data-error='{{ field.name }}'
+          {% if field.custom %}
+            data-error='extra_fields.{{ field.name }}'
+          {% else %}
+            data-error='{{ field.name }}'
+          {% endif %}
         ></div>
       </div>
     {%- endfor %}
