@@ -4,59 +4,37 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-.product-item-{{id}} {
-  border: 1px solid #E7E7E7;
-  border-radius: 4px;
-}
+  .product-item-{{ id}}{
+    border: 1px solid #E7E7E7;
+    border-radius: 4px;
+  }
 
-.yc-searc-{{id}} {
-  margin: 10px auto 80px;
-}
+  .yc-searc-{{ id}}{
+    margin: 10px auto 80px;
+  }
+
+  .search-title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 110%;
+    margin-top: 35px;
+  }
+ 
+  .yc-searc-{{ id }} .product-item {
+    border: 1px solid #E7E7E7;
+    border-radius: 4px;
+  }
 {% endstyle %}
 {%- assign products_per_page = section.settings.products_per_page -%}
 
-{%- paginate search.products by products_per_page cod %}
+  {%- paginate search.products by products_per_page cod %}
   <div class='yc-featured-products yc-searc-{{id}} container'>
-    <div class="sort-container search-page">
-      {%- render 'main-sort' -%}
-    </div>
-      <h1
-        class='yc-section-title'
-        id='search-title'
-      ></h1>
+    <h1 class='search-title' id='search-title'></h1>
     <div class='product-list'>
       {%- for item in items %}
-      <div {{ block.youcan_attributes }} class="product-item-{{id}}">
-        <a
-          href='{{ item.url }}'
-          class='product-block'
-        >
-          <div class='product-thumbnail'>
-            {% if item.thumbnail %}
-              <img
-                loading='lazy'
-                src='{{ item.thumbnail }}'
-              >
-            {% else %}
-              <img
-                loading='lazy'
-                src='{{ 'fallback-product-img.webp' | asset_url }}'
-              >
-            {% endif %}
-          </div>
-
-           <div class='product-details'>
-            <span class='product-title'>{{ item.name }}</span>
-          </div>
-          <div class='prices'>
-            {% if item.price %}
-              <span class='product-price'>{{ item.price | money }}</span>
-            {% endif %}
-            {% if section.settings.show_compare_at_price and item.compare_at_price %}
-              <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
-            {% endif %}
-          </div>
-        </a>
+        <div class="product-item">
+        {%- render 'product-preview', item: item -%}
         </div>
       {%- endfor %}
     </div>
@@ -67,23 +45,22 @@
 {%- endpaginate %}
 
 {%- schema -%}
-{
-  "label": "Search",
-  "templates": ["search"],
-  "limit": 1,
-  "settings": [
-    {
-      "type": "number",
-      "id": "products_per_page",
-      "label": "Products per page",
-      "default": 8
-    },
-    {
-      "type": "checkbox",
-      "id": "show_compare_at_price",
-      "label": "Show compare at price",
-      "default": true
-    }
-  ]
-}
+  {
+    "label": "Search",
+    "templates": ["search"],
+    "limit": 1,
+    "settings": [
+      {
+        "type": "number",
+        "id": "products_per_page",
+        "label": "Products per page",
+        "default": 8
+      }, {
+        "type": "checkbox",
+        "id": "show_compare_at_price",
+        "label": "Show compare at price",
+        "default": true
+      }
+    ]
+  }
 {%- endschema -%}
