@@ -530,6 +530,24 @@ function goToCheckoutStep(step) {
   }
 }
 
+// target add to cart block and move it into quantity parent
+
+function moveStaticAddToCartToParent() {
+  // select the static add-to-cart element
+  const staticAddToCart = $('.static-add-to-cart');
+
+  if (staticAddToCart) {
+    // select the target parent element
+    const parent = $('.group-blocks');
+
+    if (parent) {
+      parent.appendChild(staticAddToCart);
+    }
+  }
+}
+
+moveStaticAddToCartToParent();
+
 function setup() {
   const singleProductSections = document.querySelectorAll('.yc-single-product');
 

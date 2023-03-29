@@ -153,11 +153,14 @@ button {
     color: white !important;
   }
   &.btn-sm {
-    padding: 7px 17px;
-    font-size: 14px;
-  }
-  &.btn-sm ion-icon {
-    margin-bottom: 2px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+
+    .spinner {
+      width: 19.5px;
+      height: 19.5px;
+    }
   }
 }
 

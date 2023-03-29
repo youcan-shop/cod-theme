@@ -29,7 +29,7 @@
                       "button_background_color": "#E52B2A",
                       "express_checkout_cta": "اشتري الآن",
                       "form_title": "للطلب يرجى ملء هذا النموذج سنتصل بكم في أقرب وقت ممكن!",
-                      "is_sticky": true,
+                      "is_sticky": false,
                       "input_border_radius": 0,
                       "input_text_size": 13,
                       "input_placeholder_color": "#A8A8A8FF",
@@ -89,6 +89,15 @@
                       "text_color": "#000000",
                       "margin_bottom": 14
                   }
+              },
+              "block_igr7aorbwr5fivp": {
+                  "type": "add_to_cart",
+                  "settings": {
+                      "text_content": "أضف إلى السلة ",
+                      "is_sticky": false,
+                      "background_color": "#E52B2AFF",
+                      "text_color": "#ffffff"
+                  }
               }
           },
           "order": [
@@ -98,11 +107,12 @@
               "block_oivb67hwueuk80m",
               "block_0cgb9qnrmae2tlc",
               "block_08c3kk0zsiefipf",
-              "block_bqucb72r61sazu",
               "block_c3yr5q7hebgkvhl",
+              "block_bqucb72r61sazu",
               "block_jdwjeadhbkzk4s",
               "block_sm3wh95w328cf1g",
-              "block_unbb3x62m5i7q6g"
+              "block_unbb3x62m5i7q6g",
+              "block_igr7aorbwr5fivp"
           ],
           "settings": {
               "show_compare_at_price": true,
