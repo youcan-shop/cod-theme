@@ -1,24 +1,26 @@
+{% assign id = 100 | rand: 2000 %}
+
 {{ 'product-column.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .product_customization {
+  #product-column-{{ id }} {
     padding-top: {{ section.settings.padding_top}}px;
     padding-bottom: {{ section.settings.padding_bottom}}px;
   }
 
-  .product_customization { 
+  #product-column-{{ id }} .product-block { 
     background-color: {{ section.settings.background_color.hex }};
   } 
 
   @media screen and (max-width: 768px) {
-    .product_customization {
+    #product-column-{{ id }} {
       display: {% if section.settings.show_product %}block{% else %}none{% endif %};
     }
   }
   
 {%- endstyle -%}
 
-<section class='product_customization'>
+<section class='product-column' id="product-column-{{ id }}">
   {%- assign selected_product = section.settings.product %}
 
   {%- if product %}

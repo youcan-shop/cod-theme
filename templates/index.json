@@ -105,7 +105,7 @@
                 }
             },
             "settings": {
-                "background_color": "#ffffff",
+                "background_color": "#F6F9FF",
                 "show_compare_at_price": true,
                 "padding_top": 50,
                 "padding_bottom": 50,
@@ -118,8 +118,8 @@
             },
             "order": [
                 "block_ylzj5evdm3qr4jt",
-                "block_yo835awgm4qhspj",
-                "block_yn7znd0yq40jraa"
+                "block_yn7znd0yq40jraa",
+                "block_yo835awgm4qhspj"
             ]
         },
         "section_p3bpf7007sndktq": {
