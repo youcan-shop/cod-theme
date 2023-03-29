@@ -84,7 +84,8 @@
           {%- when 'product_description' -%}
             <section class='product-description margin-top'>{{ product.description }}</section>
           {%- when 'countdown_timer' %}
-            <div class='margin-top'>
+            <div class='countdown-block margin-top'>
+              <span>{{ 'product_column.end' | t }} :</span>
               {%- render 'countdown', section_settings: block.settings -%}
             </div>
           {%- when 'stock' -%}

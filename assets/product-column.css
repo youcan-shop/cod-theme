@@ -57,26 +57,6 @@
 .product-images-container .product-block .price-wrapper {
   margin-top: 24px;
 }
-.product-images-container .product-block .countdown-block {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #F5F5F5;
-  padding: 12px 10px;
-  gap: 8px;
-}
-.product-images-container .product-block .countdown-block span {
-  font-weight: 400;
-  font-size: 15px;
-}
-.product-images-container .product-block .countdown-block .num {
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 13px;
-}
-.product-images-container .product-block .countdown-block .countdown-icon {
-  font-size: 18px;
-}
 .product-images-container .product-block .image-box {
   position: relative;
   width: 50%;
