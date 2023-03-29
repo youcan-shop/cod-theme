@@ -4,10 +4,7 @@
   :root{
     --yc-nav-height: {{ section.settings.navbar_height }}px;
     --yc-nav-background: {{ section.settings.navbar_background_color.hex }};
-    --yc-nav-links-color: {%- if section.settings.navbar_links_color -%}
-      {{ section.settings.navbar_links_color.hex }}
-    {%- else -%}
-      var(--yc-neutral-color){%- endif -%};
+    --yc-nav-links-color: #757575;
     --yc-nav-cart-badge-color: {%- if section.settings.cart_badge_color -%}
       {{ section.settings.cart_badge_color.hex }}
     {%- else -%}

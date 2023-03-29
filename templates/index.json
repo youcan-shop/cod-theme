@@ -43,8 +43,8 @@
                 "columns_desktop": 4,
                 "columns_mobile": "2",
                 "title": "",
-                "margin_bottom": 20,
-                "margin_top": 20,
+                "margin_bottom": 60,
+                "margin_top": 60,
                 "background_color": "#F6F9FF"
             },
             "blocks": {
@@ -217,12 +217,12 @@
         "section_sxdipwpvyyjc9pl": {
             "type": "featured-products",
             "settings": {
-                "title": " 🔥 المنتجات الأكثر رواجًا ",
+                "title": "الأكثر مبيعا",
                 "section_title_position": "center",
                 "row_desktop": 5,
-                "show_product_title": false,
+                "show_product_title": true,
                 "padding_top": 22,
-                "padding_bottom": 22,
+                "padding_bottom": 97,
                 "show_compare_at_price": true,
                 "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>",
                 "countdown_year": 0,
@@ -240,8 +240,8 @@
                         "tag_color": "#FF0025FF",
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
-                        "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d",
-                        "tag_text": "جديد"
+                        "tag_text": "جديد",
+                        "product": "6b2608bd-18f9-4e93-9450-b8c53c9589f1"
                     }
                 },
                 "block_tazes9cn7e9q3e": {
@@ -250,8 +250,8 @@
                         "tag_color": "#FF0025FF",
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
-                        "product": "ce17d5cf-4607-4f0b-9996-6a2d616c0112",
-                        "tag_text": "جديد"
+                        "tag_text": "جديد",
+                        "product": "71da9018-ad31-408b-ae2d-03173c007b7c"
                     }
                 },
                 "block_tbx6jp5m2i8cd3r": {
@@ -261,7 +261,7 @@
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
                         "tag_text": "جديد",
-                        "product": "e74763a8-673d-4b32-b87a-83ad8f448446"
+                        "product": "c906d99b-5443-411b-a902-54e05affb809"
                     }
                 },
                 "block_tcs0ynsuopilcfi": {
@@ -271,7 +271,7 @@
                         "tag_text_color": "#ffffff",
                         "tag_position": "top_right",
                         "tag_text": "جديد",
-                        "product": "2d39bfc2-2269-482d-97e8-35286c06fa8d"
+                        "product": "54e3f8c5-b206-4ef9-b6ef-2d673d2f83a8"
                     }
                 }
             },
@@ -314,28 +314,28 @@
                 "block_emefi1dpsjc8dxl": {
                     "type": "product",
                     "settings": {
-                        "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d",
                         "tag_color": "#000000",
                         "tag_text_color": "#ffffff",
-                        "tag_position": "top_right"
+                        "tag_position": "top_right",
+                        "product": "71da9018-ad31-408b-ae2d-03173c007b7c"
                     }
                 },
                 "block_ev668bf3ta5fpr6": {
                     "type": "product",
                     "settings": {
-                        "product": "ce17d5cf-4607-4f0b-9996-6a2d616c0112",
                         "tag_color": "#000000",
                         "tag_text_color": "#ffffff",
-                        "tag_position": "top_right"
+                        "tag_position": "top_right",
+                        "product": "c906d99b-5443-411b-a902-54e05affb809"
                     }
                 },
                 "block_f0s1vbvg2wv18tp": {
                     "type": "product",
                     "settings": {
-                        "product": "2d39bfc2-2269-482d-97e8-35286c06fa8d",
                         "tag_color": "#000000",
                         "tag_text_color": "#ffffff",
-                        "tag_position": "top_right"
+                        "tag_position": "top_right",
+                        "product": "6b2608bd-18f9-4e93-9450-b8c53c9589f1"
                     }
                 }
             },
@@ -362,12 +362,47 @@
                 "video_height": 500,
                 "video_width": 100
             }
+        },
+        "section_69bvzdw9cs2hlv": {
+            "type": "featured-collections",
+            "settings": {
+                "title": "منتجات حسب الفئة",
+                "section_title_position": "center",
+                "padding_top": 50,
+                "padding_bottom": 50
+            },
+            "blocks": {
+                "block_7aczikc7r4zhb9b": {
+                    "type": "category",
+                    "settings": {
+                        "category": "0c4f60eb-bd9a-400b-8b5f-b303558252d4"
+                    }
+                },
+                "block_7g6wu0dpmwqp81e": {
+                    "type": "category",
+                    "settings": {
+                        "category": "9cf0de11-01c8-43d2-8fd9-fc153f25e9e0"
+                    }
+                },
+                "block_7mxzydumi421t4i": {
+                    "type": "category",
+                    "settings": {
+                        "category": "b2104eff-ae3f-4fc6-8bb2-0babe288080c"
+                    }
+                }
+            },
+            "order": [
+                "block_7aczikc7r4zhb9b",
+                "block_7g6wu0dpmwqp81e",
+                "block_7mxzydumi421t4i"
+            ]
         }
     },
     "order": [
         "section_qum9qooyrwe3uz",
-        "section_sxdipwpvyyjc9pl",
         "section_62tm9748qh15wfk",
+        "section_69bvzdw9cs2hlv",
+        "section_sxdipwpvyyjc9pl",
         "section_b3g5zwjngmukzqp",
         "product-column",
         "section_609gq1tx2x0aaa",

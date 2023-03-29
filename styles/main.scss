@@ -33,6 +33,7 @@ body {
   max-width: 1142px !important;
   margin: 0 auto;
   padding: 0 20px;
+  overflow: hidden;
 
   &.fluid {
     max-width: 100%;

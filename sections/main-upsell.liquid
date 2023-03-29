@@ -1,0 +1,30 @@
+<h1>This is it</h1>
+
+<form action="/api/upsells/{{ upsell.id }}/answer" method="post">
+{{ csrf }}
+<input type="text" name="order_id" value="{{ order.id }}"/>
+{%- for product in upsell.products %}
+  <input type="text" name="product_offers[{{ product.id }}]" value="{{ product.variants.0.id }}"/>
+  <br/>
+{%- endfor %}
+<input type="text" name="answer" value="yes" />
+<input type="submit" />
+</form>
+
+
+<form action="/api/upsells/{{ upsell.id }}/answer" method="post">
+{{ csrf }}
+<input type="text" name="order_id" value="{{ order.id }}"/>
+{%- for product in upsell.products %}
+  <input type="text" name="product_offers[{{ product.id }}]" value="{{ product.variants.0.id }}"/>
+  <br/>
+{%- endfor %}
+<input type="text" name="answer" value="no" />
+<input type="submit" />
+</form>
+
+{%- schema %}
+{
+  "label": "Upsell"
+}
+{%- endschema %}

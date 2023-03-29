@@ -127,11 +127,12 @@
     .menu-list {
       display: flex;
       list-style: none;
-      gap: 50px;
+      gap: 40px;
+    
     }
-
     .menu-item {
       a {
+        white-space: nowrap;
         color: var(--yc-nav-links-color);
         font-size: 16px;
         padding: 0 calc(var(--yc-nav-px) / 5);
@@ -153,7 +154,7 @@
         content: "";
         position: absolute;
         bottom: -6px;
-        border-radius: 50%;
+        border-radius: 99;
         right: 0;
         width: 40%;
         height: 2px;

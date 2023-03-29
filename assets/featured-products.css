@@ -76,15 +76,17 @@
   opacity: 1;
 }
 .yc-featured-products .product-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
   justify-content: start;
   overflow: hidden;
   align-items: stretch;
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list {
+    grid-template-columns: repeat(4, 1fr);
     gap: 29px;
   }
 }

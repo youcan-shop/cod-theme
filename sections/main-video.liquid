@@ -1,6 +1,6 @@
 {{ 'video.css' | asset_url | stylesheet_tag }}
 
-<div class='video-section'>
+<div class='video-section container'>
   {% if section.settings.title %}
     <div class="yc-section-title container" style="text-align: {{ section.settings.title_position }};">
       {{ section.settings.title }}
