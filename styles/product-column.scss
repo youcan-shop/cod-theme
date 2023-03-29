@@ -68,30 +68,6 @@
       margin-top: 24px;
     }
 
-    .countdown-block {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #F5F5F5;
-      padding: 12px 10px;
-      gap: 8px;
-
-      span {
-        font-weight: 400;
-        font-size: 15px;
-      }
-
-      .num {
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 13px;
-      }
-
-      .countdown-icon {
-        font-size: 18px;
-      }
-    }
-
     .image-box {
       position: relative;
       width: 50%;
@@ -127,7 +103,7 @@
         font-weight: 600;
         font-size: 21px;
       }
-      
+
       .price-wrapper {
         justify-content: center;
       }
@@ -137,7 +113,7 @@
         font-size: 24px;
       }
 
-      .product-compare-price { 
+      .product-compare-price {
         font-weight: 400;
         font-size: 18px;
       }
@@ -145,11 +121,11 @@
       .top-block {
         text-align: center;
         gap: 16px;
-        
+
         .yc-general-review-wrapper {
           justify-content: center;
         }
       }
-    } 
+    }
   }
 }

@@ -604,3 +604,27 @@ span {
   font-weight: 700;
   font-size: 26px;
 }
+
+/* --------------------------- */
+/* ----- countdown block ----- */
+/* --------------------------- */
+.countdown-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F5F5F5;
+  padding: 12px 10px;
+  gap: 8px;
+}
+.countdown-block span {
+  font-weight: 400 !important;
+  font-size: 15px !important;
+}
+.countdown-block .num {
+  font-weight: 500 !important;
+  font-size: 18px !important;
+  line-height: 13px !important;
+}
+.countdown-block .countdown-icon {
+  font-size: 18px !important;
+}

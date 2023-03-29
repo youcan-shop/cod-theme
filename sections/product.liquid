@@ -5,11 +5,6 @@
     padding-top: {{ section.settings.padding_top}}px;
     padding-bottom: {{ section.settings.padding_bottom}}px;
   }
-
-  .countdown-wrapper {
-    background-color: {{ block.settings.background_color.hex }};
-    color: {{ block.settings.text_color.hex }};
-  }
 {%- endstyle -%}
 
 <section class='product_customization'>
@@ -79,22 +74,10 @@
       "type": "countdown_timer",
       "settings": [
         {
-          "label": "Message",
-          "id": "countdown_message",
-          "type": "richtext",
-          "default": "عرض لفترة محدودة"
-        },
-        {
-          "type": "color",
-          "id": "background_color",
-          "label": "Background color",
-          "default": "#000000"
-        },
-        {
-          "type": "color",
-          "id": "text_color",
-          "label": "Text color",
-          "default": "#FFFFFF"
+          "label": "Is Sticky?",
+          "id": "sticky_countdown",
+          "type": "checkbox",
+          "default": true
         },
         {
           "label": "Year",
