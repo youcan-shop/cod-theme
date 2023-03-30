@@ -3,22 +3,12 @@
 {{ 'product-listing.css' | asset_url | stylesheet_tag }}
 {% assign id = 100 | rand: 2000 %}
 
-{% style %}
-.product-item-{{id}} {
-  border: 1px solid #E7E7E7;
-  border-radius: 4px;
-}
-
-.yc-searc-{{id}} {
-  margin: 10px auto 80px;
-}
-{% endstyle %}
 {%- assign products_per_page = section.settings.products_per_page -%}
 
 {%- paginate search.products by products_per_page cod %}
-  <div class='yc-featured-products yc-searc-{{id}} container'>
-    <div class="sort-container search-page">
-      {%- render 'main-sort' -%}
+  <div class='yc-featured-products container'>
+      <div class="sort-container search-page">
+        {%- render 'main-sort' -%}
     </div>
       <h1
         class='yc-section-title'
@@ -26,43 +16,13 @@
       ></h1>
     <div class='product-list'>
       {%- for item in items %}
-      <div {{ block.youcan_attributes }} class="product-item-{{id}}">
-        <a
-          href='{{ item.url }}'
-          class='product-block'
-        >
-          <div class='product-thumbnail'>
-            {% if item.thumbnail %}
-              <img
-                loading='lazy'
-                src='{{ item.thumbnail }}'
-              >
-            {% else %}
-              <img
-                loading='lazy'
-                src='{{ 'fallback-product-img.webp' | asset_url }}'
-              >
-            {% endif %}
-          </div>
-
-           <div class='product-details'>
-            <span class='product-title'>{{ item.name }}</span>
-          </div>
-          <div class='prices'>
-            {% if item.price %}
-              <span class='product-price'>{{ item.price | money }}</span>
-            {% endif %}
-            {% if section.settings.show_compare_at_price and item.compare_at_price %}
-              <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
-            {% endif %}
-          </div>
-        </a>
+      <div {{ block.youcan_attributes }} class="product-block">
+        {%- render 'product-preview', item: item -%}
         </div>
       {%- endfor %}
     </div>
   </div>
 
-  <!-- prettier-ignore -->
   {%- render 'main-pagination', has_more: has_more, next_page: next_page, previous_page: previous_page, current: current, last: last -%}
 {%- endpaginate %}
 

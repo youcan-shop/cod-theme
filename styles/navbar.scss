@@ -166,7 +166,7 @@
   visibility: hidden;
   opacity: 0;
   position: fixed;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   left: 0;
   width: 100vw;
@@ -174,21 +174,25 @@
   z-index: 96;
   background: white;
 
-  .input,
-  input {
-    max-width: 25rem;
-    color: #111;
-  }
-
-  .search-btn {
-    padding: 0 0.75rem;
+  .search-wrapper {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-left: -3rem;
 
-    ion-icon {
-      font-size: 1.2rem;
-      color: #111;
+    input {
+      color: #A8A8A8;
+      padding: 12px 0;
+      border: 0;
+      width: 94%;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    .close-search {
+      color: #000;
+      font-size: 24px;
+      cursor: pointer;
     }
   }
 }
@@ -200,11 +204,11 @@
   transition-duration: 0.2s;
   transition-property: opacity;
   position: fixed;
-  top: 0;
+  top: var(--yc-notice-height-desktop);
   right: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 95;
   visibility: hidden;
   opacity: 0;

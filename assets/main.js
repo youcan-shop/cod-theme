@@ -99,6 +99,7 @@ const overlay = document.querySelector('.global-overlay');
 const drawer = document.querySelector('.navbar-drawer');
 const menuIcon = document.querySelector('.menu-toggler ion-icon');
 const drawerBtn = document.querySelector('.close-drawer-btn');
+const closeSearchBtn = document.querySelector('.close-search');
 
 const toggleDrawerIcon = () => {
   if (menuIcon.getAttribute('name') === 'menu-outline') {
@@ -166,7 +167,6 @@ function openSearch() {
   if (!overlay) return;
 
   overlay.style.height = `calc(100vh + ${noticeHeight || 0}px)`;
-  overlay.style.top = `${noticeHeight || 0}px`;
   overlay.style.opacity = '1';
   overlay.style.visibility = 'visible';
 
@@ -174,7 +174,7 @@ function openSearch() {
 
   searchHolder.style.opacity = '1';
   searchHolder.style.visibility = 'visible';
-  searchHolder.style.top = `${noticeHeight || 0}px`;
+  document.body.style.overflowY = 'hidden';
 }
 
 function closeSearch() {
@@ -188,9 +188,12 @@ function closeSearch() {
 
   searchHolder.style.opacity = '0';
   searchHolder.style.visibility = 'hidden';
+  document.body.style.overflowY = 'auto';
 }
 
+
 overlay.addEventListener('click', closeSearch);
+closeSearchBtn.addEventListener('click', closeSearch);
 
 /* ---------------------------------------------- */
 /* ----- Group Sticky elements in one place ----- */
