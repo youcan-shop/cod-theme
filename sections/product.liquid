@@ -335,9 +335,8 @@
 {%- endschema -%}
 
 {%- javascript -%}
-  const variantStr = `{{ selected_product.variants | json }}`;
+  const variantStr =  {% if selected_product and selected_product.variants != null %}`{{ selected_product.variants | json }}` {% endif %};
   const variants = JSON.parse(variantStr.slice(1, -1));
-  const ratings = "{{ 'reviews.ratings' | t }}";
   const productIdPage = '{{ selected_product.id }}';
   const largeImageSizeMessage = "{{ 'general.large_image_size' | t }}";
 {%- endjavascript -%}
