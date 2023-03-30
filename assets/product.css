@@ -1,19 +1,27 @@
 .yc-single-product {
-  display: flex;
-  gap: 8px;
-  margin: 25px auto;
-  flex-direction: column;
-  align-items: start;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  grid-gap: 3rem;
+  position: relative;
 }
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .yc-single-product {
-    gap: 20px;
-    flex-direction: row;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .yc-single-product {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media only screen and (max-width: 480px) {
+  .yc-single-product {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 .yc-single-product .product-images {
   width: 100%;
-  margin: 0 -12px;
+  height: fit-content;
 }
 @media (min-width: 768px) {
   .yc-single-product .product-images {
@@ -71,7 +79,7 @@
   display: flex;
   gap: 18px;
   overflow-y: auto;
-  flex-direction: column;
+  flex-direction: row;
 }
 @media (min-width: 768px) {
   .yc-single-product .product-images .product-images-container .thumbnail-images {
@@ -153,8 +161,8 @@
 }
 .yc-single-product .product-images .product-images-container .thumbnail-images img {
   display: block;
-  width: 90px;
-  height: 90px;
+  width: 135px;
+  height: 135px;
   border-radius: 4px;
   object-fit: cover;
   cursor: pointer;
