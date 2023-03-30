@@ -21,7 +21,7 @@
   </div>
   <div class='collections-list'>
     {%- for block in section.blocks -%}
-      {%- render 'collection-preview', category: block.settings.category -%}
+      {%- render 'collection-preview', category: block.settings.category, style: 'simple' -%}
     {%- endfor -%}
   </div>
 </div>

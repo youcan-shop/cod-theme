@@ -1,49 +1,46 @@
 @import 'helpers/mixins';
 
 .yc-collection-listing {
-  .collection-list {
-    display: grid;
-    margin: 60px auto;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 20px;
+  margin-bottom: 300px;
+  overflow: hidden;
 
+  .collection-list {
+    @include display(3, 1, 1, 1.5rem);
+    
+    margin-top: 40px;
     .collection-block {
       position: relative;
     }
 
     .collection-thumbnail {
       width: 100%;
+      height: 100%;
       position: relative;
       overflow: hidden;
-      padding: 0 0 100%;  
-      height: 0;
 
       img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
         height: 100%;
-        transform: translate(-50%,-50%);
-        transition: transform .25s ease;
+        width: 100%;
         border-radius: 5px;
 
         &:hover {
-          transform: translate(-50%,-50%) scale(1.1);
+          opacity: 0.9;
+          transform: scale(1.25);
+          transition: transform 0.2s ease-in-out;
         }
       }
     }
 
     .collection-details {
-      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
       position: absolute;
       top: 70%;
       left: 50%;
       transform: translate(-50%,-50%);
-      display: grid;
-      align-items: center;
-      grid-template-columns: repeat(1, 1fr);
-
 
       .collection-name {
         font-style: normal;
@@ -59,38 +56,6 @@
         background-color: white !important;
         color: #3C415F !important;
       }
-    }
-
-   
-
-    @include breakpoint('md') {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 34px 20px;
-    }
-
-    @include breakpoint('lg') {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 34px 20px;
-    }
-  }
-
-  .breadcrumbs-container {
-    padding: 0 20px;
-
-    @include breakpoint('md') {
-      padding: 0 50px;
-    }
-
-    @include breakpoint('lg') {
-      padding: 0 80px;
-    }
-
-    @include breakpoint('xl') {
-      padding: 0 180px;
-    }
-  
-    @include breakpoint('xxl') {
-      padding: 0 270px;
     }
   }
 }

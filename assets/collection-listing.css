@@ -1,41 +1,57 @@
+.yc-collection-listing {
+  margin-bottom: 300px;
+  overflow: hidden;
+}
 .yc-collection-listing .collection-list {
   display: grid;
-  margin: 60px auto;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  grid-gap: 1.5rem;
+  margin-top: 40px;
+}
+@media only screen and (min-width: 768px) {
+  .yc-collection-listing .collection-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .yc-collection-listing .collection-list {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+@media only screen and (max-width: 480px) {
+  .yc-collection-listing .collection-list {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
 .yc-collection-listing .collection-list .collection-block {
   position: relative;
 }
 .yc-collection-listing .collection-list .collection-thumbnail {
   width: 100%;
+  height: 100%;
   position: relative;
   overflow: hidden;
-  padding: 0 0 100%;
-  height: 0;
 }
 .yc-collection-listing .collection-list .collection-thumbnail img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   height: 100%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.25s ease;
+  width: 100%;
   border-radius: 5px;
 }
 .yc-collection-listing .collection-list .collection-thumbnail img:hover {
-  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 0.9;
+  transform: scale(1.25);
+  transition: transform 0.2s ease-in-out;
 }
 .yc-collection-listing .collection-list .collection-details {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   position: absolute;
   top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: grid;
-  align-items: center;
-  grid-template-columns: repeat(1, 1fr);
 }
 .yc-collection-listing .collection-list .collection-details .collection-name {
   font-style: normal;
@@ -49,39 +65,4 @@
 .yc-collection-listing .collection-list .collection-details .yc-btn {
   background-color: white !important;
   color: #3C415F !important;
-}
-@media (min-width: 768px) {
-  .yc-collection-listing .collection-list {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 34px 20px;
-  }
-}
-@media (min-width: 992px) {
-  .yc-collection-listing .collection-list {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 34px 20px;
-  }
-}
-.yc-collection-listing .breadcrumbs-container {
-  padding: 0 20px;
-}
-@media (min-width: 768px) {
-  .yc-collection-listing .breadcrumbs-container {
-    padding: 0 50px;
-  }
-}
-@media (min-width: 992px) {
-  .yc-collection-listing .breadcrumbs-container {
-    padding: 0 80px;
-  }
-}
-@media (min-width: 1200px) {
-  .yc-collection-listing .breadcrumbs-container {
-    padding: 0 180px;
-  }
-}
-@media (min-width: 1400px) {
-  .yc-collection-listing .breadcrumbs-container {
-    padding: 0 270px;
-  }
 }

@@ -1,4 +1,5 @@
 {{ 'product-slider.css' | asset_url | stylesheet_tag }}
+{{ 'components.css' | asset_url | stylesheet_tag }}
 
 {% style %}
   .splide__slide {
@@ -34,7 +35,7 @@
         >
           <a
             href='{{ block.settings.product.url }}'
-            class='product-block'
+            class='product-preview'
           >
 
             {% if block_settings.tag_text %}

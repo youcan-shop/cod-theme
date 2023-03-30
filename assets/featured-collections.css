@@ -1,74 +1,44 @@
-.yc-featured-collections .yc-featured-container {
-  display: flex;
-  column-gap: 2px;
-  align-items: center;
-}
-.yc-featured-collections .yc-featured-container img {
-  width: 24px;
-  height: 24px;
-}
-.yc-featured-collections .yc-featured-container .yc-section-title {
-  font-size: 26px;
-  margin: 0;
-}
 .yc-featured-collections .collections-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  grid-gap: 1.5rem;
 }
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .yc-featured-collections .collections-list {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
-@media (min-width: 992px) {
+@media only screen and (min-width: 481px) and (max-width: 767px) {
   .yc-featured-collections .collections-list {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+@media only screen and (max-width: 480px) {
+  .yc-featured-collections .collections-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.yc-featured-collections .collections-list .collection-thumbnail {
+  overflow: hidden;
+}
+.yc-featured-collections .collections-list .collection-thumbnail img {
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.yc-featured-collections .collections-list .collection-thumbnail img:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
 }
 .yc-featured-collections .collections-list .collection-block {
-  position: relative;
-  background: gray;
-  display: inline-block;
-  aspect-ratio: 4/5;
-  overflow: hidden;
-  transition: 0.3s ease-in-out;
+  border-radius: 5px;
+  border: 1px solid #E6E6E6;
 }
-.yc-featured-collections .collections-list .collection-block .collection-details, .yc-featured-collections .collections-list .collection-block .collection-thumbnail img {
-  transition: all 0.3s ease-in-out;
-}
-.yc-featured-collections .collections-list .collection-block:hover .collection-details {
-  transform: translateY(0);
-}
-.yc-featured-collections .collections-list .collection-block:hover .collection-thumbnail img {
-  transform: scale(1.3);
-}
-.yc-featured-collections .collections-list .collection-block .collection-thumbnail {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transition: 0.3s ease-in-out;
-}
-.yc-featured-collections .collections-list .collection-block .collection-thumbnail img {
-  width: 100%;
-  height: 100%;
-}
-.yc-featured-collections .collections-list .collection-block .collection-details {
-  transition: 0.3s ease-in-out;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  margin: auto;
-  background: linear-gradient(0deg, #534b40, transparent);
-  color: white;
+.yc-featured-collections .collections-list .collection-details {
+  padding: 1rem;
   text-align: center;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
-@media (min-width: 768px) {
-  .yc-featured-collections .collections-list .collection-block .collection-details {
-    transform: translateY(100px);
-  }
+.yc-featured-collections .collections-list .collection-details .collection-name {
+  font-size: 14px;
 }

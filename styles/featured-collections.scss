@@ -1,86 +1,38 @@
 @import 'helpers/mixins';
 
 .yc-featured-collections {
-  .yc-featured-container {
-    display: flex;
-    column-gap: 2px;
-    align-items: center;
-
-    img {
-      width: 24px;
-      height: 24px;
-    }
-
-    .yc-section-title {
-      font-size: 26px;
-      margin: 0;
-    }
-  }
-
   .collections-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    @include display(4, 2, 2, 1.5rem);
 
-    @include breakpoint('md') {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    @include breakpoint('lg') {
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .collection-block {
-      position: relative;
-      background: gray;
-      display: inline-block;
-      aspect-ratio: 4/5;
-      overflow: hidden; 
-      transition: 0.3s ease-in-out;
+    .collection-thumbnail {
+      overflow: hidden;
 
-
-      .collection-details, .collection-thumbnail img {
-          transition: all 0.3s ease-in-out;
-      }
-
-      &:hover {
-        .collection-details {
-          transform: translateY(0);
-        }
-
-        .collection-thumbnail img {
-          transform: scale(1.3);
-        }
-      }
-
-      .collection-thumbnail {
-        position: absolute;
+      img {
+        transition: all 0.3s ease;
         width: 100%;
         height: 100%;
-        transition: 0.3s ease-in-out;
+        object-fit: cover;
 
-        img {
-          width: 100%;
-          height: 100%;
-        }
-      }
-
-      .collection-details {
-        transition: 0.3s ease-in-out;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        margin: auto;
-        background: linear-gradient(0deg, #534b40, transparent);
-        color: white;
-        text-align: center;
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        @include breakpoint('md') {
-          transform: translateY(100px);
+        &:hover {
+          opacity: 0.8;
+          transform: scale(1.05);
         }
       }
     }
+
+    .collection-block {
+      border-radius: 5px;
+      border: 1px solid #E6E6E6;
+    }
+
+    .collection-details {
+      padding: 1rem;
+      text-align: center;
+
+      .collection-name {
+        font-size: 14px;
+      }
+    }
   }
+
 }

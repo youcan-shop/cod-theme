@@ -18,6 +18,8 @@
   </div>
   <div class='collection-details'>
     <span class='collection-name'>{{ category.name }}</span>
-    <button class="yc-btn">{{ 'list_collections.category-show' | t}}</button>
+    {% if style != 'simple' %}
+      <button class="yc-btn">{{ 'list_collections.category-show' | t}}</button>
+    {% endif %}
   </div>
 </a>

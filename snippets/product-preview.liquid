@@ -1,4 +1,4 @@
-{{ 'featured-products.css' | asset_url | stylesheet_tag }}
+{{ 'components.css' | asset_url | stylesheet_tag }}
 {%- assign productId = 0 | rand %}
 
 {% style %}
@@ -13,7 +13,7 @@
 
 <a
   href='{{ item.url }}'
-  class='product-block'
+  class='product-preview'
   id="product_{{ productId }}">
 
   {% if block_settings.tag_text %}

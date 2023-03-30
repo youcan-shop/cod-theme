@@ -1,92 +1,10 @@
 @import 'helpers/mixins';
 
 .product-slider {
-  .product-thumbnail {
-    position: relative;
-    overflow: hidden;
-    padding: 0 0 100%;  
-    height: 0;
-
-    img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      height: 100%;
-      transform: translate(-50%,-50%);
-      transition: transform .25s ease;
-
-      &:hover {
-        transform: translate(-50%,-50%) scale(1.1);
-      }
-    }
-  }
-
-  .prices {
-    text-align: center;
-    padding-bottom: 12px;
-
-    .product-price {
-      font-size: 20px;
-      font-weight: 600;
-      text-align: center;
-      color: var(--yc-primary-color);
-      line-height: 24px;
-
-      @include max-screen('md') {
-        font-size: 14px;
-        line-height: 17px;
-      }
-    }
-
-    .compare-price {
-      color: #8D8D8D;
-      font-size: 18px;
-      line-height: 22px;
-      margin-top: 5px;
-      font-weight: 300;
-      text-decoration-line: line-through;
-
-      @include max-screen('md') {
-        font-size: 12px;
-        line-height: 15px;
-      }
-    }
-  }
 
   .splide__pagination {
     display: flex !important;
     justify-content: center;
   }
 
-  .product-block {
-    width: 100%;
-    background-color: white;
-    border-radius: 5px;
-    border: 1px solid #E6E6E6;
-
-    .product-details {
-      margin: 24px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-
-      .prices {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 9px;
-      }
-
-      .compare-at-price {
-        font-weight: 400;
-        color: #8D8D8D;
-        font-size: 15px;
-        line-height: 120%;
-        text-decoration-line: line-through;
-      }
-    }
-  }
 }

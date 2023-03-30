@@ -2,10 +2,10 @@
 {{ 'collection-listing.css' | asset_url | stylesheet_tag }}
 
 {%- assign per_page = section.settings.items_per_page -%}
-<div class='yc-collection-listing'>
+<div class='yc-collection-listing container'>
     {%- render 'breadcrumbs' -%}
   {%- paginate collections by per_page cod %}
-    <div class='collection-list container'>
+    <div class='collection-list'>
       {% for collection in items %}
         {%- render 'collection-preview', category: collection %}
       {% endfor %}

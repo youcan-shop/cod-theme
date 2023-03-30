@@ -2,6 +2,8 @@
 {%- assign number_of_products = section.settings.number_of_products -%}
 {% assign id = 100 | rand: 2000 %}
 
+{{ 'featured-products-by-category.css' | asset_url | stylesheet_tag }}
+
 {% style %}
   .section-featured-products-by-category-{{id}}{
     padding-top: {{ section.settings.padding_top }}px;
@@ -22,15 +24,10 @@
     color: {{ section.settings.text_color.hex }};
   }
 
-  .section-featured-products-by-category-{{id}} .product-item-{{id}} {
-    border: 1px solid #E7E7E7;
-    border-radius: 4px;
-  }
 {% endstyle %}
 
 {% if category %}
-  <div class='yc-featured-products section-featured-products-by-category-{{id}}'>
-    <div class="container">
+  <div class='yc-featured-products-by-category container section-featured-products-by-category-{{id}}'>
       <h1 class='yc-section-title'>{{ category.name }}</h1>
       <div class='product-list'>
         {%- paginate collection.products by number_of_products id category_id: category.id %}
@@ -47,7 +44,6 @@
         </div>
       {% endif %}
     </div>
-  </div>
 {% endif %}
 
 {%- schema -%}
