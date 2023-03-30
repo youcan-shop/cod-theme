@@ -34,6 +34,7 @@ body {
   max-width: 1142px !important;
   margin: 0 auto;
   padding: 0 20px;
+  overflow: hidden;
 }
 .container.fluid {
   max-width: 100%;

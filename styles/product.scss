@@ -1,12 +1,20 @@
 @import 'helpers/mixins';
 
 .yc-single-product {
-  @include display(2, 2, 1, 3rem);
-  position: relative;
+  display: flex;
+  gap: 8px;
+  margin: 25px auto;
+  flex-direction: column;
+  align-items: start;
+
+  @include breakpoint('md') {
+    gap: 20px;
+    flex-direction: row;
+  }
 
   .product-images {
     width: 100%;
-    height: fit-content;
+    margin: 0 -12px;
 
     @include breakpoint('md') {
       position: sticky;
@@ -67,7 +75,7 @@
         display: flex;
         gap: 18px;
         overflow-y: auto;
-        flex-direction: row;
+        flex-direction: column;
 
         @include breakpoint('md') {
           order: 1;
@@ -154,8 +162,8 @@
 
       .thumbnail-images img {
         display: block;
-        width: 135px;
-        height: 135px;
+        width: 90px;
+        height: 90px;
         border-radius: 4px;
         object-fit: cover;
         cursor: pointer;
