@@ -306,8 +306,7 @@
         "section_elct0ov0jkibcl3m": {
             "type": "product-column",
             "settings": {
-                "product": "596f0239-5ef2-4551-927b-faae4a3d2a8d",
-                "description": "sdfsdffsd",
+                "description": "فستانٌ جميلٌ يتميّز بتصميمه الرائع والأنيق. يتكوّن الفستان من قطعتين: الجزء العلوي والجزء السفلي. الجزء العلوي يتميّز بأنه ضيّق ويتناسب مع شكل الجسم، ويمكن أن يكون بأكمام طويلة",
                 "show_compare_at_price": true,
                 "padding_top": 10,
                 "padding_bottom": 10,
@@ -321,7 +320,8 @@
                 "countdown_month": 0,
                 "countdown_day": 0,
                 "countdown_hour": 0,
-                "countdown_minute": 0
+                "countdown_minute": 0,
+                "product": "7bd4d1f4-bc1e-4fc7-a52d-c431ebb5a0f5"
             },
             "blocks": {
                 "block_fc4ymcdckiozr39": {
@@ -366,10 +366,6 @@
                     "type": "product_quantity",
                     "settings": {}
                 },
-                "block_wsdo2a8h6066ezb": {
-                    "type": "product_description",
-                    "settings": {}
-                },
                 "block_ww9v79ap58dltrt": {
                     "type": "countdown_timer",
                     "settings": {
@@ -407,7 +403,6 @@
             },
             "order": [
                 "block_wm96irovh68stqp",
-                "block_wsdo2a8h6066ezb",
                 "block_wnc04iqcvnbmf6o",
                 "block_woy708t4or8fqr0k",
                 "block_wq0yuzxjf5bo1x",
@@ -423,8 +418,8 @@
         "section_id3c10cu8d0hetfi",
         "section_sxdipwpvyyjc9pl",
         "section_iugi49itahcmlhw",
-        "section_mtk7dtud7u8wjuh",
         "section_elct0ov0jkibcl3m",
+        "section_mtk7dtud7u8wjuh",
         "section_wag061g5345cquu",
         "section_vnib23zu82hrh6l"
     ]

@@ -16,39 +16,56 @@ async function addPromo(e) {
   }
 }
 
+function extractCurrencyAndPrice(innerText) {
+  let currency = '';
+  let price = '';
+
+  innerText.split(' ').forEach((element) => {
+    if (isNaN(Number(element))) {
+      currency += element;
+    } else {
+      price += element;
+    }
+  });
+
+  return { currency, price };
+}
+
 function updateCart(item, quantity, totalPriceSelector, cartItemId, productVariantId) {
-  const inputHolder = document.getElementById(item);
-  const input = inputHolder.querySelector(`input[id="${productVariantId}"]`);
-  input.value = quantity;
-  const decrease = input.previousElementSibling;
-  const increase = input.nextElementSibling;
+   const inputHolder = document.getElementById(item);
+   const input = inputHolder.querySelector(`input[id="${productVariantId}"]`);
+   input.value = quantity;
+  
+   const decrease = input.previousElementSibling.querySelector('button');
+   const increase = input.nextElementSibling.querySelector('button');
 
-  const productPrice = inputHolder.querySelector('.product-price').innerText;
-  const currency = productPrice.split(' ')[0];
-  const price = productPrice.split(' ')[1];
-  const totalPrice = inputHolder.querySelector(totalPriceSelector);
+   const productPriceElement = inputHolder.querySelector('.product-price');
+   const { currency, price } = extractCurrencyAndPrice(productPriceElement.innerText);
 
-  decrease
-    .querySelector('button')
-    .setAttribute('onclick', `decreaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) - 1}')`);
-  increase
-    .querySelector('button')
-    .setAttribute('onclick', `increaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) + 1}')`);
+   const totalPriceElement = inputHolder.querySelector(totalPriceSelector);
 
-  if (isNaN(quantity)) {
-    totalPrice.innerText = 0;
-  } else if (currency && price) {
-    totalPrice.innerText = `${currency} ${price * quantity}`;
-  }
+   decrease.setAttribute('onclick', `decreaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) - 1}')`);
+  
+   increase.setAttribute('onclick', `increaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) + 1}')`);
+
+  
+    if (isNaN(quantity)) {
+      totalPriceElement.innerText = `${currency} ${0}`;
+    } else if (currency && price) {
+      totalPriceElement.innerText = `${currency} ${price * quantity}`;
+    }
 }
 
 function updateTotalPrice() {
   let totalPrice = 0;
   let currency;
-  const itemPrices = document.querySelectorAll('.item-price');
-  itemPrices.forEach(itemPrice => {
-    currency = itemPrice.innerText.split(' ')[0];
-    const price = itemPrice.innerText.split(' ')[1];
+  
+  const itemPricesElements = document.querySelectorAll('.item-price');
+  
+  itemPricesElements.forEach(itemPriceElement => {
+    const { currency: currentCurrency, price } = extractCurrencyAndPrice(itemPriceElement.innerText);
+
+    currency = currentCurrency;
     totalPrice += Number(price);
   });
 
@@ -86,9 +103,6 @@ async function updateOnchange(cartItemId, productVariantId) {
   const quantity = input.value;
 
   await updateQuantity(cartItemId, productVariantId, quantity);
-  updateDOM(cartItemId, productVariantId, quantity);
-  updatePrice(cartItemId,productVariantId,quantity);
-  updateTotalPrice();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -144,4 +158,3 @@ async function removeItem(cartItemId, productVariantId) {
     stopLoad(`#loading__${cartItemId}`);
   }
 }
-
