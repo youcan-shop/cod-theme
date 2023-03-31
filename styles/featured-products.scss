@@ -152,29 +152,17 @@
           transform: scale(1.1);
         }
       }
+
       .product-link {
-        width: 78%;
-        margin: auto;
         display: none;
-  
-        a {
-          font-weight: 700;
-          font-size: 13px;
-        }
-  
-        @include breakpoint('md') {
-          width: 80%;
-          position: absolute;
-          z-index: 1;
-          top: 90%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
       }
 
-      &:hover .product-link {
+      .product-link-mobile {
+        display: block;
+        margin: 0 16px;
+
         @include breakpoint('md') {
-          display: block;
+          margin: 0 30px;
         }
       }
     }
