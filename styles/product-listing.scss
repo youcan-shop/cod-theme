@@ -8,6 +8,9 @@
     margin-top: 36px;
 
     .product-block {
+      display: flex;
+      flex-direction: column;
+
       .product-thumbnail {
         position: relative;
         overflow: hidden;
@@ -76,6 +79,7 @@
       .product-details {
         margin: 12px 0;
         text-align: center;
+        flex-grow: 1;
 
         .product-title {
           font-weight: 500;

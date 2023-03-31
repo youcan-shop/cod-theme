@@ -4,6 +4,10 @@
   gap: 30px 8px;
   margin-top: 36px;
 }
+.yc-product-listing-container .product-list .product-block {
+  display: flex;
+  flex-direction: column;
+}
 .yc-product-listing-container .product-list .product-block .product-thumbnail {
   position: relative;
   overflow: hidden;
@@ -67,6 +71,7 @@
 .yc-product-listing-container .product-list .product-block .product-details {
   margin: 12px 0;
   text-align: center;
+  flex-grow: 1;
 }
 .yc-product-listing-container .product-list .product-block .product-details .product-title {
   font-weight: 500;
