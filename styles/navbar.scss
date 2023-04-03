@@ -149,7 +149,7 @@
         }
       }
 
-      &.active ::after {
+      &.active ::after, &:hover ::after {
         display: block;
         content: "";
         position: absolute;
@@ -158,7 +158,17 @@
         right: 0;
         width: 40%;
         height: 2px;
-        background-color: var(--yc-primary-color)
+        background-color: var(--yc-primary-color);
+        animation: slide 0.3s ease;
+
+        @keyframes slide {
+          0% {
+            width: 0;
+          }
+          100% {
+            width: 40%;
+          }
+        }
       }
     }
 
