@@ -25,13 +25,3 @@
     </span>
   </button>
 </div>
-
-{% javascript %}
-  const ADD_TO_CART_EXPECTED_ERRORS = {
-    select_variant: "{{ 'errors.select_variant' | t }}",
-    quantity_smaller_than_zero: "{{ 'errors.quantity_smaller_than_zero' | t }}",
-    upload_image: "{{ 'errors.upload_image' | t }}",
-    product_added: "{{ 'errors.product_added' | t }}"
-  }
-{% endjavascript %}
-{{ 'add-to-cart.js' | asset_url | script_tag_deferred }}

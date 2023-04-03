@@ -18,7 +18,10 @@
   },
   "cart": {
     "title": "Panier d'achat",
+    "cart": "votre panier",
     "items_count": "articles",
+    "total_amount": "Total",
+    "empty_cart": "Votre panier est vide",
     "items": {
       "quantity": "Quantité",
       "total": "Total",

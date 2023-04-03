@@ -26,12 +26,14 @@
               <div class="product-title">
                 <span>{{ item.name }}</span>
                 <div class="product-variants">
-                  {% for variant in item.variations %}
+                {% for variant in item.variations %}
+                  {% if variant[0] != 'default' or variant[1] != 'default' %}
                     <span>{{ variant[0] }}:{{ variant[1] }}</span>
                     <span class="variant-space"></span>
-                  {% endfor %}
-                  <div class='product-price'>{{ item.price | money }}</div>
-                </div>
+                  {% endif %}
+                {% endfor %}
+                <div class='product-price'>{{ item.price | money }}</div>
+              </div>
               </div>
             </div>
             <div class="product-quantity">
