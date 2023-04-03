@@ -4,6 +4,7 @@
 
 {%- assign snippetId = 0 | rand %}
 {% assign uniqID = 100 | rand: 2000 %}
+{% assign section_settings = section.settings %}
 
 {%- style -%}
 {% for block in section.blocks %}
@@ -15,6 +16,14 @@
       {% else %}
       .product-quantity .product-option-title {
         display: none;
+      }
+    {% endif %}
+  {% endif %}
+
+  {% if block.type == 'add_to_cart' %}
+    {% if block.settings.is_sticky %}
+      .product-quantity .product-option-title {
+        display: block !important;
       }
     {% endif %}
   {% endif %}
@@ -44,7 +53,7 @@
   {% assign product_name = product.name %}
 
   <!-- prettier-ignore -->
-  {% render 'product-images-showcase', images: images, product_name: product_name, hidden: section.settings.hide_gallery, id: uniqID , view: 'desktop' -%}
+  {% render 'product-images-showcase', images: images, product_name: product_name, hidden: section_settings.hide_gallery, id: uniqID, banner_text: section_settings.banner_text, banner_text_background: section_settings.banner_text_background, banner_text_color: section_settings.banner_text_color, banner_price: section_settings.banner_price, banner_price_background: section_settings.banner_price_background, banner_price_color: section_settings.banner_price_color -%}
 
   <div class='product-details'>
     {%- for block in section.blocks -%}
@@ -55,19 +64,11 @@
           {%- when 'product_price' -%}
             <div class='product-price-container top-spacing'>
               <h2 class='product-price'>{{ product.price | money }}</h2>
-              {% if section.settings.show_compare_at_price and product.compare_at_price != nil %}
+              {% if section_settings.show_compare_at_price and product.compare_at_price != nil %}
                 <div class="compare-container">
                   <h3 class="compare-price">
                     <del>{{ product.compare_at_price | money }}</del>
                   </h3>
-                  {% if section.settings.tag_text %}
-                    <div
-                      class="tag"
-                      style="background: {{ section.settings.tag_color.hex }}; color: {{ section.settings.tag_text_color.hex }};"
-                    >
-                      {{ section.settings.tag_text }}
-                    </div>
-                  {% endif %}
                 </div>
               {% endif %}
             </div>
@@ -116,39 +117,42 @@
 </div>
 
 <script defer>
-(function() {
-  const products = {{ product.images.size }};
-  const desktopSlider = new Splide(`#yc_slider_{{ uniqID }}.yc-slider__desktop`, {
-    arrows: products > 3,
+(function () {
+const products = {{ product.images.size }};
+const ycSlider = $('#yc_slider_{{ uniqID }}');
+
+if (ycSlider) {
+  const ycMobileSlider = new Splide(`#yc_slider_{{ uniqID }}`, {
+    arrows: false,
+    drag: true,
+    flickMaxPages: 1,
+    pagination: true,
+    paginationType: 'bullets',
+    gap:'4px',
+    perPage: 1,
     rewind: true,
-    perPage: Math.min(products, 4),
-    perMove: 1,
-    gap: '10px',
-    drag: 'free',
-    snap: true,
-    breakpoints: {
-      1024: {
-        perPage: Math.min(products, 3),
-      },
-      767: {
-        direction: 'ttb',
-        height: '255px',
-      },
-    },
+    fixedWidth: '90%',
+    type: 'loop',
+    rewind: true,
+    rewindSpeed: 1000
   });
-  const resizedIcons = () => {
-    if (products >= 3 && window.innerWidth < 1024 || products >= 4) {
-      document.querySelector('.yc-slider__desktop').style.padding = '0 40px';
-    }
-    if (products > 3) {
-      document.querySelector('.thumbnail-images').style.justifyContent = 'center';
-    }
-    if (window.innerWidth < 768) {
-      document.querySelector('.yc-slider__desktop').style.padding = '0';
+
+  ycMobileSlider.mount();
+  let isSliderMounted = true;
+
+  function checkMediaQuery(e) {
+    if (e.matches && isSliderMounted === true) {
+      ycMobileSlider.destroy();
+      isSliderMounted = false;
+    } else if(isSliderMounted === false) {
+      ycMobileSlider.mount();
+      isSliderMounted = true;
     }
   }
-  desktopSlider.on('mounted', resizedIcons);
-  desktopSlider.on('resize', resizedIcons);
-  desktopSlider.mount();
+
+  const mediaQuery = window.matchMedia('(min-width: 768px)');
+  mediaQuery.addEventListener('change', checkMediaQuery);
+  checkMediaQuery(mediaQuery);
+}
 })();
 </script>

@@ -1,34 +1,75 @@
-{{ 'splide.min.css' | asset_url | stylesheet_tag }}
-{{ 'splide.min.js' | asset_url | script_tag }}
+{%- style -%}
+  .tag-text {
+    background: {{ banner_text_background.hex }};
+    color: {{ banner_text_color.hex }};
+  }
+  .tag-price {
+    background: {{ banner_price_background.hex }};
+    color: {{ banner_price_color.hex }};
+  }
+{%- endstyle -%}
 
 <section class='product-images {% if hidden %} hidden{% endif %}'>
-  <div class='product-images-container'>
-    {% if images.size > 1 %}
-    <div class='thumbnail-images splide yc-slider__{{ view }}' id='yc_slider_{{id}}'>
+  {% if images.size > 1 %}
+    <div class='splide' id='yc_slider_{{id}}'>
       <div class="splide__track">
-        <ul class="splide__list">
+        <ul class="splide__list images-list">
           {% for image in images %}
-            <li class="image-container splide__slide" onmouseenter='previewProductImage(this)'>
+            <li class="splide__slide">
+              <div class='img-zoomer-box'>
                 <img
                   loading='lazy'
-                  class='thumbnail-image'
+                  class='original-image'
                   src='{{ image | img_url: 'thumb' }}'
-                  alt='{{ product_name }}'>
+                  alt='{{ product_name }}'
+                  data-magnified-image='{{ image }}'
+                >
+                <div class='magnified-image'></div>
+              </div>
+              <div class='tag'>
+                {% if banner_price %}
+                  <div class="tag-price">
+                    {{ banner_price }}
+                  </div>
+                {% endif %}
+                {% if banner_text %}
+                  <div class="tag-text">
+                    {{ banner_text }}
+                  </div>
+                  {% endif %}
+              </div>
             </li>
           {% endfor %}
         </ul>
       </div>
+      <div class="splide__pagination"></div>
     </div>
+  {% else %}
+  <ul class='images-list'>
+    <li>
+      <div class='img-zoomer-box'>
+        <img
+          loading='lazy'
+          class='original-image'
+          src='{%- if images[0] %} {{images[0]}} {%- else %} {{ 'default_product.jpeg' | asset_url }} {% endif %}'
+          alt='{{ product_name }}'
+          data-magnified-image='{{ images[0] }}'
+        >
+        <div class='magnified-image'></div>
+        <div class='tag'>
+          {% if banner_price %}
+            <div class="tag-price">
+              {{ banner_price }}
+            </div>
+          {% endif %}
+          {% if banner_text %}
+            <div class="tag-text">
+              {{ banner_text }}
+            </div>
+            {% endif %}
+        </div>
+      </div>
+    </li>
+  </ul>
   {% endif %}
-
-    <div id='img-zoomer-box'>
-      <img
-        loading='lazy'
-        class='main-image'
-        class='main-thumbnail'
-        src='{%- if images[0] %}{{images[0]}}{%- else %}{{ 'default_product.jpeg' | asset_url }}{% endif %}'
-        alt='{{ product_name }}'>
-      <div id='magnified-image'></div>
-    </div>
-  </div>
 </section>

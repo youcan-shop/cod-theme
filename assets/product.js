@@ -1,11 +1,3 @@
-function previewProductImage(element) {
-  const parentSection = element.closest('.yc-single-product');
-  const thumbnail = parentSection.querySelector('.main-image');
-
-  thumbnail.src = element.firstElementChild.src;
-  setElementActive(element);
-}
-
 /**
  * Upload image input handler
  * @param {HTMLElement} element
@@ -107,30 +99,32 @@ function uploadImage(element) {
 }
 
 (function productImageHoverZoomer() {
-  const singleProductImagesPreview = document.querySelectorAll(
-    '.product-images-container'
-  );
+  const singleProductImagesPreview = document.querySelectorAll('.product-images');
 
   if (!singleProductImagesPreview || !singleProductImagesPreview.length) return;
 
   singleProductImagesPreview.forEach((imagesPreview) => {
-    const imgZoomer = imagesPreview.querySelector('#img-zoomer-box');
+    const imgZoomers = imagesPreview.querySelectorAll('.img-zoomer-box');
 
-    if (!imgZoomer) return;
+    if (!imgZoomers || !imgZoomers.length) return;
 
     function eventHandler(e) {
-      const original = $('.main-image');
-      const magnified = $('#magnified-image');
+      const original = e.target;
+      const magnified = original.nextElementSibling;
+
+      if (!magnified) return;
 
       x = (e.offsetX / original.offsetWidth) * 100;
       y = (e.offsetY / original.offsetHeight) * 100;
 
       magnified.style.backgroundPosition = x + '% ' + y + '%';
-      magnified.style.backgroundImage = 'url(' + original.src + ')';
+      magnified.style.backgroundImage = 'url(' + original.getAttribute('data-magnified-image') + ')';
       magnified.style.inset = '0px';
     }
 
-    imgZoomer.addEventListener('mousemove', eventHandler, false);
+    imgZoomers.forEach((imgZoomer) => {
+      imgZoomer.addEventListener('mousemove', eventHandler, false);
+    });
   });
 })();
 
@@ -546,7 +540,9 @@ function moveStaticAddToCartToParent() {
   }
 }
 
-moveStaticAddToCartToParent();
+document.addEventListener("DOMContentLoaded", () => {
+  moveStaticAddToCartToParent();
+});
 
 function setup() {
   const singleProductSections = document.querySelectorAll('.yc-single-product');
