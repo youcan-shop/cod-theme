@@ -126,9 +126,14 @@
     flex-direction: column;
 
     .product-name {
-      font-weight: 700;
-      font-size: 25px;
+      display: none;
+      font-weight: 400;
+      font-size: 32px;
       line-height: 120%;
+
+      @include breakpoint('md') {
+        display: block;
+      }
     }
     .product-options {
       display: grid;
@@ -272,30 +277,32 @@
 
   .product-price-container {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 7px;
   }
 
   .product-price {
     font-weight: 700;
-    font-size: 25px;
+    font-size: 26px;
     line-height: 120%;
     color: var(--yc-primary-color);
+    order: 2;
+
+    @include breakpoint('md') {
+      font-size: 32px;
+    }
   }
 
   .compare-price {
     font-weight: 500;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 120%;
     color: #8D8D8D;
-  }
 
-  .compare-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-grow: 1;
+    @include breakpoint('md') {
+      font-size: 24px;
+    }
   }
 
   .express-checkout-container {

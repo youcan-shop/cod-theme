@@ -533,10 +533,11 @@ span {
 
     .sticky-elements-container {
       border: 1px solid #e3e3e3;
+      box-shadow: 1px -13px 53px rgba(0, 0, 0, 0.1);
       background: white;
       padding: 20px;
       display: grid;
-      gap: 20px;
+      gap: 16px;
       width: 100%;
       order: 2;
 
@@ -661,7 +662,7 @@ span {
   align-items: center;
   justify-content: center;
   background-color: #F5F5F5;
-  padding: 12px 10px;
+  padding: 3.5px 12px;
   gap: 8px;
 
   span {
