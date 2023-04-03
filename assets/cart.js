@@ -120,12 +120,23 @@ async function increaseQuantity(cartItemId, productVariantId, quantity) {
   await updateQuantity(cartItemId, productVariantId, quantity);
 }
 
+
+function updateCartItemCount(count) {
+  const cartItemsCount = document.getElementById('cart-items-count');
+  if (cartItemsCount) {
+    cartItemsCount.textContent = count;
+  }
+}
+
 async function removeItem(cartItemId, productVariantId) {
   load(`#loading__${cartItemId}`);
   try {
     await youcanjs.cart.removeItem({ cartItemId, productVariantId });
     document.getElementById(cartItemId).remove();
     document.getElementById(`cart-item-${cartItemId}`).remove();
+
+    const updatedCart = await youcanjs.cart.fetch();
+    updateCartItemCount(updatedCart.count);
 
     updateTotalPrice();
     await updateCartDrawer();
