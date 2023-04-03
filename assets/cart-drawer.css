@@ -1,0 +1,105 @@
+.navigation-drawer.cart-drawer {
+  width: 100%;
+  max-width: 480px;
+  transform: translateX(150vw);
+  opacity: 0;
+}
+.navigation-drawer.cart-drawer .wall {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+.navigation-drawer.cart-drawer .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ADADAD;
+  height: 60px;
+  padding: 0 20px;
+}
+.navigation-drawer.cart-drawer .header .your-cart-title {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+}
+.navigation-drawer.cart-drawer .header #close-cart-drawer {
+  height: 20px;
+  width: 20px;
+}
+.navigation-drawer.cart-drawer .content .cart-item {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 18px;
+  margin: 24px 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #E1E1E1;
+}
+.navigation-drawer.cart-drawer .content .cart-item .image img {
+  aspect-ratio: 1;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.navigation-drawer.cart-drawer .content .cart-item .info .title,
+.navigation-drawer.cart-drawer .content .cart-item .price {
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--yc-primary-color);
+}
+.navigation-drawer.cart-drawer .content .cart-item .price {
+  font-weight: 600;
+  display: flex;
+  justify-content: flex-end;
+}
+.navigation-drawer.cart-drawer .content .cart-item .info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.navigation-drawer.cart-drawer .content .cart-item .info .title {
+  font-weight: 400;
+}
+.navigation-drawer.cart-drawer .content .cart-item .info .variants *,
+.navigation-drawer.cart-drawer .content .cart-item .info .quantity {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+}
+.navigation-drawer.cart-drawer .content .cart-item .info .variants {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.navigation-drawer.cart-drawer .content .cart-item .price-trash-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+}
+.navigation-drawer.cart-drawer .bottom-coconut {
+  padding: 24px;
+  background-color: var(--yc-neutral-light-color);
+}
+.navigation-drawer.cart-drawer .bottom-coconut .total-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.navigation-drawer.cart-drawer .bottom-coconut .total-wrapper .total {
+  font-weight: 600;
+  color: var(--yc-primary-color);
+}
+.navigation-drawer.cart-drawer .bottom-coconut .total-wrapper .total-word {
+  font-weight: 400;
+  color: var(--yc-primary-color);
+}
+.navigation-drawer.cart-drawer .bottom-coconut .continue-shopping {
+  margin-top: 42px;
+}
+.navigation-drawer.cart-drawer .bottom-coconut .close {
+  margin-top: 16px;
+  background-color: transparent !important;
+  color: rgba(0, 0, 0, 0.35) !important;
+}

@@ -39,7 +39,10 @@
       "description": "Avant de procéder au paiement, vous devez ajouter des produits à votre panier d'achat. <br/> Vous trouverez beaucoup de produits intéressants sur notre page \"Shop\".",
       "cta": "Retour au magasin"
     },
-    "continue_shopping_cta": "Continuer les achats"
+    "continue_shopping_cta": "Continuer les achats",
+    "your_cart": "Votre panier",
+    "continue_shopping": "Continuer les achats",
+    "close": "Fermer"
   },
   "thankyou": {
     "title": "Merci",

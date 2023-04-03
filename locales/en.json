@@ -39,7 +39,10 @@
       "description": "Before you proceed to checkout you must add some products to your shopping cart. <br/> You will find a lot of interesting products on our \"Shop\" page.",
       "cta": "Return to shop"
     },
-    "continue_shopping_cta": "Continue Shopping"
+    "continue_shopping_cta": "Continue Shopping",
+    "your_cart": "Your Cart",
+    "continue_shopping": "Continue Shopping",
+    "close": "Close"
   },
   "thankyou": {
     "title": "Thank you",

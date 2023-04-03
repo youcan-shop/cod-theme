@@ -40,6 +40,8 @@ async function addToCart(snippetId) {
 
     stopLoad('#loading__cart');
     notify(ADD_TO_CART_EXPECTED_ERRORS.product_added, 'success');
+    openDrawer('.cart-drawer');
+    setupCartDrawer();
   } catch (err) {
     stopLoad('#loading__cart');
     notify(err.message, 'error');

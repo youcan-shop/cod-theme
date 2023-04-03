@@ -73,15 +73,15 @@
                 </form>
               </div>
             </div>
-            <a
+            <div
               class='cart relative'
-              href='{{ routes.cart_url }}'
+              onclick="openDrawer('.cart-drawer')"
             >
               <span id='cart-items-badge'>
                 {{- cart.items | size -}}
               </span>
               {% render 'icon', name: 'cart' %}
-            </a>
+            </div>
             <button
               class='menu-toggler text-3xl'
               onclick="openDrawer('.navbar-drawer')"

@@ -247,7 +247,7 @@
   opacity: 0;
   z-index: 99;
 
-  *:not(span) {
+  &.navbar-drawer *:not(span) {
     @extend .items-configs;
   }
 

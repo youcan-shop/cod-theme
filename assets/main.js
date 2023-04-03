@@ -100,6 +100,7 @@ const hideOverlay = () => {
     overlay.style.visibility = 'hidden';
     overlay.style.opacity = '0';
     drawer.style.transform = 'translateX(150vw)';
+    targetedDrawer.visibility = 'hidden';
   };
 
   if (drawerBtn) {

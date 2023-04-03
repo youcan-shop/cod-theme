@@ -1,4 +1,4 @@
-.items-configs, .navigation-drawer *:not(span), .yc-header .yc-navbar *:not(span):not(input) {
+.items-configs, .navigation-drawer.navbar-drawer *:not(span), .yc-header .yc-navbar *:not(span):not(input) {
   color: var(--yc-nav-links-color);
   stroke: var(--yc-nav-links-color);
   font-family: var(--yc-nav-font-family);
