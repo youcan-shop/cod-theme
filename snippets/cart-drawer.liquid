@@ -19,12 +19,13 @@
     upload_image: "{{ 'errors.upload_image' | t }}",
     product_added: "{{ 'errors.product_added' | t }}"
   }
-  const quantityVariant = "{{ 'cart.items.quantity' | t }}"; 
-  const cartName = "{{ 'cart.cart' | t }}";
-  const totalAmount = "{{ 'cart.total_amount' | t }}";
-  const checkoutPayment = "{{ 'cart.summary.checkout_cta' | t }}";
-  const emptyCart = "{{ 'cart.empty_cart' | t }}";
-  const defaultImage = '{{ "product-default.png" | asset_url }}';
-
+  const CART_DRAWER_TRANSLATION = {
+    quantityVariant: '{{ 'cart.items.quantity' | t }}',
+    cartName:  "{{ 'cart.cart' | t }}",
+    totalAmount:  '{{ 'cart.total_amount' | t }}',
+    checkoutPayment:  '{{ 'cart.summary.checkout_cta' | t }}',
+    emptyCart:  '{{ 'cart.empty_cart' | t }}',
+    defaultImage:  '{{ 'product-default.png' | t }}'
+  }
 {% endjavascript %}
 {{ 'add-to-cart.js' | asset_url | script_tag_deferred }}

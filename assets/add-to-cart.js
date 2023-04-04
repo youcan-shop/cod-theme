@@ -115,7 +115,7 @@ function cartTemplate(item) {
         <div class="item-details">
           <p class="product-name">${item.productVariant.product.name}</p>
           <div class="variants">
-          ${quantityVariant}:${item.quantity} &nbsp;${variationsCheck}
+          ${CART_DRAWER_TRANSLATION.quantityVariant}:${item.quantity} &nbsp;${variationsCheck}
           </div>
           <div class="product-price">
             <span class="compare-price">${item.productVariant.compare_at_price ? item.productVariant.compare_at_price : ''}</span>
@@ -149,7 +149,7 @@ async function updateCartDrawer() {
 
     const headerContainer = `
       <div class="header">
-        <h2 class="cart">${cartName}<span> ${cartData.count}</span></h2>
+        <h2 class="cart">${CART_DRAWER_TRANSLATION.cartName}<span> ${cartData.count}</span></h2>
       </div>
     `;
     
@@ -171,17 +171,17 @@ async function updateCartDrawer() {
     } else {
       const p = document.createElement('p');
       p.classList.add('empty-cart');
-      p.textContent = emptyCart;
+      p.textContent = CART_DRAWER_TRANSLATION.emptyCart;
       cartDrawerContent.appendChild(p);
     }
 
     const footerContainerHTML = `
         <div class="footer">
           <div class="price-wrapper">
-            <span class="total-price">${totalAmount}</span>
-            <span class="currency-value">${cartData.total}</span>
+            <span class="total-price">${CART_DRAWER_TRANSLATION.totalAmount}</span>
+            <span class="currency-value">${cartData.sub_total}</span>
           </div>
-          <a href='${location.origin}/cart' class="yc-btn">${checkoutPayment}</a>
+          <a href='${location.origin}/cart' class="yc-btn">${CART_DRAWER_TRANSLATION.checkoutPayment}</a>
         </div>
     `;
 
