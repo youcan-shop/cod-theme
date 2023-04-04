@@ -1,52 +1,90 @@
 @import 'helpers/mixins';
 
 .countdown-wrapper {
-  width: calc(100% + 40px);
-  margin: 0 -20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  padding: 20px;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
 
   @include breakpoint('md') {
-    width: 100%;
-    margin: 0;
-    border-radius: 4px;
+    flex-direction: row;
   }
 
-  .message p {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 120%;
+  .message {
+    text-align: center;
+    font-size: 23px;
+    display: none;
   }
 
+  @include breakpoint('md') {
+    flex-direction: row;
+
+    .message {
+      display: block;
+    }
+  }
   .countdown {
     direction: ltr;
     display: flex;
-    align-items: center;
+    justify-content: center;
     gap: 4px;
+    margin: 0;
 
-    & *:not(.dots, .num) {
-      min-width: 37px;
-      padding: 5px;
+    & .day,
+    & .hour,
+    & .min,
+    & .sec {
       text-align: center;
-      border-radius: 6px;
-      background-color: #e1e1e15c;
+      width: min-content;
+      display: flex;
+      align-items: center;
     }
 
-    .num {
-      font-weight: 700;
-      font-size: 22px;
-      line-height: 120%;
+    & .day .num,
+    & .hour .num,
+    & .min .num,
+    & .sec .num {
+      display: block;
+      padding: 0.1rem 0.5rem;
+      border-radius: 6px;
+      font-size: 29px;
+      font-weight: 600;
+      color: #FFFFFF;
+      border: 0;
+      background-color: #EE7A6D;
+    }
+
+    & .sec .num {
+      background-color: #000000;
+      border: 0;
+      width: 42px;
+      display: flex;
+      justify-content: center;
+
+      @media screen and (max-width: 600px) {
+        width: 35px;
+      }
     }
 
     .dots {
-      max-width: max-content;
-      height: fit-content;
-      font-size: 34px;
-      font-weight: 700;
+      color: white;
+      font-size: 40px;
       margin-top: -11px;
+    }
+
+    @media screen and (max-width: 600px) {
+      gap: 1px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    & .day .num,
+    & .hour .num,
+    & .min .num,
+    & .sec .num {
+      font-size: 19px !important;
+      padding: 8px !important;
     }
   }
 }

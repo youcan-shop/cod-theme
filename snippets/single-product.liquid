@@ -63,8 +63,9 @@
           {%- when 'product_description' -%}
             <section class='product-description '>{{ product.description }}</section>
           {%- when 'countdown_timer' %}
-            <!-- prettier-ignore -->
+            <div class="countdown-container">
               {%- render 'countdown', section_settings: block.settings -%}
+            </div>
           {%- when 'stock' -%}
             <!-- prettier-ignore -->
             {% render 'stock', stock_items_left: block.settings.stock_items_left, total_stock_items: block.settings.total_stock_items %}
