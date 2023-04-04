@@ -272,6 +272,12 @@
   border-radius: 4px;
   padding: 18px 20px;
 }
+.yc-single-product .product-details .countdown-container .countdown-wrapper .countdown .num {
+  background: rgba(225, 225, 225, 0.3);
+}
+.yc-single-product .product-details .countdown-container .countdown-wrapper .countdown .sec .num {
+  background-color: var(--yc-primary-color);
+}
 .yc-single-product .product-price-container {
   display: flex;
   align-items: center;
