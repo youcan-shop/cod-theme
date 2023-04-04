@@ -305,7 +305,9 @@
                 "slider_mobile_autoplay": true,
                 "slider_mobile_pagination": true,
                 "slider_mobile_arrows": true,
-                "countdown_enabled": true
+                "countdown_enabled": true,
+                "background_color": "#FFFFFFFF",
+                "title": "عرض"
             },
             "blocks": {
                 "block_emefi1dpsjc8dxl": {
@@ -378,13 +380,14 @@
                     "type": "countdown_timer",
                     "settings": {
                         "countdown_message": "<p>عرض لفترة محدودة<\/p>",
-                        "background_color": "#000000",
+                        "background_color": "#000000FF",
                         "text_color": "#FFFFFF",
                         "countdown_year": 2023,
                         "countdown_month": 6,
                         "countdown_day": 2,
                         "countdown_hour": 31,
-                        "countdown_minute": 1
+                        "countdown_minute": 1,
+                        "countdown_background_color": "#999999FF"
                     }
                 },
                 "block_af3yih4l1vuvszt": {
