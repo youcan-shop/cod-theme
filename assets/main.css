@@ -593,6 +593,9 @@ span {
   gap: 12px;
   margin: 40px auto;
 }
+[dir=ltr] .breadcrumbs-container .breadcrumbs-listings .arrow {
+  rotate: 180deg;
+}
 .breadcrumbs-container .breadcrumbs-listings .first-listing {
   color: #A8A8A8;
   font-weight: 400;

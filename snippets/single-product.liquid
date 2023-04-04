@@ -5,6 +5,8 @@
 {%- assign snippetId = 0 | rand %}
 {% assign uniqID = 100 | rand: 2000 %}
 {% assign section_settings = section.settings %}
+{% assign images = product.images %}
+{% assign product_name = product.name %}
 
 {%- style -%}
 {% for block in section.blocks %}
@@ -30,6 +32,9 @@
 {% endfor %}
 {%- endstyle -%}
 
+<div class='container'>
+  {%- render 'breadcrumbs' product_name: product_name -%}
+</div>
 <div
   class='container yc-single-product'
   id='s-{{ snippetId }}'
@@ -49,8 +54,6 @@
     id='yc-upload-link'
     style='display: none'
   >
-  {% assign images = product.images %}
-  {% assign product_name = product.name %}
 
   <!-- prettier-ignore -->
   {% render 'product-images-showcase', images: images, product_name: product_name, hidden: section_settings.hide_gallery, id: uniqID, banner_text: section_settings.banner_text, banner_text_background: section_settings.banner_text_background, banner_text_color: section_settings.banner_text_color, banner_price: section_settings.banner_price, banner_price_background: section_settings.banner_price_background, banner_price_color: section_settings.banner_price_color -%}

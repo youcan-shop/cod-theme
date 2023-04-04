@@ -1,19 +1,7 @@
 {{ 'pages.css' | asset_url | stylesheet_tag }}
 
 <div class='yc-page'>
-  <div class="breadcrumbs-container">
-    <div class="breadcrumbs-listings">
-      <div class="listings__item">
-        <a href="/" class="first-listing">{{ 'snippets.collection-listing.home' | t }}</a>
-      </div>
-      <div class="listings__item">
-        <img src='{{ 'left-arrow.png' | asset_url }}'>
-      </div>
-      <div class="listings__item">
-        <span class="second-listing">{{ page.name }}</span>
-      </div>
-    </div>
-  </div>
+  {%- render 'breadcrumbs' -%}
   <div class="yc-page-container">
   {{ page.content }}
   </div>

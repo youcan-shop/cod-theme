@@ -1,17 +1,54 @@
-<div class="breadcrumbs-container">
-  <div class="breadcrumbs-listings">
-    <div class="listings__item">
-      <a href="/" class="first-listing">{{ 'snippets.collection-listing.home' | t }}</a>
+{%- if template contains 'collection' or template contains 'list-collections' -%}
+  <div class="breadcrumbs-container">
+    <div class="breadcrumbs-listings">
+      <div class="listings__item">
+        <a href="/" class="first-listing">{{ 'snippets.collection-listing.home' | t }}</a>
+      </div>
+      <div class="listings__item arrow">
+        <img src='{{ 'left-arrow.png' | asset_url }}'>
+      </div>
+      <div class="listings__item">
+        <a href="/collections" class="second-listing">{{ 'snippets.collection-listing.collections' | t }}</a>
+      </div>
     </div>
-    <div class="listings__item">
-      <img src='{{ 'left-arrow.png' | asset_url }}'>
-    </div>
-    <div class="listings__item">
-      <a href="/collections" class="second-listing">{{ 'snippets.collection-listing.collections' | t }}</a>
+    {%- if template contains 'collection' -%}
+      <div class="breadcrumbs-name">
+        <h1>{{ category.name }}</h1>
+      </div>
+      {%- else -%}
+      <div class="breadcrumbs-name">
+        <h1>{{ 'snippets.collection-listing.collections' | t }}</h1>
+      </div>
+    {%- endif-%}
+  </div>
+{%- elsif template contains 'product' -%}
+  <div class="breadcrumbs-container">
+    <div class="breadcrumbs-listings">
+      <div class="listings__item">
+        <a href="/" class="first-listing">{{ 'snippets.collection-listing.home' | t }}</a>
+      </div>
+      <div class="listings__item arrow">
+        <img src='{{ 'left-arrow.png' | asset_url }}'>
+      </div>
+      <div class="second-listing">
+        {{ product_name }}
+      </div>
     </div>
   </div>
-
-  <div class="breadcrumbs-name">
-    <h1>{{ 'snippets.collection-listing.collections' | t }}</h1>
-  </div>
-</div>
+{%- else -%}
+  {% unless template contains 'index' %}
+    <div class="breadcrumbs-container">
+      <div class="breadcrumbs-listings">
+        <div class="listings__item">
+          <a href="/" class="first-listing">{{ 'snippets.collection-listing.home' | t }}</a>
+        </div>
+        <div class="listings__item arrow">
+          <img src='{{ 'left-arrow.png' | asset_url }}'>
+        </div>
+        <div class="listings__item">
+          <span class="second-listing">{{ page.name }}</span>
+        </div>
+      </div>
+    </div>
+  {% endunless %}
+{%- endif -%}

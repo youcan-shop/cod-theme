@@ -633,6 +633,11 @@ span {
     gap: 12px;
     margin: 40px auto;
 
+    .arrow {
+      [dir='ltr'] & {
+        rotate: 180deg;
+      }
+    }
     .first-listing {
       color: #A8A8A8;
       font-weight: 400;
