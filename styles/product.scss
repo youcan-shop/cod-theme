@@ -285,6 +285,21 @@
         font-size: 18px;
       }
     }
+
+    .countdown-container {
+      border-radius: 4px;
+      padding: 18px 20px;
+
+      .countdown-wrapper .countdown {
+        .num {
+          background: rgba(225, 225, 225, 0.3);
+        }
+
+        .sec .num {
+          background-color: var(--yc-primary-color);
+        }
+      }
+    }
   }
 
   .product-price-container {

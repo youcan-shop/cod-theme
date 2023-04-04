@@ -12,8 +12,4 @@
   <button class='yc-btn' id='show-more'>{{ 'general.show_more_button' | t }}</button>
 </div>
 
-{% javascript %}
-  const defaultAvatar = '{{ "avatar.png" | asset_url }}';
-{% endjavascript %}
-
 {{ 'reviews.js' | asset_url | script_tag_deferred }}
