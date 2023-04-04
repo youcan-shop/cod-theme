@@ -24,7 +24,8 @@
     {{ section.settings.title }}
   </h1>
   <div class='yc-featured-collections'>
-    {%- for block in section.blocks -%}
+  {%- for block in section.blocks -%}
+    <div class='categories-container'>
       <div class='category-block'>
         <div
           class='product-block'
@@ -44,10 +45,10 @@
               <img src='{{ block.settings.category.image }}' class="category-img">
           {% endif %}
         </div>
+        </div>
       </div>
     {%- endfor -%}
-  </div> 
-</div> 
+    </div>
 
 {%- schema -%}
   {
@@ -109,7 +110,7 @@
     "blocks": [
       {
         "label": "Category",
-        "limit": 2,
+        "limit": 4,
         "type": "category",
         "settings": [
           {

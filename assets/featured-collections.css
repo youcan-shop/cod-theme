@@ -18,6 +18,10 @@
   grid-template-columns: repeat(2, 1fr);
   margin: 30px auto;
 }
+.yc-featured-collections .categories-container {
+  display: inline-block;
+  vertical-align: top;
+}
 .yc-featured-collections .category-block {
   position: relative;
   display: flex;
@@ -76,11 +80,12 @@
 }
 @media (max-width: 768px) {
   .yc-featured-collections {
+    display: flex;
     overflow-x: auto;
     overflow-y: hidden; /* hide the vertical scrollbar */
     scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS devices */
+    direction: initial;
   }
   .yc-featured-collections::-webkit-scrollbar {
     display: none;

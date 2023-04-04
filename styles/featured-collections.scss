@@ -18,6 +18,11 @@
   grid-template-columns: repeat(2, 1fr);
   margin: 30px auto;
 
+  .categories-container {
+    display: inline-block;
+    vertical-align: top;
+  }
+
   .category-block {
     position: relative;
     display: flex;
@@ -83,12 +88,13 @@
   }
 
   @include max-screen ('md') {
+    display: flex;
     overflow-x: auto;
     overflow-y: hidden; /* hide the vertical scrollbar */
     scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS devices */
-
+    direction: initial;
+    
     &::-webkit-scrollbar {
       display: none;
     }
