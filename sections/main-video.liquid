@@ -1,4 +1,6 @@
-<div class='flex items-center justify-center container'>
+{{ 'video.css' | asset_url | stylesheet_tag }}
+
+<div class='video-wrapper container'>
   {% if section.settings.video_link %}
     {% if section.settings.video_type == 'youtube' %}
       <iframe

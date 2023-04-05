@@ -1,6 +1,6 @@
 ## JIRA Ticket
 
-[DOT-X](https://youcanshop.atlassian.net/browse/DOT-X)
+[YSHOP2-X](https://youcanshop.atlassian.net/browse/YSHOP2-X)
 
 ## QA Steps
 
