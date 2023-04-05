@@ -128,23 +128,27 @@
     }
 
     .menu-item {
+      height: calc(var(--yc-nav-height) + 1px);
+      display: flex;
+      align-items: center;
+
       a {
         color: var(--yc-nav-links-color);
         font-size: 15px;
         font-weight: 600;
-        height: 100%;
         text-decoration: none;
       }
     }
     
     .itemactive {
+      border-bottom: 3px solid var(--yc-primary-color);
+
       a {
         font-weight: 700;
+        margin-bottom: -4px;
       }
 
       @include breakpoint('md') {
-          border-bottom: 3px solid var(--yc-primary-color);
-          margin-bottom: -29px;
       }
     }
 

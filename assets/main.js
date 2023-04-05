@@ -127,9 +127,17 @@ const hideOverlay = () => {
     drawerBtn.addEventListener('click', closeDrawer);
   }
 
+  if (overlay) {
+    overlay.addEventListener('click', closeDrawer);
+  }
+
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) {
       closeDrawer();
+
+      if (menuIcon) {
+        menuIcon.setAttribute('name', 'menu-outline');
+      }
     }
   });
 };
@@ -152,7 +160,6 @@ const openDrawer = (el) => {
 
 if (overlay) {
   hideOverlay();
-  overlay.addEventListener('click', toggleDrawerIcon);
 }
 
 /* ------------------ */

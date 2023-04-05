@@ -1,3 +1,13 @@
+{% style %}
+  .collection-name {
+    color: {{ section.settings.category_name_color.hex }};
+  }
+  
+  .collection-description {
+    color: {{ section.settings.category_description.hex }}; 
+  }
+{% endstyle %}
+
 <div
   class='collection-block'
   {{ block.youcan_attributes }}

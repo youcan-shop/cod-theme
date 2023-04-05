@@ -7,7 +7,7 @@
   {%- paginate collections by per_page cod %}
     <div class='collection-list'>
       {% for collection in items %}
-        {%- render 'collection-preview', category: collection %}
+        {%- render 'collection-preview', category: collection, section_settings: section.settings %}
       {% endfor %}
     </div>
   {%- endpaginate %}
@@ -24,6 +24,16 @@
       "id": "items_per_page",
       "label": "Collections per page",
       "default": 10
+    },
+    {
+      "type": "color",
+      "id": "category_name_color",
+      "label": "Category name color"
+    },
+    {
+      "type": "color",
+      "id": "category_description",
+      "label": "Category description color"
     }
   ]
 }

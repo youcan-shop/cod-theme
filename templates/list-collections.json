@@ -1,8 +1,14 @@
 {
   "sections": {
-    "collections": {
-      "type": "main-list-collections"
-    }
+      "collections": {
+          "type": "main-list-collections",
+          "settings": {
+              "category_name_color": "#FEFEFEFF",
+              "category_description": "#FFFFFFFF"
+          }
+      }
   },
-  "order": ["collections"]
+  "order": [
+      "collections"
+  ]
 }
