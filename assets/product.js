@@ -200,28 +200,23 @@ function getSelectedOptions(parentSection) {
 
     switch (optionType) {
       case 'dropdown':
-        selectedOptions[optionName] = option.querySelector('.dropdown-content li.selected')?.innerText;
+        selectedOptions[optionName] = option.querySelector('.dropdown-content li.selected')?.innerText.trim();
         break;
       case 'textual_buttons':
-        selectedOptions[optionName] = option.querySelector(
-          '.yc-options-item.active'
-        )?.innerText;
+        selectedOptions[optionName] = option.querySelector('.yc-options-item.active')?.innerText.trim();
         break;
       case 'radio_buttons':
-        selectedOptions[optionName] =
-          option.querySelector('input:checked')?.value;
+        selectedOptions[optionName] = option.querySelector('input:checked')?.value;
         break;
       case 'image_based_buttons':
-        selectedOptions[optionName] = option.querySelector(
-          '.yc-image-options-item.active img'
-        )?.alt;
+        selectedOptions[optionName] = option.querySelector('.yc-image-options-item.active img')?.alt;
         break;
       case 'upload_image_zone':
         selectedOptions[optionName] = 'upload-zone';
         break;
       case 'color_base_buttons':
         selectedOptions[optionName] =
-          option.querySelector('.yc-colors-item.active')?.innerText;
+          option.querySelector('.yc-colors-item.active')?.innerText.trim();
         break;
     }
   });
@@ -275,9 +270,11 @@ function updateProductDetails(parentSection, image, price, variations) {
     const showStickyCheckoutPrice = $('#sticky-price');
 
     productPrices.forEach(productPrice => {
-      productPrice.innerHTML = `${
-        String(productPrice.innerHTML).split(' ')[0]
-      } ${price}`;
+      const priceText = productPrice.innerText;
+      const currencySymbol = priceText.replace(/[0-9.,]/g, "").trim();
+      const displayValue = `${price} ${currencySymbol}`;
+
+      productPrice.innerText = displayValue;
 
       if(showStickyCheckoutPrice) {
         showStickyCheckoutPrice.innerHTML = productPrice.innerHTML;
