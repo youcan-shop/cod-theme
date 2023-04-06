@@ -26,15 +26,14 @@ body {
   font-family: var(--yc-font-family);
 }
 
+[style*="z-index: 500; height: 54px; width: 100vw; position: fixed; padding: 4px 16px"] {
+  display: none !important;
+}
+
 .container {
   max-width: 1440px !important;
   margin: 0 auto;
   padding: 0 20px;
-}
-.container.fluid {
-  max-width: 100%;
-  min-width: 100%;
-  width: 100%;
 }
 
 input,
