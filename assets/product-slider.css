@@ -29,13 +29,19 @@
 }
 .product-slider .splide__arrows {
   position: absolute;
-  transform: translate(128px, -73.5px);
+  transform: translate(44px, 25px);
+  left: 50%;
+  bottom: 0;
 }
-@media screen and (max-width: 845px) {
+@media screen and (min-width: 845px) {
   .product-slider .splide__arrows {
-    transform: translate(44px, 25px);
-    left: 50%;
-    bottom: 0;
+    transform: unset;
+    bottom: unset;
+    top: -73px;
+    left: 127px;
+  }
+  [dir=ltr] .product-slider .splide__arrows {
+    left: calc(100% - 32px);
   }
 }
 .product-slider .product-block {

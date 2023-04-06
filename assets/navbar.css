@@ -78,11 +78,10 @@
   border-radius: 50%;
   z-index: 10;
 }
-.yc-header .yc-navbar .menu-toggler {
-  position: absolute;
-  right: 0;
-  transform: translate(-50%, -50%);
-  display: flex;
+@media screen and (max-width: 767px) {
+  .yc-header .yc-navbar .menu, .yc-header .yc-navbar .menu-toggler {
+    height: 30px;
+  }
 }
 @media (min-width: 768px) {
   .yc-header .yc-navbar .menu-toggler {
@@ -92,11 +91,6 @@
 .yc-header .yc-navbar .logo img {
   height: calc(var(--yc-nav-height) - 20px);
   max-height: 40px;
-}
-@media (max-width: 768px) {
-  .yc-header .yc-navbar .logo:first-child {
-    margin-right: 40px;
-  }
 }
 .yc-header .yc-navbar .menu-list {
   display: none;

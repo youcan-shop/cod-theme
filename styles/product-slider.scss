@@ -35,12 +35,19 @@
 
   .splide__arrows {
     position: absolute;
-    transform: translate(128px, -73.5px);
+    transform: translate(44px, 25px);
+    left: 50%;
+    bottom: 0;
 
-    @media screen and (max-width: 845px) {
-      transform: translate(44px, 25px);
-      left: 50%; 
-      bottom: 0;
+    @media screen and (min-width: 845px) {
+      transform: unset;
+      bottom: unset;
+      top: -73px;
+      left: 127px;
+
+      [dir='ltr'] & {
+        left: calc(100% - 32px);
+      }
     }
   }
 
@@ -115,7 +122,7 @@
   .product-thumbnail {
     position: relative;
     overflow: hidden;
-    padding: 0 0 100%;  
+    padding: 0 0 100%;
     height: 350px;
 
     img {

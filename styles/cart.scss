@@ -63,7 +63,7 @@
           justify-content: center;
           align-items: center;
         }
-      } 
+      }
 
       .checkout_cta {
         max-width: 100%;
@@ -101,7 +101,7 @@
 
     input {
       background: #FFFFFF;
-      border: 1px solid #BDBDBD;  
+      border: 1px solid #BDBDBD;
       padding: 7px 13px;
       font-weight: 500;
       font-size: 14px;
@@ -115,7 +115,7 @@
         font-size: 16px;
       }
     }
-    
+
     .price-wrapper {
       padding: 0 24px 8px;
 
@@ -280,7 +280,7 @@
 
       @include max-screen('lg') {
         align-items: flex-start;
-        grid-template-areas: 
+        grid-template-areas:
           'row1  row4'
           'row2  row3';
         grid-template-columns: auto 60px;
@@ -288,12 +288,12 @@
           .product-details {
             max-width: 100%;
             align-items: flex-start;
-    
+
             .product-title {
               gap: 6px;
             }
           }
-    
+
           .product-quantity {
             justify-content: flex-start;
             margin-top: 16px;

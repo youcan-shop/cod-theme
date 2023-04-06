@@ -345,7 +345,7 @@ span {
   border: 1px solid #ECECEC;
   padding: 10px 15px;
   cursor: pointer;
-  width: 100%;
+  min-width: 335px;
   max-width: 570px;
 
   .dropbtn {
@@ -363,8 +363,12 @@ span {
 
     .dropdown-icon {
       position: absolute;
-      left: 0;
-      padding-left: 10px;
+      left: 15px;
+
+      [dir='ltr'] & {
+        left: unset;
+        right: 15px;
+      }
     }
   }
 
@@ -375,14 +379,10 @@ span {
     top: 38px;
     left: -1px;
     z-index: 1;
-    width: 100.4%;
+    width: calc(100% + 2px);
     background: #FFFFFF;
     border: 1px solid #ECECEC;
     border-top: none;
-
-    @include breakpoint('md') {
-      width: 100.3%;
-    }
 
     li {
       color: black;
@@ -406,13 +406,8 @@ span {
   }
 
   .dropbtnSpace {
-    padding-left: 15px;
     font-size: 13px;
     font-weight: 400;
-  }
-
-  .dropbtnSpace + .dropdown-content {
-      width: 100.9%;
   }
 
   &.black-border {
