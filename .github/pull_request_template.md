@@ -4,8 +4,8 @@
 
 ## QA Steps
 
--  [ ] `pnpm i`
--  [ ] `pnpm dev`
+- [ ] `pnpm i`
+- [ ] `pnpm dev`
 
 ## Note
 
