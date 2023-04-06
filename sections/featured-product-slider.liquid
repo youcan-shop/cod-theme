@@ -34,6 +34,8 @@
     padding: 45px;
     {% if section.settings.background_color %}
       background-color: {{ section.settings.background_color.hex }};
+    {% else %}
+      background-color: transparent;
     {% endif %}
     border-radius: 6px;
   }
@@ -44,22 +46,13 @@
     }
   }
 
-  .counter-wrapper .yc-section-title {
-    color: #fff;
+  .section-featured-products-{{id}} .counter-wrapper .yc-section-title {
+    color: {{ section.settings.title_color.hex }};
   }
 
-  .countdown-wrapper .message {
-    color: #fff;
+  .section-featured-products-{{id}} .counter-wrapper .message {
+    color: {{ section.settings.countdown_message_color.hex }};
   }
-
-  .section-featured-products-{{id}} * {
-    color: {{ section.settings.text_color.hex }};
-  }
-
-  .section-featured-products-{{id}} .countdown-wrapper .countdown .sec .num {
-    border-color: {{ section.settings.text_color.hex }};
-  }
-
 {% endstyle %}
 
 <div class='yc-featured-products section-featured-products-{{id}} container'>
@@ -140,6 +133,11 @@
       "id": "title",
       "label": "Title"
     },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color"
+    },
      {
       "type": "range",
       "id": "margin_top",
@@ -164,11 +162,6 @@
       "type": "color",
       "id": "background_color",
       "label": "Background color"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text color"
     },
     {
       "type": "header",
