@@ -31,7 +31,11 @@
 
   .bg-color-{{id}} {
     padding: 45px;
-    background-color: #E7412F;
+    {% if section.settings.background_color %}
+      background-color: {{ section.settings.background_color.hex }};
+    {% else %}
+      background-color: transparent;
+    {% endif %}
     border-radius: 6px;
   }
 
@@ -49,12 +53,6 @@
     color: #fff;
   }
 
-  .section-featured-products-{{id}} {
-    {% if section.settings.background_color %}
-      background-color: {{ section.settings.background_color.hex }};
-    {% endif %}
-  }
-
   .section-featured-products-{{id}} * {
     color: {{ section.settings.text_color.hex }};
   }
@@ -62,7 +60,7 @@
   .section-featured-products-{{id}} .countdown-wrapper .countdown .sec .num {
     border-color: {{ section.settings.text_color.hex }};
   }
-  
+
 {% endstyle %}
 
 <div class='yc-featured-products section-featured-products-{{id}} container'>
@@ -122,7 +120,7 @@
   const mountSlider1 = () => {
     try {
       if (isMobile1.matches) return mobileSlider1.mount();
-      
+
       return desktopSlider1.mount();
     } catch {
       return;
