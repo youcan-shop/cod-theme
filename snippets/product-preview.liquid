@@ -5,15 +5,6 @@
   href='{{ item.url }}'
   class='product-block'
 >
-
-  {% if block_settings.tag_text %}
-    <div
-      class="tag {{ block_settings.tag_position }}"
-      style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
-    >
-      {{ block_settings.tag_text }}
-    </div>
-  {% endif %}
   <div class='product-thumbnail'>
     {% if item.thumbnail %}
       <img
@@ -25,6 +16,14 @@
         loading='lazy'
         src='{{ 'default_product.jpeg' | asset_url }}'
       >
+    {% endif %}
+    {% if block_settings.tag_text %}
+      <div
+       class="tag {{ block_settings.tag_position }}"
+       style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
+      >
+        {{ block_settings.tag_text }}
+      </div>
     {% endif %}
   </div>
   <div class='product-details'>
