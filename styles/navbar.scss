@@ -33,7 +33,7 @@
 
   .yc-navbar {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     height: var(--yc-nav-height);
     z-index: 100;
@@ -42,11 +42,6 @@
 
     *:not(span):not(input) {
       @extend .items-configs;
-    }
-
-    @include breakpoint('md') {
-      grid-template-columns: repeat(3, 1fr);
-      padding: 0 40px;
     }
 
     :first-child {
@@ -103,12 +98,6 @@
       }
     }
 
-    .menu-toggler {
-      @include breakpoint('md') {
-        display: none;
-      }
-    }
-
     .logo {
       img {
         height: calc(var(--yc-nav-height) - 20px);
@@ -116,18 +105,27 @@
       }
     }
 
-    .menu {
-      display: none;
+    @media screen and (max-width: 767px) {
+      .menu, .menu-toggler {
+        height: 30px;
+      }
+    }
 
+    .menu-toggler {
       @include breakpoint('md') {
-        display: flex;
+        display: none;
       }
     }
 
     .menu-list {
-      display: flex;
+      display: none;
       list-style: none;
-      gap: 50px;
+
+
+      @include breakpoint('md') {
+        display: flex;
+        gap: 32px;
+      }
     }
 
     .menu-item {
