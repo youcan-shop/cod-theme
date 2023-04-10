@@ -34,7 +34,6 @@
   height: var(--yc-nav-height);
   z-index: 100;
   background-color: var(--yc-nav-background);
-  padding: 0 20px;
 }
 .yc-header .yc-navbar :first-child {
   justify-self: start;

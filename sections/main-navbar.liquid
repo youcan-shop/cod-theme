@@ -29,7 +29,7 @@
       rel='stylesheet'
     >
   {%- endif -%}
-  <nav class='yc-navbar'>
+  <nav class='yc-navbar container'>
     {%- for block in section.blocks -%}
       {%- case block.type %}
         {%- when 'logo' %}
@@ -66,7 +66,7 @@
               <ion-icon name="search-outline"></ion-icon>
             </button>
             <div id='searchInputHolder'>
-              <div class='container  flex justify-center'>
+              <div class='container flex justify-center'>
                 <form
                   action='/search'
                   method='GET'
