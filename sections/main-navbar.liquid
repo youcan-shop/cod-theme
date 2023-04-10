@@ -29,7 +29,7 @@
       rel='stylesheet'
     >
   {%- endif -%}
-  <nav class='yc-navbar'>
+  <nav class='yc-navbar container'>
     {%- for block in section.blocks -%}
       {%- case block.type %}
         {%- when 'logo' %}
@@ -43,6 +43,12 @@
           </div>
         {%- when 'menu' %}
           <div class='menu'>
+            <button
+              class='menu-toggler text-3xl'
+              onclick="openDrawer('.navbar-drawer')"
+            >
+              <ion-icon name='menu-outline'></ion-icon>
+            </button>
             <ul class='menu-list'>
               {% for item in main-link-list.links %}
                 <li class='menu-item {%-if item.active-%} active {%-endif%}'>
@@ -91,12 +97,6 @@
               </span>
               <ion-icon name="cart-outline"></ion-icon>
             </a>
-            <button
-              class='menu-toggler text-3xl'
-              onclick="openDrawer('.navbar-drawer')"
-            >
-              <ion-icon name='menu-outline'></ion-icon>
-            </button>
           </div>
       {%- endcase %}
     {%- endfor -%}
