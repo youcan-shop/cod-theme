@@ -360,16 +360,18 @@
 {%- endschema -%}
 
 {%- javascript -%}
-  const variantStr =  {% if selected_product and selected_product.variants != null %}`{{ selected_product.variants | json }}` {% endif %};
-  const variants = JSON.parse(variantStr.slice(1, -1));
-  const largeImageSizeMessage = "{{ 'general.large_image_size' | t }}";
-  const sectionProductId = '{{ selected_product.id }}';
+  {% if selected_product %}
+    const variantStr = `{{ selected_product.variants | json }}`;
+    const variants = JSON.parse(variantStr.slice(1, -1));
+    const largeImageSizeMessage = "{{ 'general.large_image_size' | t }}";
+    const sectionProductId = '{{ selected_product.id }}';
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const parentContainer = '.yc-single-product';
+    document.addEventListener('DOMContentLoaded', () => {
+      const parentContainer = '.yc-single-product';
 
-    fetchReviewsForProduct(sectionProductId, parentContainer);
-  });
+      fetchReviewsForProduct(sectionProductId, parentContainer);
+    });
+  {% endif %}
 {%- endjavascript -%}
 
 {{ 'product.js' | asset_url | script_tag_deferred }}

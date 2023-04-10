@@ -22,7 +22,7 @@
 
     {% section 'main-footer' %}
 
-    {{ 'main.js' | asset_url | script_tag }}
+    {{ 'main.js' | asset_url | script_tag_deferred }}
     {%- render 'cart-drawer' -%}
   </body>
 </html>

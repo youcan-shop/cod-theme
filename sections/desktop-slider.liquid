@@ -1,5 +1,3 @@
-
-
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
@@ -27,58 +25,66 @@
 {% endstyle %}
 
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
+{{ 'splide.min.js' | asset_url | script_tag }}
 {{ 'desktop-slider.css' | asset_url | stylesheet_tag }}
 {{ 'mobile-slider.css' | asset_url | stylesheet_tag }}
-{{ 'splide.min.js' | asset_url | script_tag }}
 
 {% render 'slider', blocks: section.blocks, id: id , view: 'desktop' %}
 {% render 'slider', blocks: section.blocks, id: id , view: 'mobile' %}
 
-<script>
+<script defer>
   const isMobile = window.matchMedia("(max-width: 760px)");
-  const slider = document.querySelector(`#yc_slider_{{ id }}`);
-  const desktopSlider = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
+  const slider = document.querySelector('#yc_slider_{{ id }}');
+  const commonSliderSettings = {
+    cover: true,
+    focus: 'center',
+    rewind: true,
+    drag: 'free',
+    snap: true,
+    loop: true,
+  };
+  const desktopSliderSettings = {
     type: '{{ section.settings.slider_transition_type }}',
     arrows: '{{ section.settings.slider_arrows }}' ? true : false,
     autoplay: '{{ section.settings.slider_autoplay }}' ? true : false,
-    cover: true,
     pagination: '{{ section.settings.slider_pagination }}' ? true : false,
     pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
     pauseOnFocus: '{{ section.settings.slider_pause_on_focus }}' ? true : false,
-    height: `{{ section.settings.slider_height_percentage }}vh`,
+    height: '{{ section.settings.slider_height_percentage }}vh',
     interval: '{{ section.settings.slider_timeout | times: 1000 }}',
-    focus: 'center',
-    rewind: true,
-    drag: 'free',
-    snap: true,
-    loop: true,
-  });
-  const mobileSlider = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
+  };
+  const mobileSliderSettings = {
     type: '{{ section.settings.slider_mobile_transition_type }}',
     arrows: '{{ section.settings.slider_arrows_mobile }}' ? true : false,
     autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
-    cover: true,
     pagination: '{{ section.settings.slider_mobile_pagination }}' ? true : false,
-    height: `{{ section.settings.slider_mobile_height_percentage }}vh`,
+    height: '{{ section.settings.slider_mobile_height_percentage }}vh',
     interval: '{{ section.settings.slider_mobile_timeout | times: 1000 }}',
-    focus: 'center',
-    rewind: true,
-    drag: 'free',
-    snap: true,
-    loop: true,
+  };
+  const desktopSlider = new Splide('#yc_slider_{{ id }}.yc-slider__desktop', {
+    ...commonSliderSettings,
+    ...desktopSliderSettings
   });
+  const mobileSlider = new Splide('#yc_slider_{{ id }}.yc-slider__mobile', {
+    ...commonSliderSettings,
+    ...mobileSliderSettings
+  });
+  
   const mountSlider = () => {
     try {
-      if (isMobile.matches) return mobileSlider.mount();
-      
-      return desktopSlider.mount();
-    } catch {
-      return;
+      if (isMobile.matches) {
+        window.requestAnimationFrame(() => mobileSlider.mount());
+      } else {
+        window.requestAnimationFrame(() => desktopSlider.mount());
+      }
+    } catch (e) {
+      console.error(e);
     }
-  }
+  };
   mountSlider();
-  isMobile.addEventListener('change', mountSlider);
+  isMobile.addEventListener('change', mountSlider, { passive: true });
 </script>
+
 
 {%- schema -%}
 {
@@ -159,12 +165,6 @@
       "type": "checkbox",
       "id": "slider_pause_on_hover",
       "label": "Pause on hover",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "slider_pause_on_focus",
-      "label": "Pause on focus",
       "default": true
     },
     {

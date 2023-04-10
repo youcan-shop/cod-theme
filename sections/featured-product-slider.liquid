@@ -45,14 +45,13 @@
       {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
       {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
 </div>
-<script>
+<script defer>
   const isMobile1 = window.matchMedia("(max-width: 768px)");
   const products = {{ section.blocks.size }};
       let perPage = 4;
       if (products < 4) {
         perPage = products;
       }
-
   const desktopSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
     type: '{{ section.settings.slider_transition_type }}',
     arrows: '{{ section.settings.slider_arrows }}' ? true : false,
@@ -68,14 +67,12 @@
     perMove: 1,
     snap: true,
     gap: '12px',
-
     breakpoints: {
       1024: {
         perPage: perPage >= 3 ? 3 : perPage,
       },
     },
   });
-
   const mobileSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
     type: '{{ section.settings.slider_mobile_transition_type }}',
     autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
@@ -90,18 +87,19 @@
     gap: '8px',
     snap: true,
   });
-
   const mountSlider1 = () => {
     try {
-      if (isMobile1.matches) return mobileSlider1.mount();
-      
-      return desktopSlider1.mount();
-    } catch {
-      return;
+      if (isMobile.matches) {
+        window.requestAnimationFrame(() => mobileSlider1.mount());
+      } else {
+        window.requestAnimationFrame(() => desktopSlider1.mount());
+      }
+    } catch (e) {
+      console.error(e);
     }
-  }
+  };
   mountSlider1();
-  isMobile1.addEventListener('change', mountSlider1);
+  isMobile1.addEventListener('change', mountSlider1, { passive: true });
 </script>
 
 {%- schema -%}

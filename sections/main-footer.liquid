@@ -12,11 +12,11 @@
   <div class="columns container">
     {%- if section.settings.footer_logo.src -%}
       <div class='footer-logo column'>
-        <img loading='lazy' src='{{ section.settings.footer_logo.src }}'>
+        <img loading='lazy' src='{{ section.settings.footer_logo.src }}' alt='logo' width="100" height="100"> 
       </div>
     {% else %}
       <div class='footer-logo column'>
-        <img loading='lazy' src='{{ 'black-default-logo.png' | asset_url }}'>
+        <img loading='lazy' src='{{ 'black-default-logo.png' | asset_url }}' alt='logo' width="100" height="100">
       </div>
     {%- endif -%}
     {%- if section.settings.mention_and_social_media -%}
@@ -24,11 +24,11 @@
         {%- for block in section.blocks -%}
           {%- if block.settings.social_media_icon_image.src -%}
             <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
-              <img loading='lazy' class='image' src="{{ block.settings.social_media_icon_image.src }}">
+              <img loading='lazy' class='image' src="{{ block.settings.social_media_icon_image.src }}" alt='social links' style="width: 100%; height: 100%;">
             </a>
             {% else %}
             <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
-              <img loading='lazy' src='{{ 'default_product.jpeg' | asset_url }}'>
+              <img loading='lazy' src='{{ 'default_product.jpeg' | asset_url }}' alt='social links' style="width: 100%; height: 100%;">
             </a>
           {%- endif -%}
         {%- endfor %}

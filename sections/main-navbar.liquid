@@ -23,7 +23,7 @@
 {% endstyle %}
 
 <header class='yc-header {%if section.settings.navbar_always_on_top%} nav-fixed {%endif%}'>
-  <nav class='yc-navbar {%if section.settings.full_width%} fluid {%endif%} container'>
+  <nav class='yc-navbar container'>
     {%- for block in section.blocks -%}
       {%- case block.type %}
         {%- when 'logo' %}
@@ -91,7 +91,7 @@
       {%- endcase %}
     {%- endfor -%}
   </nav>
-  <div class='navigation-drawer navbar-drawer block md:hidden'>
+  <div class='navigation-drawer navbar-drawer block lg:hidden'>
     <div class='flex flex-col items-wrapper'>
       {% for item in main-link-list.links %}
         <a
@@ -229,12 +229,6 @@
           "label": "Montserrat"
         }
       ]
-    },
-    {
-      "type": "checkbox",
-      "id": "full_width",
-      "label": "Full width navbar",
-      "default": false
     },
     {
       "type": "checkbox",

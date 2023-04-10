@@ -3,39 +3,37 @@
 <div class='video-wrapper container'>
   {% if section.settings.video_link %}
     {% if section.settings.video_type == 'youtube' %}
-      <iframe
-        id='youtube-video'
-        height='{{ section.settings.video_height }}'
-        src=''
-        frameborder='0'
-        allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-        allowfullscreen
-      ></iframe>
+      <div id='youtube-video' class='youtube-video' data-video-link="{{ section.settings.video_link }}">
+        <img class='youtube-thumbnail' src='' loading='lazy'>
+        <div class='youtube-play-button'></div>
+        <div class="spinner video-spinner"></div>
+      </div>
     {% endif %}
     {% if section.settings.video_type == 'facebook' %}
-      <iframe
-        id='facebook-video'
-        height='{{ section.settings.video_height }}'
-        src='https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FAymanJadaofficial%2Fvideos%2F1344326396104890%2F&show_text=false&width=560&t=0'
-        style='border:none;overflow:hidden'
-        scrolling='no'
-        frameborder='0'
-        allowfullscreen='true'
-        allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
-        allowFullScreen='true'
-      ></iframe>
-    {% endif %}
+    <iframe
+      id='facebook-video'
+      height='{{ section.settings.video_height }}'
+      src='https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FAymanJadaofficial%2Fvideos%2F1344326396104890%2F&show_text=false&width=560&t=0'
+      style='border:none;overflow:hidden'
+      scrolling='no'
+      frameborder='0'
+      allowfullscreen='true'
+      allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
+      allowFullScreen='true'
+      loading='lazy'
+    ></iframe>
   {% endif %}
+{% endif %}
 </div>
 
-<script>
+<script async>
   const width = {{ section.settings.video_width }} * (window.innerWidth / 100)
   const height = {{ section.settings.video_height }}
   const videoLink = '{{ section.settings.video_link }}'
   const videoType = '{{ section.settings.video_type }}'
 </script>
 
-{{ 'video.js' | asset_url | script_tag_deferred }}
+{{ 'video.js' | asset_url | script_tag }}
 
 
 {% schema %}
@@ -86,3 +84,4 @@
     ]
   }
   {% endschema %}
+  

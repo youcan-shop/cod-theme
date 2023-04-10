@@ -100,7 +100,7 @@
     }
 
     .menu-toggler {
-      @include breakpoint('md') {
+      @include breakpoint('lg') {
         display: none;
       }
     }
@@ -117,7 +117,7 @@
       list-style: none;
       gap: 32px;
 
-      @include breakpoint('md') {
+      @include breakpoint('lg') {
         display: flex;
       }
     }

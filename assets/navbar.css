@@ -83,7 +83,7 @@
     height: 30px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .yc-header .yc-navbar .menu-toggler {
     display: none;
   }
@@ -97,7 +97,7 @@
   list-style: none;
   gap: 32px;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .yc-header .yc-navbar .menu-list {
     display: flex;
   }

@@ -2,8 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px 8px;
-  margin-top: 36px;
-  margin-bottom: 36px;
+  margin: 36px auto 50px;
 }
 .yc-product-listing-container .product-list .product-block {
   display: flex;
