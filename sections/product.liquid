@@ -5,7 +5,7 @@
     padding-top: {{ section.settings.padding_top}}px;
     padding-bottom: {{ section.settings.padding_bottom}}px;
   }
-
+  
   .countdown-container {
     background-color: {{ block.settings.background_color.hex }};
     color: {{ block.settings.text_color.hex }};
@@ -336,23 +336,15 @@
       "default": "#ffffff"
     },
     {
-      "type": "range",
+      "type": "number",
       "id": "padding_top",
       "label": "Padding top",
-      "min": 5,
-      "max": 160,
-      "step": 1,
-      "unit": "px",
       "default": 10
     },
     {
-      "type": "range",
+      "type": "number",
       "id": "padding_bottom",
       "label": "Padding bottom",
-      "min": 5,
-      "max": 160,
-      "step": 1,
-      "unit": "px",
       "default": 10
     }
   ]
