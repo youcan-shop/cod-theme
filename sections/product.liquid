@@ -1,8 +1,9 @@
-{{ 'product.css' | asset_url | stylesheet_tag }}
 {% assign id = 100 | rand: 2000 %}
 
+{{ 'product.css' | asset_url | stylesheet_tag }}
+
 {%- style -%}
-  .product_customization-{{id}} {
+  .product_customization-{{ id }} {
     padding-top: {{ section.settings.padding_top}}px;
     padding-bottom: {{ section.settings.padding_bottom}}px;
   }
@@ -13,7 +14,7 @@
   }
 {%- endstyle -%}
 
-<section class='product_customization-{{id}}'>
+<section class='product_customization-{{ id }}'>
   {%- assign selected_product = section.settings.product %}
 
   {%- if product %}
