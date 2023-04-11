@@ -1,11 +1,6 @@
 {{ 'product-slider.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-   .splide__slide {
-    display: flex;
-    justify-content: {{ section.settings.slider_product_position }};
-    align-items: strech;
-  }
    #yc_slider_{{ id }} .splide__arrow {
     width: 54px;
     height: 54px;
@@ -31,11 +26,6 @@
     fill: #000;
   }
 
-  #yc_slider_{{ id }} .tag {
-    background: #E7412F;
-    color: {{ section.settings.tag_text_color.hex }};
-  }
-
   @media screen and (max-width: 768px) {
     #yc_slider_{{ id }} .product-details {
       display: none;
@@ -59,11 +49,12 @@
             class='product-block'
           >
 
-            {% if block_settings.tag_text %}
+            {% if block.settings.tag_text %}
               <div
-                class="tag {{ block_settings.tag_position }}"
+                class="tag {{ block.settings.tag_position }}"
+                style="background: {{ block.settings.banner_background_color.hex }}; color: {{ block.settings.tag_text_color.hex }}"
               >
-                {{ block_settings.tag_text }}
+                {{ block.settings.tag_text }}
               </div>
             {% endif %}
             <div class="product-slider">
