@@ -400,49 +400,47 @@ input:not([type=radio]),
 /* ----- custom dropdwown input ----- */
 /* ---------------------------------- */
 .dropdown-input {
+  position: relative;
+  border: 1px solid #E7E7E7;
+  border-radius: 4px;
+  width: 100%;
+  min-width: 335px;
+  max-width: max-content;
+  cursor: pointer;
   /* Style the dropdown content */
 }
 .dropdown-input .dropbtn {
-  position: relative;
   display: flex;
   align-items: center;
-  border-radius: 4px;
-  width: 100%;
-  max-width: 280px;
   padding: 10px 15px;
-  border: 1px solid #E7E7E7;
-  text-align: start;
   gap: 6px;
+  text-align: start;
   font-size: 14px;
   font-weight: 400;
-  cursor: pointer;
 }
-@media (min-width: 768px) {
-  .dropdown-input .dropbtn {
-    max-width: 350px;
-  }
+.dropdown-input .dropbtn :first-child {
+  margin-inline-end: 20px;
 }
 .dropdown-input .dropbtn .dropdown-icon {
   position: absolute;
-  left: 0;
-  padding-left: 10px;
+  left: 10px;
+}
+[dir=ltr] .dropdown-input .dropbtn .dropdown-icon {
+  left: unset;
+  right: 10px;
 }
 .dropdown-input .dropdown-content {
   display: none;
   margin-top: 5px;
   position: absolute;
+  top: 40px;
+  left: 0;
   z-index: 1;
   width: 100%;
-  max-width: 280px;
   background: #FFFFFF;
   border: 1px solid #ECECEC;
   box-shadow: 0px 10px 55px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-}
-@media (min-width: 768px) {
-  .dropdown-input .dropdown-content {
-    max-width: 350px;
-  }
 }
 .dropdown-input .dropdown-content li {
   color: black;
@@ -642,6 +640,9 @@ input:not([type=radio]),
   color: #000000;
   font-size: 14px;
   text-decoration: none;
+}
+[dir=ltr] .breadcrumbs-container .breadcrumbs-listings .listings__item img {
+  rotate: 180deg;
 }
 .breadcrumbs-container .breadcrumbs-name {
   font-weight: 700;
