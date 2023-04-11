@@ -107,18 +107,13 @@
 }
 
 .sort-container {
-  margin: 40px auto;
+  margin: 40px 0;
+  max-width: max-content;
 
   #productDropdownFiltring {
-    .dropbtn {
-      @include breakpoint('md') {
-        max-width: 280px;
-      }
-    }
+    min-width: 280px;
+
     .dropdown-content {
-      @include breakpoint('md') {
-        max-width: 280px;
-      }
       a {
         color: black;
         padding: 10px;

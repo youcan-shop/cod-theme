@@ -101,17 +101,11 @@
 }
 
 .sort-container {
-  margin: 40px auto;
+  margin: 40px 0;
+  max-width: max-content;
 }
-@media (min-width: 768px) {
-  .sort-container #productDropdownFiltring .dropbtn {
-    max-width: 280px;
-  }
-}
-@media (min-width: 768px) {
-  .sort-container #productDropdownFiltring .dropdown-content {
-    max-width: 280px;
-  }
+.sort-container #productDropdownFiltring {
+  min-width: 280px;
 }
 .sort-container #productDropdownFiltring .dropdown-content a {
   color: black;
