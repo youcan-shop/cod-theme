@@ -85,6 +85,7 @@
 @media screen and (max-width: 767px) {
   .yc-single-product .product-images .product-images-container .thumbnail-images {
     margin-left: 10px;
+    width: 90px;
   }
 }
 .yc-single-product .product-images .product-images-container .splide__arrow--next {
