@@ -80,7 +80,7 @@ function filterProduct() {
     const selectedOption = filterDropdownContent.querySelector(`[data-value="${sortField}-${sortOrder}"]`);
 
     // Update the dropdown button text with the selected option
-    filterDropdownBtn.innerHTML = `<span class='order-by'>${order_by} : </span> ${selectedOption.textContent}`;
+    filterDropdownBtn.innerHTML = `<span class='order-by'><strong>${order_by}</strong> : ${selectedOption.textContent} </span>`;
 
     const icon = document.createElement('ion-icon');
     icon.setAttribute('name', 'chevron-down-outline');

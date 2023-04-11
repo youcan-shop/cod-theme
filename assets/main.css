@@ -306,21 +306,22 @@ span {
 .dropdown-input {
   position: relative;
   border: 1px solid #ECECEC;
-  padding: 10px 15px;
   cursor: pointer;
+  width: 100%;
   min-width: 335px;
-  max-width: 570px;
+  max-width: max-content;
   /* Style the dropdown content */
 }
 .dropdown-input .dropbtn {
   display: flex;
   align-items: center;
+  padding: 10px 15px;
   width: 100%;
   text-align: start;
   gap: 6px;
 }
-.dropdown-input .dropbtn * {
-  font-weight: 700;
+.dropdown-input .dropbtn > :first-child {
+  margin-inline-end: 20px;
   font-size: 14px;
   line-height: 120%;
 }
