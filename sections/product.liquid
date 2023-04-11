@@ -1,18 +1,19 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
+{% assign id = 100 | rand: 2000 %}
 
 {%- style -%}
-  .product_customization {
+  .product_customization-{{id}} {
     padding-top: {{ section.settings.padding_top}}px;
     padding-bottom: {{ section.settings.padding_bottom}}px;
   }
-  
+
   .countdown-container {
     background-color: {{ block.settings.background_color.hex }};
     color: {{ block.settings.text_color.hex }};
   }
 {%- endstyle -%}
 
-<section class='product_customization'>
+<section class='product_customization-{{id}}'>
   {%- assign selected_product = section.settings.product %}
 
   {%- if product %}
