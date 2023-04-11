@@ -26,9 +26,6 @@ body {
   font-family: var(--yc-font-family);
 }
 
-[style*='z-index: 500; height: 54px; width: 100vw; position: fixed; padding: 4px 16px'] {
-  display: none !important;
-}
 .container {
   max-width: 1440px !important;
   margin: 0 auto;
