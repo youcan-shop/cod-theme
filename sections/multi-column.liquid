@@ -5,14 +5,15 @@
     margin-top: {{ section.settings.margin_top }}px;
     margin-bottom: {{ section.settings.margin_bottom }}px;
     background-color: {{ section.settings.background_color.hex }};
-    color: {{ section.settings.text_color.hex }};
   }
 
 
-  .multi-column-{{ id }} .yc-section-title{
+  .multi-column-{{ id }} .product-column-title {
     text-align: {{ section.settings.section_title_position }};
+    margin-bottom: 15px;
     font-weight: 700;
     font-size: 26px;
+    color: {{ section.settings.title_text_color.hex }};
   }
 
   .multi-column-{{ id }} .multi-column-blocks {
@@ -92,7 +93,7 @@
 {% endstyle %}
 
 <div class='multi-column-{{ id }} container'>
-    <h3 class='yc-section-title'>{{ section.settings.title }}</h3>
+    <h3 class='product-column-title'>{{ section.settings.title }}</h3>
     <div class='multi-column-blocks'>
       {% for block in section.blocks %}
         {% assign block_setting = block.settings %}
@@ -170,13 +171,13 @@
     },
     {
       "type": "color",
-      "id": "background_color",
-      "label": "Background color"
+      "id": "title_text_color",
+      "label": "Title color"
     },
     {
       "type": "color",
-      "id": "text_color",
-      "label": "Text color"
+      "id": "background_color",
+      "label": "Background color"
     },
     {
       "type": "header",
