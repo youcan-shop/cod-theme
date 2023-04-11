@@ -1,18 +1,20 @@
+{% assign id = 100 | rand: 2000 %}
+
 {{ 'product.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .product_customization {
+  .product_customization-{{ id }} {
     padding-top: {{ section.settings.padding_top}}px;
     padding-bottom: {{ section.settings.padding_bottom}}px;
   }
-  
+
   .countdown-container {
     background-color: {{ block.settings.background_color.hex }};
     color: {{ block.settings.text_color.hex }};
   }
 {%- endstyle -%}
 
-<section class='product_customization'>
+<section class='product_customization-{{ id }}'>
   {%- assign selected_product = section.settings.product %}
 
   {%- if product %}
@@ -336,15 +338,23 @@
       "default": "#ffffff"
     },
     {
-      "type": "number",
+      "type": "range",
       "id": "padding_top",
       "label": "Padding top",
+      "min": 5,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
       "default": 10
     },
     {
-      "type": "number",
+      "type": "range",
       "id": "padding_bottom",
       "label": "Padding bottom",
+      "min": 5,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
       "default": 10
     }
   ]
