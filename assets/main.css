@@ -645,6 +645,9 @@ input:not([type=radio]),
   font-size: 14px;
   text-decoration: none;
 }
+[dir=ltr] .breadcrumbs-container .breadcrumbs-listings .listings__item img {
+  rotate: 180deg;
+}
 .breadcrumbs-container .breadcrumbs-name {
   font-weight: 700;
   font-size: 26px;

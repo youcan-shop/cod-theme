@@ -693,6 +693,12 @@ input:not([type='radio']),
       font-size: 14px;
       text-decoration: none;
     }
+
+    .listings__item img {
+      [dir='ltr'] & {
+        rotate: 180deg;
+      }
+    }
   }
 
   .breadcrumbs-name {
