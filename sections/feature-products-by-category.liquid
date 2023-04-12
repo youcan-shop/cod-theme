@@ -8,6 +8,7 @@
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
   .section-featured-products-by-category-{{id}} .yc-section-title{
+    margin-top: 0;
     text-align: {{ section.settings.section_title_position }}
   }
   .section-featured-products-by-category-{{id}} {
@@ -65,6 +66,7 @@
       "type": "select",
       "id": "section_title_position",
       "label": "Title position",
+      "default": "center",
       "options": [
         {
           "label": "left",
@@ -87,7 +89,8 @@
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Padding Top"
+      "label": "Padding Top",
+      "default": 10
     },
     {
       "type": "range",
@@ -96,7 +99,8 @@
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Padding Bottom"
+      "label": "Padding Bottom",
+      "default": 10
     },
     {
       "type": "number",
