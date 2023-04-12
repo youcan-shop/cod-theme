@@ -4,7 +4,6 @@
 {% style %}
   .section-featured-collections-{{id}} .yc-featured-container{
     justify-content: {{ section.settings.section_title_position }};
-    padding-bottom: {{ section.settings.padding_bottom }}px;
   }
 
   .section-featured-collections-{{id}} {
@@ -62,15 +61,6 @@
       "type": "image_picker",
       "id": "image",
       "label": "Title icon"
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 5,
-      "max": 160,
-      "step": 1,
-      "unit": "px",
-      "label": "Padding Bottom"
     },
     {
       "type": "range",
