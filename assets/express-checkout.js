@@ -26,7 +26,8 @@ async function placeOrder() {
         if (!form || !formFields) return;
 
         formFields.forEach((field) => {
-          const input = form.querySelector(`input[name="${field}"]`);
+          const fieldName = field.indexOf('extra_fields') > -1 ? field.replace('extra_fields.', 'extra_fields[') + ']' : field;
+          const input = form.querySelector(`input[name="${fieldName}"]`);
           const errorEl = form.querySelector(`.validation-error[data-error="${field}"]`);
 
           if (input) {

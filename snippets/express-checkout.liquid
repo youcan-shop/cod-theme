@@ -14,6 +14,10 @@
 
   {% endif %}
 
+  .custom-checkout-{{ checkout_id }} .express-checkout-fields  {
+    grid-gap: {{ settings.inputs_gap }}px;
+  }
+
   .custom-checkout-{{ checkout_id }} label {
     font-size: {{ settings.label_text_size }}px;
 
@@ -82,7 +86,11 @@
           type='{{ field.type }}'
           class='w-full'
           id='{{ field.name }}'
-          name='{{ field.name }}'
+          {% if field.custom %}
+            name='extra_fields[{{ field.name }}]'
+          {% else %}
+            name='{{ field.name }}'
+          {% endif %}
           placeholder='{{ field.placeholder }}'
           {% if field.required %}
             required
@@ -90,22 +98,26 @@
         >
         <div
           class='validation-error'
-          data-error='{{ field.name }}'
+          {% if field.custom %}
+            data-error='extra_fields.{{ field.name }}'
+          {% else %}
+            data-error='{{ field.name }}'
+          {% endif %}
         ></div>
       </div>
     {%- endfor %}
+    <button
+      type='submit'
+      class='yc-btn w-full express-checkout-button'
+      onclick='placeOrder(this)'
+    >
+      <span
+        class='spinner hidden'
+        id='loading__checkout'
+      ></span>
+      <span>{{ settings.express_checkout_cta }}</span>
+    </button>
   </div>
-  <button
-    type='submit'
-    class='yc-btn w-full express-checkout-button'
-    onclick='placeOrder(this)'
-  >
-    <span
-      class='spinner hidden'
-      id='loading__checkout'
-    ></span>
-    <span>{{ settings.express_checkout_cta }}</span>
-  </button>
 </form>
 
 {{ 'express-checkout.js' | asset_url | script_tag_deferred }}

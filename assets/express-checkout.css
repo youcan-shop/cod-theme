@@ -33,6 +33,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
+  margin: 0 0 6px 0;
 }
 .express-checkout-fields input {
   font-family: var(--yc-font-family);
@@ -51,7 +52,7 @@
 .express-checkout-button {
   width: 100%;
   max-width: 900px;
-  margin: 8px auto 0 auto;
+  margin: 0 auto;
 }
 
 @keyframes slideFromBottom {
