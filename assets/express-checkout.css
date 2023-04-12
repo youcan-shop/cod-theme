@@ -37,7 +37,7 @@
 .express-checkout-button {
   width: 100%;
   max-width: 900px;
-  margin: 8px auto 0 auto;
+  margin: 0 auto;
 }
 
 @keyframes slideFromBottom {

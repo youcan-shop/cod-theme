@@ -14,12 +14,8 @@
 
   {% endif %}
 
-  .custom-checkout-{{ checkout_id }} label {
-    font-size: {{ settings.label_text_size }}px;
-
-    {% if settings.label_text_color %}
-    color: {{ settings.label_text_color.hex }};
-    {% endif %}
+  .custom-checkout-{{ checkout_id }} .express-checkout-fields  {
+    grid-gap: {{ settings.inputs_gap }}px;
   }
 
   .custom-checkout-{{ checkout_id }} input {
@@ -100,20 +96,20 @@
         ></div>
       </div>
     {%- endfor %}
+    {% if is_sticky == false %}
+      <button
+        type='submit'
+        class='yc-btn w-full express-checkout-button'
+        onclick='placeOrder(this)'
+      >
+        <span
+          class='spinner hidden'
+          id='loading__checkout'
+        ></span>
+        <span>{{ settings.express_checkout_cta }}</span>
+      </button>
+      {% endif %}
   </div>
-  {% if is_sticky == false %}
-  <button
-    type='submit'
-    class='yc-btn w-full express-checkout-button'
-    onclick='placeOrder(this)'
-  >
-    <span
-      class='spinner hidden'
-      id='loading__checkout'
-    ></span>
-    <span>{{ settings.express_checkout_cta }}</span>
-  </button>
-  {% endif %}
 </form>
 
 {{ 'express-checkout.js' | asset_url | script_tag_deferred }}
