@@ -30,27 +30,32 @@
         </div>
       {%- endif -%}
     {%- endfor -%}
-
-    <div class="column social-media">
-      {%- for block in section.blocks -%}
-        <a class="social-media-link" href="{{ block.settings.social_media_url }}" target="_blank">
-          <img src="{{ block.settings.social_media_icon_image.src }}">
-        </a>
-      {%- endfor %}
-    </div>
+    {%- if section.settings.social_media_exist -%}
+      <div class="column social-media">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.social_media_icon_image.src -%}
+            <a class='social-icon' href="{{ block.settings.social_media_url }}" target="_blank">
+              <img loading='lazy' class='image' src="{{ block.settings.social_media_icon_image.src }}" alt='social links'>
+            </a>
+            {% else %}
+            <a class='social-icon' href="{{ block.settings.social_media_url }}" target="_blank">
+              <img loading='lazy' src='{{ 'default_product.jpeg' | asset_url }}' alt='image placeholder'>
+            </a>
+          {%- endif -%}
+        {%- endfor %}
+      </div>
+    {%- endif -%}
   </div>
-  {%- if section.settings.copyright_and_social_media -%}
-    <div class="copyright-wrapper" {{ block.youcan_attributes }}>
-      <div class="container">
-        <div class="copyright-title">
-          {{ section.settings.copyright }}
-        </div>
-        <div class="copyright-image">
-          <img src="{{ section.settings.copyright_image.src }}">
-        </div>
+  <div class="copyright-wrapper" {{ block.youcan_attributes }}>
+    <div class="container">
+      <div class="copyright-title">
+        {{ section.settings.copyright }}
+      </div>
+      <div class="copyright-image">
+        <img src="{{ section.settings.copyright_image.src }}">
       </div>
     </div>
-  {%- endif -%}
+  </div>
 </footer>
 
 {%- schema -%}
@@ -80,8 +85,8 @@
     },
     {
       "type": "checkbox",
-      "id": "copyright_and_social_media",
-      "label": "Copyright & Social media",
+      "id": "social_media_exist",
+      "label": "Social media",
       "default": true
     },
     {
@@ -97,13 +102,13 @@
   ],
   "blocks": [
     {
-      "label": "social media",
+      "label": "Social media",
       "type": "social-media",
       "settings": [
         {
           "type": "image_picker",
           "id": "social_media_icon_image",
-          "label": "facebook icon"
+          "label": "Social media icon"
         },
         {
           "type": "text",

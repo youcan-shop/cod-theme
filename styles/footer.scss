@@ -37,6 +37,18 @@
     .social-media {
       display: flex;
       gap: 36px;
+      height: fit-content;
+
+      .social-icon {
+        display: block;
+        width: 26px;
+        height: 26px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
   }
 
@@ -65,16 +77,5 @@
     font-weight: 600;
     font-size: 11px;
     line-height: 250%;
-  }
-
-  .copyright-wrapper .social-media-link {
-    display: block;
-    width: 20px;
-    height: 20px;
-
-    img {
-      width: 100%;
-      height: 100%;
-    }
   }
 }

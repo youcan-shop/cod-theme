@@ -33,6 +33,16 @@
 .yc-footer .columns .social-media {
   display: flex;
   gap: 36px;
+  height: fit-content;
+}
+.yc-footer .columns .social-media .social-icon {
+  display: block;
+  width: 26px;
+  height: 26px;
+}
+.yc-footer .columns .social-media .social-icon img {
+  width: 100%;
+  height: 100%;
 }
 .yc-footer .copyright-wrapper {
   width: 100%;
@@ -56,13 +66,4 @@
   font-weight: 600;
   font-size: 11px;
   line-height: 250%;
-}
-.yc-footer .copyright-wrapper .social-media-link {
-  display: block;
-  width: 20px;
-  height: 20px;
-}
-.yc-footer .copyright-wrapper .social-media-link img {
-  width: 100%;
-  height: 100%;
 }
