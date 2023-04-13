@@ -56,7 +56,6 @@ input + .validation-error {
   color: var(--yc-error-color) !important;
   font-size: 12px;
   font-weight: 600;
-  height: 12px;
 }
 
 a {
