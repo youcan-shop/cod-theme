@@ -33,7 +33,7 @@
             <div class="bottom-block">
               {%- when 'product_price' -%}
               <div class='flex gap-3 items-center price-wrapper'>
-                {% if section.settings.show_compare_at_price %}
+                {% if section.settings.show_compare_at_price and product.compare_at_price != nil %}
                   <h3>
                     <del class="product-compare-price">{{ product.compare_at_price | money }}</del>
                   </h3>
