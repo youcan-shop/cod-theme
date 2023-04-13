@@ -33,7 +33,7 @@
               {% if product.price %}
               <h2 class='product-price'>{{ product.price | money }}</h2>
               {% endif %}
-              {% if section.settings.show_compare_at_price %}
+              {% if section.settings.show_compare_at_price and product.compare_at_price != nil %}
                 <h3>
                   <del class="product-compare-price">{{ product.compare_at_price | money }}</del>
                 </h3>
