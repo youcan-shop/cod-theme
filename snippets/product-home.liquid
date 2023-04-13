@@ -33,7 +33,7 @@
           {%- when 'product_price' -%}
             <div class='flex gap-2 items-center'>
               <h2 class='product-price'>{{ product.price | money }}</h2>
-              {% if section.settings.show_compare_at_price %}
+              {% if section.settings.show_compare_at_price and product.compare_at_price != nil %}
                 <h3>
                   <del class="product-compare-price">{{ product.compare_at_price | money }}</del>
                 </h3>
