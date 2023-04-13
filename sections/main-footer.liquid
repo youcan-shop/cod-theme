@@ -37,13 +37,19 @@
           {{ section.settings.mention }}
         </div>
         <div class="spacer"></div>
-        {%- for block in section.blocks -%}
-          {%- if section.settings.social_media_exist -%}
-            <a class="social-media-link" href="{{ block.settings.social_media_url }}" target="_blank">
-              <img src="{{ block.settings.social_media_icon_image.src }}">
-            </a>
-          {%- endif -%}
-        {%- endfor %}
+        {%- if section.settings.social_media_exist -%}
+          {%- for block in section.blocks -%}
+            {%- if block.settings.social_media_icon_image.src -%}
+              <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
+                <img loading='lazy' class='image' src="{{ block.settings.social_media_icon_image.src }}" alt='social links'>
+              </a>
+              {% else %}
+              <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
+                <img loading='lazy' src='{{ 'default_product.jpeg' | asset_url }}' alt='image placeholder'>
+              </a>
+            {%- endif -%}
+          {%- endfor %}
+        {%- endif -%}
       </div>
     </div>
 </footer>
@@ -84,7 +90,7 @@
   ],
   "blocks": [
     {
-      "label": "social media",
+      "label": "Social media",
       "type": "social-media",
       "settings": [
         {
