@@ -1,0 +1,28 @@
+{{ 'cart-drawer.css' | asset_url | stylesheet_tag }}
+
+<div class="cart-overlay"></div>
+<div class="cart-drawer">
+  <button class="cart-drawer__close">
+    <ion-icon class="close-search" name="close-outline"></ion-icon>
+  </button>
+  <div class="cart-drawer__content">
+    <!-- Cart drawer content goes here -->
+  </div>
+</div>
+
+{% javascript %}
+  const ADD_TO_CART_EXPECTED_ERRORS = {
+    select_variant: "{{ 'errors.select_variant' | t }}",
+    quantity_smaller_than_zero: "{{ 'errors.quantity_smaller_than_zero' | t }}",
+    upload_image: "{{ 'errors.upload_image' | t }}",
+    product_added: "{{ 'errors.product_added' | t }}"
+  }
+  const quantityVariant = "{{ 'cart.items.quantity' | t }}"; 
+  const cartName = "{{ 'cart.cart' | t }}";
+  const totalAmount = "{{ 'cart.total_amount' | t }}";
+  const checkoutPayment = "{{ 'cart.summary.checkout_cta' | t }}";
+  const emptyCart = "{{ 'cart.empty_cart' | t }}";
+  const defaultImage = '{{ "product-default.png" | asset_url }}';
+
+{% endjavascript %}
+{{ 'add-to-cart.js' | asset_url | script_tag_deferred }}
