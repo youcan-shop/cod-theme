@@ -70,7 +70,7 @@ $sticky-checkout-padding: 20px;
   padding-bottom: 0;
 
   @include breakpoint('md') {
-    height: 42vh;
+    height: 50vh;
   }
 
   .sticky-product-details {
@@ -105,6 +105,7 @@ $sticky-checkout-padding: 20px;
     margin-bottom: 90px;
 
     @include breakpoint('md') {
+      width: 100%;
       padding: unset;
       max-width: 940px;
       padding: 0 20px;

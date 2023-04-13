@@ -67,7 +67,7 @@
 }
 @media (min-width: 768px) {
   .yc-sticky-checkout {
-    height: 42vh;
+    height: 50vh;
   }
 }
 .yc-sticky-checkout .sticky-product-details {
@@ -99,6 +99,7 @@
 }
 @media (min-width: 768px) {
   .yc-sticky-checkout .step-2-wrapper {
+    width: 100%;
     padding: unset;
     max-width: 940px;
     padding: 0 20px;
