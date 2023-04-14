@@ -125,7 +125,7 @@ button {
 .yc-btn {
   background: var(--yc-primary-color) !important;
   color: white !important;
-  padding: 0 2rem;
+  padding: 12px 32px;
   transition: all 0.15s ease-in-out 0s;
   letter-spacing: 1px;
   cursor: pointer;
@@ -137,9 +137,6 @@ button {
   justify-content: center;
   gap: 5px;
 
-  &:not(.btn-sm) {
-    height: 44px;
-  }
   & > * {
     color: white !important;
   }
@@ -600,5 +597,14 @@ input:not([type='radio']),
   .breadcrumbs-name {
     font-weight: 700;
     font-size: 26px;
+  }
+
+  .arrow::after {
+    color: #A8A8A8;
+    content: '/';
+
+    [dir='ltr'] & {
+      content: '\\';
+    }
   }
 }

@@ -2,6 +2,7 @@
 
 .yc-product-listing {
   padding: 0 16px;
+  margin-bottom: 32px;
 
   .product-list {
     @include display(4, 3, 2, 1.5rem);
@@ -21,7 +22,7 @@
       border-radius: 4px;
       width: 280px;
       padding: 10px 15px;
-      border: 1px solid #E7E7E7;        
+      border: 1px solid #E7E7E7;
       text-align: start;
       gap: 6px;
       font-size: 14px;

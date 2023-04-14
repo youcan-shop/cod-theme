@@ -1,5 +1,6 @@
 .yc-product-listing {
   padding: 0 16px;
+  margin-bottom: 32px;
 }
 .yc-product-listing .product-list {
   display: grid;

@@ -36,6 +36,7 @@
   height: 100%;
   width: 100%;
   border-radius: 5px;
+  object-fit: cover;
 }
 .yc-collection-listing .collection-list .collection-thumbnail img:hover {
   opacity: 0.9;
@@ -63,6 +64,7 @@
   display: block;
 }
 .yc-collection-listing .collection-list .collection-details .yc-btn {
+  padding: 12px !important;
   background-color: white !important;
   color: #3C415F !important;
 }

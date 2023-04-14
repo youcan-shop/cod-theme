@@ -6,7 +6,7 @@
 
   .collection-list {
     @include display(3, 1, 1, 1.5rem);
-    
+
     margin-top: 40px;
     .collection-block {
       position: relative;
@@ -22,6 +22,7 @@
         height: 100%;
         width: 100%;
         border-radius: 5px;
+        object-fit: cover;
 
         &:hover {
           opacity: 0.9;
@@ -53,6 +54,7 @@
       }
 
       .yc-btn {
+        padding: 12px !important;
         background-color: white !important;
         color: #3C415F !important;
       }
