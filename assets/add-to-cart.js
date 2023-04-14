@@ -23,18 +23,8 @@ async function addToCart(snippetId) {
 
     if (response.error) throw new Error(response.error);
 
-    const cart = document.querySelector('#cart-items-badge');
-    const cartDrawer = document.querySelector('.cart-drawer');
-
-    if (cart) {
-      let cartBadgeBudge = response.count;
-      cart.innerHTML = cartBadgeBudge;
-      
-      // Update the cart drawer
-      if (cartDrawer) {
-        await updateCartDrawer();
-      }
-    }
+    updateCartCount(response.count);
+    await updateCartDrawer();
 
     stopLoad('#loading__cart');
     notify(ADD_TO_CART_EXPECTED_ERRORS.product_added, 'success');
@@ -52,48 +42,73 @@ function attachRemoveItemListeners() {
       const productVariantId = event.target.getAttribute('data-product-variant-id');
 
       await removeCartItem(cartItemId, productVariantId);
-      
-      // Update the cart drawer after removing an item
       await updateCartDrawer();
-      
-      // Update the total number of items in the cart badge
-      const cartBadge = document.querySelector('#cart-items-badge');
-      
-      if (cartBadge) {
-        const updatedCount = Number(cartBadge.innerHTML) - 1;
-        cartBadge.innerHTML = updatedCount;
-      }
+      updateCartCount(-1, true);
     })
   );
 }
 
 async function removeCartItem(cartItemId, productVariantId) {
-  // Get the remove button and spinner elements for this cartItemId
-  const removeButton = document.querySelector(`[data-cart-item-id="${cartItemId}"]`);
   const spinner = document.querySelector(`[data-spinner-id="${cartItemId}"]`);
 
   try {
-    // Hide the remove button and show the spinner
-    if (removeButton) {
-      removeButton.style.display = 'none';
-    }
-    if (spinner) {
-      spinner.style.display = 'block';
-    }
+    showSpinner(spinner);
 
-    const response = await youcanjs.cart.removeItem({
+    await youcanjs.cart.removeItem({
       cartItemId,
       productVariantId,
     });
   } catch (error) {
     notify(error.message, 'error');
   } finally {
-    if (spinner) {
-      spinner.style.display = 'none';
-      updateCartDrawer();
-     }
-   }
+    hideSpinner(spinner);
+    updateCartDrawer();
+  }
 }
+
+async function updateCartItem(cartItemId, productVariantId, quantity) {
+  const footerSpinner = document.querySelector('.footer-spinner');
+  const cartQuantityBtns = document.querySelectorAll('.cart-quantity-btn');
+
+  showSpinner(footerSpinner);
+
+  // Disable the increase and decrease buttons
+  cartQuantityBtns.forEach((btn) => btn.setAttribute('disabled', true));
+  try {
+    await youcanjs.cart.updateItem({
+      cartItemId,
+      productVariantId,
+      quantity,
+    });
+    await updateCartDrawer();
+  } catch (error) {
+    notify(error.message, 'error');
+  } finally {
+    hideSpinner(footerSpinner);
+    cartQuantityBtns.forEach((btn) => btn.removeAttribute('disabled'));
+  }
+}
+
+
+function increaseCartQuantity(cartItemId, productVariantId) {
+  updateCartQuantity(cartItemId, productVariantId, 1);
+}
+
+function decreaseCartQuantity(cartItemId, productVariantId) {
+  updateCartQuantity(cartItemId, productVariantId, -1);
+}
+
+function updateCartQuantity(cartItemId, productVariantId, delta) {
+  const input = document.querySelector(`#quantity-${cartItemId}`);
+  if (input) {
+    const newQuantity = parseInt(input.value) + delta;
+    if (newQuantity >= 1) {
+      input.value = newQuantity;
+      updateCartItem(cartItemId, productVariantId, newQuantity);
+    }
+  }
+}
+
 
 function cartTemplate(item) {
   // Loop through variations
@@ -111,125 +126,33 @@ function cartTemplate(item) {
   return `
     <li class="cart-item">
       <div class="item-body">
+      <div class="right-items">
         ${imageUrl && `<img src="${imageUrl}" />`}
         <div class="item-details">
           <p class="product-name">${item.productVariant.product.name}</p>
           <div class="variants">
-          ${quantityVariant}:${item.quantity} &nbsp;${variationsCheck}
+          ${CART_DRAWER_TRANSLATION.quantityVariant}:${item.quantity} &nbsp;${variationsCheck}
           </div>
           <div class="product-price">
             <span class="compare-price">${item.productVariant.compare_at_price ? item.productVariant.compare_at_price : ''}</span>
-            <span class="price total-price-update">${item.productVariant.price}</span>
+            <span class="price">${item.productVariant.price}</span>
           </div>
+          </div>
+        </div>
+        <div class="left-items">
           <button class="remove-item-btn">
-            <ion-icon data-cart-item-id="${item.id}" data-product-variant-id="${item.productVariant.id}" name="trash-outline"></ion-icon>
+          <ion-icon data-cart-item-id="${item.id}" data-product-variant-id="${item.productVariant.id}" name="close-outline"></ion-icon>
           </button>
           <div class="spinner" data-spinner-id="${item.id}" style="display: none;"></div>
+          <div class="quantity-control">
+            <button class="increase-btn cart-quantity-btn" onclick="increaseCartQuantity('${item.id}', '${item.productVariant.id}')">+</button>
+            <input type="number" id="quantity-${item.id}" value="${item.quantity}" min="1" onchange="updateCartItem('${item.id}', '${item.productVariant.id}', this.value)">
+            <button class="decrease-btn cart-quantity-btn" onclick="decreaseCartQuantity('${item.id}', '${item.productVariant.id}')">-</button>
+          </div>
         </div>
-        <button class="change-quantity-btn" data-action="decrease" data-cart-item-id="${item.id}" data-product-variant-id="${item.productVariant.id}">-</button>
-<span class="quantity">${item.quantity}</span>
-<button class="change-quantity-btn" data-action="increase" data-cart-item-id="${item.id}" data-product-variant-id="${item.productVariant.id}">+</button>
-
       </div>
     </li>
   `;
-}
-function updateCartTotal(newTotal) {
-  const cartTotalElement = document.querySelector('.cart-drawer .total-price-update');
-  if (cartTotalElement) {
-    cartTotalElement.innerText = newTotal;
-  }
-}
-
-function attachChangeQuantityListeners() {
-  document.querySelectorAll('.change-quantity-btn').forEach((btn) =>
-    btn.addEventListener('click', async (event) => {
-      const action = event.target.getAttribute('data-action');
-      const cartItemId = event.target.getAttribute('data-cart-item-id');
-      const productVariantId = event.target.getAttribute('data-product-variant-id');
-      const quantityElement = event.target.parentElement.querySelector('.quantity');
-      const currentQuantity = parseInt(quantityElement.innerText, 10);
-
-      let newQuantity = action === 'increase' ? currentQuantity + 1 : currentQuantity - 1;
-
-      if (newQuantity < 1) {
-        return;
-      }
-
-      // Update the cart item quantity and retrieve the updated cart
-      const updatedCart = await updateCartItemQuantity(cartItemId, productVariantId, newQuantity);
-
-      // Update the displayed quantity
-      quantityElement.innerText = newQuantity;
-
-      // Update the cart total price
-      updateCartTotal(updatedCart.total);
-    })
-  );
-}
-
-
-
-async function updateCartItemQuantity(cartItemId, productVariantId, newQuantity) {
-  try {
-    const updatedCart = await youcanjs.cart.updateItem({
-      cartItemId,
-      productVariantId,
-      quantity: newQuantity,
-    });
-    return updatedCart;
-  } catch (error) {
-    notify(error.message, 'error');
-  }
-}
-async function increaseCartItemQuantity(event) {
-  const cartItemId = event.target.getAttribute('data-cart-item-id');
-  const productVariantId = event.target.getAttribute('data-product-variant-id');
-  const itemQuantityElement = event.target.closest('.item-details').querySelector('.quantity');
-  const itemPriceElement = event.target.closest('.item-details').querySelector('.price');
-  
-  const currentQuantity = parseInt(itemQuantityElement.innerText, 10);
-  const itemPrice = parseFloat(itemPriceElement.getAttribute('data-base-price'));
-  
-  const newQuantity = currentQuantity + 1;
-  const newPrice = parseFloat(itemPrice) * newQuantity;
-  
-  await youcanjs.cart.updateItem({
-    cartItemId,
-    productVariantId,
-    quantity: newQuantity,
-  });
-  
-  itemQuantityElement.innerText = newQuantity;
-  itemPriceElement.innerText = newPrice.toFixed(2);
-  
-  updateCartTotal();
-}
-
-async function decreaseCartItemQuantity(event) {
-  const cartItemId = event.target.getAttribute('data-cart-item-id');
-  const productVariantId = event.target.getAttribute('data-product-variant-id');
-  const itemQuantityElement = event.target.closest('.item-details').querySelector('.quantity');
-  const itemPriceElement = event.target.closest('.item-details').querySelector('.price');
-  
-  const currentQuantity = parseInt(itemQuantityElement.innerText, 10);
-  const itemPrice = parseFloat(itemPriceElement.getAttribute('data-base-price'));
-  
-  if (currentQuantity > 1) {
-    const newQuantity = currentQuantity - 1;
-    const newPrice = parseFloat(itemPrice) * newQuantity;
-    
-    await youcanjs.cart.updateItem({
-      cartItemId,
-      productVariantId,
-      quantity: newQuantity,
-    });
-    
-    itemQuantityElement.innerText = newQuantity;
-    itemPriceElement.innerText = newPrice.toFixed(2);
-    
-    updateCartTotal();
-  }
 }
 
 async function updateCartDrawer() {
@@ -250,7 +173,7 @@ async function updateCartDrawer() {
 
     const headerContainer = `
       <div class="header">
-        <h2 class="cart">${cartName}<span> ${cartData.count}</span></h2>
+        <h2 class="cart">${CART_DRAWER_TRANSLATION.cartName}<span> ${cartData.count} ${CART_DRAWER_TRANSLATION.itemsName}</span></h2>
       </div>
     `;
     
@@ -268,74 +191,100 @@ async function updateCartDrawer() {
     
       // Attach event listeners to the newly added remove buttons
       attachRemoveItemListeners();
-      attachChangeQuantityListeners();
-
+    
     } else {
       const p = document.createElement('p');
       p.classList.add('empty-cart');
-      p.textContent = emptyCart;
+      p.textContent = CART_DRAWER_TRANSLATION.emptyCart;
       cartDrawerContent.appendChild(p);
     }
 
-    cconst footerContainer = document.querySelector('.cart-drawer .footer .price-wrapper .total-price-update');
-  
-    if (!footerContainer) {
-      const footerContainerHTML = `
-        <div class="footer">
-          <div class="price-wrapper">
-            <span class="total-price">${totalAmount}</span>
-            <span class="currency-value total-price-update">${cartData.total}</span>
-          </div>
-          <a href='${location.origin}/cart' class="yc-btn">${checkoutPayment}</a>
+    const footerContainerHTML = `
+      <div class="footer">
+        <div class="price-wrapper">
+          <span class="total-price">${CART_DRAWER_TRANSLATION.totalAmount}</span>
+          <span class="currency-value">${cartData.sub_total}</span>
+          <span class="spinner footer-spinner" style="display: none;"></span>
         </div>
-      `;
-  
-      // Create a DOM element for the footer container
-      const footerElement = document.createElement('div');
-      footerElement.innerHTML = footerContainerHTML;
-      
-      // Append the footer container to the cart drawer content
-      cartDrawerContent.appendChild(footerElement);
-    } else {
-      footerContainer.innerHTML = cartData.total;
-    }
-  
+        <a href='${location.origin}/cart' class="yc-btn">${CART_DRAWER_TRANSLATION.checkoutPayment}</a>
+        <a href='${location.origin}' class="cart-action">${CART_DRAWER_TRANSLATION.continueShopping}</a> 
+      </div>
+  `;
+
+    // Create a DOM element for the footer container
+    const footerContainer = document.createElement('div');
+    footerContainer.innerHTML = footerContainerHTML;
+    
+    // Append the footer container to the cart drawer content
+    cartDrawerContent.appendChild(footerContainer);
+
   } catch (error) {
     notify(error.message, 'error');
   }
 }
 
+function updateCartCount(delta, relative = false) {
+  const cartBadge = document.querySelector('#cart-items-badge');
+  if (cartBadge) {
+    const updatedCount = relative ? Number(cartBadge.innerHTML) + delta : delta;
+    cartBadge.innerHTML = updatedCount;
+  }
+}
+
+function showSpinner(spinnerElement) {
+  const currencyValue = spinnerElement.previousElementSibling;
+  toggleVisibility(currencyValue, spinnerElement);
+}
+
+function hideSpinner(spinnerElement) {
+  const currencyValue = spinnerElement.previousElementSibling;
+  toggleVisibility(spinnerElement, currencyValue);
+}
+
+function toggleVisibility(hiddenElement, visibleElement = null) {
+  if (hiddenElement) {
+    hiddenElement.style.display = hiddenElement.style.display === 'none' ? 'block' : 'none';
+  }
+  
+  if (visibleElement) {
+    visibleElement.style.display = visibleElement.style.display === 'none' ? 'block' : 'none';
+  }
+}
+
 function toggleCartDrawer() {
   const cartDrawer = document.querySelector('.cart-drawer');
-  
+
   if (!cartDrawer) {
     console.error('Cart drawer not found');
     return;
   }
 
-  if (cartDrawer.classList.contains('open')) {
-    document.body.style.overflow = 'auto';
-  } else {
-    document.body.style.overflow = 'hidden';
-  }
+  document.body.style.overflow = cartDrawer.classList.contains('open') ? 'auto' : 'hidden';
 
-  // Toggle the 'open' class on the cart drawer
   cartDrawer.classList.toggle('open');
   document.querySelector('.cart-overlay').classList.toggle('open');
 }
 
-// Handle closing the cart drawer when clicking outside of it
+function attachEventListeners() {
+  const navbarCartIcon = document.querySelector('#navbar-cart-icon');
+  const cartDrawerClose = document.querySelector('.cart-drawer__close');
+  const cartOverlay = document.querySelector('.cart-overlay');
+
+  if (navbarCartIcon) {
+    navbarCartIcon.addEventListener('click', toggleCartDrawer);
+  }
+
+  if (cartDrawerClose) {
+    cartDrawerClose.addEventListener('click', toggleCartDrawer);
+  }
+
+  if (cartOverlay) {
+    cartOverlay.addEventListener('click', toggleCartDrawer);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
-  // Attach click event listener to the navbar cart icon
-  document.querySelector('#navbar-cart-icon').addEventListener('click', toggleCartDrawer);
-
-  // Attach click event listener to the cart drawer close button
-  document.querySelector('.cart-drawer__close').addEventListener('click', toggleCartDrawer);
-
-  // Attach click event listener to the cart overlay
-  document.querySelector('.cart-overlay').addEventListener('click', toggleCartDrawer);
-
-  // Update Cart Drawer on page load
+  attachEventListeners();
   await updateCartDrawer();
 });
 

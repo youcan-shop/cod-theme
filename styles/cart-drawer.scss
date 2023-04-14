@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   right: -100%;
-  width: 450px;
+  width: 400px;
   height: 100%;
   background: #FFFFFF;
   overflow-y: auto;
@@ -34,7 +34,6 @@
   .header {
     display: flex;
     padding: 16px 24px;
-    border-bottom: 0.5px solid #ADADAD;
     position: sticky;
     top: 0;
     background-color: white;
@@ -42,22 +41,15 @@
 
     .cart {
       font-weight: 700;
-      font-size: 26px;
+      font-size: 22px;
       display: flex;
-      gap: 6px;
+      gap: 12px;
       align-items: center;
 
       span {
-        font-weight: 600;
-        font-size: 12px;
-        background-color: var(--yc-primary-color);
-        height: 20px;
-        width: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        color: #fff;
+        font-weight: 400;
+        font-size: 15px;
+        color: #9B9B9B;
       }
     }
   }
@@ -74,19 +66,30 @@
       justify-content: space-between;
 
       .total-price {
-        font-weight: 700;
+        font-weight: 400;
         font-size: 16px;
       }
 
       .currency-value {
         font-weight: 700;
-        font-size: 18px;
-        color: var(--yc-primary-color);
+        font-size: 16px;
       }
     }
 
     a {
-      margin-top: 24px;
+      margin-top: 16px;
+    }
+
+    .cart-action {
+      border: 1px solid var(--yc-primary-color);
+      padding: 0 2rem;
+      transition: all 0.15s ease-in-out 0s;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 43px;
     }
   }
 
@@ -96,30 +99,48 @@
   }
 
   ul {
-    margin: 0 24px;
+    margin: 20px 24px 0;
 
     .cart-item {
+      margin-bottom: 24px;
+
       img {
-        width: 82px;
+        width: auto;
         height: 106px;
       }
 
       .item-body {
         display: flex;
+        align-items: flex-end;
         gap: 16px;
-        border-bottom: 1px solid #EBEBEB;
-        padding: 32px 0;
+        padding: 20px 10px;
         position: relative;
+        background: #F5F5F5;
+        border-radius: 4px;
+        
+        .right-items {
+          display: flex;
+          gap: 14px;
+          width: 70%;
+        }
+
+        .left-items {
+          width: 30%;
+        }
 
         @include max-screen('md') {
-          padding: 20px 0;
+          padding: 20px 6px;
         }
       }
 
       .remove-item-btn, .spinner {
         position: absolute;
-        left: 0;
-        top: 30px;
+        left: 10px;
+        top: 15px;
+      }
+
+      .remove-item-btn {
+        font-size: 23px;
       }
 
       .item-details {
@@ -134,32 +155,82 @@
         .variants {
           margin-top: 12px;
           font-weight: 400;
-          font-size: 13.5px;
+          font-size: 13px;
         }
 
         .product-price {
           margin-top: 14px;
           display: flex;
-          gap: 6px;
-          align-items: center;
+          flex-direction: column-reverse;
 
           .price {
+            color: var(--yc-primary-color);
             font-weight: 700;
             font-size: 18px;
           }
 
           .compare-price {
             font-weight: 400;
-            font-size: 14px;
+            font-size: 13px;
             text-decoration-line: line-through;
-            color: #757575;
+            color: #8D8D8D;
           }
         }
       }
+
+      .quantity-control {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid #BDBDBD;
+        border-radius: 4px;
+        padding: 0 10px;
+        background-color: #fff;
+      
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      
+        input {
+          width: 55px;
+          text-align: center;
+          border: none;
+          padding: 0;
+          font-weight: 700;
+          font-size: 16px;
+          color: black;
+        }
+      
+        .decrease-btn,
+        .increase-btn {
+          background-color: transparent;
+          border: none;
+          font-size: 18px;
+          font-weight: 700;
+          color: #B7B7B7;
+          cursor: pointer;
+          transition: all 200ms ease-in-out;
+      
+          &:active {
+            scale: 1.5;
+          }
+        }
+      
+        @include max-screen('md') {
+          padding: 0 5px;
+
+          input {
+            width: 46px;
+          }
+        }
+      }
+      
     }
 
     @include max-screen('md') {
-      margin: 0 16px;
+      margin: 0 18px;
     }
   }
 

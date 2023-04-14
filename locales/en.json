@@ -20,6 +20,7 @@
     "total_amount": "Total",
     "empty_cart": "Your cart is currently empty.",
     "items": {
+      "items_name": "Items",
       "quantity": "Quantity",
       "total": "Total",
       "remove_cta": "Remove"
@@ -30,7 +31,8 @@
       "promo_input": "Enter your code",
       "promo_cta": "Apply",
       "total": "Total cost",
-      "checkout_cta": "Checkout"
+      "checkout_cta": "Checkout",
+      "continue_shppping": "Continuer vos achats" 
     },
     "empty": {
       "title": "Your cart is currently empty.",

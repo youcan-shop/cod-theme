@@ -23,10 +23,11 @@
   "cart": {
     "title": "عربة التسوق",
     "cart": "سلتك",
-    "total_amount": "إجمالي المبلغ",
+    "total_amount": "مجموع سلة التسوق",
     "empty_cart": "عربة التسوق فارغة.",
     "items_count": "منتجات",
     "items": {
+      "items_name": "عناصر",
       "quantity": "الكمية",
       "total": "المجموع",
       "remove_cta": "إزالة"
@@ -37,7 +38,8 @@
       "promo_input": "أدخل رمزك",
       "promo_cta": "تطبيق",
       "total": "التكلفة الإجمالية",
-      "checkout_cta": "الدفع"
+      "checkout_cta": "الدفع",
+      "continue_shppping": "استمر في التسوق" 
     },
     "empty": {
       "title": "عربتك فارغة حاليًا.",
