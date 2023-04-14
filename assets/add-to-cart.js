@@ -89,7 +89,6 @@ async function updateCartItem(cartItemId, productVariantId, quantity) {
   }
 }
 
-
 function increaseCartQuantity(cartItemId, productVariantId) {
   updateCartQuantity(cartItemId, productVariantId, 1);
 }
@@ -108,7 +107,6 @@ function updateCartQuantity(cartItemId, productVariantId, delta) {
     }
   }
 }
-
 
 function cartTemplate(item) {
   // Loop through variations
