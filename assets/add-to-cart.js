@@ -119,16 +119,117 @@ function cartTemplate(item) {
           </div>
           <div class="product-price">
             <span class="compare-price">${item.productVariant.compare_at_price ? item.productVariant.compare_at_price : ''}</span>
-            <span class="price">${item.productVariant.price}</span>
+            <span class="price total-price-update">${item.productVariant.price}</span>
           </div>
           <button class="remove-item-btn">
             <ion-icon data-cart-item-id="${item.id}" data-product-variant-id="${item.productVariant.id}" name="trash-outline"></ion-icon>
           </button>
           <div class="spinner" data-spinner-id="${item.id}" style="display: none;"></div>
         </div>
+        <button class="change-quantity-btn" data-action="decrease" data-cart-item-id="${item.id}" data-product-variant-id="${item.productVariant.id}">-</button>
+<span class="quantity">${item.quantity}</span>
+<button class="change-quantity-btn" data-action="increase" data-cart-item-id="${item.id}" data-product-variant-id="${item.productVariant.id}">+</button>
+
       </div>
     </li>
   `;
+}
+function updateCartTotal(newTotal) {
+  const cartTotalElement = document.querySelector('.cart-drawer .total-price-update');
+  if (cartTotalElement) {
+    cartTotalElement.innerText = newTotal;
+  }
+}
+
+function attachChangeQuantityListeners() {
+  document.querySelectorAll('.change-quantity-btn').forEach((btn) =>
+    btn.addEventListener('click', async (event) => {
+      const action = event.target.getAttribute('data-action');
+      const cartItemId = event.target.getAttribute('data-cart-item-id');
+      const productVariantId = event.target.getAttribute('data-product-variant-id');
+      const quantityElement = event.target.parentElement.querySelector('.quantity');
+      const currentQuantity = parseInt(quantityElement.innerText, 10);
+
+      let newQuantity = action === 'increase' ? currentQuantity + 1 : currentQuantity - 1;
+
+      if (newQuantity < 1) {
+        return;
+      }
+
+      // Update the cart item quantity and retrieve the updated cart
+      const updatedCart = await updateCartItemQuantity(cartItemId, productVariantId, newQuantity);
+
+      // Update the displayed quantity
+      quantityElement.innerText = newQuantity;
+
+      // Update the cart total price
+      updateCartTotal(updatedCart.total);
+    })
+  );
+}
+
+
+
+async function updateCartItemQuantity(cartItemId, productVariantId, newQuantity) {
+  try {
+    const updatedCart = await youcanjs.cart.updateItem({
+      cartItemId,
+      productVariantId,
+      quantity: newQuantity,
+    });
+    return updatedCart;
+  } catch (error) {
+    notify(error.message, 'error');
+  }
+}
+async function increaseCartItemQuantity(event) {
+  const cartItemId = event.target.getAttribute('data-cart-item-id');
+  const productVariantId = event.target.getAttribute('data-product-variant-id');
+  const itemQuantityElement = event.target.closest('.item-details').querySelector('.quantity');
+  const itemPriceElement = event.target.closest('.item-details').querySelector('.price');
+  
+  const currentQuantity = parseInt(itemQuantityElement.innerText, 10);
+  const itemPrice = parseFloat(itemPriceElement.getAttribute('data-base-price'));
+  
+  const newQuantity = currentQuantity + 1;
+  const newPrice = parseFloat(itemPrice) * newQuantity;
+  
+  await youcanjs.cart.updateItem({
+    cartItemId,
+    productVariantId,
+    quantity: newQuantity,
+  });
+  
+  itemQuantityElement.innerText = newQuantity;
+  itemPriceElement.innerText = newPrice.toFixed(2);
+  
+  updateCartTotal();
+}
+
+async function decreaseCartItemQuantity(event) {
+  const cartItemId = event.target.getAttribute('data-cart-item-id');
+  const productVariantId = event.target.getAttribute('data-product-variant-id');
+  const itemQuantityElement = event.target.closest('.item-details').querySelector('.quantity');
+  const itemPriceElement = event.target.closest('.item-details').querySelector('.price');
+  
+  const currentQuantity = parseInt(itemQuantityElement.innerText, 10);
+  const itemPrice = parseFloat(itemPriceElement.getAttribute('data-base-price'));
+  
+  if (currentQuantity > 1) {
+    const newQuantity = currentQuantity - 1;
+    const newPrice = parseFloat(itemPrice) * newQuantity;
+    
+    await youcanjs.cart.updateItem({
+      cartItemId,
+      productVariantId,
+      quantity: newQuantity,
+    });
+    
+    itemQuantityElement.innerText = newQuantity;
+    itemPriceElement.innerText = newPrice.toFixed(2);
+    
+    updateCartTotal();
+  }
 }
 
 async function updateCartDrawer() {
@@ -167,7 +268,8 @@ async function updateCartDrawer() {
     
       // Attach event listeners to the newly added remove buttons
       attachRemoveItemListeners();
-    
+      attachChangeQuantityListeners();
+
     } else {
       const p = document.createElement('p');
       p.classList.add('empty-cart');
@@ -175,23 +277,29 @@ async function updateCartDrawer() {
       cartDrawerContent.appendChild(p);
     }
 
-    const footerContainerHTML = `
+    cconst footerContainer = document.querySelector('.cart-drawer .footer .price-wrapper .total-price-update');
+  
+    if (!footerContainer) {
+      const footerContainerHTML = `
         <div class="footer">
           <div class="price-wrapper">
             <span class="total-price">${totalAmount}</span>
-            <span class="currency-value">${cartData.total}</span>
+            <span class="currency-value total-price-update">${cartData.total}</span>
           </div>
           <a href='${location.origin}/cart' class="yc-btn">${checkoutPayment}</a>
         </div>
-    `;
-
-    // Create a DOM element for the footer container
-    const footerContainer = document.createElement('div');
-    footerContainer.innerHTML = footerContainerHTML;
-    
-    // Append the footer container to the cart drawer content
-    cartDrawerContent.appendChild(footerContainer);
-
+      `;
+  
+      // Create a DOM element for the footer container
+      const footerElement = document.createElement('div');
+      footerElement.innerHTML = footerContainerHTML;
+      
+      // Append the footer container to the cart drawer content
+      cartDrawerContent.appendChild(footerElement);
+    } else {
+      footerContainer.innerHTML = cartData.total;
+    }
+  
   } catch (error) {
     notify(error.message, 'error');
   }
