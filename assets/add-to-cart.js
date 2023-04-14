@@ -230,13 +230,13 @@ function updateCartCount(delta, relative = false) {
 }
 
 function showSpinner(spinnerElement) {
-  const currencyValue = spinnerElement.previousElementSibling;
-  toggleVisibility(currencyValue, spinnerElement);
+  const spinnerAction = spinnerElement.previousElementSibling;
+  toggleVisibility(spinnerAction, spinnerElement);
 }
 
 function hideSpinner(spinnerElement) {
-  const currencyValue = spinnerElement.previousElementSibling;
-  toggleVisibility(spinnerElement, currencyValue);
+  const spinnerAction = spinnerElement.previousElementSibling;
+  toggleVisibility(spinnerElement, spinnerAction);
 }
 
 function toggleVisibility(hiddenElement, visibleElement = null) {
