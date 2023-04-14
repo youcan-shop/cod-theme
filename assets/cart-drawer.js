@@ -1,4 +1,4 @@
-const closeCartDrawerBtn = document.querySelectorAll('.close-cart-drawer-btn')
+const closeCartDrawerBtn = document.querySelectorAll('.close-cart-drawer-btn');
 
 /**
  * Remove a cart item from the cart

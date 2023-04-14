@@ -70,7 +70,6 @@ function notify(msg, type = 'success', timeout = 3000) {
   icons.forEach((icon) => icon.style.display = 'none');
   alert.querySelector(`.icon-${type}`).style.display = 'block';
   alert.querySelector('.alert-msg').innerText = msg;
-  
   alert.classList.add(type);
   alert.classList.add('show');
 
@@ -81,26 +80,24 @@ function notify(msg, type = 'success', timeout = 3000) {
 /* ----- navigation-drawer ----- */
 /* ----------------------------- */
 const overlay = document.querySelector('.global-overlay');
-const drawer = document.querySelector('.navigation-drawer');
+const drawers = document.querySelectorAll('.navigation-drawer');
 
 const showOverlay = () => {
-  const overlay = document.querySelector('.global-overlay');
-
   document.body.style.overflowY = 'hidden';
   overlay.style.visibility = 'visible';
   overlay.style.opacity = '1';
 }
 
 const hideOverlay = () => {
-  const overlay = document.querySelector('.global-overlay');
   const drawerBtn = document.querySelector('.close-drawer-btn');
 
   const closeDrawer = () => {
     document.body.style.overflowY = 'auto';
     overlay.style.visibility = 'hidden';
     overlay.style.opacity = '0';
-    drawer.style.transform = 'translateX(150vw)';
-    targetedDrawer.visibility = 'hidden';
+    drawers.forEach((drawer) => {
+      drawer.style.transform = 'translateX(150vw)';
+    })
   };
 
   if (drawerBtn) {

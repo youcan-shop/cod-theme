@@ -82,6 +82,7 @@
       }
       .cart {
         font-size: 1.5rem;
+        cursor: pointer;
 
         #cart-items-badge {
           display: flex;
@@ -128,7 +129,7 @@
       display: flex;
       list-style: none;
       gap: 40px;
-    
+
     }
     .menu-item {
       a {

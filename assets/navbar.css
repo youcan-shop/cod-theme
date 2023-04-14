@@ -72,6 +72,7 @@
 }
 .yc-header .yc-navbar .corner .cart {
   font-size: 1.5rem;
+  cursor: pointer;
 }
 .yc-header .yc-navbar .corner .cart #cart-items-badge {
   display: flex;
