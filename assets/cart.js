@@ -114,13 +114,14 @@ async function removeItem(cartItemId, productVariantId) {
     document.getElementById(`cart-item-${cartItemId}`).remove();
 
     updateTotalPrice();
-    
+    await updateCartDrawer();
+
     const cartItemsBadge = document.getElementById('cart-items-badge');
 
     const cartItems = document.querySelectorAll('.cart__item');
 
     if (cartItemsBadge) {
-      cartItemsBadge.innerText = parseInt(cartItemsBadge.innerText) + 1;
+      cartItemsBadge.innerText = parseInt(cartItemsBadge.innerText) - 1;
     }
 
     if (cartItems.length === 0) {
@@ -145,3 +146,4 @@ async function removeItem(cartItemId, productVariantId) {
   }
 }
 
+window.removeItem = removeItem;

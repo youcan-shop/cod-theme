@@ -34,10 +34,15 @@
         </div>
         <div class='cell '>
           <div class="product-title">{{ item.name }}</div>
-          <div class="product-variant">
-            {% comment %} To be added when variants are added on the backend {% endcomment %}
+            <div class="product-variant">
+              {% for variant in item.variations %}
+                {% if variant[0] != 'default' or variant[1] != 'default' %}
+                <span>{{ variant[0] }}:{{ variant[1] }}</span>
+                <span class="variant-space"></span>
+              {% endif %}
+            {% endfor %}
+            <div class='product-price'>{{ item.price | money }}</div>
           </div>
-          <div class='product-price'>{{ item.price | money }}</div>
         </div>
         <div class='cell'>
           {%- render 'quantity-input', item: item -%}

@@ -15,8 +15,12 @@
   },
   "cart": {
     "title": "Panier d'achat",
+    "cart": "votre panier",
     "items_count": "articles",
+    "total_amount": "Total",
+    "empty_cart": "Votre panier est vide",
     "items": {
+      "items_name": "Items",
       "quantity": "Quantité",
       "total": "Total",
       "remove_cta": "Supprimer"
@@ -27,7 +31,8 @@
       "promo_input": "Entrez votre code",
       "promo_cta": "Appliquer",
       "total": "Coût total",
-      "checkout_cta": "Paiement"
+      "checkout_cta": "Paiement",
+      "continue_shppping": "continue le shopping"
     },
     "empty": {
       "title": "Votre panier est actuellement vide.",

@@ -88,15 +88,12 @@
                 </form>
               </div>
             </div>
-            <a
-              class='cart relative'
-              href='{{ routes.cart_url }}'
-            >
+            <button class='cart relative' id='navbar-cart-icon'>
               <span id='cart-items-badge'>
                 {{- cart.items | size -}}
               </span>
               <ion-icon name="cart-outline"></ion-icon>
-            </a>
+            </button>
           </div>
       {%- endcase %}
     {%- endfor -%}

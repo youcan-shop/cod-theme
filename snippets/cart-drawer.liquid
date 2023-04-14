@@ -1,0 +1,34 @@
+{{ 'cart-drawer.css' | asset_url | stylesheet_tag }}
+
+<div class="cart-overlay"></div>
+<div class="cart-drawer">
+  <button class="cart-drawer__close">
+    <ion-icon class="close-search" name="close-outline"></ion-icon>
+  </button>
+  <div class="cart-drawer__content">
+    <!-- Cart drawer content goes here -->
+  </div>
+</div>
+
+{% javascript %}
+  const defaultImage = '{{ "default_product.jpeg" | asset_url }}';
+
+  const ADD_TO_CART_EXPECTED_ERRORS = {
+    select_variant: "{{ 'errors.select_variant' | t }}",
+    quantity_smaller_than_zero: "{{ 'errors.quantity_smaller_than_zero' | t }}",
+    upload_image: "{{ 'errors.upload_image' | t }}",
+    product_added: "{{ 'errors.product_added' | t }}"
+  }
+
+  const CART_DRAWER_TRANSLATION = {
+    quantityVariant: '{{ 'cart.items.quantity' | t }}',
+    cartName:  "{{ 'cart.cart' | t }}",
+    totalAmount:  '{{ 'cart.total_amount' | t }}',
+    checkoutPayment:  '{{ 'cart.summary.checkout_cta' | t }}',
+    emptyCart:  '{{ 'cart.empty_cart' | t }}',
+    itemsName: '{{ 'cart.items.items_name' | t }}',
+    continueShopping: '{{ 'cart.summary.continue_shppping' | t }}', 
+  }
+
+{% endjavascript %}
+{{ 'add-to-cart.js' | asset_url | script_tag_deferred }}
