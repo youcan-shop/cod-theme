@@ -1,53 +1,13 @@
-{% schema %}
-{
-  "label": "Video",
-  "settings": [
-    {
-      "type": "select",
-      "id": "video_type",
-      "label": "Video Type",
-      "options": [
-        {
-          "value": "youtube",
-          "label": "Youtube"
-        },
-        {
-          "value": "facebook",
-          "label": "Facebook"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "id": "video_link",
-      "label": "Video Link",
-      "accept": ["youtube", "vimeo"]
-    },
-    {
-      "type": "range",
-      "id": "video_height",
-      "label": "Video Height",
-      "min": 100,
-      "max": 1000,
-      "step": 10,
-      "unit": "px",
-      "default": 500
-    },
-    {
-      "type": "range",
-      "id": "video_width",
-      "label": "Video Width's Percentage",
-      "min": 10,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "default": 100
-    }
-  ]
-}
-{% endschema %}
+{% assign id = 100 | rand: 2000 %}
 
-<div class='flex items-center justify-center'>
+{% style %}
+.space-y-{{id}} {
+  margin-top: {{ section.settings.margin_top }}px;
+  margin-bottom: {{ section.settings.margin_bottom }}px;
+}
+{% endstyle %}
+
+<div class='flex items-center justify-center space-y-{{id}}'>
   {% if section.settings.video_link %}
     {% if section.settings.video_type == 'youtube' %}
       <iframe
@@ -83,3 +43,73 @@
 </script>
 
 {{ 'video.js' | asset_url | script_tag_deferred }}
+
+{% schema %}
+  {
+    "label": "Video",
+    "settings": [
+      {
+        "type": "select",
+        "id": "video_type",
+        "label": "Video Type",
+        "options": [
+          {
+            "value": "youtube",
+            "label": "Youtube"
+          },
+          {
+            "value": "facebook",
+            "label": "Facebook"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "video_link",
+        "label": "Video Link",
+        "accept": ["youtube", "vimeo"]
+      },
+      {
+        "type": "range",
+        "id": "video_height",
+        "label": "Video Height",
+        "min": 100,
+        "max": 1000,
+        "step": 10,
+        "unit": "px",
+        "default": 500
+      },
+      {
+        "type": "range",
+        "id": "video_width",
+        "label": "Video Width's Percentage",
+        "min": 10,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "margin_top",
+        "label": "Space top",
+        "min": 5,
+        "max": 160,
+        "step": 1,
+        "unit": "px",
+        "default": 20
+
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom",
+        "label": "Space bottom",
+        "min": 5,
+        "max": 160,
+        "step": 1,
+        "unit": "px",
+        "default": 20
+      }
+    ]
+  }
+  {% endschema %}

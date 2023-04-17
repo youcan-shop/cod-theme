@@ -63,7 +63,6 @@
 .product-home-container .product-block .image-box img {
   width: 100%;
   height: 400px;
-  object-fit: contain;
 }
 @media screen and (max-width: 768px) {
   .product-home-container .product-block .image-box img {
