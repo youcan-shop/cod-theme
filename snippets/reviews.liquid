@@ -10,5 +10,8 @@
   <button class='yc-btn-secondary--large' id='show-more'>{{ 'general.show_more_button' | t }}</button>
 </div>
 
+{% javascript %}
+  const reviewsProductId = '{{ reviews_product_id }}';
+{% endjavascript %}
 
 {{ 'reviews.js' | asset_url | script_tag_deferred }}

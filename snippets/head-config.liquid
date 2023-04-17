@@ -140,6 +140,7 @@
 
 {% javascript %}
   const defaultAvatar = '{{ "avatar.png" | asset_url }}';
+  const ratings = "{{ 'reviews.ratings' | t }}";
 {% endjavascript %}
 
 {{ 'main.css' | asset_url | stylesheet_tag }}

@@ -24,7 +24,7 @@
       >
     </div>
 
-    <div class='product-details'>
+    <div class='product-details product-home'>
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'product_title' -%}
@@ -48,6 +48,10 @@
 </div>
 
 <script>
-  const productId = '{{ product_id }}';
-  const ratings = "{{ 'reviews.ratings' | t }}";
+  document.addEventListener('DOMContentLoaded', () => {
+    const homePageProductId = '{{ product_id }}';
+    const parentContainer = '.product-home';
+
+    fetchReviewsForProduct(homePageProductId, parentContainer);
+  });
 </script>
