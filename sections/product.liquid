@@ -30,6 +30,7 @@
 {
   "limit": 1,
   "label": "Single Product",
+  "templates": ["index", "product"],
   "blocks": [
     {
       "label": "Title",
@@ -365,8 +366,14 @@
   {% if selected_product %}
     const variantStr = `{{ selected_product.variants | json }}`;
     const variants = JSON.parse(variantStr.slice(1, -1));
-    const productId = '{{ selected_product.id }}';
+    const sectionProductId = '{{ selected_product.id }}';
     const sizeBigMessage = "{{ 'general.size_big_message' | t }}";
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const parentContainer = '.yc-single-product';
+
+      fetchReviewsForProduct(sectionProductId, parentContainer);
+    });
   {% endif %}
 {%- endjavascript -%}
 

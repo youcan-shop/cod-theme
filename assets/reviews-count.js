@@ -1,6 +1,6 @@
-(async () => {
-  const generalReviewsContainers = document.querySelectorAll('.yc-general-review');
-  const generalReviewsWrappers = document.querySelectorAll('.yc-general-review-wrapper');
+async function fetchReviewsForProduct(productId, closetParent) {
+  const generalReviewsContainers = document.querySelectorAll(`${closetParent} .yc-general-review`);
+  const generalReviewsWrappers = document.querySelectorAll(`${closetParent} .yc-general-review-wrapper`);
 
   const noDataSetter = (element) => {
     generalReviewsContainers.forEach(container => container.remove());
@@ -26,7 +26,7 @@
   } catch (error) {
     noDataSetter();
   }
-})();
+};
 
 function calculateAverageRating(totalReviews) {
   if (!totalReviews || !totalReviews.length) {
