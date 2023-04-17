@@ -22,7 +22,7 @@
       src='{%- if images[0] %}{{images[0]}}{%- else %}{{ 'default_product.jpeg' | asset_url }}{% endif %}'
       alt='{{ product_name }}'>
   </div>
-  <div class='product-details'>
+  <div class='product-details product-home'>
     {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'product_title' -%}
@@ -49,5 +49,10 @@
   </div>
 
 <script>
-  const productColumnId = '{{ product_id }}';
+  document.addEventListener('DOMContentLoaded', () => {
+    const homePageProductId = '{{ product_id }}';
+    const parentContainer = '.product-home';
+
+    fetchReviewsForProduct(homePageProductId, parentContainer);
+  });
 </script>
