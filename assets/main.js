@@ -111,7 +111,6 @@ const hideOverlay = () => {
   });
 };
 
-
 if (overlay) {
   hideOverlay();
 }

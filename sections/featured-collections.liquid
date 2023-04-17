@@ -2,10 +2,13 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  .section-featured-collections-{{id}} .yc-featured-container{
-    justify-content: {{ section.settings.section_title_position }};
+  .section-featured-collections-{{ id }} {
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .section-featured-collections-{{ id }} .yc-featured-container{
+    justify-content: {{ section.settings.section_title_position }};
   }
 {% endstyle %}
 
