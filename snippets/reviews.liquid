@@ -11,7 +11,7 @@
 </div>
 
 {% javascript %}
-  const productsId = '{{ reviews_product_id }}';
+  const reviewsProductId = '{{ reviews_product_id }}';
 {% endjavascript %}
 
 {{ 'reviews.js' | asset_url | script_tag_deferred }}
