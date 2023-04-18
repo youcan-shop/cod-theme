@@ -92,7 +92,7 @@
             </div>
           {%- when 'stock' -%}
             <div class='top-spacing'>
-              {% render 'stock', stock_items_left: block.settings.stock_items_left, total_stock_items: block.settings.total_stock_items %}
+              {% render 'stock', stock_title: block.settings.stock_title, stock_items_left: block.settings.stock_items_left, total_stock_items: block.settings.total_stock_items %}
             </div>
           {%- when 'add_to_cart' -%}
             <div class='static-add-to-cart top-spacing' {{ block.youcan_attributes }}>
