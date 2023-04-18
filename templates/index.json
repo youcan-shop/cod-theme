@@ -466,6 +466,19 @@
                 "product": "cf3ed4d6-2109-463a-8422-be423a229cad",
                 "reviews_title": "Reviews"
             }
+        },
+        "section_n2a28yhguv9culi": {
+            "type": "main-video",
+            "settings": {
+                "video_type": "youtube",
+                "video_link": "https:\/\/youtu.be\/YpGjaJ1ettI",
+                "video_height": 500,
+                "video_width": 100,
+                "padding_top": 20,
+                "padding_bottom": 20,
+                "margin_top": 20,
+                "margin_bottom": 20
+            }
         }
     },
     "order": [
@@ -477,6 +490,7 @@
         "section_609gq1tx2x0aaa",
         "section_p3bpf7007sndktq",
         "section_9z2auzpcdr2wm9d",
+        "section_n2a28yhguv9culi",
         "section_t66sa97eaaitsq5"
     ]
 }
