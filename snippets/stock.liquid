@@ -2,11 +2,11 @@
   {{ 'stock.css' | asset_url | stylesheet_tag }}
 
   <div class='stock-wrapper'>
-    <div id='stock-counter'>
-      <p>
-        📦
+    <div class='stock-title-container'>
+      <span class='stock-icon'>📦</span>
+      <p class='stock-title'>
+        {{ stock_title }}:&nbsp;
         <span id='current-stock'></span>
-        left in stock
       </p>
     </div>
     <div class='progress-bar'>
