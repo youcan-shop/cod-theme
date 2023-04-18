@@ -100,6 +100,10 @@
       "second": "ثانية"
     }
   },
+  "upsell": {
+    "yes_submit_button": "نعم ، أضف هذا إلى طلبي",
+    "no_submit_button": "لا شكراً لست مهتماً"
+  },
   "footer": {
     "blocks": {
       "privacy": {

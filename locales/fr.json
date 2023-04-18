@@ -102,6 +102,10 @@
       "second": "Seconde"
     }
   },
+  "upsell": {
+    "yes_submit_button":  "Oui",
+    "no_submit_button": "No"
+  },
   "footer": {
     "blocks": {
       "privacy": {
