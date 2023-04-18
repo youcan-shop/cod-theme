@@ -124,7 +124,7 @@ button:focus {
 .yc-btn {
   background: var(--yc-primary-color) !important;
   color: white !important;
-  padding: 12px 32px;
+  padding: 10px 12px;
   transition: all 0.15s ease-in-out 0s;
   letter-spacing: 1px;
   cursor: pointer;
@@ -138,13 +138,6 @@ button:focus {
 }
 .yc-btn > * {
   color: white !important;
-}
-.yc-btn.btn-sm {
-  padding: 7px 17px;
-  font-size: 14px;
-}
-.yc-btn.btn-sm ion-icon {
-  margin-bottom: 2px;
 }
 
 .yc-btn-secondary {
@@ -472,6 +465,9 @@ input:not([type=radio]),
   padding: 0 20px;
   gap: 20px;
   z-index: 999;
+}
+.sticky-elements-container > * {
+  flex: 1 1 50%;
 }
 .sticky-elements-container .is_sticky {
   width: 100%;
