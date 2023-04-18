@@ -301,7 +301,9 @@
                 "video_type": "youtube",
                 "video_link": "https:\/\/youtu.be\/T28YCE0EZ9A",
                 "video_height": 490,
-                "video_width": 100
+                "video_width": 100,
+                "margin_top": 40,
+                "margin_bottom": 40
             }
         },
         "section_elct0ov0jkibcl3m": {

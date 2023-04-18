@@ -1,5 +1,12 @@
 {{ 'video.css' | asset_url | stylesheet_tag }}
 
+{% style %}
+  .video-wrapper {
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+{% endstyle %}
+
 <div class='video-wrapper container'>
   {% if section.settings.video_link %}
     {% if section.settings.video_type == 'youtube' %}
@@ -80,6 +87,27 @@
         "step": 5,
         "unit": "%",
         "default": 100
+      },
+      {
+        "type": "range",
+        "id": "margin_top",
+        "label": "Space top",
+        "min": 5,
+        "max": 160,
+        "step": 1,
+        "unit": "px",
+        "default": 20
+
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom",
+        "label": "Space bottom",
+        "min": 5,
+        "max": 160,
+        "step": 1,
+        "unit": "px",
+        "default": 20
       }
     ]
   }
