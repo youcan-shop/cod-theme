@@ -30,14 +30,6 @@
       line-height: 22px;
       font-weight: 300;
     }
-
-    @include max-screen('md') {
-      padding: 0 16px;
-    }
-  }
-
-  .upsell-footer {
-    margin: 60px auto 10px;
   }
 
   .upsell-form-submit {
@@ -61,11 +53,12 @@
       background: var(--yc-primary-color);
       color: #fff;
       padding: 16px 18px;
+      height: 60px;
       font-size: 26px;
       gap: 10px;
     }
 
-    .small-button-text {
+    .small-text {
       font-size: 16px;
       font-weight: 700;
     }
@@ -76,16 +69,12 @@
       border: 1px solid #C4C4C4;
       color: #999999;
       font-size: 14px;
+      height: 48px;
       font-weight: 700;
     }
+  }
 
-    @include max-screen('md') {
-      flex-direction: column;
-
-      .upsell-submit-yes,
-      .upsell-submit-no {
-        width: 300px
-      }
-    }
+  @include max-screen('md') {
+    padding: 50px 16px;
   }
 }
