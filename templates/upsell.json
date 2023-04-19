@@ -1,0 +1,10 @@
+{
+  "sections": {
+      "upsell" : {
+          "type": "main-upsell"
+      }
+  },
+  "order": [
+      "upsell"
+  ]
+}
