@@ -56,12 +56,12 @@
 <div class='yc-featured-products section-featured-products-{{id}} container'>
   <div class='bg-color-{{id}}'>
     <div class="counter-wrapper">
-          <h1 class='yc-section-title'>
-            {{ section.settings.title }}
-          </h1>
-          {% if section.settings.countdown_enabled %}
-            {%- render 'countdown', section_settings: section.settings -%}
-          {% endif %}
+      <h1 class='yc-section-title'>
+        {{ section.settings.title }}
+      </h1>
+      {% if section.settings.countdown_enabled %}
+        {%- render 'countdown', section_settings: section.settings -%}
+      {% endif %}
     </div>
       {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
       {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
@@ -70,15 +70,15 @@
 <script>
   const isMobile1 = window.matchMedia("(max-width: 768px)");
   const products = {{ section.blocks.size }};
-      let perPage = 3;
-      if (products < 3) {
-        perPage = products;
-      }
+  let perPage = 3;
+  if (products < 3) {
+    perPage = products;
+  }
 
   const desktopSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
     type: '{{ section.settings.slider_transition_type }}',
     arrows: '{{ section.settings.slider_arrows }}' ? true : false,
-    autoplay: '{{ section.settings.slider_autoplay }}' ? true : false,
+    autoplay: false, //'{{ section.settings.slider_autoplay }}' ? true : false,
     cover: true,
     pagination: '{{ section.settings.slider_pagination }}' ? true : false,
     pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
@@ -90,7 +90,7 @@
     perMove: 1,
     snap: true,
     gap: '20px',
-    focus  : 'center',
+    focus: 'center',
   });
 
   const mobileSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
