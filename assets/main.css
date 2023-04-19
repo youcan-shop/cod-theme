@@ -464,7 +464,7 @@ input:not([type=radio]),
   height: 80px;
   padding: 0 20px;
   gap: 20px;
-  z-index: 999;
+  z-index: 300;
 }
 .sticky-elements-container > * {
   flex: 1 1 50%;

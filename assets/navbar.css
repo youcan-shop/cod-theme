@@ -198,7 +198,7 @@
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 95;
+  z-index: 400;
   visibility: hidden;
   opacity: 0;
 }
@@ -214,7 +214,7 @@
   height: 100vh;
   width: 18rem;
   opacity: 0;
-  z-index: 99;
+  z-index: 450;
 }
 .navigation-drawer .logo {
   padding: 20px 16px;

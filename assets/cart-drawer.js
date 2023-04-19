@@ -8,11 +8,7 @@ const closeCartDrawerBtn = document.querySelectorAll('.close-cart-drawer-btn');
  */
 async function removeCartItem(cartItemId, productVariantId) {
   try {
-    await youcanjs.cart.removeItem({
-      cartItemId,
-      productVariantId,
-    });
-
+    await youcanjs.cart.removeItem({ cartItemId, productVariantId});
     setupCartDrawer()
   } catch (error) {}
 }
@@ -54,7 +50,7 @@ async function setupCartDrawer() {
           </div>
           <div class='price-trash-holder'>
             <div class='price'>${money(productVariant.price * quantity)}</div>
-            <button onclick='removeCartItem('${id}', '${productVariant.id}')'>
+            <button onclick="removeCartItem('${id}', '${productVariant.id}')">
               ${CART_DRAWER_LOCALES.remove}
             </button>
           </div>

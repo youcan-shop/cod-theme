@@ -70,7 +70,6 @@ function uploadImage(element) {
 
     function eventHandler(e) {
       const original = $('.thumbnail-images .active') || $('.main-image');
-      console.log(original)
       const magnified = $('#magnified-image');
 
       x = (e.offsetX / original.offsetWidth) * 100;
