@@ -13,7 +13,7 @@
         {{ upsell.footer }}
       </div>
     </div>
-    <form id="upsell-form" action="/api/upsells/{{ upsell.id }}/answer" method="post">
+    <form id="upsell-form">
       <input
         type="hidden"
         name="_token"
@@ -55,6 +55,7 @@
 {%- schema %}
   {
     "label": "Upsell",
+    "templates": ["upsell"],
     "settings": [
       {
         "type": "richtext",
