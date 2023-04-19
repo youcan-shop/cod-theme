@@ -1,0 +1,79 @@
+.upsell-page {
+  padding: 50px 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  max-width: 616px;
+  margin: auto;
+}
+.upsell-page .upsell-content img {
+  margin: auto;
+}
+.upsell-page .upsell-content h1 {
+  font-weight: 500;
+  color: #333333;
+  line-height: 29px;
+  font-size: 24px;
+}
+.upsell-page .upsell-content h2 {
+  font-size: 20px;
+  line-height: 22px;
+}
+.upsell-page .upsell-content p {
+  color: #333333;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 300;
+}
+@media (max-width: 768px) {
+  .upsell-page .upsell-content {
+    padding: 0 16px;
+  }
+}
+.upsell-page .upsell-footer {
+  margin: 60px auto 10px;
+}
+.upsell-page .upsell-form-submit {
+  padding: 42px 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+.upsell-page .upsell-form-submit .upsell-submit-yes,
+.upsell-page .upsell-form-submit .upsell-submit-no {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.upsell-page .upsell-form-submit .upsell-submit-yes {
+  background: var(--yc-primary-color);
+  color: #fff;
+  padding: 16px 18px;
+  font-size: 26px;
+  gap: 10px;
+}
+.upsell-page .upsell-form-submit .small-button-text {
+  font-size: 16px;
+  font-weight: 700;
+}
+.upsell-page .upsell-form-submit .upsell-submit-no {
+  background: #fff;
+  padding: 16px 10px;
+  border: 1px solid #C4C4C4;
+  color: #999999;
+  font-size: 14px;
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .upsell-page .upsell-form-submit {
+    flex-direction: column;
+  }
+  .upsell-page .upsell-form-submit .upsell-submit-yes,
+  .upsell-page .upsell-form-submit .upsell-submit-no {
+    width: 300px;
+  }
+}
