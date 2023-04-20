@@ -156,9 +156,11 @@
 
     .checkout_cta_btn {
       padding: 0 24px;
+      margin-bottom: 26px;
 
       @include breakpoint('md') {
         padding: 0;
+        margin: 0;
       }
     }
 

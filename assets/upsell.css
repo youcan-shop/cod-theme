@@ -1,0 +1,86 @@
+.upsell-page {
+  padding: 56px 0 46px;
+  background: #F7F7F7;
+}
+.upsell-page .upsell-container {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  max-width: 650px;
+  margin: auto;
+}
+.upsell-page .upsell-container #upsell-form {
+  width: 100%;
+}
+.upsell-page .upsell-container .upsell-content img {
+  margin: 15px auto;
+}
+.upsell-page .upsell-container .upsell-content h1 {
+  font-weight: 500;
+  color: #333333;
+  line-height: 29px;
+  font-size: 24px;
+}
+.upsell-page .upsell-container .upsell-content h2 {
+  font-size: 20px;
+  line-height: 22px;
+}
+.upsell-page .upsell-container .upsell-content p {
+  color: #333333;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 300;
+}
+.upsell-page .upsell-container .upsell-form-submit {
+  padding: 42px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+.upsell-page .upsell-container .upsell-form-submit .upsell-submit-yes {
+  background: var(--yc-primary-color);
+  color: #fff;
+  padding: 16px 18px;
+  height: 100px;
+  font-size: 26px;
+  font-weight: 700;
+  gap: 10px;
+}
+.upsell-page .upsell-container .upsell-form-submit .button-text {
+  line-height: 48px;
+}
+.upsell-page .upsell-container .upsell-form-submit .small-text {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 29px;
+  display: block;
+}
+.upsell-page .upsell-container .upsell-form-submit .upsell-submit-no {
+  background: #fff;
+  padding: 16px 10px;
+  border: 1px solid #C4C4C4;
+  color: #999999;
+  font-size: 14px;
+  height: 46px;
+  font-weight: 700;
+}
+.upsell-page .upsell-container .upsell-form-submit .upsell-submit-yes,
+.upsell-page .upsell-container .upsell-form-submit .upsell-submit-no {
+  width: 432px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .upsell-page .upsell-container .upsell-form-submit .upsell-submit-yes,
+  .upsell-page .upsell-container .upsell-form-submit .upsell-submit-no {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .upsell-page .upsell-container {
+    padding: 50px 16px;
+  }
+}

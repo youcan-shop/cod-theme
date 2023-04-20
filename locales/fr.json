@@ -94,6 +94,10 @@
       "title_desc":  "Alphabétique: de Z à A"
     }
   },
+  "upsell": {
+    "yes_submit_button":  "Oui",
+    "no_submit_button": "No"
+  },
   "footer": {
     "blocks": {
       "privacy": {

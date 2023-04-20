@@ -137,10 +137,12 @@
 }
 .cart-bg-color .yc-cart-container .summary-box .checkout_cta_btn {
   padding: 0 24px;
+  margin-bottom: 26px;
 }
 @media (min-width: 768px) {
   .cart-bg-color .yc-cart-container .summary-box .checkout_cta_btn {
     padding: 0;
+    margin: 0;
   }
 }
 @media screen and (max-width: 768px) {

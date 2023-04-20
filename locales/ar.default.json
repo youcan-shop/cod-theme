@@ -98,6 +98,11 @@
       "title_desc": "الأبجدية: من الأعلى إلى الأقل"
     }
   },
+  "upsell": {
+    "yes_submit_button": "إطلب الأن",
+    "yes_submit_button_sub": "ولا تفوت عليك الفرصة ",
+    "no_submit_button": "لا شكراً لست مهتماً"
+  },
   "footer": {
     "blocks": {
       "privacy": {
