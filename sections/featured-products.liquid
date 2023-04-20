@@ -93,21 +93,14 @@
       "label": "Number of columns on desktop"
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "rows_mobile",
       "label": "Number of columns on mobile",
-      "options": [
-        {
-          "value": "1",
-          "label": "1 Rows"
-        },
-        {
-          "value": "2",
-          "label": "2 Rows"
-        }
-      ],
-      "default": "2"
-    },
+      "min": 1,
+      "max": 2,
+      "step": 1,
+      "default": 2
+    }
     {
       "type": "checkbox",
       "id": "show_product_title",
