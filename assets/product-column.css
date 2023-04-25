@@ -37,7 +37,7 @@
 }
 @media screen and (max-width: 768px) {
   .product-home-container .product-block .product-name {
-    font-size: 24px;
+    font-size: 25px;
   }
 }
 .product-home-container .product-block .product-price {
@@ -48,7 +48,7 @@
 .product-home-container .product-block .product-compare-price {
   color: #8D8D8D;
   font-weight: 400;
-  font-size: 17px;
+  font-size: 19px;
   line-height: 23px;
 }
 .product-home-container .product-block .product-description {
