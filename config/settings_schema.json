@@ -36,7 +36,7 @@
           {
               "type": "image_picker",
               "id": "og_image",
-              "label": "Meta Open Graph Image"
+              "label": "Meta open graph image"
           },
           {
               "type": "image_picker",
@@ -81,7 +81,7 @@
           {
               "type": "color",
               "id": "neutral_light_color",
-              "label": "Neutral Light",
+              "label": "Neutral light",
               "default": "#e3e3e3"
           }
       ]
