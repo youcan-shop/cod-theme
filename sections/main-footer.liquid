@@ -37,6 +37,7 @@
           {{ section.settings.mention }}
         </div>
         <div class="spacer"></div>
+        {%- if section.settings.social_media_exist -%}
           {%- for block in section.blocks -%}
             {%- if block.settings.social_media_icon_image.src -%}
               <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
@@ -48,6 +49,7 @@
               </a>
             {%- endif -%}
           {%- endfor %}
+        {%- endif -%}
       </div>
     </div>
 </footer>
@@ -73,6 +75,12 @@
       "id": "footer_text_color",
       "label": "Text Color",
       "default": "#fff"
+    },
+    {
+      "type": "checkbox",
+      "id": "social_media_exist",
+      "label": "Social media",
+      "default": true
     },
     {
       "type": "richtext",
