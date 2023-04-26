@@ -9,50 +9,57 @@
     --yc-footer-text-color: {{ section.settings.footer_text_color.hex }};
     --yc-footer-copyright-background: {{ section.settings.footer_copyright_background.hex }};
   }
+
+  .toggle-footer {
+    display: {{ section.settings.toggle_footer ? 'none' : 'block' }};
+  }
+
 {% endstyle %}
 
-<footer class='yc-footer'>
-  <div class="columns container">
-    {%- for linklist in link-lists -%}
-      {%- if linklist.links | count > 0  and linklist != main-link-list -%}
-        <div class="accordion-item column">
-          <div class='accordion-header'>
-            <h1 class="title">{{ linklist.title }}</h1>
-            <svg class="arrow" width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.01947 7.41357L7.56174 1.50241L14.104 7.41357" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+{% if section.settings.toggle_footer != true %}
+  <footer class='yc-footer toggle-footer'>
+    <div class="columns container">
+      {%- for linklist in link-lists -%}
+        {%- if linklist.links | count > 0  and linklist != main-link-list -%}
+          <div class="accordion-item column">
+            <div class='accordion-header'>
+              <h1 class="title">{{ linklist.title }}</h1>
+              <svg class="arrow" width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.01947 7.41357L7.56174 1.50241L14.104 7.41357" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              {%- for item in linklist.links -%}
+                  <a class="item" href="{{ item.url }}">{{ item.title }}</a>
+              {%- endfor -%}
+            </div>
           </div>
-          <div class="accordion-content">
-            {%- for item in linklist.links -%}
-                <a class="item" href="{{ item.url }}">{{ item.title }}</a>
-            {%- endfor -%}
-          </div>
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
-  </div>
-    <div class="container">
-      <div class="copyright-wrapper" {{ block.youcan_attributes }}>
-        <div class="copyright-title">
-          {{ section.settings.mention }}
-        </div>
-        <div class="spacer"></div>
-        {%- if section.settings.social_media_exist -%}
-          {%- for block in section.blocks -%}
-            {%- if block.settings.social_media_icon_image.src -%}
-              <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
-                <img loading='lazy' class='image' src="{{ block.settings.social_media_icon_image.src }}" alt='social links'>
-              </a>
-              {% else %}
-              <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
-                <img loading='lazy' src='{{ 'default_product.jpeg' | asset_url }}' alt='image placeholder'>
-              </a>
-            {%- endif -%}
-          {%- endfor %}
         {%- endif -%}
-      </div>
+      {%- endfor -%}
     </div>
-</footer>
+      <div class="container">
+        <div class="copyright-wrapper" {{ block.youcan_attributes }}>
+          <div class="copyright-title">
+            {{ section.settings.mention }}
+          </div>
+          <div class="spacer"></div>
+          {%- if section.settings.social_media_exist -%}
+            {%- for block in section.blocks -%}
+              {%- if block.settings.social_media_icon_image.src -%}
+                <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
+                  <img loading='lazy' class='image' src="{{ block.settings.social_media_icon_image.src }}" alt='social links'>
+                </a>
+                {% else %}
+                <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
+                  <img loading='lazy' src='{{ 'default_product.jpeg' | asset_url }}' alt='image placeholder'>
+                </a>
+              {%- endif -%}
+            {%- endfor %}
+          {%- endif -%}
+        </div>
+      </div>
+  </footer>
+{% endif %}
 
 {{ 'accordion.js' | asset_url | script_tag_deferred }}
 
@@ -86,6 +93,11 @@
       "type": "richtext",
       "id": "mention",
       "label": "Mention content"
+    },
+    {
+      "type": "checkbox",
+      "id": "toggle_footer",
+      "label": "Hide the footer"
     }
   ],
   "blocks": [
