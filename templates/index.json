@@ -89,40 +89,6 @@
                 "block_cgovtb6di7fywh8"
             ]
         },
-        "product-column": {
-            "type": "product-column",
-            "blocks": {
-                "block_ylzj5evdm3qr4jt": {
-                    "type": "product_title",
-                    "settings": {}
-                },
-                "block_yn7znd0yq40jraa": {
-                    "type": "product_price",
-                    "settings": {}
-                },
-                "block_yo835awgm4qhspj": {
-                    "type": "product_description",
-                    "settings": {}
-                }
-            },
-            "settings": {
-                "background_color": "#FFF9F4",
-                "show_compare_at_price": true,
-                "padding_top": 50,
-                "padding_bottom": 50,
-                "tag_text": "خصم بقيمه 40% ",
-                "tag_text_color": "#FFFFFFFF",
-                "tag_color": "#F33520",
-                "show_on_mobile": true,
-                "show_product": true,
-                "product": "9053f259-a4c0-460a-8ac0-a5a7fc51a6b8"
-            },
-            "order": [
-                "block_ylzj5evdm3qr4jt",
-                "block_yo835awgm4qhspj",
-                "block_yn7znd0yq40jraa"
-            ]
-        },
         "section_p3bpf7007sndktq": {
             "type": "feature-products-by-category",
             "settings": {
@@ -469,18 +435,43 @@
                 "margin_top": 20,
                 "margin_bottom": 20
             }
+        },
+        "section_ud9y8j6q7fg2fqa": {
+            "type": "product-column",
+            "settings": {
+                "product": "def2c456-0164-436e-a23c-9d0ae15c2c45",
+                "show_compare_at_price": false,
+                "padding_top": 50,
+                "padding_bottom": 50,
+                "tag_color": "#000000",
+                "tag_text_color": "#ffffff",
+                "tag_position": "top_right"
+            },
+            "blocks": {
+                "block_ugxi2zdjdna59m6": {
+                    "type": "product_title",
+                    "settings": {}
+                },
+                "block_uhwne92qdzzwxno": {
+                    "type": "product_price",
+                    "settings": {}
+                }
+            },
+            "order": [
+                "block_ugxi2zdjdna59m6",
+                "block_uhwne92qdzzwxno"
+            ]
         }
     },
     "order": [
         "section_qum9qooyrwe3uz",
         "section_sxdipwpvyyjc9pl",
         "section_62tm9748qh15wfk",
+        "section_ud9y8j6q7fg2fqa",
         "section_b3g5zwjngmukzqp",
-        "product-column",
         "section_609gq1tx2x0aaa",
         "section_p3bpf7007sndktq",
         "section_9z2auzpcdr2wm9d",
-        "section_n2a28yhguv9culi",
-        "section_t66sa97eaaitsq5"
+        "section_n2a28yhguv9culi"
     ]
 }
