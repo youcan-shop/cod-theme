@@ -34,7 +34,7 @@
     <div class="container">
       <div class="copyright-wrapper" {{ block.youcan_attributes }}>
         <div class="copyright-title">
-          {{ section.settings.mention }}
+          {{ section.settings.copyright }}
         </div>
         <div class="spacer"></div>
         {%- if section.settings.social_media_exist -%}
@@ -84,8 +84,9 @@
     },
     {
       "type": "richtext",
-      "id": "mention",
-      "label": "Mention content"
+      "id": "copyright",
+      "label": "Copyright text",
+      "default": "All rights reserved"
     }
   ],
   "blocks": [
