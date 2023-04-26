@@ -9,7 +9,7 @@
 		"lint": "onchange \"**/*.*\" -- prettier --check .",
 		"wind": "npx tailwindcss build -i ./styles/_utils.css -o ./styles/utils.scss",
 		"clean": "cleancss -o ./styles/utils.scss ./styles/utils.scss",
-		"yc": "youcan dev -p",
+		"yc": "youcan theme:dev -p",
 		"dev": "npm-run-all --parallel sass yc",
 		"utilise": "clear && pnpm wind && node eyeliner && pnpm clean && pnpm dev"
 	},
