@@ -11,7 +11,7 @@
   }
   
   .toggle-footer {
-    display: {{ section.settings.toggle_footer ? 'none' : 'block' }};
+    display: {% if section.settings.toggle_footer %} none {% else %} block {% endif %};
   }
 {% endstyle %}
 
