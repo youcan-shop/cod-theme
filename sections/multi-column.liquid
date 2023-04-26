@@ -82,7 +82,7 @@
     }
 
     .column-block .column-title {
-        font-size: 15px;    
+        font-size: 15px;
       }
 
     .column-image-wrapper {
@@ -126,14 +126,6 @@
           {% if block_setting.description %}
             <p class='column-description'>{{ block_setting.description }}</p>
           {% endif %}
-          {% if block_setting.link_label %}
-            <a
-              class='yc-btn'
-              href='{{ block_setting.link }}'
-            >
-              {{- block_setting.link_label -}}
-            </a>
-          {% endif %}
         </div>
       {% endfor %}
     </div>
@@ -163,16 +155,6 @@
           "id": "description",
           "type": "richtext",
           "label": "Description"
-        },
-        {
-          "id": "link_label",
-          "type": "text",
-          "label": "Button label"
-        },
-        {
-          "id": "link",
-          "type": "text",
-          "label": "Button link"
         }
       ]
     }
