@@ -39,9 +39,10 @@
                 </h3>
               {% endif %}
             </div>
-          {%- endcase -%}
-        {%- endfor -%}
-      <p class='product-description'>{{ section.settings.product_description }}</p>
+          {%- when 'product_description' -%}
+            <section class='product-description '>{{ product.description }}</section>
+        {%- endcase -%}
+    {%- endfor -%}
     <a href='{{ product.url }}' class='yc-btn buy-btn'>إتمام الشراء</a>
     </div>
     </div>

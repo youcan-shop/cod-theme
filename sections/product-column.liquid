@@ -11,15 +11,25 @@
   .product_customization-{{ id }} {
     background-color: {{ section.settings.background_color.hex }};
   }
+
+  @media screen and (max-width: 768px) {
+    .product_customization-{{ id }} {
+      display: {% if section.settings.show_product %}block{% else %}none{% endif %};
+    }
+  }
 {%- endstyle -%}
 
-{%- assign selected_product = section.settings.product %}
+<section class='product_customization-{{ id }}'>
+  {%- assign selected_product = section.settings.product %}
 
-{%- if selected_product %}
-  <section class='product_customization-{{ id }}'>
+  {%- if product %}
+    {%- assign selected_product = product %}
+  {%- endif %}
+
+  {%- if selected_product %}
     {%- render 'product-home', product_id: selected_product.id, product: selected_product, block_settings: section.settings-%}
-  </section>
-{%- endif %}
+  {%- endif %}
+</section>
 
 {%- schema -%}
   {
@@ -31,11 +41,6 @@
         "type": "product"
       },
       {
-        "label": "Product description",
-        "id": "product_description",
-        "type": "richtext"
-      },
-      {
         "type": "checkbox",
         "id": "show_compare_at_price",
         "label": "Show compare at price",
@@ -45,6 +50,12 @@
         "type": "color",
         "id": "background_color",
         "label": "Background color"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_product",
+        "label": "Show product on mobile",
+        "default": true
       },
       {
         "type": "range",
@@ -120,6 +131,11 @@
         "label": "Price",
         "limit": 1,
         "type": "product_price"
+      },
+      {
+        "label": "Description",
+        "limit": 1,
+        "type": "product_description"
       }
     ]
   }
