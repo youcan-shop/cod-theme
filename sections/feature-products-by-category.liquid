@@ -44,7 +44,7 @@
           {%- endfor -%}
         {%- endpaginate %}
       </div>
-      {% if section.settings.link_of_collection_by_category == true %}
+      {% if section.settings.show_more_button == true %}
         <div class='button-container'>
           <a href='/collections/{{ category.slug }}' class='yc-btn'>{{ 'general.show_more_button' | t }}</a>
         </div>
@@ -89,7 +89,7 @@
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Padding Top",
+      "label": "Space Top",
       "default": 10
     },
     {
@@ -99,7 +99,7 @@
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Padding Bottom",
+      "label": "Space Bottom",
       "default": 10
     },
     {
@@ -116,8 +116,8 @@
     },
     {
       "type": "checkbox",
-      "id": "link_of_collection_by_category",
-      "label": "Link of collection by category",
+      "id": "show_more_button",
+      "label": "Show more button",
       "default": true
     },
     {
