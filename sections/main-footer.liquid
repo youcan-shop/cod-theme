@@ -9,13 +9,14 @@
     --yc-footer-text-color: {{ section.settings.footer_text_color.hex }};
     --yc-footer-copyright-background: {{ section.settings.footer_copyright_background.hex }};
   }
-  
+
   .toggle-footer {
-    display: {% if section.settings.toggle_footer %} none {% else %} block {% endif %};
+    display: {{ section.settings.toggle_footer ? 'none' : 'block' }};
   }
+
 {% endstyle %}
 
-{% if section.settings.toggle_footer %}
+{% if section.settings.toggle_footer != true %}
   <footer class='yc-footer toggle-footer'>
     <div class="columns container">
       {%- for linklist in link-lists -%}
