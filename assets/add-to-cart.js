@@ -1,3 +1,5 @@
+const currencyCode = window.Dotshop.currency.code;
+
 async function addToCart(snippetId) {
   const parentSection = document.querySelector(`#s-${snippetId}`);
   const variantId = parentSection.querySelector(`#variantId`)?.value || undefined;
@@ -133,7 +135,10 @@ function cartTemplate(item) {
           </div>
           <div class="product-price">
             <span class="compare-price">${item.productVariant.compare_at_price ? item.productVariant.compare_at_price : ''}</span>
-            <span class="price">${item.productVariant.price}</span>
+            <div class="currency-wrapper">
+              <span class="price">${item.productVariant.price}</span>
+              <span class="currency-code">${currencyCode}</span>
+            </div>
           </div>
           </div>
         </div>
@@ -201,7 +206,10 @@ async function updateCartDrawer() {
       <div class="footer">
         <div class="price-wrapper">
           <span class="total-price">${CART_DRAWER_TRANSLATION.totalAmount}</span>
-          <span class="currency-value">${cartData.sub_total}</span>
+          <div class="currency-wrapper">
+            <span class="currency-value">${cartData.sub_total}</span>
+            <span class="currency-code">${currencyCode}</span>
+          </div>
           <span class="spinner footer-spinner" style="display: none;"></span>
         </div>
         <a href='${location.origin}/cart' class="yc-btn">${CART_DRAWER_TRANSLATION.checkoutPayment}</a>
