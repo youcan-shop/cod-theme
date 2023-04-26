@@ -1,25 +1,21 @@
 .yc-notice {
-  white-space: nowrap;
-  overflow: hidden;
   display: flex;
-  background-color: var(--yc-notice-background-color);
-  height: var(--yc-notice-height);
-}
-.yc-notice .content {
-  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  padding: 8px 0 10px 0;
   justify-content: center;
-  column-gap: 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.yc-notice .content img {
-  height: 17px;
-  width: 18px;
+  padding: 5px;
+  background-color: var(--yc-notice-background-color);
+  min-height: var(--yc-notice-height);
 }
 .yc-notice .content {
   color: var(--yc-notice-text-color);
   font-size: var(--yc-notice-font-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.yc-notice .content img {
+  height: 17px;
+  width: 18px;
 }
