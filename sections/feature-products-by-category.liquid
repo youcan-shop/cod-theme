@@ -20,9 +20,7 @@
   }
 
   .section-featured-products-by-category-{{id}} {
-    {% if section.settings.background_image.src %}
-    background-image: url({{ section.settings.background_image.src }});
-    {% elsif section.settings.background_color.hex %}
+    {% if section.settings.background_color.hex %}
     background-color: {{ section.settings.background_color.hex }};
     {% endif %}
     background-repeat: repeat;
@@ -143,11 +141,6 @@
       "type": "color",
       "id": "text_color",
       "label": "Text color"
-    },
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background image"
     }
   ]
 }
