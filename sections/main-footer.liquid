@@ -40,7 +40,7 @@
       <div class="container">
         <div class="copyright-wrapper" {{ block.youcan_attributes }}>
           <div class="copyright-title">
-            {{ section.settings.mention }}
+            {{ section.settings.copyright }}
           </div>
           <div class="spacer"></div>
           {%- if section.settings.social_media_exist -%}
@@ -75,12 +75,12 @@
     {
       "type": "color",
       "id": "footer_background_color",
-      "label": "Background Color"
+      "label": "Background color"
     },
     {
       "type": "color",
       "id": "footer_text_color",
-      "label": "Text Color",
+      "label": "Text color",
       "default": "#fff"
     },
     {
@@ -91,8 +91,9 @@
     },
     {
       "type": "richtext",
-      "id": "mention",
-      "label": "Mention content"
+      "id": "copyright",
+      "label": "Copyright text",
+      "default": "All rights reserved"
     },
     {
       "type": "checkbox",
