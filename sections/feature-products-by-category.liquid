@@ -4,23 +4,30 @@
 
 {% style %}
   .section-featured-products-by-category-{{id}}{
-    padding-top: {{ section.settings.space_top }}px;
-    padding-bottom: {{ section.settings.space_bottom }}px;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
   }
+
+  {% if section.settings.title_color %}
+  .section-featured-products-by-category-{{id}} .yc-section-title{
+    color: {{ section.settings.title_color.hex }};
+  }
+  {% endif %}
+
   .section-featured-products-by-category-{{id}} .yc-section-title{
     margin-top: 0;
     text-align: {{ section.settings.section_title_position }}
   }
+
   .section-featured-products-by-category-{{id}} {
-    {% if section.settings.background_image.src %}
-    background-image: url({{ section.settings.background_image.src }});
-    {% elsif section.settings.background_color.hex %}
+    {% if section.settings.background_color.hex %}
     background-color: {{ section.settings.background_color.hex }};
     {% endif %}
     background-repeat: repeat;
     background-position: center;
     background-size: 10rem;
   }
+
   .section-featured-products-by-category-{{id}} * {
     color: {{ section.settings.text_color.hex }};
   }
@@ -44,7 +51,7 @@
           {%- endfor -%}
         {%- endpaginate %}
       </div>
-      {% if section.settings.show_more_button == true %}
+      {% if section.settings.link_of_collection_by_category == true %}
         <div class='button-container'>
           <a href='/collections/{{ category.slug }}' class='yc-btn'>{{ 'general.show_more_button' | t }}</a>
         </div>
@@ -84,22 +91,22 @@
     },
     {
       "type": "range",
-      "id": "space_top",
+      "id": "padding_top",
       "min": 5,
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Space Top",
+      "label": "Padding Top",
       "default": 10
     },
     {
       "type": "range",
-      "id": "space_bottom",
+      "id": "padding_bottom",
       "min": 5,
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Space Bottom",
+      "label": "Padding Bottom",
       "default": 10
     },
     {
@@ -116,26 +123,24 @@
     },
     {
       "type": "checkbox",
-      "id": "show_more_button",
-      "label": "Show more button",
+      "id": "link_of_collection_by_category",
+      "label": "Link of collection by category",
       "default": true
     },
     {
       "type": "color",
       "id": "background_color",
-      "label": "Background color",
-      "default": "#FFFFFFFF"
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "Text color",
-      "default": "#000000FF"
-    },
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background image"
+      "label": "Text color"
     }
   ]
 }

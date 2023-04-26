@@ -82,7 +82,7 @@
     }
 
     .column-block .column-title {
-        font-size: 15px;    
+        font-size: 15px;
       }
 
     .column-image-wrapper {
@@ -126,14 +126,6 @@
           {% if block_setting.description %}
             <p class='column-description'>{{ block_setting.description }}</p>
           {% endif %}
-          {% if block_setting.link_label %}
-            <a
-              class='yc-btn'
-              href='{{ block_setting.link }}'
-            >
-              {{- block_setting.link_label -}}
-            </a>
-          {% endif %}
         </div>
       {% endfor %}
     </div>
@@ -161,18 +153,8 @@
         },
         {
           "id": "description",
-          "type": "text",
+          "type": "richtext",
           "label": "Description"
-        },
-        {
-          "id": "link_label",
-          "type": "text",
-          "label": "Button label"
-        },
-        {
-          "id": "link",
-          "type": "text",
-          "label": "Button link"
         }
       ]
     }
@@ -239,12 +221,31 @@
       "label": "Space Bottom"
     },
     {
-      "type": "range",
+      "type": "select",
       "id": "columns_desktop",
       "min": 1,
       "max": 6,
       "step": 1,
-      "label": "Number of columns on desktop"
+      "label": "Number of columns on desktop",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        },
+        {
+          "value": "3",
+          "label": "3 columns"
+        },
+        {
+          "value": "4",
+          "label": "4 columns"
+        }
+      ],
+      "default": "3"
     },
     {
       "type": "select",
