@@ -7,8 +7,8 @@
 
 {% style %}
   .section-featured-products-{{id}} {
-    margin-top: {{ section.settings.margin_top }}px;
-    margin-bottom: {{ section.settings.margin_bottom }}px;
+    margin-top: {{ section.settings.space_top }}px;
+    margin-bottom: {{ section.settings.space_bottom }}px;
     padding: 0;
   }
 
@@ -123,7 +123,7 @@
 
 {%- schema -%}
 {
-  "label": "Products Slider",
+  "label": "Products slider",
   "limit": 1,
   "settings": [
      {
@@ -138,22 +138,22 @@
     },
      {
       "type": "range",
-      "id": "margin_top",
+      "id": "space_top",
       "min": 0,
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Margin Top",
+      "label": "Space top",
       "default": 20
     },
     {
       "type": "range",
-      "id": "margin_bottom",
+      "id": "space_bottom",
       "min": 5,
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Margin Bottom",
+      "label": "Space Bottom",
       "default": 20
     },
     {
@@ -371,19 +371,19 @@
           "label": "Banner position",
           "options": [
             {
-              "label": "Top Right",
+              "label": "Top right",
               "value": "top_right"
             },
             {
-              "label": "Top Left",
+              "label": "Top left",
               "value": "top_left"
             },
             {
-              "label": "Bottom Right",
+              "label": "Bottom right",
               "value": "bottom_right"
             },
             {
-              "label": "Bottom Left",
+              "label": "Bottom left",
               "value": "bottom_left"
             }
           ],
