@@ -161,7 +161,7 @@
           {
               "type": "color",
               "id": "drawer_links_color",
-              "label": "Items and links color"
+              "label": "Links and icons color"
           },
           {
               "type": "range",
@@ -176,7 +176,7 @@
           {
               "type": "select",
               "id": "drawer_links_font_weight",
-              "label": "Links font weight",
+              "label": "Font weight",
               "options": [
                   {
                       "value": "300",
