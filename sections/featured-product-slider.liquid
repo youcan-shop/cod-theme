@@ -83,7 +83,7 @@
     pagination: '{{ section.settings.slider_pagination }}' ? true : false,
     pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
     pauseOnFocus: '{{ section.settings.slider_pause_on_focus }}' ? true : false,
-    interval: '{{ section.settings.slider_timeout | times: 1000 }}',
+    interval: '{{ section.settings.duration_between_each_slide | times: 1000 }}',
     rewind: true,
     drag: 'free',
     perPage: perPage,
@@ -231,12 +231,12 @@
     },
     {
       "type": "range",
-      "id": "slider_timeout",
+      "id": "duration_between_each_slide",
       "min": 1,
       "max": 15,
       "step": 1,
       "unit": "sec",
-      "label": "Timeout between slides",
+      "label": "Duration between each slide",
       "default": 5
     },
     {
