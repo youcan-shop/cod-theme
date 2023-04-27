@@ -44,7 +44,8 @@
                     "navbar_links_color": "#000000FF",
                     "navbar_background_color": "#FFFFFFFF",
                     "navbar_height": 85,
-                    "navbar_always_on_top": true
+                    "navbar_always_on_top": true,
+                    "toggle_navbar": false
                 }
             },
             "main-footer": {
@@ -53,7 +54,8 @@
                     "footer_background_color": "#000000",
                     "mention_and_social_media": true,
                     "mention": "<p>made with ❤️ by YouCan<\/p>",
-                    "footer_text_color": "#F6F9FFFF"
+                    "footer_text_color": "#F6F9FFFF",
+                    "toggle_footer": false
                 },
                 "blocks": {
                     "block_social": {
