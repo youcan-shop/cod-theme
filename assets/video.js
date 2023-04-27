@@ -14,11 +14,11 @@ function getBestThumbnailUrl(videoId) {
         resolve(`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`);
       };
     } catch (error) {
-      reject(error);
+      const defaultImageUrl = defaulVideotImage;
+      resolve(defaultImageUrl);
     }
   });
 }
-
 
 function extractYouTubeVideoId(url) {
   const regex = /(?:v=|youtu\.be\/)([^&]+)/;

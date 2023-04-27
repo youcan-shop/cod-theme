@@ -36,12 +36,14 @@
   {% endif %}
 </div>
 
-<script async>
-  const width = {{ section.settings.video_width }} * (window.innerWidth / 100)
-  const height = {{ section.settings.video_height }}
-  const videoLink = '{{ section.settings.video_link }}'
-  const videoType = '{{ section.settings.video_type }}'
+<script>
+  const width = {{ section.settings.video_width }} * (window.innerWidth / 100);
+  const height = {{ section.settings.video_height }};
+  const videoLink = '{{ section.settings.video_link }}';
+  const videoType = '{{ section.settings.video_type }}';
+  const defaulVideotImage = '{{ 'video_default_image.jpg' | asset_url }}';
 </script>
+
 
 {{ 'video.js' | asset_url | script_tag_deferred }}
 
