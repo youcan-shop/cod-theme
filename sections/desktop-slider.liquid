@@ -17,8 +17,8 @@
   }
 
   #yc_slider_{{ id }} .splide__arrow svg {
-    height: {{ section.settings.slider_arrows_content_size }}px;
-    width: {{ section.settings.slider_arrows_content_size }}px;
+    height: {{ section.settings.slider_arrows_size }}px;
+    width: {{ section.settings.slider_arrows_size }}px;
   }
 
   .yc-slider__desktop .content {
@@ -60,7 +60,7 @@
     pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
     pauseOnFocus: '{{ section.settings.slider_pause_on_focus }}' ? true : false,
     height: `{{ section.settings.slider_height_percentage }}vh`,
-    interval: '{{ section.settings.slider_timeout | times: 1000 }}',
+    interval: '{{ section.settings.duration_between_each_slide | times: 1000 }}',
     focus: 'center',
     rewind: true,
     drag: 'free',
@@ -128,22 +128,28 @@
 
     {
       "type": "range",
-      "id": "slider_timeout",
+      "id": "duration_between_each_slide",
       "min": 1,
       "max": 15,
       "step": 1,
       "unit": "sec",
-      "label": "Timeout between slides",
+      "label": "Duration between each slide",
       "default": 5
     },
     {
+      "type": "checkbox",
+      "id": "slider_arrows",
+      "label": "Arrows",
+      "default": true
+    },
+    {
       "type": "range",
-      "id": "slider_arrows_content_size",
+      "id": "slider_arrows_size",
       "min": 10,
       "max": 30,
       "step": 1,
       "unit": "px",
-      "label": "Arrows content size",
+      "label": "Arrows size",
       "default": 14
     },
     {
@@ -194,12 +200,6 @@
       "type": "checkbox",
       "id": "slider_pagination",
       "label": "Pagination",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "slider_arrows",
-      "label": "Arrows",
       "default": true
     },
     {
