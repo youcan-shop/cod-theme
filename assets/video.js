@@ -1,23 +1,29 @@
 function getBestThumbnailUrl(videoId) {
-  return new Promise((resolve) => {
-    const img = new Image();
-    const maxResUrl = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+  return new Promise((resolve, reject) => {
+    try {
+      const img = new Image();
+      const maxResUrl = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 
-    img.onload = () => {
-      resolve(maxResUrl);
-    };
+      img.src = maxResUrl;
 
-    img.onerror = () => {
-      resolve(`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`);
-    };
+      img.onload = () => {
+        resolve(maxResUrl);
+      };
 
-    img.src = maxResUrl;
+      img.onerror = () => {
+        resolve(`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`);
+      };
+    } catch (error) {
+      reject(error);
+    }
   });
 }
+
 
 function extractYouTubeVideoId(url) {
   const regex = /(?:v=|youtu\.be\/)([^&]+)/;
   const match = url.match(regex);
+
   return match ? match[1] : null;
 }
 

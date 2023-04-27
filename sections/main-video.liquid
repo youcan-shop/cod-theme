@@ -5,6 +5,10 @@
   margin-top: {{ section.settings.margin_top }}px;
   margin-bottom: {{ section.settings.margin_bottom }}px;
 }
+
+.youtube-play-button {
+  background-color: {{ section.settings.play_button_background_color.hex }};
+}
 {% endstyle %}
 
 <div class='video-wrapper container'>
@@ -85,6 +89,12 @@
         "step": 5,
         "unit": "%",
         "default": 100
+      },
+      {
+        "type": "color",
+        "id": "play_button_background_color",
+        "label": "Play youtube button background color",
+        "default": "#fff"
       },
       {
         "type": "range",

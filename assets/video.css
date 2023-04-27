@@ -41,7 +41,12 @@
   transform: translate(-50%, -50%);
   width: 64px;
   height: 64px;
-  background-image: url("../assets/playButton.png");
-  background-size: 64px 64px;
-  background-repeat: no-repeat;
+  --svg: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTIwIDJINGMtMS4xIDAtMS45OS45LTEuOTkgMkwyIDIybDQtNGgxNGMxLjEgMCAyLS45IDItMlY0YzAtMS4xLS45LTItMi0yem0tMyAxMWwtMi0xLjk5VjEzYzAgLjU1LS40NSAxLTEgMUg4Yy0uNTUgMC0xLS40NS0xLTFWN2MwLS41NS40NS0xIDEtMWg2Yy41NSAwIDEgLjQ1IDEgMXYxLjk5TDE3IDd2NnoiLz48L3N2Zz4=");
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  color: red;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
