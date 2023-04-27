@@ -1,23 +1,20 @@
-{% assign id = 100 | rand: 2000 %}
+{{ 'video.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-.space-y-{{id}} {
+.video-wrapper {
   margin-top: {{ section.settings.margin_top }}px;
   margin-bottom: {{ section.settings.margin_bottom }}px;
 }
 {% endstyle %}
 
-<div class='container flex items-center justify-center space-y-{{ id }}'>
+<div class='video-wrapper container'>
   {% if section.settings.video_link %}
     {% if section.settings.video_type == 'youtube' %}
-      <iframe
-        id='youtube-video'
-        height='{{ section.settings.video_height }}'
-        src=''
-        frameborder='0'
-        allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-        allowfullscreen
-      ></iframe>
+      <div id='youtube-video' class='youtube-video' data-video-link="{{ section.settings.video_link }}">
+        <img class='youtube-thumbnail' src='' loading='lazy'>
+        <div class='youtube-play-button'></div>
+        <div class="spinner video-spinner"></div>
+      </div>
     {% endif %}
     {% if section.settings.video_type == 'facebook' %}
       <iframe
@@ -35,7 +32,7 @@
   {% endif %}
 </div>
 
-<script>
+<script async>
   const width = {{ section.settings.video_width }} * (window.innerWidth / 100)
   const height = {{ section.settings.video_height }}
   const videoLink = '{{ section.settings.video_link }}'
