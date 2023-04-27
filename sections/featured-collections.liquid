@@ -7,8 +7,8 @@
   }
 
   .section-featured-collections-{{id}} {
-    margin-top: {{ section.settings.margin_top }}px;
-    margin-bottom: {{ section.settings.margin_bottom }}px;
+    margin-top: {{ section.settings.space_top }}px;
+    margin-bottom: {{ section.settings.space_bottom }}px;
   }
 {% endstyle %}
 
@@ -56,7 +56,7 @@
     },
     {
       "type": "range",
-      "id": "margin_top",
+      "id": "space_top",
       "min": 5,
       "max": 160,
       "step": 1,
@@ -65,7 +65,7 @@
     },
     {
       "type": "range",
-      "id": "margin_bottom",
+      "id": "space_bottom",
       "min": 5,
       "max": 160,
       "step": 1,
