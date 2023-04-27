@@ -161,7 +161,7 @@
           {
               "type": "color",
               "id": "drawer_links_color",
-              "label": "Links and icons colorr"
+              "label": "Links and icons color"
           },
           {
               "type": "range",
