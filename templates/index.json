@@ -10,7 +10,8 @@
                 "slider_mobile_timeout": 4,
                 "slider_arrows_size": 15,
                 "slider_arrows": true,
-                "slider_height_percentage": 60
+                "slider_height_percentage": 60,
+                "slider_overlay_background_color": "#00FF7E96"
             },
             "blocks": {
                 "block_qw91o394p69bv8l": {
@@ -427,13 +428,13 @@
             "type": "main-video",
             "settings": {
                 "video_type": "youtube",
-                "video_link": "https:\/\/youtu.be\/YpGjaJ1ettI",
-                "video_height": 500,
+                "video_link": "https:\/\/youtu.be\/0jSpCxmb2VQ",
+                "video_height": 480,
                 "video_width": 100,
                 "padding_top": 20,
                 "padding_bottom": 20,
-                "margin_top": 20,
-                "margin_bottom": 20
+                "margin_top": 32,
+                "margin_bottom": 25
             }
         },
         "section_ud9y8j6q7fg2fqa": {
