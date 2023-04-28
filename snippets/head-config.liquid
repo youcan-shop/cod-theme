@@ -137,9 +137,15 @@
   src='https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.esm.js'
 ></script>
 
+{% assign averageReviewsRating = product_rating %}
+
 {% javascript %}
   const defaultAvatar = '{{ "avatar.png" | asset_url }}';
   const ratings = "{{ 'reviews.ratings' | t }}";
+
+  {% if averageReviewsRating %}
+    const averageRating = {{ averageReviewsRating }};
+  {% endif %}
 {% endjavascript %}
 
 {{ 'main.css' | asset_url | stylesheet_tag }}
