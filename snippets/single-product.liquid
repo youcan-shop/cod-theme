@@ -26,9 +26,9 @@
   >
   {% assign images = product.images %}
   {% assign product_name = product.name %}
+  {% assign section_settings = section.settings %}
 
-  <!-- prettier-ignore -->
-  {% render 'product-images-showcase', images: images, product_name: product_name, hidden: section.settings.hide_gallery, id: uniqID , view: 'desktop' -%}
+  {% render 'product-images-showcase', images: images, product_name: product_name, hidden: section.settings.hide_gallery, id: uniqID , view: 'desktop', banner_settings: section_settings -%}
   <div class='product-details'>
     {%- for block in section.blocks -%}
       <div {{ block.youcan_attributes }}>

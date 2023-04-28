@@ -22,6 +22,14 @@
   {% endif %}
 
     <div id='img-zoomer-box'>
+      {% if banner_settings.tag_text %}
+        <div
+          class="tag {{ banner_settings.tag_position }}"
+          style="background: {{ banner_settings.tag_background_color.hex }}; color: {{ banner_settings.tag_text_color.hex }}"
+        >
+          {{ banner_settings.tag_text }}
+        </div>
+      {% endif %}
       <img
         loading='lazy'
         class='main-image'
