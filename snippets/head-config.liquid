@@ -41,10 +41,6 @@
       {{ settings.navbar_links_color.hex }}
     {%- else -%}
       var(--yc-neutral-color){%- endif -%};
-    --yc-nav-cart-badge-color: {%- if settings.cart_badge_color -%}
-      {{ settings.cart_badge_color.hex }}
-    {%- else -%}
-      var(--yc-neutral-color){%- endif -%};
     --yc-nav-links-font-weight: {{ settings.navbar_links_font_weight }};
     --yc-nav-links-hover-transparency: {{ settings.navbar_links_hover_transparency }};
     --yc-nav-font-family: {%- if settings.navbar_font_family -%}

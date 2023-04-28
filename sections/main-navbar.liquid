@@ -8,10 +8,6 @@
       {{ section.settings.navbar_links_color.hex }}
     {%- else -%}
       var(--yc-neutral-color){%- endif -%};
-    --yc-nav-cart-badge-color: {%- if section.settings.cart_badge_color -%}
-      {{ section.settings.cart_badge_color.hex }}
-    {%- else -%}
-      var(--yc-neutral-color){%- endif -%};
     --yc-nav-links-font-weight: {{ section.settings.navbar_links_font_weight }};
     --yc-nav-links-hover-transparency: {{ section.settings.navbar_links_hover_transparency }};
     --yc-nav-font-family: {%- if section.settings.navbar_font_family -%}
@@ -206,11 +202,6 @@
       "type": "color",
       "id": "navbar_links_color",
       "label": "Items and links color"
-    },
-    {
-      "type": "color",
-      "id": "cart_badge_color",
-      "label": "Cart badge color"
     },
     {
       "type": "range",
