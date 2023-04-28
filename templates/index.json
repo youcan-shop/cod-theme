@@ -108,7 +108,8 @@
                 "padding_top": 20,
                 "padding_bottom": 30,
                 "category": "2bab572d-5197-418d-9072-1f0b82ff9fb8",
-                "section_title_position": "center"
+                "section_title_position": "center",
+                "space_bottom": 50
             }
         },
         "section_609gq1tx2x0aaa": {
