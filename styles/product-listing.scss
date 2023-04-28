@@ -7,7 +7,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px 12px;
-    margin-top: 40px;
+    margin: 40px auto;
 
     .product-block {
       .product-thumbnail {
