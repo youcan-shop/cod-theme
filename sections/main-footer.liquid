@@ -30,7 +30,6 @@
         </div>
       {%- endif -%}
     {%- endfor -%}
-    {%- if section.settings.social_media_exist -%}
       <div class="column social-media">
         {%- for block in section.blocks -%}
           {%- if block.settings.social_media_icon_image.src -%}
@@ -44,7 +43,6 @@
           {%- endif -%}
         {%- endfor %}
       </div>
-    {%- endif -%}
   </div>
   <div class="copyright-wrapper" {{ block.youcan_attributes }}>
     <div class="container">
@@ -82,12 +80,6 @@
       "id": "footer_text_color",
       "label": "Text Color",
       "default": "#fff"
-    },
-    {
-      "type": "checkbox",
-      "id": "social_media_exist",
-      "label": "Social media",
-      "default": true
     },
     {
       "type": "richtext",
