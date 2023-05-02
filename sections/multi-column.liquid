@@ -33,15 +33,14 @@
     margin-top: 16px;
     font-weight: 700;
     font-size: 18px;
-    color: #000000;
   }
 
   .column-block .column-description {
     margin: 12px auto;
     font-size: 15px;
-    color: #000000;
     font-weight: 400;
     line-height: 24px;
+    color: {{ section.settings.text_color.hex }};
   }
 
   .column-block .column-image {
@@ -117,14 +116,6 @@
           {% if block_setting.description %}
             <p class='column-description'>{{ block_setting.description }}</p>
           {% endif %}
-          {% if block_setting.link_label %}
-            <a
-              class='yc-btn'
-              href='{{ block_setting.link }}'
-            >
-              {{- block_setting.link_label -}}
-            </a>
-          {% endif %}
         </div>
       {% endfor %}
     </div>
@@ -154,16 +145,6 @@
           "id": "description",
           "type": "text",
           "label": "Description"
-        },
-        {
-          "id": "link_label",
-          "type": "text",
-          "label": "Button label"
-        },
-        {
-          "id": "link",
-          "type": "text",
-          "label": "Button link"
         }
       ]
     }
@@ -238,20 +219,12 @@
       "label": "Number of columns on desktop"
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "columns_mobile",
-      "label": "Number of columsn on mobile",
-      "options": [
-        {
-          "value": "1",
-          "label": "1 column"
-        },
-        {
-          "value": "2",
-          "label": "2 columns"
-        }
-      ],
-      "default": "1"
+      "min": 1,
+      "max": 2,
+      "step": 1,
+      "label": "Number of columns on mobile"
     }
   ]
 }
