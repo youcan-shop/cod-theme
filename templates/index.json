@@ -288,16 +288,16 @@
             "settings": {
                 "margin_top": 20,
                 "margin_bottom": 20,
-                "countdown_message": "<p>سارع قبل فوات الأوان<\/p>",
+                "countdown_message": "<p><span style=\"color: rgb(75, 85, 101);\">سارع قبل فوات الأوان<\/span><\/p>",
                 "countdown_year": 2023,
-                "countdown_month": 4,
+                "countdown_month": 6,
                 "countdown_day": 2,
                 "countdown_hour": 2,
                 "countdown_minute": 3,
                 "show_compare_at_price": true,
-                "slider_timeout": 5,
+                "slider_timeout": 15,
                 "slider_transition_type": "loop",
-                "slider_autoplay": true,
+                "slider_autoplay": false,
                 "slider_pause_on_hover": true,
                 "slider_pause_on_focus": true,
                 "slider_pagination": true,
@@ -309,41 +309,50 @@
                 "slider_mobile_arrows": true,
                 "countdown_enabled": true,
                 "background_color": "#F6F9FF",
-                "text_color": "#3C415F"
+                "text_color": "#3C415F",
+                "title": "dsff"
             },
             "blocks": {
-                "block_emefi1dpsjc8dxl": {
+                "block_mhh7khc0fndgsw": {
                     "type": "product",
                     "settings": {
-                        "tag_color": "#000000",
-                        "tag_text_color": "#ffffff",
-                        "tag_position": "top_right",
-                        "product": "71da9018-ad31-408b-ae2d-03173c007b7c"
+                        "product": "596f0239-5ef2-4551-927b-faae4a3d2a8d",
+                        "tag_text": "جديد",
+                        "tag_color": "#1C1C1CFF",
+                        "tag_text_color": "#FFFFFFFF",
+                        "tag_position": "top_left"
                     }
                 },
-                "block_ev668bf3ta5fpr6": {
+                "block_mij5k5rpj2pmmuk": {
                     "type": "product",
                     "settings": {
                         "tag_color": "#000000",
                         "tag_text_color": "#ffffff",
-                        "tag_position": "top_right",
-                        "product": "c906d99b-5443-411b-a902-54e05affb809"
+                        "tag_position": "top_right"
                     }
                 },
-                "block_f0s1vbvg2wv18tp": {
+                "block_mokqhvwb2v452x": {
                     "type": "product",
                     "settings": {
                         "tag_color": "#000000",
                         "tag_text_color": "#ffffff",
-                        "tag_position": "top_right",
-                        "product": "6b2608bd-18f9-4e93-9450-b8c53c9589f1"
+                        "tag_position": "top_right"
+                    }
+                },
+                "block_mpijfilu96avzfn": {
+                    "type": "product",
+                    "settings": {
+                        "tag_color": "#000000",
+                        "tag_text_color": "#ffffff",
+                        "tag_position": "top_right"
                     }
                 }
             },
             "order": [
-                "block_emefi1dpsjc8dxl",
-                "block_ev668bf3ta5fpr6",
-                "block_f0s1vbvg2wv18tp"
+                "block_mhh7khc0fndgsw",
+                "block_mij5k5rpj2pmmuk",
+                "block_mokqhvwb2v452x",
+                "block_mpijfilu96avzfn"
             ]
         },
         "section_eu2qwo8fndlwkf": {

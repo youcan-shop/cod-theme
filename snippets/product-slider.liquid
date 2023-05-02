@@ -38,11 +38,12 @@
             class='product-preview'
           >
 
-            {% if block_settings.tag_text %}
+            {% if block.settings.tag_text %}
               <div
-                class="tag {{ block_settings.tag_position }}"
+                class="tag {{ block.settings.tag_position }}"
+                style="background: {{ block.settings.tag_color.hex }}; color: {{ block.settings.tag_text_color.hex }}"
               >
-                {{ block_settings.tag_text }}
+                {{ block.settings.tag_text }}
               </div>
             {% endif %}
             <div class="product-slider">
