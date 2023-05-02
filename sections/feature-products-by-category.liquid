@@ -1,17 +1,19 @@
+{%- assign id = 100 | rand: 2000 -%}
 {%- assign category = section.settings.category -%}
 {%- assign number_of_products = section.settings.number_of_products -%}
-{% assign id = 100 | rand: 2000 %}
 
 {{ 'featured-products-by-category.css' | asset_url | stylesheet_tag }}
 
 {% style %}
   .section-featured-products-by-category-{{id}}{
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-top: {{ section.settings.space_top }}px;
+    padding-bottom: {{ section.settings.space_bottom }}px;
   }
+
   .section-featured-products-by-category-{{id}} .yc-section-title{
     text-align: {{ section.settings.section_title_position }}
   }
+
   .section-featured-products-by-category-{{id}} {
     {% if section.settings.background_color.hex %}
     background-color: {{ section.settings.background_color.hex }};
@@ -20,10 +22,10 @@
     background-position: center;
     background-size: 10rem;
   }
+
   .section-featured-products-by-category-{{id}} * {
     color: {{ section.settings.text_color.hex }};
   }
-
 {% endstyle %}
 
 {% if category %}
@@ -38,7 +40,7 @@
           {%- endfor -%}
         {%- endpaginate %}
       </div>
-      {% if section.settings.link_of_collection_by_category == true %}
+      {% if section.settings.show_more_button == true %}
         <div class='button-container'>
           <a href='/collections/{{ category.slug }}' class='yc-btn-tertiary'>{{ 'general.show_more_button' | t }}</a>
         </div>
@@ -76,21 +78,21 @@
     },
     {
       "type": "range",
-      "id": "padding_top",
+      "id": "space_top",
       "min": 5,
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Padding Top"
+      "label": "Space Top"
     },
     {
       "type": "range",
-      "id": "padding_bottom",
+      "id": "space_bottom",
       "min": 5,
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Padding Bottom"
+      "label": "Space Bottom"
     },
     {
       "type": "number",
@@ -106,8 +108,8 @@
     },
     {
       "type": "checkbox",
-      "id": "link_of_collection_by_category",
-      "label": "Link of collection by category",
+      "id": "show_more_button",
+      "label": "Show more button",
       "default": true
     },
     {
