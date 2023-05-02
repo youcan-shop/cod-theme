@@ -8,16 +8,16 @@
     padding-bottom: {{ section.settings.padding_bottom}}px;
   }
 
-  #product-column-{{ id }} .product-block { 
+  #product-column-{{ id }} .product-images-container {
     background-color: {{ section.settings.background_color.hex }};
-  } 
+  }
 
   @media screen and (max-width: 768px) {
     #product-column-{{ id }} {
       display: {% if section.settings.show_product %}block{% else %}none{% endif %};
     }
   }
-  
+
 {%- endstyle -%}
 
 <section class='product-column' id="product-column-{{ id }}">

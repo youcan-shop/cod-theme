@@ -1,24 +1,22 @@
 .product-images-container {
-  padding: 0 20px;
+  padding: 30px;
   max-width: 700px !important;
 }
 .product-images-container .product-block {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
   width: 100%;
   border-radius: 5px !important;
-  overflow: hidden !important;
 }
 .product-images-container .product-block .image-box, .product-images-container .product-block .product-details {
   aspect-ratio: 1;
-  height: 300px;
   width: 300px;
 }
 .product-images-container .product-block .product-details {
   display: flex;
   row-gap: 10px;
-  padding: 35px;
   flex-direction: column;
   width: 50%;
   justify-content: center;
@@ -61,7 +59,7 @@
 }
 .product-images-container .product-block .image-box img {
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 .product-images-container .product-block .yc-btn-secondary--large {
   width: 100%;
