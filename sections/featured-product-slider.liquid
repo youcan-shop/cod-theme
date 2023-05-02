@@ -49,10 +49,6 @@
 <div class='yc-featured-products section-featured-products-{{ id }}'>
   <div class='container'>
     <div class="counter-wrapper">
-      <h1 class='yc-section-title'>
-        {{ section.settings.title }}
-      </h1>
-
       {% if section.settings.countdown_enabled %}
         {%- render 'countdown', section_settings: section.settings -%}
       {% endif %}
@@ -123,11 +119,6 @@
   "label": "Products Slider",
   "limit": 1,
   "settings": [
-     {
-      "type": "text",
-      "id": "title",
-      "label": "Title"
-    },
      {
       "type": "range",
       "id": "margin_top",
