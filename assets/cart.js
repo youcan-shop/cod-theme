@@ -53,7 +53,10 @@ function updateTotalPrice() {
   });
 
   const totalPriceElement = document.querySelector('.item-total-price');
-  totalPriceElement.innerText = `${currency} ${totalPrice}`;
+
+  if (totalPriceElement) {
+    totalPriceElement.innerText = `${currency} ${totalPrice}`;
+  }
 }
 
 function updateDOM(cartItemId, productVariantId, quantity) {

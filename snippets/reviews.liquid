@@ -12,6 +12,12 @@
 
 {% javascript %}
   const reviewsProductId = '{{ reviews_product_id }}';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const parentContainer = '.yc-product-reviews';
+
+    fetchReviewsForProduct(reviewsProductId, parentContainer);
+  });
 {% endjavascript %}
 
 {{ 'reviews.js' | asset_url | script_tag_deferred }}
