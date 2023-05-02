@@ -15,20 +15,19 @@
   href='{{ item.url }}'
   class='product-preview'
   id="product_{{ productId }}">
-
-  {% if block_settings.tag_text %}
-    <div class="tag {{ block_settings.tag_position }}" style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}">
-      {{ block_settings.tag_text }}
-    </div>
-  {% endif %}
-
-  {% if block_settings.discount_text %}
-    <div class="tag discount {{ block_settings.discount_position }}" style="background: {{ block_settings.discount_color.hex }}; color: {{ block_settings.discount_text_color.hex }}">
-      {{ block_settings.discount_text }}
-    </div>
-  {% endif %}
-
   <div class='product-thumbnail'>
+    <div class="tag {{ block.settings.tag_position }}">
+      {% if block_settings.tag_text %}
+        <div class="tag-banner" style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}">
+          {{ block_settings.tag_text }}
+        </div>
+        {% endif %}
+        {% if block_settings.discount_text %}
+          <div class="tag-banner" style="background: {{ block_settings.discount_color.hex }}; color: {{ block_settings.discount_text_color.hex }}">
+            {{ block_settings.discount_text }}
+          </div>
+      {% endif %}
+    </div>
     {% if item.thumbnail %}
       <img loading='lazy' src='{{ item.thumbnail }}'>
     {% else %}

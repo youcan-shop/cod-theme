@@ -48,7 +48,6 @@
 {% endstyle %}
 
 <div class='yc-featured-products section-featured-products-{{id}} container'>
-  <!-- prettier-ignore -->
   {% if section.settings.countdown_enabled %}
       {%- render 'countdown', section_settings: section.settings -%}
     {% endif %}
@@ -229,30 +228,6 @@
           "id": "discount_text_color",
           "label": "Discount text color",
           "default": "#ffffff"
-        },
-        {
-          "type": "select",
-          "id": "discount_position",
-          "label": "Discount position",
-          "options": [
-            {
-              "label": "Top Right",
-              "value": "top_right"
-            },
-            {
-              "label": "Top Left",
-              "value": "top_left"
-            },
-            {
-              "label": "Bottom Right",
-              "value": "bottom_right"
-            },
-            {
-              "label": "Bottom Left",
-              "value": "bottom_left"
-            }
-          ],
-          "default": "top_right"
         }
       ]
     }
