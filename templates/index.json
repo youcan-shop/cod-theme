@@ -139,7 +139,8 @@
                 "section_title_position": "center",
                 "background_color": "#FFFFFFFF",
                 "category": "6442aaf9-1426-4f22-aa3c-5c4a4b1c62a8",
-                "text_color": "#000000FF"
+                "text_color": "#000000FF",
+                "title_color": "#000000FF"
             }
         },
         "section_609gq1tx2x0aaa": {

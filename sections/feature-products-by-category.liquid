@@ -11,7 +11,10 @@
   }
 
   .section-featured-products-by-category-{{id}} .yc-section-title{
-    text-align: {{ section.settings.section_title_position }}
+    text-align: {{ section.settings.section_title_position }};
+    {% if section.settings.title_color %}
+    color: {{ section.settings.title_color.hex }};
+    {% endif %}
   }
 
   .section-featured-products-by-category-{{id}} {
@@ -116,6 +119,11 @@
       "type": "color",
       "id": "background_color",
       "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color"
     },
     {
       "type": "color",
