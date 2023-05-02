@@ -1,28 +1,24 @@
 {{ 'video.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-.video-section {
+.video-wrapper {
   margin-top: {{ section.settings.margin_top }}px;
   margin-bottom: {{ section.settings.margin_bottom }}px;
 }
+
+.youtube-play-button {
+  background-color: {{ section.settings.play_button_background_color.hex }};
+}
 {% endstyle %}
 
-<div class='video-section container'>
-  {% if section.settings.title %}
-    <div class="yc-section-title container" style="text-align: {{ section.settings.title_position }};">
-      {{ section.settings.title }}
-    </div>
-  {% endif %}
+<div class='video-wrapper container'>
   {% if section.settings.video_link %}
     {% if section.settings.video_type == 'youtube' %}
-      <iframe
-        id='youtube-video'
-        height='{{ section.settings.video_height }}'
-        src=''
-        frameborder='0'
-        allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-        allowfullscreen
-      ></iframe>
+      <div id='youtube-video' class='youtube-video' data-video-link="{{ section.settings.video_link }}">
+        <img class='youtube-thumbnail' src='' loading='lazy'>
+        <div class='youtube-play-button'></div>
+        <div class="spinner video-spinner"></div>
+      </div>
     {% endif %}
     {% if section.settings.video_type == 'facebook' %}
       <iframe
@@ -41,11 +37,13 @@
 </div>
 
 <script>
-  const width = {{ section.settings.video_width }} * (window.innerWidth / 100)
-  const height = {{ section.settings.video_height }}
-  const videoLink = '{{ section.settings.video_link }}'
-  const videoType = '{{ section.settings.video_type }}'
+  const width = {{ section.settings.video_width }} * (window.innerWidth / 100);
+  const height = {{ section.settings.video_height }};
+  const videoLink = '{{ section.settings.video_link }}';
+  const videoType = '{{ section.settings.video_type }}';
+  const defaulVideotImage = '{{ 'video_default_image.jpg' | asset_url }}';
 </script>
+
 
 {{ 'video.js' | asset_url | script_tag_deferred }}
 
@@ -117,6 +115,12 @@
         "step": 5,
         "unit": "%",
         "default": 100
+      },
+      {
+        "type": "color",
+        "id": "play_button_background_color",
+        "label": "Youtube play icon color",
+        "default": "#BDBDBDFF"
       },
       {
         "type": "range",
