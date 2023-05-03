@@ -12,7 +12,7 @@
   }
 
   .yc-slider__mobile .content {
-    background-color: {{ section.settings.slider_mobile_overlay_background_color.hex }};
+    background-color: {{ section.settings.slider_overlay_background_color.hex }};
   }
   
   #yc_slider_{{ id }} .splide__pagination {
@@ -202,13 +202,6 @@
     {
       "type": "paragraph",
       "content": "ℹ️ These settings will be applied to mobile devices."
-    },
-    {
-      "type": "color",
-      "id": "slider_mobile_overlay_background_color",
-      "label": "Overlay Background Color",
-      "default": "#0000007d",
-      "maintain-opacity": true
     },
     {
       "type": "range",
