@@ -9,27 +9,32 @@
     --yc-footer-text-color: {{ section.settings.footer_text_color.hex }};
     --yc-footer-copyright-background: {{ section.settings.footer_copyright_background.hex }};
   }
+
+  .toggle-footer {
+    display: {{ section.settings.toggle_footer ? 'none' : 'block' }};
+  }
 {% endstyle %}
 
-<footer class='yc-footer'>
-  <div class="columns container">
-    <div class="column logo">
-      <img src="{{ section.settings.footer_logo.src }}">
-    </div>
+{% if section.settings.toggle_footer != true %}
+  <footer class='yc-footer'>
+    <div class="columns container">
+      <div class="column logo">
+        <img src="{{ section.settings.footer_logo.src }}">
+      </div>
 
-    {%- for linklist in link-lists -%}
-      {%- if linklist.links | count > 0  and linklist != main-link-list -%}
-        <div class="column">
-          <div class="links">
-            <h1 class="title">{{ linklist.title }}</h1>
+      {%- for linklist in link-lists -%}
+        {%- if linklist.links | count > 0  and linklist != main-link-list -%}
+          <div class="column">
+            <div class="links">
+              <h1 class="title">{{ linklist.title }}</h1>
 
-            {%- for item in linklist.links -%}
-              <a class="item" href="{{ item.url }}">{{ item.title }}</a>
-            {%- endfor -%}
+              {%- for item in linklist.links -%}
+                <a class="item" href="{{ item.url }}">{{ item.title }}</a>
+              {%- endfor -%}
+            </div>
           </div>
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
+        {%- endif -%}
+      {%- endfor -%}
       <div class="column social-media">
         {%- for block in section.blocks -%}
           {%- if block.settings.social_media_icon_image.src -%}
@@ -43,18 +48,19 @@
           {%- endif -%}
         {%- endfor %}
       </div>
-  </div>
-  <div class="copyright-wrapper" {{ block.youcan_attributes }}>
-    <div class="container">
-      <div class="copyright-title">
-        {{ section.settings.copyright }}
-      </div>
-      <div class="copyright-image">
-        <img src="{{ section.settings.copyright_image.src }}">
+    </div>
+    <div class="copyright-wrapper" {{ block.youcan_attributes }}>
+      <div class="container">
+        <div class="copyright-title">
+          {{ section.settings.copyright }}
+        </div>
+        <div class="copyright-image">
+          <img src="{{ section.settings.copyright_image.src }}">
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
+{% endif %}
 
 {%- schema -%}
 {
@@ -64,6 +70,12 @@
     {
       "type": "paragraph",
       "content": "Footer menu can be managed from your [Menu settings](https:\/\/seller-area.youcan.shop\/admin\/menus)"
+    },
+    {
+      "type": "checkbox",
+      "id": "toggle_footer",
+      "label": "Hide footer",
+      "default": false
     },
     {
         "type": "image_picker",
