@@ -15,7 +15,6 @@
       {{ section.settings.navbar_font_family }}, sans-serif{%- else -%}
       var(--yc-font-family){%- endif -%};
     --yc-nav-font-size: {{ section.settings.navbar_font_size }}px;
-    --yc-nav-shadow: {{ section.settings.navbar_shadow }};
   }
 {% endstyle %}
 
@@ -264,12 +263,6 @@
       "type": "checkbox",
       "id": "full_width",
       "label": "Full width navbar",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "navbar_shadow",
-      "label": "Show navbar shadow",
       "default": false
     },
     {
