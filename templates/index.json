@@ -40,7 +40,7 @@
         "section_62tm9748qh15wfk": {
             "type": "multi-column",
             "settings": {
-                "columns_desktop": 4,
+                "columns_desktop": "4",
                 "columns_mobile": "2",
                 "title": "",
                 "margin_bottom": 60,
