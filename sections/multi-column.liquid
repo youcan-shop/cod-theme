@@ -211,20 +211,44 @@
       "label": "Space Bottom"
     },
     {
-      "type": "range",
+      "type": "select",
       "id": "columns_desktop",
-      "min": 1,
-      "max": 6,
-      "step": 1,
-      "label": "Number of columns on desktop"
+      "label": "Number of columns on desktop",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        },
+        {
+          "value": "3",
+          "label": "3 columns"
+        },
+        {
+          "value": "4",
+          "label": "4 columns"
+        }
+      ],
+      "default": "4"
     },
     {
-      "type": "range",
+      "type": "select",
       "id": "columns_mobile",
-      "min": 1,
-      "max": 2,
-      "step": 1,
-      "label": "Number of columns on mobile"
+      "label": "Number of columns on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        }
+      ],
+      "default": "2"
     }
   ]
 }
