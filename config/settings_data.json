@@ -39,12 +39,7 @@
                     "block_gmrv273jdps9sso"
                 ],
                 "settings": {
-                    "cart_badge_color": "#B83375FF",
-                    "navbar_links_color": "#000000FF",
-                    "navbar_background_color": "#FFFFFFFF",
-                    "navbar_height": 64,
-                    "navbar_always_on_top": true,
-                    "navbar_logo": "Frame 16794 (1)-2N5gGh3keeNQGvSFjFyZngI5QC7.png"
+                    "cart_badge_color": "#B83375FF"
                 }
             },
             "main-footer": {
