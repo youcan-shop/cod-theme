@@ -37,10 +37,7 @@
                     "block_gkk8ae6rzniqule",
                     "block_glpfko4s63fm6kj",
                     "block_gmrv273jdps9sso"
-                ],
-                "settings": {
-                    "cart_badge_color": "#B83375FF"
-                }
+                ]
             },
             "main-footer": {
                 "type": "main-footer",
