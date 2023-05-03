@@ -11,12 +11,15 @@
 /* ------------------------- */
 /* ----- global styles ----- */
 /* ------------------------- */
+html {
+  min-height: 100vh;
+}
+
 html,
 body {
   direction: var(--yc-theme-direction);
   color: var(--yc-neutral-color);
   position: relative;
-  min-height: 100vh;
 }
 
 .yc-btn span,

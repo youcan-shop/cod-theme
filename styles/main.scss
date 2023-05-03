@@ -12,12 +12,15 @@
 /* ------------------------- */
 /* ----- global styles ----- */
 /* ------------------------- */
+html {
+  min-height: 100vh;
+}
+
 html,
 body {
   direction: var(--yc-theme-direction);
   color: var(--yc-neutral-color);
   position: relative;
-  min-height: 100vh;
 }
 .yc-btn span,
 .yc-btn,
@@ -540,7 +543,7 @@ input:not([type='radio']),
   flex-direction: column;
   gap: 8px;
   z-index: 1;
-  
+
   .tag-banner {
     display: flex;
     justify-content: center;
