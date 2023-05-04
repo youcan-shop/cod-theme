@@ -18,13 +18,13 @@ const addZero = (x) => {
 /**
  * $ function, a shorthand for document.querySelector
  * countdown function, takes a target element and sets the countdown timer
- * @param {*} target 
+ * @param {*} target
  */
 const $ = elem => document.querySelector(elem);
 
 /**
  * countdown function, takes a target element and sets the countdown timer
- * @param {*} target 
+ * @param {*} target
  */
 const countdown = (target) => {
   const tarDate = $(target).getAttribute('data-date').split('-');
@@ -48,6 +48,7 @@ const countdown = (target) => {
   const updateTime = () => {
     // Get todays date and time
     const now = new Date().getTime();
+    let countdownInterval = setInterval(updateTime, 1000);
 
     // Find the distance between now an the count down date
     const distance = countDownDate - now;
@@ -64,9 +65,14 @@ const countdown = (target) => {
     $(`${target} .min .num`).innerHTML = addZero(minutes);
     $(`${target} .sec .num`).innerHTML = addZero(seconds);
 
-    if (distance < 0) {
-      clearInterval(updateTime);
-      return $(".countdown").style.display = "none";
+    if (distance <= 0) {
+      // Stop the countdown by clearing the interval
+      clearInterval(countdownInterval);
+      $(`${target} .day .num`).innerHTML = '00';
+      $(`${target} .hour .num`).innerHTML = '00';
+      $(`${target} .min .num`).innerHTML = '00';
+      $(`${target} .sec .num`).innerHTML = '00';
+      return;
     }
   }
 
