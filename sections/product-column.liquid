@@ -4,8 +4,8 @@
 
 {%- style -%}
   #product-column-{{ id }} {
-    padding-top: {{ section.settings.padding_top}}px;
-    padding-bottom: {{ section.settings.padding_bottom}}px;
+    padding-top: {{ section.settings.space_top}}px;
+    padding-bottom: {{ section.settings.space_bottom}}px;
   }
 
   #product-column-{{ id }} .product-images-container {
@@ -60,14 +60,14 @@
       },
       {
         "type": "number",
-        "id": "padding_top",
-        "label": "Padding top",
+        "id": "space_top",
+        "label": "Space top",
         "default": 10
       },
       {
         "type": "number",
-        "id": "padding_bottom",
-        "label": "Padding bottom",
+        "id": "space_bottom",
+        "label": "Space bottom",
         "default": 10
       },
       {
@@ -93,19 +93,19 @@
           "label": "Banner position",
           "options": [
             {
-              "label": "Top Right",
+              "label": "Top right",
               "value": "top_right"
             },
             {
-              "label": "Top Left",
+              "label": "Top left",
               "value": "top_left"
             },
             {
-              "label": "Bottom Right",
+              "label": "Bottom right",
               "value": "bottom_right"
             },
             {
-              "label": "Bottom Left",
+              "label": "Bottom left",
               "value": "bottom_left"
             }
           ],

@@ -3,8 +3,8 @@
 {% style %}
   .multi-column-{{ id }} {
     padding: 32px 0;
-    padding-top: {{ section.settings.margin_top }}px;
-    padding-bottom: {{ section.settings.margin_bottom }}px;
+    padding-top: {{ section.settings.space_top }}px;
+    padding-bottom: {{ section.settings.space_bottom }}px;
     background-color: {{ section.settings.background_color.hex }};
     color: {{ section.settings.text_color.hex }};
   }
@@ -69,7 +69,7 @@
     }
 
     .column-block .column-title {
-        font-size: 15px;    
+        font-size: 15px;
       }
 
     .column-image-wrapper {
@@ -84,7 +84,7 @@
     {% if section.settings.title %}
     <h3 class='yc-section-title'>{{ section.settings.title }}</h3>
     {% endif %}
-    
+
     <div class='multi-column-blocks'>
       {% for block in section.blocks %}
         {% assign block_setting = block.settings %}
@@ -153,7 +153,7 @@
     {
       "type": "text",
       "id": "title",
-      "label": "Section Title"
+      "label": "Section title"
     },
     {
       "type": "header",
@@ -179,22 +179,22 @@
       "label": "Title position",
       "options": [
         {
-          "label": "left",
+          "label": "Left",
           "value": "left"
         },
         {
-          "label": "right",
-          "value": "right"
+          "label": "Center",
+          "value": "center"
         },
         {
-          "label": "center",
-          "value": "center"
+          "label": "Right",
+          "value": "right"
         }
       ]
     },
     {
       "type": "range",
-      "id": "margin_top",
+      "id": "space_top",
       "min": 5,
       "max": 160,
       "step": 1,
@@ -203,7 +203,7 @@
     },
     {
       "type": "range",
-      "id": "margin_bottom",
+      "id": "space_bottom",
       "min": 5,
       "max": 160,
       "step": 1,

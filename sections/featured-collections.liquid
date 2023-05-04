@@ -3,8 +3,8 @@
 
 {% style %}
   .section-featured-collections-{{ id }} {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-top: {{ section.settings.space_top }}px;
+    padding-bottom: {{ section.settings.space_bottom }}px;
   }
 
   .section-featured-collections-{{ id }} .yc-section-title{
@@ -40,36 +40,36 @@
       "label": "Title position",
       "options": [
         {
-          "label": "left",
+          "label": "Left",
           "value": "left"
         },
         {
-          "label": "right",
-          "value": "right"
+          "label": "Center",
+          "value": "center"
         },
         {
-          "label": "center",
-          "value": "center"
+          "label": "Right",
+          "value": "right"
         }
       ]
     },
     {
       "type": "range",
-      "id": "padding_top",
+      "id": "space_top",
       "min": 5,
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Padding Top"
+      "label": "Space top"
     },
     {
       "type": "range",
-      "id": "padding_bottom",
+      "id": "space_bottom",
       "min": 5,
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Padding Bottom"
+      "label": "Space bottom"
     }
   ],
   "blocks": [

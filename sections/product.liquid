@@ -4,8 +4,8 @@
 
 {%- style -%}
   #product-column-{{ id }} {
-    padding-top: {{ section.settings.padding_top}}px;
-    padding-bottom: {{ section.settings.padding_bottom}}px;
+    padding-top: {{ section.settings.space_top}}px;
+    padding-bottom: {{ section.settings.space_bottom}}px;
   }
 
   .countdown-wrapper {
@@ -28,7 +28,7 @@
 {%- schema -%}
 {
   "limit": 1,
-  "label": "Single Product",
+  "label": "Single product",
   "templates": ["index", "product"],
   "blocks": [
     {
@@ -73,12 +73,12 @@
           "default": "المنتجات المتبقية في المخزون"
         },
         {
-          "label": "Items Left",
+          "label": "Items left",
           "id": "stock_items_left",
           "type": "number"
         },
         {
-          "label": "Total In Stock",
+          "label": "Total in stock",
           "id": "total_stock_items",
           "type": "number",
           "default": 10
@@ -86,7 +86,7 @@
       ]
     },
     {
-      "label": "Countdown Timer",
+      "label": "Countdown timer",
       "type": "countdown_timer",
       "limit": 1,
       "settings": [
@@ -153,19 +153,19 @@
           "default": true
         },
         {
-          "label": "Background Color",
+          "label": "Background color",
           "id": "background_color",
           "type": "color",
           "default": "#ffffff"
         },
         {
-          "label": "Border Color",
+          "label": "Border color",
           "id": "border_color",
           "type": "color",
           "default": "#3C415F"
         },
         {
-          "label": "Text Color",
+          "label": "Text color",
           "id": "text_color",
           "type": "color",
           "default": "#3C415F"
@@ -187,20 +187,20 @@
           "type": "richtext"
         },
         {
-          "label": "Background Color",
+          "label": "Background color",
           "id": "background_color",
           "type": "color",
           "default": "#F7F7F7"
         },
         {
-          "label": "Text Color",
+          "label": "Text color",
           "id": "text_color",
           "type": "color",
           "default": "#000000"
         },
         {
-          "label": "Margin bottom",
-          "id": "margin_bottom",
+          "label": "Space bottom",
+          "id": "space_bottom",
           "min": 5,
           "max": 60,
           "step": 1,
@@ -257,7 +257,7 @@
           "type": "color"
         },
         {
-          "label": "Text Size",
+          "label": "Text size",
           "id": "button_text_size",
           "type": "number",
           "default": 16
@@ -305,7 +305,7 @@
           "type": "color"
         },
         {
-          "label": "Text Size",
+          "label": "Text size",
           "id": "input_text_size",
           "type": "number",
           "default": 16
@@ -356,14 +356,14 @@
     },
     {
       "type": "number",
-      "id": "padding_top",
-      "label": "Padding top",
+      "id": "space_top",
+      "label": "Space top",
       "default": 10
     },
     {
       "type": "number",
-      "id": "padding_bottom",
-      "label": "Padding bottom",
+      "id": "space_bottom",
+      "label": "Space bottom",
       "default": 10
     }
   ]

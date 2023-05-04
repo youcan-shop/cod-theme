@@ -1,6 +1,6 @@
 [
     {
-        "label": "General Settings",
+        "label": "General settings",
         "settings": [
             {
                 "type": "text",
@@ -18,7 +18,7 @@
                     },
                     {
                         "value": "ltr",
-                        "label": "left to right"
+                        "label": "Left to right"
                     }
                 ],
                 "default": "ltr"
@@ -36,7 +36,7 @@
             {
                 "type": "image_picker",
                 "id": "og_image",
-                "label": "Meta Open Graph Image"
+                "label": "Meta open graph image"
             },
             {
                 "type": "image_picker",
@@ -46,7 +46,7 @@
         ]
     },
     {
-        "label": "Color Palette",
+        "label": "Color palette",
         "settings": [
             {
                 "type": "color",
@@ -81,13 +81,13 @@
             {
                 "type": "color",
                 "id": "neutral_light_color",
-                "label": "Neutral Light",
+                "label": "Neutral light",
                 "default": "#e3e3e3"
             }
         ]
     },
     {
-        "label": "Additional Styles",
+        "label": "Additional styles",
         "settings": [
             {
                 "type": "select",
@@ -100,11 +100,11 @@
                     },
                     {
                         "value": "Noto+Kufi+Arabic",
-                        "label": "Noto Kufi Arabic"
+                        "label": "Noto kufi arabic"
                     },
                     {
                         "value": "Readex Pro",
-                        "label": "Readex Pro"
+                        "label": "Readex pro"
                     },
                     {
                         "value": "Almarai",
@@ -112,7 +112,7 @@
                     },
                     {
                         "value": "Noto Sans Arabic",
-                        "label": "Noto Sans Arabic"
+                        "label": "Noto sans arabic"
                     },
                     {
                         "value": "Cairo",
@@ -120,7 +120,7 @@
                     },
                     {
                         "value": "Open Sans",
-                        "label": "Open Sans"
+                        "label": "Open sans"
                     },
                     {
                         "value": "Lato",
@@ -140,12 +140,6 @@
                     }
                 ],
                 "default": "Roboto"
-            },
-            {
-                "type": "text",
-                "id": "transition",
-                "label": "Transition",
-                "default": "all 0.3s ease-in-out"
             }
         ]
     },

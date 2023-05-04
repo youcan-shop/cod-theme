@@ -6,7 +6,7 @@
     width: {{ section.settings.slider_arrows_content_size }}px;
     fill: {{ section.settings.slider_desktop_arrows_color.hex }};
   }
-  
+
   .yc-slider__desktop .content {
     background-color: {{ section.settings.slider_overlay_background_color.hex }};
   }
@@ -14,7 +14,7 @@
   .yc-slider__mobile .content {
     background-color: {{ section.settings.slider_overlay_background_color.hex }};
   }
-  
+
   #yc_slider_{{ id }} .splide__pagination {
     {% if section.settings.slider_pagination == true %}
       display: block !important;
@@ -72,7 +72,7 @@
   const mountSlider = () => {
     try {
       if (isMobile.matches) return mobileSlider.mount();
-      
+
       return desktopSlider.mount();
     } catch {
       return;
@@ -98,7 +98,7 @@
     {
       "type": "color",
       "id": "slider_overlay_background_color",
-      "label": "Overlay Background Color",
+      "label": "Overlay background color",
       "default": "#0000007d",
       "maintain-opacity": true
     },
@@ -130,19 +130,19 @@
       "max": 30,
       "step": 1,
       "unit": "px",
-      "label": "Arrows Content Size",
+      "label": "Arrows content size",
       "default": 14
     },
     {
       "type": "color",
       "id": "slider_desktop_arrows_background_color",
-      "label": "Arrows Background Color",
+      "label": "Arrows background color",
       "default": "#FFFFFF"
     },
     {
       "type": "color",
       "id": "slider_desktop_arrows_color",
-      "label": "Arrows Color",
+      "label": "Arrows color",
       "default": "#FFFFFF"
     },
     {
@@ -270,22 +270,22 @@
         {
           "type": "richtext",
           "id": "caption",
-          "label": "Slider Content"
+          "label": "Slider content"
         },
         {
           "type": "text",
           "id": "button_text",
-          "label": "Button Text"
+          "label": "Button text"
         },
         {
           "type": "product",
           "id": "product",
-          "label": "Link Button To Product"
+          "label": "Link button to product"
         },
         {
           "type": "select",
           "id": "button_font_weight",
-          "label": "Button Font Weight level",
+          "label": "Button font weight level",
           "options": [
             {
               "value": "100",
