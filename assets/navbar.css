@@ -124,7 +124,7 @@
   position: relative;
 }
 .yc-header .yc-navbar .menu-item.active a {
-  color: var(--yc-primary-color);
+  color: var(--yc-nav-links-color);
   font-weight: 600;
 }
 .yc-header .yc-navbar .menu-item.active ::after, .yc-header .yc-navbar .menu-item:hover ::after {
@@ -136,7 +136,7 @@
   right: 0;
   width: 40%;
   height: 2px;
-  background-color: var(--yc-primary-color);
+  background-color: var(--yc-nav-links-color);
   animation: slide 0.3s ease;
 }
 @keyframes slide {
