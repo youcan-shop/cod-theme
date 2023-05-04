@@ -1,9 +1,12 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  #yc_slider_{{ id }} .splide__arrow svg path {
+  #yc_slider_{{ id }} .splide__arrow svg {
     height: {{ section.settings.slider_arrows_content_size }}px;
     width: {{ section.settings.slider_arrows_content_size }}px;
+  }
+
+  #yc_slider_{{ id }} .splide__arrow svg path {
     fill: {{ section.settings.slider_desktop_arrows_color.hex }};
   }
 
@@ -126,17 +129,11 @@
       "type": "range",
       "id": "slider_arrows_content_size",
       "min": 10,
-      "max": 30,
+      "max": 40,
       "step": 1,
       "unit": "px",
       "label": "Arrows content size",
       "default": 14
-    },
-    {
-      "type": "color",
-      "id": "slider_desktop_arrows_background_color",
-      "label": "Arrows background color",
-      "default": "#FFFFFF"
     },
     {
       "type": "color",
