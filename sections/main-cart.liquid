@@ -35,6 +35,7 @@
               </div>
               <div class='cell '>
                 <div class="product-title">{{ item.name }}</div>
+                <div class="product-price" style="display: none">{{ item.price | money }}</div>
                 <div class="product-variant">
                   {% for variant in item.variations %}
                     <span class="variant">{{ variant.1 }}</span>
