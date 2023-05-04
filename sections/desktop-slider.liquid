@@ -15,12 +15,19 @@
     background-color: {{ section.settings.slider_overlay_background_color.hex }};
   }
 
-  #yc_slider_{{ id }} .splide__pagination {
-    {% if section.settings.slider_pagination == true or section.settings.slider_mobile_pagination == true %}
+  {% if section.settings.slider_pagination %}
+    #yc_slider_{{ id }} .splide__desktop .splide__pagination {
       display: block !important;
       text-align: center;
-    {% endif %}
-  }
+    }
+  {% endif %}
+
+  {% if section.settings.slider_mobile_pagination %}
+    #yc_slider_{{ id }} .splide__mobile .splide__pagination {
+      display: block !important;
+      text-align: center;
+    }
+  {% endif %}
 {% endstyle %}
 
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
