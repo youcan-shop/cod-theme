@@ -9,31 +9,38 @@
 .youtube-play-button {
   background-color: {{ section.settings.play_button_background_color.hex }};
 }
+
+.video-title {
+  text-align: {{ section.settings.title_position }};
+}
 {% endstyle %}
 
 <div class='video-wrapper container'>
-  {% if section.settings.video_link %}
-    {% if section.settings.video_type == 'youtube' %}
-      <div id='youtube-video' class='youtube-video' data-video-link="{{ section.settings.video_link }}">
-        <img class='youtube-thumbnail' src='' loading='lazy'>
-        <div class='youtube-play-button'></div>
-        <div class="spinner video-spinner"></div>
-      </div>
+  <h3 class="video-title">{{ section.settings.title }}</h3>
+  <div class="video-section">
+    {% if section.settings.video_link %}
+      {% if section.settings.video_type == 'youtube' %}
+        <div id='youtube-video' class='youtube-video' data-video-link="{{ section.settings.video_link }}">
+          <img class='youtube-thumbnail' src='' loading='lazy'>
+          <div class='youtube-play-button'></div>
+          <div class="spinner video-spinner"></div>
+        </div>
+      {% endif %}
+      {% if section.settings.video_type == 'facebook' %}
+        <iframe
+          id='facebook-video'
+          height='{{ section.settings.video_height }}'
+          src='https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FAymanJadaofficial%2Fvideos%2F1344326396104890%2F&show_text=false&width=560&t=0'
+          style='border:none;overflow:hidden'
+          scrolling='no'
+          frameborder='0'
+          allowfullscreen='true'
+          allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
+          allowFullScreen='true'
+        ></iframe>
+      {% endif %}
     {% endif %}
-    {% if section.settings.video_type == 'facebook' %}
-      <iframe
-        id='facebook-video'
-        height='{{ section.settings.video_height }}'
-        src='https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FAymanJadaofficial%2Fvideos%2F1344326396104890%2F&show_text=false&width=560&t=0'
-        style='border:none;overflow:hidden'
-        scrolling='no'
-        frameborder='0'
-        allowfullscreen='true'
-        allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
-        allowFullScreen='true'
-      ></iframe>
-    {% endif %}
-  {% endif %}
+  </div>
 </div>
 
 <script>
@@ -73,7 +80,8 @@
             "value": "right",
             "label": "Right"
           }
-        ]
+        ],
+        "default": "center"
       },
       {
         "type": "select",
