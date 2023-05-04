@@ -77,7 +77,7 @@
             {% render 'express-checkout', checkout: checkout, is_sticky: block.settings.is_sticky, settings: block.settings %}
             {% if block.settings.is_sticky %}
             {% render 'sticky-checkout', settings: block.settings %}
-            <button class="yc-btn is_sticky font-bold" onclick="triggerCheckout(`s-{{ snippetId }}`)">{{ block.settings.express_checkout_cta }}</button>
+            <button class="yc-btn is_sticky font-bold express-checkout-button" onclick="triggerCheckout(`s-{{ snippetId }}`)">{{ block.settings.express_checkout_cta }}</button>
             {% endif %}
         {%- endcase -%}
       </div>
