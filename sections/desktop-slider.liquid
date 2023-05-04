@@ -16,7 +16,7 @@
   }
 
   #yc_slider_{{ id }} .splide__pagination {
-    {% if section.settings.slider_pagination == true %}
+    {% if section.settings.slider_pagination == true or section.settings.slider_mobile_pagination == true %}
       display: block !important;
       text-align: center;
     {% endif %}
