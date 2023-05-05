@@ -166,7 +166,7 @@
   left: 0;
   width: 100vw;
   height: var(--yc-nav-height);
-  z-index: 96;
+  z-index: 999;
   background: white;
 }
 #searchInputHolder .input,
