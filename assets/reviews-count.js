@@ -1,4 +1,4 @@
-async function fetchReviewsForProduct(productId, closetParent) {
+async function fetchReviewsForProduct(productId, closetParent, averageRating) {
   const generalReviewsContainers = document.querySelectorAll(`${closetParent} .yc-general-review`);
   const generalReviewsWrappers = document.querySelectorAll(`${closetParent} .yc-general-review-wrapper`);
 

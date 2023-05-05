@@ -16,7 +16,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     const parentContainer = '.yc-product-reviews';
 
-    fetchReviewsForProduct(reviewsProductId, parentContainer);
+    fetchReviewsForProduct(reviewsProductId, parentContainer, {{ product.averageRating }});
   });
 {% endjavascript %}
 
