@@ -8,11 +8,13 @@
   <div class='product-block'>
     <div class='image-box'>
       {% if block_settings.tag_text %}
-        <div
-          class="tag {{ block_settings.tag_position }}"
-          style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
-        >
-          {{ block_settings.tag_text }}
+        <div class="tag {{ block_settings.tag_position }}">
+          <div
+            class="tag-banner"
+            style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
+          >
+            {{ block_settings.tag_text }}
+          </div>
         </div>
       {% endif %}
       <img

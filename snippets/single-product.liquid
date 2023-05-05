@@ -45,11 +45,15 @@
                     <del>{{ product.compare_at_price | money }}</del>
                   </h3>
                   {% if section.settings.tag_text %}
-                    <div
-                      class="tag"
-                      style="background: {{ section.settings.tag_color.hex }}; color: {{ section.settings.tag_text_color.hex }};"
-                    >
-                      {{ section.settings.tag_text }}
+                    <div class="tag">
+                      <div class="tag-banner">
+                        <div
+                          class="tag-banner"
+                          style="background: {{ section.settings.tag_color.hex }}; color: {{ section.settings.tag_text_color.hex }};"
+                        >
+                          {{ section.settings.tag_text }}
+                        </div>
+                      </div>
                     </div>
                   {% endif %}
                 </div>

@@ -15,11 +15,6 @@
   #yc_slider_{{ id }} .splide__arrow--prev {
     transform: translate(-215px, -30px)
   }
-
-  #yc_slider_{{ id }} .tag {
-    background: var(--yc-primary-color);
-    color: {{ section.settings.tag_text_color.hex }};
-  }
 {% endstyle %}
 
 <div
@@ -37,17 +32,18 @@
             href='{{ block.settings.product.url }}'
             class='product-preview'
           >
-
-            {% if block.settings.tag_text %}
-              <div
-                class="tag {{ block.settings.tag_position }}"
-                style="background: {{ block.settings.tag_color.hex }}; color: {{ block.settings.tag_text_color.hex }}"
-              >
-                {{ block.settings.tag_text }}
-              </div>
-            {% endif %}
             <div class="product-slider">
               <div class='product-thumbnail'>
+                {% if block.settings.tag_text %}
+                  <div class="tag {{ block.settings.tag_position }}">
+                    <div
+                      class="tag-banner"
+                      style="background: {{ block.settings.tag_color.hex }}; color: {{ block.settings.tag_text_color.hex }}"
+                    >
+                      {{ block.settings.tag_text }}
+                    </div>
+                  </div>
+                {% endif %}
                 <img
                   loading='lazy'
                   src='{%- if block.settings.product.thumbnail -%} {{ block.settings.product.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
