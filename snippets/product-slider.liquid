@@ -15,6 +15,12 @@
   #yc_slider_{{ id }} .splide__arrow--prev {
     transform: translate(-215px, -30px)
   }
+
+  #yc_slider_{{ id }} .tag {
+    background: var(--yc-primary-color);
+    color: {{ section.settings.tag_text_color.hex }};
+    padding: 0 5px;
+  }
 {% endstyle %}
 
 <div
@@ -34,16 +40,16 @@
           >
             <div class="product-slider">
               <div class='product-thumbnail'>
-                {% if block.settings.tag_text %}
-                  <div class="tag {{ block.settings.tag_position }}">
-                    <div
-                      class="tag-banner"
-                      style="background: {{ block.settings.tag_color.hex }}; color: {{ block.settings.tag_text_color.hex }}"
-                    >
-                      {{ block.settings.tag_text }}
-                    </div>
-                  </div>
-                {% endif %}
+
+              {% if block.settings.tag_text %}
+                <div
+                  class="tag {{ block.settings.tag_position }}"
+                  style="background: {{ block.settings.tag_color.hex }}; color: {{ block.settings.tag_text_color.hex }}"
+                >
+                  {{ block.settings.tag_text }}
+                </div>
+              {% endif %}
+
                 <img
                   loading='lazy'
                   src='{%- if block.settings.product.thumbnail -%} {{ block.settings.product.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
@@ -52,7 +58,7 @@
 
               <div class='product-details'>
                 <span class='product-title'>{{ block.settings.product.name }}</span>
-  
+
                 <div class='prices'>
                   {% if section.settings.show_compare_at_price and block.settings.product.compare_at_price %}
                     <span class='compare-at-price'>{{ block.settings.product.compare_at_price | money }}</span>
@@ -61,7 +67,7 @@
                     <span class='product-price'>{{ block.settings.product.price | money }}</span>
                   {% endif %}
                 </div>
-  
+
                 <button class="yc-btn-secondary--large">
                   {{ 'general.buy_now' | t }}
                 </button>
@@ -71,5 +77,5 @@
         </li>
       {%- endfor %}
     </ul>
-  </div>  
+  </div>
 </div>

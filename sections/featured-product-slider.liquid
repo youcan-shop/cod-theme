@@ -9,23 +9,28 @@
   .section-featured-products-{{ id }} {
     margin-top: {{ section.settings.space_top }}px;
     margin-bottom: {{ section.settings.space_bottom }}px;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 
   @media screen and (min-width: 768px) {
     .section-featured-products-{{ id }} {
-      padding: 0 70px;
+      padding-left: 70px;
+      padding-right: 70px;
     }
   }
 
   @media screen and (min-width: 1024px) {
     .section-featured-products-{{ id }} {
-      padding: 0 100px;
+      padding-left: 100px;
+      padding-right: 100px;
     }
   }
 
   @media screen and (min-width: 1440px) {
     .section-featured-products-{{ id }} {
-      padding: 0 150px;
+      padding-left: 150px;
+      padding-right: 150px;
     }
   }
 
@@ -44,6 +49,10 @@
   .section-featured-products-{{ id }} .countdown-wrapper .countdown .num {
     border-color: {{ section.settings.text_color.hex }};
   }
+
+  .section-featured-products-{{ id }} .container {
+    overflow-y: initial;
+  }
 {% endstyle %}
 
 <div class='yc-featured-products section-featured-products-{{ id }}'>
@@ -51,11 +60,12 @@
     <h1 class='yc-section-title'>
       {{ section.settings.title }}
     </h1>
-    <div class="counter-wrapper">
-      {% if section.settings.countdown_enabled %}
+
+    {% if section.settings.countdown_enabled %}
+      <div class="counter-wrapper">
         {%- render 'countdown', section_settings: section.settings -%}
-      {% endif %}
-    </div>
+      </div>
+    {% endif %}
 
     {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
     {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
