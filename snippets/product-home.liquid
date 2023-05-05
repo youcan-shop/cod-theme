@@ -52,6 +52,6 @@
     const homePageProductId = '{{ product_id }}';
     const parentContainer = '.product-home';
 
-    fetchReviewsForProduct(homePageProductId, parentContainer);
+    fetchReviewsForProduct(homePageProductId, parentContainer, {{ product.averageRating }});
   });
 </script>
