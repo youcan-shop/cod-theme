@@ -3,6 +3,7 @@
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   grid-gap: 3rem;
   position: relative;
+  margin-top: calc(var(--yc-nav-height) + 20px);
 }
 @media only screen and (min-width: 768px) {
   .yc-single-product {
@@ -26,7 +27,6 @@
 @media (min-width: 768px) {
   .yc-single-product .product-images {
     position: sticky;
-    top: calc(var(--yc-nav-height) + 20px);
     margin: unset;
   }
 }
