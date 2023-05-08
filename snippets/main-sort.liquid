@@ -1,15 +1,13 @@
-<div id="productDropdownFiltring">
-  <span class="dropbtn"></span>
-  <div class="dropdown-content">
-    <a href="#" data-value="price-asc">{{ 'snippets.main_sort.price_asc' | t }}</a>
-    <a href="#" data-value="price-desc">{{ 'snippets.main_sort.price_desc' | t }}</a>
-    <a href="#" data-value="created_at-asc">{{ 'snippets.main_sort.created_at_asc' | t }}</a>
-    <a href="#" data-value="created_at-desc">{{ 'snippets.main_sort.created_at_desc' | t }}</a>
-    <a href="#" data-value="name-asc">{{ 'snippets.main_sort.title_asc' | t }}</a>
-    <a href="#" data-value="name-desc">{{ 'snippets.main_sort.title_desc' | t }}</a>
-  </div>
+{% capture sort_options %}
+  [
+    {"label": "{{ 'snippets.main_sort.price_asc' | t }}", "value": "price-asc"},
+    {"label": "{{ 'snippets.main_sort.price_desc' | t }}", "value": "price-desc"},
+    {"label": "{{ 'snippets.main_sort.created_at_asc' | t }}", "value": "created_at-asc"},
+    {"label": "{{ 'snippets.main_sort.created_at_desc' | t }}", "value": "created_at-desc"},
+    {"label": "{{ 'snippets.main_sort.title_asc' | t }}", "value": "name-asc"},
+    {"label": "{{ 'snippets.main_sort.title_desc' | t }}", "value": "name-desc"}
+  ]
+{% endcapture %}
+<div class="sort-select">
+  {% render 'custom-select', data: sort_options, handlerFunction: 'selectSortValue' %}
 </div>
-
-<script>
-  const order_by = "{{ 'snippets.main_sort.order_by' | t }}";
-</script>

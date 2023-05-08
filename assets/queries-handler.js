@@ -3,6 +3,13 @@ const urlParams = new URLSearchParams(window.location.search);
 const paginateBtnPrev = document.querySelector('.paginate-btn-prev');
 const paginateBtnNext = document.querySelector('.paginate-btn-next');
 const paginateBtnCurrent = document.querySelectorAll('.paginate-btn');
+const sortField = urlParams.get('sort_field');
+const sortOrder = urlParams.get('sort_order');
+const sortSelect = document.querySelector('.sort-select');
+const customSelect = document.querySelector('.custom-select');
+const dropdownBtn = customSelect.querySelector('.select-icon');
+const dropdownContent = customSelect.querySelector('.dropdown-list');
+
 let page = +urlParams.get('page[cod]');
 
 const query = urlParams.get('q');
@@ -14,14 +21,6 @@ if (searchTitle) {
 /**
  * pagination
  */
-const updateUrl = (key, value, url) => {
-  if (url.searchParams.has(key)) {
-    url.searchParams.set(key, value);
-  } else {
-    url.searchParams.append(key, value);
-  }
-};
-
 const convertUrl = (key, value) => {
   const url = new URL(window.location.href);
 

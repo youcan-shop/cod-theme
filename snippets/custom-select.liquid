@@ -38,7 +38,7 @@
   background-color: #fff;
   border: 1px solid #E6E6E6;
   display: none;
-  max-height: 150px;
+  max-height: 300px;
   overflow-y: auto;
   position: absolute;
   top: 117%;
@@ -69,19 +69,22 @@
     font-size: 0.8em;
     color: #666;
 }
-{% endstyle %}
+
+{% endstyle %} 
 
 <div class="custom-select" id="custom-select-{{ select_id }}">
   <select></select>
+  <span class="selected-option"></span> 
   <span class="select-icon">{% render 'icon', name: 'chevron_down' %}</span>
   <div class="dropdown-list"></div>
 </div>
 
 {{ 'custom-select.js' | asset_url | script_tag }}
 
+{% assign handlerFunction = handlerFunction | default: 'null' %}
 <script>
-    const select_options =  {% if format %} `{{data | json}}` {% else %} {{ data }} {% endif %};
+    const select_options = {% if format %} `{{data | json}}` {% else %} {{ data }} {% endif %};
     const format = {% if format %} true {% else %} false {% endif %};
-
-    setCustomSelect({{ select_id }},select_options);
+    const handlerFunction = {{ handlerFunction }};
+    setCustomSelect({{ select_id }}, select_options, handlerFunction);
 </script>
