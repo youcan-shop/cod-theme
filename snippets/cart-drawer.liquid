@@ -34,6 +34,7 @@
     quantity: '{{ 'cart.items.quantity' | t }}',
     remove: `{% render 'icon', name: 'trash' %}`
   }
+  const defaultImage = '{{ "product-default.png" | asset_url }}';
 {% endjavascript %}
 
 {{ 'cart-drawer.js' | asset_url | script_tag }}
