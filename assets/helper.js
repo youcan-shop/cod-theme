@@ -44,11 +44,11 @@ const countdown = (target) => {
 
   // Set the date we're counting down to
   const countDownDate = new Date(year, month-1, day, targetedHour, targetedMin, 0, 0).getTime();
+  let countdownInterval;
 
   const updateTime = () => {
     // Get todays date and time
     const now = new Date().getTime();
-    let countdownInterval = setInterval(updateTime, 1000);
 
     // Find the distance between now an the count down date
     const distance = countDownDate - now;
@@ -77,5 +77,5 @@ const countdown = (target) => {
   }
 
   updateTime();
-  setInterval(updateTime, 1000);
+  countdownInterval = setInterval(updateTime, 1000);
 }
