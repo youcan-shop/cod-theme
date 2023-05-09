@@ -137,13 +137,10 @@ async function removeItem(cartItemId, productVariantId) {
     const cartItems = document.querySelectorAll('.cart__item');
 
     if (cartItemsBadge) {
-      cartItemsBadge.innerText = parseInt(cartItemsBadge.innerText) + 1;
+      cartItemsBadge.innerText = response.count || 0;
     }
 
     if (cartItems.length === 0) {
-      if (cartItemsBadge) {
-        cartItemsBadge.innerText = 0;
-      }
       const cartTable = document.querySelector('.cart-table')
       const emptyCart = document.querySelector('.empty-cart');
 

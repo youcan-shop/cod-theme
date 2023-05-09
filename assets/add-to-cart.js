@@ -33,9 +33,7 @@ async function addToCart(snippetId) {
     const cart = document.querySelector('#cart-items-badge');
 
     if (cart) {
-      let cartBadgeBudge = Number(cart.innerHTML);
-
-      cart.innerHTML = ++cartBadgeBudge;
+      cart.innerHTML = response.count || 0;
     }
 
     stopLoad('#loading__cart');
