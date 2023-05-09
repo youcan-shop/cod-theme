@@ -53,6 +53,10 @@
   .section-featured-products-{{ id }} .container {
     overflow-y: initial;
   }
+
+  .section-featured-products-{{ id }} .product-slider.splide .splide__arrow svg {
+    fill: {{ section.settings.slider_arrows_color.hex }};
+}
 {% endstyle %}
 
 <div class='yc-featured-products section-featured-products-{{ id }}'>
@@ -179,6 +183,12 @@
       "label": "Text color"
     },
     {
+      "type": "color",
+      "id": "slider_arrows_color",
+      "label": "Arrows color",
+      "default": "#3d415d"
+    },
+    {
       "type": "header",
       "content": "Countdown settings"
     },
@@ -266,10 +276,6 @@
           "label": "Slide"
         },
         {
-          "value": "fade",
-          "label": "Fade"
-        },
-        {
           "value": "loop",
           "label": "Loop"
         }
@@ -332,10 +338,6 @@
         {
           "value": "slide",
           "label": "Slide"
-        },
-        {
-          "value": "fade",
-          "label": "Fade"
         },
         {
           "value": "loop",
