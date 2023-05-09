@@ -12,6 +12,10 @@
     background-color: {{ section.settings.background_color.hex }};
   }
 
+  #product-column-{{ id }} .product-name {
+    color: {{ section.settings.title_color.hex }};
+  }
+
   @media screen and (max-width: 768px) {
     #product-column-{{ id }} {
       display: {% if section.settings.show_product %}block{% else %}none{% endif %};
@@ -52,6 +56,12 @@
         "type": "color",
         "id": "background_color",
         "label": "Background color"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title text color",
+        "default": "#000000"
       },
       {
         "type": "checkbox",
@@ -123,11 +133,6 @@
         "label": "Price",
         "limit": 1,
         "type": "product_price"
-      },
-      {
-        "label": "Description",
-        "limit": 1,
-        "type": "product_description"
       }
     ]
   }
