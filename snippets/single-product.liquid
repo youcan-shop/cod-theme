@@ -26,8 +26,8 @@
   >
   {% assign images = product.images %}
   {% assign product_name = product.name %}
+  {% assign has_product_description = false %}
 
-  <!-- prettier-ignore -->
   {% render 'product-images-showcase', images: images, product_name: product_name, hidden: section.settings.hide_gallery, id: uniqID , view: 'desktop' -%}
 
   <div class='product-details'>
@@ -66,18 +66,16 @@
           {%- when 'product_variants' -%}
             {% render 'product-variants', options: product.options %}
           {%- when 'countdown_timer' %}
-            <!-- prettier-ignore -->
               {%- render 'countdown', section_settings: block.settings -%}
+          {%- when 'product_description' -%}
+            {% assign has_product_description = true %}
           {%- when 'stock' -%}
-            <!-- prettier-ignore -->
             {% render 'stock', stock_title: block.settings.stock_title, stock_items_left: block.settings.stock_items_left, total_stock_items: block.settings.total_stock_items %}
           {%- when 'add_to_cart' -%}
-            <!-- prettier-ignore -->
             {% render 'add-to-cart', text: block.settings.text_content, is_sticky: block.settings.is_sticky, background_color: block.settings.background_color, text_color: block.settings.text_color, snippetId: snippetId %}
             {%- when 'accordion' -%}
               {%- render 'accordion', accordion_title: block.settings.accordion_title, accordion_details: block.settings.accordion_details, background_color: block.settings.background_color, text_color: block.settings.text_color, margin_bottom: block.settings.margin_bottom -%}
           {%- when 'express_checkout' -%}
-            <!-- prettier-ignore -->
             {% render 'express-checkout', checkout: checkout, is_sticky: block.settings.is_sticky, settings: block.settings %}
             {% if block.settings.is_sticky %}
             {% render 'sticky-checkout', settings: block.settings %}
@@ -87,12 +85,13 @@
       </div>
     {%- endfor -%}
   </div>
-
 </div>
 
-<div class="container">
-  <section class='product-description '>{{ product.description }}</section>
-</div>
+{% if has_product_description %}
+  <div class="container">
+    <section class='product-description '>{{ product.description }}</section>
+  </div>
+{% endif %}
 
 <script defer>
 const products = {{ product.images.size }};
