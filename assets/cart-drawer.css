@@ -70,8 +70,11 @@
 }
 .navigation-drawer.cart-drawer .content .cart-item .info .variants {
   display: flex;
-  gap: 16px;
   flex-wrap: wrap;
+  margin: 7px -8px 0;
+}
+.navigation-drawer.cart-drawer .content .cart-item .info .variants > div {
+  padding: 3px 8px;
 }
 .navigation-drawer.cart-drawer .content .cart-item .price-trash-holder {
   display: flex;

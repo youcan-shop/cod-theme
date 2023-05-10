@@ -46,8 +46,12 @@ async function setupCartDrawer() {
             <div class='quantity'>${CART_DRAWER_LOCALES.quantity}: ${quantity || 0}</div>
             <div class='variants'>
               ${Object.keys(productVariant.variations)
-          .map(key => `<div>${key}: ${productVariant.variations[key]}</div>`)
-          .join('')}
+                      .map(key => {
+                        if (key !== 'default') {
+                          return `<div>${key}: ${productVariant.variations[key]}</div>`
+                        }
+                      })
+                      .join('')}
             </div>
           </div>
           <div class='price-trash-holder'>
