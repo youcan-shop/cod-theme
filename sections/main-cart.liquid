@@ -6,9 +6,10 @@
       <div class="header-block">
         <div class="header-bar">
           <h2>{{ 'cart.title' | t }}</h2>
-          <p class='mt-1'>
-            ({{ cart.items | size }}
-            {{ 'cart.items_count' | t }})
+          <div class='cart-title mt-1'>
+            (<p id="cart-items-count">{{ cart.items | size }}</p>
+            <p>{{ 'cart.items_count' | t }}</p>)
+          </div>
           </p>
         </div>
       </div>

@@ -3,6 +3,7 @@
   overflow: hidden;
 }
 .yc-collection-listing .collection-list {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   grid-gap: 1.5rem;

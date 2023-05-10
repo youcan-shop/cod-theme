@@ -23,6 +23,12 @@
 
         p {
           font-size: 18px;
+        }
+
+        .cart-title {
+          display: flex;
+          align-items: center;
+          gap: 4px;
           color: #9B9B9B;
         }
       }

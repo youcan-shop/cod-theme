@@ -5,6 +5,7 @@
   overflow: hidden;
 
   .collection-list {
+    width: 100%;
     @include display(3, 1, 1, 1.5rem);
 
     margin-top: 40px;

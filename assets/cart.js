@@ -126,19 +126,19 @@ async function increaseQuantity(cartItemId, productVariantId, quantity) {
 async function removeItem(cartItemId, productVariantId) {
   load(`#loading__${cartItemId}`);
   try {
-    await youcanjs.cart.removeItem({ cartItemId, productVariantId });
+    const response = await youcanjs.cart.removeItem({ cartItemId, productVariantId });
     document.getElementById(cartItemId).remove();
     document.getElementById(`cart-item-${cartItemId}`).remove();
 
     updateTotalPrice();
 
+    const cartItemsCount = document.getElementById('cart-items-count');
     const cartItemsBadge = document.getElementById('cart-items-badge');
 
     const cartItems = document.querySelectorAll('.cart__item');
 
-    if (cartItemsBadge) {
-      cartItemsBadge.innerText = response.count || 0;
-    }
+    cartItemsCount.innerText = response.count;
+    cartItemsBadge.innerText = response.count;
 
     if (cartItems.length === 0) {
       const cartTable = document.querySelector('.cart-table')

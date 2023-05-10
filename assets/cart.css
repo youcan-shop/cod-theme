@@ -15,6 +15,11 @@
 }
 .yc-cart .cart-table .header-block .header-bar p {
   font-size: 18px;
+}
+.yc-cart .cart-table .header-block .header-bar .cart-title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   color: #9B9B9B;
 }
 .yc-cart .cart-table .header-block .checkout_cta {
