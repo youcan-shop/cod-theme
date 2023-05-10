@@ -23,8 +23,8 @@
 
 {%- schema -%}
 {
-  "limit": 1,
   "label": "Single Product",
+  "limit": 1,
   "templates": ["index", "product"],
   "blocks": [
     {
@@ -387,7 +387,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       const parentContainer = '.yc-single-product';
 
-      fetchReviewsForProduct(sectionProductId, parentContainer);
+      fetchReviewsForProduct(sectionProductId, parentContainer, {{ selected_product.averageRating }});
     });
   {% endif %}
 {%- endjavascript -%}

@@ -5,12 +5,13 @@
 {%- endif %}
 
 {%- if selected_product %}
-  {%- render 'reviews', reviews_title: section.settings.reviews_title, reviews_product_id: selected_product.id -%}
+  {%- render 'reviews', reviews_title: section.settings.reviews_title, reviews_product_id: selected_product.id, product: selected_product -%}
 {%- endif %}
 
 {% schema %}
 {
   "label": "Product reviews",
+  "limit": 1,
   "settings": [
     {
       "label": "Product",

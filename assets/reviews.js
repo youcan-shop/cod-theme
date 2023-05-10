@@ -12,7 +12,7 @@ function formatDate(dateString) {
 
 /**
  * Creates a review template
- * 
+ *
  * @param {Object} review - Review object.
  * @returns {String} - Review template.
  */
@@ -45,7 +45,7 @@ const setupReviews = async () => {
 
   /**
    * This function is used to remove the reviews container if there is no data.
-   * 
+   *
    * @param {HTMLElement} element - The element you want to target
    */
   const removeReviewsIfNone = () => {
@@ -56,7 +56,7 @@ const setupReviews = async () => {
 
   /**
    * Creates a review item.
-   * 
+   *
    * @param {Object} review - Review object.
    * @returns {HTMLElement} - Review item.
    */
@@ -70,7 +70,7 @@ const setupReviews = async () => {
 
   /**
    * Handling pagination by showing the show more button if there is more than one page.
-   * 
+   *
    * @param {Array} reviews - Array of reviews
    */
   const handelPagination = (data) => {
@@ -82,10 +82,10 @@ const setupReviews = async () => {
       if (showMoreButton) {
         showMoreButton.addEventListener('click', async () => {
           const response = data.next();
-  
+
           reviews = await response.data();
           addReviews(reviewsWrapper, reviews);
-  
+
           if (pagination.totalPages >= pagination.currentPage) {
             showMoreButton.style.display = 'none';
           }
@@ -103,7 +103,7 @@ const setupReviews = async () => {
   }
 
   try {
-    const res = youcanjs.product.fetchReviews(productsId, { limit: 3 });
+    const res = youcanjs.product.fetchReviews(reviewsProductId, { limit: 3 });
     reviews = await res.data();
 
     addReviews(reviewsWrapper, reviews);
