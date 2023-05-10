@@ -4,7 +4,7 @@
 function setHeightPage() {
   const htmlPageHeight = document.documentElement.clientHeight;
   const bodyHeight = document.body.offsetHeight;
-  const emptyCart =  $('.empty-cart');
+  const emptyCart = $('.empty-cart');
   const emptySpaceHeight = htmlPageHeight - bodyHeight;
 
   emptyCart.style.height = `${emptyCart.offsetHeight + emptySpaceHeight}px`;
@@ -54,6 +54,8 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
   } else if (currency && price) {
     totalPrice.innerText = `${currency} ${price * quantity}`;
   }
+
+  setupCartDrawer();
 }
 
 function updateTotalPrice() {
@@ -92,8 +94,10 @@ async function updateQuantity(cartItemId, productVariantId, quantity) {
     stopLoad(`#loading__${cartItemId}`);
   }
   updateDOM(cartItemId, productVariantId, quantity);
-  updatePrice(cartItemId,productVariantId,quantity);
+  updatePrice(cartItemId, productVariantId, quantity);
   updateTotalPrice();
+
+  setupCartDrawer();
 }
 
 
@@ -104,7 +108,8 @@ async function updateOnchange(cartItemId, productVariantId) {
 
   await updateQuantity(cartItemId, productVariantId, quantity);
   updateDOM(cartItemId, productVariantId, quantity);
-  updatePrice(cartItemId,productVariantId,quantity);
+  updatePrice(cartItemId, productVariantId, quantity);
+
   updateTotalPrice();
 }
 
@@ -154,6 +159,8 @@ async function removeItem(cartItemId, productVariantId) {
         setHeightPage();
       }
     }
+
+    setupCartDrawer();
   } catch (e) {
     notify(e.message, 'error');
   } finally {

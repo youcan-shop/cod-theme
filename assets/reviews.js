@@ -113,7 +113,7 @@ const setupReviews = async () => {
     addReviews(reviewsWrapper, reviews);
     handelPagination(res);
 
-    if(reviews && reviews.length) {
+    if (reviews && reviews.length) {
       return convertDate();
     }
 

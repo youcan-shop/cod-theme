@@ -8,9 +8,9 @@ const closeCartDrawerBtn = document.querySelectorAll('.close-cart-drawer-btn');
  */
 async function removeCartItem(cartItemId, productVariantId) {
   try {
-    await youcanjs.cart.removeItem({ cartItemId, productVariantId});
+    await youcanjs.cart.removeItem({ cartItemId, productVariantId });
     setupCartDrawer()
-  } catch (error) {}
+  } catch (error) { }
 }
 
 async function setupCartDrawer() {
