@@ -5,6 +5,10 @@
     margin-top: {{ section.settings.margin_top }}px;
     margin-bottom: {{ section.settings.margin_bottom }}px;
   }
+
+  .youtube-play-button {
+  background-color: {{ section.settings.play_button_background_color.hex }};
+}
 {% endstyle %}
 
 <div class='video-wrapper container'>
@@ -89,6 +93,12 @@
         "default": 100
       },
       {
+        "type": "color",
+        "id": "play_button_background_color",
+        "label": "Youtube play icon color",
+        "default": "#F0083CFF"
+      },
+      {
         "type": "range",
         "id": "margin_top",
         "label": "Space top",
@@ -112,4 +122,3 @@
     ]
   }
   {% endschema %}
-  
