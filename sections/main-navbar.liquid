@@ -1,22 +1,21 @@
 {{ 'navbar.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-  :root{
+  :root {
     --yc-nav-height: {{ section.settings.navbar_height }}px;
     --yc-nav-background: {{ section.settings.navbar_background_color.hex }};
     --yc-nav-links-color: {%- if section.settings.navbar_links_color -%}
-      {{ section.settings.navbar_links_color.hex }}
-    {%- else -%}
-      var(--yc-neutral-color){%- endif -%};
-    --yc-nav-cart-badge-color: {%- if section.settings.cart_badge_color -%}
-      {{ section.settings.cart_badge_color.hex }}
-    {%- else -%}
-      var(--yc-neutral-color){%- endif -%};
+                            {{ section.settings.navbar_links_color.hex }}
+                          {%- else -%}
+                            var(--yc-neutral-color)
+                          {%- endif -%};
     --yc-nav-links-font-weight: {{ section.settings.navbar_links_font_weight }};
     --yc-nav-links-hover-transparency: {{ section.settings.navbar_links_hover_transparency }};
     --yc-nav-font-family: {%- if section.settings.navbar_font_family -%}
-      {{ section.settings.navbar_font_family }}, sans-serif{%- else -%}
-      var(--yc-font-family){%- endif -%};
+                            {{ section.settings.navbar_font_family }}, sans-serif
+                          {%- else -%}
+                            var(--yc-font-family)
+                          {%- endif -%};
     --yc-nav-font-size: {{ section.settings.navbar_font_size }}px;
     --yc-nav-shadow: {{ section.settings.navbar_shadow }};
   }
@@ -159,11 +158,6 @@
       "type": "color",
       "id": "navbar_links_color",
       "label": "Items and links color"
-    },
-    {
-      "type": "color",
-      "id": "cart_badge_color",
-      "label": "Cart badge color"
     },
     {
       "type": "range",
