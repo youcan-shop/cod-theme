@@ -2,7 +2,6 @@
 
 .items-configs {
   color: var(--yc-nav-links-color);
-  stroke: var(--yc-nav-links-color);
   font-family: var(--yc-nav-font-family);
   font-weight: var(--yc-nav-links-font-weight);
 }
@@ -107,7 +106,6 @@
 
     .logo {
       img {
-        height: calc(var(--yc-nav-height) - 20px);
         max-height: 25px;
       }
     }

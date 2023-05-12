@@ -5,9 +5,10 @@ const navFixed = document.querySelector('.nav-fixed');
 const noticeMobile = document.querySelector('.yc-notice.mobile');
 const overlay = document.querySelector('.global-overlay');
 const drawer = document.querySelector('.navbar-drawer');
-const menuIcon = document.querySelector('.menu-toggler ion-icon');
 const drawerBtn = document.querySelector('.close-drawer-btn');
 const closeSearchBtn = document.querySelector('.close-search');
+const menuCloseIcon = document.querySelector('#nav-menu-open');
+const menuOpenIcon = document.querySelector('#nav-menu-close');
 
 function makeNavbarFixed() {
   document.body.style.paddingTop = `${navFixed.offsetHeight}px`;
@@ -31,8 +32,15 @@ function handleScroll() {
 }
 
 function toggleDrawerIcon() {
-  const iconName = menuIcon.getAttribute('name');
-  iconName === 'menu-outline' ? menuIcon.setAttribute('name', 'close-outline') : (menuIcon.setAttribute('name', 'menu-outline'), closeDrawer());
+  if (menuCloseIcon && menuOpenIcon) {
+    menuCloseIcon.style.display = menuCloseIcon.style.display === 'none' ? 'block' : 'none';
+    menuOpenIcon.style.display = menuOpenIcon.style.display === 'none' ? 'block' : 'none';
+
+    // check if drawer is open, if yes, close it
+    if (menuOpenIcon.style.display === 'none') {
+      closeDrawer();
+    }
+  }
 }
 
 function showOverlay() {
@@ -45,6 +53,11 @@ function closeDrawer() {
   drawer.style.position = 'fixed';
   overlay.style.opacity = '0';
   drawer.style.transform = 'translateY(-100%)';
+
+  if (menuCloseIcon && menuOpenIcon) {
+    menuCloseIcon.style.display = 'block';
+    menuOpenIcon.style.display = 'none';
+  }
 }
 
 function hideOverlay() {
@@ -54,7 +67,6 @@ function hideOverlay() {
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) {
       closeDrawer();
-      if (menuIcon) menuIcon.setAttribute('name', 'menu-outline');
     }
   });
 }

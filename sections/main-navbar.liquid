@@ -37,11 +37,16 @@
         {%- when 'menu' %}
           <div class='menu'>  
               <button
-              class='menu-toggler text-3xl'
-              onclick="openDrawer('.navbar-drawer')"
-            >
-              <ion-icon name='menu-outline'></ion-icon>
-            </button>
+                class='menu-toggler text-3xl'
+                onclick="openDrawer('.navbar-drawer')"
+              >
+                <span id="nav-menu-open">
+                  {%- render 'icon', name: 'menu' -%}
+                </span>
+                <span id="nav-menu-close" style="display: none">
+                  {%- render 'icon', name: 'menu-close' -%}
+                </span>
+              </button>
             
             <ul class='menu-list'>
               {% for item in main-link-list.links %}
@@ -57,7 +62,7 @@
               class='search'
               onclick='openSearch()'
             >
-              <ion-icon name="search-outline"></ion-icon>
+              {%- render 'icon', name: 'search' -%}
             </button>
             <div id='searchInputHolder'> 
               <div class='container search-wrapper'> 
@@ -81,7 +86,7 @@
               <span id='cart-items-badge'>
                 {{- cart.items | size -}}
               </span>
-              <ion-icon name="cart-outline"></ion-icon>
+              {%- render 'icon', name: 'cart' -%}
             </button>
           </div>
       {%- endcase %}
