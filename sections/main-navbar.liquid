@@ -17,7 +17,6 @@
                             var(--yc-font-family)
                           {%- endif -%};
     --yc-nav-font-size: {{ section.settings.navbar_font_size }}px;
-    --yc-nav-shadow: {{ section.settings.navbar_shadow }};
   }
 {% endstyle %}
 
@@ -221,12 +220,6 @@
           "label": "Montserrat"
         }
       ]
-    },
-    {
-      "type": "checkbox",
-      "id": "navbar_shadow",
-      "label": "Show navbar shadow",
-      "default": false
     },
     {
       "type": "checkbox",
