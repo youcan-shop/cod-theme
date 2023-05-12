@@ -47,6 +47,7 @@
         height: 100%;
         flex: 1;
         transition: all 0.25s ease;
+        object-fit: cover;
       }
 
       &:hover img {

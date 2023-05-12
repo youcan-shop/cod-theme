@@ -51,6 +51,7 @@
   height: 100%;
   flex: 1;
   transition: all 0.25s ease;
+  object-fit: cover;
 }
 .yc-collection-listing .collection-list .collection-thumbnail:hover img {
   transform: scale(1.1);
