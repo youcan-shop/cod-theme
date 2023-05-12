@@ -37,25 +37,24 @@
           <div
             class='product-block'
           >
-
-          <div class="tag {{ block.settings.tag_position }}">
-            {% if block.settings.tag_text %} 
-              <div class="tag-text"
-                style="background: {{ block.settings.tag_color.hex }}; color: {{ block.settings.tag_text_color.hex }}"
-              >
-                {{ block.settings.tag_text }}
-              </div>
-            {% endif %}
-            {% if block.settings.price_reduction_text %} 
-              <div class="tag-price"
-                style="background: {{ block.settings.tag_price_color.hex }}; color: {{ block.settings.price_reduction_text_color.hex }}"
-              >
-                {{ block.settings.price_reduction_text }}
-              </div>
-            {% endif %}
-            </div>
             <div class="product-slider">
               <div class='product-thumbnail'>
+                <div class="tag {{ block.settings.tag_position }}">
+                {% if block.settings.tag_text %} 
+                  <div class="tag-text"
+                    style="background: {{ block.settings.tag_color.hex }}; color: {{ block.settings.tag_text_color.hex }}"
+                  >
+                    {{ block.settings.tag_text }}
+                  </div>
+                {% endif %}
+                {% if block.settings.price_reduction_text %} 
+                  <div class="tag-price"
+                    style="background: {{ block.settings.tag_price_color.hex }}; color: {{ block.settings.price_reduction_text_color.hex }}"
+                  >
+                    {{ block.settings.price_reduction_text }}
+                  </div>
+                {% endif %}
+                </div>
                  <img
                   loading='lazy'
                   src='{%- if block.settings.product.thumbnail -%} {{ block.settings.product.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
