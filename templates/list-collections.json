@@ -4,7 +4,8 @@
           "type": "main-list-collections",
           "settings": {
               "category_name_color": "#FEFEFEFF",
-              "category_description": "#FFFFFFFF"
+              "category_description": "#FFFFFFFF",
+              "preview_overlay_color": "#00000024"
           }
       }
   },
