@@ -82,7 +82,7 @@
     interval: '{{ section.settings.slider_mobile_timeout | times: 1000 }}',
     rewind: true,
     drag: 'free',
-    perPage: 2,
+    perPage: perPage < 2 ? 1 : 2,
     perMove: 1,
     gap: '8px',
     snap: true,
