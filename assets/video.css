@@ -44,7 +44,11 @@
   transform: translate(-50%, -50%);
   width: 64px;
   height: 64px;
-  background-image: url("../assets/playButton.png");
-  background-size: 64px 64px;
-  background-repeat: no-repeat;
+  --svg: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0ibTkuNSAxNi41bDctNC41bC03LTQuNXY5Wk0xMiAyMnEtMi4wNzUgMC0zLjktLjc4OHQtMy4xNzUtMi4xMzdxLTEuMzUtMS4zNS0yLjEzNy0zLjE3NVQyIDEycTAtMi4wNzUuNzg4LTMuOXQyLjEzNy0zLjE3NXExLjM1LTEuMzUgMy4xNzUtMi4xMzdUMTIgMnEyLjA3NSAwIDMuOS43ODh0My4xNzUgMi4xMzdxMS4zNSAxLjM1IDIuMTM4IDMuMTc1VDIyIDEycTAgMi4wNzUtLjc4OCAzLjl0LTIuMTM3IDMuMTc1cS0xLjM1IDEuMzUtMy4xNzUgMi4xMzhUMTIgMjJaIi8+PC9zdmc+");
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
