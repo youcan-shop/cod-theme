@@ -47,6 +47,7 @@
 .product-slider .product-block {
   width: 100%;
   position: relative;
+  max-width: 500px;
 }
 .product-slider .product-block .product-details {
   margin-top: 12px;
@@ -123,6 +124,7 @@
   width: 100%;
   transform: translate(-50%, -50%);
   transition: transform 0.25s ease;
+  object-fit: cover;
 }
 .product-slider .product-thumbnail img:hover {
   transform: translate(-50%, -50%) scale(1.1);

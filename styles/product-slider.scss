@@ -54,6 +54,7 @@
   .product-block {
     width: 100%;
     position: relative;
+    max-width: 500px;
 
     .product-details {
       margin-top: 12px;
@@ -133,6 +134,7 @@
       width: 100%;
       transform: translate(-50%,-50%);
       transition: transform .25s ease;
+      object-fit: cover;
 
       &:hover {
         transform: translate(-50%,-50%) scale(1.1);
