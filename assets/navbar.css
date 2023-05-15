@@ -138,9 +138,11 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: var(--yc-nav-height);
+  height: calc(var(--yc-nav-height) + 1px);
   z-index: 96;
   background: white;
+  transform: translateX(-50%);
+  left: 50%;
 }
 #searchInputHolder .search-wrapper {
   display: flex;
