@@ -218,6 +218,7 @@
   transition: width 1s ease-in-out;
 }
 .yc-single-product .product-details .product-description {
+  margin-top: 32px;
   overflow: hidden;
 }
 .yc-single-product .product-details .product-description * {
