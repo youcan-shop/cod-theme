@@ -7,10 +7,10 @@
 
 {% style %}
   .section-featured-products-{{id}} {
-    margin-top: {{ section.settings.margin_top }}px;
-    margin-bottom: {{ section.settings.margin_bottom }}px;
+    margin-top: {{ section.settings.space_top }}px;
+    margin-bottom: {{ section.settings.space_bottom }}px;
   }
- 
+
   .counter-wrapper .product-slider-title {
     color: {{ section.settings.text_color.hex }};
   }
@@ -28,7 +28,7 @@
   .section-featured-products-{{id}} .countdown-wrapper .countdown .num {
     border-color: {{ section.settings.text_color.hex }};
   }
-  
+
 {% endstyle %}
 
 <div class='yc-featured-products section-featured-products-{{id}} container'>
@@ -104,7 +104,7 @@
 
 {%- schema -%}
 {
-  "label": "Products Slider",
+  "label": "Products slider",
   "limit": 1,
   "settings": [
      {
@@ -114,22 +114,22 @@
     },
      {
       "type": "range",
-      "id": "margin_top",
+      "id": "space_top",
       "min": 0,
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Margin Top",
+      "label": "Space top",
       "default": 20
     },
     {
       "type": "range",
-      "id": "margin_bottom",
+      "id": "space_bottom",
       "min": 5,
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Margin Bottom",
+      "label": "Space bottom",
       "default": 20
     },
     {
@@ -193,7 +193,7 @@
     },
     {
       "type": "header",
-      "content": "👉 Desktop Slider Settings"
+      "content": "🖥 Desktop Slider Settings"
     },
     {
       "type": "paragraph",
@@ -257,7 +257,7 @@
     },
     {
       "type": "header",
-      "content": "👉 Mobile Slider Settings"
+      "content": "📱 Mobile Slider Settings"
     },
     {
       "type": "paragraph",
@@ -358,19 +358,19 @@
           "label": "Banner position",
           "options": [
             {
-              "label": "Top Right",
+              "label": "Top right",
               "value": "top_right"
             },
             {
-              "label": "Top Left",
+              "label": "Top left",
               "value": "top_left"
             },
             {
-              "label": "Bottom Right",
+              "label": "Bottom right",
               "value": "bottom_right"
             },
             {
-              "label": "Bottom Left",
+              "label": "Bottom left",
               "value": "bottom_left"
             }
           ],

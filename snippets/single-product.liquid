@@ -99,7 +99,7 @@
               {% render 'add-to-cart', text: block.settings.text_content, is_sticky: block.settings.is_sticky, background_color: block.settings.background_color, text_color: block.settings.text_color, snippetId: snippetId %}
             </div>
             {%- when 'accordion' -%}
-              {%- render 'accordion', accordion_title: block.settings.accordion_title, accordion_title_icon: block.settings.accordion_title_icon.src, accordion_details: block.settings.accordion_details, background_color: block.settings.background_color, text_color: block.settings.text_color, margin_top: block.settings.margin_top -%}
+              {%- render 'accordion', accordion_title: block.settings.accordion_title, accordion_title_icon: block.settings.accordion_title_icon.src, accordion_details: block.settings.accordion_details, background_color: block.settings.background_color, text_color: block.settings.text_color, space_top: block.settings.space_top -%}
           {%- when 'express_checkout' -%}
             <div class='express-checkout-container top-spacing'>
               {% render 'express-checkout', checkout: checkout, is_sticky: block.settings.is_sticky, settings: block.settings %}

@@ -7,16 +7,16 @@
   }
 
   .categories-spacing {
-    margin-top: {{ section.settings.margin_top }}px;
-    margin-bottom: {{ section.settings.margin_bottom }}px;
+    margin-top: {{ section.settings.space_top }}px;
+    margin-bottom: {{ section.settings.space_bottom }}px;
   }
 
   .category-name {
     color: {{ section.settings.category_name_color.hex }};
   }
-  
+
   .slug-name {
-    color: {{ section.settings.category_slug_color.hex }}; 
+    color: {{ section.settings.category_slug_color.hex }};
   }
 {% endstyle %}
 <div class="yc-featured-container categories-spacing">
@@ -36,7 +36,7 @@
             {% if block.settings.category.slug %}
               <div class="category-link">
                 <a href='/collections/{{ block.settings.category.slug }}'>
-                  عرض المزيد 
+                  عرض المزيد
                 </a>
               </div>
             {% endif %}
@@ -65,16 +65,16 @@
       "label": "Title position",
       "options": [
         {
-          "label": "left",
+          "label": "Left",
           "value": "left"
         },
         {
-          "label": "right",
-          "value": "right"
+          "label": "Center",
+          "value": "center"
         },
         {
-          "label": "center",
-          "value": "center"
+          "label": "Right",
+          "value": "right"
         }
       ]
     },
@@ -90,7 +90,7 @@
       },
       {
         "type": "range",
-        "id": "margin_top",
+        "id": "space_top",
         "label": "Space top",
         "min": 10,
         "max": 100,
@@ -99,7 +99,7 @@
       },
       {
         "type": "range",
-        "id": "margin_bottom",
+        "id": "space_bottom",
         "label": "Space bottom",
         "min": 10,
         "max": 100,

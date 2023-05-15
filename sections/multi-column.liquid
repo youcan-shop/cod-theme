@@ -2,8 +2,8 @@
 
 {% style %}
   .multi-column-{{ id }} {
-    margin-top: {{ section.settings.margin_top }}px;
-    margin-bottom: {{ section.settings.margin_bottom }}px;
+    margin-top: {{ section.settings.space_top }}px;
+    margin-bottom: {{ section.settings.space_bottom }}px;
     background-color: {{ section.settings.background_color.hex }};
   }
 
@@ -71,8 +71,8 @@
     }
 
     .column-block .column-title {
-        font-size: 15px;   
-        margin-top: 0; 
+        font-size: 15px;
+        margin-top: 0;
       }
 
      .column-block {
@@ -163,7 +163,7 @@
     {
       "type": "text",
       "id": "title",
-      "label": "Section Title"
+      "label": "Section title"
     },
     {
       "type": "header",
@@ -189,60 +189,52 @@
       "label": "Title position",
       "options": [
         {
-          "label": "left",
+          "label": "Left",
           "value": "left"
         },
         {
-          "label": "right",
-          "value": "right"
+          "label": "Center",
+          "value": "center"
         },
         {
-          "label": "center",
-          "value": "center"
+          "label": "Right",
+          "value": "right"
         }
       ]
     },
     {
       "type": "range",
-      "id": "margin_top",
+      "id": "space_top",
       "min": 5,
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Space Top"
+      "label": "Space top"
     },
     {
       "type": "range",
-      "id": "margin_bottom",
+      "id": "space_bottom",
       "min": 5,
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Space Bottom"
+      "label": "Space bottom"
     },
     {
       "type": "range",
       "id": "columns_desktop",
-      "min": 1,
+      "min": 3,
       "max": 6,
       "step": 1,
       "label": "Number of columns on desktop"
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "columns_mobile",
-      "label": "Number of columsn on mobile",
-      "options": [
-        {
-          "value": "1",
-          "label": "1 column"
-        },
-        {
-          "value": "2",
-          "label": "2 columns"
-        }
-      ],
-      "default": "1"
+      "min": 1,
+      "max": 2,
+      "step": 1,
+      "label": "Number of columns on mobile"
     }
   ]
 }

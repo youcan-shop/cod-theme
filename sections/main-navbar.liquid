@@ -35,7 +35,7 @@
             </a>
           </div>
         {%- when 'menu' %}
-          <div class='menu'>  
+          <div class='menu'>
               <button
                 class='menu-toggler text-3xl'
                 onclick="openDrawer('.navbar-drawer')"
@@ -47,7 +47,7 @@
                   {%- render 'icon', name: 'menu-close' -%}
                 </span>
               </button>
-            
+
             <ul class='menu-list'>
               {% for item in main-link-list.links %}
                 <li class='menu-item item{%-if item.active-%} active {%-endif%}'>
@@ -64,8 +64,8 @@
             >
               {%- render 'icon', name: 'search' -%}
             </button>
-            <div id='searchInputHolder'> 
-              <div class='container search-wrapper'> 
+            <div id='searchInputHolder'>
+              <div class='container search-wrapper'>
                 <form
                   action='/search'
                   method='GET'
@@ -206,7 +206,7 @@
         },
         {
           "value": "Open Sans",
-          "label": "Open Sans"
+          "label": "Open sans"
         },
         {
           "value": "Lato",

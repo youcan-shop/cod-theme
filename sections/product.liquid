@@ -4,8 +4,8 @@
 
 {%- style -%}
   .product_customization-{{ id }} {
-    padding-top: {{ section.settings.padding_top}}px;
-    padding-bottom: {{ section.settings.padding_bottom}}px;
+    padding-top: {{ section.settings.space_top}}px;
+    padding-bottom: {{ section.settings.space_bottom}}px;
   }
 {%- endstyle -%}
 
@@ -23,7 +23,7 @@
 
 {%- schema -%}
 {
-  "label": "Single Product",
+  "label": "Single product",
   "limit": 1,
   "templates": ["index", "product"],
   "blocks": [
@@ -67,12 +67,12 @@
           "default": "المنتجات المتبقية في المخزون"
         },
         {
-          "label": "Items Left",
+          "label": "Items left",
           "id": "stock_items_left",
           "type": "number"
         },
         {
-          "label": "Total In Stock",
+          "label": "Total in stock",
           "id": "total_stock_items",
           "type": "number",
           "default": 10
@@ -80,11 +80,11 @@
       ]
     },
     {
-      "label": "Countdown Timer",
+      "label": "Countdown timer",
       "type": "countdown_timer",
       "settings": [
         {
-          "label": "Is Sticky?",
+          "label": "Sticky countdown",
           "id": "sticky_countdown",
           "type": "checkbox",
           "default": true
@@ -128,19 +128,19 @@
           "default": "Add to cart"
         },
         {
-          "label": "Is Sticky?",
+          "label": "Sticky button",
           "id": "is_sticky",
           "type": "checkbox",
           "default": true
         },
         {
-          "label": "Background Color",
+          "label": "Background color",
           "id": "background_color",
           "type": "color",
           "default": "#ff7420"
         },
         {
-          "label": "Text Color",
+          "label": "Text color",
           "id": "text_color",
           "type": "color",
           "default": "#ffffff"
@@ -167,14 +167,14 @@
           "type": "richtext"
         },
         {
-          "label": "Text Color",
+          "label": "Text color",
           "id": "text_color",
           "type": "color",
           "default": "#000000"
         },
         {
-          "label": "Margin top",
-          "id": "margin_top",
+          "label": "Space top",
+          "id": "space_top",
           "min": 5,
           "max": 60,
           "step": 1,
@@ -231,7 +231,7 @@
           "type": "color"
         },
         {
-          "label": "Text Size",
+          "label": "Text size",
           "id": "button_text_size",
           "type": "number",
           "default": 16
@@ -279,7 +279,7 @@
           "type": "color"
         },
         {
-          "label": "Text Size",
+          "label": "Text size",
           "id": "input_text_size",
           "type": "number",
           "default": 16
@@ -354,9 +354,9 @@
       "default": "#ffffff"
     },
     {
-      "type": "number",
-      "id": "padding_top",
-      "label": "Padding top",
+      "type": "range",
+      "id": "space_top",
+      "label": "Space top",
       "min": 5,
       "max": 160,
       "step": 1,
@@ -364,9 +364,9 @@
       "default": 10
     },
     {
-      "type": "number",
-      "id": "padding_bottom",
-      "label": "Padding bottom",
+      "type": "range",
+      "id": "space_bottom",
+      "label": "Space bottom",
       "min": 5,
       "max": 160,
       "step": 1,
