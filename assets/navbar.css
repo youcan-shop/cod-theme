@@ -171,7 +171,6 @@
   transition-duration: 0.2s;
   transition-property: opacity;
   position: fixed;
-  top: var(--yc-notice-height-desktop);
   right: 0;
   width: 100vw;
   height: 100vh;

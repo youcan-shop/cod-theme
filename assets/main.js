@@ -99,12 +99,12 @@ if (overlay) hideOverlay();
 const searchHolder = document.getElementById('searchInputHolder');
 
 const openSearch = () => {
-  const isNavBarFixed = navFixed?.classList.contains('fixed');
-  const noticeHeight = isNavBarFixed ? 0 : noticeMobile?.offsetHeight;
+  const noticeBar = document.querySelector('.yc-notice');
+  const noticeHeight = noticeBar ? noticeBar.offsetHeight : 0;
 
   if (!overlay || !searchHolder) return;
 
-  overlay.style.height = `calc(100vh + ${noticeHeight || 0}px)`;
+  overlay.style.top = `${noticeHeight}px`;
   overlay.style.opacity = '1';
   overlay.style.visibility = 'visible';
 
@@ -116,6 +116,7 @@ const openSearch = () => {
 const closeSearch = () => {
   if (!overlay || !searchHolder) return;
 
+  overlay.style.top = '0';
   overlay.style.opacity = '0';
   overlay.style.visibility = 'hidden';
   overlay.style.height = '100vh';
