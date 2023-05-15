@@ -14,14 +14,21 @@
   .yc-slider__mobile .content {
     background-color: {{ section.settings.slider_mobile_overlay_background_color.hex }};
   }
-  
+
   #yc_slider_{{ id }} .splide__pagination {
-    {% if section.settings.slider_pagination == true %}
+    {% if section.settings.slider_pagination == true or section.settings.slider_mobile_pagination == true %}
       display: block !important;
       text-align: center;
     {% endif %}
   }
-  
+
+  .yc-slider__desktop .splide__arrow {
+    border-color: {{ section.settings.slider_arrows_color.hex }} !important;
+  }
+
+  .yc-slider__desktop .splide__arrow svg {
+    fill: {{ section.settings.slider_arrows_color.hex }};
+  }
 {% endstyle %}
 
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
@@ -69,7 +76,7 @@
     ...commonSliderSettings,
     ...mobileSliderSettings
   });
-  
+
   const mountSlider = () => {
     try {
       if (isMobile.matches) {
@@ -115,7 +122,6 @@
       "label": "Slider height",
       "default": 60
     },
-
     {
       "type": "range",
       "id": "slider_timeout",
@@ -133,8 +139,14 @@
       "max": 30,
       "step": 1,
       "unit": "px",
-      "label": "Arrows Content Size",
+      "label": "Arrows size",
       "default": 14
+    },
+    {
+      "type": "color",
+      "id": "slider_arrows_color",
+      "label": "Arrows color",
+      "default": "#000000"
     },
     {
       "type": "select",
@@ -196,12 +208,6 @@
       "maintain-opacity": true
     },
     {
-      "type": "checkbox",
-      "id": "slider_arrows_mobile",
-      "label": "Arrows",
-      "default": true
-    },
-    {
       "type": "range",
       "id": "slider_mobile_height_percentage",
       "min": 10,
@@ -252,6 +258,12 @@
       "id": "slider_mobile_pagination",
       "label": "Pagination",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_arrows_mobile",
+      "label": "Arrows",
+      "default": true
     }
   ],
   "blocks": [
@@ -286,43 +298,19 @@
           "label": "Button Font Weight level",
           "options": [
             {
-              "value": "100",
-              "label": "100"
-            },
-            {
-              "value": "200",
-              "label": "200"
-            },
-            {
               "value": "300",
-              "label": "300"
+              "label": "Light"
             },
             {
               "value": "400",
-              "label": "400"
-            },
-            {
-              "value": "500",
-              "label": "500"
-            },
-            {
-              "value": "600",
-              "label": "600"
+              "label": "Normal"
             },
             {
               "value": "700",
-              "label": "700"
-            },
-            {
-              "value": "800",
-              "label": "800"
-            },
-            {
-              "value": "900",
-              "label": "900"
+              "label": "Bold"
             }
           ],
-          "default": "500"
+          "default": "700"
         }
       ]
     }
