@@ -77,19 +77,7 @@
     ...mobileSliderSettings
   });
 
-  const mountSlider = () => {
-    try {
-      if (isMobile.matches) {
-        window.requestAnimationFrame(() => mobileSlider.mount());
-      } else {
-        window.requestAnimationFrame(() => desktopSlider.mount());
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  };
-  mountSlider();
-  isMobile.addEventListener('change', mountSlider, { passive: true });
+  mountSlider(isMobile, mobileSlider, desktopSlider);
 </script>
 
 

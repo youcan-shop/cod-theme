@@ -13,6 +13,8 @@
 
 
 {% javascript %}
+  const defaultImage = '{{ "default_product.jpeg" | asset_url }}';
+
   const ADD_TO_CART_EXPECTED_ERRORS = {
     select_variant: "{{ 'errors.select_variant' | t }}",
     quantity_smaller_than_zero: "{{ 'errors.quantity_smaller_than_zero' | t }}",
@@ -24,8 +26,7 @@
     cartName:  "{{ 'cart.cart' | t }}",
     totalAmount:  '{{ 'cart.total_amount' | t }}',
     checkoutPayment:  '{{ 'cart.summary.checkout_cta' | t }}',
-    emptyCart:  '{{ 'cart.empty_cart' | t }}',
-    defaultImage:  '{{ 'product-default.png' | t }}'
+    emptyCart:  '{{ 'cart.empty_cart' | t }}'
   }
 {% endjavascript %}
 {{ 'add-to-cart.js' | asset_url | script_tag_deferred }}

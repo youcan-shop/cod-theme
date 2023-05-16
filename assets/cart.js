@@ -35,7 +35,7 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
    const inputHolder = document.getElementById(item);
    const input = inputHolder.querySelector(`input[id="${productVariantId}"]`);
    input.value = quantity;
-  
+
    const decrease = input.previousElementSibling.querySelector('button');
    const increase = input.nextElementSibling.querySelector('button');
 
@@ -45,10 +45,10 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
    const totalPriceElement = inputHolder.querySelector(totalPriceSelector);
 
    decrease.setAttribute('onclick', `decreaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) - 1}')`);
-  
+
    increase.setAttribute('onclick', `increaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) + 1}')`);
 
-  
+
     if (isNaN(quantity)) {
       totalPriceElement.innerText = `${currency} ${0}`;
     } else if (currency && price) {
@@ -59,9 +59,9 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
 function updateTotalPrice() {
   let totalPrice = 0;
   let currency;
-  
+
   const itemPricesElements = document.querySelectorAll('.item-price');
-  
+
   itemPricesElements.forEach(itemPriceElement => {
     const { currency: currentCurrency, price } = extractCurrencyAndPrice(itemPriceElement.innerText);
 
@@ -70,7 +70,11 @@ function updateTotalPrice() {
   });
 
   const totalPriceElement = document.querySelector('.item-total-price');
-  totalPriceElement.innerText = `${currency} ${totalPrice}`;
+
+  if(totalPriceElement) {
+    totalPriceElement.innerText = `${currency} ${totalPrice}`;
+  }
+
 }
 
 function updateDOM(cartItemId, productVariantId, quantity) {
@@ -140,7 +144,7 @@ async function removeItem(cartItemId, productVariantId) {
 
     updateTotalPrice();
     await updateCartDrawer();
-    
+
     const cartItemsBadge = document.getElementById('cart-items-badge');
 
     const cartItems = document.querySelectorAll('.cart__item');

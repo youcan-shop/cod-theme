@@ -56,8 +56,9 @@
           font-size: 14px;
           border-radius: 50%;
           min-width: 25px;
-          padding: 2px 5px;
           max-width: 40px;
+          aspect-ratio: 1/1;
+          padding: 0 3px;
           background-color: var(--yc-primary-color);
           display: flex;
           justify-content: center;

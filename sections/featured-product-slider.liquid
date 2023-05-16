@@ -87,19 +87,8 @@
     gap: '8px',
     snap: true,
   });
-  const mountSlider1 = () => {
-    try {
-      if (isMobile.matches) {
-        window.requestAnimationFrame(() => mobileSlider1.mount());
-      } else {
-        window.requestAnimationFrame(() => desktopSlider1.mount());
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  };
-  mountSlider1();
-  isMobile1.addEventListener('change', mountSlider1, { passive: true });
+
+  mountSlider(isMobile1, mobileSlider1, desktopSlider1);
 </script>
 
 {%- schema -%}
