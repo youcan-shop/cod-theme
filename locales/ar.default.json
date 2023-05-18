@@ -40,7 +40,7 @@
       "promo_input": "أدخل رمزك",
       "promo_cta": "تطبيق",
       "total": "التكلفة الإجمالية",
-      "checkout_cta": "الدفع", 
+      "checkout_cta": "الدفع",
       "product_name": "السلع"
     },
     "empty": {
@@ -49,6 +49,13 @@
       "cta": "عودة إلى المتجر"
     },
     "continue_shopping_cta": "متابعة التسوق"
+  },
+  "search": {
+    "empty": {
+      "title": "نأسف!",
+      "description": "إن الصفحة التي تبحث عنها غير موجودة.",
+      "home_page": "الصفحة الرئيسية"
+    }
   },
   "thankyou": {
     "title": "شكرا",

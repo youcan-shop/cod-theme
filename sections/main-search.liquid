@@ -6,21 +6,30 @@
 {%- assign products_per_page = section.settings.products_per_page -%}
 
 {%- paginate search.products by products_per_page cod %}
-  <div class='yc-featured-products container'>
+  <div class='yc-featured-products container' id="stick-footer">
+    {%- if items %}
       <div class="sort-container search-page">
         {%- render 'main-sort' -%}
-    </div>
-      <h1
-        class='yc-section-title'
-        id='search-title'
-      ></h1>
-    <div class='product-list'>
-      {%- for item in items %}
-      <div {{ block.youcan_attributes }} class="product-block">
-        {%- render 'product-preview', item: item -%}
+      </div>
+        <h1 class='yc-section-title' id='search-title'></h1>
+      <div class='product-list'>
+        {%- for item in items %}
+        <div {{ block.youcan_attributes }} class="product-block">
+          {%- render 'product-preview', item: item -%}
+          </div>
+        {%- endfor %}
+      </div>
+      {%- else %}
+      <div class='flex flex-col justify-center text-center items-center gap-3 pt-12'>
+        <div class='text-2xl'>{{ 'search.empty.title' | t }}</div>
+        <div class='opacity-60'>
+          <p>{{ 'search.empty.description' | t }}</p>
         </div>
-      {%- endfor %}
-    </div>
+        <a href='/' class='yc-btn mt-5'>
+          {{ 'search.empty.home_page' | t }}
+        </a>
+      </div>
+    {% endif %}
   </div>
 
   {%- render 'main-pagination', has_more: has_more, next_page: next_page, previous_page: previous_page, current: current, last: last -%}
