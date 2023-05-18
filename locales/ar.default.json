@@ -39,7 +39,7 @@
       "promo_cta": "تطبيق",
       "total": "التكلفة الإجمالية",
       "checkout_cta": "الدفع",
-      "continue_shppping": "استمر في التسوق" 
+      "continue_shppping": "استمر في التسوق"
     },
     "empty": {
       "title": "عربتك فارغة حاليًا.",
@@ -47,6 +47,13 @@
       "cta": "عودة إلى المتجر"
     },
     "continue_shopping_cta": "متابعة التسوق"
+  },
+  "search": {
+    "empty": {
+      "title": "نأسف!",
+      "description": "إن الصفحة التي تبحث عنها غير موجودة.",
+      "home_page": "الصفحة الرئيسية"
+    }
   },
   "thankyou": {
     "title": "شكرا",

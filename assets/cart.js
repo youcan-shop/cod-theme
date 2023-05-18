@@ -140,6 +140,8 @@ async function removeItem(cartItemId, productVariantId) {
 
       if (emptyCart) {
         emptyCart.classList.remove('hidden');
+
+        stickFooterAtBottom();
       }
     }
   } catch (e) {
