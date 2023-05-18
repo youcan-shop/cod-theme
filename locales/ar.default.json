@@ -48,6 +48,13 @@
     "continue_shopping": "إتمام الشراء",
     "close": "إغلاق"
   },
+  "search": {
+    "empty": {
+      "title": "نأسف!",
+      "description": "إن الصفحة التي تبحث عنها غير موجودة.",
+      "home_page": "الصفحة الرئيسية"
+    }
+  },
   "thankyou": {
     "title": "شكرا",
     "subtitle": "تم استلام طلبك.",

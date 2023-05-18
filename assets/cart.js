@@ -1,17 +1,3 @@
-/**
- * set the height of the page to fit the screen resolution
- */
-function setHeightPage() {
-  const htmlPageHeight = document.documentElement.clientHeight;
-  const bodyHeight = document.body.offsetHeight;
-  const emptyCart = $('.empty-cart');
-  const emptySpaceHeight = htmlPageHeight - bodyHeight;
-
-  emptyCart.style.height = `${emptyCart.offsetHeight + emptySpaceHeight}px`;
-}
-
-setHeightPage();
-
 const promo = document.forms['promo'];
 if (promo) {
   promo.addEventListener('submit', addPromo);
@@ -156,7 +142,7 @@ async function removeItem(cartItemId, productVariantId) {
       if (emptyCart) {
         emptyCart.classList.remove('hidden');
 
-        setHeightPage();
+        stickFooterAtBottom();
       }
     }
 
@@ -167,4 +153,3 @@ async function removeItem(cartItemId, productVariantId) {
     stopLoad(`#loading__${cartItemId}`);
   }
 }
-
