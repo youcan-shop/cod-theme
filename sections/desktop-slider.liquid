@@ -22,11 +22,11 @@
     {% endif %}
   }
 
-  .yc-slider__desktop .splide__arrow {
+  .section-slider-{{ id }} .yc-slider__desktop .splide__arrow {
     border-color: {{ section.settings.slider_arrows_color.hex }} !important;
   }
 
-  .yc-slider__desktop .splide__arrow svg {
+  .section-slider-{{ id }} .yc-slider__desktop .splide__arrow svg {
     fill: {{ section.settings.slider_arrows_color.hex }};
   }
 {% endstyle %}
@@ -36,8 +36,10 @@
 {{ 'desktop-slider.css' | asset_url | stylesheet_tag }}
 {{ 'mobile-slider.css' | asset_url | stylesheet_tag }}
 
-{% render 'slider', blocks: section.blocks, id: id , view: 'desktop' %}
-{% render 'slider', blocks: section.blocks, id: id , view: 'mobile' %}
+<section class="section-slider-{{ id }}">
+  {% render 'slider', blocks: section.blocks, id: id , view: 'desktop' %}
+  {% render 'slider', blocks: section.blocks, id: id , view: 'mobile' %}
+</section>
 
 <script defer>
   const isMobile = window.matchMedia("(max-width: 760px)");
