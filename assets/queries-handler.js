@@ -69,8 +69,8 @@ function setupDropdown(dropdownBtn, dropdownContent, convertUrlWithMultipleQuery
 
 function filterProduct() {
   const productFiltring = document.querySelector('#productDropdownFiltring');
-  const filterDropdownBtn = productDropdownFiltring.querySelector('.dropbtn');
-  const filterDropdownContent = productDropdownFiltring.querySelector('.dropdown-content');
+  const filterDropdownBtn = productFiltring?.querySelector('.dropbtn');
+  const filterDropdownContent = productFiltring?.querySelector('.dropdown-content');
 
   if (productFiltring) {
     const sortField = urlParams.get('sort_field') || 'price';
