@@ -10,22 +10,10 @@
 
 {%- style -%}
 {% for block in section.blocks %}
-  {% if block.type == 'express_checkout' %}
-    {% if block.settings.is_sticky %}
-      .product-options, .product-quantity {
-        display: none !important;
-      }
-      {% else %}
-      .product-quantity .product-option-title {
-        display: none;
-      }
-    {% endif %}
-  {% endif %}
-
   {% if block.type == 'add_to_cart' %}
     {% if block.settings.is_sticky %}
-      .product-quantity .product-option-title {
-        display: block !important;
+      .static-add-to-cart {
+        display: none;
       }
     {% endif %}
   {% endif %}

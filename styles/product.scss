@@ -18,6 +18,7 @@
 
   .group-blocks {
     display: flex;
+    flex-direction: column;
     gap: 18px;
 
     .static-add-to-cart {

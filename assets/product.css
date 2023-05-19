@@ -16,6 +16,7 @@
 }
 .yc-single-product .group-blocks {
   display: flex;
+  flex-direction: column;
   gap: 18px;
 }
 .yc-single-product .group-blocks .static-add-to-cart {
