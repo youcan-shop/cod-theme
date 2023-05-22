@@ -79,18 +79,7 @@
       loop: true,
     });
 
-    const mountSlider = () => {
-      try {
-        if (isMobile.matches) return mobileSlider.mount();
-
-        return desktopSlider.mount();
-      } catch {
-        return;
-      }
-    }
-
-    mountSlider();
-    isMobile.addEventListener('change', mountSlider);
+    mountSlider(isMobile, mobileSlider, desktopSlider);
   })();
 </script>
 
@@ -101,7 +90,7 @@
   "settings": [
     {
       "type": "header",
-      "content": "Desktop slider settings"
+      "content": "🖥 Desktop slider settings"
     },
     {
       "type": "paragraph",
@@ -203,7 +192,7 @@
     },
     {
       "type": "header",
-      "content": "Mobile slider settings"
+      "content": "📱 Mobile slider settings"
     },
     {
       "type": "paragraph",

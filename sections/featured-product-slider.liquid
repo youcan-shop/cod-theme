@@ -109,18 +109,7 @@
       snap: true,
     });
 
-    const mountSlider1 = () => {
-      try {
-        if (isMobile1.matches) return mobileSlider1.mount();
-
-        return desktopSlider1.mount();
-      } catch {
-        return;
-      }
-    }
-
-    mountSlider1();
-    isMobile1.addEventListener('change', mountSlider1);
+    mountSlider(isMobile1, mobileSlider1, desktopSlider1);
   })();
 </script>
 
@@ -130,7 +119,7 @@
 
   "templates": ["index", "page"],
   "settings": [
-     {
+    {
       "type": "text",
       "id": "title",
       "label": "Title"
@@ -140,7 +129,7 @@
       "id": "title_color",
       "label": "Title color"
     },
-     {
+    {
       "type": "range",
       "id": "space_top",
       "min": 0,
@@ -219,7 +208,7 @@
       "type": "number",
       "default": 0
     },
-     {
+    {
       "type": "checkbox",
       "id": "show_compare_at_price",
       "label": "Show compare at price",
@@ -227,7 +216,7 @@
     },
     {
       "type": "header",
-      "content": "Desktop slider settings"
+      "content": "🖥 Desktop slider settings"
     },
     {
       "type": "paragraph",
@@ -291,7 +280,7 @@
     },
     {
       "type": "header",
-      "content": "Mobile slider settings"
+      "content": "📱 Mobile slider settings"
     },
     {
       "type": "paragraph",
