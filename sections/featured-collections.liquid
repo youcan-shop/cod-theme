@@ -2,17 +2,17 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  .section-featured-collections-{{id}} .yc-featured-container{
+  .section-featured-collections-{{ id }} .yc-featured-container{
     justify-content: {{ section.settings.section_title_position }};
   }
 
-  .section-featured-collections-{{id}} {
+  .section-featured-collections-{{ id }} {
     margin-top: {{ section.settings.space_top }}px;
     margin-bottom: {{ section.settings.space_bottom }}px;
   }
 {% endstyle %}
 
-<div class='yc-featured-collections section-featured-collections-{{id}} container'>
+<section class='section-featured-collections-{{ id }} yc-featured-collections container'>
   <div class="yc-featured-container">
     <h1 class='yc-section-title'>
       {{ section.settings.title }}
@@ -23,7 +23,7 @@
       {%- render 'collection-preview', category: block.settings.category -%}
     {%- endfor -%}
   </div>
-</div>
+</section>
 
 {%- schema -%}
 {
