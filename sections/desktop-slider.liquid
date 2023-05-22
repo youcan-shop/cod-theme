@@ -2,20 +2,20 @@
 
 {% style %}
 
-  #yc_slider_{{ id }} .splide__arrow svg {
+  .section-slider-{{ id }} #yc_slider_{{ id }} .splide__arrow svg {
     height: {{ section.settings.slider_arrows_content_size }}px;
     width: {{ section.settings.slider_arrows_content_size }}px;
   }
 
-  .yc-slider__desktop .content {
+  .section-slider-{{ id }} .yc-slider__desktop .content {
     background-color: {{ section.settings.slider_overlay_background_color.hex }};
   }
 
-  .yc-slider__mobile .content {
+  .section-slider-{{ id }} .yc-slider__mobile .content {
     background-color: {{ section.settings.slider_mobile_overlay_background_color.hex }};
   }
 
-  #yc_slider_{{ id }} .splide__pagination {
+  .section-slider-{{ id }} #yc_slider_{{ id }} .splide__pagination {
     {% if section.settings.slider_pagination == true or section.settings.slider_mobile_pagination == true %}
       display: block !important;
       text-align: center;
@@ -42,46 +42,47 @@
 </section>
 
 <script defer>
-  const isMobile = window.matchMedia("(max-width: 760px)");
-  const slider = document.querySelector('#yc_slider_{{ id }}');
-  const commonSliderSettings = {
-    cover: true,
-    focus: 'center',
-    rewind: true,
-    drag: 'free',
-    snap: true,
-    loop: true,
-  };
-  const desktopSliderSettings = {
-    type: '{{ section.settings.slider_transition_type }}',
-    arrows: '{{ section.settings.slider_arrows }}' ? true : false,
-    autoplay: '{{ section.settings.slider_autoplay }}' ? true : false,
-    pagination: '{{ section.settings.slider_pagination }}' ? true : false,
-    pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
-    pauseOnFocus: '{{ section.settings.slider_pause_on_focus }}' ? true : false,
-    height: '{{ section.settings.slider_height_percentage }}vh',
-    interval: '{{ section.settings.slider_timeout | times: 1000 }}',
-  };
-  const mobileSliderSettings = {
-    type: '{{ section.settings.slider_mobile_transition_type }}',
-    arrows: '{{ section.settings.slider_arrows_mobile }}' ? true : false,
-    autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
-    pagination: '{{ section.settings.slider_mobile_pagination }}' ? true : false,
-    height: '{{ section.settings.slider_mobile_height_percentage }}vh',
-    interval: '{{ section.settings.slider_mobile_timeout | times: 1000 }}',
-  };
-  const desktopSlider = new Splide('#yc_slider_{{ id }}.yc-slider__desktop', {
-    ...commonSliderSettings,
-    ...desktopSliderSettings
-  });
-  const mobileSlider = new Splide('#yc_slider_{{ id }}.yc-slider__mobile', {
-    ...commonSliderSettings,
-    ...mobileSliderSettings
-  });
+  (function(){
+    const isMobile = window.matchMedia("(max-width: 760px)");
+    const slider = document.querySelector('#yc_slider_{{ id }}');
+    const commonSliderSettings = {
+      cover: true,
+      focus: 'center',
+      rewind: true,
+      drag: 'free',
+      snap: true,
+      loop: true,
+    };
+    const desktopSliderSettings = {
+      type: '{{ section.settings.slider_transition_type }}',
+      arrows: '{{ section.settings.slider_arrows }}' ? true : false,
+      autoplay: '{{ section.settings.slider_autoplay }}' ? true : false,
+      pagination: '{{ section.settings.slider_pagination }}' ? true : false,
+      pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
+      pauseOnFocus: '{{ section.settings.slider_pause_on_focus }}' ? true : false,
+      height: '{{ section.settings.slider_height_percentage }}vh',
+      interval: '{{ section.settings.slider_timeout | times: 1000 }}',
+    };
+    const mobileSliderSettings = {
+      type: '{{ section.settings.slider_mobile_transition_type }}',
+      arrows: '{{ section.settings.slider_arrows_mobile }}' ? true : false,
+      autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
+      pagination: '{{ section.settings.slider_mobile_pagination }}' ? true : false,
+      height: '{{ section.settings.slider_mobile_height_percentage }}vh',
+      interval: '{{ section.settings.slider_mobile_timeout | times: 1000 }}',
+    };
+    const desktopSlider = new Splide('#yc_slider_{{ id }}.yc-slider__desktop', {
+      ...commonSliderSettings,
+      ...desktopSliderSettings
+    });
+    const mobileSlider = new Splide('#yc_slider_{{ id }}.yc-slider__mobile', {
+      ...commonSliderSettings,
+      ...mobileSliderSettings
+    });
 
-  mountSlider(isMobile, mobileSlider, desktopSlider);
+    mountSlider(isMobile, mobileSlider, desktopSlider);
+  })();
 </script>
-
 
 {%- schema -%}
 {

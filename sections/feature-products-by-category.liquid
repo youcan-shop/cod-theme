@@ -3,21 +3,21 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  .section-featured-products-by-category-{{id}}{
+  .section-featured-products-by-category-{{ id }} {
     padding-top: {{ section.settings.space_top }}px;
     padding-bottom: {{ section.settings.space_bottom }}px;
   }
-  .section-featured-products-by-category-{{id}} .yc-section-title{
+  .section-featured-products-by-category-{{ id }} .yc-section-title{
     display: flex;
     justify-content: {{ section.settings.section_title_position }};
   }
-  .section-featured-products-by-category-{{id}} * {
+  .section-featured-products-by-category-{{ id }} * {
     color: {{ section.settings.text_color.hex }};
   }
 {% endstyle %}
 
 {% if category %}
-  <div class='yc-featured-products section-featured-products-by-category-{{id}}'>
+  <section class='section-featured-products-by-category-{{ id }} yc-featured-products'>
     <div class="container">
       <h1 class='yc-section-title'>{{ category.name }}</h1>
       <div class='product-list'>
@@ -35,7 +35,7 @@
         </div>
       {% endif %}
     </div>
-  </div>
+  </section>
 {% endif %}
 
 {%- schema -%}

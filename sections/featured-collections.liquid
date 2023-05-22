@@ -1,54 +1,56 @@
 {{ 'featured-collections.css' | asset_url | stylesheet_tag }}
 
+{% assign id = 100 | rand: 2000 %}
+
 {% style %}
-  .yc-section-title {
+  .section-featured-collections-{{ id }} .yc-section-title {
     display: flex;
     justify-content: {{ section.settings.section_title_position }};
   }
 
-  .categories-spacing {
+  .section-featured-collections-{{ id }} .categories-spacing {
     margin-top: {{ section.settings.space_top }}px;
     margin-bottom: {{ section.settings.space_bottom }}px;
   }
 
-  .category-name {
+  .section-featured-collections-{{ id }} .category-name {
     color: {{ section.settings.category_name_color.hex }};
   }
 
-  .slug-name {
+  .section-featured-collections-{{ id }} .slug-name {
     color: {{ section.settings.category_slug_color.hex }};
   }
 {% endstyle %}
-<div class="yc-featured-container categories-spacing">
+
+<section class="section-featured-collections-{{ id }} yc-featured-container categories-spacing">
   <h1 class='yc-section-title'>
     {{ section.settings.title }}
   </h1>
   <div class='yc-featured-collections'>
-  {%- for block in section.blocks -%}
-    <div class='categories-container'>
-      <div class='category-block'>
-        <div
-          class='product-block'
-          {{ block.youcan_attributes }}>
-          <div class="category-text">
-            <h2 class="category-name">{{ block.settings.category.name }}</h2>
-            <p class="slug-name">{{ block.settings.category_name }}</p>
-            {% if block.settings.category.slug %}
-              <div class="category-link">
-                <a href='/collections/{{ block.settings.category.slug }}'>
-                  عرض المزيد
-                </a>
-              </div>
+    {%- for block in section.blocks -%}
+      <div class='categories-container'>
+        <div class='category-block'>
+          <div class='product-block' {{ block.youcan_attributes }}>
+            <div class="category-text">
+              <h2 class="category-name">{{ block.settings.category.name }}</h2>
+              <p class="slug-name">{{ block.settings.category_name }}</p>
+              {% if block.settings.category.slug %}
+                <div class="category-link">
+                  <a href='/collections/{{ block.settings.category.slug }}'>
+                    عرض المزيد
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+            {% if block.settings.category.image %}
+                <img src='{{ block.settings.category.image }}' class="category-img">
             {% endif %}
           </div>
-          {% if block.settings.category.image %}
-              <img src='{{ block.settings.category.image }}' class="category-img">
-          {% endif %}
-        </div>
         </div>
       </div>
     {%- endfor -%}
-    </div>
+  </div>
+</section>
 
 {%- schema -%}
   {

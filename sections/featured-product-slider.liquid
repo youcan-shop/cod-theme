@@ -7,103 +7,100 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  .section-featured-products-{{id}} {
+  .section-featured-products-{{ id }} {
     margin-top: {{ section.settings.space_top }}px;
     margin-bottom: {{ section.settings.space_bottom }}px;
   }
 
-  .counter-wrapper .product-slider-title {
+  .section-featured-products-{{ id }} .counter-wrapper .product-slider-title {
     color: {{ section.settings.text_color.hex }};
   }
 
-  .section-featured-products-{{id}} {
+  .section-featured-products-{{ id }} {
     {% if section.settings.background_color %}
       background-color: {{ section.settings.background_color.hex }};
     {% endif %}
   }
 
-  .section-featured-products-{{id}} * {
+  .section-featured-products-{{ id }} .product-title {
     color: {{ section.settings.text_color.hex }};
   }
-
-  .section-featured-products-{{id}} .countdown-wrapper .countdown .num {
-    border-color: {{ section.settings.text_color.hex }};
-  }
-
 {% endstyle %}
 
-<div class='yc-featured-products section-featured-products-{{id}} container'>
-    <div class="counter-wrapper">
-          <h1 class='product-slider-title'>
-            {{ section.settings.title }}
-          </h1>
-          {% if section.settings.countdown_enabled %}
-            {%- render 'countdown', section_settings: section.settings -%}
-          {% endif %}
-          <div class="slider-arrows"></div>
-    </div>
+<section class='section-featured-products-{{ id }} yc-featured-products container'>
+  <div class="counter-wrapper">
+    <h1 class='product-slider-title'>
+      {{ section.settings.title }}
+    </h1>
+    {% if section.settings.countdown_enabled %}
+      {%- render 'countdown', section_settings: section.settings -%}
+    {% endif %}
+    <div class="slider-arrows"></div>
+  </div>
 
-      {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
-      {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
-</div>
+  {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
+  {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
+</section>
+
 <script defer>
-  const isMobile1 = window.matchMedia("(max-width: 768px)");
-  const products = {{ section.blocks.size }};
-      let perPage = 4;
-      if (products < 4) {
-        perPage = products;
-      }
-  const desktopSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
-    type: '{{ section.settings.slider_transition_type }}',
-    arrows: '{{ section.settings.slider_arrows }}' ? true : false,
-    autoplay: '{{ section.settings.slider_autoplay }}' ? true : false,
-    cover: true,
-    pagination: '{{ section.settings.slider_pagination }}' ? true : false,
-    pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
-    pauseOnFocus: '{{ section.settings.slider_pause_on_focus }}' ? true : false,
-    interval: '{{ section.settings.slider_timeout | times: 1000 }}',
-    rewind: true,
-    drag: 'free',
-    perPage: perPage,
-    perMove: 1,
-    snap: true,
-    gap: '12px',
-    breakpoints: {
-      1024: {
-        perPage: perPage >= 3 ? 3 : perPage,
+  (function(){
+    const isMobile1 = window.matchMedia("(max-width: 768px)");
+    const products = {{ section.blocks.size }};
+        let perPage = 4;
+        if (products < 4) {
+          perPage = products;
+        }
+    const desktopSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
+      type: '{{ section.settings.slider_transition_type }}',
+      arrows: '{{ section.settings.slider_arrows }}' ? true : false,
+      autoplay: '{{ section.settings.slider_autoplay }}' ? true : false,
+      cover: true,
+      pagination: '{{ section.settings.slider_pagination }}' ? true : false,
+      pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
+      pauseOnFocus: '{{ section.settings.slider_pause_on_focus }}' ? true : false,
+      interval: '{{ section.settings.slider_timeout | times: 1000 }}',
+      rewind: true,
+      drag: 'free',
+      perPage: perPage,
+      perMove: 1,
+      snap: true,
+      gap: '12px',
+      breakpoints: {
+        1024: {
+          perPage: perPage >= 3 ? 3 : perPage,
+        },
       },
-    },
-  });
-  const mobileSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
-    type: '{{ section.settings.slider_mobile_transition_type }}',
-    autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
-    cover: true,
-    pagination: '{{ section.settings.slider_mobile_pagination }}' ? true : false,
-    arrows: '{{ section.settings.slider_mobile_arrows }}' ? true : false,
-    interval: '{{ section.settings.slider_mobile_timeout | times: 1000 }}',
-    rewind: true,
-    drag: 'free',
-    perPage: perPage < 2 ? 1 : 2,
-    perMove: 1,
-    gap: '8px',
-    snap: true,
-  });
+    });
+    const mobileSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
+      type: '{{ section.settings.slider_mobile_transition_type }}',
+      autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
+      cover: true,
+      pagination: '{{ section.settings.slider_mobile_pagination }}' ? true : false,
+      arrows: '{{ section.settings.slider_mobile_arrows }}' ? true : false,
+      interval: '{{ section.settings.slider_mobile_timeout | times: 1000 }}',
+      rewind: true,
+      drag: 'free',
+      perPage: perPage < 2 ? 1 : 2,
+      perMove: 1,
+      gap: '8px',
+      snap: true,
+    });
 
-  mountSlider(isMobile1, mobileSlider1, desktopSlider1);
+    mountSlider(isMobile1, mobileSlider1, desktopSlider1);
+  })();
 </script>
 
 {%- schema -%}
 {
   "label": "Products slider",
   "templates": ["index", "page"],
-  "limit": 1,
   "settings": [
-     {
+    {
       "type": "text",
       "id": "title",
       "label": "Title"
     },
-     {
+    {
       "type": "range",
       "id": "space_top",
       "min": 0,
@@ -176,7 +173,7 @@
       "type": "number",
       "default": 0
     },
-     {
+    {
       "type": "checkbox",
       "id": "show_compare_at_price",
       "label": "Show compare at price",

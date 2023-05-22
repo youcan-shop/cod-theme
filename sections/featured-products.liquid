@@ -1,32 +1,32 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  .section-featured-products-{{id}} {
+  .section-featured-products-{{ id }} {
     padding-top: {{ section.settings.space_top }}px;
     padding-bottom: {{ section.settings.space_bottom }}px;
   }
 
-  .section-featured-products-{{id}} .yc-section-title {
+  .section-featured-products-{{ id }} .yc-section-title {
     display: flex;
     justify-content: {{ section.settings.section_title_position }}
   }
 
-  .section-featured-products-{{id}} * {
+  .section-featured-products-{{ id }} * {
     color: {{ section.settings.text_color.hex }};
   }
 
   @media screen and (max-width: 768px) {
-    .section-featured-products-{{id}} .product-container-{{id}} {
+    .section-featured-products-{{ id }} .product-container-{{ id }} {
       grid-template-columns: repeat({{ section.settings.rows_mobile }}, minmax(0, 1fr)) !important;
     }
   }
 {% endstyle %}
 
-<div class='yc-featured-products section-featured-products-{{id}} container'>
+<section class='section-featured-products-{{ id }} yc-featured-products container'>
   <h1 class='yc-section-title'>
     {{ section.settings.title }}
   </h1>
-  <div class='product-list product-container-{{id}}'>
+  <div class='product-list product-container-{{ id }}'>
     {%- for block in section.blocks -%}
       <div
         {{ block.youcan_attributes }}
@@ -36,7 +36,7 @@
       </div>
     {%- endfor -%}
   </div>
-</div>
+</section>
 
 {%- schema -%}
 {
