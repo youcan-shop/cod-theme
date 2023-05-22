@@ -5,19 +5,19 @@
 {{ 'featured-products-by-category.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-  .section-featured-products-by-category-{{id}}{
+  .section-featured-products-by-category-{{ id }}{
     padding-top: {{ section.settings.space_top }}px;
     padding-bottom: {{ section.settings.space_bottom }}px;
   }
 
-  .section-featured-products-by-category-{{id}} .yc-section-title{
+  .section-featured-products-by-category-{{ id }} .yc-section-title{
     text-align: {{ section.settings.section_title_position }};
     {% if section.settings.title_color %}
     color: {{ section.settings.title_color.hex }};
     {% endif %}
   }
 
-  .section-featured-products-by-category-{{id}} {
+  .section-featured-products-by-category-{{ id }} {
     {% if section.settings.background_color.hex %}
     background-color: {{ section.settings.background_color.hex }};
     {% endif %}
@@ -26,29 +26,29 @@
     background-size: 10rem;
   }
 
-  .section-featured-products-by-category-{{id}} * {
+  .section-featured-products-by-category-{{ id }} * {
     color: {{ section.settings.text_color.hex }};
   }
 {% endstyle %}
 
 {% if category %}
-  <div class='yc-featured-products-by-category container section-featured-products-by-category-{{id}}'>
-      <h1 class='yc-section-title'>{{ category.name }}</h1>
-      <div class='product-list'>
-        {%- paginate collection.products by number_of_products id category_id: category.id %}
-          {%- for item in items -%}
-          <div {{ block.youcan_attributes }} class="product-item-{{id}}">
-            {%- render 'product-preview', item: item -%}
-          </div>
-          {%- endfor -%}
-        {%- endpaginate %}
-      </div>
-      {% if section.settings.show_more_button == true %}
-        <div class='button-container'>
-          <a href='/collections/{{ category.slug }}' class='yc-btn-tertiary'>{{ 'general.show_more_button' | t }}</a>
+  <section class='section-featured-products-by-category-{{ id }} yc-featured-products-by-category container'>
+    <h1 class='yc-section-title'>{{ category.name }}</h1>
+    <div class='product-list'>
+      {%- paginate collection.products by number_of_products id category_id: category.id %}
+        {%- for item in items -%}
+        <div {{ block.youcan_attributes }} class="product-item-{{ id }}">
+          {%- render 'product-preview', item: item -%}
         </div>
-      {% endif %}
+        {%- endfor -%}
+      {%- endpaginate %}
     </div>
+    {% if section.settings.show_more_button == true %}
+      <div class='button-container'>
+        <a href='/collections/{{ category.slug }}' class='yc-btn-tertiary'>{{ 'general.show_more_button' | t }}</a>
+      </div>
+    {% endif %}
+  </section>
 {% endif %}
 
 {%- schema -%}

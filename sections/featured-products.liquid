@@ -1,70 +1,63 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  .section-featured-products-{{id}} {
+  .section-featured-products-{{ id }} {
     padding-top: {{ section.settings.space_top }}px;
     padding-bottom: {{ section.settings.space_bottom }}px;
   }
 
-  .section-featured-products-{{id}} .yc-section-title {
+  .section-featured-products-{{ id }} .yc-section-title {
     text-align: {{ section.settings.section_title_position }}
   }
 
-  .product-item-{{id}} {
+  .section-featured-products-{{ id }} .product-item-{{ id }} {
     border: 1px solid #E7E7E7;
     border-radius: 4px;
   }
 
-  .section-featured-products-{{id}} * {
+  .section-featured-products-{{ id }} * {
     color: {{ section.settings.text_color.hex }};
   }
 
-  .section-featured-products-{{id}} .countdown-wrapper .countdown .sec .num {
-    border-color: {{ section.settings.text_color.hex }};
-  }
-
-  .section-featured-products-{{id}} .product-container-{{id}} {
+  .section-featured-products-{{ id }} .product-container-{{ id }} {
     display: grid;
     grid-template-columns: repeat({{ section.settings.rows_desktop }}, minmax(0, 1fr)) !important;
   }
 
   @media screen and (max-width: 1024px) {
-    .section-featured-products-{{id}} .product-container-{{id}} {
+    .section-featured-products-{{ id }} .product-container-{{ id }} {
       grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     }
   }
 
   @media screen and (max-width: 768px) {
-    .section-featured-products-{{id}} .product-container-{{id}} {
+    .section-featured-products-{{ id }} .product-container-{{ id }} {
       grid-template-columns: repeat({{ section.settings.rows_mobile }}, minmax(0, 1fr)) !important;
     }
   }
 
-  .product-container-{{id}} .product-title {
+  .section-featured-products-{{ id }} .product-container-{{ id }} .product-title {
     {% if section.settings.show_product_title == false %}
       display: none;
     {% endif %}
   }
 {% endstyle %}
 
-<div class='yc-featured-products section-featured-products-{{id}} container'>
-  {% if section.settings.countdown_enabled %}
-      {%- render 'countdown', section_settings: section.settings -%}
-    {% endif %}
+<section class='section-featured-products-{{ id }} yc-featured-products container'>
   <h1 class='yc-section-title'>
     {{ section.settings.title }}
   </h1>
-  <div class='product-list product-container-{{id}}'>
+  <div class='product-list product-container-{{ id }}'>
     {%- for block in section.blocks -%}
       <div
         {{ block.youcan_attributes }}
-        class='product-item-{{id}}'
+        class='product-item-{{ id }}'
       >
         {%- render 'product-preview', item: block.settings.product, block_settings: block.settings -%}
       </div>
     {%- endfor -%}
   </div>
-</div>
+</section>
 
 {%- schema -%}
 {

@@ -40,6 +40,9 @@
     font-size: 15px;
     font-weight: 400;
     line-height: 24px;
+  }
+
+  .multi-column-{{ id }} .column-block .column-description {
     color: {{ section.settings.text_color.hex }};
   }
 
@@ -79,7 +82,7 @@
   }
 {% endstyle %}
 
-<div class='multi-column-{{ id }}'>
+<section class='multi-column-{{ id }}'>
   <div class="container">
     {% if section.settings.title %}
     <h3 class='yc-section-title'>{{ section.settings.title }}</h3>
@@ -120,7 +123,7 @@
       {% endfor %}
     </div>
   </div>
-</div>
+</section>
 
 {% schema %}
 {

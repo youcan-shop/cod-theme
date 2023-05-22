@@ -1,58 +1,55 @@
 {{ 'video.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-.video-wrapper {
-  margin-top: {{ section.settings.space_top }}px;
-  margin-bottom: {{ section.settings.space_bottom }}px;
-}
+  .section-video-{{ id }} {
+    margin-top: {{ section.settings.space_top }}px;
+    margin-bottom: {{ section.settings.space_bottom }}px;
+  }
 
-.youtube-play-button {
-  background-color: {{ section.settings.play_button_background_color.hex }};
-}
+  .section-video-{{ id }} .youtube-play-button {
+    background-color: {{ section.settings.play_button_background_color.hex }};
+  }
 
-.video-title {
-  text-align: {{ section.settings.title_position }};
-}
+  .section-video-{{ id }} .video-title {
+    text-align: {{ section.settings.title_position }};
+    color: {{ section.settings.title_color.hex }};
+    font-weight: 400;
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
 {% endstyle %}
 
-<div class='video-wrapper container'>
+<section class='section-video-{{ id }} container'>
   <h3 class="video-title">{{ section.settings.title }}</h3>
-  <div class="video-section">
+  <div class='video-wrapper'
+    data-video-link="{{ section.settings.video_link }}"
+    data-video-width="{{ section.settings.video_width }}"
+    data-video-height="{{ section.settings.video_height }}"
+  >
     {% if section.settings.video_link %}
       {% if section.settings.video_type == 'youtube' %}
-        <div id='youtube-video' class='youtube-video' data-video-link="{{ section.settings.video_link }}">
+        <div class='youtube-video'>
           <img class='youtube-thumbnail' src='' loading='lazy'>
           <div class='youtube-play-button'></div>
           <div class="spinner video-spinner"></div>
         </div>
       {% endif %}
       {% if section.settings.video_type == 'facebook' %}
-        <iframe
-          id='facebook-video'
-          height='{{ section.settings.video_height }}'
-          src='https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FAymanJadaofficial%2Fvideos%2F1344326396104890%2F&show_text=false&width=560&t=0'
-          style='border:none;overflow:hidden'
-          scrolling='no'
-          frameborder='0'
-          allowfullscreen='true'
-          allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
-          allowFullScreen='true'
-        ></iframe>
+      <iframe
+        class='facebook-video'
+        src='https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FAymanJadaofficial%2Fvideos%2F1344326396104890%2F&show_text=false&width=560&t=0'
+        style='border:none;overflow:hidden'
+        scrolling='no'
+        frameborder='0'
+        allowfullscreen='true'
+        allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
+        allowFullScreen='true'
+        loading='lazy'
+      ></iframe>
       {% endif %}
     {% endif %}
   </div>
-</div>
-
-<script>
-  const width = {{ section.settings.video_width }} * (window.innerWidth / 100);
-  const height = {{ section.settings.video_height }};
-  const videoLink = '{{ section.settings.video_link }}';
-  const videoType = '{{ section.settings.video_type }}';
-  const defaulVideotImage = '{{ 'video_default_image.jpg' | asset_url }}';
-</script>
-
-
-{{ 'video.js' | asset_url | script_tag_deferred }}
+</section>
 
 {% schema %}
   {
@@ -83,6 +80,12 @@
           }
         ],
         "default": "center"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title color",
+        "default": "#3C415FFF"
       },
       {
         "type": "select",
@@ -129,7 +132,7 @@
         "type": "color",
         "id": "play_button_background_color",
         "label": "Youtube play icon color",
-        "default": "#BDBDBDFF"
+        "default": "#3C415FFF"
       },
       {
         "type": "range",

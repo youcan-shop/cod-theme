@@ -12,7 +12,7 @@
   }
 {% endstyle %}
 
-<div class='yc-featured-collections section-featured-collections-{{ id }} container'>
+<section class='section-featured-collections-{{ id }} yc-featured-collections container'>
   <div class="yc-featured-container">
     <h1 class='yc-section-title'>
       {{ section.settings.title }}
@@ -23,7 +23,7 @@
       {%- render 'collection-preview', category: block.settings.category -%}
     {%- endfor -%}
   </div>
-</div>
+</section>
 
 {%- schema -%}
 {

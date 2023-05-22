@@ -365,12 +365,14 @@
       "section_bkwyk2l0m8boffr": {
           "type": "main-video",
           "settings": {
-              "title": "مميزاتنا",
-              "title_position": "left",
-              "video_type": "youtube",
-              "video_link": "https:\/\/youtu.be\/YpGjaJ1ettI",
-              "video_height": 500,
-              "video_width": 100
+            "title": "مميزاتنا",
+            "title_position": "center",
+            "video_type": "youtube",
+            "video_link": "https:\/\/youtu.be\/YpGjaJ1ettI",
+            "video_height": 500,
+            "video_width": 100,
+            "title_color": "#3C415FFF",
+            "play_button_background_color": "#3C415FFF"
           }
       },
       "section_69bvzdw9cs2hlv": {

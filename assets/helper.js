@@ -79,3 +79,38 @@ const countdown = (target) => {
   updateTime();
   countdownInterval = setInterval(updateTime, 1000);
 }
+
+/**
+ * mountSlider function, mounts a slider based on the screen size
+ * @param {MediaQueryList} isMobile - media query list representing mobile screen size
+ * @param {Object} mobileSlider - object representing the mobile slider
+ * @param {Object} desktopSlider - object representing the desktop slider
+ */
+function mountSlider(isMobile, mobileSlider, desktopSlider) {
+  let isMobileSliderMounted = false;
+  let isDesktopSliderMounted = false;
+
+  const runSlider = () => {
+    try {
+      if (isMobile.matches && !isMobileSliderMounted) {
+        window.requestAnimationFrame(() => {
+          mobileSlider.mount();
+          isMobileSliderMounted = true;
+        });
+
+        return;
+      }
+      if (!isDesktopSliderMounted) {
+        window.requestAnimationFrame(() => {
+          desktopSlider.mount();
+          isDesktopSliderMounted = true;
+        });
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  runSlider();
+  isMobile.addEventListener('change', runSlider, { passive: true });
+}
