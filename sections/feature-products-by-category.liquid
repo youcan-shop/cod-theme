@@ -3,23 +3,23 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  .section-featured-products-by-category-{{id}}{
+  .section-featured-products-by-category-{{ id }}{
     padding-top: {{ section.settings.space_top }}px;
     padding-bottom: {{ section.settings.space_bottom }}px;
   }
 
   {% if section.settings.title_color %}
-  .section-featured-products-by-category-{{id}} .yc-section-title{
+  .section-featured-products-by-category-{{ id }} .yc-section-title{
     color: {{ section.settings.title_color.hex }};
   }
   {% endif %}
 
-  .section-featured-products-by-category-{{id}} .yc-section-title{
+  .section-featured-products-by-category-{{ id }} .yc-section-title{
     margin-top: 0;
     text-align: {{ section.settings.section_title_position }}
   }
 
-  .section-featured-products-by-category-{{id}} {
+  .section-featured-products-by-category-{{ id }} {
     {% if section.settings.background_color.hex %}
     background-color: {{ section.settings.background_color.hex }};
     {% endif %}
@@ -28,24 +28,24 @@
     background-size: 10rem;
   }
 
-  .section-featured-products-by-category-{{id}} * {
+  .section-featured-products-by-category-{{ id }} * {
     color: {{ section.settings.text_color.hex }};
   }
 
-  .section-featured-products-by-category-{{id}} .product-item-{{id}} {
+  .section-featured-products-by-category-{{ id }} .product-item-{{ id }} {
     border: 1px solid #E7E7E7;
     border-radius: 4px;
   }
 {% endstyle %}
 
 {% if category %}
-  <div class='yc-featured-products section-featured-products-by-category-{{id}}'>
+  <section class='section-featured-products-by-category-{{ id }} yc-featured-products'>
     <div class="container">
       <h1 class='yc-section-title'>{{ category.name }}</h1>
       <div class='product-list'>
         {%- paginate collection.products by number_of_products id category_id: category.id %}
           {%- for item in items -%}
-          <div {{ block.youcan_attributes }} class="product-item-{{id}}">
+          <div {{ block.youcan_attributes }} class="product-item-{{ id }}">
             {%- render 'product-preview', item: item -%}
           </div>
           {%- endfor -%}
@@ -57,7 +57,7 @@
         </div>
       {% endif %}
     </div>
-  </div>
+  </section>
 {% endif %}
 
 {%- schema -%}
