@@ -5,6 +5,7 @@
     margin-top: {{ section.settings.space_top }}px;
     margin-bottom: {{ section.settings.space_bottom }}px;
     background-color: {{ section.settings.background_color.hex }};
+    color: {{ section.settings.text_color.hex }};
   }
 
 
@@ -13,7 +14,7 @@
     margin-bottom: 15px;
     font-weight: 700;
     font-size: 26px;
-    color: {{ section.settings.title_text_color.hex }};
+    color: inherit;
   }
 
   .multi-column-{{ id }} .multi-column-blocks {
@@ -22,6 +23,7 @@
     grid-gap: 3vw;
     align-items: stretch;
     padding: 10px 0;
+    color: inherit;
   }
 
   .column-block {
@@ -34,13 +36,11 @@
     margin-top: 16px;
     font-weight: 700;
     font-size: 18px;
-    color: #000000;
   }
 
   .column-block .column-description {
     margin: 12px auto;
     font-size: 14px;
-    color: #000000;
     font-weight: 400;
     line-height: 24px;
   }
@@ -172,8 +172,9 @@
     },
     {
       "type": "color",
-      "id": "title_text_color",
-      "label": "Title color"
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000FF"
     },
     {
       "type": "color",

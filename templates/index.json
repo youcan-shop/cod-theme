@@ -52,7 +52,10 @@
                 "title": "",
                 "margin_bottom": 50,
                 "margin_top": 50,
-                "background_color": "#FFFFFFFF"
+                "background_color": "#FFFFFFFF",
+                "text_color": "#000000FF",
+                "space_top": 32,
+                "space_bottom": 32
             },
             "blocks": {
                 "block_c9qx028mi12btfk4": {
@@ -105,7 +108,8 @@
                 "countdown_hour": 0,
                 "countdown_minute": 0,
                 "rows_mobile": "2",
-                "rows_desktop": 4
+                "rows_desktop": 4,
+                "text_color": "#000000FF"
             },
             "blocks": {
                 "block_t9xl58mgfbthz46": {
@@ -217,7 +221,8 @@
                 "slider_mobile_transition_type": "loop",
                 "slider_mobile_autoplay": true,
                 "slider_mobile_pagination": false,
-                "slider_mobile_arrows": true
+                "slider_mobile_arrows": true,
+                "text_color": "#000000FF"
             },
             "blocks": {
                 "block_n29hpfisc69ngz": {
