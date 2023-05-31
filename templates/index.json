@@ -45,7 +45,8 @@
               "title": "ما يميزنا",
               "margin_bottom": 60,
               "margin_top": 60,
-              "background_color": "#F6F9FF"
+              "background_color": "#F6F9FF",
+              "text_color": "#000000FF"
           },
           "blocks": {
               "block_c9qx028mi12btfk4": {
@@ -155,7 +156,8 @@
               "show_product_title": true,
               "title": "Featured Products",
               "section_title_position": "center",
-              "countdown_enabled": false
+              "countdown_enabled": false,
+              "text_color": "#3C415FFF"
           },
           "blocks": {
               "block_62cu74z1u3r4yoh": {

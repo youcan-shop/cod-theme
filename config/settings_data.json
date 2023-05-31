@@ -46,7 +46,8 @@
                     "mention_and_social_media": true,
                     "footer_logo": "untitled (5)-2NNASOm8V90nDKvk5iel6w06KP8.png",
                     "copyright": "<p>جميع الحقوق محفوظة2023<\/p>",
-                    "copyright_image": "untitled (6)-2NNHfAONNDSLFc3DPqrL5tERh4z.png"
+                    "copyright_image": "untitled (6)-2NNHfAONNDSLFc3DPqrL5tERh4z.png",
+                    "footer_text_color": "#FFFFFFFF"
                 },
                 "blocks": {
                     "block_social": {
