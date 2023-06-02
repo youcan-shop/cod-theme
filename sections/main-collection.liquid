@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  {%- paginate collection.products by per_page cod %}
+  {%- paginate collection.products by per_page cod, category_id: category.id %}
     <div class='product-list'>
       {% for product in items %}
         <div class="product-block">
