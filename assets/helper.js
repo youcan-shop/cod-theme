@@ -1,6 +1,11 @@
-/* --------------------------- */
-/* ----- countdown timer ----- */
-/* --------------------------- */
+/**
+ * Adds the currency symbol to a price
+ * @param {Number | String} price
+ * @returns {String}
+ */
+function money(price) {
+  return `${price} ${Dotshop.currency.symbol}`
+}
 
 /**
  * addZero function, adds a zero in front of a number if it's less than 10

@@ -14,6 +14,8 @@ function manipulateQuantity() {
     if (currentValue > 1) {
       quantityInput.value = currentValue - 1;
     }
+
+    updatePriceOnQuantityChange(snippetId);
   });
 
   /**
@@ -22,6 +24,8 @@ function manipulateQuantity() {
   incrementButton?.addEventListener('click', () => {
     const currentValue = parseInt(quantityInput.value);
     quantityInput.value = currentValue + 1;
+
+    updatePriceOnQuantityChange(snippetId);
   });
 }
 

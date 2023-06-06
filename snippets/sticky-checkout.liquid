@@ -14,7 +14,9 @@
         </div>
         <div class="options"></div>
         <div class="express-sticky-price-wrapper top-spacing">
-          <p class="express-sticky-compare-price">{{ product.compare_at_price | money }}</p>
+          {% if product.compare_at_price != nil %}
+            <p class="express-sticky-compare-price">{{ product.compare_at_price | money }}</p>
+          {% endif %}
           <p class="express-sticky-price">{{ product.price | money }}</p>
         </div>
       </div>
@@ -42,7 +44,9 @@
         </div>
         <div class="sticky-checkout-form"></div>
         <div class="express-sticky-price-wrapper top-spacing">
-          <p class="express-sticky-compare-price">{{ product.compare_at_price | money }}</p>
+          {% if product.compare_at_price != nil %}
+            <p class="express-sticky-compare-price">{{ product.compare_at_price | money }}</p>
+          {% endif %}
           <p class="express-sticky-price">{{ product.price | money }}</p>
         </div>
       </div>

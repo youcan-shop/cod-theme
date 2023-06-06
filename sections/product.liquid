@@ -379,6 +379,7 @@
 
 {%- javascript -%}
   {% if selected_product %}
+    const selectedProductPrice = Number('{{ selected_product.price }}');
     const variantStr = `{{ selected_product.variants | json }}`;
     const variants = JSON.parse(variantStr.slice(1, -1));
     const largeImageSizeMessage = "{{ 'general.large_image_size' | t }}";

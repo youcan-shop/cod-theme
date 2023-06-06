@@ -9,9 +9,14 @@
       name='quantity'
       min='1'
       value='1'
+      onchange="updatePriceOnQuantityChange('{{ snippetId }}')"
     >
     <button class="decrement-button">-</button>
   </div>
 </div>
+
+{% javascript %}
+  const snippetId = '{{ snippetId }}';
+{% endjavascript %}
 
 {{ 'product-quantity-input.js' | asset_url | script_tag_deferred }}
