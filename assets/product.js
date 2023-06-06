@@ -528,6 +528,40 @@ function goToCheckoutStep(step) {
   }
 }
 
+// target add to cart block and move it into quantity parent
+
+function moveStaticAddToCartToParent() {
+  // select the static add-to-cart element
+  const staticAddToCart = $('.static-add-to-cart');
+
+  if (staticAddToCart) {
+    // select the target parent element
+    const parent = $('.group-blocks');
+
+    if (parent) {
+      parent.appendChild(staticAddToCart);
+    }
+  }
+}
+
+/**
+ * Update price on quantity change
+ * @param {HTMLElement} input
+ * @param {number} index
+ * @returns {void}
+ */
+function updatePriceOnQuantityChange(snippetId) {
+  const quantityInput = document.querySelector(`#s-${snippetId} #quantity`);
+  const stickyProductPrice = document.querySelector(`#s-${snippetId} #sticky-price`);
+  const quantity = Number(quantityInput.value);
+
+  stickyProductPrice.innerText = money((selectedProductPrice * quantity).toFixed(2));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  moveStaticAddToCartToParent();
+});
+
 function setup() {
   const singleProductSections = document.querySelectorAll('.yc-single-product');
 
