@@ -25,12 +25,6 @@
     background-color: {{ section.settings.slider_overlay_background_color.hex }};
   }
 
-  .section-slider-{{ id }} #yc_slider_{{ id }} .splide__pagination {
-    {% if section.settings.slider_pagination == true %}
-      display: block !important;
-      text-align: center;
-    {% endif %}
-  }
 {% endstyle %}
 
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
@@ -39,8 +33,8 @@
 {{ 'splide.min.js' | asset_url | script_tag }}
 
 <section class="section-slider-{{ id }}">
-  {% render 'slider', blocks: section.blocks, id: id , view: 'desktop' %}
-  {% render 'slider', blocks: section.blocks, id: id , view: 'mobile' %}
+  {% render 'slider', blocks: section.blocks, id: id , view: 'desktop' slider_pagination: section.settings.slider_pagination %}
+  {% render 'slider', blocks: section.blocks, id: id , view: 'mobile' slider_pagination: section.settings.slider_pagination %}
 </section>
 
 <script>
