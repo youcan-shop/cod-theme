@@ -33,6 +33,7 @@
   aspect-ratio: 4/5;
   overflow: hidden;
   transition: 0.3s ease-in-out;
+  aspect-ratio: 1/1;
 }
 .yc-featured-collections .collections-list .collection-block .collection-details, .yc-featured-collections .collections-list .collection-block .collection-thumbnail img {
   transition: all 0.3s ease-in-out;
