@@ -1,3 +1,5 @@
+{% assign count = 0 %}
+
 <div
   class='splide yc-slider__{{ view }}'
   id='yc_slider_{{ id }}'
@@ -5,6 +7,7 @@
   <div class='splide__track'>
     <ul class='splide__list'>
       {%- for block in blocks %}
+        {% assign count = count | plus: 1 %}
         <li
           class='splide__slide'
           {{ block.youcan_attributes }}
@@ -38,3 +41,27 @@
     </ul>
   </div>
 </div>
+
+{% style %}
+  #yc_slider_{{ id }} .splide__arrow {
+    display: none;
+
+    {% if count > 1 %}
+      display: flex;
+    {% endif %}
+  }
+
+  {% if slider_pagination and count > 1 %}
+    #yc_slider_{{ id }}.yc-slider__desktop .splide__pagination {
+      display: block !important;
+      text-align: center;
+    }
+  {% endif %}
+
+  {% if slider_mobile_pagination and count > 1 %}
+    #yc_slider_{{ id }}.yc-slider__mobile .splide__pagination {
+      display: block !important;
+      text-align: center;
+    }
+  {% endif %}
+{% endstyle %}

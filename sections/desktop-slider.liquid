@@ -13,20 +13,6 @@
   .section-slider-{{ id }} #yc_slider_{{ id }} .content {
     background-color: {{ section.settings.slider_overlay_background_color.hex }};
   }
-
-  {% if section.settings.slider_pagination %}
-    .section-slider-{{ id }} .yc-slider__desktop .splide__pagination {
-      display: block !important;
-      text-align: center;
-    }
-  {% endif %}
-
-  {% if section.settings.slider_mobile_pagination %}
-    .section-slider-{{ id }} .yc-slider__mobile .splide__pagination {
-      display: block !important;
-      text-align: center;
-    }
-  {% endif %}
 {% endstyle %}
 
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
@@ -35,8 +21,8 @@
 {{ 'splide.min.js' | asset_url | script_tag }}
 
 <section class="section-slider-{{ id }}">
-  {% render 'slider', blocks: section.blocks, id: id , view: 'desktop' %}
-  {% render 'slider', blocks: section.blocks, id: id , view: 'mobile' %}
+  {% render 'slider', blocks: section.blocks, id: id , view: 'desktop' slider_pagination: section.settings.slider_pagination %}
+  {% render 'slider', blocks: section.blocks, id: id , view: 'mobile' slider_mobile_pagination: section.settings.slider_mobile_pagination %}
 </section>
 
 <script>
@@ -65,6 +51,7 @@
     const mobileSlider = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
       type: '{{ section.settings.slider_mobile_transition_type }}',
       autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
+      arrows: false,
       cover: true,
       pagination: '{{ section.settings.slider_mobile_pagination }}' ? true : false,
       height: `{{ section.settings.slider_mobile_height_percentage }}vh`,
