@@ -13,6 +13,10 @@
           </button>
         </div>
         <div class="options"></div>
+        <div class="express-sticky-price-wrapper top-spacing">
+          <p class="express-sticky-compare-price">{{ product.compare_at_price | money }}</p>
+          <p class="express-sticky-price">{{ product.price | money }}</p>
+        </div>
       </div>
       <div class="cta-bottom-wrapper">
         <button class="yc-btn w-full express-checkout-button font-bold" onclick="goToCheckoutStep(2)">
@@ -37,6 +41,10 @@
           {% render 'product-card' %}
         </div>
         <div class="sticky-checkout-form"></div>
+        <div class="express-sticky-price-wrapper top-spacing">
+          <p class="express-sticky-compare-price">{{ product.compare_at_price | money }}</p>
+          <p class="express-sticky-price">{{ product.price | money }}</p>
+        </div>
       </div>
       <div class="cta-bottom-wrapper">
         <button

@@ -33,6 +33,25 @@
     }
   }
 
+  .express-sticky-price-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    .express-sticky-price {
+      font-weight: 700;
+      font-size: 25px;
+      color: var(--yc-primary-color)
+    }
+
+    .express-sticky-compare-price {
+      text-decoration-line: line-through;
+      font-weight: 500;
+      font-size: 17px;
+      color: #656565;
+    }
+  }
+
   .cta-bottom-wrapper {
     width: 100%;
     position: fixed;

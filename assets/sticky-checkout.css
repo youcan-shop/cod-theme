@@ -29,6 +29,22 @@
 .yc-sticky-checkout .sticky-product-details .options .product-quantity {
   margin-top: 24px;
 }
+.yc-sticky-checkout .express-sticky-price-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.yc-sticky-checkout .express-sticky-price-wrapper .express-sticky-price {
+  font-weight: 700;
+  font-size: 25px;
+  color: var(--yc-primary-color);
+}
+.yc-sticky-checkout .express-sticky-price-wrapper .express-sticky-compare-price {
+  text-decoration-line: line-through;
+  font-weight: 500;
+  font-size: 17px;
+  color: #656565;
+}
 .yc-sticky-checkout .cta-bottom-wrapper {
   width: 100%;
   position: fixed;
