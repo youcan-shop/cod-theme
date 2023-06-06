@@ -12,6 +12,7 @@ const addZero = (x) => {
 }
 
 /**
+ * Adds the currency symbol to a price
  * @param {Number | String} price
  * @returns {String}
  */
