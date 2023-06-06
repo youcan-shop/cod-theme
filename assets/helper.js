@@ -1,7 +1,3 @@
-/* --------------------------- */
-/* ----- countdown timer ----- */
-/* --------------------------- */
-
 /**
  * addZero function, adds a zero in front of a number if it's less than 10
  * @param {number} x - number to be checked
@@ -13,6 +9,14 @@ const addZero = (x) => {
   }
 
   return x;
+}
+
+/**
+ * @param {Number | String} price
+ * @returns {String}
+ */
+function money(price) {
+  return `${price} ${Dotshop.currency.symbol}`
 }
 
 /**
