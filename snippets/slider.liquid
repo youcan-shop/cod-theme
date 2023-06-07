@@ -43,7 +43,7 @@
 </div>
 
 {% style %}
-  #yc_slider_{{ id }} .splide__arrow {
+  #yc_slider_{{ id }} .splide__arrows {
     display: none;
 
     {% if count > 1 %}
@@ -51,10 +51,10 @@
     {% endif %}
   }
 
-  #yc_slider_{{ id }} .splide__pagination {
-    {% if slider_pagination == true and count > 1 %}
+  {% if slider_pagination and count > 1 %}
+    #yc_slider_{{ id }} .splide__pagination {
       display: block !important;
       text-align: center;
-    {% endif %}
-  }
+    }
+  {% endif %}
 {% endstyle %}
