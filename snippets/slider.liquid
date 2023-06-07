@@ -52,7 +52,14 @@
   }
 
   {% if slider_pagination and count > 1 %}
-    #yc_slider_{{ id }} .splide__pagination {
+    #yc_slider_{{ id }}.yc-slider__desktop .splide__pagination {
+      display: block !important;
+      text-align: center;
+    }
+  {% endif %}
+
+  {% if slider_mobile_pagination and count > 1 %}
+    #yc_slider_{{ id }}.yc-slider__mobile .splide__pagination {
       display: block !important;
       text-align: center;
     }
