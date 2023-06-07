@@ -15,13 +15,6 @@
     background-color: {{ section.settings.slider_mobile_overlay_background_color.hex }};
   }
 
-  .section-slider-{{ id }} #yc_slider_{{ id }} .splide__pagination {
-    {% if section.settings.slider_pagination == true or section.settings.slider_mobile_pagination == true %}
-      display: block !important;
-      text-align: center;
-    {% endif %}
-  }
-
   .section-slider-{{ id }} .yc-slider__desktop .splide__arrow {
     border-color: {{ section.settings.slider_arrows_color.hex }} !important;
   }
@@ -37,8 +30,8 @@
 {{ 'mobile-slider.css' | asset_url | stylesheet_tag }}
 
 <section class="section-slider-{{ id }}">
-  {% render 'slider', blocks: section.blocks, id: id , view: 'desktop' %}
-  {% render 'slider', blocks: section.blocks, id: id , view: 'mobile' %}
+  {% render 'slider', blocks: section.blocks, id: id, view: 'desktop', slider_pagination: section.settings.slider_pagination %}
+  {% render 'slider', blocks: section.blocks, id: id, view: 'mobile', slider_mobile_pagination: section.settings.slider_mobile_pagination %}
 </section>
 
 <script defer>
