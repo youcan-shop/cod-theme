@@ -63,6 +63,7 @@
       type: '{{ section.settings.slider_mobile_transition_type }}',
       autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
       cover: true,
+      arrows: false,
       pagination: '{{ section.settings.slider_mobile_pagination }}' ? true : false,
       height: `{{ section.settings.slider_mobile_height_percentage }}vh`,
       interval: '{{ section.settings.slider_mobile_timeout | times: 1000 }}',
