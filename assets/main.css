@@ -28,11 +28,6 @@ body {
   font-family: var(--yc-font-family);
 }
 
-/* ----- Hide close preview button ----- */
-[style*="left: 0px; bottom: 0px; z-index: 500; width: 100vw; position: fixed;"] {
-  display: none !important;
-}
-
 .container {
   max-width: 1440px !important;
   margin: 0 auto;
