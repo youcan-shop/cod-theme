@@ -66,20 +66,56 @@
   font-weight: 700;
   font-size: 14px;
 }
-.thankyou-page-bg .thankyou-page-container .order-info {
+.thankyou-page-bg .thankyou-page-container .order-infos .order-info {
   padding: 20px 24px;
   background-color: #FFF;
   margin-bottom: 6px;
+  display: flex;
+  gap: 15px;
 }
-.thankyou-page-bg .thankyou-page-container .order-info .variant-name {
+.thankyou-page-bg .thankyou-page-container .order-infos .order-info .variant-image {
+  width: 61px;
+  height: 77px;
+}
+.thankyou-page-bg .thankyou-page-container .order-infos .order-info .variant-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.thankyou-page-bg .thankyou-page-container .order-infos .order-info .variant-infos .name {
   font-weight: 600;
   font-size: 14px;
+  line-height: 120%;
 }
-.thankyou-page-bg .thankyou-page-container .order-info .variant-price {
+.thankyou-page-bg .thankyou-page-container .order-infos .order-info .variant-infos .variations {
+  display: flex;
+  gap: 14px;
+}
+.thankyou-page-bg .thankyou-page-container .order-infos .order-info .variant-infos .variations .variation {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+}
+.thankyou-page-bg .thankyou-page-container .order-infos .order-info .variant-infos .prices {
+  display: flex;
+  gap: 6px;
+}
+.thankyou-page-bg .thankyou-page-container .order-infos .order-info .variant-infos .prices .compare-at-price {
+  font-weight: 400;
+  font-size: 14px;
+  color: #757575;
+  text-decoration: line-through;
+}
+.thankyou-page-bg .thankyou-page-container .order-infos .order-info .variant-infos .prices .price {
   font-weight: 700;
   font-size: 18px;
   color: var(--yc-primary-color);
-  margin-top: 14px;
+  line-height: 120%;
+}
+.thankyou-page-bg .thankyou-page-container .order-infos .order-info .variant-infos .price {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--yc-primary-color);
 }
 .thankyou-page-bg .thankyou-page-container .order-details {
   padding: 20px 24px;

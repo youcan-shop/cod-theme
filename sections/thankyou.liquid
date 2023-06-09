@@ -9,9 +9,8 @@
 .subtitle {
   color: {{ section.settings.subtitle_color.hex }};
 }
-
-
 {% endstyle %}
+
 <div class="thankyou-page-bg">
   <div class="thankyou-page-container">
     <div class='thankyou-wrapper'>
@@ -25,10 +24,28 @@
           </div>
         </div>
     </div>
-    <div class="order-info">
+    <div class="order-infos">
       {% for variant in order.order_variants %}
-          <span class="variant-name">{{ variant.name }}</span>
-          <span class="variant-price">{{ variant.price | money }}</span>
+        <div class="order-info">
+          <img class="variant-image" src="{{ variant.image }}">
+          <div class="variant-infos">
+            <span class="name">{{ variant.name }}</span>
+            <div class="variations">
+              {% for variation in variant.variations %}
+                <div class="variation">
+                  <span class="variation-name">{{ variation.0 }}:</span>
+                  <span class="variation-value">{{ variation.1 }}</span>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="prices">
+              {% if variant.compare_at_price != nil %}
+                <span class="compare-at-price">{{ variant.compare_at_price | money }}</span>
+              {% endif %}
+              <span class="price">{{ variant.price | money }}</span>
+            </div>
+          </div>
+        </div>
       {% endfor %}
     </div>
     <div class="order-details">
