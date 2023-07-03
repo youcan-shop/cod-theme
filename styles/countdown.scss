@@ -25,7 +25,8 @@
 
     & .day .num,
     & .hour .num,
-    & .min .num
+    & .min .num,
+    & .sec .num
     {
       display: block;
       font-size: 29px;
@@ -36,7 +37,7 @@
       line-height: 13px;
     }
 
-    & .min .num {
+    & .sec .num {
       color: #E52B2A;
       font-weight: 700;
       border: 0;

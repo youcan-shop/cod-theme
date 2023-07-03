@@ -62,10 +62,12 @@ const countdown = (target) => {
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     $(`${target} .day .num`).innerHTML = addZero(days);
     $(`${target} .hour .num`).innerHTML = addZero(hours);
     $(`${target} .min .num`).innerHTML = addZero(minutes);
+    $(`${target} .sec .num`).innerHTML = addZero(seconds);
 
     if (distance <= 0) {
       // Stop the countdown by clearing the interval
@@ -73,6 +75,7 @@ const countdown = (target) => {
       $(`${target} .day .num`).innerHTML = '00';
       $(`${target} .hour .num`).innerHTML = '00';
       $(`${target} .min .num`).innerHTML = '00';
+      $(`${target} .sec .num`).innerHTML = '00';
       return;
     }
   }

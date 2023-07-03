@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
 }
-.countdown-wrapper .countdown .day .num, .countdown-wrapper .countdown .hour .num, .countdown-wrapper .countdown .min .num {
+.countdown-wrapper .countdown .day .num, .countdown-wrapper .countdown .hour .num, .countdown-wrapper .countdown .min .num, .countdown-wrapper .countdown .sec .num {
   display: block;
   font-size: 29px;
   font-weight: 600;
@@ -24,7 +24,7 @@
   font-size: 26px;
   line-height: 13px;
 }
-.countdown-wrapper .countdown .min .num {
+.countdown-wrapper .countdown .sec .num {
   color: #E52B2A;
   font-weight: 700;
   border: 0;
