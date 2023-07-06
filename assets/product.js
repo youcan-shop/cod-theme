@@ -281,9 +281,11 @@ function updateProductDetails(parentSection, image, price, variations) {
     const showStickyCheckoutPrice = $('#sticky-price');
 
     productPrices.forEach(productPrice => {
-      productPrice.innerHTML = `${
-        String(productPrice.innerHTML).split(' ')[0]
-      } ${price}`;
+      const priceText = productPrice.innerText;
+      const currencySymbol = priceText.replace(/[0-9.,]/g, "").trim();
+      const displayValue = `${price} ${currencySymbol}`;
+
+      productPrice.innerText = displayValue;
 
       if(showStickyCheckoutPrice) {
         showStickyCheckoutPrice.innerHTML = productPrice.innerHTML;
