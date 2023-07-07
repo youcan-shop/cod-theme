@@ -472,7 +472,7 @@ function showSelectedVariants() {
         variantOption = createAndSetText(variantName, colorBaseButton, 'colored-button').element;
         break;
       case 'radio_buttons':
-        const radioButton = variant.querySelector('input:checked')?.value;
+        const radioButton = variant.querySelector('.yc-radio-buttons.active input[type="radio"]')?.value;
         variantOption = createAndSetText(variantName, radioButton).element;
       break;
       case 'dropdown':
