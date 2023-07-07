@@ -143,9 +143,9 @@
 {{ 'dropdown.css' | asset_url | stylesheet_tag }}
 
 <title>
-  {%- if settings.meta_title %}
-    {{ settings.meta_title }}
+  {% if page.name %}
+    {{ store.name }} | {{ page.name }}
   {% else %}
-    {{ store.name }}
+    {{ store.name }} | {{ template.name }}
   {% endif %}
 </title>
