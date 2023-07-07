@@ -170,7 +170,9 @@ function selectDefaultOptions(parentSection) {
         option.querySelector('.yc-options-item').classList.add('active');
         break;
       case 'radio_buttons':
-        option.querySelector('input').checked = true;
+        const radioLabel = option.querySelector('.yc-radio-buttons');
+        radioLabel.classList.add('active');
+        radioLabel.querySelector('input[type="radio"]').checked = true;
         break;
       case 'image_based_buttons':
         option.querySelector('.yc-image-options-item').classList.add('active');
@@ -215,7 +217,7 @@ function getSelectedOptions(parentSection) {
         break;
       case 'radio_buttons':
         selectedOptions[optionName] =
-          option.querySelector('input:checked')?.value;
+          option.querySelector('.yc-radio-buttons.active input[type="radio"]')?.value;
         break;
       case 'image_based_buttons':
         selectedOptions[optionName] = option.querySelector(
@@ -269,7 +271,7 @@ function setVariant(parentSection, id) {
  * @param {String} image
  * @param {String} price
  */
-function updateProductDetails(parentSection, image, price, variations) {
+function updateProductDetails(parentSection, image, price) {
   if (image) {
     const mainImgs = parentSection.querySelectorAll('.main-image');
 
@@ -290,14 +292,6 @@ function updateProductDetails(parentSection, image, price, variations) {
       if(showStickyCheckoutPrice) {
         showStickyCheckoutPrice.innerHTML = productPrice.innerHTML;
       }
-    })
-  }
-
-  if(variations) {
-    const productVariations = parentSection.querySelectorAll('.product-variations');
-
-    productVariations.forEach(el => {
-      el.innerHTML = Object.values(variations).join(' - ')
     })
   }
 }
@@ -537,7 +531,9 @@ function setup() {
 
   singleProductSections.forEach((section) => {
     const productDetails = section.querySelector('.product-options');
-    const variant = variants[0]
+    const variant = variants[0];
+
+    selectDefaultOptions(section);
 
     updateProductDetails(
       section,
@@ -549,8 +545,6 @@ function setup() {
     if (productDetails) {
       const observer = new MutationObserver(() => {
         const selectedVariant = getSelectedVariant(section);
-        const variantIdInput = section.querySelector('#variantId');
-        variantIdInput.value = selectedVariant.id;
 
         updateProductDetails(
           section,
@@ -566,8 +560,6 @@ function setup() {
         subtree: true,
       });
     }
-
-    selectDefaultOptions(section);
   });
 }
 
