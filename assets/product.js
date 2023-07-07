@@ -171,7 +171,7 @@ function selectDefaultOptions(parentSection) {
         break;
       case 'radio_buttons':
         const radioLabel = option.querySelector('.yc-radio-buttons');
-        radioLabel.classList.add('checked');
+        radioLabel.classList.add('active');
         radioLabel.querySelector('input[type="radio"]').checked = true;
         break;
       case 'image_based_buttons':
@@ -217,7 +217,7 @@ function getSelectedOptions(parentSection) {
         break;
       case 'radio_buttons':
         selectedOptions[optionName] =
-          option.querySelector('.yc-radio-buttons.checked input[type="radio"]')?.value;
+          option.querySelector('.yc-radio-buttons.active input[type="radio"]')?.value;
         break;
       case 'image_based_buttons':
         selectedOptions[optionName] = option.querySelector(
@@ -472,7 +472,7 @@ function showSelectedVariants() {
         variantOption = createAndSetText(variantName, colorBaseButton, 'colored-button').element;
         break;
       case 'radio_buttons':
-        const radioButton = variant.querySelector('.yc-radio-buttons.checked input[type="radio"]')?.value;
+        const radioButton = variant.querySelector('.yc-radio-buttons.active input[type="radio"]')?.value;
         variantOption = createAndSetText(variantName, radioButton).element;
       break;
       case 'dropdown':
