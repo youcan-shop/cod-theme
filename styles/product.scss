@@ -145,8 +145,12 @@
       display: grid;
 
       .product-option {
-        .active {
-          border: 1px solid #000000;
+        .yc-colors-select,
+        .yc-options-list,
+        .yc-image-options-list {
+          .active {
+            border: 1px solid #000000;
+          }
         }
         // image based button variant
         .yc-image-options-list {

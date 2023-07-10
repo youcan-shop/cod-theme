@@ -37,7 +37,7 @@
         {% when 'radio_buttons' %}
           <div class='yc-radio'>
             {% for item in option.values %}
-              <label class='yc-radio-buttons' for='{{ item }}'>
+              <label class='yc-radio-buttons' for='{{ item }}' onclick='setElementActive(this)'>
                 <input type='radio'  id='{{ item }}' name='{{ option.name }}' value='{{ item }}'>
                 <span class='checkmark'></span>
                 <span class='label-text'>{{ item }}</span>

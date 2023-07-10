@@ -143,6 +143,17 @@ function setElementActive(element) {
 }
 
 /**
+ * Sets the variant id in the hidden input field of the product form
+ * @param {HTMLElement} parentSection
+ * @param {String} id variant id
+ */
+function setVariant(parentSection, id) {
+  const variantIdInput = parentSection.querySelector('#variantId');
+
+  variantIdInput.value = id;
+}
+
+/**
  * Sets default options for a product
  * @param {HTMLElement} parentSection
  */
@@ -164,7 +175,9 @@ function selectDefaultOptions(parentSection) {
         option.querySelector('.yc-options-item').classList.add('active');
         break;
       case 'radio_buttons':
-        option.querySelector('input').checked = true;
+        const radioLabel = option.querySelector('.yc-radio-buttons');
+        radioLabel.classList.add('active');
+        radioLabel.querySelector('input[type="radio"]').checked = true;
         break;
       case 'image_based_buttons':
         option.querySelector('.yc-image-options-item').classList.add('active');
@@ -206,7 +219,7 @@ function getSelectedOptions(parentSection) {
         selectedOptions[optionName] = option.querySelector('.yc-options-item.active')?.innerText.trim();
         break;
       case 'radio_buttons':
-        selectedOptions[optionName] = option.querySelector('input:checked')?.value;
+        selectedOptions[optionName] = option.querySelector('.yc-radio-buttons.active input[type="radio"]')?.value;
         break;
       case 'image_based_buttons':
         selectedOptions[optionName] = option.querySelector('.yc-image-options-item.active img')?.alt;
@@ -242,23 +255,12 @@ function getSelectedVariant(parentSection) {
 }
 
 /**
- * Sets the variant id in the hidden input field of the product form
- * @param {HTMLElement} parentSection
- * @param {String} id variant id
- */
-function setVariant(parentSection, id) {
-  const variantIdInput = parentSection.querySelector('#variantId');
-
-  variantIdInput.value = id;
-}
-
-/**
  * Updates product details after variant change
  * @param {HTMLElement} parentSection
  * @param {String} image
  * @param {String} price
  */
-function updateProductDetails(parentSection, image, price, variations) {
+function updateProductDetails(parentSection, image, price) {
   if (image) {
     const mainImgs = parentSection.querySelectorAll('.main-image');
 
@@ -279,14 +281,6 @@ function updateProductDetails(parentSection, image, price, variations) {
       if(showStickyCheckoutPrice) {
         showStickyCheckoutPrice.innerHTML = productPrice.innerHTML;
       }
-    })
-  }
-
-  if(variations) {
-    const productVariations = parentSection.querySelectorAll('.product-variations');
-
-    productVariations.forEach(el => {
-      el.innerHTML = Object.values(variations).join(' - ')
     })
   }
 }
@@ -467,7 +461,7 @@ function showSelectedVariants() {
         variantOption = createAndSetText(variantName, colorBaseButton).element;
         break;
       case 'radio_buttons':
-        const radioButton = variant.querySelector('input:checked')?.value;
+        const radioButton = variant.querySelector('.yc-radio-buttons.active input[type="radio"]')?.value;
         variantOption = createAndSetText(variantName, radioButton).element;
       break;
       case 'dropdown':
@@ -561,7 +555,7 @@ function setup() {
 
   singleProductSections.forEach((section) => {
     const productDetails = section.querySelector('.product-options');
-    const variant = variants[0]
+    const variant = variants[0];
 
     updateProductDetails(
       section,
