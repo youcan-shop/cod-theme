@@ -149,6 +149,17 @@ function setElementActive(element) {
 }
 
 /**
+ * Sets the variant id in the hidden input field of the product form
+ * @param {HTMLElement} parentSection
+ * @param {String} id variant id
+ */
+function setVariant(parentSection, id) {
+  const variantIdInput = parentSection.querySelector('#variantId');
+
+  variantIdInput.value = id;
+}
+
+/**
  * Sets default options for a product
  * @param {HTMLElement} parentSection
  */
@@ -252,17 +263,6 @@ function getSelectedVariant(parentSection) {
     }
     return null;
   });
-}
-
-/**
- * Sets the variant id in the hidden input field of the product form
- * @param {HTMLElement} parentSection
- * @param {String} id variant id
- */
-function setVariant(parentSection, id) {
-  const variantIdInput = parentSection.querySelector('#variantId');
-
-  variantIdInput.value = id;
 }
 
 /**
@@ -533,8 +533,6 @@ function setup() {
     const productDetails = section.querySelector('.product-options');
     const variant = variants[0];
 
-    selectDefaultOptions(section);
-
     updateProductDetails(
       section,
       variant.image,
@@ -560,6 +558,8 @@ function setup() {
         subtree: true,
       });
     }
+
+    selectDefaultOptions(section);
   });
 }
 
