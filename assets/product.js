@@ -264,6 +264,7 @@ function getSelectedVariant(parentSection) {
     return null;
   });
 }
+
 /**
  * Get the currency Symbol
  * @param {HTMLElement} parentSection
