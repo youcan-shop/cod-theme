@@ -26,7 +26,7 @@
           </ul>
         {% when 'radio_buttons' %}
           {% for item in option.values %}
-            <div class='yc-radio'>
+            <div class='yc-radio' onclick='setElementActive(this)'>
               <input
                 type='radio'
                 id='{{ item }}'
