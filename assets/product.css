@@ -243,7 +243,9 @@
   border-radius: 5px;
   transition: width 1s ease-in-out;
 }
-.yc-single-product .product-details .product-options .yc-colors-select .active {
+.yc-single-product .product-details .product-options .yc-colors-select .active,
+.yc-single-product .product-details .product-options .yc-options-list .active,
+.yc-single-product .product-details .product-options .yc-image-options-list .active {
   border: 1px solid #000000;
 }
 .yc-single-product .product-details .product-description {
