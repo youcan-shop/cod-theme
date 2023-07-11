@@ -4,6 +4,11 @@
       "placeholder": "Entrez un mot-clé à rechercher..."
     }
   },
+  "head_metadata": {
+    "collections" : "Collections",
+    "thankyou": "Merci",
+    "cart": "Panier d'achat"
+  },
   "featured_products": {
     "title": "Produits en vedette.a.."
   },
