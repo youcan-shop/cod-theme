@@ -142,6 +142,8 @@
 {{ 'utils.css' | asset_url | stylesheet_tag }}
 {{ 'dropdown.css' | asset_url | stylesheet_tag }}
 
+{% assign store_title = store.title | default: store.name %}
+
 <title>
   {% if page %}
     {{ store_title }} | {{ page.name }}
