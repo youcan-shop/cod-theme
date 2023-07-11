@@ -145,23 +145,25 @@
 {% assign store_title = store.title | default: store.name %}
 
 <title>
-  {% if page %}
-    {{ store_title }} | {{ page.name }}
-  {% elsif product %}
-    {{ store_title }} | {{ product.name }}
-  {% elsif category %}
-    {{ store_title }} | {{ category.name }}
-  {% elsif template %}
-    {% if template.name == 'index' %}
-      {{ store_title }}
-    {% elsif template.name == 'list-collections' %}
-      {{ store_title }} | {{ 'head_metadata.collections' | t }}
-    {% elsif template.name == 'cart' %}
-      {{ store_title }} | {{ 'head_metadata.cart' | t }}
-    {% elsif template.name == 'thankyou' %}
-      {{ store_title }} | {{ 'head_metadata.thankyou' | t }}
+  {% case true %}
+    {% when page %}
+      {{ store_title }} | {{ page.name }}
+    {% when product %}
+      {{ store_title }} | {{ product.name }}
+    {% when category %}
+      {{ store_title }} | {{ category.name }}
     {% else %}
-      {{ store_title }} | {{ template.name }}
-    {% endif %}
-  {% endif %}
+      {% case template.name %}
+        {% when 'index' %}
+          {{ store_title }}
+        {% when 'list-collections' %}
+          {{ store_title }} | {{ 'head_metadata.collections' | t }}
+        {% when 'cart' %}
+          {{ store_title }} | {{ 'head_metadata.cart' | t }}
+        {% when 'thankyou' %}
+          {{ store_title }} | {{ 'head_metadata.thankyou' | t }}
+        {% else %}
+          {{ store_title }} | {{ template.name }}
+      {% endcase %}
+  {% endcase %}
 </title>
