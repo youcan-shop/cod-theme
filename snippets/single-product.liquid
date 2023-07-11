@@ -39,10 +39,14 @@
           {%- when 'product_price' -%}
             <div class='product-price-container'>
               <h2 class='product-price'>{{ product.price | money }}</h2>
-              {% if section.settings.show_compare_at_price and product.compare_at_price != nil %}
+              {% if section.settings.show_compare_at_price %}
                 <div class="compare-container">
                   <h3 class="compare-price">
-                    <del>{{ product.compare_at_price | money }}</del>
+                    {%- for variant in product.variants -%}
+                      {% if variant.variations.default and product.compare_at_price != nil %}
+                        <del>{{ product.compare_at_price | money }}</del>
+                      {% endif %}
+                    {% endfor %}
                   </h3>
                   {% if section.settings.tag_text %}
                     <div class="tag">
