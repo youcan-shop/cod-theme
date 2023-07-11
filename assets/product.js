@@ -255,12 +255,26 @@ function getSelectedVariant(parentSection) {
 }
 
 /**
+ * Get the currency Symbol
+ * @param {HTMLElement} parentSection
+ * @return {String} currency symbol
+ */
+function currencySymbol(parentElement) {
+  const currentParent = parentElement.querySelector('.product-price');
+  const priceContent = currentParent.innerText;
+  const currencySymbol = priceContent.replace(/[0-9.,]/g, "").trim();
+
+  return currencySymbol;
+}
+
+/**
  * Updates product details after variant change
  * @param {HTMLElement} parentSection
  * @param {String} image
  * @param {String} price
+ * @param {String} compareAtPrice
  */
-function updateProductDetails(parentSection, image, price) {
+function updateProductDetails(parentSection, image, price, compareAtPrice) {
   if (image) {
     const mainImgs = parentSection.querySelectorAll('.main-image');
 
@@ -272,15 +286,25 @@ function updateProductDetails(parentSection, image, price) {
     const showStickyCheckoutPrice = $('#sticky-price');
 
     productPrices.forEach(productPrice => {
-      const priceText = productPrice.innerText;
-      const currencySymbol = priceText.replace(/[0-9.,]/g, "").trim();
-      const displayValue = `${price} ${currencySymbol}`;
+      const displayValue = `${price} ${currencySymbol(parentSection)}`;
 
       productPrice.innerText = displayValue;
 
       if(showStickyCheckoutPrice) {
         showStickyCheckoutPrice.innerHTML = productPrice.innerHTML;
       }
+    })
+  }
+
+  const variantCompareAtPrices = parentSection.querySelectorAll('.compare-price');
+
+  if(compareAtPrice) {
+    variantCompareAtPrices.forEach(variantComparePrice => {
+      variantComparePrice.innerHTML = `<del> ${compareAtPrice} ${currencySymbol(parentSection)} </del>`;
+    })
+  } else {
+    variantCompareAtPrices.forEach(variantComparePrice => {
+      variantComparePrice.innerHTML = ``;
     })
   }
 }
@@ -561,7 +585,7 @@ function setup() {
       section,
       variant.image,
       variant.price,
-      variant.variations
+      variant.compare_at_price
     );
 
     if (productDetails) {
@@ -574,7 +598,7 @@ function setup() {
           section,
           selectedVariant.image,
           selectedVariant.price,
-          selectedVariant.variations
+          selectedVariant.compare_at_price
         );
       });
 
