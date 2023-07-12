@@ -4,6 +4,11 @@
       "placeholder": "Entrez un mot-clé à rechercher..."
     }
   },
+  "head_metadata": {
+    "collections" : "Collections",
+    "thankyou": "Merci",
+    "cart": "Panier d'achat"
+  },
   "featured_products": {
     "title": "Produits en vedette.a.."
   },
@@ -27,7 +32,7 @@
       "total": "Total",
       "remove_cta": "Supprimer"
     },
-    "summary": { 
+    "summary": {
       "title": "Résumé de la commande",
       "promo": "Code promotionnel",
       "promo_input": "Entrez votre code",

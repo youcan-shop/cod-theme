@@ -3,6 +3,11 @@
     "show_more_button": "شاهد المزيد",
     "large_image_size": "المرجو تحميل صورة أقل من 2mb"
   },
+  "head_metadata": {
+    "collections" : "التصنيفات",
+    "thankyou": "شكرا جزيلا على ثقتكم",
+    "cart": "سلة مشترياتي"
+  },
   "navbar": {
     "search": {
       "placeholder": "ابحث"

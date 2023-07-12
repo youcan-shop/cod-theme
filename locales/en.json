@@ -4,6 +4,11 @@
       "placeholder": "Enter keyword to search for..."
     }
   },
+  "head_metadata": {
+    "collections" : "Collections",
+    "thankyou": "Thank you",
+    "cart": "Shopping Cart"
+  },
   "featured_products": {
     "title": "Featured Products"
   },
