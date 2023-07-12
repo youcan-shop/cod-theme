@@ -142,10 +142,27 @@
 {{ 'utils.css' | asset_url | stylesheet_tag }}
 {{ 'dropdown.css' | asset_url | stylesheet_tag }}
 
+{% assign store_title = store.title | default: store.name %}
+
 <title>
-  {%- if settings.meta_title %}
-    {{ settings.meta_title }}
-  {% else %}
-    {{ store.name }}
+  {% if page %}
+    {{ store_title }} | {{ page.name }}
+  {% elsif product %}
+    {{ store_title }} | {{ product.name }}
+  {% elsif category %}
+    {{ store_title }} | {{ category.name }}
+  {% elsif template %}
+    {% case template.name %}
+      {% when 'index' %}
+        {{ store_title }}
+      {% when 'list-collections' %}
+        {{ store_title }} | {{ 'head_metadata.collections' | t }}
+      {% when 'cart' %}
+        {{ store_title }} | {{ 'head_metadata.cart' | t }}
+      {% when 'thankyou' %}
+        {{ store_title }} | {{ 'head_metadata.thankyou' | t }}
+      {% else %}
+        {{ store_title }} | {{ template.name }}
+    {% endcase %}
   {% endif %}
 </title>

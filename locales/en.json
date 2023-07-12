@@ -4,6 +4,11 @@
       "placeholder": "Enter keyword to search for..."
     }
   },
+  "head_metadata": {
+    "collections" : "Collections",
+    "thankyou": "Thank you",
+    "cart": "Shopping Cart"
+  },
   "featured_products": {
     "title": "Featured Products"
   },
@@ -32,7 +37,7 @@
       "promo_cta": "Apply",
       "total": "Total cost",
       "checkout_cta": "Checkout",
-      "continue_shppping": "Continuer vos achats" 
+      "continue_shppping": "Continuer vos achats"
     },
     "empty": {
       "title": "Your cart is currently empty.",
