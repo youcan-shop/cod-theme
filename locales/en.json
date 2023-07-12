@@ -2,6 +2,11 @@
   "general": {
     "buy_now": "Buy now"
   },
+  "head_metadata": {
+    "collections" : "Collections",
+    "thankyou": "Thank you",
+    "cart": "Shopping Cart"
+  },
   "navbar": {
     "search": {
       "placeholder": "Enter keyword to search for..."

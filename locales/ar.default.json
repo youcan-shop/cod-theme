@@ -3,6 +3,11 @@
     "show_more_button": "عرض المزيد",
     "buy_now": "اشتري الأن"
   },
+  "head_metadata": {
+    "collections" : "التصنيفات",
+    "thankyou": "شكرا جزيلا على ثقتكم",
+    "cart": "سلة مشترياتي"
+  },
   "navbar": {
     "search": {
       "placeholder": "أدخل الكلمة الرئيسية للبحث عنها..."

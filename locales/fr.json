@@ -2,6 +2,11 @@
   "general": {
     "buy_now": "Acheter maintent"
   },
+  "head_metadata": {
+    "collections" : "Collections",
+    "thankyou": "Merci",
+    "cart": "Panier d'achat"
+  },
   "navbar": {
     "search": {
       "placeholder": "Entrez un mot-clé à rechercher..."
