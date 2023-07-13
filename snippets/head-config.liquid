@@ -48,19 +48,6 @@
       var(--yc-font-family){%- endif -%};
     --yc-nav-font-size: {{ settings.navbar_font_size }}px;
 
-    /* Mobile drawer */
-    --yc-drawer-background: {{ settings.drawer_background_color.hex }};
-    --yc-drawer-links-color: {%- if settings.drawer_links_color -%}
-      {{ settings.drawer_links_color.hex }}
-    {%- else -%}
-      var(--yc-neutral-color){%- endif -%};
-    --yc-drawer-links-font-weight: {{ settings.drawer_links_font_weight }};
-    --yc-drawer-links-hover-transparency: {{ settings.drawer_links_hover_transparency }};
-    --yc-drawer-font-family: {%- if settings.drawer_font_family -%}
-      {{ settings.drawer_font_family }}, sans-serif{%- else -%}
-      var(--yc-font-family){%- endif -%};
-    --yc-drawer-font-size: {{ settings.drawer_font_size }}px;
-
     /* Sliders */
     /* -- Desktop */
     --yc-slider-arrows-background: {{ settings.slider_mobile_arrows_background_color.hex }};
