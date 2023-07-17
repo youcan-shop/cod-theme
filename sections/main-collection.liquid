@@ -11,6 +11,11 @@
   </div>
 
   {%- paginate collection.products by per_page cod, category_id: category.id %}
+  <div class="subcategories">
+    {% for subcategory in subCategories %}
+      {% render 'subCategory', subcategory: subcategory %}
+    {% endfor %}
+  </div>
     <div class='product-list'>
       {% for product in items %}
         <div class="product-block">

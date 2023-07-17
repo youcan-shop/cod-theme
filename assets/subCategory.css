@@ -1,0 +1,28 @@
+.subcategories {
+  background-color: #F8F8F8;
+  padding: 20px;
+  margin-top: 47px;
+}
+.subcategories .subcategory-box {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+.subcategories .subcategory-box .name {
+  border: 1px solid #E7E7E7;
+  padding: 20px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: white;
+}
+@media screen and (max-width: 1024px) {
+  .subcategories .subcategory-box {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  .subcategories .subcategory-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

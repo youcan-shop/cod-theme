@@ -1,0 +1,22 @@
+{{ 'subCategory.css' | asset_url | stylesheet_tag }}
+
+<div class="subcategory-box">
+  <a href="/collections/{{ subcategory.slug }}">
+    <div class='thumbnail'>
+      {% if subcategory.image %}
+        <img
+          loading='lazy'
+          src='{{ subcategory.image }}'
+        >
+      {% else %}
+        <img
+          loading='lazy'
+          src='{{ 'default_product.jpeg' | asset_url }}'
+        >
+      {% endif %}
+    </div>
+    <div class="name">
+      {{ subcategory.name }}
+    </div>
+  </a>
+</div>
