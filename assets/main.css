@@ -553,12 +553,16 @@ input:not([type=radio]),
   gap: 20px;
   z-index: 999;
 }
+@media (min-width: 1400px) {
+  .sticky-elements-container {
+    padding: 0 196px;
+  }
+}
 .sticky-elements-container > * {
   flex: 1 1 50%;
 }
 .sticky-elements-container .is_sticky {
   width: 100%;
-  max-width: 800px;
 }
 
 .splide {
