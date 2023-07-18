@@ -1,4 +1,4 @@
-const currencyCode = window.Dotshop.currency.code;
+const currencyCode = window.Dotshop.currency;
 
 async function addToCart(snippetId) {
   const parentSection = document.querySelector(`#s-${snippetId}`);
@@ -134,7 +134,7 @@ function cartTemplate(item) {
           ${CART_DRAWER_TRANSLATION.quantityVariant}:${item.quantity} &nbsp;${variationsCheck}
           </div>
           <div class="product-price">
-            <span class="compare-price">${item.productVariant.compare_at_price ? item.productVariant.compare_at_price : ''}</span>
+            <span class="compare-price">${item.productVariant.compare_at_price ? `${item.productVariant.compare_at_price} ${currencyCode}` : ''}</span>
             <div class="currency-wrapper">
               <span class="price">${item.productVariant.price}</span>
               <span class="currency-code">${currencyCode}</span>
@@ -179,9 +179,9 @@ async function updateCartDrawer() {
         <h2 class="cart">${CART_DRAWER_TRANSLATION.cartName}<span> ${cartData.count} ${CART_DRAWER_TRANSLATION.itemsName}</span></h2>
       </div>
     `;
-    
+
     cartDrawerContent.innerHTML += headerContainer;
-    
+
     // Check if the cart has items
     if (cartData.count > 0) {
       const products = document.createElement('ul');
@@ -189,12 +189,12 @@ async function updateCartDrawer() {
       for (const item of cartData.items) {
         products.innerHTML += cartTemplate(item);
       }
-    
+
       cartDrawerContent.appendChild(products);
-    
+
       // Attach event listeners to the newly added remove buttons
       attachRemoveItemListeners();
-    
+
     } else {
       const p = document.createElement('p');
       p.classList.add('empty-cart');
@@ -213,14 +213,14 @@ async function updateCartDrawer() {
           <span class="spinner footer-spinner" style="display: none;"></span>
         </div>
         <a href='${location.origin}/cart' class="yc-btn">${CART_DRAWER_TRANSLATION.checkoutPayment}</a>
-        <a href='${location.origin}' class="cart-action">${CART_DRAWER_TRANSLATION.continueShopping}</a> 
+        <a href='${location.origin}' class="cart-action">${CART_DRAWER_TRANSLATION.continueShopping}</a>
       </div>
   `;
 
     // Create a DOM element for the footer container
     const footerContainer = document.createElement('div');
     footerContainer.innerHTML = footerContainerHTML;
-    
+
     // Append the footer container to the cart drawer content
     cartDrawerContent.appendChild(footerContainer);
 
@@ -251,7 +251,7 @@ function toggleVisibility(hiddenElement, visibleElement = null) {
   if (hiddenElement) {
     hiddenElement.style.display = hiddenElement.style.display === 'none' ? 'block' : 'none';
   }
-  
+
   if (visibleElement) {
     visibleElement.style.display = visibleElement.style.display === 'none' ? 'block' : 'none';
   }
