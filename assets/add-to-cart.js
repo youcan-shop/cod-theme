@@ -1,5 +1,3 @@
-const currencyCode = window.Dotshop.currency;
-
 async function addToCart(snippetId) {
   const parentSection = document.querySelector(`#s-${snippetId}`);
   const variantId = parentSection.querySelector(`#variantId`)?.value || undefined;

@@ -3,6 +3,18 @@ if (promo) {
   promo.addEventListener('submit', addPromo);
 }
 
+/**
+ * Extract from a string only numbers
+ * @param {string} str
+ * @returns {number} number
+ */
+function extractNumbersFromString(str) {
+  // Use a regular expression to match and remove non-numeric characters
+  const numericPart = str.replace(/^[^0-9-]*(-?\d+(\.\d+)?)?.*$/, '$1');
+
+  return parseFloat(numericPart);
+}
+
 async function addPromo(e) {
   e.preventDefault();
   const coupon = promo['coupon'].value;
@@ -24,8 +36,7 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
   const increase = input.nextElementSibling;
 
   const productPrice = inputHolder.querySelector('.product-price').innerText;
-  const currency = productPrice.split(' ')[0];
-  const price = productPrice.split(' ')[1];
+  const price = extractNumbersFromString(productPrice);
   const totalPrice = inputHolder.querySelector(totalPriceSelector);
 
   decrease
@@ -37,25 +48,24 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
 
   if (isNaN(quantity)) {
     totalPrice.innerText = 0;
-  } else if (currency && price) {
-    totalPrice.innerText = `${currency} ${price * quantity}`;
+  } else if (currencyCode && price) {
+    totalPrice.innerText = `${price * quantity} ${currencyCode}`;
   }
 }
 
 function updateTotalPrice() {
-  let totalPrice = 0;
-  let currency;
+  let calculateTotalPrice = 0;
   const itemPrices = document.querySelectorAll('.item-price');
   itemPrices.forEach(itemPrice => {
-    currency = itemPrice.innerText.split(' ')[0];
-    const price = itemPrice.innerText.split(' ')[1];
-    totalPrice += Number(price);
+    const price = extractNumbersFromString(itemPrice.innerText);
+    calculateTotalPrice += price;
   });
 
   const totalPriceElement = document.querySelector('.item-total-price');
+  const totalPrice = calculateTotalPrice.toFixed(2);
 
   if (totalPriceElement) {
-    totalPriceElement.innerText = `${currency} ${totalPrice}`;
+    totalPriceElement.innerText = `${totalPrice} ${currencyCode}`;
   }
 }
 

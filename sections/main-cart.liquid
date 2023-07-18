@@ -99,7 +99,7 @@
                     <div class='capitalize'>{{ item.name }}</div>
                     <div class="hidden">
                       {%- render 'quantity-input', item: item -%}
-                      <div class='product-price'>{{ item.price | money }}</div>
+                      <div class='product-price'>{{ item.price }}</div>
                     </div>
                     <span class="item-price">{{ item.price | times: item.quantity | money }}</span>
                     </div>
