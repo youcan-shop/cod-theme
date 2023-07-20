@@ -234,6 +234,15 @@
   font-family: var(--yc-font-family);
   line-height: 184.5%;
 }
+.yc-single-product .product-details .product-description .fr-emoticon-img {
+  height: 1em;
+  width: 1em;
+  min-height: 20px;
+  min-width: 20px;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
 .yc-single-product .product-details .product-description strong {
   font-weight: 700;
 }
