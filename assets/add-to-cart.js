@@ -129,7 +129,7 @@ function cartTemplate(item) {
         <div class="item-details">
           <p class="product-name">${item.productVariant.product.name}</p>
           <div class="variants">
-          ${CART_DRAWER_TRANSLATION.quantityVariant}:${item.quantity} &nbsp;${variationsCheck}
+          ${CART_DRAWER_TRANSLATION.quantityVariant}: ${item.quantity} &nbsp;${variationsCheck}
           </div>
           <div class="product-price">
             <span class="compare-price">${item.productVariant.compare_at_price ? `${item.productVariant.compare_at_price} ${currencyCode}` : ''}</span>

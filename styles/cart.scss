@@ -52,21 +52,21 @@
       width: 437px;
       float: left;
       margin-bottom: 40px;
-  
+
       .promo {
         font-weight: 400;
         margin-bottom: 17px;
         font-size: 15px;
       }
-  
+
       input {
         border: 1px solid #BDBDBD;
         border-radius: 4px;
       }
-  
+
       .price-box {
         margin: 25px auto 15px;
-  
+
         .box {
           font-weight: 400;
           font-size: 16px;
@@ -74,7 +74,7 @@
           color: #A8A8A8;
         }
       }
-      
+
       .price-wrapper {
         padding: 0px 18px 18px;
 
@@ -91,13 +91,13 @@
         font-weight: 700;
         font-size: 14px;
       }
-  
+
       .total-price {
         color: var(--yc-primary-color);
         font-weight: 700;
         font-size: 16px;
       }
-  
+
       .border-space {
         padding-bottom: 22px;
         padding: 0px 18px 18px;
@@ -108,7 +108,7 @@
         font-weight: 700;
         font-size: 16px;
       }
-  
+
       @media screen and (max-width: 768px) {
         width: 100%;
       }
@@ -220,7 +220,7 @@
         width: 86%;
       }
 
-      .total-price {
+      .total-price-wrapper span {
         color: var(--yc-primary-color);
         font-weight: 700;
         font-size: 17px;
@@ -245,12 +245,12 @@
       color: #4B5565;
     }
   }
-  
+
   @media screen and (max-width: 767px) {
     .header {
       display: none;
     }
-  
+
     .row {
       flex-wrap: wrap;
       justify-content: center;
@@ -263,7 +263,7 @@
         }
       }
     }
-  
+
     .close-btn {
       button {
         position: absolute;
@@ -272,7 +272,7 @@
         margin: 10px;
       }
     }
-  
+
     .product-title {
       width: 87%;
     }
@@ -280,10 +280,10 @@
     .row .cell:nth-child(n+3) {
       flex-basis: 35%;
     }
-  
+
     .row .cell:nth-child(2),
     .row .cell:nth-child(n+4) {
       flex-basis: 65%;
     }
   }
-}  
+}

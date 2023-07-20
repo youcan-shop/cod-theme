@@ -1,18 +1,18 @@
+/**
+ * Set the currency symbol in the dom for each element
+ */
+function setCurrencySymbol() {
+  const elements = document.querySelectorAll('.product-currency');
+
+  elements.forEach((element) => {
+    element.innerText = currencyCode;
+  })
+}
+setCurrencySymbol();
+
 const promo = document.forms['promo'];
 if (promo) {
   promo.addEventListener('submit', addPromo);
-}
-
-/**
- * Extract from a string only numbers
- * @param {string} str
- * @returns {number} number
- */
-function extractNumbersFromString(str) {
-  // Use a regular expression to match and remove non-numeric characters
-  const numericPart = str.replace(/^[^0-9-]*(-?\d+(\.\d+)?)?.*$/, '$1');
-
-  return parseFloat(numericPart);
 }
 
 async function addPromo(e) {
@@ -35,8 +35,8 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
   const decrease = input.previousElementSibling;
   const increase = input.nextElementSibling;
 
-  const productPrice = inputHolder.querySelector('.product-price').innerText;
-  const price = extractNumbersFromString(productPrice);
+  const productPrice = inputHolder.querySelector('.product-price');
+  const price = Number(productPrice?.innerText);
   const totalPrice = inputHolder.querySelector(totalPriceSelector);
 
   decrease
@@ -49,7 +49,7 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
   if (isNaN(quantity)) {
     totalPrice.innerText = 0;
   } else if (currencyCode && price) {
-    totalPrice.innerText = `${price * quantity} ${currencyCode}`;
+    totalPrice.innerText = price * quantity;
   }
 }
 
@@ -57,8 +57,8 @@ function updateTotalPrice() {
   let calculateTotalPrice = 0;
   const itemPrices = document.querySelectorAll('.item-price');
   itemPrices.forEach(itemPrice => {
-    const price = extractNumbersFromString(itemPrice.innerText);
-    calculateTotalPrice += price;
+    const price = itemPrice.innerText;
+    calculateTotalPrice += Number(price);
   });
 
   const totalPriceElement = document.querySelector('.item-total-price');
