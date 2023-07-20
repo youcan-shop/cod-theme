@@ -211,19 +211,6 @@
       }
     }
 
-    .product-description {
-      overflow: hidden;
-
-      & * {
-        font-family: var(--yc-font-family);
-        line-height: 184.5%;
-      }
-
-      strong {
-        font-weight: 700;
-      }
-    }
-
     .product-option-title {
       text-transform: capitalize;
       margin-top: 0;
@@ -276,6 +263,29 @@
 
   .countdown-wrapper {
     padding: 6px;
+  }
+}
+
+.product-description {
+  overflow: hidden;
+
+  & * {
+    font-family: var(--yc-font-family);
+    line-height: 184.5%;
+  }
+
+  .fr-emoticon-img {
+    height: 1em;
+    width: 1em;
+    min-height: 20px;
+    min-width: 20px;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+  strong {
+    font-weight: 700;
   }
 }
 

@@ -206,16 +206,6 @@
 .yc-single-product .product-details .product-options .yc-image-options-list .active {
   border: 1px solid #000000;
 }
-.yc-single-product .product-details .product-description {
-  overflow: hidden;
-}
-.yc-single-product .product-details .product-description * {
-  font-family: var(--yc-font-family);
-  line-height: 184.5%;
-}
-.yc-single-product .product-details .product-description strong {
-  font-weight: 700;
-}
 .yc-single-product .product-details .product-option-title {
   text-transform: capitalize;
   margin-top: 0;
@@ -262,6 +252,26 @@
 }
 .yc-single-product .countdown-wrapper {
   padding: 6px;
+}
+
+.product-description {
+  overflow: hidden;
+}
+.product-description * {
+  font-family: var(--yc-font-family);
+  line-height: 184.5%;
+}
+.product-description .fr-emoticon-img {
+  height: 1em;
+  width: 1em;
+  min-height: 20px;
+  min-width: 20px;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+.product-description strong {
+  font-weight: 700;
 }
 
 /* ----- Quantity input ----- */
