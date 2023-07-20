@@ -48,7 +48,7 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
 
   if (isNaN(quantity)) {
     totalPrice.innerText = 0;
-  } else if (currencyCode && price) {
+  } else if (price) {
     totalPrice.innerText = price * quantity;
   }
 }
