@@ -32,16 +32,19 @@
               <img loading='lazy' src='{{ item.image }}' alt='product-name'>
             </div>
         </div>
-        <div class='cell '>
+        <div class='cell'>
           <div class="product-title">{{ item.name }}</div>
             <div class="product-variant">
               {% for variant in item.variations %}
                 {% if variant[0] != 'default' or variant[1] != 'default' %}
-                <span>{{ variant[0] }}:{{ variant[1] }}</span>
+                <span>{{ variant[0] }}: {{ variant[1] }}</span>
                 <span class="variant-space"></span>
               {% endif %}
             {% endfor %}
-            <div class='product-price'>{{ item.price | money }}</div>
+            <div>
+              <span class='product-price'> {{ item.price }}</span>
+              <span class='product-currency'></span>
+            </div>
           </div>
         </div>
         <div class='cell'>
@@ -54,7 +57,10 @@
             >
             <span class='spinner h-7 w-7'></span>
           </div>
-          <span class="total-price">{{ item.price | times: item.quantity | money }}</span>
+          <div class="total-price-wrapper">
+            <span class="total-price">{{ item.price | times: item.quantity }}</span>
+            <span class="product-currency"></span>
+          </div>
         </div>
         <div class="cell adjust-space close-btn">
           <button onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')" class='yc-btn-close'>
@@ -97,11 +103,14 @@
                 {%- for item in cart.items %}
                   <div class='flex justify-between text-sm box' id='cart-item-{{ item.id }}'>
                     <div class='capitalize'>{{ item.name }}</div>
-                    <div class="hidden">
-                      {%- render 'quantity-input', item: item -%}
-                      <div class='product-price'>{{ item.price | money }}</div>
-                    </div>
-                    <span class="item-price">{{ item.price | times: item.quantity | money }}</span>
+                      <div class="hidden">
+                        {%- render 'quantity-input', item: item -%}
+                        <div class='product-price'>{{ item.price }}</div>
+                      </div>
+                      <div>
+                        <span class="item-price">{{ item.price | times: item.quantity }}</span>
+                        <span class="product-currency"></span>
+                      </div>
                     </div>
                 {%- endfor %}
               </div>

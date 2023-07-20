@@ -1,3 +1,15 @@
+/**
+ * Set the currency symbol in the dom for each element
+ */
+function setCurrencySymbol() {
+  const elements = document.querySelectorAll('.product-currency');
+
+  elements.forEach((element) => {
+    element.innerText = currencyCode;
+  })
+}
+setCurrencySymbol();
+
 const promo = document.forms['promo'];
 if (promo) {
   promo.addEventListener('submit', addPromo);
@@ -23,9 +35,8 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
   const decrease = input.previousElementSibling;
   const increase = input.nextElementSibling;
 
-  const productPrice = inputHolder.querySelector('.product-price').innerText;
-  const currency = productPrice.split(' ')[0];
-  const price = productPrice.split(' ')[1];
+  const productPrice = inputHolder.querySelector('.product-price');
+  const price = Number(productPrice?.innerText);
   const totalPrice = inputHolder.querySelector(totalPriceSelector);
 
   decrease
@@ -37,25 +48,24 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
 
   if (isNaN(quantity)) {
     totalPrice.innerText = 0;
-  } else if (currency && price) {
-    totalPrice.innerText = `${currency} ${price * quantity}`;
+  } else if (price) {
+    totalPrice.innerText = price * quantity;
   }
 }
 
 function updateTotalPrice() {
-  let totalPrice = 0;
-  let currency;
+  let calculateTotalPrice = 0;
   const itemPrices = document.querySelectorAll('.item-price');
   itemPrices.forEach(itemPrice => {
-    currency = itemPrice.innerText.split(' ')[0];
-    const price = itemPrice.innerText.split(' ')[1];
-    totalPrice += Number(price);
+    const price = itemPrice.innerText;
+    calculateTotalPrice += Number(price);
   });
 
   const totalPriceElement = document.querySelector('.item-total-price');
+  const totalPrice = calculateTotalPrice.toFixed(2);
 
   if (totalPriceElement) {
-    totalPriceElement.innerText = `${currency} ${totalPrice}`;
+    totalPriceElement.innerText = `${totalPrice} ${currencyCode}`;
   }
 }
 
