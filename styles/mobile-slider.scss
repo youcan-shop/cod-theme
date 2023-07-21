@@ -20,14 +20,13 @@
     align-items: center;
     * {
       background-color: transparent !important;
-      color: #000000;
     }
 
     & > div {
       position: relative;
       z-index: 3;
     }
-    
+
     .caption {
       line-height: 39px;
       max-width: 75%;

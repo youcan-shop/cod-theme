@@ -18,7 +18,6 @@
 }
 .yc-slider__mobile .content * {
   background-color: transparent !important;
-  color: #000000;
 }
 .yc-slider__mobile .content > div {
   position: relative;
