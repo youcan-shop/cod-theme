@@ -36,7 +36,7 @@
               </div>
               <div class='cell '>
                 <div class="product-title">{{ item.name }}</div>
-                <div class="product-price" style="display: none">{{ item.price | money }}</div>
+                <div class="product-price" style="display: none">{{ item.price }}</div>
                 <div class="product-variant">
                   {% for variant in item.variations %}
                     <span class="variant">{{ variant.1 }}</span>
@@ -54,7 +54,10 @@
                   >
                   <span class='spinner h-7 w-7'></span>
                 </div>
-                <span class="total-price">{{ item.price | times: item.quantity | money }}</span>
+                <div class="total-price-wrapper">
+                  <span class="total-price">{{ item.price | times: item.quantity }}</span>
+                  <span class="product-currency"></span>
+                </div>
               </div>
               <div class="cell adjust-space close-btn">
                 <button onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')" class='yc-btn-close'>
@@ -100,9 +103,12 @@
                     <div class='capitalize'>{{ item.name }}</div>
                     <div class="hidden">
                       {%- render 'quantity-input', item: item -%}
-                      <div class='product-price'>{{ item.price | money }}</div>
+                      <div class='product-price'>{{ item.price }}</div>
                     </div>
-                    <span class="item-price">{{ item.price | times: item.quantity | money }}</span>
+                    <div>
+                      <span class="item-price">{{ item.price | times: item.quantity }}</span>
+                      <span class="product-currency"></span>
+                    </div>
                   </div>
                 {%- endfor %}
               </div>

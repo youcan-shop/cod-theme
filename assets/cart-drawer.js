@@ -18,20 +18,12 @@ async function setupCartDrawer() {
   const cartDrawerTotalEl = document.querySelector('.cart-drawer .total')
 
   /**
-   * Basing on the cartDrawerTotalEl content and replacing only the number and keeping the currency symbol
-   * @param {Number} price
-   */
-  function money(price) {
-    return cartDrawerTotalEl.innerHTML.replace(/(\d+\.?\d*)/, price)
-  }
-
-  /**
    * Return a product variant HTML string
    * @param {cartItem} - the cart item
    * @returns {string} - HTML content
    */
   function createCartItemHtml(cartItem) {
-    const { productVariant, quantity, id } = cartItem
+    const { productVariant, quantity, id } = cartItem;
 
     // Check if there is not an image available
     const imageUrl = productVariant.product.images.length > 0 ? productVariant.product.images[0].url : defaultImage;
@@ -55,7 +47,7 @@ async function setupCartDrawer() {
             </div>
           </div>
           <div class='price-trash-holder'>
-            <div class='price'>${money(productVariant.price * quantity)}</div>
+            <div class='price'>${isFloat(productVariant.price * quantity)} ${currencyCode}</div>
             <button onclick="removeCartItem('${id}', '${productVariant.id}')">
               ${CART_DRAWER_LOCALES.remove}
             </button>
@@ -68,13 +60,13 @@ async function setupCartDrawer() {
   }
 
   try {
-    const cartObject = await youcanjs.cart.fetch()
-    const cartItems = cartObject.items
+    const cartObject = await youcanjs.cart.fetch();
+    const cartItems = cartObject.items;
 
     if (!cartItems || cartItems.data) return
 
-    cartDrawerContentEl.innerHTML = cartItems.map(createCartItemHtml).join('')
-    cartDrawerTotalEl.innerHTML = money(cartObject.total)
+    cartDrawerContentEl.innerHTML = cartItems.map(createCartItemHtml).join('');
+    cartDrawerTotalEl.innerHTML = `${isFloat(cartObject.sub_total)} ${currencyCode}`;
   } catch (error) {
     console.error(error)
   }
@@ -82,7 +74,7 @@ async function setupCartDrawer() {
 
 closeCartDrawerBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
-    const overlay = document.querySelector('.global-overlay')
+    const overlay = document.querySelector('.global-overlay');
 
     if (overlay) overlay.click()
   })

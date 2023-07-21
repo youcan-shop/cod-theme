@@ -1,3 +1,15 @@
+/**
+ * Set the currency symbol in the dom for each element
+ */
+function setCurrencySymbol() {
+  const elements = document.querySelectorAll('.product-currency');
+
+  elements.forEach((element) => {
+    element.innerText = currencyCode;
+  })
+}
+setCurrencySymbol();
+
 const promo = document.forms['promo'];
 if (promo) {
   promo.addEventListener('submit', addPromo);
@@ -23,9 +35,8 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
   const decrease = input.previousElementSibling;
   const increase = input.nextElementSibling;
 
-  const productPrice = inputHolder.querySelector('.product-price').innerText;
-  const currency = productPrice.split(' ')[0];
-  const price = productPrice.split(' ')[1];
+  const productPrice = inputHolder.querySelector('.product-price');
+  const price = productPrice.innerText;
   const totalPrice = inputHolder.querySelector(totalPriceSelector);
 
   decrease
@@ -37,38 +48,40 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
 
   if (isNaN(quantity)) {
     totalPrice.innerText = 0;
-  } else if (currency && price) {
-    totalPrice.innerText = `${currency} ${price * quantity}`;
+  } else if (price) {
+    totalPrice.innerText = isFloat(price * quantity);
   }
 
   setupCartDrawer();
 }
 
-function updateTotalPrice() {
-  let totalPrice = 0;
-  let currency;
-  const itemPrices = document.querySelectorAll('.item-price');
-  itemPrices.forEach(itemPrice => {
-    currency = itemPrice.innerText.split(' ')[0];
-    const price = itemPrice.innerText.split(' ')[1];
-    totalPrice += Number(price);
-  });
-
-  const totalPriceElement = document.querySelector('.item-total-price');
-
-  if (totalPriceElement) {
-    totalPriceElement.innerText = `${currency} ${totalPrice}`;
-  }
-}
-
 function updateDOM(cartItemId, productVariantId, quantity) {
   updateCart(cartItemId, quantity, '.total-price', cartItemId, productVariantId);
-  updateTotalPrice();
 }
 
 function updatePrice(cartItemUniqueId, productVariantId, quantity) {
   updateCart(`cart-item-${cartItemUniqueId}`, quantity, '.item-price', cartItemUniqueId, productVariantId);
 }
+
+async function updateTotalPrice() {
+  try {
+    const cartObject = await youcanjs.cart.fetch();
+
+    if (!cartObject) return;
+
+    const totalPriceElement = document.querySelector('.item-total-price');
+
+    if (totalPriceElement) {
+      totalPriceElement.innerHTML = `${isFloat(cartObject.sub_total)} ${currencyCode}`;
+    }
+  } catch (e) {
+    notify(e.message, 'error');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await updateTotalPrice();
+});
 
 async function updateQuantity(cartItemId, productVariantId, quantity) {
   load(`#loading__${cartItemId}`);
@@ -81,11 +94,9 @@ async function updateQuantity(cartItemId, productVariantId, quantity) {
   }
   updateDOM(cartItemId, productVariantId, quantity);
   updatePrice(cartItemId, productVariantId, quantity);
-  updateTotalPrice();
-
+  await updateTotalPrice();
   setupCartDrawer();
 }
-
 
 async function updateOnchange(cartItemId, productVariantId) {
   const inputHolder = document.getElementById(cartItemId);
@@ -93,15 +104,7 @@ async function updateOnchange(cartItemId, productVariantId) {
   const quantity = input.value;
 
   await updateQuantity(cartItemId, productVariantId, quantity);
-  updateDOM(cartItemId, productVariantId, quantity);
-  updatePrice(cartItemId, productVariantId, quantity);
-
-  updateTotalPrice();
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  updateTotalPrice();
-});
 
 async function decreaseQuantity(cartItemId, productVariantId, quantity) {
   if (quantity < 1) {
@@ -121,7 +124,7 @@ async function removeItem(cartItemId, productVariantId) {
     document.getElementById(cartItemId).remove();
     document.getElementById(`cart-item-${cartItemId}`).remove();
 
-    updateTotalPrice();
+    await updateTotalPrice();
 
     const cartItemsCount = document.getElementById('cart-items-count');
     const cartItemsBadge = document.getElementById('cart-items-badge');

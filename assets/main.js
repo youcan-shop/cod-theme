@@ -1,3 +1,5 @@
+/* ----- Store currency ----- */
+const currencyCode = window.Dotshop.currency;
 /* ------------------ */
 /* ----- navbar ----- */
 /* ------------------ */

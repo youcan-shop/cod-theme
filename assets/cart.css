@@ -205,7 +205,7 @@
   margin-bottom: 10px;
   width: 86%;
 }
-.table-container .row .cell .total-price {
+.table-container .row .cell .total-price-wrapper span {
   color: var(--yc-primary-color);
   font-weight: 700;
   font-size: 17px;
