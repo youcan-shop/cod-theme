@@ -124,12 +124,9 @@
         font-weight: 400;
         color: #000000;
         font-size: 12px;
-        width: 90%;
       }
 
-      .item-price {
-        width: 20%;
-        text-align: end;
+      .item-price-wrapper span {
         font-weight: 700;
         font-size: 14px;
       }
@@ -266,7 +263,7 @@
         justify-content: center;
         grid-area: row3;
 
-        .total-price {
+        .total-price-wrapper span {
           font-weight: 700;
           font-size: 18px;
           color: var(--yc-primary-color);

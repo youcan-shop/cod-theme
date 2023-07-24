@@ -1,5 +1,3 @@
-const currencyCode = window.Dotshop.currency.code;
-
 async function addToCart(snippetId) {
   const parentSection = document.querySelector(`#s-${snippetId}`);
   const variantId = parentSection.querySelector(`#variantId`)?.value || undefined;
@@ -31,7 +29,7 @@ async function addToCart(snippetId) {
     if (cart) {
       let cartBadgeBudge = response.count;
       cart.innerHTML = cartBadgeBudge;
-      
+
       // Update the cart drawer
       if (cartDrawer) {
         await updateCartDrawer();
@@ -54,13 +52,13 @@ function attachRemoveItemListeners() {
       const productVariantId = event.target.getAttribute('data-product-variant-id');
 
       await removeCartItem(cartItemId, productVariantId);
-      
+
       // Update the cart drawer after removing an item
       await updateCartDrawer();
-      
+
       // Update the total number of items in the cart badge
       const cartBadge = document.querySelector('#cart-items-badge');
-      
+
       if (cartBadge) {
         const updatedCount = Number(cartBadge.innerHTML) - 1;
         cartBadge.innerHTML = updatedCount;
@@ -120,8 +118,7 @@ function cartTemplate(item) {
           ${CART_DRAWER_TRANSLATION.quantityVariant}:${item.quantity} &nbsp;${variationsCheck}
           </div>
           <div class="product-price">
-            <span class="compare-price">${item.productVariant.compare_at_price ? item.productVariant.compare_at_price : ''}</span>
-            <span class="compare-price-currency">${currencyCode}</span>
+            <span class="compare-price">${item.productVariant.compare_at_price ? `${item.productVariant.compare_at_price} ${currencyCode}` : ''}</span>
             <div class="currency-wrapper">
               <span class="price">${item.productVariant.price}</span>
               <span class="currency-code">${currencyCode}</span>
@@ -158,9 +155,9 @@ async function updateCartDrawer() {
         <h2 class="cart">${CART_DRAWER_TRANSLATION.cartName}<span> ${cartData.count}</span></h2>
       </div>
     `;
-    
+
     cartDrawerContent.innerHTML += headerContainer;
-    
+
     // Check if the cart has items
     if (cartData.count > 0) {
       const products = document.createElement('ul');
@@ -168,12 +165,12 @@ async function updateCartDrawer() {
       for (const item of cartData.items) {
         products.innerHTML += cartTemplate(item);
       }
-    
+
       cartDrawerContent.appendChild(products);
-    
+
       // Attach event listeners to the newly added remove buttons
       attachRemoveItemListeners();
-    
+
     } else {
       const p = document.createElement('p');
       p.classList.add('empty-cart');
@@ -197,7 +194,7 @@ async function updateCartDrawer() {
     // Create a DOM element for the footer container
     const footerContainer = document.createElement('div');
     footerContainer.innerHTML = footerContainerHTML;
-    
+
     // Append the footer container to the cart drawer content
     cartDrawerContent.appendChild(footerContainer);
 
@@ -208,7 +205,7 @@ async function updateCartDrawer() {
 
 function toggleCartDrawer() {
   const cartDrawer = document.querySelector('.cart-drawer');
-  
+
   if (!cartDrawer) {
     console.error('Cart drawer not found');
     return;
@@ -239,5 +236,3 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Update Cart Drawer on page load
   await updateCartDrawer();
 });
-
-window.updateCartDrawer = updateCartDrawer;

@@ -118,3 +118,18 @@ function mountSlider(isMobile, mobileSlider, desktopSlider) {
   runSlider();
   isMobile.addEventListener('change', runSlider, { passive: true });
 }
+
+/**
+ * If the value is float fix the decimal in tow digits
+ * @param {string | number} value
+ * @returns {number} formated value
+ */
+function isFloat(value) {
+  const numericValue = Number(value);
+
+  if (Number.isInteger(numericValue)) {
+    return numericValue.toFixed(0);
+  }
+
+  return numericValue.toFixed(2);
+}

@@ -111,11 +111,8 @@
   font-weight: 400;
   color: #000000;
   font-size: 12px;
-  width: 90%;
 }
-.cart-bg-color .yc-cart-container .summary-box .price-wrapper .item-price {
-  width: 20%;
-  text-align: end;
+.cart-bg-color .yc-cart-container .summary-box .price-wrapper .item-price-wrapper span {
   font-weight: 700;
   font-size: 14px;
 }
@@ -233,7 +230,7 @@
   justify-content: center;
   grid-area: row3;
 }
-.cart-bg-color .table-container .table-columns .total-price-table .total-price {
+.cart-bg-color .table-container .table-columns .total-price-table .total-price-wrapper span {
   font-weight: 700;
   font-size: 18px;
   color: var(--yc-primary-color);

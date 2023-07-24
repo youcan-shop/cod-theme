@@ -69,6 +69,7 @@
   }
 
   .footer {
+    background-color: white;
     border-top: 1px solid #EBEBEB;
     position: absolute;
     bottom: 0;
@@ -124,6 +125,7 @@
 
         @include max-screen('md') {
           padding: 20px 0;
+          gap: 12px;
         }
       }
 
@@ -139,7 +141,21 @@
       }
 
       .item-details {
-        max-width: 195px;
+        padding-left: 17px;
+
+        [dir='ltr'] & {
+          padding-right: 17px;
+          padding-left: unset;
+        }
+
+        @include breakpoint('md') {
+          padding-left: 24px;
+
+          [dir='ltr'] & {
+            padding-right: 24px;
+            padding-left: unset;
+          }
+        }
 
         .product-name {
           font-weight: 600;

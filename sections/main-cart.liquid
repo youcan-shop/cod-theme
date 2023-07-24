@@ -29,11 +29,11 @@
                 <div class="product-variants">
                 {% for variant in item.variations %}
                   {% if variant[0] != 'default' or variant[1] != 'default' %}
-                    <span>{{ variant[0] }}:{{ variant[1] }}</span>
+                    <span>{{ variant[0] }}: {{ variant[1] }}</span>
                     <span class="variant-space"></span>
                   {% endif %}
                 {% endfor %}
-                <div class='product-price'>{{ item.price | money }}</div>
+                <div class='product-price'>{{ item.price }}</div>
               </div>
               </div>
             </div>
@@ -47,7 +47,10 @@
                 >
                 <span class='spinner h-7 w-7'></span>
                 </div>
-                <span class="total-price">{{ item.price | times: item.quantity | money }}</span>
+                <div class="total-price-wrapper">
+                  <span class="total-price">{{ item.price | times: item.quantity }}</span>
+                  <span class="product-currency"></span>
+                </div>
               </div>
               <div class="close-btn">
                 <button onclick="removeItem('{{ item.id }}', '{{ item.product_variant_id }}')" class='yc-btn-close'>
@@ -92,10 +95,13 @@
                       <div class='products'>{{ 'cart.summary.product_name' | t }}</div>
                       <div class="hidden">
                         {%- render 'quantity-input', item: item -%}
-                        <div class='product-price'>{{ item.price | money }}</div>
+                        <div class='product-price'>{{ item.price }}</div>
                       </div>
-                      <span class="item-price">{{ item.price | times: item.quantity | money }}</span>
+                      <div class="item-price-wrapper">
+                        <span class="item-price">{{ item.price | times: item.quantity }}</span>
+                        <span class="product-currency"></span>
                       </div>
+                    </div>
                   {%- endfor %}
                 </div>
               {%- endif %}
