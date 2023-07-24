@@ -239,42 +239,12 @@
                 "product": "cf3ed4d6-2109-463a-8422-be423a229cad",
                 "reviews_title": "Reviews"
             }
-        },
-        "section_ud9y8j6q7fg2fqa": {
-            "type": "product-column",
-            "settings": {
-                "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d",
-                "show_compare_at_price": true,
-                "padding_top": 50,
-                "padding_bottom": 50,
-                "tag_color": "#000000",
-                "tag_text_color": "#ffffff",
-                "tag_position": "top_right",
-                "product_description": "<p>حقيبة كتف مضادة للسرقة، مقاومة للماء و المواد السائلة و مقاومة للسقوط،خفيفة الوزن، متعددة الأغراض وقوية. تصميم بسيط وخفيف للحمل. تحتوي على جيب رئيسي واحد و3 جيوب بسحاب. تحتوي على مساحة كافية لجميع مستلزماتك الأساسية مثل أيباد وهاتف ومحفظة وبطاقة الائتمان والمفاتيح وسماعات الأذن وما إلى ذلك. كل ذلك في وقت واحد يحافظ على يديك حرتين حتى تتمكن من الاستمتاع بوقتك. رائعة للاستخدام في الأعمال أوالمشي لمسافات طويلة والتخييم والمدرسة وركوب الدراجات إلخ.<\/p>",
-                "space_bottom": 45,
-                "tag_text": "جديد"
-            },
-            "blocks": {
-                "block_ugxi2zdjdna59m6": {
-                    "type": "product_title",
-                    "settings": {}
-                },
-                "block_uhwne92qdzzwxno": {
-                    "type": "product_price",
-                    "settings": {}
-                }
-            },
-            "order": [
-                "block_ugxi2zdjdna59m6",
-                "block_uhwne92qdzzwxno"
-            ]
         }
     },
     "order": [
         "section_qum9qooyrwe3uz",
         "section_62tm9748qh15wfk",
         "section_609gq1tx2x0aaa",
-        "section_ud9y8j6q7fg2fqa",
         "section_b3g5zwjngmukzqp"
     ]
 }
