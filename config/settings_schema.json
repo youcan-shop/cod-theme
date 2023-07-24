@@ -49,8 +49,8 @@
       "label": "Color Palette",
       "settings": [
           {
-            "type": "paragraph",
-            "content": "ℹ️ To offer a branded experience to your customers, make sure to also update the checkout color palette in the seller area (Settings > Checkout)."
+              "type": "paragraph",
+              "content": "ℹ️ To offer a branded experience to your customers, make sure to also update the checkout color palette in the seller area (Settings > Checkout)."
           },
           {
               "type": "color",
