@@ -26,7 +26,7 @@
               "block_c3yr5q7hebgkvhl": {
                   "type": "express_checkout",
                   "settings": {
-                      "button_background_color": "#E7412F",
+                      "button_background_color": "#E7412FFF",
                       "express_checkout_cta": "اشتري الآن",
                       "form_title": "للطلب يرجى ملء هذا النموذج سنتصل بكم في أقرب وقت ممكن!",
                       "is_sticky": true,
@@ -37,7 +37,8 @@
                       "input_background_color": "#FFFFFFFF",
                       "input_border_color": "#000000FF",
                       "button_text_color": "#FFFFFFFF",
-                      "button_border_radius": 4
+                      "button_border_radius": 4,
+                      "button_padding": 10
                   }
               },
               "block_pzioaso3gj4cbaw": {
@@ -62,8 +63,8 @@
                   "settings": {
                       "accordion_title": "التوصيل",
                       "accordion_details": "<p>الشحن مجانا والدفع عند التسليم. يتم التوصيل عادةً في أيام عمل 1-3<\/p>",
-                      "background_color": "#F7F7F7",
-                      "text_color": "#000000",
+                      "background_color": "#F7F7F7FF",
+                      "text_color": "#000000FF",
                       "margin_bottom": 14
                   }
               },
@@ -72,8 +73,8 @@
                   "settings": {
                       "accordion_title": "سياسة الاسترجاع",
                       "accordion_details": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة <\/span><\/p>",
-                      "background_color": "#F7F7F7",
-                      "text_color": "#000000",
+                      "background_color": "#F7F7F7FF",
+                      "text_color": "#000000FF",
                       "margin_bottom": 14
                   }
               },
@@ -82,9 +83,18 @@
                   "settings": {
                       "accordion_title": "30 يوم ضمان",
                       "accordion_details": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي<\/span><\/p>",
-                      "background_color": "#F7F7F7",
-                      "text_color": "#000000",
+                      "background_color": "#F7F7F7FF",
+                      "text_color": "#000000FF",
                       "margin_bottom": 14
+                  }
+              },
+              "block_cyrka80i6ho5b1s": {
+                  "type": "add_to_cart",
+                  "settings": {
+                      "text_content": "Add to cart",
+                      "is_sticky": false,
+                      "background_color": "#E7412FFF",
+                      "text_color": "#FFFFFFFF"
                   }
               }
           },
@@ -96,6 +106,7 @@
               "block_0cgb9qnrmae2tlc",
               "block_08c3kk0zsiefipf",
               "block_bqucb72r61sazu",
+              "block_cyrka80i6ho5b1s",
               "block_c3yr5q7hebgkvhl",
               "block_jdwjeadhbkzk4s",
               "block_sm3wh95w328cf1g",
@@ -104,7 +115,10 @@
           "settings": {
               "show_compare_at_price": true,
               "tag_text": "خصم بقيمه 40% ",
-              "tag_color": "#F33520"
+              "tag_color": "#F33520",
+              "tag_text_color": "#FFFFFFFF",
+              "tag_background_color": "#000000FF",
+              "price_tag_background_color": "#F33520FF"
           }
       },
       "section_5hprcshvo24mjm9": {
