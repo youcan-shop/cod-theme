@@ -40,7 +40,6 @@
 }
 .yc-slider__desktop .content * {
   background-color: transparent !important;
-  color: white !important;
 }
 .yc-slider__desktop .content > div {
   max-width: 30rem;

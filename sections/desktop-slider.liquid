@@ -13,6 +13,14 @@
   .section-slider-{{ id }} #yc_slider_{{ id }} .content {
     background-color: {{ section.settings.slider_overlay_background_color.hex }};
   }
+
+  .section-slider-{{ id }} .yc-slider__desktop .caption > * {
+    color: {{ section.settings.caption_text_color.hex }};
+  }
+
+  .section-slider-{{ id }} .yc-slider__mobile .caption > * {
+    color: {{ section.settings.caption_text_color.hex }};
+  }
 {% endstyle %}
 
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
@@ -79,6 +87,12 @@
     {
       "type": "paragraph",
       "content": "ℹ️ These settings will be applied to desktop devices."
+    },
+    {
+      "type": "color",
+      "id": "caption_text_color",
+      "label": "Caption text color",
+      "default": "#000"
     },
     {
       "type": "color",

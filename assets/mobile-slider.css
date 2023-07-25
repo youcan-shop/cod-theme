@@ -12,7 +12,6 @@
 }
 .yc-slider__mobile .content * {
   background-color: transparent !important;
-  color: white !important;
 }
 .yc-slider__mobile .content > div {
   max-width: 30rem;
