@@ -117,8 +117,13 @@ if (overlay) {
   hideOverlay();
 }
 
-function openDrawer(el) {
+function openDrawer(el, templateName) {
+  if(el === '.cart-drawer' && templateName === 'cart') {
+    return window.location.reload();
+  }
+
   const targetedDrawer = document.querySelector(`.navigation-drawer${el}`);
+
   if (targetedDrawer) {
     showOverlay();
     targetedDrawer.style.transform = 'none';

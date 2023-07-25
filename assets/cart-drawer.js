@@ -1,5 +1,3 @@
-const closeCartDrawerBtn = document.querySelectorAll('.close-cart-drawer-btn');
-
 /**
  * Remove a cart item from the cart
  * @param {String} cartItemId - cart item id
@@ -9,7 +7,7 @@ const closeCartDrawerBtn = document.querySelectorAll('.close-cart-drawer-btn');
 async function removeCartItem(cartItemId, productVariantId) {
   try {
     await youcanjs.cart.removeItem({ cartItemId, productVariantId });
-    setupCartDrawer()
+    await setupCartDrawer();
   } catch (error) { }
 }
 
@@ -72,14 +70,25 @@ async function setupCartDrawer() {
   }
 }
 
-closeCartDrawerBtn.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const overlay = document.querySelector('.global-overlay');
+document.addEventListener('DOMContentLoaded', async () => {
+  await setupCartDrawer();
+})
 
-    if (overlay) overlay.click()
+/**
+ * Close the cart drawer
+ */
+function closeCartDrawer() {
+  const closeCartDrawerBtn = document.querySelectorAll('.close-cart-drawer-btn');
+
+  closeCartDrawerBtn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const overlay = document.querySelector('.global-overlay');
+
+      if (overlay) {
+        overlay.click();
+      }
+    })
   })
-})
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-  setupCartDrawer()
-})
+closeCartDrawer();

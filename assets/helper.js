@@ -121,12 +121,14 @@ function mountSlider(isMobile, mobileSlider, desktopSlider) {
  * @returns {number} formated value
  */
 function isFloat(value) {
-  // Convert the value to a number if it's a string
+  if(isNaN(value)) {
+    return 0;
+  }
   const numericValue = Number(value);
 
-  if(Number.isFinite(numericValue) && numericValue % 1 !== 0) {
-    return numericValue.toFixed(2);
+  if (Number.isInteger(numericValue)) {
+    return numericValue.toFixed(0);
   }
 
-  return numericValue;
+  return numericValue.toFixed(2);
 }

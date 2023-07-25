@@ -8,7 +8,6 @@ function setCurrencySymbol() {
     element.innerText = currencyCode;
   })
 }
-setCurrencySymbol();
 
 const promo = document.forms['promo'];
 if (promo) {
@@ -49,7 +48,7 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
   if (isNaN(quantity)) {
     totalPrice.innerText = 0;
   } else if (price) {
-    totalPrice.innerText = isFloat(price * quantity);
+    totalPrice.innerText = isFloat(Number(price) * quantity);
   }
 
   setupCartDrawer();
@@ -80,6 +79,7 @@ async function updateTotalPrice() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  setCurrencySymbol();
   await updateTotalPrice();
 });
 
