@@ -29,7 +29,7 @@
                       "button_background_color": "#E52B2A",
                       "express_checkout_cta": "اشتري الآن",
                       "form_title": "للطلب يرجى ملء هذا النموذج سنتصل بكم في أقرب وقت ممكن!",
-                      "is_sticky": false,
+                      "is_sticky": true,
                       "input_border_radius": 0,
                       "input_text_size": 13,
                       "input_placeholder_color": "#A8A8A8FF",
