@@ -82,7 +82,7 @@
                 <ion-icon class="close-search" name="close-outline"></ion-icon>
               </div>
             </div>
-            <button class='cart relative' id='navbar-cart-icon'>
+            <button class='cart relative' id='navbar-cart-icon' onclick='preventCartDrawerOpening("{{ template.name }}")'>
               <span id='cart-items-badge'>
                 {{- cart.items | size -}}
               </span>

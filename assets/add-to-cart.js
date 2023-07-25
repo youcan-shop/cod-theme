@@ -236,3 +236,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Update Cart Drawer on page load
   await updateCartDrawer();
 });
+
+/**
+ * Remove the click event from the cart icon if the user is inside the cart page
+ */
+function preventCartDrawerOpening(templateName) {
+  if(templateName !== 'cart') {
+    return;
+  }
+
+  const cartDrawerIcon = document.querySelector('#navbar-cart-icon');
+
+  cartDrawerIcon.removeEventListener("click", toggleCartDrawer);
+  window.location.reload();
+}
