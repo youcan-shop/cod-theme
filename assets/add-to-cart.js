@@ -291,3 +291,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   attachEventListeners();
   await updateCartDrawer();
 });
+
+/**
+ * Remove the click event from the cart icon if the user is inside the cart page
+ */
+function preventCartDrawerOpening() {
+  if(window.location.pathname !== '/cart') {
+    return;
+  }
+
+  const cartDrawerIcon = document.querySelector('#navbar-cart-icon');
+
+  cartDrawerIcon.removeEventListener("click", toggleCartDrawer);
+  window.location.reload();
+}
