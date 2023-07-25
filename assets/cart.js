@@ -8,7 +8,6 @@ function setCurrencySymbol() {
     element.innerText = currencyCode;
   })
 }
-setCurrencySymbol();
 
 const promo = document.forms['promo'];
 if (promo) {
@@ -36,7 +35,7 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
   const increase = input.nextElementSibling;
 
   const productPrice = inputHolder.querySelector('.product-price');
-  const price = Number(productPrice?.innerText);
+  const price = productPrice.innerText;
   const totalPrice = inputHolder.querySelector(totalPriceSelector);
 
   decrease
@@ -49,25 +48,31 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
   if (isNaN(quantity)) {
     totalPrice.innerText = 0;
   } else if (price) {
-    totalPrice.innerText = price * quantity;
+    totalPrice.innerText = isFloat(Number(price) * quantity);
   }
 }
 
 function updateTotalPrice() {
   let calculateTotalPrice = 0;
   const itemPrices = document.querySelectorAll('.item-price');
+
   itemPrices.forEach(itemPrice => {
     const price = itemPrice.innerText;
     calculateTotalPrice += Number(price);
   });
 
   const totalPriceElement = document.querySelector('.item-total-price');
-  const totalPrice = calculateTotalPrice.toFixed(2);
+  const totalPrice = isFloat(calculateTotalPrice);
 
   if (totalPriceElement) {
     totalPriceElement.innerText = `${totalPrice} ${currencyCode}`;
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  setCurrencySymbol();
+  updateTotalPrice();
+});
 
 function updateDOM(cartItemId, productVariantId, quantity) {
   updateCart(cartItemId, quantity, '.total-price', cartItemId, productVariantId);
@@ -90,8 +95,8 @@ async function updateQuantity(cartItemId, productVariantId, quantity) {
   updateDOM(cartItemId, productVariantId, quantity);
   updatePrice(cartItemId,productVariantId,quantity);
   updateTotalPrice();
+  await updateCartDrawer();
 }
-
 
 async function updateOnchange(cartItemId, productVariantId) {
   const inputHolder = document.getElementById(cartItemId);
@@ -99,14 +104,7 @@ async function updateOnchange(cartItemId, productVariantId) {
   const quantity = input.value;
 
   await updateQuantity(cartItemId, productVariantId, quantity);
-  updateDOM(cartItemId, productVariantId, quantity);
-  updatePrice(cartItemId,productVariantId,quantity);
-  updateTotalPrice();
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  updateTotalPrice();
-});
 
 async function decreaseQuantity(cartItemId, productVariantId, quantity) {
   if (quantity < 1) {
@@ -119,12 +117,22 @@ async function increaseQuantity(cartItemId, productVariantId, quantity) {
   await updateQuantity(cartItemId, productVariantId, quantity);
 }
 
+function updateCartItemCount(count) {
+  const cartItemsCount = document.getElementById('cart-items-count');
+  if (cartItemsCount) {
+    cartItemsCount.textContent = count;
+  }
+}
+
 async function removeItem(cartItemId, productVariantId) {
   load(`#loading__${cartItemId}`);
   try {
     await youcanjs.cart.removeItem({ cartItemId, productVariantId });
     document.getElementById(cartItemId).remove();
     document.getElementById(`cart-item-${cartItemId}`).remove();
+
+    const updatedCart = await youcanjs.cart.fetch();
+    updateCartItemCount(updatedCart.count);
 
     updateTotalPrice();
     await updateCartDrawer();
@@ -160,5 +168,3 @@ async function removeItem(cartItemId, productVariantId) {
     stopLoad(`#loading__${cartItemId}`);
   }
 }
-
-window.removeItem = removeItem;
