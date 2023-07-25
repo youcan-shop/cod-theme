@@ -14,7 +14,7 @@
 <div class='yc-{{ uniq }}-add-to-cart{% if is_sticky %} is_sticky{% endif %}'>
   <button
     class='yc-btn'
-    onclick="(async () => { await addToCart('{{ snippetId }}'); })()"
+    onclick='addToCart("{{ snippetId }}")'
   >
     <span
       class='spinner hidden'

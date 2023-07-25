@@ -295,8 +295,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 /**
  * Remove the click event from the cart icon if the user is inside the cart page
  */
-function preventCartDrawerOpening() {
-  if(window.location.pathname !== '/cart') {
+function preventCartDrawerOpening(templateName) {
+  if(templateName !== 'cart') {
     return;
   }
 

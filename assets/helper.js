@@ -121,6 +121,10 @@ function mountSlider(isMobile, mobileSlider, desktopSlider) {
  * @returns {number} formated value
  */
 function isFloat(value) {
+  if (isNaN(value)) {
+    return 0;
+  }
+
   const numericValue = Number(value);
 
   if (Number.isInteger(numericValue)) {
