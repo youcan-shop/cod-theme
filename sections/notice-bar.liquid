@@ -36,7 +36,9 @@
 
 {%- if section.settings.notice_bar_show_mobile %}
   <div class='yc-notice mobile container'>
-    <img src='{%- if section.settings.notice_bar_logo.src -%} {{ section.settings.notice_bar_logo.src }} {%- else -%} {{ 'Truck.png' | asset_url }} {%- endif -%}'>
+    {%- if section.settings.notice_bar_logo.src -%}
+      <img src='{{ section.settings.notice_bar_logo.src }}'>
+    {%- endif -%}
     <div class='content'>{{ section.settings.notice_bar_content_mobile }}</div>
   </div>
 {%- endif %}
