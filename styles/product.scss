@@ -32,6 +32,7 @@
     @include breakpoint('md') {
       position: sticky;
       top: calc(var(--yc-nav-height) + 30px);
+      width: 50%;
     }
 
     .splide {
@@ -130,6 +131,10 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+
+    @include breakpoint('md') {
+      width: 50%;
+    }
 
     .product-name {
       display: none;
