@@ -51,8 +51,7 @@
                 "settings": {
                     "footer_background_color": "#FFFFFFFF",
                     "mention_and_social_media": true,
-                    "mention": "<p>Made with love by YouCan. 2023<\/p>",
-                    "footer_logo": "نيويوك-2NHxZCCZCG1uQu9pm2d010Gmx5j.png"
+                    "mention": "<p>Made with love by YouCan. 2023<\/p>"
                 },
                 "blocks": {
                     "block_social": {
