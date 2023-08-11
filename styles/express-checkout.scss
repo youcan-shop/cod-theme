@@ -9,6 +9,7 @@ $sticky-checkout-padding: 20px;
     box-shadow: 1px -1px 23px rgba(0, 0, 0, 0.04);
     border-radius: 4px;
     padding: 20px;
+    width: 100%;
     grid-gap: 18px;
   }
 }
@@ -75,11 +76,16 @@ $sticky-checkout-padding: 20px;
 
   .sticky-product-details {
     overflow-y: scroll;
-    padding: 0 20px;
+    padding: 0;
     margin-bottom: 90px;
+    width: 100%;
 
     .options .product-quantity {
       margin-top: 36px;
+    }
+
+    @include breakpoint('md') {
+      padding: 0 20px;
     }
   }
   .spacer {
@@ -103,8 +109,11 @@ $sticky-checkout-padding: 20px;
     overflow-y: scroll;
     padding: 0 20px;
     margin-bottom: 90px;
+    display: block;
+
 
     @include breakpoint('md') {
+      display: flex;
       width: 100%;
       padding: unset;
       max-width: 940px;
@@ -173,10 +182,9 @@ $sticky-checkout-padding: 20px;
 
   .sticky-desktop-wrapper {
     @include breakpoint('md') {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: 20px;
       margin-top: 30px;
+      width: 100%;
 
       .variant-card-2 {
         position: sticky;
