@@ -352,7 +352,6 @@ teleport(expressCheckoutForm, '#checkout_step_1 .checkout-form');
  */
 function teleportCheckoutElements(parentSection) {
   const quantity = parentSection.querySelector('.product-quantity');
-  console.log("Quantity Element:", quantity); // Debugging line
   const options = parentSection.querySelector('.product-options');
 
   // Create placeholder for the teleported items
@@ -406,7 +405,7 @@ function triggerCheckout(parentId) {
 
   teleportProductName();
 
-  goToCheckoutStep(2); // Go directly to the second step
+  goToCheckoutStep(1);
 
   overlay.addEventListener('click', () => {
     hideCheckout();
@@ -465,10 +464,9 @@ function createAndSetText(tagType = '', tagValue = '', cssClass = '') {
   return { element: element };
 }
 
-// Show selected quantity in checkout_step_1
+// Show selected quantity
 function showSelectedQuantity() {
   const quantityValue = $('.product-quantity input')?.value;
-  console.log("Quantity Value:", quantityValue); // Debugging line
   $('#variant_quantity').innerHTML = `<span class='quantity-value'>x${quantityValue}</span>`;
 }
 
@@ -476,7 +474,7 @@ function goToCheckoutStep(step) {
   $('#checkout_step_1').style.display = 'none';
 
   switch (step) {
-    case 2:
+    case 1:
       $('#checkout_step_1').style.display = 'flex';
       $('#express-checkout-form').style.display = 'flex';
       showSelectedQuantity();
