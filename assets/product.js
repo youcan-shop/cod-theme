@@ -344,7 +344,7 @@ function createPlaceholderDiv(id) {
 
 const expressCheckoutForm = $('#express-checkout-form');
 
-teleport(expressCheckoutForm, '#checkout_step_2 .checkout-form');
+teleport(expressCheckoutForm, '#checkout_step_1 .checkout-form');
 
 /**
  * Teleport variants and quantity to sticky checkout section
@@ -352,6 +352,7 @@ teleport(expressCheckoutForm, '#checkout_step_2 .checkout-form');
  */
 function teleportCheckoutElements(parentSection) {
   const quantity = parentSection.querySelector('.product-quantity');
+  console.log("Quantity Element:", quantity); // Debugging line
   const options = parentSection.querySelector('.product-options');
 
   // Create placeholder for the teleported items
@@ -368,21 +369,18 @@ function teleportCheckoutElements(parentSection) {
 }
 
 function teleportProductName() {
-  const elementContent = $('.product-name').textContent;
+  const elementContent = $('.product-name');
 
-  $('#product-name').textContent = elementContent;
-}
+  if (elementContent) {
+    const targetElement = $('#product-name');
 
-function teleportProductCard(step) {
-  const productCard = $('.yc-product-card');
-
-  switch (step) {
-    case 1:
-      teleport(productCard, '#checkout_step_1 .variant-card-1');
-      break;
-    case 2:
-      teleport(productCard, '#checkout_step_2 .variant-card-2');
-      break;
+    if (targetElement) {
+      targetElement.textContent = elementContent.textContent;
+    } else {
+      console.error("Target element with id 'product-name' not found.");
+    }
+  } else {
+    console.error("Element with class 'product-name' not found.");
   }
 }
 
@@ -408,11 +406,7 @@ function triggerCheckout(parentId) {
 
   teleportProductName();
 
-  if (window.matchMedia("(max-width: 768px)").matches) {
-    goToCheckoutStep(1);
-  } else {
-    goToCheckoutStep(2);
-  }
+  goToCheckoutStep(2); // Go directly to the second step
 
   overlay.addEventListener('click', () => {
     hideCheckout();
@@ -471,75 +465,20 @@ function createAndSetText(tagType = '', tagValue = '', cssClass = '') {
   return { element: element };
 }
 
-// Show selected variants in checkout_step_2
-
-function showSelectedVariants() {
-  const variants = document.querySelectorAll('.product-options > div');
-
-  if (!variants || !variants.length) return null;
-
-  $('#selected-product-variants').innerHTML = '';
-
-  variants.forEach((variant) => {
-    const variantType = variant.id.split('-')[2];
-    const variantName = variant.id.split('-')[1];
-
-    let variantOption = document.createElement('div');
-
-    switch (variantType) {
-      case 'textual_buttons':
-        const textualButton =  variant.querySelector('.yc-options-item.active')?.textContent;
-        variantOption = createAndSetText(variantName, textualButton, 'yc-textual-item').element;
-      break;
-      case 'color_base_buttons':
-        const colorBaseButton = variant.querySelector('.color-item.active .preview')?.outerHTML;
-        variantOption = createAndSetText(variantName, colorBaseButton, 'colored-button').element;
-        break;
-      case 'radio_buttons':
-        const radioButton = variant.querySelector('.yc-radio-buttons.active input[type="radio"]')?.value;
-        variantOption = createAndSetText(variantName, radioButton).element;
-      break;
-      case 'dropdown':
-        const dropDown = variant.querySelector('.dropdown-content li.selected')?.innerText;
-        variantOption = createAndSetText(variantName, dropDown).element;
-        break;
-      case 'image_based_buttons':
-        const imageBasedButton = variant.querySelector('.yc-image-options-item.active img')?.outerHTML;
-        variantOption = createAndSetText(variantName, imageBasedButton, 'image-container').element;
-        break;
-      case 'upload_image_zone':
-        const uploadImageZone = variant.querySelector('.yc-image-preview .yc-image img')?.outerHTML;
-        variantOption = createAndSetText(variantName, uploadImageZone, 'image-container').element;
-        break;
-    }
-
-    $('#selected-product-variants').appendChild(variantOption);
-  });
-}
-
-// Show selected quantity in checkout_step_2
-
+// Show selected quantity in checkout_step_1
 function showSelectedQuantity() {
   const quantityValue = $('.product-quantity input')?.value;
-  $('#variant_quantity').innerHTML = `<span class='quantity-value'>x${quantityValue}</span`;
+  console.log("Quantity Value:", quantityValue); // Debugging line
+  $('#variant_quantity').innerHTML = `<span class='quantity-value'>x${quantityValue}</span>`;
 }
-
-// Sticky checkout steps conditions
 
 function goToCheckoutStep(step) {
   $('#checkout_step_1').style.display = 'none';
-  $('#checkout_step_2').style.display = 'none';
 
   switch (step) {
-    case 1:
-      $('#checkout_step_1').style.display = 'flex';
-      teleportProductCard(1);
-      break;
     case 2:
-      $('#checkout_step_2').style.display = 'flex';
-      $(' #express-checkout-form').style.display = 'block';
-      teleportProductCard(2);
-      showSelectedVariants();
+      $('#checkout_step_1').style.display = 'flex';
+      $('#express-checkout-form').style.display = 'flex';
       showSelectedQuantity();
       break;
     default:

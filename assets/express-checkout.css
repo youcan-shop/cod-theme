@@ -92,13 +92,13 @@
 .yc-sticky-checkout .checkout-form {
   padding-bottom: 20px;
 }
-.yc-sticky-checkout .step-2-wrapper {
+.yc-sticky-checkout .step-1-wrapper {
   overflow-y: scroll;
   padding: 0 20px;
   margin-bottom: 90px;
 }
 @media (min-width: 768px) {
-  .yc-sticky-checkout .step-2-wrapper {
+  .yc-sticky-checkout .step-1-wrapper {
     width: 100%;
     padding: unset;
     max-width: 940px;
@@ -106,16 +106,16 @@
     margin: 0 auto 100px auto;
   }
 }
-.yc-sticky-checkout .step-2-wrapper .close-icon {
+.yc-sticky-checkout .step-1-wrapper .close-icon {
   display: none;
 }
 @media (min-width: 768px) {
-  .yc-sticky-checkout .step-2-wrapper .close-icon {
+  .yc-sticky-checkout .step-1-wrapper .close-icon {
     display: block;
   }
 }
 @media (min-width: 768px) {
-  .yc-sticky-checkout .step-2-wrapper .back-icon {
+  .yc-sticky-checkout .step-1-wrapper .back-icon {
     display: none;
   }
 }
