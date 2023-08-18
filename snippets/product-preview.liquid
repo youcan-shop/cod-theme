@@ -19,8 +19,8 @@
     {% endif %}
     {% if block_settings.tag_text %}
       <div
-       class="tag {{ block_settings.tag_position }}"
-       style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
+       class="tag {{ section_settings: section.settings.tag_position }}"
+       style="background: {{ section_settings: section.settings.tag_color.hex }}; color: {{ section_settings: section.settings.tag_text_color.hex }}"
       >
         {{ block_settings.tag_text }}
       </div>

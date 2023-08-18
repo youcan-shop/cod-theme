@@ -11,9 +11,11 @@
   color: var(--yc-notice-text-color);
   font-size: var(--yc-notice-font-size);
   display: flex;
+  gap: 5px;
   align-items: center;
   justify-content: center;
   text-align: center;
+  gap: 6px;
 }
 .yc-notice .content img {
   height: 17px;

@@ -19,7 +19,7 @@
     @include breakpoint('md') {
       position: sticky;
       top: calc(var(--yc-nav-height) + 20px);
-      width: 100%;
+      width: 80%;
       margin: unset;
     }
 
@@ -167,7 +167,7 @@
         margin: 0 auto;
         width: 100%;
         border-radius: 4px;
-        height: 150px;
+        height: 100px;
         object-fit: contain;
 
         @media screen and (max-width: 768px) {

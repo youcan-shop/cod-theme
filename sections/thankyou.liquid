@@ -27,10 +27,33 @@
       </div>
     </div>
   </div>
-  <div class="orders-detail-wrapper">
-    {% comment %}
-     TO DO: Add variants when the data is provided
-    {% endcomment %}
+  <div class="cart-items">
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Unit price</th>
+          <th>Quantity</th>
+          <th class="total">Total</th>
+        </tr>
+      </thead>
+      {% for item in order.order_variants %}
+        <tr>
+          <td class="product-name">
+            <a href="{{- store.domain -}}/products/{{- item.slug -}}" target="_blank">{{- item.name -}}</a>
+          </td>
+          <td>
+            <span>{{- item.price | money -}}</span>
+          </td>
+          <td>
+            <span>{{- item.quantity -}}</span>
+          </td>
+          <td class="total">
+            <span>{{- item.price * item.quantity | money -}}</span>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
   </div>
   <div class="order-details">
     <h2> {{ 'thankyou.details.title' | t }}</h2>
@@ -40,23 +63,51 @@
           {{ 'thankyou.details.product' | t }}
         </div>
         <div class="data-item">
-          {{ order.total | money }}
+          <span>{{- order.sub_total | money -}}</span>
         </div>
     </div>
+    {%- if order.coupon -%}
+      <div class="head coupon-head">
+        <div class="item">
+            {{- 'thankyou.details.coupon' | t -}}
+          </div>
+          <div class="data-item">
+            - <span>{{- order.coupon.deducted_amount | money -}}</span>
+            <span>
+              {%- if order.coupon.is_percentage -%}
+                ({{- order.coupon.value -}}%)
+              {%- else -%}
+                ({{- order.coupon.value | money -}})
+              {%- endif -%}
+            </span>
+          </div>
+      </div>
+    {%- endif -%}
     <div class="head">
       <div class="item">
          {{ 'thankyou.details.shipping_cost' | t }}
       </div>
       <div class="data-item">
-        {{ order.shippingCost | money }}
+        {{- order.shippingCost | money -}}
       </div>
     </div>
+    {%- if store.vat > 0 -%}
+      <div class="head">
+        <div class="item">
+          {{- 'thankyou.details.vat' | t -}}
+        </div>
+        <div class="data-item">
+          <span>{{- order.total_tax_amount | money -}}</span>
+          <span>({{- store.vat -}}%)</span>
+        </div>
+      </div>
+    {%- endif -%}
     <div class="total-price-head">
       <div class="item">
         {{ 'thankyou.details.total' | t }}
       </div>
       <div class="data-item">
-        {{ order.total | money }}
+        {{- order.total | money -}}
       </div>
     </div>
   </div>

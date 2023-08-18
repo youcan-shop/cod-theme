@@ -63,8 +63,8 @@
         {%- render 'countdown', section_settings: section.settings -%}
       {% endif %}
     </div>
-      {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop' -%}
-      {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile'  -%}
+      {%- render 'product-slider', blocks: section.blocks, id: id , view: 'desktop', section_settings: section.settings -%}
+      {%- render 'product-slider', blocks: section.blocks, id: id , view: 'mobile', section_settings: section.settings  -%}
   </div>
 </section>
 
@@ -79,10 +79,10 @@
 
     const desktopSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
       type: '{{ section.settings.slider_transition_type }}',
-      arrows: '{{ section.settings.slider_arrows }}' ? true : false,
-      autoplay: false, //'{{ section.settings.slider_autoplay }}' ? true : false,
+      arrows: products == perPage ? false : ('{{ section.settings.slider_arrows }}' ? true : false),
+      autoplay: '{{ section.settings.slider_autoplay }}' ? true : false,
       cover: true,
-      pagination: '{{ section.settings.slider_pagination }}' ? true : false,
+      pagination: products == perPage ? false : ('{{ section.settings.slider_pagination }}' ? true : false),
       pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
       pauseOnFocus: '{{ section.settings.slider_pause_on_focus }}' ? true : false,
       interval: '{{ section.settings.duration_between_each_slide | times: 1000 }}',
@@ -95,15 +95,18 @@
       focus: 'center',
     });
 
+    const mobileImagesPerPage = 2;
+
     const mobileSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
       type: '{{ section.settings.slider_mobile_transition_type }}',
+      arrows: mobileImagesPerPage == products ? false : ('{{ section.settings.slider_mobile_arrows }}' ? true : false),
       autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
       cover: true,
-      pagination: '{{ section.settings.slider_mobile_pagination }}' ? true : false,
+      pagination: mobileImagesPerPage == products ? false : ('{{ section.settings.slider_mobile_pagination }}' ? true : false),
       interval: '{{ section.settings.slider_mobile_timeout | times: 1000 }}',
       rewind: true,
       drag: 'free',
-      perPage: 2,
+      perPage: mobileImagesPerPage,
       perMove: 1,
       gap: '12px',
       snap: true,
@@ -156,6 +159,46 @@
     },
     {
       "type": "header",
+      "content": "Banner settings"
+    },
+    {
+      "type": "color",
+      "id": "tag_text_color",
+      "label": "Banner text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "banner_background_color",
+      "label": "Banner background color",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "tag_position",
+      "label": "Banner position",
+      "options": [
+        {
+          "label": "Top right",
+          "value": "top_right"
+        },
+        {
+          "label": "Top left",
+          "value": "top_left"
+        },
+        {
+          "label": "Bottom right",
+          "value": "bottom_right"
+        },
+        {
+          "label": "Bottom left",
+          "value": "bottom_left"
+        }
+      ],
+      "default": "top_right"
+    },
+    {
+      "type": "header",
       "content": "Countdown settings"
     },
     {
@@ -182,19 +225,19 @@
       "label": "Year",
       "id": "countdown_year",
       "type": "number",
-      "default": 0
+      "default": 2024
     },
     {
       "label": "Month",
       "id": "countdown_month",
       "type": "number",
-      "default": 0
+      "default": 1
     },
     {
       "label": "Day",
       "id": "countdown_day",
       "type": "number",
-      "default": 0
+      "default": 14
     },
     {
       "label": "Hour",
@@ -346,42 +389,6 @@
           "type": "text",
           "id": "tag_text",
           "label": "Banner text"
-        },
-        {
-          "type": "color",
-          "id": "tag_text_color",
-          "label": "Banner text color",
-          "default": "#ffffff"
-        },
-        {
-          "type": "color",
-          "id": "banner_background_color",
-          "label": "Banner background color",
-          "default": "#000000"
-        },
-        {
-          "type": "select",
-          "id": "tag_position",
-          "label": "Banner position",
-          "options": [
-            {
-              "label": "Top right",
-              "value": "top_right"
-            },
-            {
-              "label": "Top left",
-              "value": "top_left"
-            },
-            {
-              "label": "Bottom right",
-              "value": "bottom_right"
-            },
-            {
-              "label": "Bottom left",
-              "value": "bottom_left"
-            }
-          ],
-          "default": "top_right"
         }
       ]
     }

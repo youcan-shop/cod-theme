@@ -13,6 +13,7 @@
   id='variantId'
   type='hidden'
   >
+  <input id='_inventory' type='hidden'>
   <input
     type='file'
     id='yc-upload'
@@ -38,7 +39,7 @@
           {%- when 'product_price' -%}
             <div class='product-price-container'>
               <h2 class='product-price'>{{ product.price | money }}</h2>
-              {% if section.settings.show_compare_at_price %}
+              {% if block.settings.show_compare_at_price %}
                 <div class="compare-container">
                   <h3 class="compare-price">
                     {%- for variant in product.variants -%}
@@ -47,12 +48,12 @@
                       {% endif %}
                     {% endfor %}
                   </h3>
-                  {% if section.settings.tag_text %}
+                  {% if block.settings.show_price_tag_banner and block.settings.price_tag_text %}
                     <div
                       class="tag"
-                      style="background: {{ section.settings.price_tag_background_color.hex }}; color: {{ section.settings.tag_text_color.hex }};"
+                      style="background: {{ block.settings.price_tag_background_color.hex }}; color: {{ block.settings.price_tag_text_color.hex }};"
                     >
-                      {{ section.settings.tag_text }}
+                      {{ block.settings.price_tag_text }}
                     </div>
                   {% endif %}
                 </div>

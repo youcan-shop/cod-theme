@@ -17,7 +17,9 @@
   <div class='yc-notice'>
     <div class='content container '>
       {%- if section.settings.notice_bar_logo.src -%} <img src='{{ section.settings.notice_bar_logo.src }}'>{%- endif -%}
-      {{ section.settings.notice_bar_content }}
+      <div class="notice-content">
+        {{ section.settings.notice_bar_content }}
+      </div>
     </div>
   </div>
 {%- endif %}

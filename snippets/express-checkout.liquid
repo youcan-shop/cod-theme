@@ -16,12 +16,13 @@
 
   .custom-checkout-{{ checkout_id }} .express-checkout-fields  {
     grid-gap: {{ settings.inputs_gap }}px;
+    border-color: {{ settings.form_border_colour.hex }}
   }
 
   .custom-checkout-{{ checkout_id }} input {
     padding: {{ settings.input_padding }}px;
     border-radius: {{ settings.input_border_radius }}px;
-    font-size: {{ settings.input_text_size }}px;
+    font-size: {{ settings.input_text_size }}px !important;
 
     {% if settings.input_background_color %}
     background-color: {{ settings.input_background_color.hex }};

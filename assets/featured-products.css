@@ -71,11 +71,11 @@
   text-align: start;
   margin-top: 12px;
   padding: 0 6px;
+  text-align: center;
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .product-details {
     margin-top: 10px;
-    text-align: center;
   }
 }
 .yc-featured-products .product-list .product-block .product-details .product-title {
@@ -105,12 +105,12 @@
   flex-direction: column;
   align-items: start;
   gap: 7px;
-  margin-top: 12px;
-  padding: 0 6px;
+  margin: 12px auto 0;
+  padding: 0 6px 6px;
+  align-items: center;
 }
 @media (min-width: 768px) {
   .yc-featured-products .product-list .product-block .prices {
-    align-items: center;
     margin: 15px auto 20px;
     gap: 10px;
   }

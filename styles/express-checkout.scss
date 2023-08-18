@@ -113,11 +113,7 @@ $sticky-checkout-padding: 20px;
     }
 
     .close-icon {
-      display: none;
-
-      @include breakpoint('md') {
-        display: block;
-      }
+      display: block;
     }
 
     .back-icon {

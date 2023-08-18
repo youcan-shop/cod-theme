@@ -45,13 +45,13 @@
     margin-top: 16px;
     font-weight: 700;
     font-size: 18px;
-    color: #000000;
+    color: {{ section.settings.caption_color.hex }};;
   }
 
   .column-block .column-description {
     margin: 12px auto;
     font-size: 15px;
-    color: #000000;
+    color: {{ section.settings.text_color.hex }};;
     font-weight: 400;
     line-height: 24px;
   }
@@ -124,7 +124,7 @@
             <h4 class='column-title'>{{ block_setting.heading }}</h4>
           {% endif %}
           {% if block_setting.description %}
-            <p class='column-description'>{{ block_setting.description }}</p>
+            <div class='column-description'>{{ block_setting.description }}</div>
           {% endif %}
         </div>
       {% endfor %}
@@ -180,6 +180,12 @@
       "type": "color",
       "id": "text_color",
       "label": "Text color",
+      "default": "#000000FF"
+    },
+    {
+      "type": "color",
+      "id": "caption_color",
+      "label": "Caption color",
       "default": "#000000FF"
     },
     {
