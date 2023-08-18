@@ -160,6 +160,40 @@ function setVariant(parentSection, id) {
 }
 
 /**
+ * Sets inventory of product variant.
+ * And disable add to cart button when inventory is not sufficient.
+ * 
+ * @param {HTMLElement} parentSection
+ * @param {Number} inventory 
+ */
+function setInventory(parentSection, inventory) {
+  const inventoryInput = parentSection.querySelector('#_inventory');
+
+  inventoryInput.value = globalProduct.isTrackingInventory ? inventory : null;
+
+  /** @type {HTMLButtonElement} addToCartButton */
+  const addToCartButton = parentSection.querySelector('.yc-btn');
+
+  if (!addToCartButton) {
+    return;
+  }
+
+  if (!addToCartButton.disabled && addToCartButton.getAttribute('data-text') === null) {
+    addToCartButton.setAttribute('data-text', addToCartButton.innerHTML);
+  }
+
+  const isAddToCartDisabled = globalProduct.isTrackingInventory && inventory === 0;
+
+  addToCartButton.disabled = isAddToCartDisabled;
+
+  if (isAddToCartDisabled) {
+    addToCartButton.innerHTML = TRANSLATED_TEXT.empty_inventory;
+  } else {
+    addToCartButton.innerHTML = addToCartButton.getAttribute('data-text');
+  }
+}
+
+/**
  * Sets default options for a product
  * @param {HTMLElement} parentSection
  */
@@ -167,7 +201,9 @@ function selectDefaultOptions(parentSection) {
   const options = parentSection.querySelectorAll('.product-options > div');
 
   if (!options || !options.length) {
-    return setVariant(parentSection, variants[0]?.id);
+    setInventory(parentSection, defaultVariant?.inventory);
+
+    return setVariant(parentSection, defaultVariant?.id);
   }
 
   options.forEach((option) => {
@@ -199,6 +235,7 @@ function selectDefaultOptions(parentSection) {
 
   const selectedVariant = getSelectedVariant(parentSection);
 
+  setInventory(parentSection, selectedVariant.inventory);
   setVariant(parentSection, selectedVariant.id);
 }
 
@@ -266,19 +303,6 @@ function getSelectedVariant(parentSection) {
 }
 
 /**
- * Get the currency Symbol
- * @param {HTMLElement} parentSection
- * @return {String} currency symbol
- */
-function currencySymbol(parentElement) {
-  const currentParent = parentElement.querySelector('.product-price');
-  const priceContent = currentParent.innerText;
-  const currencySymbol = priceContent.replace(/[0-9.,]/g, "").trim();
-
-  return currencySymbol;
-}
-
-/**
  * Updates product details after variant change
  * @param {HTMLElement} parentSection
  * @param {String} image
@@ -296,28 +320,38 @@ function updateProductDetails(parentSection, image, price, compareAtPrice) {
     const productPrices = parentSection.querySelectorAll('.product-price');
     const showStickyCheckoutPrice = $('#sticky-price');
 
+    if(productPrices.length === 0){
+      if(showStickyCheckoutPrice) {
+        showStickyCheckoutPrice.innerHTML = `${price} ${Dotshop.currency}`;
+      }
+
+      return;
+    }
+
     productPrices.forEach(productPrice => {
-      const displayValue = `${price} ${currencySymbol(parentSection)}`;
+      const displayValue = `${price} ${Dotshop.currency}`;
 
       productPrice.innerText = displayValue;
 
       if(showStickyCheckoutPrice) {
         showStickyCheckoutPrice.innerHTML = productPrice.innerHTML;
       }
-    })
+    });
   }
 
   const variantCompareAtPrices = parentSection.querySelectorAll('.compare-price');
 
   if(compareAtPrice) {
     variantCompareAtPrices.forEach(variantComparePrice => {
-      variantComparePrice.innerHTML = `<del> ${compareAtPrice} ${currencySymbol(parentSection)} </del>`;
+      variantComparePrice.innerHTML = `<del> ${compareAtPrice} ${Dotshop.currency} </del>`;
     })
   } else {
     variantCompareAtPrices.forEach(variantComparePrice => {
       variantComparePrice.innerHTML = ``;
     })
   }
+
+  goToCheckoutStep();
 }
 
 /**
@@ -354,36 +388,27 @@ function teleportCheckoutElements(parentSection) {
   const quantity = parentSection.querySelector('.product-quantity');
   const options = parentSection.querySelector('.product-options');
 
+  if(!quantity || !options){
+    return;
+  }
+
   // Create placeholder for the teleported items
   const quantityPlaceholder = createPlaceholderDiv('quantity-placeholder');
   const optionsPlaceholder = createPlaceholderDiv('options-placeholder');
   quantity.parentElement.appendChild(quantityPlaceholder);
   options.parentElement.appendChild(optionsPlaceholder);
-
-  // teleport elements
-  if (window.matchMedia("(max-width: 768px)").matches) {
-    teleport(options, '#checkout_step_1 .options');
-    teleport(quantity, '#checkout_step_1 .options');
-  }
 }
 
 function teleportProductName() {
-  const elementContent = $('.product-name').textContent;
+  const elementContent = $('.product-name').textContent || globalProduct.name;
 
   $('#product-name').textContent = elementContent;
 }
 
-function teleportProductCard(step) {
+function teleportProductCard() {
   const productCard = $('.yc-product-card');
 
-  switch (step) {
-    case 1:
-      teleport(productCard, '#checkout_step_1 .variant-card-1');
-      break;
-    case 2:
-      teleport(productCard, '#checkout_step_2 .variant-card-2');
-      break;
-  }
+  teleport(productCard, '#checkout_step_2 .variant-card-2');
 }
 
 function showStickyCheckout() {
@@ -408,10 +433,8 @@ function triggerCheckout(parentId) {
 
   teleportProductName();
 
-  if (window.matchMedia("(max-width: 768px)").matches) {
-    goToCheckoutStep(1);
-  } else {
-    goToCheckoutStep(2);
+  if (!window.matchMedia("(max-width: 768px)").matches) {
+    goToCheckoutStep();
   }
 
   overlay.addEventListener('click', () => {
@@ -422,16 +445,7 @@ function triggerCheckout(parentId) {
 }
 
 function responsiveStickyCheckout() {
-  const quantity = $('.product-quantity');
-  const options = $('.product-options');
-
-  if(window.innerWidth >= 768) {
-    goToCheckoutStep(2);
-  } else if (window.innerWidth < 768) {
-    goToCheckoutStep(1);
-    teleport(options, '#checkout_step_1 .options');
-    teleport(quantity, '#checkout_step_1 .options');
-  }
+  goToCheckoutStep();
 }
 
 function hideCheckout() {
@@ -520,32 +534,28 @@ function showSelectedVariants() {
 // Show selected quantity in checkout_step_2
 
 function showSelectedQuantity() {
-  const quantityValue = $('.product-quantity input')?.value;
+  const quantityValue = $('.product-quantity input')?.value || 1;
   $('#variant_quantity').innerHTML = `<span class='quantity-value'>x${quantityValue}</span`;
 }
 
 // Sticky checkout steps conditions
 
-function goToCheckoutStep(step) {
-  $('#checkout_step_1').style.display = 'none';
-  $('#checkout_step_2').style.display = 'none';
-
-  switch (step) {
-    case 1:
-      $('#checkout_step_1').style.display = 'flex';
-      teleportProductCard(1);
-      break;
-    case 2:
-      $('#checkout_step_2').style.display = 'flex';
-      $(' #express-checkout-form').style.display = 'block';
-      teleportProductCard(2);
-      showSelectedVariants();
-      showSelectedQuantity();
-      break;
-    default:
-      hideCheckout();
-      break;
+function goToCheckoutStep(close = false) {
+  if (!$('#checkout_step_2')) {
+    return;
   }
+
+  if (close) {
+    hideCheckout();
+
+    return;
+  }
+
+  $('#checkout_step_2').style.display = 'flex';
+  $(' #express-checkout-form').style.display = 'block';
+  teleportProductCard();
+  showSelectedVariants();
+  showSelectedQuantity();
 }
 
 function setup() {
@@ -555,7 +565,7 @@ function setup() {
 
   singleProductSections.forEach((section) => {
     const productDetails = section.querySelector('.product-options');
-    const variant = variants[0];
+    const variant = defaultVariant;
 
     updateProductDetails(
       section,
@@ -576,6 +586,8 @@ function setup() {
           selectedVariant.price,
           selectedVariant.compare_at_price
         );
+
+        setInventory(section, selectedVariant.inventory);
       });
 
       observer.observe(productDetails, {
@@ -587,6 +599,8 @@ function setup() {
 
     selectDefaultOptions(section);
   });
+
+  goToCheckoutStep();
 }
 
 setup();

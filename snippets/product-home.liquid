@@ -27,6 +27,7 @@
         {%- case block.type -%}
           {%- when 'product_title' -%}
             <h1 class='product-name'>{{ product.name }}</h1>
+          {%- when 'product_reviews' -%}
             {%- render 'general-review' -%}
           {%- when 'product_price' -%}
             <div class='flex gap-2 items-center'>

@@ -5,7 +5,7 @@
     }
   },
   "head_metadata": {
-    "collections" : "Collections",
+    "collections": "Collections",
     "thankyou": "Thank you",
     "cart": "Shopping Cart"
   },
@@ -41,7 +41,7 @@
     },
     "empty": {
       "title": "Your cart is currently empty.",
-      "description": "Before you proceed to checkout you must add some products to your shopping cart. <br/> You will find a lot of interesting products on our \"Shop\" page.",
+      "description": "Before you proceed to checkout you must add some products to your shopping cart. <br\/> You will find a lot of interesting products on our \"Shop\" page.",
       "cta": "Return to shop"
     },
     "continue_shopping_cta": "Continue Shopping"
@@ -49,7 +49,7 @@
   "thankyou": {
     "title": "Thank you",
     "subtitle": "Your order has been received.",
-    "description": "Our team will be in touch to confirm your request.<br/>We value your trust and appreciate your willingness to communicate with us.<br/>We are always here to serve you.",
+    "description": "Our team will be in touch to confirm your request.<br\/>We value your trust and appreciate your willingness to communicate with us.<br\/>We are always here to serve you.",
     "return_cta": "Return to shop",
     "details": {
       "title": "Order details",
@@ -58,7 +58,9 @@
       "total": "Total",
       "product": "PRODUCT",
       "one_piece_price": "ONE PIECE PRICE",
-      "quantity": "QUANTITY"
+      "quantity": "QUANTITY",
+      "coupon": "Coupon",
+      "vat": "VAT"
     }
   },
   "snippets": {
@@ -98,7 +100,7 @@
     }
   },
   "upsell": {
-    "yes_submit_button":  "Yes",
+    "yes_submit_button": "Yes",
     "no_submit_button": "No"
   },
   "footer": {
@@ -121,6 +123,7 @@
     "select_variant": "Please select a variant",
     "quantity_smaller_than_zero": "Quantity must be greater than 0",
     "upload_image": "Please upload an image",
-    "product_added": "Product has been added successfully"
+    "product_added": "Product has been added successfully",
+    "empty_inventory": "Product out of stock"
   }
 }

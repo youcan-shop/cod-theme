@@ -1,10 +1,11 @@
 .upsell-page {
-  padding: 50px 0;
+  padding: 50px 20px;
   display: grid;
   place-items: center;
   text-align: center;
-  max-width: 616px;
-  margin: auto;
+}
+.upsell-page .upsell-container {
+  width: 100%;
 }
 .upsell-page .upsell-content img {
   margin: auto;
@@ -40,27 +41,35 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 .upsell-page .upsell-form-submit .upsell-submit-yes {
-  background: var(--yc-primary-color);
-  color: #fff;
   padding: 16px 18px;
   height: 60px;
-  font-size: 26px;
-  gap: 10px;
-}
-.upsell-page .upsell-form-submit .small-text {
-  font-size: 16px;
-  font-weight: 700;
 }
 .upsell-page .upsell-form-submit .upsell-submit-no {
-  background: #fff;
   padding: 16px 10px;
-  border: 1px solid #C4C4C4;
-  color: #999999;
   font-size: 14px;
   height: 48px;
-  font-weight: 700;
+}
+.upsell-page .upsell-form-submit .text-small {
+  font-size: 15px;
+}
+.upsell-page .upsell-form-submit .text-medium {
+  font-size: 19px;
+}
+.upsell-page .upsell-form-submit .text-large {
+  font-size: 22px;
+}
+.upsell-page .upsell-form-submit .size-small {
+  width: 50%;
+}
+.upsell-page .upsell-form-submit .size-medium {
+  width: 70%;
+}
+.upsell-page .upsell-form-submit .size-large {
+  width: 100%;
 }
 @media (max-width: 768px) {
   .upsell-page {

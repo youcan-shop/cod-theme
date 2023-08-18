@@ -4,8 +4,8 @@
 
 {% style %}
   .section-featured-products-by-category-{{ id }}{
-    padding-top: {{ section.settings.space_top }}px;
-    padding-bottom: {{ section.settings.space_bottom }}px;
+    margin-top: {{ section.settings.space_top }}px;
+    margin-bottom: {{ section.settings.space_bottom }}px;
   }
 
   {% if section.settings.title_color %}
@@ -136,12 +136,14 @@
     {
       "type": "color",
       "id": "title_color",
-      "label": "Title color"
+      "label": "Title color",
+      "default": "#000000"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "Text color"
+      "label": "Text color",
+      "default": "#000000"
     }
   ]
 }

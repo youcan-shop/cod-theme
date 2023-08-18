@@ -2,6 +2,7 @@ async function addToCart(snippetId) {
   const parentSection = document.querySelector(`#s-${snippetId}`);
   const variantId = parentSection.querySelector(`#variantId`)?.value || undefined;
   const quantity = parentSection.querySelector(`#quantity`)?.value || 1;
+  const inventory = parentSection.querySelector(`#_inventory`)?.value || null;
   const uploadedImageLink = parentSection.querySelector(`#yc-upload-link`)?.value || undefined;
 
   if (!variantId) {
@@ -10,6 +11,10 @@ async function addToCart(snippetId) {
 
   if (quantity < 1) {
     return notify(ADD_TO_CART_EXPECTED_ERRORS.quantity_smaller_than_zero, 'error');
+  }
+
+  if (inventory == 0) {
+    return notify(ADD_TO_CART_EXPECTED_ERRORS.empty_inventory, 'error');
   }
 
   try {
@@ -116,7 +121,7 @@ function cartTemplate(item) {
       variationsArray.push(`${key}: ${item.productVariant.variations[key]}`);
     }
   }
-  const variationsString = variationsArray.join('&nbsp;&nbsp;');
+  const variationsString = variationsArray.join('<br/>');
   const variationsCheck = variationsString === 'default: default' ? '' : variationsString;
 
   // Check if there's an image URL available
@@ -129,7 +134,7 @@ function cartTemplate(item) {
         <div class="item-details">
           <p class="product-name">${item.productVariant.product.name}</p>
           <div class="variants">
-          ${CART_DRAWER_TRANSLATION.quantityVariant}: ${item.quantity} &nbsp;${variationsCheck}
+          ${CART_DRAWER_TRANSLATION.quantityVariant}: ${item.quantity} <br/>'${variationsCheck}
           </div>
           <div class="product-price">
             <span class="compare-price">${item.productVariant.compare_at_price ? `${item.productVariant.compare_at_price} ${currencyCode}` : ''}</span>

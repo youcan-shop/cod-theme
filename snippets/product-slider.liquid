@@ -53,21 +53,20 @@
             href='{{ block.settings.product.url }}'
             class='product-block'
           >
-
-            {% if block.settings.tag_text %}
-              <div
-                class="tag {{ block.settings.tag_position }}"
-                style="background: {{ block.settings.banner_background_color.hex }}; color: {{ block.settings.tag_text_color.hex }}"
-              >
-                {{ block.settings.tag_text }}
-              </div>
-            {% endif %}
             <div class="product-slider">
               <div class='product-thumbnail'>
                  <img
                   loading='lazy'
                   src='{%- if block.settings.product.thumbnail -%} {{ block.settings.product.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
                   >
+                  {% if block.settings.tag_text %}
+                    <div
+                      class="tag {{ section_settings.tag_position }}"
+                      style="background: {{ section_settings.banner_background_color.hex }}; color: {{ section_settings.tag_text_color.hex }}"
+                    >
+                      {{ block.settings.tag_text }}
+                    </div>
+                  {% endif %}
               </div>
               <div class='product-details'>
                 <span class='product-title'>{{ block.settings.product.name }}</span>

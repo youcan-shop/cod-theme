@@ -11,6 +11,10 @@
   .product_customization-{{ id }} {
     background-color: {{ section.settings.background_color.hex }};
   }
+
+  .product_customization-{{ id }} .yc-btn {
+    color: {{ section.settings.button_text_color.hex }} !important;
+  }
 {%- endstyle -%}
 
 {%- assign selected_product = section.settings.product %}
@@ -67,7 +71,12 @@
         "step": 1,
         "unit": "px",
         "default": 50
-
+      },
+      {
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Button text color",
+        "default": "#FFFFFF"
       },
       {
           "type": "text",
@@ -116,6 +125,11 @@
         "label": "Title",
         "limit": 1,
         "type": "product_title"
+      },
+      {
+        "label": "Reviews",
+        "limit": 1,
+        "type": "product_reviews"
       },
       {
         "label": "Price",

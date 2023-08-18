@@ -107,12 +107,7 @@
   }
 }
 .yc-sticky-checkout .step-2-wrapper .close-icon {
-  display: none;
-}
-@media (min-width: 768px) {
-  .yc-sticky-checkout .step-2-wrapper .close-icon {
-    display: block;
-  }
+  display: block;
 }
 @media (min-width: 768px) {
   .yc-sticky-checkout .step-2-wrapper .back-icon {
