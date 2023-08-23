@@ -11,6 +11,9 @@
   }
 
   .toggle-footer {
+    {%- if section.settings.top_border_color -%}
+      border-top: 1px solid {{- section.settings.top_border_color.hex -}};
+    {%- endif -%}
     display: {{ section.settings.toggle_footer ? 'none' : 'block' }};
   }
 
@@ -100,6 +103,12 @@
       "id": "copyright",
       "label": "Copyright text",
       "default": "All rights reserved"
+    },
+    {
+      "type": "color",
+      "id": "top_border_color",
+      "label": "Top border color",
+      "default": "#e5e5e5"
     }
   ],
   "blocks": [
