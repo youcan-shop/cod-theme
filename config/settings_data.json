@@ -55,7 +55,8 @@
                     "mention_and_social_media": true,
                     "mention": "<p>made with ❤️ by YouCan<\/p>",
                     "footer_text_color": "#F6F9FFFF",
-                    "toggle_footer": false
+                    "toggle_footer": false,
+                    "top_border_color": "#e5e5e5"
                 },
                 "blocks": {
                     "block_social": {
