@@ -108,6 +108,90 @@
       border-collapse: collapse;
       margin-bottom: 1rem;
     }
+
+    .contact-us {
+      width: 100%;
+
+      .contact-form {
+        width: 100%;
+        max-width: 563px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        > form {
+          width: 100%;
+        }
+
+        .form-group {
+          width: 100%;
+        }
+
+        .h-captcha > iframe {
+          margin: 0 auto;
+        }
+
+        .contact_title {
+          font-size: 22px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 120%;
+          color: #000;
+          margin-bottom: 24px;
+        }
+
+        .contact_subtitle {
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 120%;
+          color: #000;
+          margin-bottom: 32px;
+        }
+
+        .form-group {
+          &:not(:first-of-type) {
+            margin-top: 19px;
+          }
+
+          input, textarea {
+            width: 100%;
+            padding: 14px 15px !important;
+            font-size: 14px !important;
+            border-radius: 4px;
+            border: 1px solid var(--yc-neutral-color);
+            background: #FFF;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.03);
+            height: unset !important;
+            line-height: initial !important;
+          }
+
+          input::placeholder, textarea::placeholder {
+            color: #A8A8A8;
+          }
+
+          input:focus {
+            outline: 5px auto -webkit-focus-ring-color;
+          }
+
+          textarea { 
+            min-height: 172px;
+          }
+
+          button.primary-button {
+            width: 100%;
+            padding: 15px 20px;
+            background: #F33520;
+            color: white;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 150%;
+          }
+        }
+      }
+    }
   }
 
   @include breakpoint('md') {

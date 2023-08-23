@@ -125,5 +125,17 @@
     "upload_image": "Veuillez télécharger une image",
     "product_added": "Produit ajouté avec succès",
     "empty_inventory": "Produit en rupture de stock"
+  },
+  "page": {
+    "contact": {
+      "title": "Contactez nous",
+      "subtitle": "Vous avez une demande, vous rencontrez un problème : Contactez-nous",
+      "form_placeholders": {
+        "email": "E-mail *",
+        "subject": "Sujet *",
+        "message": "Message *"
+      },
+      "button": "Envoyer"
+    }
   }
 }

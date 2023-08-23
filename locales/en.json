@@ -125,5 +125,17 @@
     "upload_image": "Please upload an image",
     "product_added": "Product has been added successfully",
     "empty_inventory": "Product out of stock"
+  },
+  "page": {
+    "contact": {
+      "title": "Contact us",
+      "subtitle": "Having a request, facing an issue: Reach out to us",
+      "form_placeholders": {
+        "email": "Email *",
+        "subject": "Subject *",
+        "message": "Message *"
+      },
+      "button": "Send"
+    }
   }
 }
