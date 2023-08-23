@@ -1,5 +1,4 @@
 {{ 'pages.css' | asset_url | stylesheet_tag }}
-{{ 'page.js' | asset_url | script_tag_deferred }}
 
 <div class='yc-page'>
   <div class="breadcrumbs-container">
@@ -33,6 +32,8 @@
     button: '{{- 'page.contact.button' | t -}}'
   }
 </script>
+
+{{ 'page.js' | asset_url | script_tag }}
 
 {%- schema -%}
 {
