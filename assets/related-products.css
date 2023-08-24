@@ -1,0 +1,37 @@
+/**
+* remove me
+*/
+
+* {
+  direction: ltr !important;
+}
+
+.related-products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-button {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.images {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.images > * {
+  width: calc(33%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
