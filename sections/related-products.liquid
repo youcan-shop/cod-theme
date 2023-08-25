@@ -1,5 +1,8 @@
-{{- 'related-products.css' | asset_url | stylesheet_tag -}}
-{{- 'related-products.js' | asset_url | script_tag_deferred -}}
+{{ 'related-products.css' | asset_url | stylesheet_tag }}
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+{{ 'splide.min.js' | asset_url | script_tag }}
+
+{% assign id = 100 | rand: 2000 %}
 {%- assign selected_product = section.settings.product %}
 
 {%- if product %}
@@ -7,51 +10,211 @@
 {%- endif %}
 
 {%- if selected_product %}
-  <div class="related-products" id="related-products">
-    <div class="nav-button" data-slider-left>
-      <a>left</a>
+  {% style %}
+    .section-related-products {
+      margin-top: {{ section.settings.space_top }}px;
+      margin-bottom: {{ section.settings.space_bottom }}px;
+    }
+  {% endstyle %}
+
+  <section class='section-related-products container'>
+    <h1 class='yc-section-title'>
+      related products
+    </h1>
+    <div>
+      {%- render 'related-products-slider', blocks: section.blocks, id: id , view: 'desktop', section_settings: section.settings -%}
+      {%- render 'related-products-slider', blocks: section.blocks, id: id , view: 'mobile', section_settings: section.settings  -%}
     </div>
-    <ul class="images" data-slider-images>
-      <li id="image-1">1</li>
-      <li id="image-2">2</li>
-      <li id="image-3">3</li>
-      <li id="image-4">4</li>
-      <li id="image-5">5</li>
-      <li id="image-6">6</li>
-    </ul>
-    <div class="nav-button" data-slider-right>
-      <a>right</a>
-    </div>
-  </div>
+  </section>
+
+  <script>
+    (function() {
+      const isMobile = window.matchMedia("(max-width: 768px)");
+      const products = {{ section.blocks.size }};
+      let perPage = 3;
+      if (products < 3) {
+        perPage = products;
+      }
+
+      const desktopSlider = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
+        type: '{{ section.settings.slider_transition_type }}',
+        arrows: products == perPage ? false : ('{{ section.settings.slider_arrows }}' ? true : false),
+        autoplay: '{{ section.settings.slider_autoplay }}' ? true : false,
+        cover: true,
+        pagination: false,
+        pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
+        pauseOnFocus: '{{ section.settings.slider_pause_on_focus }}' ? true : false,
+        interval: '{{ section.settings.duration_between_each_slide | times: 1000 }}',
+        rewind: true,
+        drag: 'free',
+        perPage: perPage,
+        perMove: 1,
+        snap: true,
+        gap: '20px',
+        focus: 'center',
+      });
+
+      const mobileImagesPerPage = 2;
+
+      const mobileSlider = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
+        type: '{{ section.settings.slider_mobile_transition_type }}',
+        arrows: false,
+        autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
+        cover: true,
+        pagination: mobileImagesPerPage == products ? false : ('{{ section.settings.slider_mobile_pagination }}' ? true : false),
+        interval: '{{ section.settings.slider_mobile_timeout | times: 1000 }}',
+        rewind: true,
+        drag: 'free',
+        perPage: mobileImagesPerPage,
+        perMove: 1,
+        gap: '12px',
+        snap: true,
+      });
+
+      mountSlider(isMobile, mobileSlider, desktopSlider);
+    })();
+  </script>
 {%- endif %}
 
-{% schema %}
-  {
-    "label": "Related products",
-    "templates": ["product"],
-    "settings": [
-      {
-        "label": "Product",
-        "id": "product",
-        "type": "product"
-      },
-      {
-        "type": "text",
-        "id": "reviews_title",
-        "label": "Reviews title",
-        "default": "Reviews"
-      },
-      {
-        "type": "header",
-        "content": "Info ℹ️"
-      },
-      {
-        "type": "paragraph",
-        "content": "When you include this section on a product page, the product reviews will be displayed automatically based on the current product."
-      }, {
-        "type": "paragraph",
-        "content": "If you include this section on a different page, you can select a product in the settings."
-      }
-    ]
-  }
-{% endschema %}
+{%- schema -%}
+{
+  "label": "Related products",
+
+  "templates": ["product"],
+  "limit": 1,
+  "settings": [
+    {
+      "type": "range",
+      "id": "space_top",
+      "min": 0,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Space top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "space_bottom",
+      "min": 5,
+      "max": 160,
+      "step": 1,
+      "unit": "px",
+      "label": "Space Bottom",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "🖥 Desktop slider settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "ℹ️ These settings will be applied to desktop devices."
+    },
+    {
+      "type": "range",
+      "id": "duration_between_each_slide",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "unit": "sec",
+      "label": "Duration between each slide",
+      "default": 5
+    },
+    {
+      "type": "select",
+      "id": "slider_transition_type",
+      "label": "Transition type",
+      "options": [
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "loop",
+          "label": "Loop"
+        }
+      ],
+      "default": "loop"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_pause_on_focus",
+      "label": "Pause on focus",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_arrows",
+      "label": "Arrows",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "📱 Mobile slider settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "ℹ️ These settings will be applied to mobile devices."
+    },
+    {
+      "type": "range",
+      "id": "slider_mobile_timeout",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "unit": "s",
+      "label": "Timeout",
+      "default": 5
+    },
+    {
+      "type": "select",
+      "id": "slider_mobile_transition_type",
+      "label": "Transition type",
+      "options": [
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "loop",
+          "label": "Loop"
+        }
+      ],
+      "default": "loop"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_mobile_autoplay",
+      "label": "Autoplay",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "label": "Product",
+      "type": "product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product.related_products",
+          "label": "Product",
+          "info": "To ensure your images look great and load quickly, use a size of \"256px x 256px\" (1:1 aspect ratio)."
+        }
+      ]
+    }
+  ]
+}
+{%- endschema -%}

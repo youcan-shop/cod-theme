@@ -1,0 +1,69 @@
+{{ 'product-slider.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .section-related-products #yc_slider_{{ id }} .splide__arrow {
+    background: white !important;
+    width: 54px;
+    height: 54px;
+    margin: 0 148px;
+    z-index: 999;
+    border: 1px solid #EDEDED;
+    box-shadow: 4px 10px 76px rgba(0, 0, 0, 0.14);
+    border-radius: 0px 8px 8px 0px;
+  }
+
+  .section-related-products #yc_slider_{{ id }} .splide__arrow--next {
+    border-radius: 0 8px 8px 0;
+    transform: translate(215px, -30px);
+  }
+
+  .section-related-products #yc_slider_{{ id }} .splide__arrow--prev {
+    border-radius: 8px 0 0 8px;
+    transform: translate(-215px, -30px)
+  }
+
+  .section-related-products #yc_slider_{{ id }} .splide__arrow svg {
+    height: 16px;
+    width: 16px;
+    fill: #000;
+  }
+{% endstyle %}
+
+<div
+  class='splide yc-slider__{{ view }}'
+  id='yc_slider_{{ id }}'
+>
+  <div class='splide__track'>
+    <ul class='splide__list'>
+      {%- for block in blocks %}
+        <li
+          class='splide__slide'
+          {{ block.youcan_attributes }}
+        >
+          <a
+            href='{{ block.settings.product.related_products.url }}'
+            class='product-block'
+          >
+            <div class="product-slider">
+              <div class='product-thumbnail'>
+                <img
+                  loading='lazy'
+                  src='{%- if block.settings.product.related_products.thumbnail -%} {{ block.settings.product.related_products.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
+                >
+              </div>
+              <div class='product-details'>
+                <span class='product-title'>{{ block.settings.product.related_products.name }}</span>
+              </div>
+              <div class='prices'>
+                <span class='product-price'>{{ block.settings.product.related_products.price }}</span>
+                {% if section.settings.show_compare_at_price and block.settings.product.related_products.compare_at_price %}
+                  <span class='compare-at-price'>{{ block.settings.product.related_products.compare_at_price }}</span>
+                {% endif %}
+              </div>
+            </div>
+          </a>
+        </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</div>
