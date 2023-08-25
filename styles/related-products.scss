@@ -1,0 +1,45 @@
+@import 'helpers/mixins';
+
+.section-related-products {
+  @include breakpoint('md') {
+    padding: 0 70px;
+  }
+
+  .yc-slider__mobile {
+    @include breakpoint('md') {
+        display: none;
+    }
+  }
+
+  .yc-slider__desktop {
+    display: none;
+
+    @include breakpoint('md') {
+      & {
+        display: block;
+      }
+    }
+  }
+
+  .product-slider {
+    border: 1px solid #EFEFEF;
+    position: relative;
+    z-index: 1;
+
+    .product-details {
+      margin-top: 20px;
+      text-align: center;
+
+      .product-title {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 21px;
+      }
+    }
+
+    .prices {
+      margin: 20px 0;
+      padding-bottom: unset;
+    }
+  }
+}

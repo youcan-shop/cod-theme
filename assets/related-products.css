@@ -1,37 +1,36 @@
-/**
-* remove me
-*/
-
-* {
-  direction: ltr !important;
+@media (min-width: 768px) {
+  .section-related-products {
+    padding: 0 70px;
+  }
 }
-
-.related-products {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+@media (min-width: 768px) {
+  .section-related-products .yc-slider__mobile {
+    display: none;
+  }
 }
-
-.nav-button {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: none;
+.section-related-products .yc-slider__desktop {
+  display: none;
 }
-
-.images {
-  display: flex;
-  width: 100%;
-  overflow-x: auto;
+@media (min-width: 768px) {
+  .section-related-products .yc-slider__desktop {
+    display: block;
+  }
 }
-
-.images > * {
-  width: calc(33%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: none;
+.section-related-products .product-slider {
+  border: 1px solid #EFEFEF;
+  position: relative;
+  z-index: 1;
+}
+.section-related-products .product-slider .product-details {
+  margin-top: 20px;
+  text-align: center;
+}
+.section-related-products .product-slider .product-details .product-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+}
+.section-related-products .product-slider .prices {
+  margin: 20px 0;
+  padding-bottom: unset;
 }
