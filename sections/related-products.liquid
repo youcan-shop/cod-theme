@@ -22,15 +22,15 @@
       related products
     </h1>
     <div>
-      {%- render 'related-products-slider', blocks: section.blocks, id: id , view: 'desktop', section_settings: section.settings -%}
-      {%- render 'related-products-slider', blocks: section.blocks, id: id , view: 'mobile', section_settings: section.settings  -%}
+      {%- render 'related-products-slider', id: id , view: 'desktop', section_settings: section.settings -%}
+      {%- render 'related-products-slider', id: id , view: 'mobile', section_settings: section.settings  -%}
     </div>
   </section>
 
   <script>
     (function() {
       const isMobile = window.matchMedia("(max-width: 768px)");
-      const products = {{ section.blocks.size }};
+      const products = {{ product.related_products.size }};
       let perPage = 3;
       if (products < 3) {
         perPage = products;
@@ -61,7 +61,7 @@
         arrows: false,
         autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
         cover: true,
-        pagination: mobileImagesPerPage == products ? false : ('{{ section.settings.slider_mobile_pagination }}' ? true : false),
+        pagination: false,
         interval: '{{ section.settings.slider_mobile_timeout | times: 1000 }}',
         rewind: true,
         drag: 'free',
@@ -102,6 +102,12 @@
       "unit": "px",
       "label": "Space Bottom",
       "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "show_compare_at_price",
+      "label": "Show compare at price",
+      "default": true
     },
     {
       "type": "header",
@@ -200,20 +206,6 @@
       "id": "slider_mobile_autoplay",
       "label": "Autoplay",
       "default": true
-    }
-  ],
-  "blocks": [
-    {
-      "label": "Product",
-      "type": "product",
-      "settings": [
-        {
-          "type": "product",
-          "id": "product.related_products",
-          "label": "Product",
-          "info": "To ensure your images look great and load quickly, use a size of \"256px x 256px\" (1:1 aspect ratio)."
-        }
-      ]
     }
   ]
 }

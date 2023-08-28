@@ -28,37 +28,36 @@
     fill: #000;
   }
 {% endstyle %}
-
 <div
   class='splide yc-slider__{{ view }}'
   id='yc_slider_{{ id }}'
 >
   <div class='splide__track'>
     <ul class='splide__list'>
-      {%- for block in blocks %}
+      {%- for item in product.related_products %}
         <li
           class='splide__slide'
-          {{ block.youcan_attributes }}
+          {{ item.youcan_attributes }}
         >
           <a
-            href='{{ block.settings.product.related_products.url }}'
+            href='{{ item.url }}'
             class='product-block'
           >
             <div class="product-slider">
               <div class='product-thumbnail'>
                 <img
                   loading='lazy'
-                  src='{%- if block.settings.product.related_products.thumbnail -%} {{ block.settings.product.related_products.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
+                  src='{%- if item.thumbnail -%} {{ item.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
                 >
               </div>
               <div class='product-details'>
-                <span class='product-title'>{{ block.settings.product.related_products.name }}</span>
+                <span class='product-title'>{{ item.name }}</span>
               </div>
               <div class='prices'>
-                <span class='product-price'>{{ block.settings.product.related_products.price }}</span>
-                {% if section.settings.show_compare_at_price and block.settings.product.related_products.compare_at_price %}
-                  <span class='compare-at-price'>{{ block.settings.product.related_products.compare_at_price }}</span>
+                {% if section_settings.show_compare_at_price and item.compare_at_price %}
+                    <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
                 {% endif %}
+                <span class='product-price'>{{ item.price | | money }}</span>
               </div>
             </div>
           </a>
