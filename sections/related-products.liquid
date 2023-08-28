@@ -9,7 +9,7 @@
   {%- assign selected_product = product %}
 {%- endif %}
 
-{%- if selected_product %}
+{%- if selected_product and product.related_products %}
   {% style %}
     .section-related-products {
       margin-top: {{ section.settings.space_top }}px;
@@ -83,6 +83,10 @@
   "templates": ["product"],
   "limit": 1,
   "settings": [
+    {
+      "type": "paragraph",
+      "content": "ℹ️ Please check the product settings from the seller area and include your related products to have the ability to display this section"
+    },
     {
       "type": "text",
       "id": "title",
