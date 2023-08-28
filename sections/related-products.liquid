@@ -20,6 +20,7 @@
   <section class='section-related-products container'>
     <h1 class='yc-section-title'>
      {{ section.settings.title }}
+     {%- dump section.settings.duration_between_each_slide | times: 1000 -%}
     </h1>
     <div>
       {%- render 'related-products-slider', id: id , view: 'desktop', section_settings: section.settings -%}
@@ -233,7 +234,7 @@
       "max": 15,
       "step": 1,
       "unit": "s",
-      "label": "Timeout",
+      "label": "Duration between each slide",
       "default": 5
     },
     {
