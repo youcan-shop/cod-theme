@@ -1,6 +1,19 @@
 {{ 'product-slider.css' | asset_url | stylesheet_tag }}
 
 {% style %}
+
+{%- if product.related_products.size < 3 %}
+  .section-related-products #yc_slider_{{ id }} .splide__list {
+    transform: unset !important;
+    margin: 0 auto !important;
+    justify-content: center;
+  }
+
+  .section-related-products #yc_slider_{{ id }} .splide__track {
+    overflow: unset !important;
+  }
+{%- endif %}
+
   .section-related-products #yc_slider_{{ id }} .splide__arrow {
     background: white !important;
     width: 54px;
