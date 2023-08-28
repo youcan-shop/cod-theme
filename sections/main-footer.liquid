@@ -46,9 +46,11 @@
         <div class="footer-space"></div>
       {%- endif -%}
       <div class="copyright-wrapper" {{ block.youcan_attributes }}>
-        <div class="copyright-title">
-          {{ section.settings.copyright }}
-        </div>
+        {%- if cleaned_tag != '' %}
+          <div class="copyright-title">
+            {{ section.settings.copyright }}
+          </div>
+        {%- endif %}
         <div class="spacer"></div>
         {%- if section.settings.social_media_exist -%}
           {%- for block in section.blocks -%}
