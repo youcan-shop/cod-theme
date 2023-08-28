@@ -37,7 +37,7 @@
       }
 
       const desktopSlider = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
-        type: '{{ section.settings.slider_transition_type }}',
+        type: products < 4 ? 'slide' : '{{ section.settings.slider_transition_type }}',
         arrows: products == perPage ? false : ('{{ section.settings.slider_arrows }}' ? true : false),
         autoplay: '{{ section.settings.slider_autoplay }}' ? true : false,
         cover: true,

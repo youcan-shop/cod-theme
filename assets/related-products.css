@@ -16,6 +16,9 @@
     display: block;
   }
 }
+.section-related-products .splide__slide {
+  max-width: 326px;
+}
 .section-related-products .product-slider {
   border: 1px solid #EFEFEF;
   position: relative;

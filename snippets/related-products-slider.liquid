@@ -32,6 +32,9 @@
   class='splide yc-slider__{{ view }}'
   id='yc_slider_{{ id }}'
 >
+  {%- if product.related_products.size == 0 %}
+  please add some realted items for this product from the seller area
+  {%- endif %}
   <div class='splide__track'>
     <ul class='splide__list'>
       {%- for item in product.related_products %}
