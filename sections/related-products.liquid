@@ -19,7 +19,7 @@
 
   <section class='section-related-products container'>
     <h1 class='yc-section-title'>
-      related products
+     {{ section.settings.title }}
     </h1>
     <div>
       {%- render 'related-products-slider', id: id , view: 'desktop', section_settings: section.settings -%}
@@ -84,6 +84,11 @@
   "limit": 1,
   "settings": [
     {
+      "type": "text",
+      "id": "title",
+      "label": "Section title"
+    },
+    {
       "type": "range",
       "id": "space_top",
       "min": 0,
@@ -108,6 +113,51 @@
       "id": "show_compare_at_price",
       "label": "Show compare at price",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Banner settings"
+    },
+    {
+      "type": "text",
+      "id": "tag_text",
+      "label": "Banner text"
+    },
+    {
+      "type": "color",
+      "id": "tag_text_color",
+      "label": "Banner text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "tag_background_color",
+      "label": "Banner background color",
+      "default": "#F4351FFF"
+    },
+    {
+      "type": "select",
+      "id": "tag_position",
+      "label": "Banner position",
+      "options": [
+        {
+          "label": "Top right",
+          "value": "top_right"
+        },
+        {
+          "label": "Top left",
+          "value": "top_left"
+        },
+        {
+          "label": "Bottom right",
+          "value": "bottom_right"
+        },
+        {
+          "label": "Bottom left",
+          "value": "bottom_left"
+        }
+      ],
+      "default": "top_right"
     },
     {
       "type": "header",

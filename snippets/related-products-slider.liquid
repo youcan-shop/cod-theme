@@ -65,6 +65,14 @@
                   loading='lazy'
                   src='{%- if item.thumbnail -%} {{ item.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
                 >
+                {% if section_settings.tag_text %}
+                  <div
+                    class="tag {{ section_settings.tag_position }}"
+                    style="background: {{ section_settings.tag_background_color.hex }}; color: {{ section_settings.tag_text_color.hex }}"
+                  >
+                    {{ section_settings.tag_text }}
+                  </div>
+                {% endif %}
               </div>
               <div class='product-details'>
                 <span class='product-title'>{{ item.name }}</span>
