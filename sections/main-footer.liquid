@@ -40,27 +40,31 @@
         {%- endif -%}
       {%- endfor -%}
     </div>
-      <div class="container">
-        <div class="copyright-wrapper" {{ block.youcan_attributes }}>
-          <div class="copyright-title">
-            {{ section.settings.copyright }}
-          </div>
-          <div class="spacer"></div>
-          {%- if section.settings.social_media_exist -%}
-            {%- for block in section.blocks -%}
-              {%- if block.settings.social_media_icon_image.src -%}
-                <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
-                  <img loading='lazy' class='image' src="{{ block.settings.social_media_icon_image.src }}" alt='social links'>
-                </a>
-                {% else %}
-                <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
-                  <img loading='lazy' src='{{ 'default_product.jpeg' | asset_url }}' alt='image placeholder'>
-                </a>
-              {%- endif -%}
-            {%- endfor %}
-          {%- endif -%}
+    <div class="container">
+      {%- assign cleaned_tag = section.settings.copyright | strip_html | strip -%}
+      {%- if section.settings.social_media_exist or cleaned_tag != '' %}
+        <div class="footer-space"></div>
+      {%- endif -%}
+      <div class="copyright-wrapper" {{ block.youcan_attributes }}>
+        <div class="copyright-title">
+          {{ section.settings.copyright }}
         </div>
+        <div class="spacer"></div>
+        {%- if section.settings.social_media_exist -%}
+          {%- for block in section.blocks -%}
+            {%- if block.settings.social_media_icon_image.src -%}
+              <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
+                <img loading='lazy' class='image' src="{{ block.settings.social_media_icon_image.src }}" alt='social links'>
+              </a>
+            {% else %}
+              <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
+                <img loading='lazy' src='{{ 'default_product.jpeg' | asset_url }}' alt='image placeholder'>
+              </a>
+            {%- endif -%}
+          {%- endfor %}
+        {%- endif -%}
       </div>
+    </div>
   </footer>
 {% endif %}
 

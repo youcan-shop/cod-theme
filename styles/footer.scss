@@ -96,19 +96,11 @@
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
-    margin-top: 14px;
-
-    @include breakpoint('md') {
-      border-top: 1px solid #444444;
-      padding-top: 45px;
-      margin-top: 35px;
-    }
   }
 
   .copyright-wrapper .copyright-title {
     font-weight: 600;
     font-size: 11px;
-    line-height: 250%;
   }
 
   .copyright-wrapper .link {
@@ -119,6 +111,16 @@
     img {
       width: 100%;
       height: 100%;
+    }
+  }
+
+  .footer-space {
+    margin-top: 14px;
+
+    @include breakpoint('md') {
+      border-top: 1px solid #444444;
+      padding-top: 45px;
+      margin-top: 35px;
     }
   }
 }
