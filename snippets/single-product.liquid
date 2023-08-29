@@ -39,15 +39,16 @@
           {%- when 'product_price' -%}
             <div class='product-price-container'>
               <h2 class='product-price'>{{ product.price | money }}</h2>
-              {% if block.settings.show_compare_at_price %}
                 <div class="compare-container">
-                  <h3 class="compare-price">
-                    {%- for variant in product.variants -%}
-                      {% if variant.variations.default and product.compare_at_price != nil %}
-                        <del>{{ product.compare_at_price | money }}</del>
-                      {% endif %}
-                    {% endfor %}
-                  </h3>
+                  {% if block.settings.show_compare_at_price %}
+                    <h3 class="compare-price">
+                      {%- for variant in product.variants -%}
+                        {% if variant.variations.default and product.compare_at_price != nil %}
+                          <del>{{ product.compare_at_price | money }}</del>
+                        {% endif %}
+                      {% endfor %}
+                    </h3>
+                  {% endif %}
                   {% if block.settings.show_price_tag_banner and block.settings.price_tag_text %}
                     <div
                       class="tag"
@@ -57,7 +58,6 @@
                     </div>
                   {% endif %}
                 </div>
-              {% endif %}
             </div>
           {%- when 'general_review' -%}
             {%- render 'general-review' -%}
