@@ -135,10 +135,33 @@
           "settings": {
               "reviews_title": "توصيات من زبنائنا"
           }
+      },
+      "section_wznrmzoso3wlcud": {
+          "type": "related-products",
+          "settings": {
+              "title": "منتجات مشابهة",
+              "space_top": 20,
+              "space_bottom": 20,
+              "show_compare_at_price": true,
+              "tag_text_color": "#FFFFFFFF",
+              "tag_background_color": "#F4351FFF",
+              "tag_position": "top_right",
+              "duration_between_each_slide": 5,
+              "slider_transition_type": "slide",
+              "slider_autoplay": true,
+              "slider_pause_on_hover": true,
+              "slider_pause_on_focus": true,
+              "slider_arrows": true,
+              "slider_mobile_timeout": 5,
+              "slider_mobile_transition_type": "loop",
+              "slider_mobile_autoplay": true,
+              "tag_text": ""
+          }
       }
   },
   "order": [
       "section_h9mxz1qej3jesr",
-      "section_x3ortmneyjri6ol"
+      "section_x3ortmneyjri6ol",
+      "section_wznrmzoso3wlcud"
   ]
 }
