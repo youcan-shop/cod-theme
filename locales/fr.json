@@ -1,4 +1,8 @@
 {
+  "general": {
+    "show_more_button": "Voir plus",
+    "size_big_message": "Veuillez télécharger une image de moins de 2 Mo"
+  },
   "navbar": {
     "search": {
       "placeholder": "Entrez un mot-clé à rechercher..."
