@@ -1,17 +1,18 @@
 {
   "general": {
     "show_more_button": "Voir plus",
-    "size_big_message": "Veuillez télécharger une image de moins de 2 Mo"
-  },
-  "navbar": {
-    "search": {
-      "placeholder": "Entrez un mot-clé à rechercher..."
-    }
+    "size_big_message": "Veuillez télécharger une image de moins de 2 Mo",
+    "buy_now": "Acheter"
   },
   "head_metadata": {
     "collections": "Collections",
     "thankyou": "Merci",
     "cart": "Panier d'achat"
+  },
+  "navbar": {
+    "search": {
+      "placeholder": "Entrez un mot-clé à rechercher..."
+    }
   },
   "featured_products": {
     "title": "Produits en vedette.a.."
@@ -21,6 +22,9 @@
   },
   "list_collections": {
     "title": "Collections"
+  },
+  "reviews": {
+    "ratings": "Évaluations"
   },
   "cart": {
     "title": "Panier d'achat",
@@ -50,6 +54,13 @@
     },
     "continue_shopping_cta": "Continuer les achats"
   },
+  "search": {
+    "empty": {
+      "title": "Aucun résultat",
+      "description": "Votre recherche n'a donné aucun résultat.",
+      "home_page": "Page d'accueil"
+    }
+  },
   "thankyou": {
     "title": "Merci",
     "subtitle": "Votre commande a été reçue.",
@@ -71,12 +82,6 @@
     "collection_preview": {
       "visit_cta": "Visiter o"
     },
-    "main_sort": {
-      "title": "Trier par",
-      "price": "Prix",
-      "newest": "Le plus récent",
-      "alphabetically": "Par ordre alphabétique"
-    },
     "product_preview": {
       "cta_button": "Magasiner maintenant"
     },
@@ -93,7 +98,7 @@
       "home": "Accueil",
       "collections": "Collections"
     },
-    "product_listing": {
+    "main_sort": {
       "order_by": "Trier par",
       "price_asc": "Prix: du plus bas au plus élevé",
       "price_desc": "Prix: du plus élevé au plus bas",

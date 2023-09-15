@@ -1,7 +1,8 @@
 {
   "general": {
     "show_more_button": "عرض المزيد",
-    "size_big_message": "المرجو تحميل صورة أقل من 2mb"
+    "size_big_message": "المرجو تحميل صورة أقل من 2mb",
+    "buy_now": "اشتري الأن"
   },
   "head_metadata": {
     "collections": "التصنيفات",
@@ -13,9 +14,6 @@
       "placeholder": "أدخل الكلمة الرئيسية للبحث عنها..."
     }
   },
-  "reviews": {
-    "ratings": "التقييمات"
-  },
   "featured_products": {
     "title": "المنتجات المميزة"
   },
@@ -24,6 +22,9 @@
   },
   "list_collections": {
     "title": "مجموعات"
+  },
+  "reviews": {
+    "ratings": "التقييمات"
   },
   "cart": {
     "title": "عربة التسوق",
@@ -109,7 +110,6 @@
   },
   "upsell": {
     "yes_submit_button": "إطلب الأن",
-    "yes_submit_button_sub": "ولا تفوت عليك الفرصة ",
     "no_submit_button": "لا شكراً لست مهتماً"
   },
   "footer": {
