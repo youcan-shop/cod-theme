@@ -25,10 +25,11 @@
 }
 .thankyou-page-container .thankyou-wrapper .content-wrapper .heading .title {
   display: block;
+  font-size: 24px;
 }
-@media screen and (max-width: 768px) {
+@media (min-width: 768px) {
   .thankyou-page-container .thankyou-wrapper .content-wrapper .heading .title {
-    font-size: 24px;
+    font-size: 30px;
   }
 }
 .thankyou-page-container .thankyou-wrapper .content-wrapper .description {
@@ -74,9 +75,15 @@
   font-weight: 700;
   font-size: 14px;
 }
-.thankyou-page-container .order-details .table-content .head .coupon-head .data-item {
+.thankyou-page-container .order-details .table-content .coupon-head .data-item {
   display: flex;
-  gap: 4px;
+  gap: 5px;
+}
+.thankyou-page-container .order-details .table-content .coupon-head .data-item .coupon-value {
+  display: inherit;
+}
+[dir=ltr] .thankyou-page-container .order-details .table-content .coupon-head .data-item .coupon-value .minus {
+  order: -1;
 }
 .thankyou-page-container .order-details .table-content .total-price-head {
   display: flex;
