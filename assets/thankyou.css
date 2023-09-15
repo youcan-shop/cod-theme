@@ -31,6 +31,12 @@
     font-size: 24px;
   }
 }
+.thankyou-page-container .thankyou-wrapper .content-wrapper .icon, .thankyou-page-container .thankyou-wrapper .content-wrapper img {
+  width: 66px;
+  color: #8DC447;
+  height: 66px;
+  margin-bottom: 16px;
+}
 .thankyou-page-container .thankyou-wrapper .content-wrapper .description {
   margin-top: 15px;
   opacity: 0.9;
