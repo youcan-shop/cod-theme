@@ -26,9 +26,10 @@
 
         .title {
           display: block;
+          font-size: 24px;
 
-          @media screen and (max-width: 768px) {
-            font-size: 24px;
+          @include breakpoint('md') {
+            font-size: 30px;
           }
         }
       }
@@ -82,10 +83,22 @@
           font-weight: 700;
           font-size: 14px;
         }
+      }
 
-        .coupon-head .data-item {
+      .coupon-head {
+        .data-item {
           display: flex;
-          gap: 4px;
+          gap: 5px;
+
+          .coupon-value {
+            display: inherit;
+
+            .minus {
+              [dir='ltr'] & {
+                order: -1;
+              }
+            }
+          }
         }
       }
 

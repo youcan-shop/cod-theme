@@ -62,18 +62,16 @@
     }
   },
   "thankyou": {
-    "title": "Thank you",
-    "subtitle": "Your order has been received.",
-    "description": "Our team will be in touch to confirm your request.<br\/>We value your trust and appreciate your willingness to communicate with us.<br\/>We are always here to serve you.",
     "return_cta": "Return to shop",
     "details": {
       "title": "Order details",
       "payment_status": "Payment Status",
       "shipping_cost": "Shipping Cost",
+      "sub_total": "Subtotal",
       "total": "Total",
-      "product": "PRODUCT",
-      "one_piece_price": "ONE PIECE PRICE",
-      "quantity": "QUANTITY",
+      "product": "Produit",
+      "one_piece_price": "Unit price",
+      "quantity": "Quantity",
       "coupon": "Coupon",
       "vat": "VAT"
     }
