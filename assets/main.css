@@ -639,6 +639,9 @@ input:not([type=radio]),
   font-size: 14px;
   text-decoration: none;
 }
+.breadcrumbs-container .breadcrumbs-listings .third-listing {
+  font-weight: 800;
+}
 [dir=ltr] .breadcrumbs-container .breadcrumbs-listings .listings__item img {
   rotate: 180deg;
 }

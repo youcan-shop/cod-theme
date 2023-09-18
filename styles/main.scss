@@ -690,6 +690,10 @@ input:not([type='radio']),
       text-decoration: none;
     }
 
+    .third-listing {
+      font-weight: 800;
+    }
+
     .listings__item img {
       [dir='ltr'] & {
         rotate: 180deg;
