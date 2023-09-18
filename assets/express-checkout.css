@@ -1,6 +1,7 @@
 @media (min-width: 768px) {
   #express-checkout-form {
-    border: 2px solid #F33520;
+    border-width: 2px;
+    border-style: solid;
     background: #F8F8F8;
     box-shadow: 1px -1px 23px rgba(0, 0, 0, 0.04);
     border-radius: 4px;
@@ -10,7 +11,8 @@
 }
 
 .express-checkout-fields {
-  border: 2px solid #F33520;
+  border-width: 2px;
+  border-style: solid;
   background: #F8F8F8;
   box-shadow: 1px -1px 23px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
