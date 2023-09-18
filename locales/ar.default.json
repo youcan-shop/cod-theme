@@ -62,17 +62,15 @@
     }
   },
   "thankyou": {
-    "title": "شكرا",
-    "subtitle": "تم استلام طلبك.",
-    "description": "سيتصل بك فريقنا لتأكيد طلبك",
     "return_cta": "الصفحة الرئيسية ",
     "details": {
       "title": "ملخص الفاتورة",
       "payment_status": "حالة الدفع",
       "shipping_cost": "الشحن والتسليم",
-      "total": "إجمالي المبلغ",
+      "sub_total": "المجموع الجزئي",
+      "total": "المجموع الكلي",
       "product": "السلع",
-      "one_piece_price": "سعر قطعة واحدة",
+      "one_piece_price": "سعر كل قطعة",
       "quantity": "الكمية",
       "coupon": "كوبون",
       "vat": "الضريبة على القيمة المضافة"

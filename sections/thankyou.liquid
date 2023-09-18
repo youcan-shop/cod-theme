@@ -3,7 +3,6 @@
 {% style %}
 .title {
   color: {{ section.settings.title_color.hex }};
-  font-size: {{ section.settings.title_size }}px;
 }
 
 .subtitle {
@@ -31,10 +30,10 @@
     <table>
       <thead>
         <tr>
-          <th>Product</th>
-          <th>Unit price</th>
-          <th>Quantity</th>
-          <th class="total">Total</th>
+          <th>{{ 'thankyou.details.product' | t }}</th>
+          <th>{{ 'thankyou.details.one_piece_price' | t }}</th>
+          <th>{{ 'thankyou.details.quantity' | t }}</th>
+          <th class="total">{{ 'thankyou.details.sub_total' | t }}</th>
         </tr>
       </thead>
       {% for item in order.order_variants %}
@@ -69,18 +68,21 @@
     {%- if order.coupon -%}
       <div class="head coupon-head">
         <div class="item">
-            {{- 'thankyou.details.coupon' | t -}}
+          {{- 'thankyou.details.coupon' | t -}}
+        </div>
+        <div class="data-item">
+          <div class="coupon-value">
+            <span>{{- order.coupon.deducted_amount | money -}}</span>
+            <span class="minus">-</span>
           </div>
-          <div class="data-item">
-            - <span>{{- order.coupon.deducted_amount | money -}}</span>
-            <span>
-              {%- if order.coupon.is_percentage -%}
-                ({{- order.coupon.value -}}%)
-              {%- else -%}
-                ({{- order.coupon.value | money -}})
-              {%- endif -%}
-            </span>
-          </div>
+          <span>
+            {%- if order.coupon.is_percentage -%}
+              ({{- order.coupon.value -}}%)
+            {%- else -%}
+              ({{- order.coupon.value | money -}})
+            {%- endif -%}
+          </span>
+        </div>
       </div>
     {%- endif -%}
     <div class="head">
@@ -139,16 +141,6 @@
       "type": "color",
       "id": "title_color",
       "label": "Title color"
-    },
-    {
-      "type": "range",
-      "id": "title_size",
-      "label": "Title font size",
-      "min": 14,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 16
     },
     {
       "type": "text",
