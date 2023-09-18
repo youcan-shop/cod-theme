@@ -14,9 +14,13 @@
 
   {% endif %}
 
+  .custom-checkout-{{ checkout_id }},
+  .express-checkout-fields {
+    border-color: {{ settings.form_border_colour.hex }};
+  }
+
   .custom-checkout-{{ checkout_id }} .express-checkout-fields  {
     grid-gap: {{ settings.inputs_gap }}px;
-    border-color: {{ settings.form_border_colour.hex }}
   }
 
   .custom-checkout-{{ checkout_id }} input {
