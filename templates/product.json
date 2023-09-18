@@ -147,7 +147,7 @@
               "tag_background_color": "#F4351FFF",
               "tag_position": "top_right",
               "duration_between_each_slide": 5,
-              "slider_transition_type": "slide",
+              "slider_transition_type": "loop",
               "slider_autoplay": true,
               "slider_pause_on_hover": true,
               "slider_pause_on_focus": true,
