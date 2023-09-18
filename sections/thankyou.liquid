@@ -16,7 +16,11 @@
   <div class='thankyou-wrapper'>
     <div class='py-12'>
       <div class='content-wrapper'>
-        <svg width="89" height="93" viewBox="0 0 89 93" fill="none" xmlns="http://www.w3.org/2000/svg"> <g filter="url(#filter0_d_596_7263)"> <path d="M40.1418 4.9914C42.4928 2.43939 46.522 2.43939 48.8729 4.9914V4.9914C50.4282 6.67964 52.8174 7.31984 55.0084 6.63539V6.63539C58.3203 5.60074 61.8098 7.61537 62.5697 11.0009V11.0009C63.0725 13.2406 64.8215 14.9897 67.0612 15.4924V15.4924C70.4468 16.2523 72.4614 19.7418 71.4267 23.0538V23.0538C70.7423 25.2447 71.3825 27.634 73.0707 29.1892V29.1892C75.6227 31.5401 75.6227 35.5694 73.0707 37.9203V37.9203C71.3825 39.4755 70.7423 41.8648 71.4267 44.0557V44.0557C72.4614 47.3677 70.4468 50.8571 67.0612 51.6171V51.6171C64.8215 52.1198 63.0725 53.8689 62.5697 56.1086V56.1086C61.8098 59.4941 58.3203 61.5088 55.0084 60.4741V60.4741C52.8174 59.7897 50.4282 60.4299 48.8729 62.1181V62.1181C46.522 64.6701 42.4928 64.6701 40.1418 62.1181V62.1181C38.5866 60.4299 36.1974 59.7897 34.0064 60.4741V60.4741C30.6944 61.5088 27.205 59.4941 26.445 56.1086V56.1086C25.9423 53.8689 24.1932 52.1198 21.9536 51.6171V51.6171C18.568 50.8571 16.5534 47.3677 17.588 44.0557V44.0557C18.2725 41.8648 17.6323 39.4755 15.944 37.9203V37.9203C13.392 35.5694 13.392 31.5401 15.944 29.1892V29.1892C17.6323 27.634 18.2725 25.2447 17.588 23.0538V23.0538C16.5534 19.7418 18.568 16.2524 21.9536 15.4924V15.4924C24.1932 14.9897 25.9423 13.2406 26.445 11.0009V11.0009C27.205 7.61537 30.6944 5.60074 34.0064 6.63538V6.63538C36.1974 7.31984 38.5866 6.67965 40.1418 4.9914V4.9914Z" fill="#8DC447"/> </g> <path d="M40.1886 43.6226C39.8654 43.6226 39.5553 43.494 39.3268 43.2655L30.2644 34.2031C29.7882 33.7269 29.7882 32.9555 30.2644 32.4794C30.7405 32.0032 31.512 32.0032 31.9881 32.4794L40.1885 40.6797L57.0247 23.8435C57.5009 23.3673 58.2723 23.3673 58.7484 23.8435C59.2246 24.3196 59.2246 25.0911 58.7484 25.5672L41.0512 43.2659C40.8227 43.4945 40.5125 43.6231 40.1893 43.6231L40.1886 43.6226Z" fill="white"/> <defs> <filter id="filter0_d_596_7263" x="0.0302734" y="3.07715" width="88.9541" height="88.9551" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"> <feFlood flood-opacity="0" result="BackgroundImageFix"/> <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/> <feOffset dy="14"/> <feGaussianBlur stdDeviation="7"/> <feComposite in2="hardAlpha" operator="out"/> <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0"/> <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_596_7263"/> <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_596_7263" result="shape"/> </filter> </defs> </svg>
+        {%- if section.settings.upload_thankyou_img.src -%}
+          <img loading='lazy' class='image' src="{{ section.settings.upload_thankyou_img.src }}" alt='Upload thank you image'>
+        {% else %}
+          <ion-icon name="checkmark-circle-outline" class="icon"></ion-icon>
+        {%- endif -%}
         <div class="heading">
           <div class='title'>{{ section.settings.title }} <div class='subtitle'>{{ section.settings.subtitle }}</div></div>
         </div>
@@ -156,6 +160,11 @@
       "type": "richtext",
       "id": "description",
       "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "upload_thankyou_img",
+      "label": "Upload thank you image"
     }
   ]
 }
