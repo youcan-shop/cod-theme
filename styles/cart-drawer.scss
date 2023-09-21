@@ -29,6 +29,11 @@
     border: none;
     font-size: 28px;
     z-index: 1000;
+
+    [dir='ltr'] & {
+      left: unset;
+      right: 13px;
+    }
   }
 
   .header {
@@ -146,6 +151,11 @@
         position: absolute;
         left: 10px;
         top: 15px;
+
+        [dir='ltr'] & {
+          left: unset;
+          right: 10px;
+        }
       }
 
       .remove-item-btn {
