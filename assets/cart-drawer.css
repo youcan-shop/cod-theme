@@ -26,6 +26,10 @@
   font-size: 28px;
   z-index: 1000;
 }
+[dir=ltr] .cart-drawer .cart-drawer__close {
+  left: unset;
+  right: 13px;
+}
 .cart-drawer .header {
   display: flex;
   padding: 16px 24px;
@@ -128,6 +132,10 @@
   position: absolute;
   left: 10px;
   top: 15px;
+}
+[dir=ltr] .cart-drawer ul .cart-item .remove-item-btn, [dir=ltr] .cart-drawer ul .cart-item .spinner {
+  left: unset;
+  right: 10px;
 }
 .cart-drawer ul .cart-item .remove-item-btn {
   font-size: 23px;
