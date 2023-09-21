@@ -2,7 +2,7 @@
 {{ 'product-listing.css' | asset_url | stylesheet_tag }}
 
 {%- assign per_page = section.settings.items_per_page -%}
-<div class='yc-product-listing-container'>
+<div class='yc-product-listing-container' id="stick-footer">
   <div class="breadcrumbs-container">
     {%- render 'breadcrumbs' -%}
     <div class="breadcrumbs-name">

@@ -1,6 +1,6 @@
 {{ 'upsell.css' | asset_url | stylesheet_tag }}
 
-<div class="upsell-page">
+<div class="upsell-page" id="stick-footer">
   <div class="upsell-container">
     <div class="upsell-content">
       {{ upsell.description }}
@@ -13,12 +13,12 @@
       <input
         type="hidden"
         name="upsell_id"
-        value="{{ upsell.id }}" 
+        value="{{ upsell.id }}"
       />
       <input
         type="hidden"
         name="order_id"
-        value="{{ order.id }}" 
+        value="{{ order.id }}"
       />
       {%- for product in upsell.products %}
         <input
@@ -27,7 +27,7 @@
           value="{{ product.variants.0.id }}"
         />
       {%- endfor %}
-          
+
       <div class="upsell-form-submit">
       <button type="submit" name="answer" value="yes" class="upsell-submit-yes size-{{- upsell.actions.btn_yes.size -}}"
         style="background: {{- upsell.actions.btn_yes.bg_color -}};">
@@ -45,11 +45,11 @@
       </button>
     </div>
     </form>
-    <div class="upsell-content"> 
+    <div class="upsell-content">
       {{ upsell.footer }}
     </div>
   </div>
-</div> 
+</div>
 
 {{ 'upsell.js' | asset_url | script_tag_deferred }}
 
