@@ -1,0 +1,28 @@
+<script>
+  window._theme_data = {
+    skip_cart: {{- settings.skip_cart -}},
+    direct_ad_to_cart: false, // TODO: Change this with a setting
+    one_page_checkout: false, // TODO: Change this with a setting
+  };
+
+  /**
+   * @param {string} name
+   * @returns {string}
+   */
+  window._route = function (name) {
+    let targetRoute = '';
+
+    switch (name) {
+      case 'checkout.information': targetRoute = 'checkout/information'; break;
+      default: targetRoute = '/';
+    }
+
+    const main = window.Dotshop.store?.domain ?? window.location?.hostname;
+
+    try {
+      return `${(new URL(main)).origin}/${targetRoute}`;
+    }catch (_) {
+      return `${window.location.protocol}//${main}/${targetRoute}`;
+    }
+  }
+</script>

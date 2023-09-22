@@ -248,5 +248,16 @@
               "default": 400
           }
       ]
+  },
+  {
+    "label": "Product Settings",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "skip_cart",
+            "label": "Skip cart",
+            "default": false
+        }
+    ]
   }
 ]

@@ -4,6 +4,7 @@
   dir='{{ settings.theme_direction }}'
 >
   <head>
+    {%- render '_global_js_variables', settings: settings -%}
     {%- render 'head-config' -%}
 
     {{ content_for_header }}

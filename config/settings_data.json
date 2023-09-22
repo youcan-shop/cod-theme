@@ -92,7 +92,8 @@
         "error_color": "#DF1E2FFF",
         "meta_title": "COD Theme",
         "navbar_height": 60,
-        "navbar_links_hover_transparency": 0.69999999999999996
+        "navbar_links_hover_transparency": 0.69999999999999996,
+        "skip_cart": false
     },
     "presets": {
         "Default": {}
