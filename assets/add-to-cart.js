@@ -32,8 +32,8 @@ async function addToCart(snippetId) {
     await updateCartDrawer();
 
     stopLoad('#loading__cart');
-    if (window._theme_data.skip_cart){
-      window.location.href = window._route('checkout.information');
+    if (IS_CART_SKIPED){
+      window.location.href = CHECKOUT_PAGE_URL;
 
       return;
     }
