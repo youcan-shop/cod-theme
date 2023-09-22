@@ -181,7 +181,7 @@
   height: 100vh;
   width: 18rem;
   opacity: 0;
-  z-index: 99;
+  z-index: 1001;
 }
 .navigation-drawer .logo {
   padding: 20px 16px;
