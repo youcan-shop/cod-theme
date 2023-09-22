@@ -4,7 +4,6 @@
   dir='{{ settings.theme_direction }}'
 >
   <head>
-    {%- render '_global_js_variables', settings: settings -%}
     {%- render 'head-config' -%}
 
     {{ content_for_header }}
@@ -24,6 +23,7 @@
     {% section 'main-footer' %}
     {%- render 'cart-drawer' -%}
 
+    {%- render '_global_js_variables' -%}
     {{ 'main.js' | asset_url | script_tag }}
   </body>
 </html>

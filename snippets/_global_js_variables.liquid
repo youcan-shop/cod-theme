@@ -1,6 +1,6 @@
 <script>
   window._theme_data = {
-    skip_cart: {{- settings.skip_cart -}},
+    skip_cart: typeof IS_CART_SKIPED !== "undefined" ? IS_CART_SKIPED : false,
     direct_ad_to_cart: false, // TODO: Change this with a setting
     one_page_checkout: false, // TODO: Change this with a setting
   };
