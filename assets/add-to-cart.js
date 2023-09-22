@@ -32,6 +32,7 @@ async function addToCart(snippetId) {
     await updateCartDrawer();
 
     stopLoad('#loading__cart');
+
     if (IS_CART_SKIPED){
       window.location.href = CHECKOUT_PAGE_URL;
 
