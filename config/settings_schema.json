@@ -248,5 +248,16 @@
               "default": 400
           }
       ]
+  },
+  {
+    "label": "Direct add to cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "direct_add_to_cart",
+        "label": "Direct add to cart",
+        "default": false
+      }
+    ]
   }
 ]

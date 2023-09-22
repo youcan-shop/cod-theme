@@ -162,9 +162,9 @@ function setVariant(parentSection, id) {
 /**
  * Sets inventory of product variant.
  * And disable add to cart button when inventory is not sufficient.
- * 
+ *
  * @param {HTMLElement} parentSection
- * @param {Number} inventory 
+ * @param {Number} inventory
  */
 function setInventory(parentSection, inventory) {
   const inventoryInput = parentSection.querySelector('#_inventory');

@@ -1,10 +1,14 @@
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
 {{ 'countdown.css' | asset_url | stylesheet_tag }}
 
-<a
-  href='{{ item.url }}'
-  class='product-block'
+<div
+  class='container yc-single-product'
+  id='s-{{ snippetId }}'
 >
+  <input
+  id='variantId'
+  >
+  <input id='_inventory'>
   <div class='product-thumbnail'>
     {% if item.thumbnail %}
       <img
@@ -37,4 +41,16 @@
       <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
     {% endif %}
   </div>
-</a>
+  <button
+    class='yc-btn'
+    onclick='addToCart("{{ snippetId }}")'
+  >
+    <span
+      class='spinner hidden'
+      id='loading__cart'
+    ></span>
+    <span>
+      add
+    </span>
+  </button>
+</div>

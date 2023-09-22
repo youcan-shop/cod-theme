@@ -1,6 +1,7 @@
 async function addToCart(snippetId) {
   const parentSection = document.querySelector(`#s-${snippetId}`);
   const variantId = parentSection.querySelector(`#variantId`)?.value || undefined;
+  console.log(variantId);
   const quantity = parentSection.querySelector(`#quantity`)?.value || 1;
   const inventory = parentSection.querySelector(`#_inventory`)?.value || null;
   const uploadedImageLink = parentSection.querySelector(`#yc-upload-link`)?.value || undefined;

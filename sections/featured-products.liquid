@@ -1,4 +1,5 @@
 {% assign id = 100 | rand: 2000 %}
+{%- assign snippetId = 0 | rand %}
 
 {% style %}
   .section-featured-products-{{ id }} {
@@ -50,11 +51,13 @@
   <div class='product-list product-container-{{ id }}'>
     {%- for block in section.blocks -%}
       <div {{ block.youcan_attributes }} class="product-item-{{ id }}">
-        {%- render 'product-preview', item: block.settings.product, block_settings: block.settings, section_settings: section.settings -%}
+        {%- render 'product-preview', item: block.settings.product, block_settings: block.settings, section_settings: section.settings, snippetId: snippetId -%}
       </div>
     {%- endfor -%}
   </div>
 </section>
+
+
 
 {%- schema -%}
 {
