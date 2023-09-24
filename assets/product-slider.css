@@ -48,6 +48,7 @@
   width: 100%;
   background-color: white;
   border-radius: 3px;
+  cursor: pointer;
 }
 .product-slider .product-block .product-details {
   text-align: center;

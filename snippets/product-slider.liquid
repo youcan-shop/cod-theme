@@ -49,10 +49,11 @@
           class='splide__slide'
           {{ block.youcan_attributes }}
         >
-          <a
-            href='{{ block.settings.product.url }}'
-            class='product-block'
-          >
+          {% if settings.direct_add_to_cart %}
+            <div class='product-block' onclick="directAddToCart('{{ block.settings.product.variants[0].id }}')">
+          {% else %}
+            <div class='product-block' onclick="window.location.href='{{ block.settings.product.url }}'">
+          {% endif %}
             <div class="product-slider">
               <div class='product-thumbnail'>
                  <img
@@ -80,9 +81,9 @@
                 {% endif %}
               </div>
             </div>
-          </a>
+          </div>
         </li>
       {%- endfor %}
     </ul>
-  </div>  
+  </div>
 </div>

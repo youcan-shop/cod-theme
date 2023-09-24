@@ -310,3 +310,34 @@ function preventCartDrawerOpening(templateName) {
   cartDrawerIcon.removeEventListener("click", toggleCartDrawer);
   window.location.reload();
 }
+
+async function directAddToCart(productId) {
+  console.log("Product ID:", productId);
+
+  let inventory;
+
+  // Check if inventory is zero
+  if (inventory == 0) {
+    return notify(ADD_TO_CART_EXPECTED_ERRORS.empty_inventory, 'error');
+  }
+
+  try {
+    const response = await youcanjs.cart.addItem({
+      productVariantId: productId,
+      quantity: 1
+    });
+
+    if (response.error) throw new Error(response.error);
+
+    updateCartCount(response.count);
+    await updateCartDrawer();
+
+    stopLoad('#loading__cart');
+    notify(ADD_TO_CART_EXPECTED_ERRORS.product_added, 'success');
+    toggleCartDrawer();
+  } catch (err) {
+    stopLoad('#loading__cart');
+    notify(err.message, 'error');
+  }
+}
+

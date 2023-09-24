@@ -1,10 +1,11 @@
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
 {{ 'countdown.css' | asset_url | stylesheet_tag }}
 
-<a
-  href='{{ item.url }}'
-  class='product-block'
->
+{% if settings.direct_add_to_cart %}
+  <div class='product-block' onclick="directAddToCart('{{ item.variants[0].id }}')">
+{% else %}
+  <div class='product-block' onclick="window.location.href='{{ item.url }}'">
+{% endif %}
   <div class='product-thumbnail'>
     {% if item.thumbnail %}
       <img
@@ -26,9 +27,11 @@
       </div>
     {% endif %}
   </div>
+
   <div class='product-details'>
     <span class='product-title'>{{ item.name }}</span>
   </div>
+
   <div class='prices'>
     {% if item.price %}
       <span class='product-price'>{{ item.price | money }}</span>
@@ -37,4 +40,4 @@
       <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
     {% endif %}
   </div>
-</a>
+</div>
