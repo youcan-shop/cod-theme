@@ -312,15 +312,6 @@ function preventCartDrawerOpening(templateName) {
 }
 
 async function directAddToCart(productId) {
-  console.log("Product ID:", productId);
-
-  let inventory;
-
-  // Check if inventory is zero
-  if (inventory == 0) {
-    return notify(ADD_TO_CART_EXPECTED_ERRORS.empty_inventory, 'error');
-  }
-
   try {
     const response = await youcanjs.cart.addItem({
       productVariantId: productId,
