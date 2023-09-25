@@ -1,18 +1,5 @@
-{% style %}
-  .collection-name {
-    color: {{ section.settings.category_name_color.hex }};
-  }
-  
-  .collection-description {
-    color: {{ section.settings.category_description.hex }}; 
-  }
-  
-  .collection-details {
-    background-color: {{ section.settings.preview_overlay_color.hex }};
-  }
-{% endstyle %}
-
-<div
+<a
+  href='/collections/{{ category.slug }}'
   class='collection-block'
   {{ block.youcan_attributes }}
 >
@@ -28,10 +15,8 @@
         src='{{ 'default_product.jpeg' | asset_url }}'
       >
     {% endif %}
-    <div class='collection-details'>
-      <span class='collection-name'>{{ category.name }}</span>
-      <span class='collection-description'>{{ category.description }}</span>
-      <a href='/collections/{{ category.slug }}' class='collection-button yc-btn'>{{ 'general.show_more_button' | t }}</a>
-    </div>
   </div>
-</div>
+  <div class='collection-details'>
+    <span class='collection-name'>{{ category.name }}</span>
+  </div>
+</a>

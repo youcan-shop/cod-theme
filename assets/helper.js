@@ -1,11 +1,6 @@
-/**
- * Adds the currency symbol to a price
- * @param {Number | String} price
- * @returns {String}
- */
-function money(price) {
-  return `${price} ${Dotshop.currency.symbol}`
-}
+/* --------------------------- */
+/* ----- countdown timer ----- */
+/* --------------------------- */
 
 /**
  * addZero function, adds a zero in front of a number if it's less than 10
@@ -63,6 +58,7 @@ const countdown = (target) => {
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
 
     $(`${target} .day .num`).innerHTML = addZero(days);
     $(`${target} .hour .num`).innerHTML = addZero(hours);
@@ -125,9 +121,10 @@ function mountSlider(isMobile, mobileSlider, desktopSlider) {
  * @returns {number} formated value
  */
 function isFloat(value) {
-  if(isNaN(value)) {
+  if (isNaN(value)) {
     return 0;
   }
+
   const numericValue = Number(value);
 
   if (Number.isInteger(numericValue)) {

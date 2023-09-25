@@ -1,75 +1,25 @@
-{{ 'sticky-checkout.css' | asset_url | stylesheet_tag }}
+{{ 'express-checkout.css' | asset_url | stylesheet_tag }}
 
 <div id="yc-sticky-checkout" class="yc-sticky-checkout">
-  <section class="sticky-container container no-padding" id="checkout_container_1" >
-    <div class="step_1"  id="checkout_step_1">
-      <div class="sticky-product-details">
-        <div class="variant-panel">
-          <span>
-            {{ 'snippets.sticky-checkout.complete_following_options' | t }}
-          </span>
-          <button class="exit-button" onclick="hideCheckout()">
-            <ion-icon name="close-outline"></ion-icon>
-          </button>
-        </div>
-        <div class="options"></div>
-        <div class="express-sticky-price-wrapper top-spacing">
-          {% if product.compare_at_price != nil %}
-            <p class="express-sticky-compare-price">{{ product.compare_at_price | money }}</p>
-          {% endif %}
-          <p class="express-sticky-price">{{ product.price | money }}</p>
-        </div>
-      </div>
-      <div class="cta-bottom-wrapper">
-        <button class="yc-btn w-full express-checkout-button font-bold" onclick="goToCheckoutStep(2)">
-          {{ settings.express_checkout_cta }}
-        </button>
-      </div>
-    </div>
-    <div class="empty-spacer"></div>
-  </section>
-  <section class="sticky-container container no-padding" id="checkout_container_2" >
-    <div class="step_2" id="checkout_step_2">
-      <div class="step-2-wrapper">
-        <div class="variant-panel">
-          <span>
-            {{ 'snippets.sticky-checkout.complete_following_options' | t }}
-          </span>
-          <button class="back-button" onclick="goToCheckoutStep(1)">
-            <ion-icon name="return-up-back-outline"></ion-icon>
-          </button>
-        </div>
-        <div class="variant-card">
+  <div class="step_2" id="checkout_step_2">
+    <div class="step-2-wrapper">
+      <button class="close-icon" onclick="goToCheckoutStep(true)">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <section class="sticky-desktop-wrapper">
+        <div class="variant-card-2">
           {% render 'product-card' %}
         </div>
-        <div class="sticky-checkout-form"></div>
-        <div class="express-sticky-price-wrapper top-spacing">
-          {% if product.compare_at_price != nil %}
-            <p class="express-sticky-compare-price">{{ product.compare_at_price | money }}</p>
-          {% endif %}
-          <p class="express-sticky-price">{{ product.price | money }}</p>
-        </div>
-      </div>
-      <div class="cta-bottom-wrapper">
-        <button
-          type='submit'
-          class='yc-btn w-full express-checkout-button'
-          onclick='placeOrder(this)'>
-          <span class='spinner hidden' id='loading__checkout'></span>
-          <span>{{ settings.express_checkout_cta }}</span>
-        </button>
-      </div>
+        <div class="checkout-form"></div>
+      </section>
     </div>
-    <div class="empty-spacer"></div>
-  </section>
+    <div class="cta-bottom-wrapper">
+      <button
+        type='submit'
+        class='yc-btn w-full express-checkout-button'
+        onclick='placeOrder(this)'>
+        <span class='spinner hidden' id='loading__checkout'></span>
+        <span>{{ settings.express_checkout_cta }}</span>
+      </button>
+    </div>
 </div>
-
-<script>
-  function dynamicHeight() {
-    const bottomWrapperHeight = $('.cta-bottom-wrapper');
-
-    $('.sticky-product-details').style.height = `calc(100% - ${bottomWrapperHeight.offsetHeight}px)`;
-    $('.step-2-wrapper').style.height = `calc(100% - ${bottomWrapperHeight.offsetHeight}px)`;
-  }
-  dynamicHeight();
-</script>

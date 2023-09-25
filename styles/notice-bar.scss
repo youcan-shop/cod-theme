@@ -1,64 +1,27 @@
 @import 'helpers/mixins';
+
 .yc-notice {
-  white-space: nowrap;
-  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background-color: var(--yc-notice-background-color);
+  min-height: var(--yc-notice-height);
 
   .content {
+    color: var(--yc-notice-text-color);
+    font-size: var(--yc-notice-font-size);
     display: flex;
+    gap:5px;
     align-items: center;
-    padding: 8px 0 10px 0;
     justify-content: center;
-    column-gap: 8px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    p {
-      font-weight: 600;
-    }
+    text-align: center;
+    gap: 6px;
 
     img {
       height: 17px;
       width: 18px;
-    }
-  }
-
-  &.desktop {
-    display: none;
-
-    @include breakpoint('md') {
-      display: flex;
-      background-color: var(--yc-notice-background-color-desktop);
-      height: var(--yc-notice-height-desktop);
-
-      .content {
-        color: var(--yc-notice-text-color-desktop);
-        font-size: var(--yc-notice-font-size-desktop);
-      }
-    }
-  }
-
-  &.mobile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    gap: 12px;
-    background-color: var(--yc-notice-background-color-mobile);
-    height: var(--yc-notice-height-mobile);
-
-    .content {
-      color: var(--yc-notice-text-color-mobile);
-      font-size: var(--yc-notice-font-size-mobile);
-    }
-
-    img {
-      height: 17px;
-      width: 18px;
-    }
-
-    @include breakpoint('md') {
-      display: none;
     }
   }
 }

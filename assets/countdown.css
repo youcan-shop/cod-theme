@@ -1,13 +1,34 @@
+.countdown-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+}
+@media (min-width: 768px) {
+  .countdown-wrapper {
+    flex-direction: row;
+  }
+}
+.countdown-wrapper .message {
+  text-align: center;
+  font-size: 23px;
+  display: none;
+}
+@media (min-width: 768px) {
+  .countdown-wrapper {
+    flex-direction: row;
+  }
+  .countdown-wrapper .message {
+    display: block;
+  }
+}
 .countdown-wrapper .countdown {
   direction: ltr;
   display: flex;
   justify-content: center;
-  gap: 8px;
-  align-items: center;
+  gap: 4px;
   margin: 0;
-}
-.countdown-wrapper .countdown .countdown-icon {
-  font-size: 20px;
 }
 .countdown-wrapper .countdown .day, .countdown-wrapper .countdown .hour, .countdown-wrapper .countdown .min, .countdown-wrapper .countdown .sec {
   text-align: center;
@@ -17,20 +38,39 @@
 }
 .countdown-wrapper .countdown .day .num, .countdown-wrapper .countdown .hour .num, .countdown-wrapper .countdown .min .num, .countdown-wrapper .countdown .sec .num {
   display: block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 6px;
   font-size: 29px;
   font-weight: 600;
-  color: #000000;
-  font-weight: 500;
-  font-size: 26px;
-  line-height: 13px;
+  color: #FFFFFF;
+  border: 0;
+  background-color: #EE7A6D;
 }
 .countdown-wrapper .countdown .sec .num {
-  color: #E52B2A;
-  font-weight: 700;
+  background-color: #000000;
   border: 0;
+  width: 42px;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 600px) {
+  .countdown-wrapper .countdown .sec .num {
+    width: 35px;
+  }
 }
 .countdown-wrapper .countdown .dots {
-  color: #000000;
-  font-size: 27px;
-  margin-top: -4px;
+  color: white;
+  font-size: 40px;
+  margin-top: -11px;
+}
+@media screen and (max-width: 600px) {
+  .countdown-wrapper .countdown {
+    gap: 1px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .countdown-wrapper .day .num, .countdown-wrapper .hour .num, .countdown-wrapper .min .num, .countdown-wrapper .sec .num {
+    font-size: 19px !important;
+    padding: 8px !important;
+  }
 }

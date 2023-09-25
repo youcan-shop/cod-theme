@@ -1,45 +1,26 @@
 {{ 'notice-bar.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-  :root  {
-    /* Notice bar Desktop */
-    --yc-notice-height-desktop: {{ section.settings.notice_bar_height_desktop }}px;
-    --yc-notice-font-size-desktop: {{ section.settings.notice_bar_content_font_size_desktop }}px;
-    --yc-notice-background-color-desktop: {%- if section.settings.notice_bar_background_color_desktop %}
-      {{ section.settings.notice_bar_background_color_desktop.hex }}
+  :root {
+    --yc-notice-height: {{ section.settings.notice_bar_height }}px;
+    --yc-notice-font-size: {{ section.settings.notice_bar_content_font_size }}px;
+    --yc-notice-background-color: {%- if section.settings.notice_bar_background_color %}
+      {{ section.settings.notice_bar_background_color.hex }}
     {%- else %}
       var(--yc-primary-color){%- endif %};
-    --yc-notice-text-color-desktop: {{ section.settings.notice_bar_content_text_color_desktop.hex }};
-
-    /* Notice bar Mobile */
-    --yc-notice-height-mobile: {{ section.settings.notice_bar_height_mobile }}px;
-    --yc-notice-font-size-mobile: {{ section.settings.notice_bar_content_font_size_mobile }}px;
-    --yc-notice-background-color-mobile: {%- if section.settings.notice_bar_background_color_mobile %}
-      {{ section.settings.notice_bar_background_color_mobile.hex }}
-    {%- else %}
-      var(--yc-primary-color){%- endif %};
-    --yc-notice-text-color-mobile: {{ section.settings.notice_bar_content_text_color_mobile.hex }};
+    --yc-notice-text-color: {{ section.settings.notice_bar_content_text_color.hex }};
     --yc-notice-above: {{ section.settings.notice_bar_above }};
   }
 {% endstyle %}
 
-{%- if section.settings.notice_bar_show_desktop %}
-  <div class='yc-notice desktop'>
+{%- if section.settings.notice_bar_show %}
+  <div class='yc-notice'>
     <div class='content container '>
-      {%- if section.settings.notice_bar_logo.src -%}
-        <img src='{{ section.settings.notice_bar_logo.src }}'>
-      {%- endif -%}
-      {{ section.settings.notice_bar_content_desktop }}
+      {%- if section.settings.notice_bar_logo.src -%} <img src='{{ section.settings.notice_bar_logo.src }}'>{%- endif -%}
+      <div class="notice-content">
+        {{ section.settings.notice_bar_content }}
+      </div>
     </div>
-  </div>
-{%- endif %}
-
-{%- if section.settings.notice_bar_show_mobile %}
-  <div class='yc-notice mobile container'>
-    {%- if section.settings.notice_bar_logo.src -%}
-      <img src='{{ section.settings.notice_bar_logo.src }}'>
-    {%- endif -%}
-    <div class='content'>{{ section.settings.notice_bar_content_mobile }}</div>
   </div>
 {%- endif %}
 
@@ -49,12 +30,14 @@
   "limit": 1,
   "settings": [
     {
-      "type": "header",
-      "content": "Desktop NoticeBar"
+      "type": "checkbox",
+      "id": "notice_bar_show",
+      "label": "Show notice bar",
+      "default": true
     },
     {
       "type": "richtext",
-      "id": "notice_bar_content_desktop",
+      "id": "notice_bar_content",
       "label": "Content",
       "default": "Special offer: free delivery, pay on delivery, faster and order now"
     },
@@ -65,7 +48,7 @@
     },
     {
       "type": "range",
-      "id": "notice_bar_height_desktop",
+      "id": "notice_bar_height",
       "min": 20,
       "max": 150,
       "step": 1,
@@ -75,77 +58,25 @@
     },
     {
       "type": "range",
-      "id": "notice_bar_content_font_size_desktop",
+      "id": "notice_bar_content_font_size",
       "min": 12,
       "max": 20,
       "step": 1,
       "unit": "px",
-      "label": "Font Size",
+      "label": "Font size",
       "default": 14
     },
     {
-      "type": "checkbox",
-      "id": "notice_bar_show_desktop",
-      "label": "Show",
-      "default": true
-    },
-    {
       "type": "color",
-      "id": "notice_bar_content_text_color_desktop",
+      "id": "notice_bar_content_text_color",
       "label": "Text color",
       "default": "#FFFFFF"
     },
     {
       "type": "color",
-      "id": "notice_bar_background_color_desktop",
-      "label": "Background color"
-    },
-    {
-      "type": "header",
-      "content": "Mobile NoticeBar"
-    },
-    {
-      "type": "richtext",
-      "id": "notice_bar_content_mobile",
-      "label": "Content",
-      "default": "Special offer: free delivery, pay on delivery, faster and order now"
-    },
-    {
-      "type": "range",
-      "id": "notice_bar_height_mobile",
-      "min": 20,
-      "max": 150,
-      "step": 1,
-      "unit": "px",
-      "label": "Height",
-      "default": 40
-    },
-    {
-      "type": "range",
-      "id": "notice_bar_content_font_size_mobile",
-      "min": 12,
-      "max": 20,
-      "step": 1,
-      "unit": "px",
-      "label": "Font Size",
-      "default": 14
-    },
-    {
-      "type": "checkbox",
-      "id": "notice_bar_show_mobile",
-      "label": "Show",
-      "default": true
-    },
-    {
-      "type": "color",
-      "id": "notice_bar_content_text_color_mobile",
-      "label": "Text color",
-      "default": "#FFFFFF"
-    },
-    {
-      "type": "color",
-      "id": "notice_bar_background_color_mobile",
-      "label": "Background color"
+      "id": "notice_bar_background_color",
+      "label": "Background color",
+      "default": "#f4351f"
     }
   ]
 }

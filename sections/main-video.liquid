@@ -3,12 +3,12 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  .section-video-{{ id }} {
-    margin-top: {{ section.settings.space_top }}px;
-    margin-bottom: {{ section.settings.space_bottom }}px;
-  }
+.section-video-{{ id }} {
+  margin-top: {{ section.settings.space_top }}px;
+  margin-bottom: {{ section.settings.space_bottom }}px;
+}
 
-  .section-video-{{ id }} .youtube-play-button {
+.section-video-{{ id }} .youtube-play-button {
   background-color: {{ section.settings.play_button_background_color.hex }};
 }
 {% endstyle %}
@@ -92,7 +92,7 @@
         "type": "color",
         "id": "play_button_background_color",
         "label": "Youtube play icon color",
-        "default": "#F0083CFF"
+        "default": "#BDBDBDFF"
       },
       {
         "type": "range",
@@ -117,4 +117,4 @@
       }
     ]
   }
-{% endschema %}
+  {% endschema %}

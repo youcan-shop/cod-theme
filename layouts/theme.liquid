@@ -21,8 +21,8 @@
     {{ content_for_layout }}
 
     {% section 'main-footer' %}
-
-    {{ 'main.js' | asset_url | script_tag_deferred }}
     {%- render 'cart-drawer' -%}
+
+    {{ 'main.js' | asset_url | script_tag }}
   </body>
 </html>

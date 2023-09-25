@@ -10,8 +10,6 @@
   </div>
 </div>
 
-
-
 {% javascript %}
   const defaultImage = '{{ "default_product.jpeg" | asset_url }}';
 
@@ -19,14 +17,19 @@
     select_variant: "{{ 'errors.select_variant' | t }}",
     quantity_smaller_than_zero: "{{ 'errors.quantity_smaller_than_zero' | t }}",
     upload_image: "{{ 'errors.upload_image' | t }}",
-    product_added: "{{ 'errors.product_added' | t }}"
+    product_added: "{{ 'errors.product_added' | t }}",
+    empty_inventory: "{{ 'errors.empty_inventory' | t }}"
   }
+
   const CART_DRAWER_TRANSLATION = {
     quantityVariant: '{{ 'cart.items.quantity' | t }}',
     cartName:  "{{ 'cart.cart' | t }}",
     totalAmount:  '{{ 'cart.total_amount' | t }}',
     checkoutPayment:  '{{ 'cart.summary.checkout_cta' | t }}',
-    emptyCart:  '{{ 'cart.empty_cart' | t }}'
+    emptyCart:  '{{ 'cart.empty_cart' | t }}',
+    itemsName: '{{ 'cart.items.items_name' | t }}',
+    continueShopping: '{{ 'cart.summary.continue_shppping' | t }}', 
   }
+
 {% endjavascript %}
 {{ 'add-to-cart.js' | asset_url | script_tag_deferred }}

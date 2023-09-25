@@ -7,18 +7,39 @@
   }
 
   .section-featured-products-{{ id }} .yc-section-title {
-    display: flex;
-    justify-content: {{ section.settings.section_title_position }}
+    text-align: {{ section.settings.section_title_position }}
+  }
+
+  .product-item-{{ id }} {
+    border: 1px solid #E7E7E7;
+    border-radius: 4px;
   }
 
   .section-featured-products-{{ id }} * {
     color: {{ section.settings.text_color.hex }};
   }
 
+  .section-featured-products-{{ id }} .product-container-{{ id }} {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.rows_desktop }}, minmax(0, 1fr)) !important;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .section-featured-products-{{ id }} .product-container-{{ id }} {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+  }
+
   @media screen and (max-width: 768px) {
     .section-featured-products-{{ id }} .product-container-{{ id }} {
       grid-template-columns: repeat({{ section.settings.rows_mobile }}, minmax(0, 1fr)) !important;
     }
+  }
+
+  .product-container-{{ id }} .product-title {
+    {% if section.settings.show_product_title == false %}
+      display: none;
+    {% endif %}
   }
 {% endstyle %}
 
@@ -28,11 +49,8 @@
   </h1>
   <div class='product-list product-container-{{ id }}'>
     {%- for block in section.blocks -%}
-      <div
-        {{ block.youcan_attributes }}
-        class='product-block'
-      >
-        {%- render 'product-preview', item: block.settings.product, block_settings: block.settings -%}
+      <div {{ block.youcan_attributes }} class="product-item-{{ id }}">
+        {%- render 'product-preview', item: block.settings.product, block_settings: block.settings, section_settings: section.settings -%}
       </div>
     {%- endfor -%}
   </div>
@@ -69,12 +87,26 @@
     },
     {
       "type": "range",
+      "id": "rows_desktop",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "label": "Number of columns on desktop"
+    },
+    {
+      "type": "range",
       "id": "rows_mobile",
       "label": "Number of columns on mobile",
       "min": 1,
       "max": 2,
       "step": 1,
       "default": 2
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_title",
+      "label": "Show product title",
+      "default": true
     },
     {
       "type": "range",
@@ -93,7 +125,7 @@
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Space bottom",
+      "label": "Space Bottom",
       "default": 80
     },
     {
@@ -107,92 +139,68 @@
       "id": "show_compare_at_price",
       "label": "Show compare at price",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Banner settings"
+    },
+    {
+      "type": "color",
+      "id": "tag_color",
+      "label": "Banner background color",
+      "default": "#F33520FF"
+    },
+    {
+      "type": "color",
+      "id": "tag_text_color",
+      "label": "Banner text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "select",
+      "id": "tag_position",
+      "label": "Banner position",
+      "options": [
+        {
+          "label": "Top right",
+          "value": "top_right"
+        },
+        {
+          "label": "Top left",
+          "value": "top_left"
+        },
+        {
+          "label": "Bottom right",
+          "value": "bottom_right"
+        },
+        {
+          "label": "Bottom left",
+          "value": "bottom_left"
+        }
+      ],
+      "default": "top_left"
     }
   ],
   "blocks": [
     {
       "label": "Product",
       "type": "product",
-      "limit": 8,
       "settings": [
         {
           "type": "product",
           "id": "product",
           "label": "Product",
-          "info": "To ensure your images look great and load quickly, use a size of \"280px x 350px\" (4:5 aspect ratio)."
-        },
-        {
-          "type": "header",
-          "content": "Banners"
-        },
-        {
-          "type": "select",
-          "id": "tag_position",
-          "label": "Banner position",
-          "options": [
-            {
-              "label": "Top right",
-              "value": "top_right"
-            },
-            {
-              "label": "Top left",
-              "value": "top_left"
-            },
-            {
-              "label": "Bottom right",
-              "value": "bottom_right"
-            },
-            {
-              "label": "Bottom left",
-              "value": "bottom_left"
-            }
-          ],
-          "default": "top_right"
-        },
-        {
-          "type": "header",
-          "content": "1st banner"
+          "info": "To ensure your images look great and load quickly, use a size of \"256px x 256px\" (1:1 aspect ratio)."
         },
         {
           "type": "text",
           "id": "tag_text",
           "label": "Banner text"
-        },
-        {
-          "type": "color",
-          "id": "tag_color",
-          "label": "Banner background color",
-          "default": "#FFFFFFFF"
-        },
-        {
-          "type": "color",
-          "id": "tag_text_color",
-          "label": "Banner text color",
-          "default": "#E52B2AFF"
-        },
-        {
-          "type": "header",
-          "content": "2nd banner"
-        },
-        {
-          "type": "text",
-          "id": "price_reduction_text",
-          "label": "Banner price text"
-        },
-        {
-          "type": "color",
-          "id": "tag_price_color",
-          "label": "Price reduction background color",
-          "default": "#E52B2AFF"
-        },
-        {
-          "type": "color",
-          "id": "price_reduction_text_color",
-          "label": "Price reduction text color",
-          "default": "#ffffff"
         }
       ]
     }
   ]
 }
 {%- endschema -%}
+
+{{ 'add-to-cart.js' | asset_url | script_tag_deferred }}

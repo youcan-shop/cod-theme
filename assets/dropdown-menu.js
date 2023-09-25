@@ -1,4 +1,3 @@
-const dropdownInput = $('.dropdown-input');
 const dropdownBtn = $('.dropbtn');
 const dropdownContent = $('.dropdown-content');
 const dropdownOptions = dropdownContent?.querySelectorAll('li');
@@ -6,17 +5,14 @@ const dropdownOptions = dropdownContent?.querySelectorAll('li');
 function showDropDownMenu(customContent) {
   if(customContent) {
       customContent.classList.toggle('show');
-      dropdownInput.classList.toggle('black-border');
   } else if (dropdownContent) {
       dropdownContent.classList.toggle('show');
-      dropdownInput.classList.toggle('black-border');
   }
 }
 
 const hideDropDownMenu = (event) => {
-  if (!event.target.matches('.dropdown-input, .dropdown-input *')) {
+  if (!event.target.matches('.dropbtn, .dropbtn *')) {
     dropdownContent?.classList.remove('show');
-    dropdownInput?.classList.remove('black-border');
   }
 };
 

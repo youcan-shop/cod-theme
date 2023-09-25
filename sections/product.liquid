@@ -7,6 +7,11 @@
     padding-top: {{ section.settings.space_top}}px;
     padding-bottom: {{ section.settings.space_bottom}}px;
   }
+
+  .countdown-container {
+    background-color: {{ block.settings.background_color.hex }};
+    color: {{ block.settings.text_color.hex }};
+  }
 {%- endstyle -%}
 
 <section class='product_customization-{{ id }}'>
@@ -23,9 +28,9 @@
 
 {%- schema -%}
 {
+  "limit": 1,
   "label": "Single product",
   "templates": ["index", "product", "page"],
-  "limit": 1,
   "blocks": [
     {
       "label": "Title",
@@ -35,7 +40,38 @@
     {
       "label": "Price",
       "limit": 1,
-      "type": "product_price"
+      "type": "product_price",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_compare_at_price",
+          "label": "Show compare at price",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_price_tag_banner",
+          "label": "Show price tag banner",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "price_tag_text",
+          "label": "Price tag text"
+        },
+        {
+          "type": "color",
+          "id": "price_tag_background_color",
+          "label": "Price tag background color",
+          "default": "#F33520"
+        },
+        {
+          "type": "color",
+          "id": "price_tag_text_color",
+          "label": "Price tag text color",
+          "default": "#FFFFFF"
+        }
+      ]
     },
     {
       "label": "Review",
@@ -54,11 +90,13 @@
     },
     {
       "label": "Description",
+      "limit": 1,
       "type": "product_description"
     },
     {
       "label": "Stock",
       "type": "stock",
+      "limit": 1,
       "settings": [
         {
           "label": "Title",
@@ -69,7 +107,8 @@
         {
           "label": "Items left",
           "id": "stock_items_left",
-          "type": "number"
+          "type": "number",
+          "default": 4
         },
         {
           "label": "Total in stock",
@@ -82,37 +121,55 @@
     {
       "label": "Countdown timer",
       "type": "countdown_timer",
+      "limit": 1,
       "settings": [
         {
-          "label": "Sticky countdown",
-          "id": "sticky_countdown",
-          "type": "checkbox",
-          "default": true
+          "label": "Message",
+          "id": "countdown_message",
+          "type": "richtext",
+          "default": "عرض لفترة محدودة"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#FFFFFF"
         },
         {
           "label": "Year",
           "id": "countdown_year",
-          "type": "number"
+          "type": "number",
+          "default": 2024
         },
         {
           "label": "Month",
           "id": "countdown_month",
-          "type": "number"
+          "type": "number",
+          "default": 1
         },
         {
           "label": "Day",
           "id": "countdown_day",
-          "type": "number"
+          "type": "number",
+          "default": 14
         },
         {
           "label": "Hour",
           "id": "countdown_hour",
-          "type": "number"
+          "type": "number",
+          "default": 0
         },
         {
           "label": "Minutes",
           "id": "countdown_minute",
-          "type": "number"
+          "type": "number",
+          "default": 0
         }
       ]
     },
@@ -128,9 +185,15 @@
           "default": "Add to cart"
         },
         {
-          "label": "Sticky button",
+          "label": "Is Sticky?",
           "id": "is_sticky",
           "type": "checkbox",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "skip_cart",
+          "label": "Skip cart",
           "default": false
         },
         {
@@ -157,14 +220,15 @@
           "type": "text"
         },
         {
-          "type": "image_picker",
-          "id": "accordion_title_icon",
-          "label": "Title icon - optional"
-        },
-        {
           "label": "Details",
           "id": "accordion_details",
           "type": "richtext"
+        },
+        {
+          "label": "Background color",
+          "id": "background_color",
+          "type": "color",
+          "default": "#F7F7F7"
         },
         {
           "label": "Text color",
@@ -173,14 +237,14 @@
           "default": "#000000"
         },
         {
-          "label": "Space top",
-          "id": "space_top",
+          "label": "Space bottom",
+          "id": "space_bottom",
           "min": 5,
           "max": 60,
           "step": 1,
           "unit": "px",
           "type": "range",
-          "default": 20
+          "default": 14
         }
       ]
     },
@@ -197,6 +261,12 @@
           "label": "Form title",
           "id": "form_title",
           "type": "text"
+        },
+        {
+          "label": "Form border color",
+          "id": "form_border_colour",
+          "type": "color",
+          "default": "#F33520"
         },
         {
           "type": "header",
@@ -223,12 +293,14 @@
         {
           "label": "Background color",
           "id": "button_background_color",
-          "type": "color"
+          "type": "color",
+          "default": "#E7412FFF"
         },
         {
           "label": "Text color",
           "id": "button_text_color",
-          "type": "color"
+          "type": "color",
+          "default": "#FFFFFFFF"
         },
         {
           "label": "Text size",
@@ -240,7 +312,7 @@
           "label": "Border radius",
           "id": "button_border_radius",
           "type": "number",
-          "default": 0
+          "default": 4
         },
         {
           "type": "header",
@@ -250,7 +322,7 @@
           "label": "Gap between inputs",
           "id": "inputs_gap",
           "type": "number",
-          "default": 16
+          "default": 19
         },
         {
           "label": "Padding",
@@ -261,22 +333,26 @@
         {
           "label": "Border color",
           "id": "input_border_color",
-          "type": "color"
+          "type": "color",
+          "default": "#000000FF"
         },
         {
           "label": "Background color",
           "id": "input_background_color",
-          "type": "color"
+          "type": "color",
+          "default": "#FFFFFFFF"
         },
         {
           "label": "Text color",
           "id": "input_text_color",
-          "type": "color"
+          "type": "color",
+          "default": "#000000FF"
         },
         {
           "label": "Placeholder text color",
           "id": "input_placeholder_color",
-          "type": "color"
+          "type": "color",
+          "default": "#A8A8A8FF"
         },
         {
           "label": "Text size",
@@ -288,7 +364,7 @@
           "label": "Border radius",
           "id": "input_border_radius",
           "type": "number",
-          "default": 0
+          "default": 4
         }
       ]
     }
@@ -306,53 +382,46 @@
       "default": false
     },
     {
-      "type": "checkbox",
-      "id": "show_compare_at_price",
-      "label": "Show compare at price",
-      "default": false
-    },
-    {
-      "type": "header",
-      "content": "Banner text"
-    },
-    {
       "type": "text",
-      "id": "banner_text",
-      "label": "Text content"
+      "id": "tag_text",
+      "label": "Banner text"
     },
     {
       "type": "color",
-      "id": "banner_text_background",
-      "label": "Background color",
-      "default": "#000000"
-    },
-    {
-      "type": "color",
-      "id": "banner_text_color",
-      "label": "Text color",
+      "id": "tag_text_color",
+      "label": "Banner text color",
       "default": "#ffffff"
     },
     {
-      "type": "header",
-      "content": "Banner price reduction"
-    },
-    {
-      "type": "text",
-      "id": "banner_price",
-      "label": "Text content"
-    },
-    {
       "type": "color",
-      "id": "banner_price_background",
-      "label": "Background color",
+      "id": "tag_background_color",
+      "label": "Banner background color",
       "default": "#000000"
     },
     {
-      "type": "color",
-      "id": "banner_price_color",
-      "label": "Text color",
-      "default": "#ffffff"
-    },
+        "type": "select",
+        "id": "tag_position",
+        "label": "Banner position",
+        "options": [
+          {
+            "label": "Top right",
+            "value": "top_right"
+          },
+          {
+            "label": "Top left",
+            "value": "top_left"
+          },
+          {
+            "label": "Bottom right",
+            "value": "bottom_right"
+          },
+          {
+            "label": "Bottom left",
+            "value": "bottom_left"
+          }
+        ],
+        "default": "top_right"
+      },
     {
       "type": "range",
       "id": "space_top",
@@ -379,11 +448,20 @@
 
 {%- javascript -%}
   {% if selected_product %}
-    const selectedProductPrice = Number('{{ selected_product.price }}');
     const variantStr = `{{ selected_product.variants | json }}`;
     const variants = JSON.parse(variantStr.slice(1, -1));
-    const largeImageSizeMessage = "{{ 'general.large_image_size' | t }}";
+
+    /**
+     * Well technically, if the seller didn't choos a default variant, we shouldn't select one.
+     * The customer should be prompted to select one, if not, they get a warning message.
+     */
+    const defaultVariant = variants.find(variant => variant.is_default) || variants[0];
+
+    const globalProductStr = `{{ selected_product | json }}`;
+    const globalProduct = JSON.parse(globalProductStr.slice(1, -1));
+
     const sectionProductId = '{{ selected_product.id }}';
+    const sizeBigMessage = "{{ 'general.size_big_message' | t }}";
 
     document.addEventListener('DOMContentLoaded', () => {
       const parentContainer = '.yc-single-product';

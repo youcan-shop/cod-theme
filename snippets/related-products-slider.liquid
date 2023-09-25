@@ -1,0 +1,103 @@
+{{ 'product-slider.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  {%- if product.related_products.size >= 3 %}
+    @media (max-width: 768px) {
+      .section-related-products #yc_slider_{{ id }} .splide__slide {
+        width: calc( ((100% + 12px) / 2) - 16px) !important;
+      }
+    }
+  {%- endif %}
+
+  {%- if product.related_products.size < 3 %}
+    .section-related-products #yc_slider_{{ id }} .splide__list {
+      transform: unset !important;
+      margin: 0 !important;
+      gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .section-related-products #yc_slider_{{ id }} .splide__list {
+        justify-content: center;
+        gap: 20px;
+      }
+    }
+
+    .section-related-products #yc_slider_{{ id }} .splide__slide {
+      margin: 0 !important;
+    }
+  {%- endif %}
+
+  .section-related-products #yc_slider_{{ id }} .splide__arrow {
+    background: white !important;
+    width: 54px;
+    height: 54px;
+    margin: 0 148px;
+    z-index: 90;
+    border: 1px solid #EDEDED;
+    box-shadow: 4px 10px 76px rgba(0, 0, 0, 0.14);
+    border-radius: 0px 8px 8px 0px;
+  }
+
+  .section-related-products #yc_slider_{{ id }} .splide__arrow--next {
+    border-radius: 0 8px 8px 0;
+    transform: translate(215px, -30px);
+  }
+
+  .section-related-products #yc_slider_{{ id }} .splide__arrow--prev {
+    border-radius: 8px 0 0 8px;
+    transform: translate(-215px, -30px)
+  }
+
+  .section-related-products #yc_slider_{{ id }} .splide__arrow svg {
+    height: 16px;
+    width: 16px;
+    fill: #000;
+  }
+{% endstyle %}
+<div
+  class='splide yc-slider__{{ view }}'
+  id='yc_slider_{{ id }}'
+>
+  <div class='splide__track'>
+    <ul class='splide__list'>
+      {%- for item in product.related_products %}
+        <li
+          class='splide__slide'
+          {{ item.youcan_attributes }}
+        >
+          <a
+            href='{{ item.url }}'
+            class='product-block'
+          >
+            <div class="product-slider">
+              <div class='product-thumbnail'>
+                <img
+                  loading='lazy'
+                  src='{%- if item.thumbnail -%} {{ item.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
+                >
+                {% if section_settings.tag_text %}
+                  <div
+                    class="tag {{ section_settings.tag_position }}"
+                    style="background: {{ section_settings.tag_background_color.hex }}; color: {{ section_settings.tag_text_color.hex }}"
+                  >
+                    {{ section_settings.tag_text }}
+                  </div>
+                {% endif %}
+              </div>
+              <div class='product-details'>
+                <span class='product-title'>{{ item.name }}</span>
+              </div>
+              <div class='prices'>
+                {% if section_settings.show_compare_at_price and item.compare_at_price %}
+                    <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
+                {% endif %}
+                <span class='product-price'>{{ item.price | | money }}</span>
+              </div>
+            </div>
+          </a>
+        </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</div>

@@ -4,11 +4,9 @@
 function setCurrencySymbol() {
   const elements = document.querySelectorAll('.product-currency');
 
-  if (elements) {
-    elements.forEach((element) => {
-      element.innerText = currencyCode;
-    })
-  }
+  elements.forEach((element) => {
+    element.innerText = currencyCode;
+  })
 }
 
 const promo = document.forms['promo'];
@@ -33,15 +31,19 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
   const inputHolder = document.getElementById(item);
   const input = inputHolder.querySelector(`input[id="${productVariantId}"]`);
   input.value = quantity;
-  const decrease = input.previousElementSibling.querySelector('button');
-  const increase = input.nextElementSibling.querySelector('button');
+  const decrease = input.previousElementSibling;
+  const increase = input.nextElementSibling;
 
   const productPrice = inputHolder.querySelector('.product-price');
   const price = productPrice.innerText;
   const totalPrice = inputHolder.querySelector(totalPriceSelector);
 
-  decrease.setAttribute('onclick', `decreaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) - 1}')`);
-  increase.setAttribute('onclick', `increaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) + 1}')`);
+  decrease
+    .querySelector('button')
+    .setAttribute('onclick', `decreaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) - 1}')`);
+  increase
+    .querySelector('button')
+    .setAttribute('onclick', `increaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) + 1}')`);
 
   if (isNaN(quantity)) {
     totalPrice.innerText = 0;
@@ -54,8 +56,8 @@ function updateTotalPrice() {
   let calculateTotalPrice = 0;
   const itemPrices = document.querySelectorAll('.item-price');
 
-  itemPrices?.forEach(itemPrice => {
-    const price = isFloat(itemPrice.innerText);
+  itemPrices.forEach(itemPrice => {
+    const price = itemPrice.innerText;
     calculateTotalPrice += Number(price);
   });
 
@@ -95,7 +97,6 @@ async function updateQuantity(cartItemId, productVariantId, quantity) {
   updateTotalPrice();
   await updateCartDrawer();
 }
-
 
 async function updateOnchange(cartItemId, productVariantId) {
   const inputHolder = document.getElementById(cartItemId);
@@ -167,5 +168,3 @@ async function removeItem(cartItemId, productVariantId) {
     stopLoad(`#loading__${cartItemId}`);
   }
 }
-
-window.removeItem = removeItem;

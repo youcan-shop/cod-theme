@@ -4,8 +4,8 @@ document.getElementById("upsell-form").addEventListener("submit", async function
   const formData = new FormData(form);
 
   const answer = event.submitter.value;
-  formData.set("answer", answer); 
- 
+  formData.set("answer", answer);
+
   const yesButton = document.querySelector(".upsell-submit-yes");
   const noButton = document.querySelector(".upsell-submit-no");
   const buttonText = event.submitter.querySelector(".button-text");

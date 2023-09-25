@@ -1,7 +1,7 @@
 <div class='product-options'>
   {% for option in options -%}
     <div
-      class='product-option top-spacing'
+      class='product-option'
       id='option-{{ option.name }}-{{ option.type }}'
     >
       <label
@@ -14,7 +14,7 @@
         {% when 'dropdown' %}
           <div class='dropdown-input' onclick='showDropDownMenu()'>
             <div class='dropbtn'>
-              <span class='option-name'></span>
+              <span class='option-name'>hello</span>
               <ion-icon name='chevron-down-outline' class='dropdown-icon'/>
             </div>
             <ul class='dropdown-content' name='{{ option.name }}'>
@@ -38,7 +38,7 @@
           <div class='yc-radio'>
             {% for item in option.values %}
               <label class='yc-radio-buttons' for='{{ item }}' onclick='setElementActive(this)'>
-                <input type='radio'  id='{{ item }}' name='{{ option.name }}' value='{{ item }}'>
+                <input type='radio' id='{{ item }}' name='{{ option.name }}' value='{{ item }}'>
                 <span class='checkmark'></span>
                 <span class='label-text'>{{ item }}</span>
               </label>
@@ -82,13 +82,17 @@
             </div>
           </section>
         {% when 'color_base_buttons' %}
-          <ul class='yc-options-list'>
+          <ul class='yc-colors-select'>
             {% for item in option.values %}
               <li
                 onclick='setElementActive(this)'
-                class='yc-colors-item'
+                class='color-item'
               >
-                {{ item.value }}
+                <span
+                  class='preview'
+                  style='background-color: {{ item.preview }}'
+                ></span>
+                <span class='value'>{{ item.value }}</span>
               </li>
             {% endfor %}
           </ul>

@@ -1,13 +1,18 @@
 /**
  * Converts date from yyyy-mm-dd to dd.mm.yyyy
  */
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const year = String(date.getFullYear());
+function convertDate() {
+  const createdAtDate = document.querySelectorAll('.created-at-date');
 
-  return `${day}/${month}/${year}`;
+  createdAtDate.forEach(date => {
+    const originalDateString = date.textContent;
+    const originalDate = new Date(originalDateString);
+    const day = originalDate.getDate().toString().padStart(2, '0');
+    const month = (originalDate.getMonth() + 1).toString().padStart(2, '0');
+    const year = originalDate.getFullYear().toString();
+    const formattedDate = `${day}.${month}.${year}`;
+    date.textContent = formattedDate;
+  });
 }
 
 /**
@@ -19,20 +24,20 @@ function formatDate(dateString) {
 function reviewTemplate(review) {
   return `
     <div class='header'>
-      <div class='yc-reviews-stars'
-          style='--rating: ${review.ratings}'
-          aria-label="Rating of this product is ${review.ratings} out of 5">
-      </div>
-      <div class='content'>
-      ${review.content === null ? '' : review.content}
-    </div>
-    </div>
-    <div class="profil">
+      <div class="profil">
         <img loading='lazy' class='image' src='${review.images_urls[0] || defaultAvatar}' />
         <div class='info'>
-        <span class='name'>${review.first_name || ''} ${review.last_name || ''}</span>
-        <span class='created-at-date'>${formatDate(review.created_at)}</span>
+          <span class='name'>${review.first_name || ''} ${review.last_name || ''}</span>
+          <span class='created-at-date'>${review.created_at}</span>
+        </div>
       </div>
+      <div class='yc-reviews-stars'
+           style='--rating: ${review.ratings}'
+           aria-label="Rating of this product is ${review.ratings} out of 5"
+      ></div>
+    </div>
+    <div class='content'>
+      ${review.content === null ? '' : review.content}
     </div>
   `;
 }
@@ -110,7 +115,7 @@ const setupReviews = async () => {
     handelPagination(res);
 
     if(reviews && reviews.length) {
-      return formatDate();
+      return convertDate();
     }
 
     return removeReviewsIfNone();

@@ -1,112 +1,88 @@
-.product-images-container .product-block {
-  padding: 36px 32px;
-  border: 1px solid #E2E2E2;
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  width: 100%;
+.product-home-container {
+  padding: 0 20px;
 }
-.product-images-container .product-block .product-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  width: 50%;
-}
-.product-images-container .product-block .product-name {
-  color: #000000;
-  font-weight: 400;
-  font-size: 32px;
-}
-@media screen and (max-width: 768px) {
-  .product-images-container .product-block .product-name {
-    font-size: 24px;
+@media (min-width: 768px) {
+  .product-home-container {
+    padding: 0 50px;
   }
 }
-.product-images-container .product-block .top-block {
+@media (min-width: 992px) {
+  .product-home-container {
+    padding: 0 100px;
+  }
+}
+@media (min-width: 1400px) {
+  .product-home-container {
+    padding: 0 280px;
+  }
+}
+.product-home-container .product-block {
   display: flex;
-  flex-direction: column;
-  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
 }
-.product-images-container .product-block .bottom-block {
+.product-home-container .product-block .product-details {
   display: flex;
-  gap: 27px;
+  row-gap: 10px;
   flex-direction: column;
+  width: 50%;
 }
-.product-images-container .product-block .product-column-description p {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 26px;
+.product-home-container .product-block .product-name {
+  color: #000000;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
 }
-.product-images-container .product-block .product-price {
+@media screen and (max-width: 768px) {
+  .product-home-container .product-block .product-name {
+    font-size: 25px;
+  }
+}
+.product-home-container .product-block .product-price {
   color: var(--yc-primary-color);
   font-weight: 700;
-  font-size: 32px;
+  font-size: 27px;
 }
-.product-images-container .product-block .product-compare-price {
-  color: var(--yc-primary-color);
-  font-weight: 500;
-  font-size: 24px;
+.product-home-container .product-block .product-compare-price {
+  color: #8D8D8D;
+  font-weight: 400;
+  font-size: 19px;
   line-height: 23px;
 }
-.product-images-container .product-block .product-description {
+.product-home-container .product-block .product-description {
   font-weight: 500;
   font-size: 14px;
   line-height: 28px;
 }
-.product-images-container .product-block .price-wrapper {
-  margin-top: 24px;
-}
-.product-images-container .product-block .image-box {
+.product-home-container .product-block .image-box {
   position: relative;
   width: 50%;
 }
-.product-images-container .product-block .image-box img {
+.product-home-container .product-block .image-box img {
   width: 100%;
-  height: 500px;
-  object-fit: fill;
+  height: 400px;
+  object-fit: cover;
 }
 @media screen and (max-width: 768px) {
-  .product-images-container .product-block .image-box img {
-    height: 360px;
+  .product-home-container .product-block .image-box img {
+    height: 330px;
   }
 }
-.product-images-container .product-block .buy-btn {
+.product-home-container .product-block .buy-btn {
   width: 100%;
 }
 @media (max-width: 768px) {
-  .product-images-container .product-block {
-    flex-direction: column-reverse;
+  .product-home-container .product-block {
+    flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 32px 18px;
   }
-  .product-images-container .product-block .image-box {
+  .product-home-container .product-block .image-box {
     width: 100%;
   }
-  .product-images-container .product-block .product-details {
+  .product-home-container .product-block .product-details {
     width: 100%;
-  }
-  .product-images-container .product-block .product-name {
-    font-weight: 600;
-    font-size: 21px;
-  }
-  .product-images-container .product-block .price-wrapper {
-    justify-content: center;
-  }
-  .product-images-container .product-block .product-price {
-    font-weight: 700;
-    font-size: 24px;
-  }
-  .product-images-container .product-block .product-compare-price {
-    font-weight: 400;
-    font-size: 18px;
-  }
-  .product-images-container .product-block .top-block {
-    text-align: center;
-    gap: 16px;
-  }
-  .product-images-container .product-block .top-block .yc-general-review-wrapper {
-    justify-content: center;
   }
 }

@@ -1,3 +1,7 @@
+{% if stock_items_left == nil and total_stock_items != nil  %}
+ {%  assign stock_items_left = total_stock_items %}
+{% endif %}
+
 {%- if stock_items_left >= 0 or total_stock_items >= 0 -%}
   {{ 'stock.css' | asset_url | stylesheet_tag }}
 
@@ -18,7 +22,7 @@
   </div>
 
   <script>
-    const stockLeft = {{ stock_items_left }}
+    let stockLeft = {{ stock_items_left }}
     const totalInStock = {{ total_stock_items }}
   </script>
 

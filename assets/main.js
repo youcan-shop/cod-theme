@@ -3,134 +3,31 @@ const currencyCode = window.Dotshop.currency;
 /* ------------------ */
 /* ----- navbar ----- */
 /* ------------------ */
-const navFixed = document.querySelector('.nav-fixed');
-const noticeMobile = document.querySelector('.yc-notice.mobile');
-const overlay = document.querySelector('.global-overlay');
-const drawer = document.querySelector('.navbar-drawer');
-const drawerBtn = document.querySelector('.close-drawer-btn');
-const closeSearchBtn = document.querySelector('.close-search');
-const menuCloseIcon = document.querySelector('#nav-menu-open');
-const menuOpenIcon = document.querySelector('#nav-menu-close');
+const fixedNavbar = document.querySelector('.nav-fixed');
+const notice = document.querySelector('.yc-notice');
 
-function makeNavbarFixed() {
-  document.body.style.paddingTop = `${navFixed.offsetHeight}px`;
-  navFixed.classList.add('fixed');
-  if (noticeMobile) noticeMobile.style.display = 'none';
-}
-
-function makeNavbarStatic() {
-  document.body.style.paddingTop = '';
-  navFixed.classList.remove('fixed');
-  if (noticeMobile) noticeMobile.style.display = '';
-}
-
-function handleScroll() {
-  if (navFixed) {
-    const navbarHeight = navFixed.offsetHeight;
-    const scrollTop = window.scrollY || window.pageYOffset;
-
-    scrollTop >= navbarHeight ? makeNavbarFixed() : makeNavbarStatic();
-  }
-}
-
-function toggleDrawerIcon() {
-  if (menuCloseIcon && menuOpenIcon) {
-    menuCloseIcon.style.display = menuCloseIcon.style.display === 'none' ? 'block' : 'none';
-    menuOpenIcon.style.display = menuOpenIcon.style.display === 'none' ? 'block' : 'none';
-
-    // check if drawer is open, if yes, close it
-    if (menuOpenIcon.style.display === 'none') {
-      closeDrawer();
-    }
-  }
-}
-
-function showOverlay() {
-  overlay.style.visibility = 'visible';
-  overlay.style.opacity = '1';
-}
-
-function closeDrawer() {
-  document.body.style.overflowY = 'auto';
-  drawer.style.position = 'fixed';
-  overlay.style.opacity = '0';
-  drawer.style.transform = 'translateY(-100%)';
-
-  if (menuCloseIcon && menuOpenIcon) {
-    menuCloseIcon.style.display = 'block';
-    menuOpenIcon.style.display = 'none';
-  }
-}
-
-function hideOverlay() {
-  if (drawerBtn) drawerBtn.addEventListener('click', closeDrawer);
-  if (overlay) overlay.addEventListener('click', closeDrawer);
-
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) {
-      closeDrawer();
-    }
-  });
-}
-
-function openDrawer(el) {
-  const targetedDrawer = document.querySelector(`.navigation-drawer${el}`);
-  const navbar = document.querySelector('.yc-navbar');
-
-  if (targetedDrawer) {
-    showOverlay();
-    targetedDrawer.style.transform = 'none';
-    targetedDrawer.style.opacity = '1';
-
-    if (navbar && noticeMobile) targetedDrawer.style.position = 'relative';
-    document.body.style.overflowY = 'hidden';
-    toggleDrawerIcon();
-  }
-}
-
-if (navFixed) {
-  handleScroll();
-  window.addEventListener('scroll', handleScroll);
-}
-
-if (overlay) hideOverlay();
-
-/* ------------------ */
-/* ----- search ----- */
-/* ------------------ */
-const searchHolder = document.getElementById('searchInputHolder');
-
-const openSearch = () => {
-  const noticeBar = document.querySelector('.yc-notice');
-  const noticeHeight = noticeBar ? noticeBar.offsetHeight : 0;
-
-  if (!overlay || !searchHolder) return;
-
-  overlay.style.top = `${noticeHeight}px`;
-  overlay.style.opacity = '1';
-  overlay.style.visibility = 'visible';
-
-  searchHolder.style.opacity = '1';
-  searchHolder.style.visibility = 'visible';
-  document.body.style.overflowY = 'hidden';
+const makeNavbarFixed = () => {
+  document.body.style.paddingTop = fixedNavbar.offsetHeight + 'px';
+  fixedNavbar.classList.add('fixed');
 };
 
-const closeSearch = () => {
-  if (!overlay || !searchHolder) return;
-
-  overlay.style.top = '0';
-  overlay.style.opacity = '0';
-  overlay.style.visibility = 'hidden';
-  overlay.style.height = '100vh';
-
-  searchHolder.style.opacity = '0';
-  searchHolder.style.visibility = 'hidden';
-  document.body.style.overflowY = 'auto';
+const makeNavbarStatic = () => {
+  document.body.style.paddingTop = '0';
+  fixedNavbar.classList.remove('fixed');
 };
 
-overlay.addEventListener('click', () => closeSearch());
-closeSearchBtn.addEventListener('click', () => closeSearch());
+function toggleNavbar() {
+  if (window.scrollY >= fixedNavbar.offsetHeight + notice.offsetHeight) {
+    makeNavbarFixed();
+  } else {
+    makeNavbarStatic();
+  }
+}
 
+if (fixedNavbar && notice) {
+  toggleNavbar();
+  window.addEventListener('scroll', toggleNavbar);
+}
 
 /* -------------------------- */
 /* ----- spinner-loader ----- */
@@ -182,6 +79,95 @@ function notify(msg, type = 'success', timeout = 3000) {
   setTimeout(() => alert.setAttribute('class', alertClassList), timeout);
 }
 
+/* ----------------------------- */
+/* ----- navigation-drawer ----- */
+/* ----------------------------- */
+const overlay = document.querySelector('.global-overlay');
+const drawer = document.querySelector('.navigation-drawer');
+
+const showOverlay = () => {
+  const overlay = document.querySelector('.global-overlay');
+
+  document.body.style.overflowY = 'hidden';
+  overlay.style.visibility = 'visible';
+  overlay.style.opacity = '1';
+}
+
+const hideOverlay = () => {
+  const overlay = document.querySelector('.global-overlay');
+  const drawerBtn = document.querySelector('.close-drawer-btn');
+
+  const closeDrawer = () => {
+    document.body.style.overflowY = 'auto';
+    overlay.style.visibility = 'hidden';
+    overlay.style.opacity = '0';
+    drawer.style.transform = 'translateX(150vw)';
+  };
+
+  if (drawerBtn) {
+    drawerBtn.addEventListener('click', closeDrawer);
+  }
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      closeDrawer();
+    }
+  });
+};
+
+
+if (overlay) {
+  hideOverlay();
+}
+
+function openDrawer(el) {
+  const targetedDrawer = document.querySelector(`.navigation-drawer${el}`);
+  if (targetedDrawer) {
+    showOverlay();
+    targetedDrawer.style.transform = 'none';
+    targetedDrawer.style.opacity = '1';
+  }
+}
+
+/* ------------------ */
+/* ----- search ----- */
+/* ------------------ */
+const searchHolder = document.getElementById('searchInputHolder');
+let noticeHeight = notice?.offsetHeight;
+
+function openSearch() {
+  const isNavBarFixed = fixedNavbar?.classList.contains('fixed');
+  noticeHeight = isNavBarFixed ? 0 : notice?.offsetHeightconsole;
+
+  if (!overlay) return;
+
+  overlay.style.height = `calc(100vh + ${noticeHeight || 0}px)`;
+  overlay.style.top = `${noticeHeight || 0}px`;
+  overlay.style.opacity = '1';
+  overlay.style.visibility = 'visible';
+
+  if (!searchHolder) return;
+
+  searchHolder.style.opacity = '1';
+  searchHolder.style.visibility = 'visible';
+  searchHolder.style.top = `${noticeHeight || 0}px`;
+}
+
+function closeSearch() {
+  if (!overlay) return;
+
+  overlay.style.opacity = '0';
+  overlay.style.visibility = 'hidden';
+  overlay.style.height = '100vh';
+
+  if (!searchHolder) return;
+
+  searchHolder.style.opacity = '0';
+  searchHolder.style.visibility = 'hidden';
+}
+
+overlay.addEventListener('click', closeSearch);
+
 /* ---------------------------------------------- */
 /* ----- Group Sticky elements in one place ----- */
 /* ---------------------------------------------- */
@@ -198,32 +184,7 @@ function notify(msg, type = 'success', timeout = 3000) {
   });
 
   document.body.append(elementsContainer);
-
-  desktopStickyElements(elementsContainer);
 })();
-
-function desktopStickyElements(elementsContainer) {
-  const elementsWrapper = document.createElement('div');
-  const emptySpacer = document.createElement('div');
-
-  elementsWrapper.classList.add('sticky-elements-wrapper');
-  emptySpacer.classList.add('sticky-empty-spacer');
-  elementsWrapper.appendChild(elementsContainer);
-  elementsWrapper.appendChild(emptySpacer);
-  document.body.append(elementsWrapper);
-
-  if (window.matchMedia("(min-width: 768px)").matches) {
-    elementsWrapper.classList.add('container');
-  }
-
-  window.addEventListener('resize', () => {
-    if(window.innerWidth >= 768) {
-      elementsWrapper.classList.add('container');
-    } else if(window.innerWidth < 768) {
-      elementsWrapper.classList.remove('container');
-    }
-  })
-}
 
 /* ------------------------------------------------------ */
 /* ----- Stick the footer at the bottom of the page ----- */
@@ -253,7 +214,6 @@ stickFooterAtBottom();
 /* ------------------------------------------------------ */
 /* ----- Display each video section -------------------- */
 /* ------------------------------------------------------ */
-
 function processVideoSections() {
   const videoSections = document.querySelectorAll('.video-wrapper');
 

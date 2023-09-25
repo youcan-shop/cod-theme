@@ -3,77 +3,50 @@
 {% assign product_name = product.name %}
 {{ 'reviews.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-.tag-text {
-  background-color: {{ block_settings.tag_color.hex }};
-  color: {{ block_settings.tag_text_color.hex }};
-}
 
-.tag-price {
-  background-color: {{ block_settings.tag_price_color.hex }};
-  color: {{ block_settings.price_reduction_text_color.hex }};
-}
-{% endstyle %}
-
-<div class='product-images-container container'>
-  <div class='product-block'>
-    <div class='product-details product-home'>
-      {%- for block in section.blocks -%}
-          {%- case block.type -%}
-            {%- when 'product_title' -%}
-              <div class="top-block">
-                {%- render 'general-review' -%}
-                <h1 class='product-name'>{{ product.name }}</h1>
-                  {% if block_settings.description %}
-                <div class="product-column-description">
-                    <p>{{ block_settings.description }}</p>
-                </div>
-            {% endif %}
-            </div>
-            <div class="bottom-block">
-              {%- when 'product_price' -%}
-              <div class='flex gap-3 items-center price-wrapper'>
-                {% if section.settings.show_compare_at_price and product.compare_at_price != nil %}
-                  <h3>
-                    <del class="product-compare-price">{{ product.compare_at_price | money }}</del>
-                  </h3>
-                {% endif %}
-                <h2 class='product-price'>{{ product.price | money }}</h2>
-              </div>
-            {%- when 'product_description' -%}
-              <section class='product-description '>{{ product.description }}</section>
-              {%- endcase -%}
-              {%- endfor -%}
-              <a href='{{ product.url }}' class='yc-btn buy-btn'>إتمام الشراء</a>
-              {% if block_settings.countdown_enabled %}
-                <div class="countdown-block">
-                  <span>{{ 'product_column.end' | t }} :</span>
-                  {%- render 'countdown', section_settings: block_settings -%}
-                </div>
+<div class='product-home-container container'>
+  <div
+    class='product-block'
+  >
+  <div class='image-box'>
+  {% if block_settings.tag_text %}
+    <div
+      class="tag {{ block_settings.tag_position }}"
+      style="background: {{ block_settings.tag_color.hex }}; color: {{ block_settings.tag_text_color.hex }}"
+    >
+      {{ block_settings.tag_text }}
+    </div>
+  {% endif %}
+    <img
+      loading='lazy'
+      src='{%- if images[0] %}{{images[0]}}{%- else %}{{ 'default_product.jpeg' | asset_url }}{% endif %}'
+      alt='{{ product_name }}'>
+  </div>
+  <div class='product-details product-home'>
+    {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'product_title' -%}
+            <h1 class='product-name'>{{ product.name }}</h1>
+          {%- when 'product_reviews' -%}
+            {%- render 'general-review' -%}
+          {%- when 'product_price' -%}
+            <div class='flex gap-2 items-center'>
+              {% if product.price %}
+              <h2 class='product-price'>{{ product.price | money }}</h2>
               {% endif %}
-          </div>
-      </div>
-        <div class='image-box'>
-          <div class="tag {{ block_settings.tag_position }}">
-            {% if block_settings.tag_text %}
-              <div class="tag-text">
-                {{ block_settings.tag_text }}
-              </div>
-            {% endif %}
-            {% if block_settings.price_reduction_text %}
-              <div class="tag-price">
-                {{ block_settings.price_reduction_text }}
-              </div>
-            {% endif %}
+              {% if section.settings.show_compare_at_price and product.compare_at_price != nil %}
+                <h3>
+                  <del class="product-compare-price">{{ product.compare_at_price | money }}</del>
+                </h3>
+              {% endif %}
             </div>
-        <img
-          loading='lazy'
-          src='{%- if images[0] %}{{images[0]}}{%- else %}{{ 'default_product.jpeg' | asset_url }}{% endif %}'
-          alt='{{ product_name }}'>
-      </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      <p class='product-description'>{{ section.settings.product_description }}</p>
+    <a href='{{ product.url }}' class='yc-btn buy-btn'>إتمام الشراء</a>
+    </div>
     </div>
   </div>
-</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {

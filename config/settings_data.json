@@ -1,19 +1,19 @@
 {
     "current": {
-        "font_family": "Cairo",
+        "font_family": "Almarai",
         "theme_direction": "rtl",
-        "primary_color": "#E52B2A",
+        "primary_color": "#F33520",
         "sections": {
             "notice-bar": {
                 "type": "notice-bar",
                 "settings": {
-                    "notice_bar_content_desktop": "<p>توصيل واستبدال سريع<\/p>",
-                    "notice_bar_content_mobile": "<p>توصيل واستبدال سريع<\/p>",
-                    "notice_bar_content_font_size_desktop": 16,
-                    "notice_bar_content_font_size_mobile": 14,
-                    "notice_bar_height_desktop": 50,
+                    "notice_bar_content_desktop": "<p>الشحن المجاني متاح لجميع الطلبات<\/p>",
+                    "notice_bar_content_mobile": "<p>الشحن المجاني متاح لجميع الطلبات<\/p>",
+                    "notice_bar_content_font_size_desktop": 13,
+                    "notice_bar_content_font_size_mobile": 12,
+                    "notice_bar_height_desktop": 45,
                     "notice_bar_height_mobile": 45,
-                    "notice_bar_background_color_desktop": "#E52B2A",
+                    "notice_bar_background_color_desktop": "#F33520FF",
                     "notice_bar_background_color_mobile": "#E72E25FF"
                 }
             },
@@ -34,51 +34,56 @@
                     }
                 },
                 "order": [
-                    "block_glpfko4s63fm6kj",
                     "block_gkk8ae6rzniqule",
+                    "block_glpfko4s63fm6kj",
                     "block_gmrv273jdps9sso"
                 ],
                 "settings": {
-                    "cart_badge_color": "#7F7F7FFF",
-                    "navbar_links_color": "#FFFFFFFF",
-                    "navbar_background_color": "#000000FF",
-                    "navbar_height": 80,
-                    "navbar_always_on_top": true
+                    "cart_badge_color": "#B83375FF",
+                    "navbar_logo": "image-2IqyhOl7b1bbMBEPS5JD0G2MrcW.png",
+                    "navbar_links_color": "#000000FF",
+                    "navbar_background_color": "#FFFFFFFF",
+                    "navbar_height": 85,
+                    "navbar_always_on_top": true,
+                    "toggle_navbar": false
                 }
             },
             "main-footer": {
                 "type": "main-footer",
                 "settings": {
-                    "footer_background_color": "#FFFFFFFF",
+                    "footer_background_color": "#000000",
                     "mention_and_social_media": true,
-                    "mention": "<p>Made with love by YouCan. 2023<\/p>"
+                    "mention": "<p>made with ❤️ by YouCan<\/p>",
+                    "footer_text_color": "#F6F9FFFF",
+                    "toggle_footer": false,
+                    "top_border_color": "#e5e5e5"
                 },
                 "blocks": {
                     "block_social": {
                         "type": "social-media",
                         "settings": {
-                            "social_media_icon_image": "ph_instagram-logo-2NJkdAYAV6reyD1QFBqaLIrAl4w.png",
-                            "social_media_url": "#"
+                            "social_media_icon_image": "untitled-2NMs6zT0eQIZZJR8DKeE20QQsoS.png",
+                            "social_media_url": "https:\/\/www.google.com"
                         }
                     },
                     "block_nlltx86k7y4b93k": {
                         "type": "social-media",
                         "settings": {
-                            "social_media_icon_image": "tabler_brand-tiktok-2NJkY1RsTpu9m9oLIfdN7nqh4ht.png",
-                            "social_media_url": "#"
+                            "social_media_icon_image": "untitled (4)-2NMs7aINYxLEIJZv3i9wkMyLn6r.png",
+                            "social_media_url": "https:\/\/www.google.com\/"
                         }
                     },
                     "block_o07mmbhyf997iu": {
                         "type": "social-media",
                         "settings": {
-                            "social_media_icon_image": "iconoir_facebook-2NJkg5g0C6C00qu3H6579QwDONR.png",
-                            "social_media_url": "#"
+                            "social_media_icon_image": "untitled-2NMs6zT0eQIZZJR8DKeE20QQsoS.png",
+                            "social_media_url": "https:\/\/www.google.com\/"
                         }
                     }
                 },
                 "order": [
-                    "block_nlltx86k7y4b93k",
                     "block_social",
+                    "block_nlltx86k7y4b93k",
                     "block_o07mmbhyf997iu"
                 ]
             }
@@ -87,11 +92,7 @@
         "error_color": "#DF1E2FFF",
         "meta_title": "COD Theme",
         "navbar_height": 60,
-        "navbar_links_hover_transparency": 0.69999999999999996,
-        "neutral_light_color": "#E3E3E3FF",
-        "neutral_color": "#16191BFF",
-        "meta_description": "COD theme",
-        "meta_keywords": "theme"
+        "navbar_links_hover_transparency": 0.69999999999999996
     },
     "presets": {
         "Default": {}

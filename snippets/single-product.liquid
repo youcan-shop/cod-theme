@@ -4,25 +4,7 @@
 
 {%- assign snippetId = 0 | rand %}
 {% assign uniqID = 100 | rand: 2000 %}
-{% assign section_settings = section.settings %}
-{% assign images = product.images %}
-{% assign product_name = product.name %}
 
-{%- style -%}
-{% for block in section.blocks %}
-  {% if block.type == 'add_to_cart' %}
-    {% if block.settings.is_sticky %}
-      .static-add-to-cart {
-        display: none;
-      }
-    {% endif %}
-  {% endif %}
-{% endfor %}
-{%- endstyle -%}
-
-<div class='container'>
-  {%- render 'breadcrumbs' categories: product.categories, product_name: product_name -%}
-</div>
 <div
   class='container yc-single-product'
   id='s-{{ snippetId }}'
@@ -31,6 +13,7 @@
   id='variantId'
   type='hidden'
   >
+  <input id='_inventory' type='hidden'>
   <input
     type='file'
     id='yc-upload'
@@ -42,63 +25,63 @@
     id='yc-upload-link'
     style='display: none'
   >
+  {% assign images = product.images %}
+  {% assign product_name = product.name %}
+  {% assign section_settings = section.settings %}
 
-  <!-- prettier-ignore -->
-  {% render 'product-images-showcase', images: images, product_name: product_name, hidden: section_settings.hide_gallery, id: uniqID, banner_text: section_settings.banner_text, banner_text_background: section_settings.banner_text_background, banner_text_color: section_settings.banner_text_color, banner_price: section_settings.banner_price, banner_price_background: section_settings.banner_price_background, banner_price_color: section_settings.banner_price_color -%}
-
+  {% render 'product-images-showcase', images: images, product_name: product_name, hidden: section.settings.hide_gallery, id: uniqID , view: 'desktop', banner_settings: section_settings -%}
   <div class='product-details'>
     {%- for block in section.blocks -%}
       <div {{ block.youcan_attributes }}>
         {%- case block.type -%}
           {%- when 'product_title' -%}
-            <h1 class='product-name top-spacing'>{{ product.name }}</h1>
+            <h1 class='product-name'>{{ product.name }}</h1>
           {%- when 'product_price' -%}
-            <div class='product-price-container top-spacing'>
+            <div class='product-price-container'>
               <h2 class='product-price'>{{ product.price | money }}</h2>
-              {% if section_settings.show_compare_at_price %}
-                  <h3 class="compare-price">
-                    {%- for variant in product.variants -%}
-                      {% if variant.variations.default and product.compare_at_price != nil %}
-                        <del>{{ product.compare_at_price | money }}</del>
-                      {% endif %}
-                    {% endfor %}
-                  </h3>
-              {% endif %}
+                <div class="compare-container">
+                  {% if block.settings.show_compare_at_price %}
+                    <h3 class="compare-price">
+                      {%- for variant in product.variants -%}
+                        {% if variant.variations.default and product.compare_at_price != nil %}
+                          <del>{{ product.compare_at_price | money }}</del>
+                        {% endif %}
+                      {% endfor %}
+                    </h3>
+                  {% endif %}
+                  {% if block.settings.show_price_tag_banner and block.settings.price_tag_text %}
+                    <div
+                      class="tag"
+                      style="background: {{ block.settings.price_tag_background_color.hex }}; color: {{ block.settings.price_tag_text_color.hex }};"
+                    >
+                      {{ block.settings.price_tag_text }}
+                    </div>
+                  {% endif %}
+                </div>
             </div>
           {%- when 'general_review' -%}
-            <div class='top-spacing'>
-              {%- render 'general-review' -%}
-            </div>
+            {%- render 'general-review' -%}
           {%- when 'product_quantity' -%}
-            <section class='group-blocks'>
-              {%- render 'product-quantity-input', snippetId: snippetId -%}
-            </section>
+              {%- render 'product-quantity-input' -%}
           {%- when 'product_variants' -%}
             {% render 'product-variants', options: product.options %}
           {%- when 'product_description' -%}
-            <section class='product-description'>{{ product.description }}</section>
+            <section class='product-description '>{{ product.description }}</section>
           {%- when 'countdown_timer' %}
-            <div class='countdown-block top-spacing {% if block.settings.sticky_countdown %} is_sticky {% endif %}'>
-              <span>{{ 'product_column.end' | t }} :</span>
+            <div class="countdown-container">
               {%- render 'countdown', section_settings: block.settings -%}
             </div>
           {%- when 'stock' -%}
-            <div class='top-spacing'>
-              {% render 'stock', stock_title: block.settings.stock_title, stock_items_left: block.settings.stock_items_left, total_stock_items: block.settings.total_stock_items %}
-            </div>
+            {% render 'stock', stock_title: block.settings.stock_title, stock_items_left: block.settings.stock_items_left, total_stock_items: block.settings.total_stock_items %}
           {%- when 'add_to_cart' -%}
-            <div class='static-add-to-cart top-spacing' {{ block.youcan_attributes }}>
-              {% render 'add-to-cart', text: block.settings.text_content, is_sticky: block.settings.is_sticky, background_color: block.settings.background_color, text_color: block.settings.text_color, snippetId: snippetId %}
-            </div>
-            {%- when 'accordion' -%}
-              {%- render 'accordion', accordion_title: block.settings.accordion_title, accordion_title_icon: block.settings.accordion_title_icon.src, accordion_details: block.settings.accordion_details, background_color: block.settings.background_color, text_color: block.settings.text_color, space_top: block.settings.space_top -%}
+            {% render 'add-to-cart', text: block.settings.text_content, is_sticky: block.settings.is_sticky, background_color: block.settings.background_color, text_color: block.settings.text_color, snippetId: snippetId, skip_cart: block.settings.skip_cart, checkout_page_url: cart.cart_submit_url %}
+          {%- when 'accordion' -%}
+              {%- render 'accordion', accordion_title: block.settings.accordion_title, accordion_details: block.settings.accordion_details, background_color: block.settings.background_color, text_color: block.settings.text_color, space_bottom: block.settings.space_bottom -%}
           {%- when 'express_checkout' -%}
-            <div class='express-checkout-container top-spacing'>
-              {% render 'express-checkout', checkout: checkout, is_sticky: block.settings.is_sticky, settings: block.settings %}
-            </div>
+            {% render 'express-checkout', checkout: checkout, is_sticky: block.settings.is_sticky, settings: block.settings %}
             {% if block.settings.is_sticky %}
-            {% render 'sticky-checkout', settings: block.settings%}
-            <button class="yc-btn is_sticky express-checkout-button font-bold" onclick="triggerCheckout(`s-{{ snippetId }}`)">{{ block.settings.express_checkout_cta }}</button>
+            {% render 'sticky-checkout', settings: block.settings %}
+            <button class="yc-btn is_sticky font-bold express-checkout-button" onclick="triggerCheckout(`s-{{ snippetId }}`)">{{ block.settings.express_checkout_cta }}</button>
             {% endif %}
         {%- endcase -%}
       </div>
@@ -108,42 +91,48 @@
 </div>
 
 <script defer>
-(function () {
-const products = {{ product.images.size }};
-const ycSlider = $('#yc_slider_{{ uniqID }}');
+(function() {
+  const products = {{ product.images.size }};
+  const uniqProductDesktopSlider = $('#yc_slider_{{ uniqID }}');
+  if(uniqProductDesktopSlider) {
+    const desktopSlider = new Splide(`#yc_slider_{{ uniqID }}.yc-slider__desktop`, {
+      arrows: products > 3,
+      rewind: true,
+      perPage: Math.min(products, 4),
+      perMove: 1,
+      gap: '10px',
+      drag: 'free',
+      snap: true,
 
-if (ycSlider) {
-  const ycMobileSlider = new Splide(`#yc_slider_{{ uniqID }}`, {
-    arrows: false,
-    drag: true,
-    flickMaxPages: 1,
-    pagination: true,
-    paginationType: 'bullets',
-    gap:'4px',
-    perPage: 1,
-    rewind: true,
-    fixedWidth: '90%',
-    type: 'loop',
-    rewind: true,
-    rewindSpeed: 1000
-  });
+      breakpoints: {
+        1024: {
+          perPage: Math.min(products, 3),
+        },
+        767: {
+          direction: 'ttb',
+          height: '255px',
+        },
+      },
+    });
 
-  ycMobileSlider.mount();
-  let isSliderMounted = true;
+    const resizedIcons = () => {
+      if (products >= 3 && window.innerWidth < 1024 || products >= 4) {
+        document.querySelector('.yc-slider__desktop').style.padding = '0 40px';
+      }
 
-  function checkMediaQuery(e) {
-    if (e.matches && isSliderMounted === true) {
-      ycMobileSlider.destroy();
-      isSliderMounted = false;
-    } else if(isSliderMounted === false) {
-      ycMobileSlider.mount();
-      isSliderMounted = true;
+      if (products > 3) {
+        document.querySelector('.thumbnail-images').style.justifyContent = 'center';
+      }
+
+      if (window.innerWidth < 768) {
+        document.querySelector('.yc-slider__desktop').style.padding = '0';
+      }
     }
-  }
 
-  const mediaQuery = window.matchMedia('(min-width: 768px)');
-  mediaQuery.addEventListener('change', checkMediaQuery);
-  checkMediaQuery(mediaQuery);
-}
+    desktopSlider.on('mounted', resizedIcons);
+    desktopSlider.on('resize', resizedIcons);
+
+    desktopSlider.mount();
+  }
 })();
 </script>

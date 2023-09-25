@@ -1,10 +1,10 @@
 {
   "sections": {
       "upsell" : {
-          "type": "main-upsell" 
+          "type": "main-upsell"
       }
   },
-  "order": [   
+  "order": [
       "upsell"
   ]
 }
