@@ -323,12 +323,12 @@ async function directAddToCart(productId) {
     updateCartCount(response.count);
     await updateCartDrawer();
 
-    stopLoad('#loading__cart');
     notify(ADD_TO_CART_EXPECTED_ERRORS.product_added, 'success');
     toggleCartDrawer();
   } catch (err) {
-    stopLoad('#loading__cart');
     notify(err.message, 'error');
+  } finally {
+    stopLoad('#loading__cart');
   }
 }
 
