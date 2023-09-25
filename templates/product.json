@@ -62,7 +62,8 @@
                       "text_content": "Add to cart",
                       "is_sticky": false,
                       "background_color": "#E7412FFF",
-                      "text_color": "#FFFFFFFF"
+                      "text_color": "#FFFFFFFF",
+                      "skip_cart": false
                   }
               },
               "block_ir42h43j14h24hd": {

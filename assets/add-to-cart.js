@@ -32,6 +32,13 @@ async function addToCart(snippetId) {
     await updateCartDrawer();
 
     stopLoad('#loading__cart');
+
+    if (IS_CART_SKIPED){
+      window.location.href = CHECKOUT_PAGE_URL;
+
+      return;
+    }
+
     notify(ADD_TO_CART_EXPECTED_ERRORS.product_added, 'success');
     toggleCartDrawer();
   } catch (err) {
