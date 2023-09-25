@@ -8,6 +8,12 @@
               "label": "Title"
           },
           {
+            "type": "checkbox",
+            "id": "direct_add_to_cart",
+            "label": "Direct add to cart",
+            "default": false
+          },
+          {
               "type": "select",
               "id": "theme_direction",
               "label": "Theme direction",
