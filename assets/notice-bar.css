@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 5px;
+  padding: 15px;
   background-color: var(--yc-notice-background-color);
   min-height: var(--yc-notice-height);
 }
@@ -16,6 +16,9 @@
   justify-content: center;
   text-align: center;
   gap: 6px;
+}
+.yc-notice .content .notice-content * {
+  font-weight: 600;
 }
 .yc-notice .content img {
   height: 17px;
