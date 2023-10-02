@@ -1,7 +1,17 @@
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
 {{ 'countdown.css' | asset_url | stylesheet_tag }}
 
-{% if settings.direct_add_to_cart %}
+{% assign hasUploadImageZone = false %}
+{% for variant in item.variants %}
+    {% if variant.variations.image == 'upload-zone' %}
+        {% assign hasUploadImageZone = true %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+
+{% dump settings.direct_add_to_cart %}
+
+{% if settings.direct_add_to_cart and not hasUploadImageZone %}
   <div class='product-block' onclick="directAddToCart('{{ item.variants[0].id }}')">
 {% else %}
   <div class='product-block' onclick="window.location.href='{{ item.url }}'">
