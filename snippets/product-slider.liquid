@@ -38,6 +38,15 @@
   }
 
 {% endstyle %}
+
+{% assign doesNotHaveUploadImageZone = true %}
+{% for variant in item.variants %}
+    {% if variant.variations.image == 'upload-zone' %}
+        {% assign doesNotHaveUploadImageZone = false %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+
 <div
   class='splide yc-slider__{{ view }} product-slider'
   id='yc_slider_{{ id }}'
@@ -49,7 +58,7 @@
           class='splide__slide'
           {{ block.youcan_attributes }}
         >
-          {% if settings.direct_add_to_cart %}
+          {% if settings.direct_add_to_cart and doesNotHaveUploadImageZone %}
             <div class='product-block' onclick="directAddToCart('{{ block.settings.product.variants[0].id }}')">
           {% else %}
             <div class='product-block' onclick="window.location.href='{{ block.settings.product.url }}'">
