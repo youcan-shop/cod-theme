@@ -1,7 +1,7 @@
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
 {{ 'countdown.css' | asset_url | stylesheet_tag }}
 
-{% if settings.direct_add_to_cart %}
+{% if settings.direct_add_to_cart and item.variants.size <= 1 %}
   <div class='product-block' onclick="directAddToCart('{{ item.variants[0].id }}')">
 {% else %}
   <div class='product-block' onclick="window.location.href='{{ item.url }}'">
