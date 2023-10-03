@@ -6,8 +6,12 @@
     --yc-footer-text-color: {{ section.settings.footer_text_color.hex }};
     --yc-footer-border-color: {{ section.settings.footer_border_color.hex }};
   }
+  .toggle-footer {
+    display: {{ section.settings.toggle_footer ? 'none' : 'block' }};
+  }
 {% endstyle %}
 
+{% if section.settings.toggle_footer != true %}
 <footer class='yc-footer'>
   <div class="columns container">
     {%- if section.settings.footer_logo.src -%}
@@ -58,6 +62,7 @@
       </div>
     </div>
 </footer>
+{% endif %}
 
 {{ 'accordion.js' | asset_url | script_tag_deferred }}
 
@@ -69,6 +74,12 @@
     {
       "type": "paragraph",
       "content": "Footer menu can be managed from your [Menu settings](https:\/\/seller-area.youcan.shop\/admin\/menus)"
+    },
+    {
+      "type": "checkbox",
+      "id": "toggle_footer",
+      "label": "Hide footer",
+      "default": false
     },
     {
       "type": "image_picker",
