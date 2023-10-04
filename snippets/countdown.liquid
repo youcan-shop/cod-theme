@@ -1,13 +1,13 @@
 {% assign id = 100 | rand: 2000 %}
 
 {%- style -%}
-  .countdown-container {
+  .countdown-{{ id }} { {
     background-color: {{ block.settings.background_color.hex }};
     color: {{ block.settings.text_color.hex }};
   }
 {%- endstyle -%}
 
-<div class="countdown-wrapper">
+<div class="countdown-wrapper countdown-{{ id }}"">
   <div class='message'>{{ section_settings.countdown_message }}</div>
   <div class="countdown" id="count-{{ id }}" data-date="{{ section_settings.countdown_day }}-{{ section_settings.countdown_month }}-{{ section_settings.countdown_year }}" data-time="{{ section_settings.countdown_hour }}:{{ section_settings.countdown_minute }}">
     <div class="day"><span class="num"></span></div>
