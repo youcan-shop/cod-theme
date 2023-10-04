@@ -117,7 +117,7 @@
 
     const resizedIcons = () => {
       if (products >= 3 && window.innerWidth < 1024 || products >= 4) {
-        document.querySelector('.yc-slider__desktop').style.padding = '0 40px';
+        document.querySelector('.thumbnail-images').style.padding = '0 40px';
       }
 
       if (products > 3) {
@@ -125,7 +125,7 @@
       }
 
       if (window.innerWidth < 768) {
-        document.querySelector('.yc-slider__desktop').style.padding = '0';
+        document.querySelector('.thumbnail-images').style.padding = '0';
       }
     }
 
