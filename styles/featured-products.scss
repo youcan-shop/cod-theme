@@ -1,5 +1,13 @@
 @import 'helpers/mixins';
+
 .yc-featured-products {
+  position: relative;
+
+  .yc-section-title {
+    font-size: 26px;
+    font-weight: 700;
+  }
+
   .counter-wrapper {
     display: flex;
     justify-content: space-between;
@@ -21,23 +29,18 @@
   .product-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 30px 8px;
     justify-content: center;
     overflow: hidden;
     align-items: stretch;
 
     @include breakpoint('md') {
       grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      padding: 0 40px;
-    }
-    @include breakpoint('lg') {
-      grid-template-columns: repeat(3, 1fr);
-      padding: 0 70px;
+      gap: 32px 12px;
     }
 
-    @include breakpoint('xl') {
-      padding: 0 150px;
+    @include breakpoint('lg') {
+      grid-template-columns: repeat(4, 1fr);
     }
 
     .product-block {
@@ -46,79 +49,74 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      cursor: pointer;
+      align-items: stretch;
+      height: 100%;
+
 
       .product-thumbnail {
-        border: 1px solid #EFEFEF;
-        border-radius: 3px;
         position: relative;
         overflow: hidden;
         padding: 0 0 100%;
-        height: 0;
+        height: 350px;
 
         img {
           position: absolute;
           top: 50%;
           left: 50%;
+          width: 100%;
           height: 100%;
-          transform: translate(-50%,-50%);
+          transform: translate(-50%, -50%);
           transition: transform .25s ease;
+          object-fit: cover;
 
           &:hover {
-            transform: translate(-50%,-50%) scale(1.1);
+            transform: translate(-50%, -50%) scale(1.1);
           }
+        }
+
+        @include max-screen('md') {
+          height: 340px;
+        }
+
+        @include max-screen('sm') {
+          height: 267px;
         }
       }
 
       .product-details {
-        text-align: start;
-        margin-top: 12px;
+        margin-top: 18px;
         padding: 0 6px;
-        text-align: center;
+        flex-grow: 1;
+
 
         @include breakpoint('md') {
-          margin-top: 10px;
+          margin-top: 12px;
+          text-align: center;
         }
 
         .product-title {
-          font-weight: 400;
-          font-size: 15px;
-          line-height: 120%;
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 17px;
 
           @include breakpoint('md') {
             font-weight: 600;
-            font-size: 17px;
+            font-size: 14px;
           }
         }
-      }
-
-      &:hover {
-        .yc-btn {
-          opacity: 1;
-        }
-      }
-
-      .yc-btn {
-        display: block;
-        position: absolute;
-        bottom: 117px;
-        width: 80%;
-        opacity: 0;
-        border-radius: 4px;
       }
 
       .prices {
         display: flex;
         flex-direction: column;
-        align-items: start;
-        gap: 7px;
-        margin: 12px auto 0;
-        padding: 0 6px 6px;
-        align-items: center;
+        gap: 4px;
+        margin: 12px auto 15px;
+        padding: 0 6px;
 
         @include breakpoint('md') {
-          margin: 15px auto 20px;
-          gap: 10px;
+          align-items: center;
+          margin: 12px auto 24px;
+          gap: 6px;
         }
 
         @include breakpoint('lg') {
@@ -128,25 +126,38 @@
 
         .product-price {
           font-weight: 700;
+          font-size: 18px;
+          line-height: 22px;
           color: var(--yc-primary-color);
-          font-size: 17px;
-          line-height: 120%;
-
-          @include breakpoint('md') {
-            font-size: 22px;
-          }
         }
 
 
         .compare-at-price {
           text-decoration: line-through;
-          opacity: 0.5;
-          font-size: 15px;
-          font-weight: 500;
+          color: #A3A3A3;
+          font-size: 14px;
+          font-weight: 400;
         }
 
         .product-thumbnail:hover img {
           transform: scale(1.1);
+        }
+      }
+
+      .product-link {
+        display: none;
+      }
+
+      .product-link-mobile {
+        display: block;
+        margin: 0 16px;
+
+        @include breakpoint('md') {
+          margin: 0 30px;
+        }
+
+        button {
+          width: 100%;
         }
       }
     }

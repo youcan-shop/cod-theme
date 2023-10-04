@@ -3,38 +3,28 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  .section-featured-products-by-category-{{ id }}{
+  .section-featured-products-by-category-{{ id }} {
     margin-top: {{ section.settings.space_top }}px;
     margin-bottom: {{ section.settings.space_bottom }}px;
   }
 
-  {% if section.settings.title_color %}
-  .section-featured-products-by-category-{{ id }} .yc-section-title{
-    color: {{ section.settings.title_color.hex }};
-  }
-  {% endif %}
-
-  .section-featured-products-by-category-{{ id }} .yc-section-title{
-    margin-top: 0;
-    text-align: {{ section.settings.section_title_position }}
+  .section-featured-products-by-category-{{ id }} .yc-section-title {
+    display: flex;
+    justify-content: {{ section.settings.section_title_position }};
   }
 
   .section-featured-products-by-category-{{ id }} {
-    {% if section.settings.background_color.hex %}
     background-color: {{ section.settings.background_color.hex }};
-    {% endif %}
+    padding: 30px 0;
     background-repeat: repeat;
     background-position: center;
-    background-size: 10rem;
   }
 
+  .section-featured-products-by-category-{{ id }} .yc-section-title {
+    color: {{ section.settings.title_color.hex }};
+  }
   .section-featured-products-by-category-{{ id }} * {
     color: {{ section.settings.text_color.hex }};
-  }
-
-  .section-featured-products-by-category-{{ id }} .product-item-{{ id }} {
-    border: 1px solid #E7E7E7;
-    border-radius: 4px;
   }
 {% endstyle %}
 
@@ -45,7 +35,7 @@
       <div class='product-list'>
         {%- paginate collection.products by number_of_products id category_id: category.id %}
           {%- for item in items -%}
-          <div {{ block.youcan_attributes }} class="product-item-{{ id }}">
+          <div {{ block.youcan_attributes }} class="product-block">
             {%- render 'product-preview', item: item -%}
           </div>
           {%- endfor -%}
@@ -74,7 +64,7 @@
       "type": "select",
       "id": "section_title_position",
       "label": "Title position",
-      "default": "center",
+      "default": "right",
       "options": [
         {
           "label": "Left",
@@ -131,7 +121,8 @@
     {
       "type": "color",
       "id": "background_color",
-      "label": "Background color"
+      "label": "Background color",
+      "default": "#ffffff"
     },
     {
       "type": "color",

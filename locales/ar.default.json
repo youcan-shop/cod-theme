@@ -2,7 +2,8 @@
   "general": {
     "show_more_button": "عرض المزيد",
     "size_big_message": "المرجو تحميل صورة أقل من 2mb",
-    "buy_now": "اشتري الأن"
+    "buy_now": "اشتري الأن",
+    "direct_add_to_cart": "أضف إلى السلة"
   },
   "head_metadata": {
     "collections": "التصنيفات",
