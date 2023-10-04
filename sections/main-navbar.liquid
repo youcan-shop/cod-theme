@@ -29,119 +29,88 @@
         rel='stylesheet'
       >
     {%- endif -%}
-    <nav class='yc-navbar container'>
-      {%- for block in section.blocks -%}
-        {%- case block.type %}
-          {%- when 'logo' %}
-            <div class='logo'>
-              <a href='/'>
-                <img
-                  loading='lazy'
-                  src='{%- if section.settings.navbar_logo.src -%} {{ section.settings.navbar_logo.src }} {%- else -%} {{ 'logo.png' | asset_url }} {%- endif -%}'
-                >
-              </a>
-            </div>
-          {%- when 'menu' %}
-            <div class='menu'>
-              <button
-                class='menu-toggler text-3xl'
-                onclick="openDrawer('.navbar-drawer')"
-              >
-                <ion-icon name='menu-outline'></ion-icon>
-              </button>
-              <ul class='menu-list'>
-                {% for item in main-link-list.links %}
-                  <li class='menu-item {%-if item.active-%} active {%-endif%}'>
-                    <a href='{{ item.url }}'>{{ item.title }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-          {%- when 'search_and_cart' %}
-            <div class='corner'>
-              <button
-                class='search'
-                onclick='openSearch()'
-              >
-                <ion-icon name="search-outline"></ion-icon>
-              </button>
-              <div id='searchInputHolder'>
-                <div class='container flex justify-center'>
-                  <form
-                    action='/search'
-                    method='GET'
-                    class='input w-full flex gap-1 items-center'
+    <section class='header-wrapper'>
+      <nav class='yc-navbar container'>
+        {%- for block in section.blocks -%}
+          {%- case block.type %}
+            {%- when 'logo' %}
+              <div class='logo'>
+                <a href='/'>
+                  <img
+                    loading='lazy'
+                    src='{%- if section.settings.navbar_logo.src -%} {{ section.settings.navbar_logo.src }} {%- else -%} {{ 'logo.png' | asset_url }} {%- endif -%}'
                   >
-                    <input
-                      placeholder='{{ 'navbar.search.placeholder' | t }}'
-                      type='text'
-                      name='q'
-                      value=''
-                      class='w-full'
-                    >
-                    <button
-                      type='submit'
-                      class='search-btn'
-                    >
-                      <ion-icon name="search-outline"></ion-icon>
-                    </button>
-                  </form>
-                </div>
+                </a>
               </div>
-              <button class='cart relative' id='navbar-cart-icon' onclick='preventCartDrawerOpening("{{ template.name }}")'>
-                <span id='cart-items-badge'>
-                  {{- cart.items | size -}}
-                </span>
-                <ion-icon name="cart-outline"></ion-icon>
-              </button>
-            </div>
-        {%- endcase %}
-      {%- endfor -%}
-    </nav>
-    <div class='navigation-drawer navbar-drawer block md:hidden'>
-      <div class='close-drawer-btn'>
-        <ion-icon name="close-outline" class='close-svg'></ion-icon>
+            {%- when 'menu' %}
+              <div class='menu'>
+                <button id="menuButton" class='hamburger'>
+                  <div class="bar"></div>
+                  <div class="bar"></div>
+                  <div class="bar"></div>
+                </button>
+                <ul class='menu-list'>
+                  {% for item in main-link-list.links %}
+                    <li class='menu-item {%-if item.active-%} active {%-endif%}'>
+                      <a href='{{ item.url }}'>{{ item.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {%- when 'search_and_cart' %}
+              <div class='corner'>
+                <button
+                  class='search'
+                  onclick='openSearch()'
+                >
+                  <ion-icon name="search-outline"></ion-icon>
+                </button>
+                <div id='searchInputHolder'>
+                  <div class='container flex'>
+                    <form
+                      action='/search'
+                      method='GET'
+                      class='search-form'
+                    >
+                      <input
+                        placeholder='{{ 'navbar.search.placeholder' | t }}'
+                        type='text'
+                        name='q'
+                        value=''
+                        class='search-input'
+                      >
+                    </form>
+                    <button id='close-search-btn'>
+                      <ion-icon name="close-outline"></ion-icon>
+                    </button>
+                  </div>
+                </div>
+                <button class='cart relative' id='navbar-cart-icon' onclick='preventCartDrawerOpening("{{ template.name }}")'>
+                  <span id='cart-items-badge'>
+                    {{- cart.items | size -}}
+                  </span>
+                  <ion-icon name="cart-outline"></ion-icon>
+                </button>
+              </div>
+          {%- endcase %}
+        {%- endfor -%}
+      </nav>
+      <div id='mobile-menu'>
+        <div class='flex flex-col items-wrapper'>
+          {% for item in main-link-list.links %}
+            <a
+              class='items flex items-center justify-between'
+              href='{{ item.url }}'
+            >
+              <div>
+                {{ item.title }}
+              </div>
+              <ion-icon name='chevron-forward-outline'></ion-icon>
+            </a>
+          {% endfor %}
+        </div>
       </div>
-      <div class='logo flex items-center justify-center'>
-        <a href='/'>
-          <img
-            loading='lazy'
-            src='{%- if section.settings.navbar_logo.src -%} {{ section.settings.navbar_logo.src }} {%- else -%} {{ 'cod-logo.png' | asset_url }} {%- endif -%}'
-          >
-        </a>
-      </div>
-        <form
-          action='/search'
-          method='GET'
-          class='mobile-search w-full flex gap-1 items-center'
-          >
-          <input
-            placeholder='{{ 'navbar.search.placeholder' | t }}'
-            type='text'
-            name='q'
-            value=''
-            class='w-full'
-          >
-          <button
-            type='submit'
-          >
-            <ion-icon name="search-outline" class="search-icon"></ion-icon>
-          </button>
-        </form>
-      <div class='flex flex-col items-wrapper'>
-        {% for item in main-link-list.links %}
-          <a
-            class='items flex items-center justify-between'
-            href='{{ item.url }}'
-          >
-            <div>
-              {{ item.title }}
-            </div>
-            <ion-icon name='chevron-forward-outline'></ion-icon>
-          </a>
-        {% endfor %}
-      </div>
-    </div>
+    </section>
   </header>
 {% endif %}
 
@@ -227,7 +196,7 @@
           "label": "Normal"
         },
         {
-          "value": "500",
+          "value": "600",
           "label": "Bold"
         },
         {
@@ -235,7 +204,7 @@
           "label": "Heavy"
         }
       ],
-      "default": "400"
+      "default": "600"
     },
     {
       "type": "select",
@@ -265,6 +234,14 @@
         {
           "value": "Montserrat",
           "label": "Montserrat"
+        },
+        {
+          "value": "Cairo",
+          "label": "Cairo"
+        },
+        {
+          "value": "Almarai",
+          "label": "Almarai"
         }
       ]
     },

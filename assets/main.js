@@ -5,6 +5,14 @@ const currencyCode = window.Dotshop.currency;
 /* ------------------ */
 const fixedNavbar = document.querySelector('.nav-fixed');
 const notice = document.querySelector('.yc-notice');
+const closeSearchBtn = document.getElementById('close-search-btn');
+const navMenuVariables = {
+  menuButton: document.getElementById('menuButton'),
+  mobileMenu: document.getElementById('mobile-menu'),
+  header: document.querySelector('.yc-header'),
+  headerWrapper: document.querySelector('.header-wrapper'),
+};
+let noticeHeight = notice ? notice.offsetHeight : '0';
 
 const makeNavbarFixed = () => {
   document.body.style.paddingTop = fixedNavbar.offsetHeight + 'px';
@@ -17,17 +25,15 @@ const makeNavbarStatic = () => {
 };
 
 function toggleNavbar() {
-  if (window.scrollY >= fixedNavbar.offsetHeight + notice.offsetHeight) {
+  if (window.scrollY >= fixedNavbar.offsetHeight + Number(noticeHeight)) {
     makeNavbarFixed();
   } else {
     makeNavbarStatic();
   }
 }
 
-if (fixedNavbar && notice) {
-  toggleNavbar();
-  window.addEventListener('scroll', toggleNavbar);
-}
+toggleNavbar();
+window.addEventListener('scroll', toggleNavbar);
 
 /* -------------------------- */
 /* ----- spinner-loader ----- */
@@ -79,86 +85,96 @@ function notify(msg, type = 'success', timeout = 3000) {
   setTimeout(() => alert.setAttribute('class', alertClassList), timeout);
 }
 
-/* ----------------------------- */
-/* ----- navigation-drawer ----- */
-/* ----------------------------- */
+/* ------------------- */
+/* ----- Overlay ----- */
+/* ------------------- */
 const overlay = document.querySelector('.global-overlay');
-const drawer = document.querySelector('.navigation-drawer');
 
 const showOverlay = () => {
-  const overlay = document.querySelector('.global-overlay');
-
   document.body.style.overflowY = 'hidden';
   overlay.style.visibility = 'visible';
   overlay.style.opacity = '1';
 }
 
 const hideOverlay = () => {
-  const overlay = document.querySelector('.global-overlay');
-  const drawerBtn = document.querySelector('.close-drawer-btn');
-
-  const closeDrawer = () => {
-    document.body.style.overflowY = 'auto';
-    overlay.style.visibility = 'hidden';
-    overlay.style.opacity = '0';
-    drawer.style.transform = 'translateX(150vw)';
-  };
-
-  if (drawerBtn) {
-    drawerBtn.addEventListener('click', closeDrawer);
-  }
-
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) {
-      closeDrawer();
-    }
-  });
+  document.body.style.overflowY = 'auto';
+  overlay.style.visibility = 'hidden';
+  overlay.style.opacity = '0';
 };
 
+overlay.addEventListener('click', (e) => {
+  const cartDrawer = document.querySelector('.cart-drawer');
 
-if (overlay) {
-  hideOverlay();
-}
+  if (e.target === overlay) {
+    hideOverlay();
+    closeMenu();
 
-function openDrawer(el) {
-  const targetedDrawer = document.querySelector(`.navigation-drawer${el}`);
-  if (targetedDrawer) {
-    showOverlay();
-    targetedDrawer.style.transform = 'none';
-    targetedDrawer.style.opacity = '1';
+    if(cartDrawer && cartDrawer.classList.contains('open')) {
+      cartDrawer.classList.remove('open');
+      navMenuVariables.header.classList.remove('hide');
+    }
   }
-}
+});
+/* ----------------------------- */
+/* ----- mobile navigation ----- */
+/* ----------------------------- */
+function closeMenu () {
+  if(navMenuVariables.headerWrapper.classList.contains('open')) {
+    navMenuVariables.headerWrapper.classList.remove('open');
+    navMenuVariables.mobileMenu.classList.remove('is-open');
+    navMenuVariables.menuButton.classList.remove('close');
+  }
+};
 
+// Toggle Menu
+navMenuVariables.menuButton.addEventListener('click', () => {
+  navMenuVariables.menuButton.classList.toggle('close');
+
+  if (navMenuVariables.mobileMenu) {
+    navMenuVariables.mobileMenu.classList.toggle('is-open');
+
+    if (navMenuVariables.mobileMenu.classList.contains('is-open')) {
+      showOverlay();
+      navMenuVariables.headerWrapper.classList.add('open');
+    } else {
+      closeMenu();
+      hideOverlay();
+    }
+  }
+})
 /* ------------------ */
 /* ----- search ----- */
 /* ------------------ */
 const searchHolder = document.getElementById('searchInputHolder');
-let noticeHeight = notice?.offsetHeight;
 
 function openSearch() {
+  const searchInput = document.querySelector('.search-input');
   const isNavBarFixed = fixedNavbar?.classList.contains('fixed');
-  noticeHeight = isNavBarFixed ? 0 : notice?.offsetHeightconsole;
+
+  if(notice) {
+    searchHolder.style.top = `${noticeHeight}px`;
+  }
+
+  if(isNavBarFixed) {
+    searchHolder.style.top = '0';
+  }
+
+  setTimeout(closeMenu, 100);
 
   if (!overlay) return;
-
-  overlay.style.height = `calc(100vh + ${noticeHeight || 0}px)`;
-  overlay.style.top = `${noticeHeight || 0}px`;
-  overlay.style.opacity = '1';
-  overlay.style.visibility = 'visible';
+  showOverlay();
 
   if (!searchHolder) return;
 
   searchHolder.style.opacity = '1';
   searchHolder.style.visibility = 'visible';
-  searchHolder.style.top = `${noticeHeight || 0}px`;
+  document.body.style.overflow = "hidden";
+  searchInput.focus();
 }
 
 function closeSearch() {
   if (!overlay) return;
-
-  overlay.style.opacity = '0';
-  overlay.style.visibility = 'hidden';
-  overlay.style.height = '100vh';
+  hideOverlay();
 
   if (!searchHolder) return;
 
@@ -167,6 +183,7 @@ function closeSearch() {
 }
 
 overlay.addEventListener('click', closeSearch);
+closeSearchBtn.addEventListener('click', closeSearch);
 
 /* ---------------------------------------------- */
 /* ----- Group Sticky elements in one place ----- */

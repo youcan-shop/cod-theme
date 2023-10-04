@@ -275,27 +275,29 @@ function toggleCartDrawer() {
     return;
   }
 
-  document.body.style.overflow = cartDrawer.classList.contains('open') ? 'auto' : 'hidden';
-
   cartDrawer.classList.toggle('open');
-  document.querySelector('.cart-overlay').classList.toggle('open');
+  navMenuVariables.header.classList.toggle('hide');
+
+  if(cartDrawer.classList.contains('open')) {
+    showOverlay();
+  } else {
+    hideOverlay();
+  }
 }
 
 function attachEventListeners() {
   const navbarCartIcon = document.querySelector('#navbar-cart-icon');
   const cartDrawerClose = document.querySelector('.cart-drawer__close');
-  const cartOverlay = document.querySelector('.cart-overlay');
 
   if (navbarCartIcon) {
-    navbarCartIcon.addEventListener('click', toggleCartDrawer);
+    navbarCartIcon.addEventListener('click', function(e) {
+      toggleCartDrawer();
+      closeMenu();
+    });
   }
 
   if (cartDrawerClose) {
     cartDrawerClose.addEventListener('click', toggleCartDrawer);
-  }
-
-  if (cartOverlay) {
-    cartOverlay.addEventListener('click', toggleCartDrawer);
   }
 }
 
@@ -314,7 +316,7 @@ function preventCartDrawerOpening(templateName) {
 
   const cartDrawerIcon = document.querySelector('#navbar-cart-icon');
 
-  cartDrawerIcon.removeEventListener("click", toggleCartDrawer);
+  cartDrawerIcon.removeEventListener("click", toggleCartDrawer());
   window.location.reload();
 }
 
