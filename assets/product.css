@@ -60,8 +60,10 @@
   opacity: 0;
   z-index: 99;
   display: block;
+  transform-origin: center center;
+  object-fit: cover;
   transition: opacity 0.2s;
-  background-size: 112%;
+  background-size: 200% 200%;
 }
 .yc-single-product .product-images .product-images-container {
   display: flex;
