@@ -40,7 +40,7 @@
 
   @media screen and (max-width: 768px) {
     .bg-color-{{ id }} {
-      padding: 40px 10px 45px;
+      padding: 40px 20px 45px;
     }
   }
 
@@ -82,7 +82,7 @@
       arrows: '{{ section.settings.slider_arrows }}' ? true : false,
       autoplay: '{{ section.settings.slider_autoplay }}' ? true : false,
       cover: true,
-      pagination: products == perPage ? false : ('{{ section.settings.slider_pagination }}' ? true : false),
+      pagination: '{{ section.settings.slider_pagination }}' ? true : false,
       pauseOnHover: '{{ section.settings.slider_pause_on_hover }}' ? true : false,
       pauseOnFocus: '{{ section.settings.slider_pause_on_focus }}' ? true : false,
       interval: '{{ section.settings.duration_between_each_slide | times: 1000 }}',
@@ -99,7 +99,7 @@
 
     const mobileSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__mobile`, {
       type: '{{ section.settings.slider_mobile_transition_type }}',
-      arrows: mobileImagesPerPage == products ? false : ('{{ section.settings.slider_mobile_arrows }}' ? true : false),
+      arrows: false,
       autoplay: '{{ section.settings.slider_mobile_autoplay }}' ? true : false,
       cover: true,
       pagination: mobileImagesPerPage == products ? false : ('{{ section.settings.slider_mobile_pagination }}' ? true : false),
@@ -365,12 +365,6 @@
       "type": "checkbox",
       "id": "slider_mobile_pagination",
       "label": "Pagination",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "slider_mobile_arrows",
-      "label": "Arrows",
       "default": true
     }
   ],
