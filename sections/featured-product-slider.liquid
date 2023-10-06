@@ -79,7 +79,7 @@
 
     const desktopSlider1 = new Splide(`#yc_slider_{{ id }}.yc-slider__desktop`, {
       type: '{{ section.settings.slider_transition_type }}',
-      arrows: products == perPage ? false : ('{{ section.settings.slider_arrows }}' ? true : false),
+      arrows: '{{ section.settings.slider_arrows }}' ? true : false,
       autoplay: '{{ section.settings.slider_autoplay }}' ? true : false,
       cover: true,
       pagination: products == perPage ? false : ('{{ section.settings.slider_pagination }}' ? true : false),
