@@ -41,10 +41,10 @@ async function fetchCoupons() {
     const totalPrice = document.querySelector('.item-total-price');
 
      if (totalPrice) {
-
-       totalPrice.innerText = isFloat(coupons.total);
+       totalPrice.innerText = `${coupons.total} ${currencyCode}`;
      }
-    if (coupons.coupon && coupons.discountedPrice) {
+
+     if (coupons.coupon && coupons.discountedPrice) {
       couponApplied.innerHTML = `<span>Coupon applied: '${coupons.coupon.code}'  [${coupons.coupon.value}%] </span>
                                  <ion-icon class="close-search" id="remove-coupon" name="close-outline"></ion-icon>`;
       discountText.classList.remove('hidden');
@@ -53,6 +53,7 @@ async function fetchCoupons() {
       document.getElementById("remove-coupon").addEventListener('click', removeCoupons);
     } else {
       couponApplied.innerHTML = '';
+      discount.innerText = '';
       discountText.classList.add('hidden');
     }
   } catch (e) {
@@ -112,9 +113,14 @@ function updateTotalPrice() {
 
   const totalPriceElement = document.querySelector('.item-total-price');
   const totalPrice = isFloat(calculateTotalPrice);
+  const discountPrice = document.querySelector('.coupon-applied');
 
-  if (totalPriceElement) {
+  if (totalPriceElement && !discountPrice) {
     totalPriceElement.innerText = `${totalPrice} ${currencyCode}`;
+  }
+
+  if (discountPrice) {
+    fetchCoupons();
   }
 }
 
@@ -142,10 +148,10 @@ async function updateQuantity(cartItemId, productVariantId, quantity) {
   } finally {
     stopLoad(`#loading__${cartItemId}`);
   }
+
   updateDOM(cartItemId, productVariantId, quantity);
   updatePrice(cartItemId,productVariantId,quantity);
   updateTotalPrice();
-  await updateCartDrawer();
 }
 
 async function updateOnchange(cartItemId, productVariantId) {
