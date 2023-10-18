@@ -56,6 +56,10 @@ async function fetchCoupons() {
 
       discountText.classList.remove('hidden');
     } else {
+      if (couponApplied) {
+        couponApplied.innerHTML = '';
+      }
+
       discount.innerText = '';
       discountText.classList.add('hidden');
     }
@@ -63,6 +67,7 @@ async function fetchCoupons() {
     notify(e.message, 'error');
   }
 }
+
 
 async function removeCoupons(e) {
   e.preventDefault();
