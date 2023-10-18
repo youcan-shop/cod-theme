@@ -96,6 +96,7 @@
                         <span>{{ 'cart.summary.checkout_cta' | t }}</span>
                       </button>
                     </div>
+                    <div class="coupon-applied"></div>
                   </div>
                 </div>
               </form>
@@ -120,6 +121,10 @@
             {%- endif %}
             <div class='border-t mt-5'>
               <div class='flex text-sm justify-between mt-5'>
+                <span class="discount-text hidden">{{ 'cart.summary.discount' | t }}</span>
+                <span class="discount-price"></span>
+              </div>
+              <div class='flex text-sm justify-between mt-5'>
                 <span class="total">{{ 'cart.summary.total' | t }}</span>
                 <span class="item-total-price"></span>
               </div>
@@ -127,7 +132,6 @@
                 {{ 'cart.summary.checkout_cta' | t }}
               </a>
             </div>
-          </div>
         </div>
       </div>
     </div>

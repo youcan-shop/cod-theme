@@ -20,6 +20,55 @@ async function addPromo(e) {
   load('#loading__coupon');
   try {
     await youcanjs.checkout.applyCoupon(coupon);
+
+    await fetchCoupons();
+
+    notify('Coupon applied successfully', 'success');
+  } catch (e) {
+    notify(e.message, 'error');
+  } finally {
+    stopLoad('#loading__coupon');
+  }
+}
+
+async function fetchCoupons() {
+  const discount = document.querySelector('.discount-price');
+  const discountText = document.querySelector('.discount-text');
+  const couponApplied = document.querySelector('.coupon-applied');
+
+  try {
+    const coupons = await youcanjs.cart.fetch();
+    const totalPrice = document.querySelector('.item-total-price');
+
+     if (totalPrice) {
+
+       totalPrice.innerText = isFloat(coupons.total);
+     }
+    if (coupons.coupon && coupons.discountedPrice) {
+      couponApplied.innerHTML = `<span>Coupon applied: '${coupons.coupon.code}'  [${coupons.coupon.value}%] </span>
+                                 <ion-icon class="close-search" id="remove-coupon" name="close-outline"></ion-icon>`;
+      discountText.classList.remove('hidden');
+      discount.innerText = coupons.discountedPrice;
+
+      document.getElementById("remove-coupon").addEventListener('click', removeCoupons);
+    } else {
+      couponApplied.innerHTML = '';
+      discountText.classList.add('hidden');
+    }
+  } catch (e) {
+    notify(e.message, 'error');
+  }
+}
+
+async function removeCoupons(e) {
+  e.preventDefault();
+  load('#loading__coupon');
+   try {
+    await youcanjs.checkout.removeCoupons();
+
+    await fetchCoupons();
+
+    notify('Coupon removed successfully', 'success');
   } catch (e) {
     notify(e.message, 'error');
   } finally {
@@ -72,6 +121,7 @@ function updateTotalPrice() {
 document.addEventListener('DOMContentLoaded', () => {
   setCurrencySymbol();
   updateTotalPrice();
+  fetchCoupons();
 });
 
 function updateDOM(cartItemId, productVariantId, quantity) {
@@ -147,8 +197,8 @@ async function removeItem(cartItemId, productVariantId) {
 
     if (cartItems.length === 0) {
       if (cartItemsBadge) {
-        cartItemsBadge.innerText = 0;
       }
+      cartItemsBadge.innerText = 0;
       const cartTable = document.querySelector('.cart-table')
       const emptyCart = document.querySelector('.empty-cart');
 

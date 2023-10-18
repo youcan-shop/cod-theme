@@ -109,6 +109,32 @@
         font-size: 16px;
       }
 
+      .discount-text {
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      .discount-price {
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .coupon-applied {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 12px;
+        font-size: 14px;
+
+        span {
+          font-weight: 600;
+        }
+      }
+
+      #remove-coupon {
+        cursor: pointer;
+      }
+
       @media screen and (max-width: 768px) {
         width: 100%;
       }

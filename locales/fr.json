@@ -45,7 +45,8 @@
       "promo_cta": "Appliquer",
       "total": "Coût total",
       "checkout_cta": "Paiement",
-      "continue_shppping": "continue le shopping"
+      "continue_shppping": "continue le shopping",
+      "discount": "Discount"
     },
     "empty": {
       "title": "Votre panier est actuellement vide.",

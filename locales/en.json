@@ -45,7 +45,8 @@
       "promo_cta": "Apply",
       "total": "Total cost",
       "checkout_cta": "Checkout",
-      "continue_shppping": "Continuer vos achats"
+      "continue_shppping": "Continuer vos achats",
+      "discount": "Discount"
     },
     "empty": {
       "title": "Your cart is currently empty.",

@@ -93,6 +93,27 @@
   font-weight: 700;
   font-size: 16px;
 }
+.yc-cart .cart-table .summary-box .discount-text {
+  font-weight: 700;
+  font-size: 14px;
+}
+.yc-cart .cart-table .summary-box .discount-price {
+  font-size: 15px;
+  font-weight: 500;
+}
+.yc-cart .cart-table .summary-box .coupon-applied {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  font-size: 14px;
+}
+.yc-cart .cart-table .summary-box .coupon-applied span {
+  font-weight: 600;
+}
+.yc-cart .cart-table .summary-box #remove-coupon {
+  cursor: pointer;
+}
 @media screen and (max-width: 768px) {
   .yc-cart .cart-table .summary-box {
     width: 100%;
