@@ -60,8 +60,13 @@ async function fetchCoupons() {
         couponApplied.innerHTML = '';
       }
 
-      discount.innerText = '';
-      discountText.classList.add('hidden');
+      if (discount) {
+        discount.innerText = '';
+      }
+
+      if (discountText) {
+        discountText.classList.add('hidden');
+      }
     }
   } catch (e) {
     notify(e.message, 'error');
