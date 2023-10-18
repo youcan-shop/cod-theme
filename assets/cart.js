@@ -32,27 +32,30 @@ async function addPromo(e) {
 }
 
 async function fetchCoupons() {
-  const discount = document.querySelector('.discount-price');
-  const discountText = document.querySelector('.discount-text');
-  const couponApplied = document.querySelector('.coupon-applied');
-
   try {
     const coupons = await youcanjs.cart.fetch();
+
+    const discount = document.querySelector('.discount-price');
+    const discountText = document.querySelector('.discount-text');
+    const couponApplied = document.querySelector('.coupon-applied');
     const totalPrice = document.querySelector('.item-total-price');
 
-     if (totalPrice) {
-       totalPrice.innerText = `${coupons.total} ${currencyCode}`;
-     }
+    if (totalPrice) {
+      totalPrice.innerText = coupons.total ? `${coupons.total} ${currencyCode}` : '';
+    }
 
-     if (coupons.coupon && coupons.discountedPrice) {
+    if (coupons.coupon && coupons.discountedPrice) {
       couponApplied.innerHTML = `<span>Coupon applied: '${coupons.coupon.code}'  [${coupons.coupon.value}%] </span>
                                  <ion-icon class="close-search" id="remove-coupon" name="close-outline"></ion-icon>`;
-      discountText.classList.remove('hidden');
       discount.innerText = coupons.discountedPrice;
 
-      document.getElementById("remove-coupon").addEventListener('click', removeCoupons);
+      const removeCouponElement = document.getElementById("remove-coupon");
+      if (removeCouponElement) {
+        removeCouponElement.addEventListener('click', removeCoupons);
+      }
+
+      discountText.classList.remove('hidden');
     } else {
-      couponApplied.innerHTML = '';
       discount.innerText = '';
       discountText.classList.add('hidden');
     }
