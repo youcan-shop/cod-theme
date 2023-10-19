@@ -1,13 +1,14 @@
+@import 'helpers/mixins';
+
 .subcategories {
   background-color: #F8F8F8;
   padding: 20px;
   margin-top: 47px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 
   .subcategory-box {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-
     .name {
       border: 1px solid #E7E7E7;
       padding: 20px;
@@ -24,5 +25,9 @@
     @media screen and (max-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
     }
+  }
+
+  @include breakpoint('md') {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
