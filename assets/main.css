@@ -21,6 +21,11 @@ body {
   position: relative;
 }
 
+.main-content {
+  display: inline-block;
+  width: 100%;
+}
+
 .yc-btn span,
 .yc-btn,
 html,

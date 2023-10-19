@@ -18,7 +18,9 @@
     {%- section 'notice-bar' %}
     {%- section 'main-navbar' %}
 
-    {{ content_for_layout }}
+    <main class="main-content">
+      {{ content_for_layout }}
+    </main>
 
     {% section 'main-footer' %}
     {%- render 'cart-drawer' -%}
