@@ -7,6 +7,9 @@
   gap: 30px 12px;
   margin: 40px auto;
 }
+.yc-product-listing-container .product-list .product-block {
+  cursor: pointer;
+}
 .yc-product-listing-container .product-list .product-block .product-thumbnail {
   border: 1px solid #EFEFEF;
   border-radius: 3px;
