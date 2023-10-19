@@ -24,7 +24,7 @@
                   },
                   {
                       "value": "ltr",
-                      "label": "left to right"
+                      "label": "Left to right"
                   }
               ],
               "default": "rtl"
