@@ -36,7 +36,6 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     height: var(--yc-nav-height);
-    z-index: 100;
     background-color: var(--yc-nav-background);
 
     *:not(span):not(input) {
