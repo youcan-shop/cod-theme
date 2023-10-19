@@ -18,7 +18,9 @@ async function addToCart(snippetId) {
   }
 
   try {
-    load('#loading__cart');
+    requestAnimationFrame(() => {
+      load('#loading__cart');
+    })
 
     const response = await youcanjs.cart.addItem({
       productVariantId: variantId,
