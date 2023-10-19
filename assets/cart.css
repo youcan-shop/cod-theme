@@ -105,7 +105,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 12px;
+  padding-top: 15px;
   font-size: 14px;
 }
 .yc-cart .cart-table .summary-box .coupon-applied span {
@@ -113,6 +113,7 @@
 }
 .yc-cart .cart-table .summary-box #remove-coupon {
   cursor: pointer;
+  font-size: 18px;
 }
 @media screen and (max-width: 768px) {
   .yc-cart .cart-table .summary-box {
