@@ -45,7 +45,11 @@
       "promo_cta": "تطبيق",
       "total": "التكلفة الإجمالية",
       "checkout_cta": "الدفع",
-      "continue_shppping": "استمر في التسوق"
+      "continue_shppping": "استمر في التسوق",
+      "discount": "خصم",
+      "coupon": "كوبون",
+      "coupon_applied": "تم تطبيق الكوبون بنجاح",
+      "coupon_removed": "تمت إزالة الكوبون بنجاح"
     },
     "empty": {
       "title": "عربتك فارغة حاليًا.",

@@ -20,6 +20,69 @@ async function addPromo(e) {
   load('#loading__coupon');
   try {
     await youcanjs.checkout.applyCoupon(coupon);
+
+    await fetchCoupons();
+
+    notify(`${CART_PAGE_CONTENT.coupon_applied}`, 'success');
+  } catch (e) {
+    notify(e.message, 'error');
+  } finally {
+    stopLoad('#loading__coupon');
+  }
+}
+
+async function fetchCoupons() {
+  try {
+    const coupons = await youcanjs.cart.fetch();
+
+    const discount = document.querySelector('.discount-price');
+    const discountText = document.querySelector('.discount-text');
+    const couponApplied = document.querySelector('.coupon-applied');
+    const totalPrice = document.querySelector('.item-total-price');
+
+    if (totalPrice) {
+      totalPrice.innerText = coupons.total ? `${coupons.total} ${currencyCode}` : '';
+    }
+
+    if (coupons.coupon && coupons.discountedPrice) {
+      couponApplied.innerHTML = `<span>${CART_PAGE_CONTENT.coupon}: '${coupons.coupon.code}'  [${coupons.coupon.value}%] </span>
+                                 <ion-icon class="close-search" id="remove-coupon" name="close-outline"></ion-icon>`;
+      discount.innerText = coupons.discountedPrice;
+
+      const removeCouponElement = document.getElementById("remove-coupon");
+      if (removeCouponElement) {
+        removeCouponElement.addEventListener('click', removeCoupons);
+      }
+
+      discountText.classList.remove('hidden');
+    } else {
+      if (couponApplied) {
+        couponApplied.innerHTML = '';
+      }
+
+      if (discount) {
+        discount.innerText = '';
+      }
+
+      if (discountText) {
+        discountText.classList.add('hidden');
+      }
+    }
+  } catch (e) {
+    notify(e.message, 'error');
+  }
+}
+
+
+async function removeCoupons(e) {
+  e.preventDefault();
+  load('#loading__coupon');
+   try {
+    await youcanjs.checkout.removeCoupons();
+
+    await fetchCoupons();
+
+    notify(`${CART_PAGE_CONTENT.coupon_removed}`, 'success');
   } catch (e) {
     notify(e.message, 'error');
   } finally {
@@ -63,15 +126,21 @@ function updateTotalPrice() {
 
   const totalPriceElement = document.querySelector('.item-total-price');
   const totalPrice = isFloat(calculateTotalPrice);
+  const discountPrice = document.querySelector('.coupon-applied');
 
-  if (totalPriceElement) {
+  if (totalPriceElement && !discountPrice) {
     totalPriceElement.innerText = `${totalPrice} ${currencyCode}`;
+  }
+
+  if (discountPrice) {
+    fetchCoupons();
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   setCurrencySymbol();
   updateTotalPrice();
+  fetchCoupons();
 });
 
 function updateDOM(cartItemId, productVariantId, quantity) {
@@ -92,10 +161,10 @@ async function updateQuantity(cartItemId, productVariantId, quantity) {
   } finally {
     stopLoad(`#loading__${cartItemId}`);
   }
+
   updateDOM(cartItemId, productVariantId, quantity);
   updatePrice(cartItemId,productVariantId,quantity);
   updateTotalPrice();
-  await updateCartDrawer();
 }
 
 async function updateOnchange(cartItemId, productVariantId) {
@@ -147,8 +216,8 @@ async function removeItem(cartItemId, productVariantId) {
 
     if (cartItems.length === 0) {
       if (cartItemsBadge) {
-        cartItemsBadge.innerText = 0;
       }
+      cartItemsBadge.innerText = 0;
       const cartTable = document.querySelector('.cart-table')
       const emptyCart = document.querySelector('.empty-cart');
 

@@ -142,7 +142,7 @@ button {
   border: 1px solid var(--yc-primary-color);
   color: var(--yc-primary-color);
   padding: 2px 20px;
-  width: 70px;
+  min-width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
