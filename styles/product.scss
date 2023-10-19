@@ -19,7 +19,7 @@
     @include breakpoint('md') {
       position: sticky;
       top: calc(var(--yc-nav-height) + 20px);
-      width: 80%;
+      width: 50%;
       margin: unset;
     }
 
@@ -187,6 +187,7 @@
     gap: 20px;
 
     @include breakpoint('md') {
+      width: 50%;
       gap: 22px;
     }
 
@@ -270,9 +271,11 @@
       }
     }
     .product-description {
+      width: 100%;
       overflow: hidden;
 
       & * {
+        width: 100% !important;
         font-family: var(--yc-font-family);
         line-height: 184.5%;
       }

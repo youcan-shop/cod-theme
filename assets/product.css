@@ -19,7 +19,7 @@
   .yc-single-product .product-images {
     position: sticky;
     top: calc(var(--yc-nav-height) + 20px);
-    width: 80%;
+    width: 50%;
     margin: unset;
   }
 }
@@ -180,6 +180,7 @@
 }
 @media (min-width: 768px) {
   .yc-single-product .product-details {
+    width: 50%;
     gap: 22px;
   }
 }
@@ -251,9 +252,11 @@
   border: 1px solid #000000;
 }
 .yc-single-product .product-details .product-description {
+  width: 100%;
   overflow: hidden;
 }
 .yc-single-product .product-details .product-description * {
+  width: 100% !important;
   font-family: var(--yc-font-family);
   line-height: 184.5%;
 }
