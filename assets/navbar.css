@@ -84,8 +84,8 @@
   z-index: 10;
 }
 .yc-header .yc-navbar .logo img {
-  height: calc(var(--yc-nav-height) - 20px);
-  max-height: 40px;
+  max-width: 110px;
+  height: auto;
 }
 @media screen and (max-width: 767px) {
   .yc-header .yc-navbar .menu, .yc-header .yc-navbar .menu-toggler {

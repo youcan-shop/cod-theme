@@ -97,11 +97,9 @@
       }
     }
 
-    .logo {
-      img {
-        height: calc(var(--yc-nav-height) - 20px);
-        max-height: 40px;
-      }
+    .logo img {
+      max-width: 110px;
+      height: auto;
     }
 
     @media screen and (max-width: 767px) {
