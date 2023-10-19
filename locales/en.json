@@ -46,7 +46,10 @@
       "total": "Total cost",
       "checkout_cta": "Checkout",
       "continue_shppping": "Continuer vos achats",
-      "discount": "Discount"
+      "discount": "Discount",
+      "coupon": "Coupon applied",
+      "coupon_applied": "Coupon applied successfully",
+      "coupon_removed": "Coupon removed successfully"
     },
     "empty": {
       "title": "Your cart is currently empty.",

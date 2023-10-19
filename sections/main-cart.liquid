@@ -179,3 +179,13 @@
   ]
 }
 {% endschema %}
+
+{% javascript %}
+
+  const CART_PAGE_CONTENT = {
+    coupon_applied: '{{- 'cart.summary.coupon_applied' | t -}}',
+    coupon_removed: '{{- 'cart.summary.coupon_removed' | t -}}',
+    coupon: '{{- 'cart.summary.coupon' | t -}}'
+  }
+{% endjavascript %}
+

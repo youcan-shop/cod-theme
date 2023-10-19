@@ -46,7 +46,10 @@
       "total": "Coût total",
       "checkout_cta": "Paiement",
       "continue_shppping": "continue le shopping",
-      "discount": "Discount"
+      "discount": "Discount",
+      "coupon": "Coupon",
+      "coupon_applied": "Coupon appliqué avec succès",
+      "coupon_removed": "Coupon supprimé avec succès"
     },
     "empty": {
       "title": "Votre panier est actuellement vide.",

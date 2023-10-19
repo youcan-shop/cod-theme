@@ -23,7 +23,7 @@ async function addPromo(e) {
 
     await fetchCoupons();
 
-    notify('Coupon applied successfully', 'success');
+    notify(`${CART_PAGE_CONTENT.coupon_applied}`, 'success');
   } catch (e) {
     notify(e.message, 'error');
   } finally {
@@ -45,7 +45,7 @@ async function fetchCoupons() {
     }
 
     if (coupons.coupon && coupons.discountedPrice) {
-      couponApplied.innerHTML = `<span>Coupon applied: '${coupons.coupon.code}'  [${coupons.coupon.value}%] </span>
+      couponApplied.innerHTML = `<span>${CART_PAGE_CONTENT.coupon}: '${coupons.coupon.code}'  [${coupons.coupon.value}%] </span>
                                  <ion-icon class="close-search" id="remove-coupon" name="close-outline"></ion-icon>`;
       discount.innerText = coupons.discountedPrice;
 
@@ -82,7 +82,7 @@ async function removeCoupons(e) {
 
     await fetchCoupons();
 
-    notify('Coupon removed successfully', 'success');
+    notify(`${CART_PAGE_CONTENT.coupon_removed}`, 'success');
   } catch (e) {
     notify(e.message, 'error');
   } finally {
