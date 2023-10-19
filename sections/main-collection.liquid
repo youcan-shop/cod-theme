@@ -3,30 +3,40 @@
 
 {%- assign per_page = section.settings.items_per_page -%}
 <div class='yc-product-listing-container'>
-  <div class="breadcrumbs-container">
-    {%- render 'breadcrumbs' -%}
-    <div class="breadcrumbs-name">
-      <h1>{{ category.name }}</h1>
-    </div>
-  </div>
-  <div class="sort-container">
-    {%- render 'main-sort' -%}
-  </div>
-
   {%- paginate collection.products by per_page cod, category_id: category.id %}
-    <div class="subcategories">
-      {% for subcategory in subCategories %}
-        {% render 'subCategory', subcategory: subcategory %}
-      {% endfor %}
-    </div>
-    <div class='product-list'>
-      {% for product in items %}
-        {% render 'product-preview', item: product %}
-      {% endfor %}
-    </div>
+    {% if items %}
+      <div class="breadcrumbs-container">
+        {%- render 'breadcrumbs' -%}
+        <div class="breadcrumbs-name">
+          <h1>{{ category.name }}</h1>
+        </div>
+      </div>
+      <div class="sort-container">
+        {%- render 'main-sort' -%}
+      </div>
+      <div class="subcategories">
+        {% for subcategory in subCategories %}
+          {% render 'subCategory', subcategory: subcategory %}
+        {% endfor %}
+      </div>
+      <div class='product-list'>
+        {% for product in items %}
+          {% render 'product-preview', item: product %}
+        {% endfor %}
+      </div>
 
-    <!-- prettier-ignore -->
-    {%- render 'main-pagination', has_more: has_more, next_page: next_page, previous_page: previous_page, current: current, last: last -%}
+      {%- render 'main-pagination', has_more: has_more, next_page: next_page, previous_page: previous_page, current: current, last: last -%}
+    {% else %}
+      <div class='flex flex-col justify-center text-center items-center gap-3 pt-12'>
+        <div class='text-2xl'>{{ 'search.empty.title' | t }}</div>
+        <div class='opacity-60'>
+          <p>{{ 'search.empty.description' | t }}</p>
+        </div>
+        <a href='/' class='yc-btn mt-5'>
+          {{ 'search.empty.home_page' | t }}
+        </a>
+      </div>
+    {% endif %}
   {%- endpaginate %}
 </div>
 
