@@ -59,7 +59,7 @@
   transition: 0.3s ease;
   transition-property: all;
   will-change: transform, opacity;
-  z-index: 99999;
+  z-index: 1001;
   width: 100%;
   height: 70vh;
   background-color: white;

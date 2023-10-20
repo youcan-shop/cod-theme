@@ -36,7 +36,6 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     height: var(--yc-nav-height);
-    z-index: 100;
     background-color: var(--yc-nav-background);
 
     *:not(span):not(input) {
@@ -97,10 +96,12 @@
       }
     }
 
-    .logo {
-      img {
-        height: calc(var(--yc-nav-height) - 20px);
-        max-height: 40px;
+    .logo img {
+      max-width: 110px;
+      height: auto;
+
+      @include breakpoint('md') {
+        max-width: 120px;
       }
     }
 

@@ -135,9 +135,12 @@ function openDrawer(el) {
 const searchHolder = document.getElementById('searchInputHolder');
 let noticeHeight = notice?.offsetHeight;
 
+function isNavBarFixed() {
+  return fixedNavbar?.classList.contains('fixed');
+}
+
 function openSearch() {
-  const isNavBarFixed = fixedNavbar?.classList.contains('fixed');
-  noticeHeight = isNavBarFixed ? 0 : notice?.offsetHeightconsole;
+  noticeHeight = isNavBarFixed() ? 0 : notice?.offsetHeightconsole;
 
   if (!overlay) return;
 
@@ -145,12 +148,17 @@ function openSearch() {
   overlay.style.top = `${noticeHeight || 0}px`;
   overlay.style.opacity = '1';
   overlay.style.visibility = 'visible';
+  document.body.style.overflowY = 'hidden';
 
   if (!searchHolder) return;
 
   searchHolder.style.opacity = '1';
   searchHolder.style.visibility = 'visible';
   searchHolder.style.top = `${noticeHeight || 0}px`;
+
+  if(isNavBarFixed()) {
+    fixedNavbar.style.zIndex= '1001';
+  }
 }
 
 function closeSearch() {
@@ -159,6 +167,11 @@ function closeSearch() {
   overlay.style.opacity = '0';
   overlay.style.visibility = 'hidden';
   overlay.style.height = '100vh';
+  document.body.style.overflowY = 'auto';
+
+  if(isNavBarFixed()) {
+    fixedNavbar.style.zIndex= '101';
+  }
 
   if (!searchHolder) return;
 

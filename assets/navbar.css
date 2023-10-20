@@ -32,7 +32,6 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   height: var(--yc-nav-height);
-  z-index: 100;
   background-color: var(--yc-nav-background);
 }
 .yc-header .yc-navbar :first-child {
@@ -84,8 +83,13 @@
   z-index: 10;
 }
 .yc-header .yc-navbar .logo img {
-  height: calc(var(--yc-nav-height) - 20px);
-  max-height: 40px;
+  max-width: 110px;
+  height: auto;
+}
+@media (min-width: 768px) {
+  .yc-header .yc-navbar .logo img {
+    max-width: 120px;
+  }
 }
 @media screen and (max-width: 767px) {
   .yc-header .yc-navbar .menu, .yc-header .yc-navbar .menu-toggler {
