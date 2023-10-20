@@ -36,6 +36,12 @@
       border: 1px solid #E7E7E7;
       border-radius: 4px;
 
+      &:hover {
+        .main-image {
+          opacity: 0;
+        }
+      }
+
       @include breakpoint('md') {
         height: 474px;
       }
@@ -63,7 +69,7 @@
       transform-origin: center center;
       object-fit: cover;
       transition: opacity 0.2s;
-      background-size: 200% 200%;
+      background-size: 200% auto;
     }
 
     .product-images-container {
