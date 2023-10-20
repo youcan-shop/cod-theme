@@ -162,9 +162,8 @@ function setVariant(parentSection, id) {
 /**
  * Sets inventory of product variant.
  * And disable add to cart button when inventory is not sufficient.
- * 
  * @param {HTMLElement} parentSection
- * @param {Number} inventory 
+ * @param {Number} inventory
  */
 function setInventory(parentSection, inventory) {
   const inventoryInput = parentSection.querySelector('#_inventory');
@@ -416,7 +415,6 @@ function showStickyCheckout() {
 
   // Show the background overlay
   showOverlay();
-  overlay.style.zIndex = '9999';
 
   // Show the checkout
   stickyCheckout.style.visibility = 'visible';
@@ -458,7 +456,6 @@ function hideCheckout() {
   overlay.click();
 
   $("body").style.overflow = "auto";
-  overlay.style.zIndex = '95';
   window.removeEventListener('resize', responsiveStickyCheckout);
 
   if (options && quantity) {
