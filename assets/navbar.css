@@ -86,6 +86,11 @@
   max-width: 110px;
   height: auto;
 }
+@media (min-width: 768px) {
+  .yc-header .yc-navbar .logo img {
+    max-width: 120px;
+  }
+}
 @media screen and (max-width: 767px) {
   .yc-header .yc-navbar .menu, .yc-header .yc-navbar .menu-toggler {
     height: 30px;

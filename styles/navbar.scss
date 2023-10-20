@@ -99,6 +99,10 @@
     .logo img {
       max-width: 110px;
       height: auto;
+
+      @include breakpoint('md') {
+        max-width: 120px;
+      }
     }
 
     @media screen and (max-width: 767px) {
