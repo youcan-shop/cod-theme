@@ -10,7 +10,7 @@
                 "slider_mobile_timeout": 4,
                 "slider_arrows_size": 15,
                 "slider_arrows": true,
-                "slider_height_percentage": 60,
+                "slider_height_percentage": 50,
                 "slider_overlay_background_color": "#00000000"
               },
             "blocks": {
@@ -34,8 +34,9 @@
                 }
             },
             "order": [
-                "block_qw91o394p69bv8l",
-                "block_qx88dcfkmfmqpeh"
+                "block_qx88dcfkmfmqpeh",
+                "block_qw91o394p69bv8l"
+
             ]
         },
         "section_62tm9748qh15wfk": {
