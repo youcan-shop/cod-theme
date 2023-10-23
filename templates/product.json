@@ -86,20 +86,20 @@
                   }
               },
               "block_iuzkve0vzjzzby": {
-                  "type": "accordion",
-                  "settings": {
-                      "accordion_title": "التوصيل",
-                      "accordion_details": "<p>الشحن مجانا والدفع عند التسليم. يتم التوصيل عادةً في أيام عمل 1-3<\/p>",
-                      "background_color": "#F7F7F7FF",
-                      "text_color": "#000000FF",
-                      "space_bottom": 14
-                  }
+                "type": "accordion",
+                "settings": {
+                    "accordion_title": "التوصيل",
+                    "accordion_details": "<p>الشحن مجانا والدفع عند التسليم. يتم التوصيل عادةً في أيام عمل 1-3<\/p>",
+                    "background_color": "#F7F7F7FF",
+                    "text_color": "#000000FF",
+                    "space_bottom": 14
+                }
               },
               "block_iw5iiomfkw08l7h": {
                   "type": "accordion",
                   "settings": {
-                      "accordion_title": "سياسة الاسترجاع",
-                      "accordion_details": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة <\/span><\/p>",
+                      "accordion_title": "سياسة الإسترجاع",
+                      "accordion_details": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">الإسترجاع خلال ثلاثة أيام والاستبدال خلال سبعة أيام من تاريخ الشراء<\/span><\/p>",
                       "background_color": "#F7F7F7FF",
                       "text_color": "#000000FF",
                       "space_bottom": 14
@@ -109,7 +109,7 @@
                   "type": "accordion",
                   "settings": {
                       "accordion_title": "30 يوم ضمان",
-                      "accordion_details": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي<\/span><\/p>",
+                      "accordion_details": "<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);\">جميع المنتجات المعروضة في متجرنا تخضع لسياسة الاستبدال واسترداد الأموال وفقًا للشروط والأحكام المبينة على هذه الصفحة.<\/span><\/p>",
                       "background_color": "#F7F7F7FF",
                       "text_color": "#000000FF",
                       "space_bottom": 14
