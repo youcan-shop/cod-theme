@@ -54,38 +54,38 @@
                 "caption_color": "#000000FF"
             },
             "blocks": {
-                "block_c9qx028mi12btfk4": {
-                    "type": "columnn",
-                    "settings": {
-                        "heading": "الدفع عند الإستلام",
-                        "description": "<p>شحن مجاني في الوطن العربي<\/p>",
-                        "image": "3-2O34xXQVA3nPqZkFl3jsHioz2MT.png"
-                    }
-                },
-                "block_cc11ny9wgf589l": {
-                    "type": "columnn",
-                    "settings": {
-                        "heading": "الشحن مجاني",
-                        "description": "<p>ضمان استعادة الاموال<\/p>",
-                        "image": "4-2O34ypX6tIoXvLLIlk5YqdUyrkk.png"
-                    }
-                },
-                "block_cee6rpyw7oltwqg": {
-                    "type": "columnn",
-                    "settings": {
-                        "image": "5-2O350ZhHCMigJ3EB8HUGgena2iS.png",
-                        "heading": "ضمان حقيقي",
-                        "description": "<p>ضمان استعادة الاموال<\/p>"
-                    }
-                },
-                "block_cgovtb6di7fywh8": {
-                    "type": "columnn",
-                    "settings": {
-                        "heading": "خدمة ما بعد البيع",
-                        "description": "<p>لا تقلق بشأن الأمن بعد الآن<\/p>",
-                        "image": "4-2O34ypX6tIoXvLLIlk5YqdUyrkk.png"
-                    }
-                }
+              "block_c9qx028mi12btfk4": {
+                  "type": "columnn",
+                  "settings": {
+                      "heading": "الدفع عند الإستلام",
+                      "description": "<p>شحن مجاني في الوطن العربي<\/p>",
+                      "image": "Money-2Lxcg7eTcN0obaEv8iDgxRZkuOr.png"
+                  }
+              },
+              "block_cc11ny9wgf589l": {
+                  "type": "columnn",
+                  "settings": {
+                      "heading": "الشحن مجاني",
+                      "description": "<p>ضمان استعادة الاموال<\/p>",
+                      "image": "Truck-2Lxcr5Ij0gRqGKjNfgX1qiEaq1H.png"
+                  }
+              },
+              "block_cee6rpyw7oltwqg": {
+                  "type": "columnn",
+                  "settings": {
+                      "image": "Group 970-2LxczLsY3HjjIXtRseSc2JH6LOB.png",
+                      "heading": "ضمان حقيقي",
+                      "description": "<p>ضمان استعادة الاموال<\/p>"
+                  }
+              },
+              "block_cgovtb6di7fywh8": {
+                  "type": "columnn",
+                  "settings": {
+                      "heading": "خدمة ما بعد البيع",
+                      "description": "<p>لا تقلق بشأن الأمن بعد الآن<\/p>",
+                      "image": "Group 969 (1)-2Lxd7e4tXLfvSd2dHvRyODOSFOO.png"
+                  }
+              }
             },
             "order": [
                 "block_c9qx028mi12btfk4",
