@@ -154,7 +154,7 @@
             "settings": {
                 "margin_top": 20,
                 "margin_bottom": 20,
-                "countdown_message": "<p>ينتهي :<\/p>",
+                "countdown_message": "<p>ينتهي في :<\/p>",
                 "countdown_message_color": "#FFFFFFFF",
                 "countdown_year": 2024,
                 "countdown_month": 1,
@@ -176,7 +176,7 @@
                 "slider_mobile_arrows": true,
                 "countdown_enabled": true,
                 "background_color": "#F4361FFF",
-                "title": "عرض",
+                "title": "⚡︎عرض خاص",
                 "title_color": "#FFFFFFFF",
                 "tag_color": "#000000",
                 "tag_text_color": "#ffffff",
