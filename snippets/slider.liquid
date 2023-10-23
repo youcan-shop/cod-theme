@@ -51,10 +51,26 @@
     {% endif %}
   }
 
+  #yc_slider_{{ id }} .splide__pagination__page {
+    width: 10px !important;
+    height: 10px !important;
+    background: unset !important;
+    border: 1px solid white !important;
+    margin: 3px 5px !important;
+    opacity: 1 !important;
+  }
+
+  #yc_slider_{{ id }} .splide__pagination__page.is-active {
+    background: var(--yc-primary-color) !important;
+    transform: unset !important;
+    border: 1px solid var(--yc-primary-color) !important;
+  }
+
   {% if slider_pagination and count > 1 %}
     #yc_slider_{{ id }}.yc-slider__desktop .splide__pagination {
       display: block !important;
       text-align: center;
+      margin-bottom: 24px;
     }
   {% endif %}
 
@@ -62,6 +78,7 @@
     #yc_slider_{{ id }}.yc-slider__mobile .splide__pagination {
       display: block !important;
       text-align: center;
+      margin-bottom: 13px;
     }
   {% endif %}
 {% endstyle %}

@@ -18,19 +18,18 @@
                     "type": "image_picker",
                     "settings": {
                         "image": "daniel-storek-JM-qKEd1GMI-unsplash-2OfIakQKp2aFHsKMEwrbVoICfTm.jpg",
-                        "caption": "<h2>هذا هو شريط تمرير سطح المكتب<\/h2><p>في النشر والتصميم الجرافيكي ، هو عنصر نائب شائع الاستخدام.<\/p>",
-                        "button_text": "Visit Now 🔥",
-                        "button_font_weight": "500",
-                        "product": "8dc07bcd-c5ba-4fa5-8389-ce1553f4cad3"
+                        "caption": "<p><br><\/p>",
+                        "button_text": "",
+                        "button_font_weight": "500"
                     }
                 },
                 "block_qx88dcfkmfmqpeh": {
                     "type": "image_picker",
                     "settings": {
-                        "image": "deanna-alys-6LBBOwkPzyQ-unsplash-2OfIaRecGHx4JGVCteF2IV8HnDm.jpg",
-                        "button_font_weight": "500",
+                        "image": "BN1981228_l 1-2X9zjNoei0KPYmxgYCtgshVgf9J.png",
                         "caption": "<p><br><\/p>",
-                        "button_text": ""
+                        "button_text": "",
+                        "button_font_weight": "500"
                     }
                 }
             },
