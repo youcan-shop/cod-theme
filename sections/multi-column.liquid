@@ -2,6 +2,7 @@
 
 {% style %}
   .multi-column-{{ id }} {
+    padding: 24px 0;
     margin-top: {{ section.settings.space_top }}px;
     margin-bottom: {{ section.settings.space_bottom }}px;
     background-color: {{ section.settings.background_color.hex }};
@@ -10,13 +11,13 @@
 
   @media screen and (min-width: 1024px) {
     .multi-column-{{ id }} {
-      padding: 0 150px;
+      padding: 32px 150px;
     }
   }
 
   @media screen and (min-width: 1440px) {
     .multi-column-{{ id }} {
-      padding: 0 240px;
+      padding: 32px 240px;
     }
   }
 
@@ -24,6 +25,7 @@
     text-align: {{ section.settings.section_title_position }};
     font-weight: 700;
     font-size: 26px;
+    margin: 0 0 20px;
   }
 
   .multi-column-{{ id }} .multi-column-blocks {
