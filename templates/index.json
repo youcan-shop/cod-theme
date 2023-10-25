@@ -10,7 +10,7 @@
                 "slider_mobile_timeout": 4,
                 "slider_arrows_size": 15,
                 "slider_arrows": true,
-                "slider_height_percentage": 60,
+                "slider_height_percentage": 50,
                 "slider_overlay_background_color": "#00000000"
               },
             "blocks": {
