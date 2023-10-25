@@ -1,33 +1,18 @@
 .upsell-page {
+  max-width: 750px;
+  margin: 0 auto;
   padding: 50px 20px;
-  display: grid;
-  place-items: center;
-  text-align: center;
 }
-.upsell-page .upsell-container {
-  width: 100%;
+@media (min-width: 992px) {
+  .upsell-page {
+    padding: 50px 0;
+  }
 }
 .upsell-page .upsell-content img {
   margin: auto;
 }
-.upsell-page .upsell-content h1 {
-  font-weight: 500;
-  color: #333333;
-  line-height: 29px;
-  font-size: 24px;
-}
-.upsell-page .upsell-content h2 {
-  font-size: 20px;
-  line-height: 22px;
-}
-.upsell-page .upsell-content p {
-  color: #333333;
-  font-size: 18px;
-  line-height: 22px;
-  font-weight: 300;
-}
 .upsell-page .upsell-form-submit {
-  padding: 42px 0;
+  padding: 23px 0;
   background-color: #fff;
   display: flex;
   justify-content: center;
@@ -37,21 +22,18 @@
 }
 .upsell-page .upsell-form-submit .upsell-submit-yes,
 .upsell-page .upsell-form-submit .upsell-submit-no {
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
   font-weight: 600;
+  font-family: var(--yc-font-family);
 }
 .upsell-page .upsell-form-submit .upsell-submit-yes {
-  padding: 16px 18px;
-  height: 60px;
+  padding: 14px;
 }
 .upsell-page .upsell-form-submit .upsell-submit-no {
-  padding: 16px 10px;
-  font-size: 14px;
-  height: 48px;
+  padding: 12px 10px;
 }
 .upsell-page .upsell-form-submit .text-small {
   font-size: 15px;
