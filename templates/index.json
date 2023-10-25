@@ -10,7 +10,7 @@
                 "slider_mobile_timeout": 4,
                 "slider_arrows_size": 15,
                 "slider_arrows": true,
-                "slider_height_percentage": 60,
+                "slider_height_percentage": 50,
                 "slider_overlay_background_color": "#00000000"
               },
             "blocks": {
@@ -18,19 +18,18 @@
                     "type": "image_picker",
                     "settings": {
                         "image": "daniel-storek-JM-qKEd1GMI-unsplash-2OfIakQKp2aFHsKMEwrbVoICfTm.jpg",
-                        "caption": "<h2>هذا هو شريط تمرير سطح المكتب<\/h2><p>في النشر والتصميم الجرافيكي ، هو عنصر نائب شائع الاستخدام.<\/p>",
-                        "button_text": "Visit Now 🔥",
-                        "button_font_weight": "500",
-                        "product": "8dc07bcd-c5ba-4fa5-8389-ce1553f4cad3"
+                        "caption": "<p><br><\/p>",
+                        "button_text": "",
+                        "button_font_weight": "500"
                     }
                 },
                 "block_qx88dcfkmfmqpeh": {
                     "type": "image_picker",
                     "settings": {
                         "image": "deanna-alys-6LBBOwkPzyQ-unsplash-2OfIaRecGHx4JGVCteF2IV8HnDm.jpg",
-                        "button_font_weight": "500",
                         "caption": "<p><br><\/p>",
-                        "button_text": ""
+                        "button_text": "",
+                        "button_font_weight": "500"
                     }
                 }
             },
@@ -101,15 +100,9 @@
                 "padding_top": 20,
                 "padding_bottom": 20,
                 "show_compare_at_price": true,
-                "countdown_message": "<p>Hurry up! There aren't many items left in stock.<\/p>",
-                "countdown_year": 2024,
-                "countdown_month": 1,
-                "countdown_day": 14,
-                "countdown_hour": 0,
-                "countdown_minute": 0,
                 "row_desktop": 3,
                 "show_product_title": true,
-                "title": "Featured Products",
+                "title": "المنتجات الأكتر مبيعاً",
                 "section_title_position": "center",
                 "countdown_enabled": false,
                 "text_color": "#000000FF",
@@ -184,7 +177,7 @@
                 "slider_mobile_arrows": true,
                 "countdown_enabled": true,
                 "background_color": "#F4361FFF",
-                "title": "عرض",
+                "title": "⚡︎عرض خاص",
                 "title_color": "#FFFFFFFF",
                 "tag_color": "#000000",
                 "tag_text_color": "#ffffff",
