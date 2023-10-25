@@ -47,7 +47,7 @@ async function fetchCoupons() {
     if (coupons.coupon && coupons.discountedPrice) {
       couponApplied.innerHTML = `<span>${CART_PAGE_CONTENT.coupon}: '${coupons.coupon.code}'  [${coupons.coupon.value}%] </span>
                                  <ion-icon class="close-search" id="remove-coupon" name="close-outline"></ion-icon>`;
-      discount.innerText = coupons.discountedPrice;
+      discount.innerText = coupons.discountedPrice + ' ' + currencyCode;
 
       const removeCouponElement = document.getElementById("remove-coupon");
       if (removeCouponElement) {
