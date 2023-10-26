@@ -8,31 +8,22 @@
     padding-bottom: {{ section.settings.space_bottom}}px;
   }
 
-    {% if section.settings.show_description_on_mobile == false %}
-      @media screen and (max-width: 768px) {
-        .product-column-description {
-          display: none;
-        }
-      }
-    {% endif %}
-
   .product_customization-{{ id }} {
     background-color: {{ section.settings.background_color.hex }};
   }
 
+  .product_customization-{{ id }} .yc-btn {
+    color: {{ section.settings.button_text_color.hex }} !important;
+  }
 {%- endstyle -%}
 
-<section class='product_customization-{{ id }}'>
-  {%- assign selected_product = section.settings.product %}
+{%- assign selected_product = section.settings.product %}
 
-  {%- if product %}
-    {%- assign selected_product = product %}
-  {%- endif %}
-
-  {%- if selected_product %}
+{%- if selected_product %}
+  <section class='product_customization-{{ id }}'>
     {%- render 'product-home', product_id: selected_product.id, product: selected_product, block_settings: section.settings-%}
-  {%- endif %}
-</section>
+  </section>
+{%- endif %}
 
 {%- schema -%}
   {
@@ -45,21 +36,15 @@
         "type": "product"
       },
       {
-        "type": "text",
-        "id": "description",
-        "label": "Product description"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_description_on_mobile",
-        "label": "Sow description on mobile",
-        "default": true
+        "label": "Product description",
+        "id": "product_description",
+        "type": "richtext"
       },
       {
         "type": "checkbox",
         "id": "show_compare_at_price",
         "label": "Show compare at price",
-        "default": true
+        "default": false
       },
       {
         "type": "color",
@@ -74,7 +59,8 @@
         "max": 160,
         "step": 1,
         "unit": "px",
-        "default": 10
+        "default": 50
+
       },
       {
         "type": "range",
@@ -84,7 +70,13 @@
         "max": 160,
         "step": 1,
         "unit": "px",
-        "default": 10
+        "default": 50
+      },
+      {
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Button text color",
+        "default": "#FFFFFF"
       },
       {
           "type": "text",
@@ -101,23 +93,6 @@
           "type": "color",
           "id": "tag_text_color",
           "label": "Banner text color",
-          "default": "#ffffff"
-        },
-        {
-          "type": "text",
-          "id": "price_reduction_text",
-          "label": "Banner price text"
-        },
-        {
-          "type": "color",
-          "id": "tag_price_color",
-          "label": "Price reduction background color",
-          "default": "#E52B2AFF"
-        },
-        {
-          "type": "color",
-          "id": "price_reduction_text_color",
-          "label": "Price reduction text color",
           "default": "#ffffff"
         },
         {
@@ -143,62 +118,18 @@
             }
           ],
           "default": "top_right"
-        },
-        {
-      "type": "header",
-      "content": "Countdown settings"
-    },
-    {
-      "type": "paragraph",
-      "content": "ℹ️ If you want to show countdown on this section, please enable it and set the date and time."
-    },
-    {
-      "type": "checkbox",
-      "id": "countdown_enabled",
-      "label": "Enable countdown"
-    },
-    {
-      "label": "Year",
-      "id": "countdown_year",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Month",
-      "id": "countdown_month",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Day",
-      "id": "countdown_day",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Hour",
-      "id": "countdown_hour",
-      "type": "number",
-      "default": 0
-    },
-    {
-      "label": "Minutes",
-      "id": "countdown_minute",
-      "type": "number",
-      "default": 0
-    },
-     {
-      "type": "checkbox",
-      "id": "show_compare_at_price",
-      "label": "Show compare at price",
-      "default": true
-    }
+        }
     ],
     "blocks": [
       {
         "label": "Title",
         "limit": 1,
         "type": "product_title"
+      },
+      {
+        "label": "Reviews",
+        "limit": 1,
+        "type": "product_reviews"
       },
       {
         "label": "Price",

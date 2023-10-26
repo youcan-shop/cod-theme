@@ -1,11 +1,15 @@
+{{ 'product-slider.css' | asset_url | stylesheet_tag }}
+
 {% style %}
-   .splide__slide {
-    display: flex;
-    justify-content: center;
-    align-items: strech;
-  }
-   #yc_slider_{{ id }} .splide__arrow {
+  #yc_slider_{{ id }} .splide__arrow {
     margin: 0;
+  }
+
+  #yc_slider_{{ id }} .product-block .product-slider {
+    background: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   #yc_slider_{{ id }} .splide__arrow--next {
@@ -34,36 +38,32 @@
           class='splide__slide'
           {{ block.youcan_attributes }}
         >
-          <div
-            class='product-block'
-          >
+            <div class='product-block'>
             <div class="product-slider">
               <div class='product-thumbnail'>
-                <div class="tag {{ block.settings.tag_position }}">
-                {% if block.settings.tag_text %} 
-                  <div class="tag-text"
-                    style="background: {{ block.settings.tag_color.hex }}; color: {{ block.settings.tag_text_color.hex }}"
-                  >
-                    {{ block.settings.tag_text }}
-                  </div>
-                {% endif %}
-                {% if block.settings.price_reduction_text %} 
-                  <div class="tag-price"
-                    style="background: {{ block.settings.tag_price_color.hex }}; color: {{ block.settings.price_reduction_text_color.hex }}"
-                  >
-                    {{ block.settings.price_reduction_text }}
-                  </div>
-                {% endif %}
-                </div>
                  <img
                   loading='lazy'
                   src='{%- if block.settings.product.thumbnail -%} {{ block.settings.product.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
                   >
+                  {% if block.settings.tag_text %}
+                    <div
+                      class="tag {{ section_settings.tag_position }}"
+                      style="background: {{ section_settings.banner_background_color.hex }}; color: {{ section_settings.tag_text_color.hex }}"
+                    >
+                      {{ block.settings.tag_text }}
+                    </div>
+                  {% endif %}
                   <div class="product-link">
+                    {% if settings.direct_add_to_cart and block.settings.product.variants.size <= 1 %}
+                      <button class="yc-btn" onclick="directAddToCart(event, '{{ block.settings.product.variants[0].id }}');">
+                        {{ 'general.direct_add_to_cart' | t }}
+                      </button>
+                    {% else %}
                     <a href="{{ block.settings.product.url }}" class="yc-btn">
-                      {{ 'snippets.product_preview.cta_button' | t }}
+                      {{ 'general.buy_now' | t }}
                     </a>
-                  </div>  
+                    {% endif %}
+                  </div>
               </div>
               <div class='product-details'>
                 <span class='product-title'>{{ block.settings.product.name }}</span>
@@ -76,15 +76,21 @@
                   <span class='compare-at-price'>{{ block.settings.product.compare_at_price | money }}</span>
                 {% endif %}
               </div>
-              <div class="product-link-mobile md:hidden">
-                <a href="{{ block.settings.product.url }}" class="yc-btn">
-                  {{ 'snippets.product_preview.cta_button' | t }}
-                </a>
-              </div>  
+                <div class="product-link">
+                  {% if settings.direct_add_to_cart and block.settings.product.variants.size <= 1 %}
+                    <button class="yc-btn" onclick="directAddToCart(event, '{{ block.settings.product.variants[0].id }}');">
+                      {{ 'general.direct_add_to_cart' | t }}
+                    </button>
+                  {% else %}
+                  <a href="{{ block.settings.product.url }}" class="yc-btn">
+                    {{ 'general.buy_now' | t }}
+                  </a>
+                  {% endif %}
+                </div>
             </div>
           </div>
         </li>
       {%- endfor %}
     </ul>
-  </div>  
+  </div>
 </div>

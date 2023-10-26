@@ -1,99 +1,73 @@
 @import 'helpers/mixins';
 
 .upsell-page {
-  padding: 56px 0 46px;
-  background: #F7F7F7;
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 50px 20px;
 
-  .upsell-container {
-    display: grid;
-    place-items: center;
-    text-align: center; 
-    max-width: 650px;
-    margin: auto;
+  @include breakpoint('lg') {
+    padding: 50px 0;
+  }
 
-    #upsell-form {
-      width: 100%;
+  .upsell-content {
+    img {
+      margin: auto;
     }
+  }
 
-    .upsell-content {
-      img {
-        margin: 15px auto;
-      }
+  .upsell-form-submit {
+    padding: 23px 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
 
-      h1 {
-        font-weight: 500;
-        color: #333333;
-        line-height: 29px;
-        font-size: 24px;
-      }
-
-      h2 {
-        font-size: 20px;
-        line-height: 22px;
-      }
-
-      p {
-        color: #333333;
-        font-size: 18px;
-        line-height: 22px;
-        font-weight: 300;
-      }
-    }
-
-    .upsell-form-submit {
-      padding: 42px 0;
+    .upsell-submit-yes,
+    .upsell-submit-no {
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      gap: 24px;
-
-      .upsell-submit-yes {
-        background: var(--yc-primary-color);
-        color: #fff;
-        padding: 16px 18px;
-        height: 100px;
-        font-size: 26px;
-        font-weight: 700;
-        gap: 10px;
-      } 
-
-      .button-text {
-        line-height: 48px;
-      }
-
-      .small-text {
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 29px;
-        display: block;
-      }
-
-      .upsell-submit-no {
-        background: #fff;
-        padding: 16px 10px;
-        border: 1px solid #C4C4C4;
-        color: #999999;
-        font-size: 14px;
-        height: 46px;
-        font-weight: 700;
-      }
-
-      .upsell-submit-yes,
-      .upsell-submit-no {
-        width: 432px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        @include max-screen('md') {
-          width: 100%;
-        }
-      }
+      text-transform: uppercase;
+      font-weight: 600;
+      font-family: var(--yc-font-family);
     }
 
-    @include max-screen('md') {
-      padding: 50px 16px;
+    .upsell-submit-yes {
+      padding: 14px;
     }
+
+    .upsell-submit-no {
+      padding: 12px 10px;
+    }
+
+    .text-small {
+      font-size: 15px;
+    }
+
+    .text-medium {
+        font-size: 19px;
+    }
+
+    .text-large {
+        font-size: 22px;
+    }
+
+    .size-small {
+        width: 50%;
+    }
+
+    .size-medium {
+        width: 70%;
+    }
+
+    .size-large {
+        width: 100%;
+    }
+  }
+
+  @include max-screen('md') {
+    padding: 50px 16px;
   }
 }

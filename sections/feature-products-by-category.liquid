@@ -4,12 +4,24 @@
 
 {% style %}
   .section-featured-products-by-category-{{ id }} {
-    padding-top: {{ section.settings.space_top }}px;  
-    padding-bottom: {{ section.settings.space_bottom }}px;
+    margin-top: {{ section.settings.space_top }}px;
+    margin-bottom: {{ section.settings.space_bottom }}px;
   }
-  .section-featured-products-by-category-{{ id }} .yc-section-title{
+
+  .section-featured-products-by-category-{{ id }} .yc-section-title {
     display: flex;
     justify-content: {{ section.settings.section_title_position }};
+  }
+
+  .section-featured-products-by-category-{{ id }} {
+    background-color: {{ section.settings.background_color.hex }};
+    padding: 30px 0;
+    background-repeat: repeat;
+    background-position: center;
+  }
+
+  .section-featured-products-by-category-{{ id }} .yc-section-title {
+    color: {{ section.settings.title_color.hex }};
   }
   .section-featured-products-by-category-{{ id }} * {
     color: {{ section.settings.text_color.hex }};
@@ -46,13 +58,13 @@
     {
       "type": "category",
       "id": "category",
-      "label": "Category",
-      "info": "To ensure your images look great and load quickly, use a size of \"280px x 350px\" (4:5 aspect ratio)."
+      "label": "Category"
     },
     {
       "type": "select",
       "id": "section_title_position",
       "label": "Title position",
+      "default": "right",
       "options": [
         {
           "label": "Left",
@@ -75,7 +87,8 @@
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Space top"
+      "label": "Space top",
+      "default": 10
     },
     {
       "type": "range",
@@ -84,7 +97,8 @@
       "max": 160,
       "step": 1,
       "unit": "px",
-      "label": "Space bottom"
+      "label": "Space bottom",
+      "default": 10
     },
     {
       "type": "number",
@@ -107,12 +121,20 @@
     {
       "type": "color",
       "id": "background_color",
-      "label": "Background color"
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#000000"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "Text color"
+      "label": "Text color",
+      "default": "#000000"
     }
   ]
 }

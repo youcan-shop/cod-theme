@@ -3,35 +3,78 @@
 {{ 'product-listing.css' | asset_url | stylesheet_tag }}
 {% assign id = 100 | rand: 2000 %}
 
+{% style %}
+  .product-item-{{id}} {
+    border: 1px solid #E7E7E7;
+    border-radius: 4px;
+  }
+
+  .yc-search-{{id}} {
+    margin: 10px auto 80px;
+  }
+
+  #search-title {
+    margin: 24px auto;
+  }
+{% endstyle %}
 {%- assign products_per_page = section.settings.products_per_page -%}
 
 {%- paginate search.products by products_per_page cod %}
-  <div class='yc-featured-products container' id="stick-footer">
+  <div class='yc-featured-products yc-search-{{id}} container'>
     {%- if items %}
       <div class="sort-container search-page">
         {%- render 'main-sort' -%}
       </div>
-        <h1 class='yc-section-title' id='search-title'></h1>
+      <h1 class='yc-section-title' id='search-title'></h1>
       <div class='product-list'>
         {%- for item in items %}
-        <div {{ block.youcan_attributes }} class="product-block">
-          {%- render 'product-preview', item: item -%}
+        <div {{ block.youcan_attributes }} class="product-item-{{id}}">
+          <a
+            href='{{ item.url }}'
+            class='product-block'
+          >
+            <div class='product-thumbnail'>
+              {% if item.thumbnail %}
+                <img
+                  loading='lazy'
+                  src='{{ item.thumbnail }}'
+                >
+              {% else %}
+                <img
+                  loading='lazy'
+                  src='{{ 'fallback-product-img.webp' | asset_url }}'
+                >
+              {% endif %}
+            </div>
+
+            <div class='product-details'>
+              <span class='product-title'>{{ item.name }}</span>
+            </div>
+            <div class='prices'>
+              {% if item.price %}
+                <span class='product-price'>{{ item.price | money }}</span>
+              {% endif %}
+              {% if section.settings.show_compare_at_price and item.compare_at_price %}
+                <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
+              {% endif %}
+            </div>
+          </a>
           </div>
         {%- endfor %}
       </div>
-      {%- else %}
-      <div class='flex flex-col justify-center text-center items-center gap-3 pt-12'>
-        <div class='text-2xl'>{{ 'search.empty.title' | t }}</div>
-        <div class='opacity-60'>
-          <p>{{ 'search.empty.description' | t }}</p>
-        </div>
-        <a href='/' class='yc-btn mt-5'>
+    {%- else %}
+      <div class='empty-result pt-12'>
+        <img src='{{ 'not-found-icon.png' | asset_url }}' alt='scoop icon'/>
+        <h3 class='title'>{{ 'search.empty.title' | t }}</h3>
+        <p class='desciption'>{{ 'search.empty.description' | t }}</p>
+        <a href='/' class='yc-btn'>
           {{ 'search.empty.home_page' | t }}
         </a>
       </div>
     {% endif %}
   </div>
 
+  <!-- prettier-ignore -->
   {%- render 'main-pagination', has_more: has_more, next_page: next_page, previous_page: previous_page, current: current, last: last -%}
 {%- endpaginate %}
 

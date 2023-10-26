@@ -18,11 +18,13 @@
     {%- section 'notice-bar' %}
     {%- section 'main-navbar' %}
 
-    {{ content_for_layout }}
+    <main class="main-content">
+      {{ content_for_layout }}
+    </main>
 
     {% section 'main-footer' %}
-
-    {{ 'main.js' | asset_url | script_tag_deferred }}
     {%- render 'cart-drawer' -%}
+
+    {{ 'main.js' | asset_url | script_tag }}
   </body>
 </html>

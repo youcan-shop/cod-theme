@@ -2,12 +2,24 @@
 
 {% style %}
   :root  {
-    --yc-footer-background-color: {{ section.settings.footer_background_color.hex }};
+    --yc-footer-background-color: {%- if section.settings.footer_background_color -%}
+      {{ section.settings.footer_background_color.hex }}
+    {%- else -%}
+      var(--yc-primary-color){%- endif -%};
     --yc-footer-text-color: {{ section.settings.footer_text_color.hex }};
-    --yc-footer-border-color: {{ section.settings.footer_border_color.hex }};
+    --yc-footer-border-color: {{ section.settings.top_border_color.hex }};
   }
+
+  .toggle-footer {
+    {%- if section.settings.top_border_color -%}
+      border-top: 1px solid {{- section.settings.top_border_color.hex -}};
+    {%- endif -%}
+    display: {{ section.settings.toggle_footer ? 'none' : 'block' }};
+  }
+
 {% endstyle %}
 
+{% if section.settings.toggle_footer != true %}
 <footer class='yc-footer'>
   <div class="columns container">
     {%- if section.settings.footer_logo.src -%}
@@ -16,10 +28,11 @@
       </div>
     {% else %}
       <div class='footer-logo column'>
-        <img loading='lazy' src='{{ 'logo.png' | asset_url }}' alt='logo'>
+        <img loading='lazy' src='{{ 'default-black-logo.png' | asset_url }}' alt='logo'>
       </div>
     {%- endif -%}
-      <div class='social-media-links column'>
+    <div class='social-media-links column'>
+      {%- if section.settings.social_media_exist %}
         {%- for block in section.blocks -%}
           {%- if block.settings.social_media_icon_image.src -%}
             <a class='link' href="{{ block.settings.social_media_url }}" target="_blank">
@@ -31,7 +44,8 @@
             </a>
           {%- endif -%}
         {%- endfor %}
-      </div>
+      {%- endif -%}
+    </div>
     {%- for linklist in link-lists -%}
       {%- if linklist.links | count > 0  and linklist != main-link-list -%}
         <div class="accordion-item column">
@@ -53,11 +67,12 @@
     <div class="container">
       <div class="copyright-wrapper" {{ block.youcan_attributes }}>
         <div class="copyright-title">
-          {{ section.settings.mention }}
+          {{ section.settings.copyright }}
         </div>
       </div>
     </div>
 </footer>
+{% endif %}
 
 {{ 'accordion.js' | asset_url | script_tag_deferred }}
 
@@ -71,6 +86,12 @@
       "content": "Footer menu can be managed from your [Menu settings](https:\/\/seller-area.youcan.shop\/admin\/menus)"
     },
     {
+      "type": "checkbox",
+      "id": "toggle_footer",
+      "label": "Hide footer",
+      "default": false
+    },
+    {
       "type": "image_picker",
       "id": "footer_logo",
       "label": "Logo"
@@ -79,24 +100,31 @@
       "type": "color",
       "id": "footer_background_color",
       "label": "Background color",
-      "default": "#FFFFFFFF"
+      "default": "#000000"
     },
     {
       "type": "color",
       "id": "footer_text_color",
       "label": "Text color",
-      "default": "#000000"
+      "default": "#FFFFFF"
     },
     {
-      "type": "color",
-      "id": "footer_border_color",
-      "label": "Border color",
-      "default": "#ebebeb"
+      "type": "checkbox",
+      "id": "social_media_exist",
+      "label": "Social media",
+      "default": true
     },
     {
       "type": "richtext",
-      "id": "mention",
-      "label": "Mention content"
+      "id": "copyright",
+      "label": "Copyright text",
+      "default": "All rights reserved"
+    },
+    {
+      "type": "color",
+      "id": "top_border_color",
+      "label": "Top border color",
+      "default": "#e5e5e5"
     }
   ],
   "blocks": [

@@ -8,7 +8,10 @@
   content='width=device-width, initial-scale=1.0'
 >
 
-<link rel="preload" href="https://fonts.googleapis.com/css2?family={{ settings.font_family }}:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" as="style" onload="this.rel='stylesheet'">
+<link
+  href='https://fonts.googleapis.com/css2?family={{ settings.font_family }}:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
+  rel='stylesheet'
+>
 
 {%- style -%}
   :root {
@@ -38,7 +41,6 @@
       {{ settings.navbar_links_color.hex }}
     {%- else -%}
       var(--yc-neutral-color){%- endif -%};
-    --yc-nav-cart-badge-color: var(--yc-neutral-color);
     --yc-nav-links-font-weight: {{ settings.navbar_links_font_weight }};
     --yc-nav-links-hover-transparency: {{ settings.navbar_links_hover_transparency }};
     --yc-nav-font-family: {%- if settings.navbar_font_family -%}
@@ -50,7 +52,7 @@
     /* -- Desktop */
     --yc-slider-arrows-background: {{ settings.slider_mobile_arrows_background_color.hex }};
     --yc-slider-arrows-size: {{ settings.slider_arrows_size }}px;
-    --yc-slider-arrows-content-size: {{ settings.slider_arrows_content_size }}px;
+    --yc-slider-arrows-content-size: {{ settings.slider_arrows_size }}px;
 
     /* -- Mobile */
     --yc-slider-mobile-arrows-background: {{ settings.slider_mobile_desktop_arrows_background_color.hex }};
@@ -116,7 +118,6 @@
 <script
   type='module'
   src='https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.esm.js'
-  defer
 ></script>
 
 {% javascript %}
@@ -125,6 +126,7 @@
 {% endjavascript %}
 
 {{ 'main.css' | asset_url | stylesheet_tag }}
+{{ 'utils.css' | asset_url | stylesheet_tag }}
 
 {% assign store_title = store.title | default: store.name %}
 
@@ -150,4 +152,3 @@
     {% endcase %}
   {% endif %}
 </title>
-

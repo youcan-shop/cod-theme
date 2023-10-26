@@ -3,17 +3,26 @@
 {%- style -%}
   .yc-{{ uniq }}-add-to-cart button {
     background: {{ background_color.hex }} !important;
-    color: {{ text_color.hex }} !important;
     width: 100%;
+    min-height: 45px;
+    padding: 12px;
+    font-size: 14px;
   }
   .yc-{{ uniq }}-add-to-cart button span {
     font-weight: 600;
+    color: {{ text_color.hex }} !important;
+  }
+
+  .yc-{{ uniq }}-add-to-cart .yc-btn:disabled {
+    background: #bdc3c7 !important;
+    color: #ffffff !important;
+    cursor: not-allowed;
   }
 {%- endstyle -%}
 
 <div class='yc-{{ uniq }}-add-to-cart{% if is_sticky %} is_sticky{% endif %}'>
   <button
-    class='yc-btn btn-sm'
+    class='yc-btn'
     onclick='addToCart("{{ snippetId }}")'
   >
     <span
@@ -25,3 +34,13 @@
     </span>
   </button>
 </div>
+
+{% javascript %}
+
+  const TRANSLATED_TEXT = {
+    empty_inventory: "{{ 'errors.empty_inventory' | t }}"
+  }
+
+  const IS_CART_SKIPED = "{{ skip_cart }}";
+  const CHECKOUT_PAGE_URL = "{{ checkout_page_url }}";
+{% endjavascript %}

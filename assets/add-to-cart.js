@@ -2,6 +2,7 @@ async function addToCart(snippetId) {
   const parentSection = document.querySelector(`#s-${snippetId}`);
   const variantId = parentSection.querySelector(`#variantId`)?.value || undefined;
   const quantity = parentSection.querySelector(`#quantity`)?.value || 1;
+  const inventory = parentSection.querySelector(`#_inventory`)?.value || null;
   const uploadedImageLink = parentSection.querySelector(`#yc-upload-link`)?.value || undefined;
 
   if (!variantId) {
@@ -12,8 +13,14 @@ async function addToCart(snippetId) {
     return notify(ADD_TO_CART_EXPECTED_ERRORS.quantity_smaller_than_zero, 'error');
   }
 
+  if (inventory == 0) {
+    return notify(ADD_TO_CART_EXPECTED_ERRORS.empty_inventory, 'error');
+  }
+
   try {
-    load('#loading__cart');
+    requestAnimationFrame(() => {
+      load('#loading__cart');
+    })
 
     const response = await youcanjs.cart.addItem({
       productVariantId: variantId,
@@ -23,20 +30,17 @@ async function addToCart(snippetId) {
 
     if (response.error) throw new Error(response.error);
 
-    const cart = document.querySelector('#cart-items-badge');
-    const cartDrawer = document.querySelector('.cart-drawer');
-
-    if (cart) {
-      let cartBadgeBudge = response.count;
-      cart.innerHTML = cartBadgeBudge;
-
-      // Update the cart drawer
-      if (cartDrawer) {
-        await updateCartDrawer();
-      }
-    }
+    updateCartCount(response.count);
+    await updateCartDrawer();
 
     stopLoad('#loading__cart');
+
+    if (IS_CART_SKIPED){
+      window.location.href = CHECKOUT_PAGE_URL;
+
+      return;
+    }
+
     notify(ADD_TO_CART_EXPECTED_ERRORS.product_added, 'success');
     toggleCartDrawer();
   } catch (err) {
@@ -52,47 +56,28 @@ function attachRemoveItemListeners() {
       const productVariantId = event.target.getAttribute('data-product-variant-id');
 
       await removeCartItem(cartItemId, productVariantId);
-
-      // Update the cart drawer after removing an item
       await updateCartDrawer();
-
-      // Update the total number of items in the cart badge
-      const cartBadge = document.querySelector('#cart-items-badge');
-
-      if (cartBadge) {
-        const updatedCount = Number(cartBadge.innerHTML) - 1;
-        cartBadge.innerHTML = updatedCount;
-      }
+      updateCartCount(-1, true);
     })
   );
 }
 
 async function removeCartItem(cartItemId, productVariantId) {
-  // Get the remove button and spinner elements for this cartItemId
-  const removeButton = document.querySelector(`[data-cart-item-id="${cartItemId}"]`);
   const spinner = document.querySelector(`[data-spinner-id="${cartItemId}"]`);
 
   try {
-    // Hide the remove button and show the spinner
-    if (removeButton) {
-      removeButton.style.display = 'none';
-    }
-    if (spinner) {
-      spinner.style.display = 'block';
-    }
+    showSpinner(spinner);
 
-    const response = await youcanjs.cart.removeItem({
+    await youcanjs.cart.removeItem({
       cartItemId,
       productVariantId,
     });
   } catch (error) {
     notify(error.message, 'error');
   } finally {
-    if (spinner) {
-      spinner.style.display = 'none';
-      updateCartDrawer();
-     }
-   }
+    hideSpinner(spinner);
+    updateCartDrawer();
+  }
 }
 
 function cartTemplate(item) {
@@ -183,7 +168,7 @@ async function updateCartDrawer() {
           <div class="price-wrapper">
             <span class="total-price">${CART_DRAWER_TRANSLATION.totalAmount}</span>
             <div class="currency-wrapper">
-              <span class="currency-value">${cartData.sub_total}</span>
+              <span class="currency-value">${cartData.sub_total.toFixed(2)}</span>
               <span class="currency-code">${currencyCode}</span>
             </div>
           </div>
@@ -203,6 +188,34 @@ async function updateCartDrawer() {
   }
 }
 
+function updateCartCount(delta, relative = false) {
+  const cartBadge = document.querySelector('#cart-items-badge');
+  if (cartBadge) {
+    const updatedCount = relative ? Number(cartBadge.innerHTML) + delta : delta;
+    cartBadge.innerHTML = updatedCount;
+  }
+}
+
+function showSpinner(spinnerElement) {
+  const spinnerAction = spinnerElement.previousElementSibling;
+  toggleVisibility(spinnerAction, spinnerElement);
+}
+
+function hideSpinner(spinnerElement) {
+  const spinnerAction = spinnerElement.previousElementSibling;
+  toggleVisibility(spinnerElement, spinnerAction);
+}
+
+function toggleVisibility(hiddenElement, visibleElement = null) {
+  if (hiddenElement) {
+    hiddenElement.style.display = hiddenElement.style.display === 'none' ? 'block' : 'none';
+  }
+
+  if (visibleElement) {
+    visibleElement.style.display = visibleElement.style.display === 'none' ? 'block' : 'none';
+  }
+}
+
 function toggleCartDrawer() {
   const cartDrawer = document.querySelector('.cart-drawer');
 
@@ -211,29 +224,34 @@ function toggleCartDrawer() {
     return;
   }
 
-  if (cartDrawer.classList.contains('open')) {
-    document.body.style.overflow = 'auto';
-  } else {
-    document.body.style.overflow = 'hidden';
-  }
-
-  // Toggle the 'open' class on the cart drawer
   cartDrawer.classList.toggle('open');
-  document.querySelector('.cart-overlay').classList.toggle('open');
+  navMenuVariables.header.classList.toggle('hide');
+
+  if(cartDrawer.classList.contains('open')) {
+    showOverlay();
+  } else {
+    hideOverlay();
+  }
 }
 
-// Handle closing the cart drawer when clicking outside of it
+function attachEventListeners() {
+  const navbarCartIcon = document.querySelector('#navbar-cart-icon');
+  const cartDrawerClose = document.querySelector('.cart-drawer__close');
+
+  if (navbarCartIcon) {
+    navbarCartIcon.addEventListener('click', function(e) {
+      toggleCartDrawer();
+      closeMenu();
+    });
+  }
+
+  if (cartDrawerClose) {
+    cartDrawerClose.addEventListener('click', toggleCartDrawer);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
-  // Attach click event listener to the navbar cart icon
-  document.querySelector('#navbar-cart-icon').addEventListener('click', toggleCartDrawer);
-
-  // Attach click event listener to the cart drawer close button
-  document.querySelector('.cart-drawer__close').addEventListener('click', toggleCartDrawer);
-
-  // Attach click event listener to the cart overlay
-  document.querySelector('.cart-overlay').addEventListener('click', toggleCartDrawer);
-
-  // Update Cart Drawer on page load
+  attachEventListeners();
   await updateCartDrawer();
 });
 
@@ -247,6 +265,29 @@ function preventCartDrawerOpening(templateName) {
 
   const cartDrawerIcon = document.querySelector('#navbar-cart-icon');
 
-  cartDrawerIcon.removeEventListener("click", toggleCartDrawer);
+  cartDrawerIcon.removeEventListener("click", toggleCartDrawer());
   window.location.reload();
+}
+
+async function directAddToCart(event, productId) {
+  event.preventDefault();
+
+  try {
+    const response = await youcanjs.cart.addItem({
+      productVariantId: productId,
+      quantity: 1
+    });
+
+    if (response.error) throw new Error(response.error);
+
+    updateCartCount(response.count);
+    await updateCartDrawer();
+
+    notify(ADD_TO_CART_EXPECTED_ERRORS.product_added, 'success');
+    toggleCartDrawer();
+  } catch (err) {
+    notify(err.message, 'error');
+  } finally {
+    stopLoad('#loading__cart');
+  }
 }

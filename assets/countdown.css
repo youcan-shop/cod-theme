@@ -1,13 +1,39 @@
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+@media (min-width: 768px) {
+  .countdown-wrapper {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.countdown-wrapper .message {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  .countdown-wrapper {
+    flex-direction: row;
+  }
+  .countdown-wrapper .message {
+    display: block;
+  }
+}
 .countdown-wrapper .countdown {
   direction: ltr;
   display: flex;
   justify-content: center;
-  gap: 8px;
   align-items: center;
+  gap: 4px;
   margin: 0;
 }
 .countdown-wrapper .countdown .countdown-icon {
   font-size: 20px;
+  margin-right: 4px;
 }
 .countdown-wrapper .countdown .day, .countdown-wrapper .countdown .hour, .countdown-wrapper .countdown .min, .countdown-wrapper .countdown .sec {
   text-align: center;
@@ -17,20 +43,32 @@
 }
 .countdown-wrapper .countdown .day .num, .countdown-wrapper .countdown .hour .num, .countdown-wrapper .countdown .min .num, .countdown-wrapper .countdown .sec .num {
   display: block;
-  font-size: 29px;
-  font-weight: 600;
-  color: #000000;
-  font-weight: 500;
+  border-radius: 6px;
   font-size: 26px;
-  line-height: 13px;
+  font-weight: 500;
+  color: #000000;
+  border: 0;
 }
 .countdown-wrapper .countdown .sec .num {
-  color: #E52B2A;
-  font-weight: 700;
   border: 0;
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  color: var(--yc-primary-color);
 }
 .countdown-wrapper .countdown .dots {
   color: #000000;
-  font-size: 27px;
-  margin-top: -4px;
+  font-size: 36px;
+  margin-top: -10px;
+}
+@media screen and (max-width: 600px) {
+  .countdown-wrapper .countdown {
+    gap: 1px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .countdown-wrapper .day .num, .countdown-wrapper .hour .num, .countdown-wrapper .min .num, .countdown-wrapper .sec .num {
+    font-size: 26px;
+    padding: 8px !important;
+  }
 }

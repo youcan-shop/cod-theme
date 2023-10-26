@@ -2,9 +2,11 @@
 
 .product-slider {
   .prices {
+    flex: 1;
     margin: 20px 0 0;
     text-align: center;
     padding-bottom: 12px;
+    margin-top: auto;
 
     .product-price {
       font-size: 24px;
@@ -27,8 +29,17 @@
     }
   }
 
+  .product-link {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    @include breakpoint('md') {
+      display: none;
+    }
+  }
+
   .splide__pagination {
-    display: flex !important;
+    display: none !important;
     justify-content: center;
     margin-bottom: -36px;
   }
@@ -36,13 +47,31 @@
   .splide__arrows {
     position: absolute;
     transform: translate(44px, 25px);
-    left: 50%;
+    left: 50.5%;
     bottom: 0;
+
+    @media (max-width: 768px) {
+
+      & {
+        bottom: -25px;
+      }
+
+      .splide__arrow.splide__arrow--prev,
+      .splide__arrow.splide__arrow--next
+       {
+        width: 42px;
+        height: 42px;
+        border: 1px solid #000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       }
+    }
 
     @media screen and (min-width: 845px) {
       transform: unset;
       bottom: unset;
-      top: -73px;
+      top: -78px;
       left: 127px;
 
       [dir='ltr'] & {
@@ -55,6 +84,8 @@
     width: 100%;
     position: relative;
     max-width: 500px;
+    height: 100%;
+    margin: 0 auto;
 
     .product-details {
       margin-top: 12px;
@@ -70,6 +101,7 @@
       .product-title {
         display: flex;
         justify-content: center;
+        text-align: center;
         font-weight: 500;
         font-size: 12px;
         line-height: 17px;
@@ -113,7 +145,7 @@
 
       .compare-at-price {
         text-decoration: line-through;
-        color: #757575;
+        color: #A3A3A3;
         font-size: 14px;
         font-weight: 400;
       }
@@ -146,13 +178,15 @@
     }
 
     @include max-screen('sm') {
-      height: 267px;
+      height: 200px;
     }
 
     .product-link {
       width: 78%;
       margin: auto;
-      display: block;
+      display: none;
+      top: 120%;
+      transition: all 0.25s;
 
       a {
         font-weight: 700;
@@ -160,18 +194,18 @@
       }
 
       @include breakpoint('md') {
-        display: none;
+        display: block;
         width: 80%;
         position: absolute;
         z-index: 1;
-        top: 90%;
+        top: 120%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
     }
 
     &:hover .product-link {
-        display: block;
+        top: 90%;
     }
   }
 

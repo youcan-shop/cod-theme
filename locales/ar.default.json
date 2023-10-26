@@ -1,26 +1,22 @@
 {
-  "general":{
-    "show_more_button": "شاهد المزيد",
-    "large_image_size": "المرجو تحميل صورة أقل من 2mb"
+  "general": {
+    "show_more_button": "عرض المزيد",
+    "size_big_message": "المرجو تحميل صورة أقل من 2mb",
+    "buy_now": "اشتري الأن",
+    "direct_add_to_cart": "أضف إلى السلة"
   },
   "head_metadata": {
-    "collections" : "التصنيفات",
+    "collections": "التصنيفات",
     "thankyou": "شكرا جزيلا على ثقتكم",
     "cart": "سلة مشترياتي"
   },
   "navbar": {
     "search": {
-      "placeholder": "ابحث"
+      "placeholder": "أدخل الكلمة الرئيسية للبحث عنها..."
     }
-  },
-  "reviews":{
-    "ratings": "التقييمات"
   },
   "featured_products": {
     "title": "المنتجات المميزة"
-  },
-  "product_column": {
-    "end": "ينتهي في"
   },
   "featured_collections": {
     "title": "مجموعات مميزة"
@@ -28,13 +24,17 @@
   "list_collections": {
     "title": "مجموعات"
   },
+  "reviews": {
+    "ratings": "تقييمات"
+  },
   "cart": {
     "title": "عربة التسوق",
     "cart": "سلتك",
-    "items_count": "منتجات",
     "total_amount": "إجمالي المبلغ",
     "empty_cart": "عربة التسوق فارغة.",
+    "items_count": "منتجات",
     "items": {
+      "items_name": "عناصر",
       "quantity": "الكمية",
       "total": "المجموع",
       "remove_cta": "إزالة"
@@ -46,11 +46,15 @@
       "promo_cta": "تطبيق",
       "total": "التكلفة الإجمالية",
       "checkout_cta": "الدفع",
-      "product_name": "السلع"
+      "continue_shppping": "استمر في التسوق",
+      "discount": "خصم",
+      "coupon": "كوبون",
+      "coupon_applied": "تم تطبيق الكوبون بنجاح",
+      "coupon_removed": "تمت إزالة الكوبون بنجاح"
     },
     "empty": {
       "title": "عربتك فارغة حاليًا.",
-      "description": "قبل أن تقوم بالدفع، يجب عليك إضافة بعض المنتجات إلى عربة التسوق الخاصة بك. <br/> ستجد الكثير من المنتجات المثيرة للاهتمام في صفحة \"Shop\" لدينا.",
+      "description": "قبل أن تقوم بالدفع، يجب عليك إضافة بعض المنتجات إلى عربة التسوق الخاصة بك. <br\/> ستجد الكثير من المنتجات المثيرة للاهتمام في متجرنا.",
       "cta": "عودة إلى المتجر"
     },
     "continue_shopping_cta": "متابعة التسوق"
@@ -63,18 +67,15 @@
     }
   },
   "thankyou": {
-    "title": "شكرا",
-    "subtitle": "تم استلام طلبك.",
-    "description": "سيتصل بك فريقنا لتأكيد طلبك",
-    "return_cta": "الصفحة الرئيسية ",
+    "return_cta": "الصفحة الرئيسية",
     "details": {
       "title": "ملخص الفاتورة",
-      "payment_status": "حالة الدفع",
       "shipping_cost": "الشحن والتسليم",
-      "total": "إجمالي المبلغ",
-      "product": "السلع",
-      "one_piece_price": "سعر قطعة واحدة",
-      "quantity": "الكمية"
+      "total": "المجموع",
+      "sub_total": "إجمالي قيمة المنتجات",
+      "quantity": "الكمية",
+      "coupon": "كوبون",
+      "vat": "الضريبة على القيمة المضافة"
     }
   },
   "snippets": {
@@ -82,10 +83,7 @@
       "visit_cta": "زيارة"
     },
     "product_preview": {
-      "cta_button": "اشتري الآن"
-    },
-    "sticky-checkout": {
-      "complete_following_options": "المرجو إكمال الخيارات التالية"
+      "cta_button": "تسوق الآن"
     },
     "single_product": {
       "quantity": "الكمية",
@@ -97,22 +95,21 @@
       "cta": "اشتري الآن"
     },
     "collection-listing": {
-      "home":  "الرئيسية",
+      "home": "الرئيسية",
       "collections": "التصنيفات"
     },
     "main_sort": {
-      "order_by": "صنف ب",
+      "order_by": "ترتيب حسب",
       "price_asc": "السعر: من الأقل إلى الأعلى",
       "price_desc": "السعر: من الأعلى إلى الأقل",
-      "created_at_asc": "الأحدث",
-      "created_at_desc": "الأقدم",
+      "created_at_asc": "الأقدم",
+      "created_at_desc": "الأحدث",
       "title_asc": "الأبجدية: من الأقل إلى الأعلى",
       "title_desc": "الأبجدية: من الأعلى إلى الأقل"
     }
   },
   "upsell": {
     "yes_submit_button": "إطلب الأن",
-    "yes_submit_button_sub": "ولا تفوت عليك الفرصة ",
     "no_submit_button": "لا شكراً لست مهتماً"
   },
   "footer": {
@@ -135,6 +132,19 @@
     "select_variant": "الرجاء اختيار عرض",
     "quantity_smaller_than_zero": "يجب أن تكون الكمية أكبر من 0",
     "upload_image": "الرجاء تحميل صورة",
-    "product_added": "تمت إضافة المنتج بنجاح"
+    "product_added": "تمت إضافة المنتج بنجاح",
+    "empty_inventory": "المُنتج غير متوفر حاليًا في المخزون"
+  },
+  "page": {
+    "contact": {
+      "title": "اتصل بنا",
+      "subtitle": "إذا كان لديك أي استفسار أو كنت بحاجة إلى مساعدة في حل مشكلة ما، فنحن بانتظار رسالتك",
+      "form_placeholders": {
+        "email": "البريد الإلكتروني *",
+        "subject": "الموضوع *",
+        "message": "الرسالة *"
+      },
+      "button": "إرسال"
+    }
   }
 }

@@ -1,13 +1,19 @@
 {{ 'queries-handler.css' | asset_url | stylesheet_tag }}
 {{ 'collection-listing.css' | asset_url | stylesheet_tag }}
 
+{% style %}
+  .collection-title {
+    color: {{ section.settings.category_title_color.hex }};
+  }
+{% endstyle %}
+
 {%- assign per_page = section.settings.items_per_page -%}
-<div class='yc-collection-listing'>
+<div class='yc-collection-listing container'>
     {%- render 'breadcrumbs' -%}
   {%- paginate collections by per_page cod %}
     <div class='collection-list'>
       {% for collection in items %}
-        {%- render 'collection-preview', category: collection, section_settings: section.settings %}
+        {%- render 'collection-preview', category: collection %}
       {% endfor %}
     </div>
   {%- endpaginate %}
@@ -27,20 +33,8 @@
     },
     {
       "type": "color",
-      "id": "category_name_color",
-      "label": "Category name color"
-    },
-    {
-      "type": "color",
-      "id": "preview_overlay_color",
-      "label": "Category overlay color",
-      "preserve-transparency": true,
-      "default": "#00000024"
-    },
-    {
-      "type": "color",
-      "id": "category_description",
-      "label": "Category description color"
+      "id": "category_title_color",
+      "label": "Category title color"
     }
   ]
 }

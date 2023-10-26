@@ -12,7 +12,7 @@
   position: relative;
   overflow: hidden;
   padding: 0 0 100%;
-  height: 350px;
+  height: 200px;
 }
 .yc-product-listing-container .product-list .product-block .product-thumbnail img {
   position: absolute;
@@ -27,20 +27,17 @@
 .yc-product-listing-container .product-list .product-block .product-thumbnail img:hover {
   transform: translate(-50%, -50%) scale(1.1);
 }
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .yc-product-listing-container .product-list .product-block .product-thumbnail {
-    height: 340px;
-  }
-}
-@media (max-width: 576px) {
-  .yc-product-listing-container .product-list .product-block .product-thumbnail {
-    height: 267px;
+    height: 350px;
   }
 }
 .yc-product-listing-container .product-list .product-block .product-thumbnail .product-link {
+  display: none;
   width: 78%;
   margin: auto;
-  display: none;
+  top: 120%;
+  transition: all 0.25s;
 }
 .yc-product-listing-container .product-list .product-block .product-thumbnail .product-link a {
   font-weight: 700;
@@ -48,18 +45,17 @@
 }
 @media (min-width: 768px) {
   .yc-product-listing-container .product-list .product-block .product-thumbnail .product-link {
+    display: block;
     width: 80%;
     position: absolute;
     z-index: 1;
-    top: 90%;
+    top: 120%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 }
-@media (min-width: 768px) {
-  .yc-product-listing-container .product-list .product-block .product-thumbnail:hover .product-link {
-    display: block;
-  }
+.yc-product-listing-container .product-list .product-block .product-thumbnail:hover .product-link {
+  top: 90%;
 }
 .yc-product-listing-container .product-list .product-block .product-link-mobile {
   margin: 15px auto 30px;
@@ -112,6 +108,9 @@
   .yc-product-listing-container .product-list .product-block .prices {
     flex-direction: row;
   }
+  .yc-product-listing-container .product-list .product-block .product-link-mobile {
+    display: none;
+  }
 }
 @media (min-width: 992px) {
   .yc-product-listing-container .product-list {
@@ -128,12 +127,16 @@
   display: flex;
   justify-content: space-between;
 }
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .header-wrapper {
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
   }
+}
+.header-wrapper .category-name {
+  font-size: 26px;
+  font-weight: 700;
 }
 
 .sort-container {
@@ -144,7 +147,7 @@
 }
 .sort-container #productDropdownFiltring {
   width: 100%;
-  min-width: 280px;
+  min-width: 210px;
 }
 .sort-container #productDropdownFiltring .dropdown-content a {
   color: black;
@@ -157,4 +160,18 @@
 }
 .sort-container #productDropdownFiltring .dropdown-content a:hover {
   background-color: #f1f1f1;
+}
+.sort-container .sort-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+@media (max-width: 768px) {
+  .sort-container .sort-wrapper {
+    display: grid;
+  }
+}
+.sort-container .sort-wrapper .sort-by {
+  font-size: 13px;
+  font-weight: 400;
 }

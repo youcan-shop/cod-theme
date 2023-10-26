@@ -4,11 +4,9 @@
 function setCurrencySymbol() {
   const elements = document.querySelectorAll('.product-currency');
 
-  if (elements) {
-    elements.forEach((element) => {
-      element.innerText = currencyCode;
-    })
-  }
+  elements.forEach((element) => {
+    element.innerText = currencyCode;
+  })
 }
 
 const promo = document.forms['promo'];
@@ -22,6 +20,69 @@ async function addPromo(e) {
   load('#loading__coupon');
   try {
     await youcanjs.checkout.applyCoupon(coupon);
+
+    await fetchCoupons();
+
+    notify(`${CART_PAGE_CONTENT.coupon_applied}`, 'success');
+  } catch (e) {
+    notify(e.message, 'error');
+  } finally {
+    stopLoad('#loading__coupon');
+  }
+}
+
+async function fetchCoupons() {
+  try {
+    const coupons = await youcanjs.cart.fetch();
+
+    const discount = document.querySelector('.discount-price');
+    const discountText = document.querySelector('.discount-text');
+    const couponApplied = document.querySelector('.coupon-applied');
+    const totalPrice = document.querySelector('.item-total-price');
+
+    if (totalPrice) {
+      totalPrice.innerText = coupons.total ? `${coupons.total} ${currencyCode}` : '';
+    }
+
+    if (coupons.coupon && coupons.discountedPrice) {
+      couponApplied.innerHTML = `<span>${CART_PAGE_CONTENT.coupon}: '${coupons.coupon.code}'  [${coupons.coupon.value}%] </span>
+                                 <ion-icon class="close-search" id="remove-coupon" name="close-outline"></ion-icon>`;
+      discount.innerText = coupons.discountedPrice + ' ' + currencyCode;
+
+      const removeCouponElement = document.getElementById("remove-coupon");
+      if (removeCouponElement) {
+        removeCouponElement.addEventListener('click', removeCoupons);
+      }
+
+      discountText.classList.remove('hidden');
+    } else {
+      if (couponApplied) {
+        couponApplied.innerHTML = '';
+      }
+
+      if (discount) {
+        discount.innerText = '';
+      }
+
+      if (discountText) {
+        discountText.classList.add('hidden');
+      }
+    }
+  } catch (e) {
+    notify(e.message, 'error');
+  }
+}
+
+
+async function removeCoupons(e) {
+  e.preventDefault();
+  load('#loading__coupon');
+   try {
+    await youcanjs.checkout.removeCoupons();
+
+    await fetchCoupons();
+
+    notify(`${CART_PAGE_CONTENT.coupon_removed}`, 'success');
   } catch (e) {
     notify(e.message, 'error');
   } finally {
@@ -33,15 +94,19 @@ function updateCart(item, quantity, totalPriceSelector, cartItemId, productVaria
   const inputHolder = document.getElementById(item);
   const input = inputHolder.querySelector(`input[id="${productVariantId}"]`);
   input.value = quantity;
-  const decrease = input.previousElementSibling.querySelector('button');
-  const increase = input.nextElementSibling.querySelector('button');
+  const decrease = input.previousElementSibling;
+  const increase = input.nextElementSibling;
 
   const productPrice = inputHolder.querySelector('.product-price');
   const price = productPrice.innerText;
   const totalPrice = inputHolder.querySelector(totalPriceSelector);
 
-  decrease.setAttribute('onclick', `decreaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) - 1}')`);
-  increase.setAttribute('onclick', `increaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) + 1}')`);
+  decrease
+    .querySelector('button')
+    .setAttribute('onclick', `decreaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) - 1}')`);
+  increase
+    .querySelector('button')
+    .setAttribute('onclick', `increaseQuantity('${cartItemId}', '${productVariantId}', '${Number(quantity) + 1}')`);
 
   if (isNaN(quantity)) {
     totalPrice.innerText = 0;
@@ -54,22 +119,28 @@ function updateTotalPrice() {
   let calculateTotalPrice = 0;
   const itemPrices = document.querySelectorAll('.item-price');
 
-  itemPrices?.forEach(itemPrice => {
-    const price = isFloat(itemPrice.innerText);
+  itemPrices.forEach(itemPrice => {
+    const price = itemPrice.innerText;
     calculateTotalPrice += Number(price);
   });
 
   const totalPriceElement = document.querySelector('.item-total-price');
   const totalPrice = isFloat(calculateTotalPrice);
+  const discountPrice = document.querySelector('.coupon-applied');
 
-  if (totalPriceElement) {
+  if (totalPriceElement && !discountPrice) {
     totalPriceElement.innerText = `${totalPrice} ${currencyCode}`;
+  }
+
+  if (discountPrice) {
+    fetchCoupons();
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   setCurrencySymbol();
   updateTotalPrice();
+  fetchCoupons();
 });
 
 function updateDOM(cartItemId, productVariantId, quantity) {
@@ -90,12 +161,11 @@ async function updateQuantity(cartItemId, productVariantId, quantity) {
   } finally {
     stopLoad(`#loading__${cartItemId}`);
   }
+
   updateDOM(cartItemId, productVariantId, quantity);
   updatePrice(cartItemId,productVariantId,quantity);
   updateTotalPrice();
-  await updateCartDrawer();
 }
-
 
 async function updateOnchange(cartItemId, productVariantId) {
   const inputHolder = document.getElementById(cartItemId);
@@ -168,4 +238,41 @@ async function removeItem(cartItemId, productVariantId) {
   }
 }
 
-window.removeItem = removeItem;
+/**
+ * Check if the element has no children
+ * @param {HTMLElement} el
+ * @returns {Boolean}
+ */
+function hasNoChild(element) {
+  return element.childElementCount === 0;
+}
+
+/**
+ * Teleport elements based by media screen
+ */
+function teleportElements() {
+  const cartItems = document.querySelectorAll('.cart__item');
+  const largeScreen = window.matchMedia("(min-width: 768px)").matches;
+  const smallScreen = window.matchMedia("(max-width: 768px)").matches;
+
+  cartItems.forEach((item) => {
+    const oldParent = item.querySelector('.quantity-x-price-container');
+    const quantityElement = oldParent.querySelector('.quantity-wrapper');
+    const priceElement = oldParent.querySelector('.subtotal-price-table');
+    const newQuantityParent = item.querySelector('.cell.quantity-input');
+    const newPriceParent = item.querySelector('.cell.subtotal-price-table');
+
+    if (largeScreen && hasNoChild(newQuantityParent) && hasNoChild(newPriceParent)) {
+      newQuantityParent.appendChild(quantityElement);
+      newPriceParent.appendChild(priceElement);
+    } else if(smallScreen && hasNoChild(oldParent)) {
+      oldParent.appendChild(newQuantityParent.querySelector('.quantity-wrapper'));
+      oldParent.appendChild(newPriceParent.querySelector('.subtotal-price-table'));
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  teleportElements();
+  window.addEventListener('resize', teleportElements);
+});

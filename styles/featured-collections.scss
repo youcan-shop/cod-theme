@@ -1,15 +1,16 @@
 @import 'helpers/_mixins';
 
 .yc-featured-container {
-  max-width: 1440px !important;
-  margin: 0 auto;
-
-  @include breakpoint('lg') {
-    padding: 0 60px;
+  @include max-screen ('md') {
+    padding: 0;
   }
 
-  @include breakpoint('xl') {
-    padding: 0 140px;
+  .yc-section-title {
+    padding: 0 20px;
+
+    @include breakpoint('md') {
+      padding: unset;
+    }
   }
 }
 
@@ -49,20 +50,9 @@
     width: 90%;
 
     .category-name {
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 25px;
-    }
-
-    .slug-name {
-      margin-top: 6px;
       font-weight: 800;
       font-size: 32px;
       line-height: 48px;
-
-      @include max-screen ('md') {
-        line-height: 32px;
-      }
     }
   }
 
@@ -71,7 +61,7 @@
     padding: 12px 18px;
     width: 100%;
     max-width: 120px;
-    margin: 36px auto 0;
+    margin: 24px auto 0;
 
     a {
       font-weight: 700;
@@ -94,18 +84,9 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS devices */
     direction: initial;
-    
-    &::-webkit-scrollbar {
-      display: none;
-    }
 
     .category-text {
       .category-name {
-        font-size: 15px;
-      }
-  
-      .slug-name {
-        margin-top: 4px;
         font-size: 24px;
       }
     }

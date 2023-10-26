@@ -15,7 +15,7 @@
         position: relative;
         overflow: hidden;
         padding: 0 0 100%;
-        height: 350px;
+        height: 200px;
 
         img {
           position: absolute;
@@ -28,22 +28,20 @@
           object-fit: cover;
 
           &:hover {
-            transform: translate(-50%, -50%) scale(1.1);
+            transform: translate(-50%,-50%) scale(1.1);
           }
         }
 
-        @include max-screen('md') {
-          height: 340px;
-        }
-
-        @include max-screen('sm') {
-          height: 267px;
+        @include breakpoint('md') {
+          height: 350px;
         }
 
         .product-link {
+          display: none;
           width: 78%;
           margin: auto;
-          display: none;
+          top: 120%;
+          transition: all 0.25s;
 
           a {
             font-weight: 700;
@@ -51,19 +49,18 @@
           }
 
           @include breakpoint('md') {
+            display: block;
             width: 80%;
             position: absolute;
             z-index: 1;
-            top: 90%;
+            top: 120%;
             left: 50%;
             transform: translate(-50%, -50%);
           }
         }
 
         &:hover .product-link {
-          @include breakpoint('md') {
-            display: block;
-          }
+            top: 90%;
         }
       }
 
@@ -125,6 +122,10 @@
         .prices {
           flex-direction: row;
         }
+
+        .product-link-mobile {
+          display: none;
+        }
       }
     }
 
@@ -143,10 +144,15 @@
   display: flex;
   justify-content: space-between;
 
-  @include max-screen('sm') {
+  @include max-screen('md') {
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
+  }
+
+  .category-name {
+    font-size: 26px;
+    font-weight: 700;
   }
 }
 
@@ -158,7 +164,7 @@
 
   #productDropdownFiltring {
     width: 100%;
-    min-width: 280px;
+    min-width: 210px;
 
     .dropdown-content {
       a {
@@ -174,6 +180,21 @@
           background-color: #f1f1f1;
         }
       }
+    }
+  }
+
+  .sort-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    @include max-screen('md') {
+      display: grid;
+    }
+
+    .sort-by {
+      font-size: 13px;
+      font-weight: 400;
     }
   }
 }

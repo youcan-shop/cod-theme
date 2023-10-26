@@ -2,98 +2,119 @@
 
 {% style %}
   .multi-column-{{ id }} {
-    margin-top: {{ section.settings.space_top }}px;
-    margin-bottom: {{ section.settings.space_bottom }}px;
     background-color: {{ section.settings.background_color.hex }};
     color: {{ section.settings.text_color.hex }};
+    margin: {{ section.settings.space_top }}px auto {{ section.settings.space_bottom }}px auto;
+    padding: 10px 0;
   }
 
-
-  .multi-column-{{ id }} .product-column-title {
+  .multi-column-{{ id }} .multi-column-title {
     text-align: {{ section.settings.section_title_position }};
-    margin-bottom: 15px;
     font-weight: 700;
     font-size: 26px;
-    color: inherit;
+    margin-bottom: 24px;
   }
 
   .multi-column-{{ id }} .multi-column-blocks {
     display: grid;
-    grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
-    grid-gap: 3vw;
-    align-items: stretch;
+    grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
     padding: 10px 0;
-    color: inherit;
-  }
-
-  .column-block {
-    display: flex;
-    flex-direction: column;
     align-items: start;
+    gap: 16px;
+
+    @media screen and (min-width: 768px) {
+      margin: 0 56px;
+    }
   }
 
-  .column-block .column-title {
-    margin-top: 16px;
+  .multi-column-{{ id }} .column-block {
+    flex-direction: column;
+    gap: 16px;
+    text-align: start;
+  }
+
+  .multi-column-{{ id }} .column-block .column-title {
+    margin-top: 18px;
     font-weight: 700;
     font-size: 18px;
+    color: {{ section.settings.caption_color.hex }};
+    line-height: 140%;
   }
 
-  .column-block .column-description {
-    margin: 12px auto;
+  .multi-column-{{ id }} .column-block .column-description {
+    margin-top: 12px;
     font-size: 14px;
+    color: {{ section.settings.text_color.hex }};;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 156%;
   }
 
-  .column-block .column-image {
+  .multi-column-{{ id }} .column-block .column-image {
     object-fit: contain;
     aspect-ratio: 1;
-    width: 43px;
-    height: auto;
+    width: 100%;
+    height: 100%;
   }
 
-  .column-image-wrapper {
-    display: flex;
-    justify-content: center;
+  .multi-column-{{ id }} .column-image-wrapper {
+    display: block;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media only screen and (min-width: 576px) {
     .multi-column-{{ id }} .multi-column-blocks {
-      margin: auto 45px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .multi-column-{{ id }} .column-block {
+      border-bottom: unset !important;
     }
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (min-width: 768px) {
     .multi-column-{{ id }} .multi-column-blocks {
-      grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
-      align-items: start;
-      row-gap: 16px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2vw;
+      align-items: stretch;
+    }
+  }
+
+  @media only screen and (min-width: 800px) {
+    .multi-column-{{ id }} .multi-column-blocks {
+      grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .multi-column-{{ id }} .column-block {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      border-bottom: 1px solid #E0E0E0;
+      padding-bottom: 24px;
     }
 
-    .column-block .column-title {
-        font-size: 15px;
-        margin-top: 0;
-      }
-
-     .column-block {
-        flex-direction: row;
-        gap: 24px;
-        border-bottom: 1px solid #E0E0E0;
-        padding: 12px 0;
-      }
-
-      .column-block:last-child {
-        border-bottom: none;
-      }
-
-    .column-image-wrapper {
-      flex-shrink: 0;
+    .multi-column-{{ id }} .column-block:last-child {
+      border: none;
     }
+
+    .multi-column-{{ id }} .column-block .column-title {
+      margin-top: 0;
+    }
+
+    {% if section.settings.columns_mobile == 2 %}
+      .multi-column-{{ id }} .column-block {
+        border: none;
+      }
+    {% endif %}
   }
 {% endstyle %}
 
-<div class='multi-column-{{ id }} container'>
-    <h3 class='product-column-title'>{{ section.settings.title }}</h3>
+<div class='multi-column-{{ id }}'>
+  <div class="container">
+    <h3 class='multi-column-title'>{{ section.settings.title }}</h3>
     <div class='multi-column-blocks'>
       {% for block in section.blocks %}
         {% assign block_setting = block.settings %}
@@ -117,19 +138,19 @@
               loading='lazy'
             >
           </div>
-
           {% endif %}
-          <div class="mobile-wrapper">
+          <div class="column-content">
             {% if block_setting.heading %}
               <h4 class='column-title'>{{ block_setting.heading }}</h4>
             {% endif %}
             {% if block_setting.description %}
-              <p class='column-description'>{{ block_setting.description }}</p>
+              <div class='column-description'>{{ block_setting.description }}</div>
             {% endif %}
           </div>
         </div>
       {% endfor %}
     </div>
+  </div>
 </div>
 
 {% schema %}
@@ -155,7 +176,7 @@
         },
         {
           "id": "description",
-          "type": "text",
+          "type": "richtext",
           "label": "Description"
         }
       ]
@@ -173,14 +194,20 @@
     },
     {
       "type": "color",
+      "id": "background_color",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
       "id": "text_color",
       "label": "Text color",
       "default": "#000000FF"
     },
     {
       "type": "color",
-      "id": "background_color",
-      "label": "Background color"
+      "id": "caption_color",
+      "label": "Caption color",
+      "default": "#000000FF"
     },
     {
       "type": "header",
@@ -224,20 +251,44 @@
       "label": "Space bottom"
     },
     {
-      "type": "range",
+      "type": "select",
       "id": "columns_desktop",
-      "min": 3,
-      "max": 6,
-      "step": 1,
-      "label": "Number of columns on desktop"
+      "label": "Number of columns on desktop",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        },
+        {
+          "value": "3",
+          "label": "3 columns"
+        },
+        {
+          "value": "4",
+          "label": "4 columns"
+        }
+      ],
+      "default": "3"
     },
     {
-      "type": "range",
+      "type": "select",
       "id": "columns_mobile",
-      "min": 1,
-      "max": 2,
-      "step": 1,
-      "label": "Number of columns on mobile"
+      "label": "Number of columsn on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        }
+      ],
+      "default": "1"
     }
   ]
 }

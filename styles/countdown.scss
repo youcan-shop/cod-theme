@@ -1,16 +1,40 @@
 @import 'helpers/mixins';
 
 .countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  @include breakpoint('md') {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .message {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  @include breakpoint('md') {
+    flex-direction: row;
+
+    .message {
+      display: block;
+    }
+  }
   .countdown {
     direction: ltr;
     display: flex;
     justify-content: center;
-    gap: 8px;
     align-items: center;
+    gap: 4px;
     margin: 0;
 
     .countdown-icon {
       font-size: 20px;
+      margin-right: 4px;
     }
 
     & .day,
@@ -26,27 +50,42 @@
     & .day .num,
     & .hour .num,
     & .min .num,
-    & .sec .num
-    {
+    & .sec .num {
       display: block;
-      font-size: 29px;
-      font-weight: 600;
-      color: #000000;
-      font-weight: 500;
+      border-radius: 6px;
       font-size: 26px;
-      line-height: 13px;
+      font-weight: 500;
+      color: #000000;
+      border: 0;
     }
 
     & .sec .num {
-      color: #E52B2A;
-      font-weight: 700;
       border: 0;
+      display: flex;
+      font-weight: 700;
+      justify-content: center;
+      color: var(--yc-primary-color);
     }
 
     .dots {
       color: #000000;
-      font-size: 27px;
-      margin-top: -4px;
+      font-size: 36px;
+      margin-top: -10px;
+    }
+
+    @media screen and (max-width: 600px) {
+      gap: 1px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    & .day .num,
+    & .hour .num,
+    & .min .num,
+    & .sec .num {
+      font-size: 26px;
+      padding: 8px !important;
     }
   }
 }
+

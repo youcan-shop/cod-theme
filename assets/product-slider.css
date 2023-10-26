@@ -1,7 +1,9 @@
 .product-slider .prices {
+  flex: 1;
   margin: 20px 0 0;
   text-align: center;
   padding-bottom: 12px;
+  margin-top: auto;
 }
 .product-slider .prices .product-price {
   font-size: 24px;
@@ -22,22 +24,46 @@
   font-weight: 400;
   text-decoration-line: line-through;
 }
+.product-slider .product-link {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .product-slider .product-link {
+    display: none;
+  }
+}
 .product-slider .splide__pagination {
-  display: flex !important;
+  display: none !important;
   justify-content: center;
   margin-bottom: -36px;
 }
 .product-slider .splide__arrows {
   position: absolute;
   transform: translate(44px, 25px);
-  left: 50%;
+  left: 50.5%;
   bottom: 0;
+}
+@media (max-width: 768px) {
+  .product-slider .splide__arrows {
+    bottom: -25px;
+  }
+  .product-slider .splide__arrows .splide__arrow.splide__arrow--prev,
+  .product-slider .splide__arrows .splide__arrow.splide__arrow--next {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 @media screen and (min-width: 845px) {
   .product-slider .splide__arrows {
     transform: unset;
     bottom: unset;
-    top: -73px;
+    top: -78px;
     left: 127px;
   }
   [dir=ltr] .product-slider .splide__arrows {
@@ -48,6 +74,8 @@
   width: 100%;
   position: relative;
   max-width: 500px;
+  height: 100%;
+  margin: 0 auto;
 }
 .product-slider .product-block .product-details {
   margin-top: 12px;
@@ -63,6 +91,7 @@
 .product-slider .product-block .product-details .product-title {
   display: flex;
   justify-content: center;
+  text-align: center;
   font-weight: 500;
   font-size: 12px;
   line-height: 17px;
@@ -106,7 +135,7 @@
 }
 .product-slider .product-block .prices .compare-at-price {
   text-decoration: line-through;
-  color: #757575;
+  color: #A3A3A3;
   font-size: 14px;
   font-weight: 400;
 }
@@ -136,13 +165,15 @@
 }
 @media (max-width: 576px) {
   .product-slider .product-thumbnail {
-    height: 267px;
+    height: 200px;
   }
 }
 .product-slider .product-thumbnail .product-link {
   width: 78%;
   margin: auto;
-  display: block;
+  display: none;
+  top: 120%;
+  transition: all 0.25s;
 }
 .product-slider .product-thumbnail .product-link a {
   font-weight: 700;
@@ -150,17 +181,17 @@
 }
 @media (min-width: 768px) {
   .product-slider .product-thumbnail .product-link {
-    display: none;
+    display: block;
     width: 80%;
     position: absolute;
     z-index: 1;
-    top: 90%;
+    top: 120%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 }
 .product-slider .product-thumbnail:hover .product-link {
-  display: block;
+  top: 90%;
 }
 .product-slider .product-link-mobile {
   margin: 15px auto 30px;

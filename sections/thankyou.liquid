@@ -1,92 +1,115 @@
 {{ 'thankyou.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-.title {
+.content-wrapper .title {
   color: {{ section.settings.title_color.hex }};
-  font-size: {{ section.settings.title_size }}px;
 }
 
-.subtitle {
+.content-wrapper .subtitle {
   color: {{ section.settings.subtitle_color.hex }};
 }
 {% endstyle %}
 
-<div class="thankyou-page-bg">
-  <div class="thankyou-page-container">
-    <div class='thankyou-wrapper'>
-        <div class='content-wrapper'>
-          <img src='{{ 'thankyou.png' | asset_url }}' alt='Thank you'>
-          <div class="heading">
-            <div class='title'>{{ section.settings.title }} <div class='subtitle'>{{ section.settings.subtitle }}</div></div>
-          </div>
-          <div class='description'>
-            {{ section.settings.description }}
-          </div>
-        </div>
-    </div>
-    <div class="order-infos">
-      {% for variant in order.order_variants %}
-        <div class="order-info">
-          <img class="variant-image" src="{{ variant.image }}">
-          <div class="variant-infos">
-            <span class="name">{{ variant.name }}</span>
-            <div class="variations">
-              {% for variation in variant.variations %}
-                <div class="variation">
-                  <span class="variation-name">{{ variation.0 }}:</span>
-                  <span class="variation-value">{{ variation.1 }}</span>
-                </div>
-              {% endfor %}
-            </div>
-            <div class="prices">
-              {% if variant.compare_at_price != nil %}
-                <span class="compare-at-price">{{ variant.compare_at_price | money }}</span>
-              {% endif %}
-              <span class="price">{{ variant.price | money }}</span>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-    <div class="order-details">
-      <div class="table-content">
-      <div class="head">
-        <div class="item">
-            {{ 'thankyou.details.product' | t }}
-          </div>
-          <div class="data-item">
-            {{ order.total | money }}
-          </div>
+<article class="thankyou-page-container">
+  <div class='thankyou-wrapper'>
+    <div class='content-wrapper'>
+      <img loading='lazy'
+        class='image'
+        src="{%- if section.settings.upload_thankyou_img.src -%} {{ section.settings.upload_thankyou_img.src }} {%- else -%} {{ 'thankyou_page_logo.png' | asset_url }} {%- endif -%}"
+        alt='Upload thank you image'
+      >
+      <div class="heading">
+        <div class='title'>{{ section.settings.title }}
+        <div class='subtitle'>{{ section.settings.subtitle }}</div>
       </div>
-      <div class="head">
-        <div class="item">
-          {{ 'thankyou.details.shipping_cost' | t }}
-        </div>
-        <div class="data-item">
-          {{ order.shippingCost | money }}
-        </div>
       </div>
-      <div class="total-price-head">
-        <div class="item">
-          {{ 'thankyou.details.total' | t }}
-        </div>
-        <div class="data-item">
-          {{ order.total | money }}
-        </div>
+      <div class='description'>
+        {{ section.settings.description }}
       </div>
     </div>
   </div>
 
+  <section class="cart-result-section">
+    <div class="cart-items">
+      <ul class="product-list">
+        {% for item in order.order_variants %}
+          <li class="product-item">
+            <img class="product-image" src="{{- item.image -}}" />
+            <div class="product-details">
+              <a class="product-name" href="{{- store.domain -}}/products/{{- item.slug -}}" target="_blank">{{- item.name -}}</a>
+              <ul class="product-variations">
+                <li>{{- 'thankyou.details.quantity' | t -}}: &nbsp; {{- item.quantity -}}</li>
+                {% for variation in item.variations %}
+                  <li>
+                    {% if variation[0] != 'default' or variation[1] != 'default' %}
+                      <span>{{ variation[0] }}: {{ variation[1] }}</span>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+              <div class="price-wrapper">
+                {% if item.compare_at_price != nil %}
+                  <span class="compare-price">{{- item.compare_at_price | money -}}</span>
+                {% endif %}
+                <span class="product-price">{{- item.price * item.quantity | money -}}</span>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="order-details">
+      <ul class="data-listing">
+        <li class="data-item">
+          <span>{{- 'thankyou.details.sub_total' | t -}}</span>
+          <span>{{- order.sub_total | money -}}</span>
+        </li>
+        {%- if order.coupon -%}
+          <li class="data-item">
+            <span>{{- 'thankyou.details.coupon' | t -}}</span>
+            <div class="coupon-wrapper">
+              <div class="coupon-value">
+                <span>{{- order.coupon.deducted_amount | money -}}</span>
+                <span class="minus">-</span>
+              </div>
+              <span>
+                {%- if order.coupon.is_percentage -%}
+                  ({{- order.coupon.value -}}%)
+                {%- else -%}
+                  ({{- order.coupon.value | money -}})
+                {%- endif -%}
+              </span>
+            </div>
+          </li>
+        {%- endif -%}
+        <li class="data-item">
+          <span>{{ 'thankyou.details.shipping_cost' | t }}</span>
+          <span>{{- order.shippingCost | money -}}</span>
+        </li>
+        {%- if store.vat > 0 -%}
+          <li class="data-item">
+            <span>{{- 'thankyou.details.vat' | t -}}</span>
+            <div>
+              <span>{{- order.total_tax_amount | money -}}</span>
+              <span>({{- store.vat -}}%)</span>
+            </div>
+          </li>
+        {%- endif -%}
+      </ul>
+      <div class="total-price">
+        <span>{{ 'thankyou.details.total' | t }}</span>
+        <span>{{- order.total | money -}}</span>
+      </div>
+    </div>
+  </section>
+
   <div class="home-page">
-    <a
-      href='/'
-      class='yc-btn-back'
-    >
-          {{ 'thankyou.return_cta' | t }}
-        </a>
+    <a href='/' class='yc-btn'>
+      {{ 'thankyou.return_cta' | t }}
+    </a>
   </div>
-  </div>
-</div>
+</article>
 
 {%- schema -%}
 {
@@ -94,6 +117,11 @@
   "templates": ["thankyou"],
   "limit": 1,
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "upload_thankyou_img",
+      "label": "Upload thank you image"
+    },
     {
       "type": "text",
       "id": "title",
@@ -105,24 +133,14 @@
       "label": "Title color"
     },
     {
-      "type": "color",
-      "id": "subtitle_color",
-      "label": "Subtitle color"
-    },
-    {
-      "type": "range",
-      "id": "title_size",
-      "label": "Title font size",
-      "min": 14,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 16
-    },
-    {
       "type": "text",
       "id": "subtitle",
       "label": "Subtitle"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle color"
     },
     {
       "type": "richtext",

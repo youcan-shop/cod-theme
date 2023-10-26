@@ -1,13 +1,19 @@
 {
+  "general": {
+    "show_more_button": "Voir plus",
+    "size_big_message": "Veuillez télécharger une image de moins de 2 Mo",
+    "buy_now": "Acheter",
+    "direct_add_to_cart": "Ajouter au panier"
+  },
+  "head_metadata": {
+    "collections": "Collections",
+    "thankyou": "Merci",
+    "cart": "Panier d'achat"
+  },
   "navbar": {
     "search": {
       "placeholder": "Entrez un mot-clé à rechercher..."
     }
-  },
-  "head_metadata": {
-    "collections" : "Collections",
-    "thankyou": "Merci",
-    "cart": "Panier d'achat"
   },
   "featured_products": {
     "title": "Produits en vedette.a.."
@@ -18,8 +24,8 @@
   "list_collections": {
     "title": "Collections"
   },
-  "product_column": {
-    "end": "expire dans"
+  "reviews": {
+    "ratings": "Évaluations"
   },
   "cart": {
     "title": "Panier d'achat",
@@ -28,6 +34,7 @@
     "total_amount": "Total",
     "empty_cart": "Votre panier est vide",
     "items": {
+      "items_name": "Items",
       "quantity": "Quantité",
       "total": "Total",
       "remove_cta": "Supprimer"
@@ -39,39 +46,41 @@
       "promo_cta": "Appliquer",
       "total": "Coût total",
       "checkout_cta": "Paiement",
-      "product_name": "marchandises"
+      "continue_shppping": "Continuer vos achats",
+      "discount": "réduction",
+      "coupon": "Coupon",
+      "coupon_applied": "Coupon appliqué avec succès",
+      "coupon_removed": "Coupon supprimé avec succès"
     },
     "empty": {
       "title": "Votre panier est actuellement vide.",
-      "description": "Avant de procéder au paiement, vous devez ajouter des produits à votre panier d'achat. <br/> Vous trouverez beaucoup de produits intéressants sur notre page \"Shop\".",
+      "description": "Avant de procéder au paiement, vous devez ajouter des produits à votre panier d'achat. <br\/> Vous trouverez beaucoup de produits intéressants sur notre page \"Shop\".",
       "cta": "Retour au magasin"
     },
     "continue_shopping_cta": "Continuer les achats"
   },
+  "search": {
+    "empty": {
+      "title": "Aucun résultat",
+      "description": "Votre recherche n'a donné aucun résultat.",
+      "home_page": "Page d'accueil"
+    }
+  },
   "thankyou": {
-    "title": "Merci",
-    "subtitle": "Votre commande a été reçue.",
-    "description": "Notre équipe prendra contact avec vous pour confirmer votre demande.<br/>Nous apprécions votre confiance et votre volonté de communiquer avec nous.<br/>Nous sommes toujours là pour vous servir.",
     "return_cta": "Retour au magasin",
     "details": {
       "title": "Détails de la commande",
-      "payment_status": "Statut du paiement",
       "shipping_cost": "Coût d'expédition",
       "total": "Total",
-      "product": "PRODUIT",
-      "one_piece_price": "PRIX D'UNE PIÈCE",
-      "quantity": "QUANTITÉ"
+      "sub_total": "Sous-total",
+      "quantity": "Quantité",
+      "coupon": "Coupon",
+      "vat": "VAT"
     }
   },
   "snippets": {
     "collection_preview": {
       "visit_cta": "Visiter o"
-    },
-    "main_sort": {
-      "title": "Trier par",
-      "price": "Prix",
-      "newest": "Le plus récent",
-      "alphabetically": "Par ordre alphabétique"
     },
     "product_preview": {
       "cta_button": "Magasiner maintenant"
@@ -86,21 +95,21 @@
       "cta": "Acheter maintent"
     },
     "collection-listing": {
-      "home":  "Accueil",
+      "home": "Accueil",
       "collections": "Collections"
     },
-    "product_listing": {
+    "main_sort": {
       "order_by": "Trier par",
       "price_asc": "Prix: du plus bas au plus élevé",
       "price_desc": "Prix: du plus élevé au plus bas",
-      "created_at_asc": "Le plus récent",
-      "created_at_desc":  "Le plus ancien",
+      "created_at_asc": "Le plus ancien",
+      "created_at_desc": "Le plus récent",
       "title_asc": "Alphabétique: de A à Z",
-      "title_desc":  "Alphabétique: de Z à A"
+      "title_desc": "Alphabétique: de Z à A"
     }
   },
   "upsell": {
-    "yes_submit_button":  "Oui",
+    "yes_submit_button": "Oui",
     "no_submit_button": "No"
   },
   "footer": {
@@ -123,6 +132,19 @@
     "select_variant": "Veuillez sélectionner une variante",
     "quantity_smaller_than_zero": "La quantité doit être supérieure à 0",
     "upload_image": "Veuillez télécharger une image",
-    "product_added": "Produit ajouté avec succès"
+    "product_added": "Produit ajouté avec succès",
+    "empty_inventory": "Produit en rupture de stock"
+  },
+  "page": {
+    "contact": {
+      "title": "Contactez nous",
+      "subtitle": "Vous avez une demande, vous rencontrez un problème : Contactez-nous",
+      "form_placeholders": {
+        "email": "E-mail *",
+        "subject": "Sujet *",
+        "message": "Message *"
+      },
+      "button": "Envoyer"
+    }
   }
 }

@@ -3,10 +3,12 @@
 }
 .yc-general-review .yc-general-review-wrapper {
   display: flex;
+  align-items: center;
   gap: 6px;
 }
 .yc-general-review .yc-general-review-wrapper .general-count {
-  font-weight: 400;
-  font-size: 13px;
-  color: #707070;
+  color: #000;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 150%;
 }

@@ -5,13 +5,6 @@
     display: none;
   }
 
-  .splide__arrow {
-    border: 1px solid #000000;
-    width: 40px;
-    height: 40px;
-    display: flex !important;
-  }
-
   .content {
     height: 100%;
     display: flex;
@@ -27,42 +20,25 @@
       z-index: 3;
     }
 
-    .caption {
-      line-height: 39px;
-      max-width: 75%;
-      margin: 0 auto;
-
-      @include breakpoint('xs') {
-        max-width: 90%;
-      }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
     }
 
-    .headers {
+    h2 {
+      font-size: 24px;
       font-weight: 700;
-      line-height: 1.2;
-    }
-
-    @for $i from 1 through 3 {
-      h#{$i} {
-        font-size: calc(3rem / $i);
-        @extend .headers;
-      }
     }
 
     p {
-      margin-top: 1rem;
+      font-size: 18px;
+      font-weight: 600;
     }
-  }
 
-  .btn-holder {
-    text-align: center;
-    margin-top: 38px;
-
-    .yc-btn-slider {
-      font-size: 14px;
-      background-color: var(--yc-primary-color) !important;
-      color: #ffffff;
-      padding: 12px 18px;
+    .btn-holder {
+      display: flex;
+      text-align: center;
+      justify-content: center;
     }
   }
 }

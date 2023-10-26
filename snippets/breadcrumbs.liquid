@@ -1,75 +1,23 @@
-{%- if template contains 'collection' or template contains 'list-collections' -%}
-  <div class="breadcrumbs-container">
-    <div class="breadcrumbs-listings">
-      <div class="listings__item">
-        <a href="/" class="first-listing">{{ 'snippets.collection-listing.home' | t }}</a>
-      </div>
-      <div class="listings__item arrow">
-        <img src='{{ 'left-arrow.png' | asset_url }}' alt="arrow" width="7" height="12" />
-      </div>
-      <div class="listings__item">
-        <a href="/collections" class="second-listing">{{ 'snippets.collection-listing.collections' | t }}</a>
-      </div>
-      {% if category %}
-        <div class="listings__item arrow">
-          <img src='{{ 'left-arrow.png' | asset_url }}' alt="arrow" width="7" height="12" />
+<div class="breadcrumbs-container">
+  <div class="breadcrumbs-listings">
+    <div class="listings__item">
+      <a href="/" class="first-listing">{{ 'snippets.collection-listing.home' | t }}</a>
+    </div>
+      {%- if template contains 'collection' or template contains 'list-collections' -%}
+        <div class="listings__item arrow-item">
+          /
         </div>
         <div class="listings__item">
-          <a href="/collections/{{ category.slug }}" class="second-listing">{{ category.name}}</a>
+          <a href="/collections" class="second-listing">{{ 'snippets.collection-listing.collections' | t }}</a>
         </div>
       {% endif %}
-    </div>
-    {%- if template contains 'collection' -%}
-      <div class="breadcrumbs-name">
-        <h1>{{ category.name }}</h1>
-      </div>
-      {%- else -%}
-      <div class="breadcrumbs-name">
-        <h1>{{ 'snippets.collection-listing.collections' | t }}</h1>
-      </div>
-    {%- endif-%}
-  </div>
-{%- elsif template contains 'product' -%}
-  <div class="breadcrumbs-container">
-    <div class="breadcrumbs-listings">
-      <div class="listings__item">
-        <a href="/" class="first-listing">{{ 'snippets.collection-listing.home' | t }}</a>
-      </div>
-      {% for category in categories %}
-        {% if category %}
-          <div class="listings__item arrow">
-            <img src='{{ 'left-arrow.png' | asset_url }}' alt="arrow" width="7" height="12" />
-          </div>
-          <div class="listings__item">
-            <a href="/collections/{{ category.slug }}" class="first-listing" id="category-name">
-              {{ category.name }}
-            </a>
-          </div>
-          {% break %}
-        {% endif %}
-      {% endfor %}
-      <div class="listings__item arrow">
-        <img src='{{ 'left-arrow.png' | asset_url }}' alt="arrow" width="7" height="12" />
-      </div>
-      <div class="second-listing">
-        {{ product_name }}
-      </div>
-    </div>
-  </div>
-{%- else -%}
-  {% unless template contains 'index' %}
-    <div class="breadcrumbs-container">
-      <div class="breadcrumbs-listings">
-        <div class="listings__item">
-          <a href="/" class="first-listing">{{ 'snippets.collection-listing.home' | t }}</a>
-        </div>
+      {% if category %}
         <div class="listings__item arrow">
-          <img src='{{ 'left-arrow.png' | asset_url }}' alt="arrow" width="7" height="12" />
+          /
         </div>
         <div class="listings__item">
-          <span class="second-listing">{{ page.name }}</span>
+          <a href="/collections/{{ category.slug }}" class="third-listing">{{ category.name}}</a>
         </div>
-      </div>
-    </div>
-  {% endunless %}
-{%- endif -%}
+      {%- endif -%}
+  </div>
+</div>

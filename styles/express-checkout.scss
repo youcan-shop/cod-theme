@@ -1,18 +1,31 @@
 @import 'helpers/mixins';
 
-$sticky-checkout-padding: 20px;
-
 #express-checkout-form {
-  padding: 20px;
+  @include breakpoint('md') {
+    border-width: 1px;
+    border-style: solid;
+    background: #fff;
+    box-shadow: 1px 13px 53px 0px rgba(0, 0, 0, 0.10);
+    padding: 20px;
+    grid-gap: 18px;
+  }
 }
 
 .express-checkout-fields {
+  border-width: 1px;
+  border-style: solid;
+  background: #fff;
+  box-shadow: 1px 13px 53px 0px rgba(0, 0, 0, 0.10);
   display: grid;
   grid-template-columns: 1fr;
+  grid-gap: 14px;
+  padding: 16px;
 
-  input {
-    font-weight: 500;
-    line-height: 120%;
+  @include breakpoint('md') {
+    border: unset;
+    background: unset;
+    box-shadow: unset;
+    padding: unset;
   }
 }
 
@@ -22,8 +35,15 @@ $sticky-checkout-padding: 20px;
   line-height: 144%;
 }
 
-.express-checkout-button span {
-  font-weight: 700;
+.express-checkout-button {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+
+  .spinner {
+    width: 21px;
+    height: 21px;
+  }
 }
 
 @keyframes slideFromBottom {
@@ -34,5 +54,142 @@ $sticky-checkout-padding: 20px;
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+.yc-sticky-checkout {
+  visibility: hidden;
+  position: fixed;
+  transform: translateY(100%);
+  transition: 0.3s ease;
+  transition-property: all;
+  will-change: transform, opacity;
+  z-index: 1001;
+  width: 100%;
+  height: 70vh;
+  left: 0;
+  bottom: 0;
+  padding-bottom: 0;
+
+  @include breakpoint('md') {
+    height: 54vh;
+  }
+
+  .sticky-product-details {
+    overflow-y: scroll;
+    padding: 0 20px;
+    margin-bottom: 90px;
+
+    .options .product-quantity {
+      margin-top: 36px;
+    }
+  }
+  .spacer {
+    margin-top: 20px;
+  }
+
+  .cta-bottom-wrapper {
+    display: grid;
+    gap: 16px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 16px 20px;
+    background-color: white;
+    border-top: 1px solid #EAEAEA;
+    box-shadow: 1px -13px 53px 0px rgba(0, 0, 0, 0.10);
+  }
+
+  .checkout-form {
+    padding-bottom: 20px;
+
+    .express-checkout-fields,
+    #express-checkout-form {
+      box-shadow: unset;
+      border: unset;
+      padding: unset;
+    }
+  }
+
+  .step-2-wrapper {
+    width: 100%;
+    overflow-y: scroll;
+    padding: 20px 20px 0;
+    margin-bottom: 78px;
+  }
+
+  .step_2 {
+    position: relative;
+    background: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #checkout_step_2 {
+    animation: slideFromBottom 0.2s ease-in-out;
+    will-change: transform;
+  }
+
+  .variant-card-2 {
+    margin-bottom: 16px;
+  }
+
+  .close-icon {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    position: absolute;
+    left: 10px;
+    top: -39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    [dir='ltr'] & {
+      left: unset;
+      right: 10px;
+    }
+
+    ion-icon {
+      font-size: 30px;
+    }
+  }
+
+  .sticky-container {
+    height: 100%;
+
+    @include breakpoint('md') {
+      display: flex;
+      gap: 20px;
+      position: fixed;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 0);
+      max-height: 621px;
+    }
+
+    &.container {
+      padding: 0;
+
+      @include breakpoint('md') {
+        padding: 0 20px;
+      }
+    }
+
+    .empty-spacer {
+      display: none;
+
+      @include breakpoint('md') {
+        display: block;
+        flex: 1 1 50%;
+      }
+    }
+
+    .step_2 {
+      @include breakpoint('md') {
+        flex: 1 1 50%;
+      }
+    }
   }
 }

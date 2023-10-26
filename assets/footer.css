@@ -118,7 +118,7 @@
 }
 @media (min-width: 768px) {
   .yc-footer .social-media-links {
-    justify-content: unset;
+    justify-content: end;
     order: 9999;
   }
 }
@@ -133,7 +133,7 @@
 }
 @media (min-width: 768px) {
   .yc-footer .copyright-wrapper {
-    margin-top: 23px;
+    margin-top: 75px;
     border-top: 1px solid var(--yc-footer-border-color);
   }
 }

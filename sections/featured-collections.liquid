@@ -8,21 +8,17 @@
     justify-content: {{ section.settings.section_title_position }};
   }
 
-  .section-featured-collections-{{ id }} .categories-spacing {
+  .section-featured-collections-{{ id }} {
     margin-top: {{ section.settings.space_top }}px;
     margin-bottom: {{ section.settings.space_bottom }}px;
   }
 
   .section-featured-collections-{{ id }} .category-name {
-    color: {{ section.settings.category_name_color.hex }};
-  }
-
-  .section-featured-collections-{{ id }} .slug-name {
-    color: {{ section.settings.category_slug_color.hex }};
+    color: {{ section.settings.category_title_color.hex }};
   }
 {% endstyle %}
 
-<section class="section-featured-collections-{{ id }} yc-featured-container categories-spacing">
+<section class="section-featured-collections-{{ id }} yc-featured-container container">
   <h1 class='yc-section-title'>
     {{ section.settings.title }}
   </h1>
@@ -33,11 +29,10 @@
           <div class='product-block' {{ block.youcan_attributes }}>
             <div class="category-text">
               <h2 class="category-name">{{ block.settings.category.name }}</h2>
-              <p class="slug-name">{{ block.settings.category_name }}</p>
               {% if block.settings.category.slug %}
                 <div class="category-link">
                   <a href='/collections/{{ block.settings.category.slug }}'>
-                    عرض المزيد
+                    {{ 'general.show_more_button' | t }}
                   </a>
                 </div>
               {% endif %}
@@ -60,7 +55,8 @@
       {
       "type": "text",
       "id": "title",
-      "label": "Title"
+      "label": "Title",
+      "default": "تصنيفات رائجة"
     },
       {
       "type": "select",
@@ -79,35 +75,34 @@
           "label": "Right",
           "value": "right"
         }
-      ]
+      ],
+      "default": "right"
     },
       {
         "type": "color",
-        "id": "category_name_color",
-        "label": "Category name color"
-      },
-      {
-        "type": "color",
-        "id": "category_slug_color",
-        "label": "Category slug color"
+        "id": "category_title_color",
+        "label": "Category title color",
+        "default": "#FFFFFFFF"
       },
       {
         "type": "range",
         "id": "space_top",
+        "min": 5,
+        "max": 160,
+        "step": 1,
+        "unit": "px",
         "label": "Space top",
-        "min": 10,
-        "max": 100,
-        "default": 10,
-        "step": 1
+        "default": 10
       },
       {
         "type": "range",
         "id": "space_bottom",
+        "min": 5,
+        "max": 160,
+        "step": 1,
+        "unit": "px",
         "label": "Space bottom",
-        "min": 10,
-        "max": 100,
-        "default": 10,
-        "step": 1
+        "default": 10
       }
     ],
     "blocks": [
@@ -121,11 +116,6 @@
             "id": "category",
             "label": "Category",
             "info": "To ensure your images look great and load quickly, use a size of \"280px x 350px\" (4:5 aspect ratio)."
-          },
-          {
-            "type": "text",
-            "id": "category_name",
-            "label": "Category name"
           }
         ]
       }

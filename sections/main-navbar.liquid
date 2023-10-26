@@ -1,113 +1,118 @@
 {{ 'navbar.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-  :root {
+  :root{
     --yc-nav-height: {{ section.settings.navbar_height }}px;
     --yc-nav-background: {{ section.settings.navbar_background_color.hex }};
     --yc-nav-links-color: {%- if section.settings.navbar_links_color -%}
-                            {{ section.settings.navbar_links_color.hex }}
-                          {%- else -%}
-                            var(--yc-neutral-color)
-                          {%- endif -%};
+      {{ section.settings.navbar_links_color.hex }}
+    {%- else -%}
+      var(--yc-neutral-color){%- endif -%};
     --yc-nav-links-font-weight: {{ section.settings.navbar_links_font_weight }};
     --yc-nav-links-hover-transparency: {{ section.settings.navbar_links_hover_transparency }};
     --yc-nav-font-family: {%- if section.settings.navbar_font_family -%}
-                            {{ section.settings.navbar_font_family }}, sans-serif
-                          {%- else -%}
-                            var(--yc-font-family)
-                          {%- endif -%};
+      {{ section.settings.navbar_font_family }}, sans-serif{%- else -%}
+      var(--yc-font-family){%- endif -%};
     --yc-nav-font-size: {{ section.settings.navbar_font_size }}px;
+  }
+
+  .toggle-navbar {
+    display: {{ section.settings.toggle_navbar ? 'none' : 'block' }};
   }
 {% endstyle %}
 
-<header class='yc-header {%if section.settings.navbar_always_on_top%} nav-fixed {%endif%}'>
-  <nav class='yc-navbar container'>
-    {%- for block in section.blocks -%}
-      {%- case block.type %}
-        {%- when 'logo' %}
-          <div class='logo'>
-            <a href='/'>
-              {% if section.settings.navbar_logo.src %}
-                <img loading='lazy' src='{{ section.settings.navbar_logo.src }}'>
-              {% else %}
-                <img loading='lazy' src='{{ 'logo.png' | asset_url }}'>
-              {% endif %}
-            </a>
-          </div>
-        {%- when 'menu' %}
-          <div class='menu'>
-              <button
-                class='menu-toggler text-3xl'
-                onclick="openDrawer('.navbar-drawer')"
-              >
-                <span id="nav-menu-open">
-                  {%- render 'icon', name: 'menu' -%}
-                </span>
-                <span id="nav-menu-close" style="display: none">
-                  {%- render 'icon', name: 'menu-close' -%}
-                </span>
-              </button>
-
-            <ul class='menu-list'>
-              {% for item in main-link-list.links %}
-                <li class='menu-item item{%-if item.active-%} active {%-endif%}'>
-                  <a href='{{ item.url }}'>{{ item.title }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        {%- when 'search_and_cart' %}
-          <div class='corner'>
-            <button
-              class='search'
-              onclick='openSearch()'
-            >
-              {%- render 'icon', name: 'search' -%}
-            </button>
-            <div id='searchInputHolder'>
-              <div class='container search-wrapper'>
-                <form
-                  action='/search'
-                  method='GET'
-                  class='input w-full flex gap-1 items-center'
-                >
-                  <input
-                    placeholder='{{ 'navbar.search.placeholder' | t }}'
-                    type='text'
-                    name='q'
-                    value=''
-                    class='w-full'
+{% if section.settings.toggle_navbar != true %}
+  <header class='yc-header {%if section.settings.navbar_always_on_top%} nav-fixed {%endif%}'>
+    {%- if section.settings.navbar_font_family -%}
+      <link
+        href='https://fonts.googleapis.com/css2?family={{ section.settings.navbar_font_family }}:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap'
+        rel='stylesheet'
+      >
+    {%- endif -%}
+    <section class='header-wrapper'>
+      <nav class='yc-navbar container'>
+        {%- for block in section.blocks -%}
+          {%- case block.type %}
+            {%- when 'logo' %}
+              <div class='logo'>
+                <a href='/'>
+                  <img
+                    loading='lazy'
+                    src='{%- if section.settings.navbar_logo.src -%} {{ section.settings.navbar_logo.src }} {%- else -%} {{ 'default-white-logo.png' | asset_url }} {%- endif -%}'
                   >
-                </form>
-                <ion-icon class="close-search" name="close-outline"></ion-icon>
+                </a>
               </div>
-            </div>
-            <button class='cart relative' id='navbar-cart-icon' onclick='preventCartDrawerOpening("{{ template.name }}")'>
-              <span id='cart-items-badge'>
-                {{- cart.items | size -}}
-              </span>
-              {%- render 'icon', name: 'cart' -%}
-            </button>
-          </div>
-      {%- endcase %}
-    {%- endfor -%}
-  </nav>
-  <div class='navigation-drawer navbar-drawer block lg:hidden'>
-    <div class='flex flex-col items-wrapper'>
-      {% for item in main-link-list.links %}
-        <a
-          class='items flex items-center justify-between'
-          href='{{ item.url }}'
-        >
-          <div>
-            {{ item.title }}
-          </div>
-          <ion-icon name='chevron-forward-outline' class='arrow-icon'></ion-icon>
-        </a>
-      {% endfor %}
-    </div>
-  </div>
-</header>
+            {%- when 'menu' %}
+              <div class='menu'>
+                <button id="menuButton" class='hamburger'>
+                  <div class="bar"></div>
+                  <div class="bar"></div>
+                  <div class="bar"></div>
+                </button>
+                <ul class='menu-list'>
+                  {% for item in main-link-list.links %}
+                    <li class='menu-item {%-if item.active-%} active {%-endif%}'>
+                      <a href='{{ item.url }}'>{{ item.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {%- when 'search_and_cart' %}
+              <div class='corner'>
+                <button
+                  class='search'
+                  onclick='openSearch()'
+                >
+                  <ion-icon name="search-outline"></ion-icon>
+                </button>
+                <div id='searchInputHolder'>
+                  <div class='container flex'>
+                    <form
+                      action='/search'
+                      method='GET'
+                      class='search-form'
+                    >
+                      <input
+                        placeholder='{{ 'navbar.search.placeholder' | t }}'
+                        type='text'
+                        name='q'
+                        value=''
+                        class='search-input'
+                      >
+                    </form>
+                    <button id='close-search-btn'>
+                      <ion-icon name="close-outline"></ion-icon>
+                    </button>
+                  </div>
+                </div>
+                <button class='cart relative' id='navbar-cart-icon' onclick='preventCartDrawerOpening("{{ template.name }}")'>
+                  <span id='cart-items-badge'>
+                    {{- cart.items | size -}}
+                  </span>
+                  <ion-icon name="cart-outline"></ion-icon>
+                </button>
+              </div>
+          {%- endcase %}
+        {%- endfor -%}
+      </nav>
+      <div id='mobile-menu'>
+        <div class='flex flex-col items-wrapper'>
+          {% for item in main-link-list.links %}
+            <a
+              class='items flex items-center justify-between'
+              href='{{ item.url }}'
+            >
+              <div>
+                {{ item.title }}
+              </div>
+              <ion-icon name='chevron-forward-outline'></ion-icon>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  </header>
+{% endif %}
 
 {%- schema -%}
 {
@@ -125,7 +130,7 @@
       "type": "menu"
     },
     {
-      "label": "Search and Cart",
+      "label": "Search and cart",
       "limit": 1,
       "type": "search_and_cart"
     }
@@ -134,6 +139,12 @@
     {
       "type": "paragraph",
       "content": "Main menu can be managed from your [Menu settings](https:\/\/seller-area.youcan.shop\/admin\/menus)"
+    },
+    {
+      "type": "checkbox",
+      "id": "toggle_navbar",
+      "label": "Hide navbar",
+      "default": false
     },
     {
       "type": "image_picker",
@@ -185,7 +196,7 @@
           "label": "Normal"
         },
         {
-          "value": "500",
+          "value": "600",
           "label": "Bold"
         },
         {
@@ -193,7 +204,7 @@
           "label": "Heavy"
         }
       ],
-      "default": "400"
+      "default": "600"
     },
     {
       "type": "select",
@@ -206,7 +217,7 @@
         },
         {
           "value": "Open Sans",
-          "label": "Open sans"
+          "label": "Open Sans"
         },
         {
           "value": "Lato",
@@ -223,6 +234,14 @@
         {
           "value": "Montserrat",
           "label": "Montserrat"
+        },
+        {
+          "value": "Cairo",
+          "label": "Cairo"
+        },
+        {
+          "value": "Almarai",
+          "label": "Almarai"
         }
       ]
     },

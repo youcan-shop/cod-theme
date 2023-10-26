@@ -57,25 +57,20 @@
   line-height: 55px;
 }
 .yc-slider__desktop .content > div {
-  max-width: 30rem;
   position: relative;
   z-index: 3;
 }
-.yc-slider__desktop .content .headers, .yc-slider__desktop .content h3, .yc-slider__desktop .content h2, .yc-slider__desktop .content h1 {
-  font-weight: 700;
-  line-height: 1.2;
-}
 .yc-slider__desktop .content h1 {
-  font-size: 3rem;
+  font-size: 38px;
+  font-weight: 800;
 }
 .yc-slider__desktop .content h2 {
-  font-size: 1.5rem;
-}
-.yc-slider__desktop .content h3 {
-  font-size: 1rem;
+  font-size: 34px;
+  font-weight: 700;
 }
 .yc-slider__desktop .content p {
-  margin-top: 1rem;
+  font-size: 18px;
+  font-weight: 600;
 }
 .yc-slider__desktop .content .btn-holder {
   display: flex;
@@ -88,7 +83,4 @@
   color: #ffffff;
   margin-top: 38px;
   padding: 12px 18px;
-}
-.yc-slider__desktop .content .container > div {
-  max-width: 600px;
 }

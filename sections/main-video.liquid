@@ -3,12 +3,12 @@
 {% assign id = 100 | rand: 2000 %}
 
 {% style %}
-  .section-video-{{ id }} {
-    margin-top: {{ section.settings.space_top }}px;
-    margin-bottom: {{ section.settings.space_bottom }}px;
-  }
+.section-video-{{ id }} {
+  margin-top: {{ section.settings.space_top }}px;
+  margin-bottom: {{ section.settings.space_bottom }}px;
+}
 
-  .section-video-{{ id }} .youtube-play-button {
+.section-video-{{ id }} .youtube-play-button {
   background-color: {{ section.settings.play_button_background_color.hex }};
 }
 {% endstyle %}
@@ -22,7 +22,9 @@
     {% if section.settings.video_type == 'youtube' %}
       <div class='youtube-video'>
         <img class='youtube-thumbnail' src='' loading='lazy'>
-        <div class='youtube-play-button'></div>
+        <div class='youtube-play-button'>
+          <div class="triangle"></div>
+        </div>
         <div class="spinner video-spinner"></div>
       </div>
     {% endif %}
@@ -92,7 +94,7 @@
         "type": "color",
         "id": "play_button_background_color",
         "label": "Youtube play icon color",
-        "default": "#F0083CFF"
+        "default": "#FFFFFFFF"
       },
       {
         "type": "range",
@@ -117,4 +119,4 @@
       }
     ]
   }
-{% endschema %}
+  {% endschema %}

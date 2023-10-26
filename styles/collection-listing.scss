@@ -3,19 +3,6 @@
 .yc-collection-listing {
   max-width: 1440px;
   margin: 0 auto 36px;
-  padding: 0;
-
-  @include breakpoint('md') {
-    padding: 0 30px;
-  }
-
-  @include breakpoint('lg') {
-    padding: 0 60px;
-  }
-
-  @include breakpoint('xl') {
-    padding: 0 140px;
-  }
 
   .collection-list {
     display: grid;
@@ -56,10 +43,7 @@
 
       .collection-details {
         display: flex;
-        flex-direction: column;
-        gap: 6px;
         position: absolute;
-        text-align: center;
         color: #fff;
         width: 100%;
         height: 100%;
@@ -68,41 +52,18 @@
         justify-content: center;
         align-items: center;
 
-        .collection-name {
-          font-weight: 600;
-          font-size: 18px;
-        }
-
-        .collection-description {
+        .collection-title {
           font-size: 32px;
           font-weight: 800;
-        }
-
-        .collection-button {
-          background-color: var(--yc-primary-color);
-          min-width: 101px;
-          display: block;
-          margin: 24px auto 0;
-          font-weight: 700;
-          padding: 13px 18px;
-          font-size: 13px;
-        }
-
-        @include max-screen('md') {
-          .collection-name {
-            font-size: 16px;
-          }
-
-          .collection-description {
-            font-size: 24px;
-          }
         }
       }
     }
   }
 
-  .breadcrumbs-container {
-    @include max-screen('md') {
+  @include max-screen('md') {
+    padding: 0;
+
+    .breadcrumbs-container {
       padding: 0 20px;
     }
   }

@@ -1,60 +1,55 @@
 @import 'helpers/mixins';
 
-.product-images-container {
+.product-home-container {
+  padding: 0 20px;
+
+  @include breakpoint('md') {
+    padding: 0 50px;
+  }
+
+  @include breakpoint('lg') {
+    padding: 0 100px;
+  }
+
+  @include breakpoint('xxl') {
+    padding: 0 280px;
+  }
+
   .product-block {
-    padding: 36px 32px;
-    border: 1px solid #E2E2E2;
     display: flex;
     justify-content: center;
-    gap: 18px;
+    align-items: center;
+    gap: 32px;
     width: 100%;
 
     .product-details {
       display: flex;
+      row-gap: 10px;
       flex-direction: column;
-      justify-content: space-between;
-      position: relative;
       width: 50%;
     }
 
     .product-name {
       color: #000000;
-      font-weight: 400;
-      font-size: 32px;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 36px;
 
       @media screen and (max-width: 768px) {
-        font-size: 24px;
+        font-size: 25px;
       }
-    }
-
-    .top-block {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .bottom-block {
-      display: flex;
-      gap: 27px;
-      flex-direction: column;
-    }
-
-    .product-column-description p {
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 26px;
     }
 
     .product-price {
       color: var(--yc-primary-color);
       font-weight: 700;
-      font-size: 32px;
+      font-size: 27px;
     }
 
     .product-compare-price {
-      color: var(--yc-primary-color);
-      font-weight: 500;
-      font-size: 24px;
+      color: #8D8D8D;
+      font-weight: 400;
+      font-size: 19px;
       line-height: 23px;
     }
 
@@ -64,21 +59,17 @@
       line-height: 28px;
     }
 
-    .price-wrapper {
-      margin-top: 24px;
-    }
-
     .image-box {
       position: relative;
       width: 50%;
 
       img {
         width: 100%;
-        height: 500px;
-        object-fit: fill;
+        height: 400px;
+        object-fit: cover;
 
         @media screen and (max-width: 768px) {
-          height: 360px;
+          height: 330px;
         }
       }
     }
@@ -87,44 +78,15 @@
       width: 100%;
     }
     @include max-screen('md') {
-      flex-direction: column-reverse;
+      flex-direction: column;
       align-items: center;
       width: 100%;
-      padding: 32px 18px;
 
       .image-box {
         width: 100%;
       }
       .product-details {
         width: 100%;
-      }
-
-      .product-name {
-        font-weight: 600;
-        font-size: 21px;
-      }
-
-      .price-wrapper {
-        justify-content: center;
-      }
-
-      .product-price {
-        font-weight: 700;
-        font-size: 24px;
-      }
-
-      .product-compare-price {
-        font-weight: 400;
-        font-size: 18px;
-      }
-
-      .top-block {
-        text-align: center;
-        gap: 16px;
-
-        .yc-general-review-wrapper {
-          justify-content: center;
-        }
       }
     }
   }

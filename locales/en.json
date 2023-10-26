@@ -1,13 +1,19 @@
 {
+  "general": {
+    "show_more_button": "Show more",
+    "size_big_message": "Please upload an image less than 2mb",
+    "buy_now": "Buy now",
+    "direct_add_to_cart": "Add to cart"
+  },
+  "head_metadata": {
+    "collections": "Collections",
+    "thankyou": "Thank you",
+    "cart": "Shopping Cart"
+  },
   "navbar": {
     "search": {
       "placeholder": "Enter keyword to search for..."
     }
-  },
-  "head_metadata": {
-    "collections" : "Collections",
-    "thankyou": "Thank you",
-    "cart": "Shopping Cart"
   },
   "featured_products": {
     "title": "Featured Products"
@@ -18,8 +24,8 @@
   "list_collections": {
     "title": "Collections"
   },
-  "product_column": {
-    "end": "expires in"
+  "reviews": {
+    "ratings": "Ratings"
   },
   "cart": {
     "title": "Shopping Cart",
@@ -28,6 +34,7 @@
     "total_amount": "Total",
     "empty_cart": "Your cart is currently empty.",
     "items": {
+      "items_name": "Items",
       "quantity": "Quantity",
       "total": "Total",
       "remove_cta": "Remove"
@@ -39,39 +46,41 @@
       "promo_cta": "Apply",
       "total": "Total cost",
       "checkout_cta": "Checkout",
-      "product_name": "goods"
+      "continue_shppping": "Continue your purchases",
+      "discount": "Discount",
+      "coupon": "Coupon applied",
+      "coupon_applied": "Coupon applied successfully",
+      "coupon_removed": "Coupon removed successfully"
     },
     "empty": {
       "title": "Your cart is currently empty.",
-      "description": "Before you proceed to checkout you must add some products to your shopping cart. <br/> You will find a lot of interesting products on our \"Shop\" page.",
+      "description": "Before you proceed to checkout you must add some products to your shopping cart. <br\/> You will find a lot of interesting products on our \"Shop\" page.",
       "cta": "Return to shop"
     },
     "continue_shopping_cta": "Continue Shopping"
   },
+  "search": {
+    "empty": {
+      "title": "No results",
+      "description": "The page you are looking for does not exist",
+      "home_page": "Home page"
+    }
+  },
   "thankyou": {
-    "title": "Thank you",
-    "subtitle": "Your order has been received.",
-    "description": "Our team will be in touch to confirm your request.<br/>We value your trust and appreciate your willingness to communicate with us.<br/>We are always here to serve you.",
     "return_cta": "Return to shop",
     "details": {
       "title": "Order details",
-      "payment_status": "Payment Status",
       "shipping_cost": "Shipping Cost",
       "total": "Total",
-      "product": "PRODUCT",
-      "one_piece_price": "ONE PIECE PRICE",
-      "quantity": "QUANTITY"
+      "sub_total": "Subtotal",
+      "quantity": "Quantity",
+      "coupon": "Coupon",
+      "vat": "VAT"
     }
   },
   "snippets": {
     "collection_preview": {
       "visit_cta": "Visit o"
-    },
-    "main_sort": {
-      "title": "Sort by",
-      "price": "Price",
-      "newest": "Newest",
-      "alphabetically": "Alphabetically"
     },
     "product_preview": {
       "cta_button": "Shop now"
@@ -89,18 +98,18 @@
       "home": "Home",
       "collections": "Collections"
     },
-    "product_listing": {
+    "main_sort": {
       "order_by": "Order by",
       "price_asc": "Price: Low to High",
       "price_desc": "Price: High to Low",
-      "created_at_asc": "Newest",
-      "created_at_desc": "Oldest",
+      "created_at_asc": "Oldest",
+      "created_at_desc": "Newest",
       "title_asc": "Alphabetically: A-Z",
       "title_desc": "Alphabetically: Z-A"
     }
   },
   "upsell": {
-    "yes_submit_button":  "Yes",
+    "yes_submit_button": "Yes",
     "no_submit_button": "No"
   },
   "footer": {
@@ -123,6 +132,19 @@
     "select_variant": "Please select a variant",
     "quantity_smaller_than_zero": "Quantity must be greater than 0",
     "upload_image": "Please upload an image",
-    "product_added": "Product has been added successfully"
+    "product_added": "Product has been added successfully",
+    "empty_inventory": "Product out of stock"
+  },
+  "page": {
+    "contact": {
+      "title": "Contact us",
+      "subtitle": "Having a request, facing an issue: Reach out to us",
+      "form_placeholders": {
+        "email": "Email *",
+        "subject": "Subject *",
+        "message": "Message *"
+      },
+      "button": "Send"
+    }
   }
 }

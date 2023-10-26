@@ -56,25 +56,23 @@
     }
 
     & > div {
-      max-width: 30rem;
       position: relative;
       z-index: 3;
     }
 
-    .headers {
-      font-weight: 700;
-      line-height: 1.2;
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
     }
 
-    @for $i from 1 through 3 {
-      h#{$i} {
-        font-size: calc(3rem / $i);
-        @extend .headers;
-      }
+    h2 {
+      font-size: 34px;
+      font-weight: 700;
     }
 
     p {
-      margin-top: 1rem;
+      font-size: 18px;
+      font-weight: 600;
     }
 
     .btn-holder {
@@ -88,12 +86,6 @@
         color: #ffffff;
         margin-top: 38px;
         padding: 12px 18px;
-      }
-    }
- 
-    .container {
-      & > div {
-        max-width: 600px;
       }
     }
   }

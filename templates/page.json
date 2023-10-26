@@ -1,61 +1,10 @@
 {
-    "sections": {
-        "page": {
-            "type": "main-page"
-        },
-        "section_yngenkoya6xw50b": {
-            "type": "multi-column",
-            "settings": {
-                "title": "معلومات عنا",
-                "background_color": "#FEF7F6",
-                "section_title_position": "center",
-                "margin_top": 106,
-                "margin_bottom": 5,
-                "columns_desktop": 3,
-                "columns_mobile": "1"
-            },
-            "blocks": {
-                "block_yqjnoecrqawdm0o": {
-                    "type": "columnn",
-                    "settings": {
-                        "heading": "مكتبنا",
-                        "link_label": "",
-                        "link": "",
-                        "description": "Rue Tata - ex Poincare, 4°et., Grand Casablanca",
-                        "images": "Money-2LpGTJyXNmKnJ11H9SZ35OgwEgQ.png",
-                        "image": "Group 969-2MgoyDEcm8kBWR6VZH7WZH1GARU.png"
-                    }
-                },
-                "block_yrkz0lpyz8kl668": {
-                    "type": "columnn",
-                    "settings": {
-                        "heading": "اتصل بنا",
-                        "link_label": "",
-                        "link": "",
-                        "description": "contact@matjari.com",
-                        "image": "Group 970-2Mgou2v3p2LwSqIOcRKCjYMKRAR.png"
-                    }
-                },
-                "block_ysgrvgf2kx2e988": {
-                    "type": "columnn",
-                    "settings": {
-                        "heading": "مكتبنا",
-                        "link_label": "",
-                        "link": "",
-                        "description": "Rue Tata - ex Poincare, 4°et., Grand Casablanca",
-                        "image": "Money-2MgoqigDoQszGeex1W3chDW61MQ.png"
-                    }
-                }
-            },
-            "order": [
-                "block_yqjnoecrqawdm0o",
-                "block_yrkz0lpyz8kl668",
-                "block_ysgrvgf2kx2e988"
-            ]
-        }
-    },
-    "order": [
-        "page",
-        "section_yngenkoya6xw50b"
-    ]
+  "sections": {
+      "page": {
+          "type": "main-page"
+      }
+  },
+  "order": [
+      "page"
+  ]
 }
