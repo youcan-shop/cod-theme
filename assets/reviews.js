@@ -124,7 +124,129 @@ const setupReviews = async () => {
     removeReviewsIfNone();
   }
 };
+const reviewData = {
+  content: '',
+  email: '',
+  ratings: 0,
+  first_name: '',
+  last_name: '',
+  images: []
+};
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  const reviewForm = document.getElementById('reviewForm');
+  const thankYouMessage = document.querySelector('.thank-you-message');
+
+  reviewForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(reviewForm);
+
+    reviewData.content = formData.get('content');
+    reviewData.email = formData.get('email');
+    reviewData.ratings = Number(formData.get('ratings'));
+    reviewData.first_name = formData.get('first_name');
+    reviewData.last_name = formData.get('last_name');
+    reviewData.images = formData.get('images');
+
+    try {
+      console.log('Review Data before submission:', reviewData);
+      const response = await youcanjs.product.submitReview(reviewsProductId, reviewData);
+            if (response) {
+        alert('Review submitted successfully!');
+        reviewForm.reset();
+        reviewForm.style.display = 'none';
+        thankYouMessage.style.display = 'block';
+      } else {
+        alert('Failed to submit review. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting review:', error);
+      alert('Failed to submit review. Please try again.');
+    }
+  });
+
+  const modal = document.getElementById("reviewModal");
+  const btn = document.getElementById("addReviewBtn");
+  const span = document.getElementsByClassName("close")[0];
+
+  btn.onclick = function() {
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
+  }
+
+  span.onclick = function() {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  }
   setupReviews();
 });
+
+function uploadReviewImage(element) {
+  const parentSection = element.closest('.yc-review-form');
+  const uploadInput = document.createElement('input');
+  uploadInput.type = 'file';
+  uploadInput.accept = 'image/*';
+  uploadInput.multiple = true;
+  uploadInput.style.display = 'none';
+  document.body.appendChild(uploadInput);
+
+  uploadInput.click();
+
+  uploadInput.addEventListener('change', async function() {
+    if (this.files && this.files.length) {
+      for (let file of this.files) {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+
+        reader.addEventListener("load", async () => {
+          const base64 = reader.result;
+
+          try {
+            const res = await youcanjs.product.upload(file);
+            const uploadedImageUrl = res.link;
+
+            const imagePreviewSection = document.createElement('div');
+            imagePreviewSection.className = 'yc-upload-wrapper';
+
+            const imagePreview = document.createElement('div');
+            imagePreview.className = 'yc-image-preview';
+
+            const previewImage = document.createElement('img');
+            previewImage.src = uploadedImageUrl;
+
+            const closeButton = document.createElement('button');
+            closeButton.type = 'button';
+            closeButton.innerHTML = '<ion-icon name="close-outline" style="zoom:2.0;"></ion-icon>';
+            closeButton.addEventListener('click', function() {
+              imagePreviewSection.remove();
+              const index = reviewData.images.indexOf(uploadedImageUrl);
+              if (index > -1) {
+                reviewData.images.splice(index, 1);
+              }
+            });
+
+            imagePreview.appendChild(previewImage);
+            imagePreviewSection.appendChild(imagePreview);
+            imagePreviewSection.appendChild(closeButton);
+
+            parentSection.querySelector('.yc-upload-preview').appendChild(imagePreviewSection);
+
+            reviewData.images.push(uploadedImageUrl);
+            console.log("Current images:", reviewData.images);
+          } catch (error) {
+            console.error("Error uploading image:", error);
+          }
+        });
+      }
+    }
+  });
+}
