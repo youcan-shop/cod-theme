@@ -166,11 +166,35 @@
       font-size: 22px;
       font-weight: 700;
     }
+
+    .thank-you-message {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 15px auto 55px;
+      gap: 16px;
+
+      .icon {
+        width: 66px;
+        height: 66px;
+      }
+
+      h2 {
+        font-size: 30px;
+        font-weight: 800;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
   }
 
   .close {
     color: #d1c4c4;
-    font-size: 30px;
+    font-size: 32px;
     cursor: pointer;
     background-color: #fff;
     height: 40px;
@@ -184,7 +208,7 @@
     align-items: center;
     margin-top: -10px;
     margin-left: -40px;
-    padding-bottom: 3px;
+    padding-bottom: 4px;
 
     &:hover,
     &:focus {
@@ -199,7 +223,7 @@
 }
 
 #addReviewBtn {
-  margin: auto;
+  margin: 40px auto 0 auto;
 }
 
 #reviewForm {
@@ -234,6 +258,18 @@
     color: #A8A8A8;
     font-size: 13px;
     font-weight: 400;
+  }
+
+  .star-wrapper {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .review-stars-count {
+    font-size: 13px;
+    font-weight: 400;
+    color: #707070;
   }
 
   .star-rating {

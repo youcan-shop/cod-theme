@@ -141,13 +141,20 @@ function setupEventListeners() {
   const modal = document.getElementById("reviewModal");
   const btn = document.getElementById("addReviewBtn");
   const span = document.querySelector(".close");
+  const starRadios = document.querySelectorAll('.star-rating input[type="radio"]');
 
   reviewForm.addEventListener('submit', handleReviewFormSubmit);
   btn.addEventListener('click', showModal);
   span.addEventListener('click', hideModal);
-  window.addEventListener('click', (event) => {
-    if (event.target === modal) hideModal();
+
+  starRadios.forEach(radio => {
+    radio.addEventListener('change', function() {
+        const starCountSpan = document.querySelector('.review-stars-count');
+        starCountSpan.textContent = `(${this.value} تقييمات)`;
+      });
   });
+
+  setupReviews();
 }
 
 async function handleReviewFormSubmit(e) {
@@ -168,7 +175,8 @@ async function handleReviewFormSubmit(e) {
       alert('Review submitted successfully!');
       e.target.reset();
       e.target.style.display = 'none';
-      document.querySelector('.thank-you-message').style.display = 'block';
+      document.querySelector('.thank-you-message').style.display = 'flex';
+      document.querySelector('.modal-title').style.display = 'none';
     } else {
       alert('Failed to submit review. Please try again.');
     }
@@ -181,11 +189,14 @@ async function handleReviewFormSubmit(e) {
 function showModal() {
   const modal = document.getElementById("reviewModal");
   modal.style.display = "flex";
+  document.body.style.overflow = 'hidden';
 }
+
 
 function hideModal() {
   const modal = document.getElementById("reviewModal");
   modal.style.display = "none";
+  document.body.style.overflow = '';
 }
 
 function sanitizeInput(input) {
