@@ -96,16 +96,16 @@
 }
 
 .modal {
-  z-index: 100;
-  background-color: rgba(0, 0, 0, 0.55);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   display: none;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 1000;
 }
 @media (max-width: 768px) {
   .modal {
@@ -258,7 +258,7 @@
 #reviewForm .star-rating input[type=radio]:checked ~ label,
 #reviewForm .star-rating input[type=radio] + label:hover,
 #reviewForm .star-rating input[type=radio] + label:hover ~ label {
-  color: #f5d13d;
+  color: #FDD07A;
 }
 #reviewForm .star-rating label {
   color: #ccc;
@@ -293,20 +293,18 @@
   align-items: center;
 }
 
-.yc-image-preview {
-  width: 60px;
-  height: 60px;
-}
-
 .yc-image-preview-container {
   display: flex;
   flex-direction: row;
   gap: 10px;
+  z-index: 2;
+  position: relative;
 }
 
 .yc-image-preview img {
-  max-width: 100%;
-  height: auto;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
 }
 
 .yc-upload-wrapper .yc-image-preview:not(:first-child) {
@@ -323,16 +321,14 @@
 }
 
 .remove-button {
-  position: absolute;
-  top: 5px;
-  right: 5px;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -353,7 +349,7 @@
 
 .image-big-view img {
   max-width: 80%;
-  max-height: 80%;
+  max-height: 60vh;
 }
 
 .yc-upload-preview .yc-image-preview:not(:first-child) {
@@ -362,7 +358,17 @@
   position: relative;
 }
 
-.yc-upload-preview .yc-image-preview:not(:first-child) .remove-button {
-  top: -10px;
-  right: -10px;
+.uploaded-image {
+  width: 100%;
+  max-height: 120px;
+  object-fit: cover;
+}
+
+.add-more {
+  margin-top: 8px;
+  font-size: 17px;
+}
+
+.selected-image {
+  border: 2px solid #FDD07A;
 }

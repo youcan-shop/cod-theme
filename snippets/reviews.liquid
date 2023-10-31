@@ -34,13 +34,13 @@
                 </div>
                 <span class='review-stars-count'></div>
 
-              <div class="yc-upload-container" onclick="uploadReviewImage(this)">
-                <div class="yc-upload">
+                <div class="yc-upload-container" onclick="uploadReviewImage(this, event)">
+                  <div class="yc-upload">
                   <ion-icon class="upload-icon md hydrated" name="add-outline" role="img"></ion-icon>
                   <span class="upload-msg">تحميل صورة (PNG, JPEG)</span>
                 </div>
-                <img class="uploaded-image" onclick="event.stopPropagation(); showImageBig(this);" />
-                <button class="add-more" type="button" onclick="event.stopPropagation(); uploadReviewImage(this.parentElement);">+</button>
+                <img class="uploaded-image" onclick="showImageBig(this);" />
+                <button class="add-more" type="button" onclick="event.stopPropagation(); uploadReviewImage(this.parentElement, event);">+</button>
               </div>
               <div class="image-big-view" onclick="hideImageBig(this)" style="display: none;">
                 <img src="" alt="Big view" />

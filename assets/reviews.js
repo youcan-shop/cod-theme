@@ -205,43 +205,52 @@ function sanitizeInput(input) {
   return div.textContent || div.innerText || "";
 }
 
-function uploadReviewImage(container) {
+
+function uploadReviewImage(container, event) {
+  const targetElement = event.target;
+
+  const imgElement = container.querySelector('.uploaded-image');
+  if (imgElement && imgElement.style.display === 'block' && targetElement !== container.querySelector('.add-more')) {
+      return;
+  }
+
   const uploadInput = createUploadInput();
   uploadInput.addEventListener('change', handleFileChange);
 
   function createUploadInput() {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = 'image/*';
-    input.style.display = 'none';
-    document.body.appendChild(input);
-    input.click();
-    return input;
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.style.display = 'none';
+      document.body.appendChild(input);
+      input.click();
+      return input;
   }
 
   function handleFileChange(event) {
-    const files = event.target.files;
-    if (files.length > 0) {
-        const file = files[0];
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = async () => {
+      const files = event.target.files;
+      if (files.length > 0) {
+          const file = files[0];
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = async () => {
             try {
-                const imageUrl = reader.result;
-                displayUploadedImg(container, imageUrl);
-                appendImageToPreview(imageUrl, container.parentElement);
+              const imageUrl = reader.result;
+              displayUploadedImg(container, imageUrl);
+              appendImageToPreview(imageUrl, container.parentElement);
 
-                const res = await youcanjs.product.upload(file);
-                if (res && res.link) {
-                    reviewData.images.push(res.link);
-                }
+              const res = await youcanjs.product.upload(file);
+              if (res && res.link) {
+                reviewData.images.push(res.link);
+              }
             } catch (error) {
                 console.error("Error uploading image:", error);
             }
-        };
+          };
+        }
     }
   }
-}
+
 
 function displayUploadedImg(container, imageUrl) {
   const imgElement = container.querySelector('.uploaded-image');
@@ -253,14 +262,16 @@ function displayUploadedImg(container, imageUrl) {
 
 function appendImageToPreview(imageUrl, parent) {
   let container = parent.querySelector('.yc-image-preview-container');
+  const submitButton = parent.querySelector('.yc-btn');
+
   if (!container) {
       container = document.createElement('div');
       container.className = 'yc-image-preview-container';
-      parent.appendChild(container);
+      parent.insertBefore(container, submitButton);
   }
 
-            const imagePreviewSection = document.createElement('div');
-            imagePreviewSection.className = 'yc-image-preview';
+  const imagePreviewSection = document.createElement('div');
+  imagePreviewSection.className = 'yc-image-preview';
 
   const previewImage = document.createElement('img');
   previewImage.src = imageUrl;
@@ -268,29 +279,32 @@ function appendImageToPreview(imageUrl, parent) {
       const mainImage = document.querySelector('.uploaded-image');
       mainImage.src = imageUrl;
       mainImage.onclick = () => showImageBig(mainImage);
+      parent.querySelectorAll('.yc-image-preview img').forEach(img => img.classList.remove('selected-image'));
+      previewImage.classList.add('selected-image');
   };
 
-  const closeButton = createCloseButton(imageUrl, imagePreviewSection);
+  const deleteButton = createDeleteButton(imageUrl, imagePreviewSection);
   imagePreviewSection.appendChild(previewImage);
-  imagePreviewSection.appendChild(closeButton);
+  imagePreviewSection.appendChild(deleteButton);
   container.appendChild(imagePreviewSection);
 }
 
 
-function createCloseButton(imageUrl, parentElement) {
+function createDeleteButton(imageUrl, parentElement) {
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'remove-button';
   button.innerHTML = 'X';
   button.addEventListener('click', function() {
-    parentElement.remove();
-    const index = reviewData.images.indexOf(imageUrl);
-    if (index > -1) {
-      reviewData.images.splice(index, 1);
-    }
+      parentElement.remove();
+      const index = reviewData.images.indexOf(imageUrl);
+      if (index > -1) {
+          reviewData.images.splice(index, 1);
+      }
   });
   return button;
 }
+
 
 function showImageBig(imgElement) {
   const bigView = document.querySelector('.image-big-view');
