@@ -134,8 +134,6 @@ const reviewData = {
   images: []
 };
 
-document.addEventListener('DOMContentLoaded', setupEventListeners);
-
 function setupEventListeners() {
   const reviewForm = document.getElementById('reviewForm');
   const modal = document.getElementById("reviewModal");
@@ -171,38 +169,40 @@ async function handleReviewFormSubmit(e) {
   });
 
   try {
-    const response = await youcanjs.product.submitReview(reviewsProductId, reviewData);
-    if (response) {
-      notify('Review submitted successfully!', 'success');
-      e.target.reset();
-      e.target.style.display = 'none';
-      document.querySelector('.thank-you-message').style.display = 'flex';
-      document.querySelector('.modal-title').style.display = 'none';
-    } else {
-      notify('Failed to submit review. Please try again.', 'error');
-    }
-  } catch (error) {
-    if (error) {
-      notify(error.message, 'error');
-      if (error.meta && error.meta.fields) {
-        for (const field in error.meta.fields) {
-          const errorMsg = error.meta.fields[field][0];
-          displayFieldError(field, errorMsg);
-        }
+      const response = await youcanjs.product.submitReview(reviewsProductId, reviewData);
+      if (response) {
+        notify('Review submitted successfully!', 'success');
+        e.target.reset();
+        e.target.style.display = 'none';
+        document.querySelector('.thank-you-message').style.display = 'flex';
+        document.querySelector('.modal-title').style.display = 'none';
+      } else {
+        notify('Failed to submit review. Please try again.', 'error');
       }
-    } else {
+  } catch (error) {
+      handleReviewError(error);
+  }
+}
+
+function handleReviewError(error) {
+  notify(error.message, 'error');
+  if (error) {
+      for (const field in error.meta.fields) {
+        const errorMsg = error.meta.fields[field][0];
+        displayFieldError(field, errorMsg);
+      }
+  } else {
       notify('Failed to submit review. Please try again.', 'error');
-    }
   }
 }
 
 function displayFieldError(fieldName, errorMsg) {
   const inputElement = document.querySelector(`[name="${fieldName}"]`);
   if (inputElement) {
-    const errorElement = document.createElement('span');
-    errorElement.className = 'field-error';
-    errorElement.textContent = errorMsg;
-    inputElement.parentElement.insertBefore(errorElement, inputElement.nextSibling);
+      const errorElement = document.createElement('span');
+      errorElement.className = 'field-error';
+      errorElement.textContent = errorMsg;
+      inputElement.parentElement.insertBefore(errorElement, inputElement.nextSibling);
   }
 }
 
@@ -345,3 +345,5 @@ function showImageBig(imgElement) {
 function hideImageBig(bigViewElement) {
   bigViewElement.style.display = 'none';
 }
+
+document.addEventListener('DOMContentLoaded', setupEventListeners);
