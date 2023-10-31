@@ -9,15 +9,21 @@
   <ul class='yc-reviews-wrapper' id="reviews-wrapper"></ul>
   <button class='yc-btn' id='show-more'>{{ 'general.show_more_button' | t }}</button>
   <button id="addReviewBtn" class="yc-btn">Add Review</button>
-    <div class="yc-review-form">
-      <h2>Submit Your Review</h2>
       <div id="reviewModal" class="modal">
         <div class="modal-content">
-          <span class="close">&times;</span>
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2 class="modal-title">أضف تعليقك</h2>
+          </div>
           <div class="yc-review-form">
             <form id="reviewForm">
-              <textarea name="content" placeholder="Your review"></textarea>
               <input type="email" name="email" placeholder="Your email" required>
+              <div class='inputs-wrapper'>
+                <input type="text" name="first_name" placeholder="First name">
+                <input type="text" name="last_name" placeholder="Last name">
+              </div>
+              <textarea name="content" placeholder="Your review" rows="5"></textarea>
+
               <div class="star-rating">
                 <input type="radio" id="star5" name="ratings" value="5" /><label for="star5" title="5 stars"></label>
                 <input type="radio" id="star4" name="ratings" value="4" /><label for="star4" title="4 stars"></label>
@@ -26,23 +32,18 @@
                 <input type="radio" id="star1" name="ratings" value="1" /><label for="star1" title="1 star"></label>
               </div>
 
-              <input type="text" name="first_name" placeholder="First name">
-              <input type="text" name="last_name" placeholder="Last name">
-              <div class='yc-upload' onclick='uploadReviewImage(this)'>
-                <ion-icon class='upload-icon' name='add-outline'></ion-icon>
-                <span class='upload-msg'>{{ 'snippets.single_product.variants.upload' | t }}</span>
-              </div>
-              <section class='yc-upload-preview'>
-                <div class='yc-upload-wrapper'>
-                  <div class='yc-image-preview'>
-                    <span class='yc-image'></span>
-                  </div>
-                  <button type='button' id='close-preview'>
-                    <ion-icon name="close-outline"  style="zoom:2.0;"></ion-icon>
-                  </button>
+              <div class="yc-upload-container" onclick="uploadReviewImage(this)">
+                <div class="yc-upload">
+                  <ion-icon class="upload-icon md hydrated" name="add-outline" role="img"></ion-icon>
+                  <span class="upload-msg">تحميل صورة (PNG, JPEG)</span>
                 </div>
-              </section>
-              <button type="submit">Submit Review</button>
+                <img class="uploaded-image" onclick="event.stopPropagation(); showImageBig(this);" />
+                <button class="add-more" type="button" onclick="event.stopPropagation(); uploadReviewImage(this.parentElement);">+</button>
+              </div>
+              <div class="image-big-view" onclick="hideImageBig(this)" style="display: none;">
+                <img src="" alt="Big view" />
+              </div>
+              <button type="submit" class="yc-btn">ارسل</button>
             </form>
           </div>
           <div class="thank-you-message" style="display: none;">
@@ -51,7 +52,6 @@
           </div>
         </div>
       </div>
-    </div>
 </div>
 
 {% javascript %}
