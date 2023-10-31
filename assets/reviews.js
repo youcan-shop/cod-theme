@@ -149,9 +149,9 @@ function setupEventListeners() {
 
   starRadios.forEach(radio => {
     radio.addEventListener('change', function() {
-        const starCountSpan = document.querySelector('.review-stars-count');
-        starCountSpan.textContent = `(${this.value} تقييمات)`;
-      });
+      const starCountSpan = document.querySelector('.review-stars-count');
+      starCountSpan.textContent = `(${this.value} تقييمات)`;
+    });
   });
 
   setupReviews();
@@ -159,6 +159,7 @@ function setupEventListeners() {
 
 async function handleReviewFormSubmit(e) {
   e.preventDefault();
+  clearFieldErrors();
 
   const formData = new FormData(e.target);
   Object.assign(reviewData, {
@@ -172,18 +173,42 @@ async function handleReviewFormSubmit(e) {
   try {
     const response = await youcanjs.product.submitReview(reviewsProductId, reviewData);
     if (response) {
-      alert('Review submitted successfully!');
+      notify('Review submitted successfully!', 'success');
       e.target.reset();
       e.target.style.display = 'none';
       document.querySelector('.thank-you-message').style.display = 'flex';
       document.querySelector('.modal-title').style.display = 'none';
     } else {
-      alert('Failed to submit review. Please try again.');
+      notify('Failed to submit review. Please try again.', 'error');
     }
   } catch (error) {
-    console.error('Error submitting review:', error);
-    alert('Failed to submit review. Please try again.');
+    if (error) {
+      notify(error.message, 'error');
+      if (error.meta && error.meta.fields) {
+        for (const field in error.meta.fields) {
+          const errorMsg = error.meta.fields[field][0];
+          displayFieldError(field, errorMsg);
+        }
+      }
+    } else {
+      notify('Failed to submit review. Please try again.', 'error');
+    }
   }
+}
+
+function displayFieldError(fieldName, errorMsg) {
+  const inputElement = document.querySelector(`[name="${fieldName}"]`);
+  if (inputElement) {
+    const errorElement = document.createElement('span');
+    errorElement.className = 'field-error';
+    errorElement.textContent = errorMsg;
+    inputElement.parentElement.insertBefore(errorElement, inputElement.nextSibling);
+  }
+}
+
+function clearFieldErrors() {
+  const errorElements = document.querySelectorAll('.field-error');
+  errorElements.forEach(el => el.remove());
 }
 
 function showModal() {
@@ -191,7 +216,6 @@ function showModal() {
   modal.style.display = "flex";
   document.body.style.overflow = 'hidden';
 }
-
 
 function hideModal() {
   const modal = document.getElementById("reviewModal");
@@ -205,7 +229,6 @@ function sanitizeInput(input) {
   return div.textContent || div.innerText || "";
 }
 
-
 function uploadReviewImage(container, event) {
   const targetElement = event.target;
 
@@ -218,36 +241,39 @@ function uploadReviewImage(container, event) {
   uploadInput.addEventListener('change', handleFileChange);
 
   function createUploadInput() {
-      const input = document.createElement('input');
-      input.type = 'file';
-      input.accept = 'image/*';
-      input.style.display = 'none';
-      document.body.appendChild(input);
-      input.click();
-      return input;
+    const input = document.createElement('input');
+
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.style.display = 'none';
+    document.body.appendChild(input);
+    input.click();
+
+    return input;
   }
 
   function handleFileChange(event) {
-      const files = event.target.files;
-      if (files.length > 0) {
-          const file = files[0];
-          const reader = new FileReader();
-          reader.readAsDataURL(file);
-          reader.onload = async () => {
-            try {
-              const imageUrl = reader.result;
-              displayUploadedImg(container, imageUrl);
-              appendImageToPreview(imageUrl, container.parentElement);
+    const files = event.target.files;
 
-              const res = await youcanjs.product.upload(file);
-              if (res && res.link) {
-                reviewData.images.push(res.link);
-              }
-            } catch (error) {
-                console.error("Error uploading image:", error);
-            }
-          };
-        }
+    if (files.length > 0) {
+      const file = files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = async () => {
+        try {
+          const imageUrl = reader.result;
+          displayUploadedImg(container, imageUrl);
+          appendImageToPreview(imageUrl, container.parentElement);
+
+          const res = await youcanjs.product.upload(file);
+          if (res && res.link) {
+            reviewData.images.push(res.link);
+          }
+          } catch (error) {
+            console.error("Error uploading image:", error);
+          }
+        };
+      }
     }
   }
 
@@ -265,23 +291,25 @@ function appendImageToPreview(imageUrl, parent) {
   const submitButton = parent.querySelector('.yc-btn');
 
   if (!container) {
-      container = document.createElement('div');
-      container.className = 'yc-image-preview-container';
-      parent.insertBefore(container, submitButton);
+    container = document.createElement('div');
+    container.className = 'yc-image-preview-container';
+    parent.insertBefore(container, submitButton);
   }
 
   const imagePreviewSection = document.createElement('div');
+  const mainImage = document.querySelector('.uploaded-image');
+
   imagePreviewSection.className = 'yc-image-preview';
 
   const previewImage = document.createElement('img');
   previewImage.src = imageUrl;
   previewImage.onclick = function() {
-      const mainImage = document.querySelector('.uploaded-image');
-      mainImage.src = imageUrl;
-      mainImage.onclick = () => showImageBig(mainImage);
-      parent.querySelectorAll('.yc-image-preview img').forEach(img => img.classList.remove('selected-image'));
-      previewImage.classList.add('selected-image');
-  };
+
+  mainImage.src = imageUrl;
+  mainImage.onclick = () => showImageBig(mainImage);
+  parent.querySelectorAll('.yc-image-preview img').forEach(img => img.classList.remove('selected-image'));
+  previewImage.classList.add('selected-image');
+};
 
   const deleteButton = createDeleteButton(imageUrl, imagePreviewSection);
   imagePreviewSection.appendChild(previewImage);
@@ -296,11 +324,12 @@ function createDeleteButton(imageUrl, parentElement) {
   button.className = 'remove-button';
   button.innerHTML = 'X';
   button.addEventListener('click', function() {
-      parentElement.remove();
-      const index = reviewData.images.indexOf(imageUrl);
-      if (index > -1) {
-          reviewData.images.splice(index, 1);
-      }
+  parentElement.remove();
+
+  const index = reviewData.images.indexOf(imageUrl);
+  if (index > -1) {
+      reviewData.images.splice(index, 1);
+    }
   });
   return button;
 }
