@@ -127,8 +127,23 @@
     position: relative;
     width: 627px;
 
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #555;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #f1f1f1;
+      border-radius: 5px;
+    }
+
     @include max-screen('md') {
-      height: 60vh;
+      height: 70vh;
       overflow-y: scroll;
       overflow-x: hidden;
     }
@@ -141,6 +156,10 @@
       padding: 0;
       margin: 0;
       padding: 32px 32px 0 32px;
+
+      @include max-screen('md') {
+        padding: 16px 12px 0 12px;
+      }
     }
 
     .modal-title {
@@ -171,6 +190,10 @@
     &:focus {
       color: #000;
       transition: all .2s ease-in-out;
+    }
+
+    @include max-screen('md') {
+      margin: -10px auto 0 auto;
     }
   }
 }
