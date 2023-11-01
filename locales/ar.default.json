@@ -34,6 +34,7 @@
     "email_placeholder": "البريد الإلكتروني",
     "review_placeholder": "تعليقك",
     "submit_button": "إرسال",
+    "review_submited": "تم إرسال تعليقك بنجاح",
     "errors_message": "فشل في إرسال التعليق. الرجاء إعادة المحاولة."
   },
   "cart": {

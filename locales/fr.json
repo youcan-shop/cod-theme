@@ -34,6 +34,7 @@
     "email_placeholder": "E-mail",
     "review_placeholder": "Votre commentaire",
     "submit_button": "Envoyer",
+    "review_submited": "Commentaire soumis avec succès",
     "errors_message": "Échec de la soumission de l'avis. Veuillez réessayer."
   },
   "cart": {
