@@ -290,7 +290,7 @@
     display: flex;
     font-size: 0;
     position: relative;
-    flex-direction: row;
+    flex-direction: row-reverse;
 
     input[type="radio"] {
       display: none;
