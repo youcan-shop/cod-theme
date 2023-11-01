@@ -41,7 +41,7 @@
 }
 @media (max-width: 768px) {
   .yc-product-reviews .yc-reviews-wrapper .review-item {
-    padding-bottom: 12px;
+    padding: 12px;
   }
 }
 .yc-product-reviews .yc-reviews-wrapper .review-item .header {
