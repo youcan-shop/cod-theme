@@ -263,12 +263,12 @@ function uploadReviewImage(container, event) {
         try {
           const imageUrl = reader.result;
           displayUploadedImg(container, imageUrl);
-          appendImageToPreview(imageUrl, container.parentElement);
 
           const res = await youcanjs.product.upload(file);
           if (res && res.link) {
             reviewData.images.push(res.link);
-          }
+            appendImageToPreview(res.link, container.parentElement);
+            }
           } catch (error) {
             console.error("Error uploading image:", error);
           }
@@ -276,7 +276,6 @@ function uploadReviewImage(container, event) {
       }
     }
   }
-
 
 function displayUploadedImg(container, imageUrl) {
   const imgElement = container.querySelector('.uploaded-image');
