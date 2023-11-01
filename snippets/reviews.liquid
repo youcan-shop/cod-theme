@@ -43,10 +43,10 @@
                     {{ 'reviews.upload_image' | t }}
                   </span>
                 </div>
-                <img class="uploaded-image" onclick="showImageBig(this);" />
+                <img class="uploaded-image" onclick="showExpandedImageView(this);" />
                 <button class="add-more" type="button" onclick="event.stopPropagation(); uploadReviewImage(this.parentElement, event);">+</button>
               </div>
-              <div class="image-big-view" onclick="hideImageBig(this)" style="display: none;">
+              <div class="image-big-view" onclick="hideExpandedImageView(this)" style="display: none;">
                 <img src="" alt="Big view" />
               </div>
               <button type="submit" class="yc-btn">

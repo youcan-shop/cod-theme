@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .yc-product-reviews {
   margin-bottom: 27px;
 }
@@ -281,15 +282,6 @@
 
 .yc-upload-preview:first-child {
   display: none;
-}
-
-.yc-upload-wrapper {
-  position: relative;
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .yc-image-preview-container {

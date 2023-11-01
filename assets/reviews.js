@@ -164,8 +164,8 @@ async function handleReviewFormSubmit(e) {
     content: sanitizeInput(formData.get('content')),
     email: formData.get('email'),
     ratings: Number(formData.get('ratings')),
-    first_name: formData.get('first_name'),
-    last_name: formData.get('last_name')
+    first_name: sanitizeInput(formData.get('first_name')),
+    last_name: sanitizeInput(formData.get('last_name'))
   });
 
   try {
@@ -305,7 +305,7 @@ function appendImageToPreview(imageUrl, parent) {
   previewImage.onclick = function() {
 
   mainImage.src = imageUrl;
-  mainImage.onclick = () => showImageBig(mainImage);
+  mainImage.onclick = () => showExpandedImageView(mainImage);
   parent.querySelectorAll('.yc-image-preview img').forEach(img => img.classList.remove('selected-image'));
   previewImage.classList.add('selected-image');
 };
@@ -334,14 +334,14 @@ function createDeleteButton(imageUrl, parentElement) {
 }
 
 
-function showImageBig(imgElement) {
+function showExpandedImageView(imgElement) {
   const bigView = document.querySelector('.image-big-view');
   const bigImg = bigView.querySelector('img');
   bigImg.src = imgElement.src;
   bigView.style.display = 'flex';
 }
 
-function hideImageBig(bigViewElement) {
+function hideExpandedImageView(bigViewElement) {
   bigViewElement.style.display = 'none';
 }
 
