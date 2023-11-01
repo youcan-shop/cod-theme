@@ -192,6 +192,16 @@
   margin-left: -40px;
   padding-bottom: 4px;
 }
+[dir=ltr] .modal .close {
+  right: 0;
+  left: unset;
+  margin-left: unset;
+  margin-right: -40px;
+  border-top-left-radius: unset;
+  border-bottom-left-radius: unset;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
 .modal .close:hover, .modal .close:focus {
   color: #000;
   transition: all 0.2s ease-in-out;
@@ -231,6 +241,8 @@
   background: #FFF;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.03);
   resize: none;
+  outline: none;
+  font-family: var(--yc-font-family);
 }
 #reviewForm input::placeholder {
   color: #A8A8A8;
@@ -357,7 +369,7 @@
 
 .add-more {
   margin-top: 8px;
-  font-size: 17px;
+  font-size: 22px;
 }
 
 .selected-image {

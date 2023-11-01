@@ -210,6 +210,17 @@
     margin-left: -40px;
     padding-bottom: 4px;
 
+    [dir='ltr'] & {
+      right: 0;
+      left: unset;
+      margin-left: unset;
+      margin-right: -40px;
+      border-top-left-radius: unset;
+      border-bottom-left-radius: unset;
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+
     &:hover,
     &:focus {
       color: #000;
@@ -252,6 +263,8 @@
     background: #FFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.03);
     resize: none;
+    outline: none;
+    font-family: var(--yc-font-family);
   }
 
   input::placeholder {
@@ -389,7 +402,7 @@
 
 .add-more {
   margin-top: 8px;
-  font-size: 17px;
+  font-size: 22px;
 }
 
 .selected-image {

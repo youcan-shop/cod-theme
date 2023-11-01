@@ -261,21 +261,29 @@ function uploadReviewImage(container, event) {
       reader.readAsDataURL(file);
       reader.onload = async () => {
         try {
-          const imageUrl = reader.result;
-          displayUploadedImg(container, imageUrl);
-
           const res = await youcanjs.product.upload(file);
-          if (res && res.link) {
-            reviewData.images.push(res.link);
-            appendImageToPreview(res.link, container.parentElement);
+            if (res && res.link) {
+              reviewData.images.push(res.link);
+              const imageUrl = reader.result;
+              displayUploadedImg(container, imageUrl);
+              appendImageToPreview(res.link, container.parentElement);
             }
-          } catch (error) {
-            console.error("Error uploading image:", error);
-          }
+            } catch (error) {
+                if (error.status === 422) {
+                    const imageErrors = error.meta.fields.image;
+                    if (imageErrors && imageErrors.length > 0) {
+                        notify(imageErrors[0], 'error');
+                    } else {
+                        notify(error.detail, 'error');
+                    }
+                } else {
+                  notify(`${REVIEWS_TRANSLATED_TEXT.errorMessage}`, 'error');
+                }
+            }
         };
-      }
     }
   }
+}
 
 function displayUploadedImg(container, imageUrl) {
   const imgElement = container.querySelector('.uploaded-image');
@@ -316,7 +324,6 @@ function appendImageToPreview(imageUrl, parent) {
   container.appendChild(imagePreviewSection);
 }
 
-
 function createDeleteButton(imageUrl, parentElement) {
   const button = document.createElement('button');
   button.type = 'button';
@@ -326,13 +333,25 @@ function createDeleteButton(imageUrl, parentElement) {
   parentElement.remove();
 
   const index = reviewData.images.indexOf(imageUrl);
-  if (index > -1) {
+    if (index > -1) {
       reviewData.images.splice(index, 1);
     }
+
+    resetMainUploadContainerIfNoImages();
   });
   return button;
 }
 
+function resetMainUploadContainerIfNoImages() {
+  if (reviewData.images.length === 0) {
+      const mainImage = document.querySelector('.uploaded-image');
+      const container = mainImage.closest('.yc-upload-container');
+      mainImage.src = '';
+      mainImage.style.display = 'none';
+      container.querySelector('.add-more').style.display = 'none';
+      container.querySelector('.yc-upload').style.display = 'flex';
+  }
+}
 
 function showExpandedImageView(imgElement) {
   const bigView = document.querySelector('.image-big-view');
