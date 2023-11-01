@@ -8,21 +8,23 @@
   </div>
   <ul class='yc-reviews-wrapper' id="reviews-wrapper"></ul>
   <button class='yc-btn' id='show-more'>{{ 'general.show_more_button' | t }}</button>
-  <button id="addReviewBtn" class="yc-btn">Add Review</button>
+  <button id="addReviewBtn" class="yc-btn">{{ 'reviews.add_review' | t }}</button>
       <div id="reviewModal" class="modal">
         <div class="modal-content">
           <div class="modal-header">
             <span class="close">&times;</span>
-            <h2 class="modal-title">أضف تعليقك</h2>
+            <h2 class="modal-title">
+              {{ 'reviews.add_review' | t }}
+            </h2>
           </div>
           <div class="yc-review-form">
             <form id="reviewForm">
-              <input type="email" name="email" placeholder="Your email" required>
+              <input type="email" name="email" placeholder="{{ 'reviews.email_placeholder' | t }}" required>
               <div class='inputs-wrapper'>
-                <input type="text" name="first_name" placeholder="First name">
-                <input type="text" name="last_name" placeholder="Last name">
+                <input type="text" name="first_name" placeholder="{{ 'reviews.first_name_placeholder' | t }}">
+                <input type="text" name="last_name" placeholder="{{ 'reviews.last_name_placeholder' | t }}">
               </div>
-              <textarea name="content" placeholder="Your review" rows="5"></textarea>
+              <textarea name="content" placeholder="{{ 'reviews.review_placeholder' | t }}" rows="5"></textarea>
 
               <div class="star-wrapper">
                 <div class="star-rating">
@@ -37,7 +39,9 @@
                 <div class="yc-upload-container" onclick="uploadReviewImage(this, event)">
                   <div class="yc-upload">
                   <ion-icon class="upload-icon md hydrated" name="add-outline" role="img"></ion-icon>
-                  <span class="upload-msg">تحميل صورة (PNG, JPEG)</span>
+                  <span class="upload-msg">
+                    {{ 'reviews.upload_image' | t }}
+                  </span>
                 </div>
                 <img class="uploaded-image" onclick="showImageBig(this);" />
                 <button class="add-more" type="button" onclick="event.stopPropagation(); uploadReviewImage(this.parentElement, event);">+</button>
@@ -45,13 +49,15 @@
               <div class="image-big-view" onclick="hideImageBig(this)" style="display: none;">
                 <img src="" alt="Big view" />
               </div>
-              <button type="submit" class="yc-btn">ارسل</button>
+              <button type="submit" class="yc-btn">
+                {{ 'reviews.submit_button' | t }}
+              </button>
             </form>
           </div>
           <div class="thank-you-message" style="display: none;">
             <ion-icon name="checkmark-circle-outline" class="icon"></ion-icon>
-            <h2>شكراً على تعليقك.</h2>
-            <p>سوف يتم مراجعة تعليقك من طرف إدارة الموقع</p>
+            <h2>{{ 'reviews.thankyou_review' | t }}</h2>
+            <p>{{ 'reviews.review_apending' | t }}</p>
           </div>
         </div>
       </div>
