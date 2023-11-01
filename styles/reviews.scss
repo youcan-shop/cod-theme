@@ -290,11 +290,7 @@
     display: flex;
     font-size: 0;
     position: relative;
-    flex-direction: row-reverse;
-
-    [dir='ltr'] & {
-      flex-direction: row;
-    }
+    flex-direction: row;
 
     input[type="radio"] {
       display: none;

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .yc-product-reviews {
   margin-bottom: 27px;
 }
@@ -262,9 +263,6 @@
   display: flex;
   font-size: 0;
   position: relative;
-  flex-direction: row-reverse;
-}
-[dir=ltr] #reviewForm .star-rating {
   flex-direction: row;
 }
 #reviewForm .star-rating input[type=radio] {
