@@ -134,6 +134,8 @@ const reviewData = {
   images: []
 };
 
+const uploadedImagesHistory = [];
+
 function setupEventListeners() {
   const reviewForm = document.getElementById('reviewForm');
   const modal = document.getElementById("reviewModal");
@@ -264,6 +266,8 @@ function uploadReviewImage(container, event) {
           const res = await youcanjs.product.upload(file);
             if (res && res.link) {
               reviewData.images.push(res.link);
+              uploadedImagesHistory.push(res.link);
+
               const imageUrl = reader.result;
               displayUploadedImg(container, imageUrl);
               appendImageToPreview(res.link, container.parentElement);
@@ -329,17 +333,25 @@ function createDeleteButton(imageUrl, parentElement) {
   button.type = 'button';
   button.className = 'remove-button';
   button.innerHTML = 'X';
-  button.addEventListener('click', function() {
-  parentElement.remove();
 
-  const index = reviewData.images.indexOf(imageUrl);
+  button.addEventListener('click', function() {
+    parentElement.remove();
+
+    const index = reviewData.images.indexOf(imageUrl);
     if (index > -1) {
-      reviewData.images.splice(index, 1);
+        reviewData.images.splice(index, 1);
+        uploadedImagesHistory.splice(index, 1);
     }
 
-    resetMainUploadContainerIfNoImages();
+    if (uploadedImagesHistory.length > 0) {
+        const lastImage = uploadedImagesHistory[uploadedImagesHistory.length - 1];
+        const mainImage = document.querySelector('.uploaded-image');
+        mainImage.src = lastImage;
+    } else {
+        resetMainUploadContainerIfNoImages();
+    }
   });
-  return button;
+    return button;
 }
 
 function resetMainUploadContainerIfNoImages() {

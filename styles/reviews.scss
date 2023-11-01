@@ -285,10 +285,16 @@
     color: #707070;
   }
 
+
   .star-rating {
     display: flex;
     font-size: 0;
     position: relative;
+    flex-direction: row-reverse;
+
+    [dir='ltr'] & {
+      flex-direction: row;
+    }
 
     input[type="radio"] {
       display: none;
@@ -402,7 +408,9 @@
 
 .add-more {
   margin-top: 8px;
-  font-size: 22px;
+  font-size: 17px;
+  border: 1px solid #000;
+  width: 100%;
 }
 
 .selected-image {
