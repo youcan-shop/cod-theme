@@ -33,7 +33,8 @@
     "last_name_placeholder": "الاسم الأخير",
     "email_placeholder": "البريد الإلكتروني",
     "review_placeholder": "تعليقك",
-    "submit_button": "إرسال"
+    "submit_button": "إرسال",
+    "errors_message": "فشل في إرسال التعليق. الرجاء إعادة المحاولة."
   },
   "cart": {
     "title": "عربة التسوق",

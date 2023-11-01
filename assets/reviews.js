@@ -148,7 +148,7 @@ function setupEventListeners() {
   starRadios.forEach(radio => {
     radio.addEventListener('change', function() {
       const starCountSpan = document.querySelector('.review-stars-count');
-      starCountSpan.textContent = `(${this.value} تقييمات)`;
+      starCountSpan.textContent = `(${this.value} ${ratings})`;
     });
   });
 
@@ -171,13 +171,13 @@ async function handleReviewFormSubmit(e) {
   try {
       const response = await youcanjs.product.submitReview(reviewsProductId, reviewData);
       if (response) {
-        notify('Review submitted successfully!', 'success');
+        notify(`${REVIEWS_TRANSLATED_TEXT.successMessage}`, 'success');
         e.target.reset();
         e.target.style.display = 'none';
         document.querySelector('.thank-you-message').style.display = 'flex';
         document.querySelector('.modal-title').style.display = 'none';
       } else {
-        notify('Failed to submit review. Please try again.', 'error');
+        notify(`${REVIEWS_TRANSLATED_TEXT.errorMessage}`, 'error');
       }
   } catch (error) {
       handleReviewError(error);
@@ -192,7 +192,7 @@ function handleReviewError(error) {
         displayFieldError(field, errorMsg);
       }
   } else {
-      notify('Failed to submit review. Please try again.', 'error');
+    notify(`${REVIEWS_TRANSLATED_TEXT.errorMessage}`, 'error');
   }
 }
 

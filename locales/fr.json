@@ -33,7 +33,8 @@
     "last_name_placeholder": "Nom",
     "email_placeholder": "E-mail",
     "review_placeholder": "Votre commentaire",
-    "submit_button": "Envoyer"
+    "submit_button": "Envoyer",
+    "errors_message": "Échec de la soumission de l'avis. Veuillez réessayer."
   },
   "cart": {
     "title": "Panier d'achat",
