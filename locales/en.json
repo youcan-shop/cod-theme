@@ -25,7 +25,18 @@
     "title": "Collections"
   },
   "reviews": {
-    "ratings": "Ratings"
+    "ratings": "Ratings",
+    "upload_image": "Upload image (PNG, JPEG)",
+    "add_review": "Add your comment.",
+    "thankyou_review": "Thank you for your review.",
+    "review_apending": "Your review is awaiting approval",
+    "first_name_placeholder": "First name",
+    "last_name_placeholder": "Last name",
+    "email_placeholder": "Email",
+    "review_placeholder": "Your review",
+    "submit_button": "Submit",
+    "review_submited": "Review submitted successfully",
+    "errors_message": "Failed to submit review. Please try again."
   },
   "cart": {
     "title": "Shopping Cart",

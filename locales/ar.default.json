@@ -25,7 +25,18 @@
     "title": "مجموعات"
   },
   "reviews": {
-    "ratings": "تقييمات"
+    "ratings": "التقييمات",
+    "upload_image": "تحميل الصورة (PNG، JPEG)",
+    "add_review": "أضف تعليقك",
+    "thankyou_review": "شكرا لك على تعليقك",
+    "review_apending": "سوف يتم مراجعة تعليقك من طرف إدارة الموقع",
+    "first_name_placeholder": "الاسم الأول",
+    "last_name_placeholder": "الاسم الأخير",
+    "email_placeholder": "البريد الإلكتروني",
+    "review_placeholder": "تعليقك",
+    "submit_button": "إرسال",
+    "review_submited": "تم إرسال تعليقك بنجاح",
+    "errors_message": "فشل في إرسال التعليق. الرجاء إعادة المحاولة."
   },
   "cart": {
     "title": "عربة التسوق",

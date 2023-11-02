@@ -25,7 +25,18 @@
     "title": "Collections"
   },
   "reviews": {
-    "ratings": "Évaluations"
+    "ratings": "Évaluations",
+    "upload_image": "Télécharger une image (PNG, JPEG)",
+    "add_review": "Ajouter un commentaire",
+    "thankyou_review": "Merci pour votre commentaire",
+    "review_apending": "Votre commentaire est en attente de modération",
+    "first_name_placeholder": "Prénom",
+    "last_name_placeholder": "Nom",
+    "email_placeholder": "E-mail",
+    "review_placeholder": "Votre commentaire",
+    "submit_button": "Envoyer",
+    "review_submited": "Commentaire soumis avec succès",
+    "errors_message": "Échec de la soumission de l'avis. Veuillez réessayer."
   },
   "cart": {
     "title": "Panier d'achat",

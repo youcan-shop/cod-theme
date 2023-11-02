@@ -10,17 +10,73 @@
     </div>
     <ul class='yc-reviews-wrapper' id="reviews-wrapper"></ul>
     <button id='show-more'>{{ 'general.show_more_button' | t }}</button>
+    <button id="addReviewBtn" class="yc-btn">{{ 'reviews.add_review' | t }}</button>
+        <div id="reviewModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close">&times;</span>
+              <h2 class="modal-title">
+                {{ 'reviews.add_review' | t }}
+              </h2>
+            </div>
+            <div class="yc-review-form">
+              <form id="reviewForm">
+                <input type="email" name="email" placeholder="{{ 'reviews.email_placeholder' | t }}" required>
+                <div class='inputs-wrapper'>
+                  <input type="text" name="first_name" placeholder="{{ 'reviews.first_name_placeholder' | t }}">
+                  <input type="text" name="last_name" placeholder="{{ 'reviews.last_name_placeholder' | t }}">
+                </div>
+                <textarea name="content" placeholder="{{ 'reviews.review_placeholder' | t }}" rows="5"></textarea>
+
+                <div class="star-wrapper">
+                  <div class="star-rating">
+                    <input type="radio" id="star5" name="ratings" value="5" /><label for="star5" title="5 stars"></label>
+                    <input type="radio" id="star4" name="ratings" value="4" /><label for="star4" title="4 stars"></label>
+                    <input type="radio" id="star3" name="ratings" value="3" /><label for="star3" title="3 stars"></label>
+                    <input type="radio" id="star2" name="ratings" value="2" /><label for="star2" title="2 stars"></label>
+                    <input type="radio" id="star1" name="ratings" value="1" /><label for="star1" title="1 star"></label>
+                  </div>
+                  <span class='review-stars-count'></div>
+
+                  <div class="yc-upload-container" onclick="uploadReviewImage(this, event)">
+                    <div class="yc-upload">
+                    <ion-icon class="upload-icon md hydrated" name="add-outline" role="img"></ion-icon>
+                    <span class="upload-msg">
+                      {{ 'reviews.upload_image' | t }}
+                    </span>
+                  </div>
+                  <img class="uploaded-image" onclick="showExpandedImageView(this);" />
+                  <button class="add-more" type="button" onclick="event.stopPropagation(); uploadReviewImage(this.parentElement, event);">+</button>
+                </div>
+                <div class="image-big-view" onclick="hideExpandedImageView(this)" style="display: none;">
+                  <img src="" alt="Big view" />
+                </div>
+                <button type="submit" class="yc-btn">
+                  {{ 'reviews.submit_button' | t }}
+                </button>
+              </form>
+            </div>
+            <div class="thank-you-message" style="display: none;">
+              <ion-icon name="checkmark-circle-outline" class="icon"></ion-icon>
+              <h2>{{ 'reviews.thankyou_review' | t }}</h2>
+              <p>{{ 'reviews.review_apending' | t }}</p>
+            </div>
+          </div>
+        </div>
   </div>
-</section>
 
-{% javascript %}
-  const reviewsProductId = '{{ reviews_product_id }}';
+  {% javascript %}
+    const reviewsProductId = '{{ reviews_product_id }}';
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const parentContainer = '.yc-product-reviews';
+    const REVIEWS_TRANSLATED_TEXT = {
+      successMessage: '{{ 'reviews.review_submited' | t }}',
+      errorMessage: "{{ 'reviews.errors_message' | t }}"
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const parentContainer = '.yc-product-reviews';
 
-    fetchReviewsForProduct(reviewsProductId, parentContainer, {{ product.averageRating }});
-  });
-{% endjavascript %}
+      fetchReviewsForProduct(reviewsProductId, parentContainer, {{ product.averageRating }});
+    });
+  {% endjavascript %}
 
-{{ 'reviews.js' | asset_url | script_tag_deferred }}
+  {{ 'reviews.js' | asset_url | script_tag_deferred }}
