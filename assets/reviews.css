@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .yc-product-reviews {
   background-color: #FBFBFB;
   padding: 36px 0;
@@ -256,6 +257,7 @@
 }
 #addReviewBtn {
   margin: 40px auto 0 auto;
+  width: fit-content;
 }
 
 #reviewForm {
