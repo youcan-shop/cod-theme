@@ -106,8 +106,7 @@
     .logo {
       img {
         max-width: 110px;
-        height: auto;
-
+        max-height: 65px;
 
         @include breakpoint('md') {
           max-width: 120px;
