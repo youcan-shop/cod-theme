@@ -6,12 +6,6 @@
   font-weight: 700;
   text-align: right;
 }
-.yc-featured-products [dir=rtl] .yc-section-title {
-  text-align: left;
-}
-.yc-featured-products [dir=rtl] .yc-section-title {
-  text-align: right;
-}
 .yc-featured-products .counter-wrapper {
   display: grid;
   align-items: center;
