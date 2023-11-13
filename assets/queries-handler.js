@@ -53,10 +53,7 @@ if (searchTitle) {
   searchTitle.innerHTML = query;
 }
 // dropdown select
-function setupDropdown(dropdownBtn, dropdownContent, convertUrlWithMultipleQuery) {
-  // Handle the click event for the dropdown button
-  dropdownBtn.addEventListener('click', () => showDropDownMenu(dropdownContent));
-
+function setupDropdown(dropdownContent, convertUrlWithMultipleQuery) {
   // Handle the click event for the options in the dropdown
   dropdownContent.addEventListener('click', (event) => {
     event.preventDefault();
@@ -89,7 +86,7 @@ function filterProduct() {
 
     selectedOption.style.fontWeight = 'bold';
 
-    setupDropdown(filterDropdownBtn, filterDropdownContent, convertUrlWithMultipleQuery);
+    setupDropdown(filterDropdownContent, convertUrlWithMultipleQuery);
   }
 }
 
