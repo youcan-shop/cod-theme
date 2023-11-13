@@ -31,7 +31,7 @@ function selectOption(element, options, event) {
   element.firstElementChild.textContent = selectedOption.textContent;
 }
 
-function displayDropdownMenu() {
+function dropdownMenu() {
   const dropdownInputs = document.querySelectorAll('.dropdown-input');
 
   if(dropdownInputs.length === 0) {
@@ -63,4 +63,4 @@ function displayDropdownMenu() {
   });
 }
 
-displayDropdownMenu();
+dropdownMenu();
