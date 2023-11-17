@@ -38,7 +38,7 @@
           class='splide__slide'
           {{ block.youcan_attributes }}
         >
-            <div class='product-block'>
+          <a href="{{ block.settings.product.url }}" class='product-block'>
             <div class="product-slider">
               <div class='product-thumbnail'>
                  <img
@@ -59,9 +59,9 @@
                         {{ 'general.direct_add_to_cart' | t }}
                       </button>
                     {% else %}
-                    <a href="{{ block.settings.product.url }}" class="yc-btn">
+                    <button class="yc-btn">
                       {{ 'general.buy_now' | t }}
-                    </a>
+                    </button>
                     {% endif %}
                   </div>
               </div>
@@ -88,7 +88,7 @@
                   {% endif %}
                 </div>
             </div>
-          </div>
+          </a>
         </li>
       {%- endfor %}
     </ul>

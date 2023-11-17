@@ -1,42 +1,39 @@
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
 {{ 'countdown.css' | asset_url | stylesheet_tag }}
 
-<div class='product-thumbnail'>
-  <div class="tag {{ section_settings.tag_position }}">
-    {% if block_settings.tag_text %}
-      <div class="tag-text" style="background: {{ section_settings.tag_color.hex }}; color: {{ section_settings.tag_text_color.hex }}">
-        {{ block_settings.tag_text }}
-      </div>
-    {% endif %}
-    {% if section_settings.price_reduction_text %}
-      <div class="tag-price" style="background: {{ section_settings.tag_price_color.hex }}; color: {{ section_settings.price_reduction_text_color.hex }}">
-        {{ section_settings.price_reduction_text }}
-      </div>
-    {% endif %}
-  </div>
+<a href="{{ item.url }}">
+  <div class='product-thumbnail'>
+    <div class="tag {{ section_settings.tag_position }}">
+      {% if block_settings.tag_text %}
+        <div class="tag-text" style="background: {{ section_settings.tag_color.hex }}; color: {{ section_settings.tag_text_color.hex }}">
+          {{ block_settings.tag_text }}
+        </div>
+      {% endif %}
+      {% if section_settings.price_reduction_text %}
+        <div class="tag-price" style="background: {{ section_settings.tag_price_color.hex }}; color: {{ section_settings.price_reduction_text_color.hex }}">
+          {{ section_settings.price_reduction_text }}
+        </div>
+      {% endif %}
+    </div>
 
-  {% if item.thumbnail %}
-    <img loading='lazy' src='{{ item.thumbnail }}'>
-  {% else %}
-    <img loading='lazy' src='{{ 'default_product.jpeg' | asset_url }}'>
-  {% endif %}
-  <div class="product-link">
-    <a href="{{ item.url }}" class="yc-btn">
-      {{ 'snippets.product_preview.cta_button' | t }}
-    </a>
+    {% if item.thumbnail %}
+      <img loading='lazy' src='{{ item.thumbnail }}'>
+    {% else %}
+      <img loading='lazy' src='{{ 'default_product.jpeg' | asset_url }}'>
+    {% endif %}
   </div>
-</div>
-<div class='product-details'>
-  <span class='product-title'>{{ item.name }}</span>
-</div>
-<div class='prices'>
-  {% if section.settings.show_compare_at_price and item.compare_at_price %}
-    <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
-  {% endif %}
-  {% if item.price %}
-    <span class='product-price'>{{ item.price | money }}</span>
-  {% endif %}
-</div>
+  <div class='product-details'>
+    <span class='product-title'>{{ item.name }}</span>
+  </div>
+  <div class='prices'>
+    {% if section.settings.show_compare_at_price and item.compare_at_price %}
+      <span class='compare-at-price'>{{ item.compare_at_price | money }}</span>
+    {% endif %}
+    {% if item.price %}
+      <span class='product-price'>{{ item.price | money }}</span>
+    {% endif %}
+  </div>
+</a>
 
 <div class="product-link-mobile">
   {% if settings.direct_add_to_cart and item.variants.size <= 1 %}
