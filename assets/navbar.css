@@ -84,7 +84,7 @@
 }
 .yc-header .yc-navbar .logo img {
   max-width: 110px;
-  height: auto;
+  max-height: 70px;
 }
 @media (min-width: 768px) {
   .yc-header .yc-navbar .logo img {
