@@ -589,6 +589,7 @@ input:not([type='radio']),
   left: 0;
   width: 100%;
   z-index: 999;
+  pointer-events: none;
 
   @include breakpoint('md') {
     display: grid;

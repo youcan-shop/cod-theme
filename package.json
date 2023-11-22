@@ -4,7 +4,7 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"sass": "sass ./styles:./assets --no-source-map --watch",
+		"sass": "sass ./styles:./assets --no-charset --no-source-map --watch",
 		"fix": "onchange \"**/*.*\" -- prettier --write --ignore-unknown ./**/*.* --plugin-search-dir=. --ignore-path=.prettierignore",
 		"lint": "onchange \"**/*.*\" -- prettier --check .",
 		"wind": "npx tailwindcss build -i ./styles/_utils.css -o ./styles/utils.scss",
