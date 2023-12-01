@@ -43,7 +43,7 @@
       {% for item in order.order_variants %}
         <tr>
           <td class="product-name">
-            <a href="{{- store.domain -}}/products/{{- item.slug -}}" target="_blank">{{- item.name -}}</a>
+            <a class="product-name" href="/products/{{- item.slug -}}" target="_blank">{{- item.name -}}</a>
           </td>
           <td>
             <span>{{- item.price | money -}}</span>
