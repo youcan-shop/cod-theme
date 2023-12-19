@@ -36,7 +36,7 @@
           <li class="product-item">
             <img class="product-image" src="{{- item.image -}}" />
             <div class="product-details">
-              <a class="product-name" href="{{- store.domain -}}/products/{{- item.slug -}}" target="_blank">{{- item.name -}}</a>
+              <a class="product-name" href="/products/{{- item.slug -}}" target="_blank">{{- item.name -}}</a>
               <ul class="product-variations">
                 <li>{{- 'thankyou.details.quantity' | t -}}: &nbsp; {{- item.quantity -}}</li>
                 {% for variation in item.variations %}
