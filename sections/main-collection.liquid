@@ -4,7 +4,7 @@
 {%- assign per_page = section.settings.items_per_page -%}
 <div class='yc-product-listing-container'>
   {%- paginate collection.products by per_page cod, category_id: category.id %}
-    {% if items %}
+    {% if items or subCategories.size > 0 %}
       <div class="breadcrumbs-container">
         {%- render 'breadcrumbs' -%}
         <div class="breadcrumbs-name">
