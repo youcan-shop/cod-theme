@@ -5,7 +5,7 @@
 
 <div class='yc-product-listing-container container'>
   {%- paginate collection.products by per_page cod, category_id: category.id %}
-    {%- if items %}
+    {% if items or subCategories.size > 0 %}
       <div class="header-wrapper">
         <div class="head">
           {%- render 'breadcrumbs' -%}
