@@ -98,6 +98,7 @@
     const desktopSlider = new Splide(`#yc_slider_{{ uniqID }}.yc-slider__desktop`, {
       arrows: products > 3,
       rewind: true,
+      focus: 'right',
       perPage: Math.min(products, 4),
       perMove: 1,
       drag: 'free',
