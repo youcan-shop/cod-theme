@@ -4,7 +4,7 @@
   <div class="image">
     <img
       class="main-image"
-      src="{{ 'default_product.jpeg' | asset_url }}"
+      src="{% if product.images.size > 0 %}{{ product.images.first }}{% else %}{{ 'default_product.jpeg' | asset_url }}{% endif %}"
       alt="product image">
   </div>
   <div class="details">
