@@ -10,6 +10,10 @@
   }
 }
 
+#express-checkout-form * {
+  font-family: var(--yc-font-family);
+}
+
 .express-checkout-fields {
   border-width: 2px;
   border-style: solid;
