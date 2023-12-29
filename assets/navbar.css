@@ -31,8 +31,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  height: var(--yc-nav-height);
+  min-height: var(--yc-nav-height);
   background-color: var(--yc-nav-background);
+  padding: 8px 20px;
 }
 .yc-header .yc-navbar :first-child {
   justify-self: start;
