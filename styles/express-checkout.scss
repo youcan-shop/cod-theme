@@ -9,6 +9,10 @@
     padding: 20px;
     grid-gap: 18px;
   }
+
+  * {
+    font-family: var(--yc-font-family);
+  }
 }
 
 .express-checkout-fields {
@@ -51,6 +55,7 @@
     transform: translateY(100%);
     opacity: 0;
   }
+
   100% {
     transform: translateY(0);
     opacity: 1;
@@ -84,6 +89,7 @@
       margin-top: 36px;
     }
   }
+
   .spacer {
     margin-top: 20px;
   }
