@@ -2,6 +2,10 @@
 
 {% style %}
   .section-slider-{{ id }} #yc_slider_{{ id }} .splide__arrow {
+    --slider-height: {{- section.settings.slider_height_percentage -}}vh;
+  }
+
+  .section-slider-{{ id }} #yc_slider_{{ id }} .splide__arrow {
     border: 1px solid {{ section.settings.slider_arrows_color.hex }};
     width: 42px;
     height: 42px;
