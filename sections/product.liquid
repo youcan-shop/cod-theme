@@ -455,7 +455,7 @@
      * Well technically, if the seller didn't choos a default variant, we shouldn't select one.
      * The customer should be prompted to select one, if not, they get a warning message.
      */
-    const defaultVariant = variants.find(variant => variant.is_default);
+    const defaultVariant = variants.find(variant => variant.is_default) || variants[0];
     const globalProductStr = `{{ selected_product | json }}`;
     const globalProduct = JSON.parse(globalProductStr.slice(1, -1));
 
