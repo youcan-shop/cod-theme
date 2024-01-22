@@ -1,5 +1,21 @@
 {% assign count = 0 %}
 
+<style>
+  .slide-box {
+    -webkit-justify-content: flex-end;
+    align-items: flex-end;
+    -webkit-align-items: flex-end;
+  }
+  .slide-content-box {
+    padding: 80px 20px;
+  }
+  .slide-content-box-button {
+    margin-top: calc(var(--slider-height) / 5);
+    width: max-content;
+    padding: 12px 42px;
+  }
+  </style>
+
 <div
   class='splide yc-slider__{{ view }}'
   id='yc_slider_{{ id }}'
@@ -17,8 +33,8 @@
             src='{%- if block.settings.image.src -%} {{ block.settings.image.src }} {%- else -%} {{ 'default-hero.png' | asset_url }} {%- endif -%}'
           >
           {%- if block.settings.caption %}
-            <div class='content flex items-center h-full w-full'>
-              <div class='container flex items-center justify-center'>
+            <div class='content flex items-center h-full w-full slide-box'>
+              <div class='container flex items-center justify-center slide-content-box'>
                 <div>
                   <div class='caption'>{{ block.settings.caption }}</div>
                   {% if block.settings.product %}
