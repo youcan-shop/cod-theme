@@ -29,15 +29,10 @@
     @include breakpoint('md') {
       grid-template-columns: repeat(3, 1fr);
       gap: 15px;
-      padding: 0 40px;
-    }
-    @include breakpoint('lg') {
-      grid-template-columns: repeat(3, 1fr);
-      padding: 0 70px;
     }
 
-    @include breakpoint('xl') {
-      padding: 0 150px;
+    @include breakpoint('lg') {
+      grid-template-columns: repeat(4, 1fr);
     }
 
     .product-block {
