@@ -47,6 +47,9 @@
 }
 @media (max-width: 768px) {
   .product-slider .splide__arrows {
+    padding-bottom: 30px;
+  }
+  .product-slider .splide__arrows {
     bottom: -25px;
   }
   .product-slider .splide__arrows .splide__arrow.splide__arrow--prev,
