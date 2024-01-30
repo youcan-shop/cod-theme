@@ -1,6 +1,6 @@
 {
     "sections": {
-        "section_qum9qooyrwe3uz": {
+          "section_qum9qooyrwe3uz": {
             "type": "desktop-slider",
             "settings": {
                 "slider_transition_type": "slide",
@@ -17,25 +17,31 @@
                 "block_qw91o394p69bv8l": {
                     "type": "image_picker",
                     "settings": {
-                        "image": "daniel-storek-JM-qKEd1GMI-unsplash-2OfIakQKp2aFHsKMEwrbVoICfTm.jpg",
+                        "image": "BN1981228_l 1 (3) (2)-2bgESqgjz6KK75puUhnoqkvV0Ji.png",
                         "caption": "<p><br><\/p>",
                         "button_text": "",
                         "button_font_weight": "500"
                     }
                 },
-                "block_qx88dcfkmfmqpeh": {
+                "block_3vpuyx9h9wo6to": {
                     "type": "image_picker",
                     "settings": {
-                        "image": "deanna-alys-6LBBOwkPzyQ-unsplash-2OfIaRecGHx4JGVCteF2IV8HnDm.jpg",
-                        "caption": "<p><br><\/p>",
-                        "button_text": "",
+                        "image": "BN1981228_l 1 (2) (1)-2bgERn2YdFWy4tAnlUGXsH1v2Tm.png",
                         "button_font_weight": "500"
+                    }
+                },
+                "block_3wjawashos633g": {
+                    "type": "image_picker",
+                    "settings": {
+                        "button_font_weight": "500",
+                        "image": "BN1981228_l 1 (3) (2)-2bgDRsqzi9fMzdqZr33lsS1H5MS.png"
                     }
                 }
             },
             "order": [
+                "block_3vpuyx9h9wo6to",
                 "block_qw91o394p69bv8l",
-                "block_qx88dcfkmfmqpeh"
+                "block_3wjawashos633g"
             ]
         },
         "section_62tm9748qh15wfk": {

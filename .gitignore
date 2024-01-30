@@ -83,8 +83,9 @@ sw.*
 # Vim swap files
 *.swp
 
-# youcan 
+# youcan
 .youcan
+youcan.theme.json
 
 # local dev files
 styles/utils.scss
