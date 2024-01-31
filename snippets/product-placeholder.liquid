@@ -1,0 +1,22 @@
+{% comment %}
+  Placeholder data for products
+{% endcomment %}
+{% assign placeholder_names = "Product Name 1,Product Name 2,Product Name 3,Product Name 4" | split: "," %}
+{% assign placeholder_images = "placeholder1.jpeg,placeholder2.jpeg,placeholder3.jpeg,placeholder4.jpeg" | split: "," %}
+{% assign placeholder_prices = "10.00,20.00,30.00,40.00" | split: "," %}
+
+{% for i in (0..3) %}
+  <div class="product-item">
+    <div class='product-block'>
+      <div class='product-thumbnail'>
+        <img loading='lazy' src='{{ placeholder_images[i] | asset_url }}' alt='{{ placeholder_names[i] }}'>
+      </div>
+      <div class='product-details'>
+        <span class='product-title'>{{ placeholder_names[i] }}</span>
+      </div>
+      <div class='prices'>
+        <span class='product-price'>{{ placeholder_prices[i] | money }}</span>
+      </div>
+    </div>
+  </div>
+{% endfor %}
