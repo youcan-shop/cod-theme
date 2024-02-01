@@ -39,52 +39,71 @@
 
 {% endstyle %}
 
+{% assign products_exist = false %}
+
+{% for block in section.blocks %}
+  {% if block.settings.product %}
+    {% assign products_exist = true %}
+  {% endif %}
+{% endfor %}
+
+
 <div
   class='splide yc-slider__{{ view }} product-slider'
   id='yc_slider_{{ id }}'
 >
   <div class='splide__track'>
     <ul class='splide__list'>
-      {%- for block in blocks %}
-        <li
-          class='splide__slide'
-          {{ block.youcan_attributes }}
-        >
-          {% if settings.direct_add_to_cart and block.settings.product.variants.size <= 1 %}
-            <div class='product-block' onclick="directAddToCart('{{ block.settings.product.variants[0].id }}')">
-          {% else %}
-            <div class='product-block' onclick="window.location.href='{{ block.settings.product.url }}'">
-          {% endif %}
-            <div class="product-slider">
-              <div class='product-thumbnail'>
-                 <img
-                  loading='lazy'
-                  src='{%- if block.settings.product.thumbnail -%} {{ block.settings.product.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
-                  >
-                  {% if block.settings.tag_text %}
-                    <div
-                      class="tag {{ section_settings.tag_position }}"
-                      style="background: {{ section_settings.banner_background_color.hex }}; color: {{ section_settings.tag_text_color.hex }}"
+      {% if products_exist %}
+        {% for block in blocks %}
+          <li
+            class='splide__slide'
+            {{ block.youcan_attributes }}
+          >
+            {% if settings.direct_add_to_cart and block.settings.product.variants.size <= 1 %}
+              <div class='product-block' onclick="directAddToCart('{{ block.settings.product.variants[0].id }}')">
+            {% else %}
+              <div class='product-block' onclick="window.location.href='{{ block.settings.product.url }}'">
+            {% endif %}
+              <div class="product-slider">
+                <div class='product-thumbnail'>
+                  <img
+                    loading='lazy'
+                    src='{%- if block.settings.product.thumbnail -%} {{ block.settings.product.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
                     >
-                      {{ block.settings.tag_text }}
-                    </div>
+                    {% if block.settings.tag_text %}
+                      <div
+                        class="tag {{ section_settings.tag_position }}"
+                        style="background: {{ section_settings.banner_background_color.hex }}; color: {{ section_settings.tag_text_color.hex }}"
+                      >
+                        {{ block.settings.tag_text }}
+                      </div>
+                    {% endif %}
+                </div>
+                <div class='product-details'>
+                  <span class='product-title'>{{ block.settings.product.name }}</span>
+                </div>
+                <div class='prices'>
+                  {% if block.settings.product.price %}
+                    <span class='product-price'>{{ block.settings.product.price | money }}</span>
                   {% endif %}
-              </div>
-              <div class='product-details'>
-                <span class='product-title'>{{ block.settings.product.name }}</span>
-              </div>
-              <div class='prices'>
-                {% if block.settings.product.price %}
-                  <span class='product-price'>{{ block.settings.product.price | money }}</span>
-                {% endif %}
-                {% if section.settings.show_compare_at_price and block.settings.product.compare_at_price %}
-                  <span class='compare-at-price'>{{ block.settings.product.compare_at_price | money }}</span>
-                {% endif %}
+                  {% if section.settings.show_compare_at_price and block.settings.product.compare_at_price %}
+                    <span class='compare-at-price'>{{ block.settings.product.compare_at_price | money }}</span>
+                  {% endif %}
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-      {%- endfor %}
+          </li>
+      {% endfor %}
+      {% else %}
+        {% if products_exist == false %}
+          {% for i in (1..3) %}
+            <li class='splide__slide'>
+              {% render 'product-slider-placeholder', index: forloop.index0 %}
+            </li>
+          {% endfor %}
+        {% endif %}
+      {% endif %}
     </ul>
   </div>
 </div>
