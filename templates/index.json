@@ -17,31 +17,23 @@
                 "block_qw91o394p69bv8l": {
                     "type": "image_picker",
                     "settings": {
-                        "image": "BN1981228_l 1 (3) (2)-2bgESqgjz6KK75puUhnoqkvV0Ji.png",
                         "caption": "<p><br><\/p>",
                         "button_text": "",
-                        "button_font_weight": "500"
-                    }
-                },
-                "block_3vpuyx9h9wo6to": {
-                    "type": "image_picker",
-                    "settings": {
-                        "image": "BN1981228_l 1 (2) (1)-2bgERn2YdFWy4tAnlUGXsH1v2Tm.png",
-                        "button_font_weight": "500"
+                        "button_font_weight": "500",
+                        "image": "Rectangle 8 (3)-2blwIYV5X8g2D9FB52s6XaB3D5k.png"
                     }
                 },
                 "block_3wjawashos633g": {
                     "type": "image_picker",
                     "settings": {
                         "button_font_weight": "500",
-                        "image": "BN1981228_l 1 (3) (2)-2bgDRsqzi9fMzdqZr33lsS1H5MS.png"
+                        "image": "Rectangle 8 (2) (1)-2blwJ9iQHTEpua4oAdCc7SZgkVG.png"
                     }
                 }
             },
             "order": [
-                "block_3vpuyx9h9wo6to",
-                "block_qw91o394p69bv8l",
-                "block_3wjawashos633g"
+                "block_3wjawashos633g",
+                "block_qw91o394p69bv8l"
             ]
         },
         "section_62tm9748qh15wfk": {
