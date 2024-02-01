@@ -96,14 +96,26 @@
           </li>
       {% endfor %}
       {% else %}
-        {% if products_exist == false %}
-          {% for i in (1..3) %}
-            <li class='splide__slide'>
-              {% render 'product-slider-placeholder', index: forloop.index0 %}
-            </li>
-          {% endfor %}
-        {% endif %}
-      {% endif %}
+      {% assign max_index = 2 %}
+      {% assign random_titles = "Placeholder Product A,Placeholder Product B,Placeholder Product C" | split: "," %}
+      {% assign random_prices = "10.00,20.00,30.00" | split: "," %}
+      {% for i in (0..max_index) %}
+        <li class='splide__slide'>
+          <div class='product-block product-slider-placeholder'>
+            <div class='product-thumbnail'>
+              {% assign svg_name = random_titles[i] %}
+              {% render 'product-slider-placeholder-svg', svg_name: svg_name %}
+            </div>
+            <div class='product-details'>
+              <span class='product-title'>{{ random_titles[i] }}</span>
+            </div>
+            <div class='prices'>
+              <span class='product-price'>{{ random_prices[i] | money }}</span>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    {% endif %}
     </ul>
   </div>
 </div>
