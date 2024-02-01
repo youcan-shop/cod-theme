@@ -12,7 +12,7 @@
   }
 
   @include breakpoint('xxl') {
-    padding: 0 280px;
+    padding: 0 240px;
   }
 
   .product-block {
@@ -63,7 +63,7 @@
       position: relative;
       width: 50%;
 
-      img {
+      img, svg {
         width: 100%;
         height: 400px;
         object-fit: cover;
@@ -72,11 +72,16 @@
           height: 330px;
         }
       }
+
+      svg {
+        height: 290px;
+      }
     }
 
     .buy-btn {
       width: 100%;
     }
+
     @include max-screen('md') {
       flex-direction: column;
       align-items: center;
@@ -89,5 +94,10 @@
         width: 100%;
       }
     }
+  }
+  .product-placeholder {
+      .buy-btn {
+        cursor: not-allowed;
+      }
   }
 }

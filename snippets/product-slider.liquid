@@ -100,7 +100,8 @@
       {% assign random_titles = "Placeholder Product A,Placeholder Product B,Placeholder Product C" | split: "," %}
       {% assign random_prices = "10.00,20.00,30.00" | split: "," %}
       {% for i in (0..max_index) %}
-        <li class='splide__slide'>
+        <li class='splide__slide'
+          {{ block.youcan_attributes }}>
           <div class='product-block product-slider-placeholder'>
             <div class='product-thumbnail'>
               {% assign svg_name = random_titles[i] %}
