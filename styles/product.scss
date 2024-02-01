@@ -349,6 +349,20 @@
   }
 }
 
+.single-product-placeholder {
+  svg {
+    width: 100%;
+    height: 333px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+
+    @include breakpoint('md') {
+      height: 474px;
+    }
+  }
+}
+
 /* ----- Quantity input ----- */
 
 .quantity-field {
