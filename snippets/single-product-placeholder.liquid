@@ -19,10 +19,18 @@
     {% render 'product-placeholder-svg', svg_name: 'Single Product' %}
   </div>
   <div class='product-details'>
-    <h1 class='product-name'>Placeholder Product Name</h1>
-    <div class='product-price-container'>
-      <h2 class='product-price'>{{ "19.99" | money }}</h2>
-    </div>
-    <p class='product-description'>This is a placeholder description for the product.</p>
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'product_title' -%}
+          <h1 class='product-name'>Placeholder Product Name</h1>
+        {%- when 'product_price' -%}
+          <div class='product-price-container'>
+            <h2 class='product-price'>{{ "19.99" | money }}</h2>
+          </div>
+        {%- when 'product_description' -%}
+          <p class='product-description'>This is a placeholder description for the product.</p>
+      {%- endcase -%}
+    {%- endfor -%}
   </div>
 </div>
+

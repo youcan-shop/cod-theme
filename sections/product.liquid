@@ -15,12 +15,12 @@
 {%- endstyle -%}
 
 <section class='product_customization-{{ id }}'>
-  {%- assign selected_product = section.settings.product %}
+  {%- assign selected_product = section.settings.product -%}
 
   {%- if selected_product -%}
     {%- render 'single-product', product: selected_product, section: section -%}
   {%- else -%}
-    {%- render 'single-product-placeholder', id: id -%}
+    {%- render 'single-product-placeholder', section: section, id: id -%}
   {%- endif %}
 </section>
 
