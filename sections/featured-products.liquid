@@ -45,9 +45,6 @@
 
 {% assign products_exist = false %}
 
-{% comment %} 
-  Check each block to see if a product is added 
-{% endcomment %}
 {% for block in section.blocks %}
   {% if block.settings.product %}
     {% assign products_exist = true %}
