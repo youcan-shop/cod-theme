@@ -1,22 +1,24 @@
-{% comment %}
-  Placeholder data for products
-{% endcomment %}
-{% assign placeholder_names = "Product Name 1,Product Name 2,Product Name 3,Product Name 4" | split: "," %}
-{% assign placeholder_images = "placeholder1.jpeg,placeholder2.jpeg,placeholder3.jpeg,placeholder4.jpeg" | split: "," %}
-{% assign placeholder_prices = "10.00,20.00,30.00,40.00" | split: "," %}
+{{ 'featured-products.css' | asset_url | stylesheet_tag }}
+{{ 'countdown.css' | asset_url | stylesheet_tag }}
 
-{% for i in (0..3) %}
-  <div class="product-item">
-    <div class='product-block'>
-      <div class='product-thumbnail'>
-        <img loading='lazy' src='{{ placeholder_images[i] | asset_url }}' alt='{{ placeholder_names[i] }}'>
-      </div>
-      <div class='product-details'>
-        <span class='product-title'>{{ placeholder_names[i] }}</span>
-      </div>
-      <div class='prices'>
-        <span class='product-price'>{{ placeholder_prices[i] | money }}</span>
-      </div>
-    </div>
+{% assign max_index = 3 %}
+{% if index == nil or index > max_index %}
+  {% assign index = 0 %}
+{% endif %}
+
+{% assign random_titles = "Placeholder Product A,Placeholder Product B,Placeholder Product C,Placeholder Product D" | split: "," %}
+{% assign random_prices = "10.00,20.00,30.00,40.00" | split: "," %}
+
+<div class='product-block featured-product-placeholder'>
+  <div class='product-thumbnail'>
+    {% assign svg_name = random_titles[index] %}
+    {% render 'product-placeholder-svg', svg_name: svg_name %}
   </div>
-{% endfor %}
+  <div class='product-details'>
+    <span class='product-title'>{{ random_titles[index] }}</span>
+  </div>
+  <div class="prices">
+    <span class='product-price'>{{ random_prices[index] | money }}</span>
+  </div>
+</div>
+

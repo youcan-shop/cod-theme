@@ -43,22 +43,32 @@
   }
 {% endstyle %}
 
+{% assign products_exist = false %}
+
+{% comment %} 
+  Check each block to see if a product is added 
+{% endcomment %}
+{% for block in section.blocks %}
+  {% if block.settings.product %}
+    {% assign products_exist = true %}
+  {% endif %}
+{% endfor %}
+
 <section class='section-featured-products-{{ id }} yc-featured-products container'>
   <h1 class='yc-section-title'>{{ section.settings.title }}</h1>
   <div class='product-list product-container-{{ id }}'>
-    {% assign product_count = 0 %}
     {% for block in section.blocks %}
       {% if block.settings.product %}
-        {% assign product_count = product_count | plus: 1 %}
         <div {{ block.youcan_attributes }} class="product-item-{{ id }}">
           {%- render 'product-preview', item: block.settings.product, block_settings: block.settings, section_settings: section.settings -%}
         </div>
+      {% elsif products_exist == false %}
+        {%- assign index = forloop.index0 | modulo: 4 -%}
+        <div {{ block.youcan_attributes }} class="product-item-{{ id }}">
+          {%- render 'product-placeholder', index: index -%}
+         </div>
       {% endif %}
     {% endfor %}
-
-    {% if product_count == 0 %}
-      {%- render 'product-placeholder' -%}
-    {% endif %}
   </div>
 </section>
 
