@@ -97,7 +97,7 @@
       {% endfor %}
       {% else %}
       {% assign max_index = 2 %}
-      {% assign random_titles = "Product A, Product B, Product C" | split: "," %}
+      {% assign random_titles = "Product A,Product B,Product C" | split: "," %}
       {% assign random_prices = "19.99,19.99,19.99" | split: "," %}
       {% for i in (0..max_index) %}
         <li class='splide__slide'
