@@ -76,6 +76,13 @@
     padding: 15px;
   }
 
+  .column-image-wrapper svg {
+    object-fit: contain;
+    aspect-ratio: 1;
+    width: 50px;
+    height: 50px;
+  }
+
   @media only screen and (max-width: 576px) {
     .multi-column-{{ id }} .multi-column-blocks {
       grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
@@ -100,27 +107,15 @@
     <div class='multi-column-blocks'>
       {% for block in section.blocks %}
         {% assign block_setting = block.settings %}
-        <div
-          class='column-block'
-          {{ block.youcan_attributes }}
-        >
+        <div class='column-block' {{ block.youcan_attributes }}>
           {% if block_setting.image %}
-          <div class="column-image-wrapper">
-            <img
-              class='column-image'
-              src='{{ block_setting.image.src }}'
-              loading='lazy'
-            >
-          </div>
+            <div class="column-image-wrapper">
+              <img class='column-image' src='{{ block_setting.image.src }}' loading='lazy'>
+            </div>
           {% else %}
-          <div class="column-image-wrapper">
-            <img
-              class='column-image'
-              src='{{ 'default_product.jpeg' | asset_url }}'
-              loading='lazy'
-            >
-          </div>
-
+            <div class="column-image-wrapper">
+              {% render 'multi-column-svg', svg_index: forloop.index %}
+            </div>
           {% endif %}
           {% if block_setting.heading %}
             <h4 class='column-title'>{{ block_setting.heading }}</h4>
