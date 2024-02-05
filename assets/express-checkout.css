@@ -9,7 +9,6 @@
     grid-gap: 18px;
   }
 }
-
 #express-checkout-form * {
   font-family: var(--yc-font-family);
 }
@@ -191,4 +190,14 @@
   .yc-sticky-checkout .sticky-desktop-wrapper .checkout-form {
     padding-bottom: 0;
   }
+}
+
+.sticky-checkout-placeholder .express-checkout-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sticky-btn-placehodler {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

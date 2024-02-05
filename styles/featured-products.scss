@@ -51,7 +51,7 @@
         padding: 0 0 100%;
         height: 0;
 
-        img {
+        img, svg {
           position: absolute;
           top: 50%;
           left: 50%;
@@ -144,6 +144,10 @@
           transform: scale(1.1);
         }
       }
+    }
+
+    .featured-product-placeholder {
+      cursor: not-allowed;
     }
   }
 

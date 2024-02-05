@@ -3,27 +3,27 @@
 {{ 'product-column.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .product_customization-{{ id }} {
-    padding-top: {{ section.settings.space_top}}px;
-    padding-bottom: {{ section.settings.space_bottom}}px;
-  }
+.product_customization-{{ id }} {
+  padding-top: {{ section.settings.space_top }}px;
+  padding-bottom: {{ section.settings.space_bottom }}px;
+  background-color: {{ section.settings.background_color.hex }};
+}
 
-  .product_customization-{{ id }} {
-    background-color: {{ section.settings.background_color.hex }};
-  }
-
-  .product_customization-{{ id }} .yc-btn {
-    color: {{ section.settings.button_text_color.hex }} !important;
-  }
+.product_customization-{{ id }} .yc-btn {
+  color: {{ section.settings.button_text_color.hex }} !important;
+}
 {%- endstyle -%}
 
-{%- assign selected_product = section.settings.product %}
+{%- assign selected_product = section.settings.product -%}
 
-{%- if selected_product %}
-  <section class='product_customization-{{ id }}'>
-    {%- render 'product-home', product_id: selected_product.id, product: selected_product, block_settings: section.settings-%}
-  </section>
-{%- endif %}
+<section class='product_customization-{{ id }}'>
+  {%- if selected_product -%}
+    {%- render 'product-home', product_id: selected_product.id, product: selected_product, block_settings: section.settings -%}
+  {%- else -%}
+    {%- render 'product-column-placeholder', id: id, section_settings: section.settings -%}
+  {%- endif -%}
+</section>
+
 
 {%- schema -%}
   {

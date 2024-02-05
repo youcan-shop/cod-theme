@@ -1,0 +1,21 @@
+<div class='product-home-container container'>
+  <div class='product-block product-placeholder'>
+    <div class='image-box'>
+      {% render 'product-placeholder-svg', svg_name: 'Product Column' %}
+    </div>
+    <div class='product-details product-home'>
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'product_title' -%}
+            <h1 class='product-name'>Product Name</h1>
+          {%- when 'product_price' -%}
+          <div class='flex gap-2 items-center'>
+            <h2 class='product-price'>{{ "19.99" | money }}</h2>
+          </div>
+        {%- endcase -%}
+      {%- endfor -%}
+          <p class='product-description'>Placeholder description for the product.</p>
+          <div class='yc-btn buy-btn'>Placeholder Button</div>
+        </div>
+  </div>
+</div>

@@ -1,226 +1,226 @@
 {
-    "sections": {
-        "section_qum9qooyrwe3uz": {
-            "type": "desktop-slider",
-            "settings": {
-                "slider_transition_type": "slide",
-                "slider_mobile_pagination": true,
-                "slider_pause_on_hover": true,
-                "duration_between_each_slide": 3,
-                "slider_mobile_timeout": 4,
-                "slider_arrows_size": 15,
-                "slider_arrows": true,
-                "slider_height_percentage": 50,
-                "slider_overlay_background_color": "#00000000"
+  "sections": {
+      "section_qum9qooyrwe3uz": {
+          "type": "desktop-slider",
+          "settings": {
+              "slider_transition_type": "slide",
+              "slider_mobile_pagination": true,
+              "slider_pause_on_hover": true,
+              "duration_between_each_slide": 3,
+              "slider_mobile_timeout": 4,
+              "slider_arrows_size": 15,
+              "slider_arrows": true,
+              "slider_height_percentage": 50,
+              "slider_overlay_background_color": "#00000000"
+            },
+          "blocks": {
+              "block_qw91o394p69bv8l": {
+                  "type": "image_picker",
+                  "settings": {
+                      "image": "daniel-storek-JM-qKEd1GMI-unsplash-2OfIakQKp2aFHsKMEwrbVoICfTm.jpg",
+                      "caption": "<p><br><\/p>",
+                      "button_text": "",
+                      "button_font_weight": "500"
+                  }
               },
-            "blocks": {
-                "block_qw91o394p69bv8l": {
-                    "type": "image_picker",
-                    "settings": {
-                        "image": "daniel-storek-JM-qKEd1GMI-unsplash-2OfIakQKp2aFHsKMEwrbVoICfTm.jpg",
-                        "caption": "<p><br><\/p>",
-                        "button_text": "",
-                        "button_font_weight": "500"
-                    }
-                },
-                "block_qx88dcfkmfmqpeh": {
-                    "type": "image_picker",
-                    "settings": {
-                        "image": "deanna-alys-6LBBOwkPzyQ-unsplash-2OfIaRecGHx4JGVCteF2IV8HnDm.jpg",
-                        "caption": "<p><br><\/p>",
-                        "button_text": "",
-                        "button_font_weight": "500"
-                    }
-                }
-            },
-            "order": [
-                "block_qw91o394p69bv8l",
-                "block_qx88dcfkmfmqpeh"
-            ]
-        },
-        "section_62tm9748qh15wfk": {
-            "type": "multi-column",
-            "settings": {
-                "columns_desktop": "4",
-                "columns_mobile": "2",
-                "title": "ما يميزنا",
-                "margin_bottom": 50,
-                "margin_top": 5,
-                "background_color": "#FFFFFFFF",
-                "section_title_position": "center",
-                "space_top": 40,
-                "space_bottom": 50,
-                "text_color": "#000000FF",
-                "caption_color": "#000000FF"
-            },
-            "blocks": {
-                "block_c9qx028mi12btfk4": {
-                    "type": "columnn",
-                    "settings": {
-                        "heading": "الدفع عند الإستلام",
-                        "description": "<p>شحن مجاني في الوطن العربي<\/p>",
-                        "image": "3-2O34xXQVA3nPqZkFl3jsHioz2MT.png"
-                    }
-                },
-                "block_cc11ny9wgf589l": {
-                    "type": "columnn",
-                    "settings": {
-                        "heading": "الشحن مجاني",
-                        "description": "<p>ضمان استعادة الاموال<\/p>",
-                        "image": "4-2O34ypX6tIoXvLLIlk5YqdUyrkk.png"
-                    }
-                },
-                "block_cee6rpyw7oltwqg": {
-                    "type": "columnn",
-                    "settings": {
-                        "image": "5-2O350ZhHCMigJ3EB8HUGgena2iS.png",
-                        "heading": "ضمان حقيقي",
-                        "description": "<p>ضمان استعادة الاموال<\/p>"
-                    }
-                },
-                "block_cgovtb6di7fywh8": {
-                    "type": "columnn",
-                    "settings": {
-                        "heading": "خدمة ما بعد البيع",
-                        "description": "<p>لا تقلق بشأن الأمن بعد الآن<\/p>",
-                        "image": "4-2O34ypX6tIoXvLLIlk5YqdUyrkk.png"
-                    }
-                }
-            },
-            "order": [
-                "block_c9qx028mi12btfk4",
-                "block_cc11ny9wgf589l",
-                "block_cee6rpyw7oltwqg",
-                "block_cgovtb6di7fywh8"
-            ]
-        },
-        "section_609gq1tx2x0aaa": {
-            "type": "featured-products",
-            "settings": {
-                "padding_top": 20,
-                "padding_bottom": 20,
-                "show_compare_at_price": true,
-                "row_desktop": 3,
-                "show_product_title": true,
-                "title": "المنتجات الأكتر مبيعاً",
-                "section_title_position": "center",
-                "countdown_enabled": false,
-                "text_color": "#000000FF",
-                "tag_color": "#F33520FF",
-                "tag_text_color": "#ffffff",
-                "tag_position": "top_left"
-            },
-            "blocks": {
-                "block_62cu74z1u3r4yoh": {
-                    "type": "product",
-                    "settings": {
-                        "product": "2d39bfc2-2269-482d-97e8-35286c06fa8d"
-                    }
-                },
-                "block_6374ajkr6vfu8d": {
-                    "type": "product",
-                    "settings": {
-                        "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d"
-                    }
-                },
-                "block_642tqc53a06ro8": {
-                    "type": "product",
-                    "settings": {
-                        "product": "e74763a8-673d-4b32-b87a-83ad8f448446"
-                    }
-                },
-                "block_64waj9ir17xt2wn": {
-                    "type": "product",
-                    "settings": {
-                        "product": "693a2102-03c6-46d8-a5e1-e8455c3384d8"
-                    }
-                },
-                "block_65q3qlgzob9nf1": {
-                    "type": "product",
-                    "settings": {
-                        "product": "5f865c86-c8dc-48b6-8bcb-2525bc762430"
-                    }
-                }
-            },
-            "order": [
-                "block_62cu74z1u3r4yoh",
-                "block_6374ajkr6vfu8d",
-                "block_642tqc53a06ro8",
-                "block_64waj9ir17xt2wn",
-                "block_65q3qlgzob9nf1"
-            ]
-        },
-        "section_b3g5zwjngmukzqp": {
-            "type": "featured-product-slider",
-            "settings": {
-                "margin_top": 20,
-                "margin_bottom": 20,
-                "countdown_message": "<p>ينتهي :<\/p>",
-                "countdown_message_color": "#FFFFFFFF",
-                "countdown_year": 2024,
-                "countdown_month": 1,
-                "countdown_day": 14,
-                "countdown_hour": 0,
-                "countdown_minute": 0,
-                "show_compare_at_price": true,
-                "duration_between_each_slide": 5,
-                "slider_transition_type": "loop",
-                "slider_autoplay": true,
-                "slider_pause_on_hover": true,
-                "slider_pause_on_focus": true,
-                "slider_pagination": true,
-                "slider_arrows": true,
-                "slider_mobile_timeout": 5,
-                "slider_mobile_transition_type": "loop",
-                "slider_mobile_autoplay": true,
-                "slider_mobile_pagination": true,
-                "slider_mobile_arrows": true,
-                "countdown_enabled": true,
-                "background_color": "#F4361FFF",
-                "title": "⚡︎عرض خاص",
-                "title_color": "#FFFFFFFF",
-                "tag_color": "#000000",
-                "tag_text_color": "#ffffff",
-                "tag_position": "top_right"
-            },
-            "blocks": {
-                "block_emefi1dpsjc8dxl": {
-                    "type": "product",
-                    "settings": {
-                        "product": "9053f259-a4c0-460a-8ac0-a5a7fc51a6b8"
-                    }
-                },
-                "block_ev668bf3ta5fpr6": {
-                    "type": "product",
-                    "settings": {
-                        "product": "373b0aaf-fad2-4d8c-8a4f-6810d63fed6d"
-                    }
-                },
-                "block_f0s1vbvg2wv18tp": {
-                    "type": "product",
-                    "settings": {
-                        "product": "8dc07bcd-c5ba-4fa5-8389-ce1553f4cad3"
-                    }
-                }
-            },
-            "order": [
-                "block_emefi1dpsjc8dxl",
-                "block_ev668bf3ta5fpr6",
-                "block_f0s1vbvg2wv18tp"
-            ]
-        },
-        "section_t66sa97eaaitsq5": {
-            "type": "product-reviews",
-            "settings": {
-                "product": "cf3ed4d6-2109-463a-8422-be423a229cad",
-                "reviews_title": "Reviews"
-            }
-        }
-    },
-    "order": [
-        "section_qum9qooyrwe3uz",
-        "section_62tm9748qh15wfk",
-        "section_609gq1tx2x0aaa",
-        "section_b3g5zwjngmukzqp"
-    ]
+              "block_qx88dcfkmfmqpeh": {
+                  "type": "image_picker",
+                  "settings": {
+                      "image": "deanna-alys-6LBBOwkPzyQ-unsplash-2OfIaRecGHx4JGVCteF2IV8HnDm.jpg",
+                      "caption": "<p><br><\/p>",
+                      "button_text": "",
+                      "button_font_weight": "500"
+                  }
+              }
+          },
+          "order": [
+              "block_qw91o394p69bv8l",
+              "block_qx88dcfkmfmqpeh"
+          ]
+      },
+      "section_62tm9748qh15wfk": {
+          "type": "multi-column",
+          "settings": {
+              "columns_desktop": "4",
+              "columns_mobile": "2",
+              "title": "ما يميزنا",
+              "margin_bottom": 50,
+              "margin_top": 5,
+              "background_color": "#FFFFFFFF",
+              "section_title_position": "center",
+              "space_top": 40,
+              "space_bottom": 50,
+              "text_color": "#000000FF",
+              "caption_color": "#000000FF"
+          },
+          "blocks": {
+              "block_c9qx028mi12btfk4": {
+                  "type": "columnn",
+                  "settings": {
+                      "heading": "الدفع عند الإستلام",
+                      "description": "<p>شحن مجاني في الوطن العربي<\/p>",
+                      "image": "3-2O34xXQVA3nPqZkFl3jsHioz2MT.png"
+                  }
+              },
+              "block_cc11ny9wgf589l": {
+                  "type": "columnn",
+                  "settings": {
+                      "heading": "الشحن مجاني",
+                      "description": "<p>ضمان استعادة الاموال<\/p>",
+                      "image": "4-2O34ypX6tIoXvLLIlk5YqdUyrkk.png"
+                  }
+              },
+              "block_cee6rpyw7oltwqg": {
+                  "type": "columnn",
+                  "settings": {
+                      "image": "5-2O350ZhHCMigJ3EB8HUGgena2iS.png",
+                      "heading": "ضمان حقيقي",
+                      "description": "<p>ضمان استعادة الاموال<\/p>"
+                  }
+              },
+              "block_cgovtb6di7fywh8": {
+                  "type": "columnn",
+                  "settings": {
+                      "heading": "خدمة ما بعد البيع",
+                      "description": "<p>لا تقلق بشأن الأمن بعد الآن<\/p>",
+                      "image": "4-2O34ypX6tIoXvLLIlk5YqdUyrkk.png"
+                  }
+              }
+          },
+          "order": [
+              "block_c9qx028mi12btfk4",
+              "block_cc11ny9wgf589l",
+              "block_cee6rpyw7oltwqg",
+              "block_cgovtb6di7fywh8"
+          ]
+      },
+      "section_609gq1tx2x0aaa": {
+          "type": "featured-products",
+          "settings": {
+              "padding_top": 20,
+              "padding_bottom": 20,
+              "show_compare_at_price": true,
+              "row_desktop": 3,
+              "show_product_title": true,
+              "title": "المنتجات الأكتر مبيعاً",
+              "section_title_position": "center",
+              "countdown_enabled": false,
+              "text_color": "#000000FF",
+              "tag_color": "#F33520FF",
+              "tag_text_color": "#ffffff",
+              "tag_position": "top_left"
+          },
+          "blocks": {
+              "block_62cu74z1u3r4yoh": {
+                  "type": "product",
+                  "settings": {
+                      "product": "2d39bfc2-2269-482d-97e8-35286c06fa8d"
+                  }
+              },
+              "block_6374ajkr6vfu8d": {
+                  "type": "product",
+                  "settings": {
+                      "product": "b44b2d2d-a29e-4fd2-9965-4825e2d8e64d"
+                  }
+              },
+              "block_642tqc53a06ro8": {
+                  "type": "product",
+                  "settings": {
+                      "product": "e74763a8-673d-4b32-b87a-83ad8f448446"
+                  }
+              },
+              "block_64waj9ir17xt2wn": {
+                  "type": "product",
+                  "settings": {
+                      "product": "693a2102-03c6-46d8-a5e1-e8455c3384d8"
+                  }
+              },
+              "block_65q3qlgzob9nf1": {
+                  "type": "product",
+                  "settings": {
+                      "product": "5f865c86-c8dc-48b6-8bcb-2525bc762430"
+                  }
+              }
+          },
+          "order": [
+              "block_62cu74z1u3r4yoh",
+              "block_6374ajkr6vfu8d",
+              "block_642tqc53a06ro8",
+              "block_64waj9ir17xt2wn",
+              "block_65q3qlgzob9nf1"
+          ]
+      },
+      "section_b3g5zwjngmukzqp": {
+          "type": "featured-product-slider",
+          "settings": {
+              "margin_top": 20,
+              "margin_bottom": 20,
+              "countdown_message": "<p>ينتهي :<\/p>",
+              "countdown_message_color": "#FFFFFFFF",
+              "countdown_year": 2024,
+              "countdown_month": 1,
+              "countdown_day": 14,
+              "countdown_hour": 0,
+              "countdown_minute": 0,
+              "show_compare_at_price": true,
+              "duration_between_each_slide": 5,
+              "slider_transition_type": "loop",
+              "slider_autoplay": true,
+              "slider_pause_on_hover": true,
+              "slider_pause_on_focus": true,
+              "slider_pagination": true,
+              "slider_arrows": true,
+              "slider_mobile_timeout": 5,
+              "slider_mobile_transition_type": "loop",
+              "slider_mobile_autoplay": true,
+              "slider_mobile_pagination": true,
+              "slider_mobile_arrows": true,
+              "countdown_enabled": true,
+              "background_color": "#F4361FFF",
+              "title": "⚡︎عرض خاص",
+              "title_color": "#FFFFFFFF",
+              "tag_color": "#000000",
+              "tag_text_color": "#ffffff",
+              "tag_position": "top_right"
+          },
+          "blocks": {
+              "block_emefi1dpsjc8dxl": {
+                  "type": "product",
+                  "settings": {
+                      "product": "9053f259-a4c0-460a-8ac0-a5a7fc51a6b8"
+                  }
+              },
+              "block_ev668bf3ta5fpr6": {
+                  "type": "product",
+                  "settings": {
+                      "product": "373b0aaf-fad2-4d8c-8a4f-6810d63fed6d"
+                  }
+              },
+              "block_f0s1vbvg2wv18tp": {
+                  "type": "product",
+                  "settings": {
+                      "product": "8dc07bcd-c5ba-4fa5-8389-ce1553f4cad3"
+                  }
+              }
+          },
+          "order": [
+              "block_emefi1dpsjc8dxl",
+              "block_ev668bf3ta5fpr6",
+              "block_f0s1vbvg2wv18tp"
+          ]
+      },
+      "section_t66sa97eaaitsq5": {
+          "type": "product-reviews",
+          "settings": {
+              "product": "cf3ed4d6-2109-463a-8422-be423a229cad",
+              "reviews_title": "Reviews"
+          }
+      }
+  },
+  "order": [
+      "section_qum9qooyrwe3uz",
+      "section_62tm9748qh15wfk",
+      "section_609gq1tx2x0aaa",
+      "section_b3g5zwjngmukzqp"
+  ]
 }
