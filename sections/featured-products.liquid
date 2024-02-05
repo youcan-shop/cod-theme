@@ -43,16 +43,31 @@
   }
 {% endstyle %}
 
+{% assign products_exist = false %}
+
+{% for block in section.blocks %}
+  {% if block.settings.product %}
+    {% assign products_exist = true %}
+  {% endif %}
+{% endfor %}
+
 <section class='section-featured-products-{{ id }} yc-featured-products container'>
   <h1 class='yc-section-title'>
     {{ section.settings.title }}
   </h1>
   <div class='product-list product-container-{{ id }}'>
-    {%- for block in section.blocks -%}
-      <div {{ block.youcan_attributes }} class="product-block">
-        {%- render 'product-preview', item: block.settings.product, block_settings: block.settings, section_settings: section.settings -%}
-      </div>
-    {%- endfor -%}
+    {% for block in section.blocks %}
+      {% if block.settings.product %}
+        <div {{ block.youcan_attributes }} class="product-block">
+          {%- render 'product-preview', item: block.settings.product, block_settings: block.settings, section_settings: section.settings -%}
+        </div>
+      {% elsif products_exist == false %}
+        {%- assign index = forloop.index0 | modulo: 4 -%}
+        <div {{ block.youcan_attributes }} class="product-block">
+          {%- render 'product-placeholder', index: index -%}
+         </div>
+      {% endif %}
+    {% endfor %}
   </div>
 </section>
 

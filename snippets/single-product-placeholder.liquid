@@ -1,0 +1,54 @@
+{% assign id = 100 | rand: 2000 %}
+{% assign is_placeholder = true %}
+
+{{ 'product.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+.product_customization-{{ id }} {
+  padding-top: {{ section.settings.space_top }}px;
+  padding-bottom: {{ section.settings.space_bottom }}px;
+}
+
+.countdown-container {
+  background-color: {{ block.settings.background_color.hex }};
+  color: {{ block.settings.text_color.hex }};
+}
+{%- endstyle -%}
+
+<div class='container yc-single-product single-product-placeholder'>
+  <div class='product-images'>
+    {% render 'product-placeholder-svg', svg_name: 'Single Product' %}
+  </div>
+  <div class='product-details'>
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'product_title' -%}
+          <h1 class='product-name'>Product Name</h1>
+        {%- when 'product_price' -%}
+          <div class='product-price-container'>
+            <h2 class='product-price'>{{ "19.99" | money }}</h2>
+          </div>
+          {%- when 'countdown_timer' %}
+            <div class="countdown-container">
+              {%- render 'countdown', section_settings: block.settings -%}
+            </div>
+          {%- when 'stock' -%}
+            {% render 'stock', stock_title: block.settings.stock_title, stock_items_left: block.settings.stock_items_left, total_stock_items: block.settings.total_stock_items %}
+        {%- when 'product_quantity' -%}
+              {%- render 'product-quantity-input' -%}
+          {%- when 'product_description' -%}
+          <p class='product-description'>This is a placeholder description for the product.</p>
+          {%- when 'add_to_cart' -%}
+            {% render 'add-to-cart', block_settings: block.settings, snippetId: snippetId, checkout_page_url: cart.cart_submit_url, is_placeholder: is_placeholder %}
+            {%- when 'accordion' -%}
+              {%- render 'accordion', accordion_title: block.settings.accordion_title, accordion_details: block.settings.accordion_details, background_color: block.settings.background_color, text_color: block.settings.text_color, space_bottom: block.settings.space_bottom -%}
+          {%- when 'express_checkout' -%}
+            {% render 'express-checkout', checkout: checkout, is_sticky: block.settings.is_sticky, settings: block.settings, is_placeholder: is_placeholder %}
+            {% if block.settings.is_sticky %}
+            {% render 'sticky-checkout', settings: block.settings %}
+            <button class="yc-btn is_sticky {% if is_placeholder %} sticky-btn-placehodler {% endif %} font-bold express-checkout-button">{{ block.settings.express_checkout_cta }}</button>
+            {% endif %}
+        {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>

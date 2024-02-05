@@ -110,6 +110,13 @@
       }
     {% endif %}
   }
+
+  .column-image-wrapper svg {
+    object-fit: contain;
+    aspect-ratio: 1;
+    width: 50px;
+    height: 50px;
+  }
 {% endstyle %}
 
 <div class='multi-column-{{ id }}'>
@@ -132,11 +139,7 @@
           </div>
           {% else %}
           <div class="column-image-wrapper">
-            <img
-              class='column-image'
-              src='{{ 'default_product.jpeg' | asset_url }}'
-              loading='lazy'
-            >
+            {% render 'multi-column-svg', svg_index: forloop.index %}
           </div>
           {% endif %}
           <div class="column-content">

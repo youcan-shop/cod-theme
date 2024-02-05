@@ -148,7 +148,7 @@
   padding: 0 0 100%;
   height: 350px;
 }
-.product-slider .product-thumbnail img {
+.product-slider .product-thumbnail img, .product-slider .product-thumbnail svg {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -158,7 +158,7 @@
   transition: transform 0.25s ease;
   object-fit: cover;
 }
-.product-slider .product-thumbnail img:hover {
+.product-slider .product-thumbnail img:hover, .product-slider .product-thumbnail svg:hover {
   transform: translate(-50%, -50%) scale(1.1);
 }
 @media (max-width: 768px) {
@@ -203,4 +203,7 @@
 .product-slider .product-link-mobile a {
   font-weight: 700;
   font-size: 13px;
+}
+.product-slider .product-slider-placeholder {
+  cursor: not-allowed;
 }

@@ -1,0 +1,22 @@
+{{ 'featured-products.css' | asset_url | stylesheet_tag }}
+
+{% assign max_index = 3 %}
+{% if index == nil or index > max_index %}
+  {% assign index = 0 %}
+{% endif %}
+
+{% assign random_titles = "Product A,Product B,Product C,Product D" | split: "," %}
+{% assign random_prices = "19.99,19.99,19.99,19.99" | split: "," %}
+
+<div class='product-block featured-product-placeholder'>
+  <div class='product-thumbnail'>
+    {% assign svg_name = random_titles[index] %}
+    {% render 'product-placeholder-svg', svg_name: svg_name %}
+  </div>
+  <div class='product-details'>
+    <span class='product-title'>{{ random_titles[index] }}</span>
+  </div>
+  <div class="prices">
+    <span class='product-price'>{{ random_prices[index] | money }}</span>
+  </div>
+</div>

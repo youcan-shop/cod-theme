@@ -17,12 +17,10 @@
 <section class='product_customization-{{ id }}'>
   {%- assign selected_product = section.settings.product %}
 
-  {%- if product %}
-    {%- assign selected_product = product %}
-  {%- endif %}
-
-  {%- if selected_product %}
+  {%- if selected_product -%}
     {%- render 'single-product', product: selected_product, section: section -%}
+  {%- else -%}
+    {%- render 'single-product-placeholder', section: section, id: id -%}
   {%- endif %}
 </section>
 

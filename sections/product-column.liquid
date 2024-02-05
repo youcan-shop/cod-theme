@@ -19,11 +19,13 @@
 
 {%- assign selected_product = section.settings.product %}
 
-{%- if selected_product %}
-  <section class='product_customization-{{ id }}'>
+<section class='product_customization-{{ id }}'>
+  {%- if selected_product -%}
     {%- render 'product-home', product_id: selected_product.id, product: selected_product, block_settings: section.settings-%}
-  </section>
-{%- endif %}
+  {%- else -%}
+    {%- render 'product-column-placeholder' -%}
+  {%- endif -%}
+</section>
 
 {%- schema -%}
   {

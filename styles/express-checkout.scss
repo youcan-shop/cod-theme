@@ -199,3 +199,15 @@
     }
   }
 }
+
+.sticky-checkout-placeholder {
+  .express-checkout-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.sticky-btn-placehodler {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

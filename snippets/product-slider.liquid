@@ -28,70 +28,103 @@
   }
 
 {% endstyle %}
+
+{% assign products_exist = false %}
+
+{% for block in section.blocks %}
+  {% if block.settings.product %}
+    {% assign products_exist = true %}
+  {% endif %}
+{% endfor %}
+
 <div
   class='splide yc-slider__{{ view }} product-slider'
   id='yc_slider_{{ id }}'
 >
   <div class='splide__track'>
     <ul class='splide__list'>
-      {%- for block in blocks %}
-        <li
-          class='splide__slide'
-          {{ block.youcan_attributes }}
-        >
-          <a href="{{ block.settings.product.url }}" class='product-block'>
-            <div class="product-slider">
-              <div class='product-thumbnail'>
-                 <img
-                  loading='lazy'
-                  src='{%- if block.settings.product.thumbnail -%} {{ block.settings.product.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
-                  >
-                  {% if block.settings.tag_text %}
-                    <div
-                      class="tag {{ section_settings.tag_position }}"
-                      style="background: {{ section_settings.banner_background_color.hex }}; color: {{ section_settings.tag_text_color.hex }}"
+      {% if products_exist %}
+        {%- for block in blocks %}
+          <li
+            class='splide__slide'
+            {{ block.youcan_attributes }}
+          >
+            <a href="{{ block.settings.product.url }}" class='product-block'>
+              <div class="product-slider">
+                <div class='product-thumbnail'>
+                  <img
+                    loading='lazy'
+                    src='{%- if block.settings.product.thumbnail -%} {{ block.settings.product.thumbnail }} {%- else -%} {{ 'default_product.jpeg' | asset_url }} {%- endif -%}'
                     >
-                      {{ block.settings.tag_text }}
+                    {% if block.settings.tag_text %}
+                      <div
+                        class="tag {{ section_settings.tag_position }}"
+                        style="background: {{ section_settings.banner_background_color.hex }}; color: {{ section_settings.tag_text_color.hex }}"
+                      >
+                        {{ block.settings.tag_text }}
+                      </div>
+                    {% endif %}
+                    <div class="product-link">
+                      {% if settings.direct_add_to_cart and block.settings.product.variants.size <= 1 %}
+                        <button class="yc-btn" onclick="directAddToCart(event, '{{ block.settings.product.variants[0].id }}');">
+                          {{ 'general.direct_add_to_cart' | t }}
+                        </button>
+                      {% else %}
+                      <button class="yc-btn">
+                        {{ 'general.buy_now' | t }}
+                      </button>
+                      {% endif %}
                     </div>
+                </div>
+                <div class='product-details'>
+                  <span class='product-title'>{{ block.settings.product.name }}</span>
+                </div>
+                <div class='prices'>
+                  {% if block.settings.product.price %}
+                    <span class='product-price'>{{ block.settings.product.price | money }}</span>
                   {% endif %}
+                  {% if section.settings.show_compare_at_price and block.settings.product.compare_at_price %}
+                    <span class='compare-at-price'>{{ block.settings.product.compare_at_price | money }}</span>
+                  {% endif %}
+                </div>
                   <div class="product-link">
                     {% if settings.direct_add_to_cart and block.settings.product.variants.size <= 1 %}
                       <button class="yc-btn" onclick="directAddToCart(event, '{{ block.settings.product.variants[0].id }}');">
                         {{ 'general.direct_add_to_cart' | t }}
                       </button>
                     {% else %}
-                    <button class="yc-btn">
+                    <a href="{{ block.settings.product.url }}" class="yc-btn">
                       {{ 'general.buy_now' | t }}
-                    </button>
+                    </a>
                     {% endif %}
                   </div>
               </div>
-              <div class='product-details'>
-                <span class='product-title'>{{ block.settings.product.name }}</span>
-              </div>
-              <div class='prices'>
-                {% if block.settings.product.price %}
-                  <span class='product-price'>{{ block.settings.product.price | money }}</span>
-                {% endif %}
-                {% if section.settings.show_compare_at_price and block.settings.product.compare_at_price %}
-                  <span class='compare-at-price'>{{ block.settings.product.compare_at_price | money }}</span>
-                {% endif %}
-              </div>
-                <div class="product-link">
-                  {% if settings.direct_add_to_cart and block.settings.product.variants.size <= 1 %}
-                    <button class="yc-btn" onclick="directAddToCart(event, '{{ block.settings.product.variants[0].id }}');">
-                      {{ 'general.direct_add_to_cart' | t }}
-                    </button>
-                  {% else %}
-                  <a href="{{ block.settings.product.url }}" class="yc-btn">
-                    {{ 'general.buy_now' | t }}
-                  </a>
-                  {% endif %}
-                </div>
+            </a>
+          </li>
+        {%- endfor %}
+      {% else %}
+      {% assign max_index = 2 %}
+      {% assign random_titles = "Product A,Product B,Product C" | split: "," %}
+      {% assign random_prices = "19.99,19.99,19.99" | split: "," %}
+
+      {% for i in (0..max_index) %}
+        <li class='splide__slide'
+          {{ block.youcan_attributes }}>
+          <div class='product-block product-slider-placeholder'>
+            <div class='product-thumbnail'>
+              {% assign svg_name = random_titles[i] %}
+              {% render 'product-slider-placeholder-svg', svg_name: svg_name %}
             </div>
-          </a>
+            <div class='product-details'>
+              <span class='product-title'>{{ random_titles[i] }}</span>
+            </div>
+            <div class='prices'>
+              <span class='product-price'>{{ random_prices[i] | money }}</span>
+            </div>
+          </div>
         </li>
-      {%- endfor %}
+      {% endfor %}
+    {% endif %}
     </ul>
   </div>
 </div>

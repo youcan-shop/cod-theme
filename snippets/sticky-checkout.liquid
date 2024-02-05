@@ -1,6 +1,6 @@
 {{ 'express-checkout.css' | asset_url | stylesheet_tag }}
 
-<div id="yc-sticky-checkout" class="yc-sticky-checkout">
+<div id="yc-sticky-checkout" class="yc-sticky-checkout {% if is_placeholder %}sticky-checkout-placeholder{% endif %}">
   <section class="sticky-container container">
     <div class="empty-spacer"></div>
     <div class="step_2" id="checkout_step_2">
@@ -17,6 +17,7 @@
         <button
           type='submit'
           class='yc-btn w-full express-checkout-button'
+          {% if is_placeholder %} disabled {% endif %}
           onclick='placeOrder(this)'>
           <span class='spinner hidden' id='loading__checkout'></span>
           <span>{{ settings.express_checkout_cta }}</span>
