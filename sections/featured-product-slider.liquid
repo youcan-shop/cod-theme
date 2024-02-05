@@ -2,6 +2,7 @@
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
 {{ 'splide.min.js' | asset_url | script_tag }}
 {{ 'featured-products.css' | asset_url | stylesheet_tag }}
+{{ 'countdown.css' | asset_url | stylesheet_tag }}
 
 {% assign id = 100 | rand: 2000 %}
 
@@ -15,6 +16,7 @@
     .section-featured-products-{{ id }} {
       padding-left: 70px;
       padding-right: 70px;
+      padding-top: 40px;
     }
   }
 
@@ -22,6 +24,7 @@
     .section-featured-products-{{ id }} {
       padding-left: 100px;
       padding-right: 100px;
+      padding-top: 40px;
     }
   }
 
@@ -29,6 +32,7 @@
     .section-featured-products-{{ id }} {
       padding-left: 150px;
       padding-right: 150px;
+      padding-top: 40px;
     }
   }
 
@@ -56,10 +60,11 @@
 
 <section class='section-featured-products-{{ id }} yc-featured-products container bg-color-{{ id }}'>
   <div>
-    <h1 class='yc-section-title'>
-      {{ section.settings.title }}
-    </h1>
+   
     <div class="counter-wrapper">
+      <h1 class='yc-section-title'>
+        {{ section.settings.title }}
+      </h1>
       {% if section.settings.countdown_enabled %}
         {%- render 'countdown', section_settings: section.settings -%}
       {% endif %}
