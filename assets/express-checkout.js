@@ -59,7 +59,7 @@ function displayValidationErrors(err) {
         errorEl.textContent = '';
       });
     } else {
-      console.error(`Error element not found for field: ${field}`);
+      notify(messages[0], 'error');
     }
   });
 }
