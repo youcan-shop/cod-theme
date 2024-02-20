@@ -29,6 +29,11 @@ $sticky-checkout-padding: 20px;
   grid-gap: 14px;
   padding: 10px;
 
+  .dropdown-input {
+    min-width: 100%;
+    padding: 0;
+  }
+
   @include breakpoint('md') {
     border: unset;
     background: unset;
