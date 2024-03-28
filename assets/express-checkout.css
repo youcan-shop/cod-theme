@@ -24,6 +24,10 @@
   grid-gap: 14px;
   padding: 10px;
 }
+.express-checkout-fields .dropdown-input {
+  min-width: 100%;
+  padding: 0;
+}
 @media (min-width: 768px) {
   .express-checkout-fields {
     border: unset;
