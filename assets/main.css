@@ -50,15 +50,15 @@ a.disabled {
   pointer-events: none;
 }
 
-input, textarea {
+input {
   font-weight: 300 !important;
   border: var(--yc-main-border);
 }
-input.error, textarea.error {
+input.error {
   border-color: var(--yc-error-color) !important;
   outline: 1px solid var(--yc-error-color) !important;
 }
-input + .validation-error, textarea + .validation-error {
+input + .validation-error {
   color: var(--yc-error-color) !important;
   font-size: 12px;
   font-weight: 600;

@@ -1,5 +1,6 @@
 async function placeOrder() {
   const expressCheckoutForm = document.querySelector('#express-checkout-form');
+
   let fields = Object.fromEntries(new FormData(expressCheckoutForm));
 
   load('#loading__checkout');
@@ -19,7 +20,37 @@ async function placeOrder() {
         redirectToThankyouPage();
       })
       .onValidationErr((err) => {
-        displayValidationErrors(err);
+        const form = document.querySelector('#express-checkout-form');
+        const formFields = Object.keys(err.meta.fields);
+
+        if (!form || !formFields) return;
+
+        formFields.forEach((field) => {
+          const fieldName = field.indexOf('extra_fields') > -1 ? field.replace('extra_fields.', 'extra_fields[') + ']' : field;
+          const input = form.querySelector(`input[name="${fieldName}"]`);
+          const errorEl = form.querySelector(`.validation-error[data-error="${field}"]`);
+
+          if (input) {
+            input.classList.add('error');
+          }
+
+          if (errorEl) {
+            errorEl.innerHTML = err.meta.fields[field][0];
+          }
+
+          input.addEventListener('input', () => {
+            input.classList.remove('error');
+            errorEl.innerHTML = '';
+          });
+        });
+
+        notify(err.detail, 'error');
+
+        const formTop = form.getBoundingClientRect().top;
+
+        if(!document.querySelector('#yc-sticky-checkout')) {
+          window.scrollBy({ top: formTop - window.innerHeight / 3, behavior: 'smooth' });
+        }
       })
       .onSkipShippingStep((data, redirectToShippingPage) => {
         redirectToShippingPage();
@@ -32,34 +63,4 @@ async function placeOrder() {
   } finally {
     stopLoad('#loading__checkout');
   }
-}
-
-function displayValidationErrors(err) {
-  const form = document.querySelector('#express-checkout-form');
-  const errorDetails = err.meta.fields;
-
-  if (!form || !Object.keys(errorDetails).length) return;
-
-  form.querySelectorAll('.validation-error').forEach(el => {
-    el.textContent = '';
-    el.previousElementSibling?.classList.remove('error');
-  });
-
-  Object.entries(errorDetails).forEach(([field, messages]) => {
-    const fieldName = `extra_fields[${field}]`;
-    const input = form.querySelector(`[name="${fieldName}"]`);
-    const errorEl = form.querySelector(`.validation-error[data-error-for="${fieldName}"]`);
-
-    if (input && errorEl) {
-      input.classList.add('error');
-      errorEl.textContent = messages[0];
-
-      input.addEventListener('input', () => {
-        input.classList.remove('error');
-        errorEl.textContent = '';
-      });
-    } else {
-      notify(messages[0], 'error');
-    }
-  });
 }
