@@ -237,3 +237,25 @@ async function removeItem(cartItemId, productVariantId) {
     stopLoad(`#loading__${cartItemId}`);
   }
 }
+
+function decodeHtmlEntities(text) {
+  var textarea = document.createElement("textarea");
+  textarea.innerHTML = text;
+
+  return textarea.value;
+}
+
+function renderTextContent(htmlContent) {
+  let tempElement = document.createElement('div');
+  tempElement.innerHTML = htmlContent;
+  let textContent = tempElement.innerText || tempElement.textContent;
+
+  return textContent;
+}
+
+let encodedText = FORM.errors;
+let decodedText = decodeHtmlEntities(encodedText);
+
+if (FORM.errors) {
+  notify(renderTextContent(decodedText), 'error', 20000);
+}
