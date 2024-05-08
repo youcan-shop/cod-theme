@@ -137,3 +137,11 @@
   ]
 }
 {%- endschema -%}
+
+{% javascript %}
+
+  const FORM = {
+    errors:  '{{ form.errors | first }}',
+  }
+
+{% endjavascript %}
