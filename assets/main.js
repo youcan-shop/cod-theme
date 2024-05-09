@@ -310,7 +310,7 @@ function processVideoSections() {
 processVideoSections();
 
 function decodeHtmlEntities(text) {
-  var textarea = document.createElement("textarea");
+  let textarea = document.createElement('textarea');
   textarea.innerHTML = text;
 
   return textarea.value;
@@ -319,14 +319,11 @@ function decodeHtmlEntities(text) {
 function renderTextContent(htmlContent) {
   let tempElement = document.createElement('div');
   tempElement.innerHTML = htmlContent;
-  let textContent = tempElement.innerText || tempElement.textContent;
-
-  return textContent;
+  
+  return tempElement.innerText || tempElement.textContent;
 }
 
-let encodedText = FORM.errors;
-let decodedText = decodeHtmlEntities(encodedText);
-
 if (FORM.errors) {
+  let decodedText = decodeHtmlEntities(FORM.errors);
   notify(renderTextContent(decodedText), 'error', 20000);
 }
