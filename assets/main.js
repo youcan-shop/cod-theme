@@ -308,3 +308,22 @@ function processVideoSections() {
 }
 
 processVideoSections();
+
+function decodeHtmlEntities(text) {
+  let textarea = document.createElement('textarea');
+  textarea.innerHTML = text;
+
+  return textarea.value;
+}
+
+function renderTextContent(htmlContent) {
+  let tempElement = document.createElement('div');
+  tempElement.innerHTML = htmlContent;
+  
+  return tempElement.innerText || tempElement.textContent;
+}
+
+if (FORM.errors) {
+  let decodedText = decodeHtmlEntities(FORM.errors);
+  notify(renderTextContent(decodedText), 'error', 20000);
+}
