@@ -25,6 +25,12 @@
     {% section 'main-footer' %}
     {%- render 'cart-drawer' -%}
 
+    {% javascript %}
+      const FORM = {
+        errors:  '{{ form.errors | first }}',
+      }
+    {% endjavascript %}
+
     {{ 'main.js' | asset_url | script_tag }}
   </body>
 </html>
