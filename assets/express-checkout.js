@@ -36,30 +36,35 @@ async function placeOrder() {
 
 function displayValidationErrors(err) {
   const form = document.querySelector('#express-checkout-form');
-  const errorDetails = err.meta.fields;
+  const formFields = Object.keys(err.meta.fields);
 
-  if (!form || !Object.keys(errorDetails).length) return;
+  if (!form || !formFields) return;
 
-  form.querySelectorAll('.validation-error').forEach(el => {
-    el.textContent = '';
-    el.previousElementSibling?.classList.remove('error');
-  });
+  formFields.forEach(field => {
+    const fieldName = field.indexOf('extra_fields') > -1 ? field.replace('extra_fields.', 'extra_fields[') + ']' : field;
 
-  Object.entries(errorDetails).forEach(([field, messages]) => {
-    const fieldName = `extra_fields[${field}]`;
-    const input = form.querySelector(`[name="${fieldName}"]`);
-    const errorEl = form.querySelector(`.validation-error[data-error-for="${fieldName}"]`);
-
-    if (input && errorEl) {
-      input.classList.add('error');
-      errorEl.textContent = messages[0];
-
-      input.addEventListener('input', () => {
-        input.classList.remove('error');
-        errorEl.textContent = '';
-      });
-    } else {
-      notify(messages[0], 'error');
+    const formField = form.querySelector(`[name="${fieldName}"]`);
+    const errorEl = form.querySelector(`.validation-error[data-error="${fieldName}"]`);
+    if (formField) {
+      console.log(formField);
+      formField.classList.add('error');
     }
+
+    if (errorEl) {
+      errorEl.innerHTML = err.meta.fields[field][0];
+    }
+
+    formField.addEventListener('formField', () => {
+      formField.classList.remove('error');
+      errorEl.innerHTML = '';
+    });
   });
+
+  notify(err.detail, 'error');
+
+  const formTop = form.getBoundingClientRect().top;
+
+  if(!document.querySelector('#yc-sticky-checkout')) {
+    window.scrollBy({ top: formTop - window.innerHeight / 3, behavior: 'smooth' });
+  }
 }

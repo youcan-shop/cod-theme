@@ -32,7 +32,6 @@ $sticky-checkout-padding: 20px;
   .dropdown.select {
     min-width: 100%;
     padding: 0;
-    padding: 2px 4px;
     height: 38px;
     
     select {
@@ -40,6 +39,7 @@ $sticky-checkout-padding: 20px;
       height: 100%;
       cursor: pointer;
       outline: none;
+      border-radius: 4px;
     }
   }
 

@@ -22,7 +22,7 @@
     grid-gap: {{ settings.inputs_gap }}px;
   }
 
-  .custom-checkout-{{ checkout_id }} input, textarea, .select {
+  .custom-checkout-{{ checkout_id }} input, textarea, select {
     padding: {{ settings.input_padding }}px;
     border-radius: {{ settings.input_border_radius }}px;
     font-size: {{ settings.input_text_size }}px !important;
@@ -86,16 +86,14 @@
       <div class='express-checkout-field'>
         {% case field.type %}
           {% when 'select' %}
-            <div class="dropdown select">
-              <select name='{{ field_name }}'>
-                {% if field.placeholder != '' %}
-                  <option value='' disabled selected hidden>{{ field.placeholder }}</option>
-                {% endif %}
-                {% for option in field.options %}
-                  <option value='{{ option }}'>{{ option }}</option>
-                {% endfor %}
-              </select>
-            </div>
+            <select class="w-full" name='{{ field_name }}'>
+              {% if field.placeholder != '' %}
+                <option value='' disabled selected hidden>{{ field.placeholder }}</option>
+              {% endif %}
+              {% for option in field.options %}
+                <option value='{{ option }}'>{{ option }}</option>
+              {% endfor %}
+            </select>
           {% when 'textarea' %}
             <textarea 
               name='{{ field_name }}'
@@ -113,7 +111,14 @@
               placeholder='{{ field.placeholder }}' 
               required='{{ field.required }}'>
         {% endcase %}
-        <div class='validation-error' data-error-for='{{ field.name }}'></div>
+        <div
+          class='validation-error'
+          {% if field.custom %}
+            data-error='extra_fields[{{ field.name }}]'
+          {% else %}
+            data-error='{{ field.name }}'
+          {% endif %}
+        ></div>
       </div>
     {% endfor %}
     {% if is_sticky == false %}
