@@ -78,20 +78,37 @@
   <div class='express-checkout-fields'>
     <div class='express-checkout-title'>{{ settings.form_title }}</div>
     {% for field in checkout.fields %}
+      {% assign field_name = field.name %}
+      {% if field.custom %}
+        {% assign field_name = "extra_fields[" | append: field.name | append: "]" %}
+      {% endif %}
+
       <div class='express-checkout-field'>
         {% case field.type %}
           {% when 'select' %}
             <div class="dropdown select">
-              <select name='{{ field.name }}'>
+              <select name='{{ field_name }}'>
                 {% for option in field.options %}
                   <option value='{{ option }}'>{{ option }}</option>
                 {% endfor %}
               </select>
             </div>
           {% when 'textarea' %}
-            <textarea id='{{ field.name }}' name='{{ field.name }}' class='w-full' placeholder='{{ field.placeholder }}' required='{{ field.required }}'></textarea>
+            <textarea 
+              name='{{ field_name }}'
+              id='{{ field.name }}' 
+              class='w-full' 
+              placeholder='{{ field.placeholder }}' 
+              required='{{ field.required }}'>
+            </textarea>
           {% else %}
-            <input type='{{ field.type }}' id='{{ field.name }}' name='{{ field.name }}' class='w-full' placeholder='{{ field.placeholder }}' required='{{ field.required }}'>
+            <input 
+              name='{{ field_name }}'
+              type='{{ field.type }}' 
+              id='{{ field.name }}' 
+              class='w-full' 
+              placeholder='{{ field.placeholder }}' 
+              required='{{ field.required }}'>
         {% endcase %}
         <div class='validation-error' data-error-for='{{ field.name }}'></div>
       </div>
