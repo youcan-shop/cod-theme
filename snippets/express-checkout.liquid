@@ -89,11 +89,11 @@
               </select>
             </div>
           {% when 'textarea' %}
-            <textarea id='{{ field.name }}' name='{{ "extra_fields[" | append: field.name | append: "]" if field.custom }}' class='w-full' placeholder='{{ field.placeholder }}' required='{{ field.required }}'></textarea>
+            <textarea id='{{ field.name }}' name='{{ field.name }}' class='w-full' placeholder='{{ field.placeholder }}' required='{{ field.required }}'></textarea>
           {% else %}
-            <input type='{{ field.type }}' id='{{ field.name }}' name='{{ "extra_fields[" | append: field.name | append: "]" if field.custom }}' class='w-full' placeholder='{{ field.placeholder }}' required='{{ field.required }}'>
+            <input type='{{ field.type }}' id='{{ field.name }}' name='{{ field.name }}' class='w-full' placeholder='{{ field.placeholder }}' required='{{ field.required }}'>
         {% endcase %}
-        <div class='validation-error' data-error-for='{{ "extra_fields[" | append: field.name | append: "]" if field.custom }}'></div>
+        <div class='validation-error' data-error-for='{{ field.name }}'></div>
       </div>
     {% endfor %}
     {% if is_sticky == false %}

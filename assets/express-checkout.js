@@ -11,26 +11,24 @@ async function placeOrder() {
     if (attachedImage) {
       fields = { ...fields, attachedImage };
     }
-
-    console.log("FIELDS", fields);
+    
+    console.log("Fields", fields);
 
     const response = await youcanjs.checkout.placeExpressCheckoutOrder({ productVariantId, quantity, fields });
 
-    console.log("RESPONSE", response);
-
-    // response
-    //   .onSuccess((data, redirectToThankyouPage) => {
-    //     redirectToThankyouPage();
-    //   })
-    //   .onValidationErr((err) => {
-    //     displayValidationErrors(err);
-    //   })
-    //   .onSkipShippingStep((data, redirectToShippingPage) => {
-    //     redirectToShippingPage();
-    //   })
-    //   .onSkipPaymentStep((data, redirectToPaymentPage) => {
-    //     redirectToPaymentPage();
-    //   });
+    response
+      .onSuccess((data, redirectToThankyouPage) => {
+        redirectToThankyouPage();
+      })
+      .onValidationErr((err) => {
+        displayValidationErrors(err);
+      })
+      .onSkipShippingStep((data, redirectToShippingPage) => {
+        redirectToShippingPage();
+      })
+      .onSkipPaymentStep((data, redirectToPaymentPage) => {
+        redirectToPaymentPage();
+      });
   } catch (e) {
     notify(e.message, 'error');
   } finally {
