@@ -88,6 +88,9 @@
           {% when 'select' %}
             <div class="dropdown select">
               <select name='{{ field_name }}'>
+                {% if field.placeholder != '' %}
+                  <option value='' disabled selected hidden>{{ field.placeholder }}</option>
+                {% endif %}
                 {% for option in field.options %}
                   <option value='{{ option }}'>{{ option }}</option>
                 {% endfor %}
