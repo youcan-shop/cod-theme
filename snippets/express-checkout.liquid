@@ -68,7 +68,8 @@
   {% endif %}
 
   {% if settings.input_placeholder_color %}
-  .custom-checkout-{{ checkout_id }} input::placeholder {
+  .custom-checkout-{{ checkout_id }} input::placeholder,
+  .custom-checkout-{{ checkout_id }} textarea::placeholder {
     color: {{ settings.input_placeholder_color.hex }};
   }
   {% endif %}
