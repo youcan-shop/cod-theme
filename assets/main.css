@@ -201,7 +201,7 @@ span {
   border: 1px solid #f2f2f2 !important;
 }
 
-input:not([type=radio]) {
+input:not([type=radio]), select {
   transition: box-shadow 100ms ease;
   padding-left: 13px !important;
   padding-right: 13px !important;
