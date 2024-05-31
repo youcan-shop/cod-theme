@@ -11,7 +11,7 @@ async function placeOrder() {
     if (attachedImage) {
       fields = { ...fields, attachedImage };
     }
-    
+
     const response = await youcanjs.checkout.placeExpressCheckoutOrder({ productVariantId, quantity, fields });
 
     response
