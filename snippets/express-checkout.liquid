@@ -22,7 +22,9 @@
     grid-gap: {{ settings.inputs_gap }}px;
   }
 
-  .custom-checkout-{{ checkout_id }} input, textarea, select {
+  .custom-checkout-{{ checkout_id }} input, 
+  .custom-checkout-{{ checkout_id }} textarea, 
+  .custom-checkout-{{ checkout_id }} select {
     padding: {{ settings.input_padding }}px;
     border-radius: {{ settings.input_border_radius }}px;
     font-size: {{ settings.input_text_size }}px !important;
@@ -40,7 +42,8 @@
     {% endif %}
   }
 
-  .custom-checkout-{{ checkout_id }} select {
+  .custom-checkout-{{ checkout_id }} select,
+  .custom-checkout-{{ checkout_id }} textarea {
     padding: calc({{ settings.input_padding }}px - 4px);
   }
 
@@ -104,8 +107,7 @@
               id='{{ field.name }}' 
               class='w-full' 
               placeholder='{{ field.placeholder }}' 
-              required='{{ field.required }}'>
-            </textarea>
+              required='{{ field.required }}' min></textarea>
           {% else %}
             <input 
               name='{{ field_name }}'

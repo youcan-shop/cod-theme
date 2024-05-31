@@ -217,6 +217,10 @@ input:not([type='radio']), select {
   outline: none;
 }
 
+textarea {
+  min-height: 38px;
+}
+
 * {
   box-sizing: border-box;
 }
