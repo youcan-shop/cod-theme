@@ -96,7 +96,7 @@
           {% when 'select' %}
             <select class="w-full" name='{{ field_name }}'>
               {% if field.placeholder %}
-                <option value='' {% if field.default_value == '' %}selected{% endif %}>
+                <option value='' disabled {% if field.default_value == '' %}selected{% endif %}>
                   {{ field.placeholder }}
                 </option>
               {% endif %}
