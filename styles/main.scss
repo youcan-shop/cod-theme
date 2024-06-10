@@ -52,7 +52,7 @@ a.disabled {
   pointer-events: none;
 }
 
-input {
+input, textarea, select {
   font-weight: 300 !important;
   border: var(--yc-main-border);
 
@@ -207,13 +207,19 @@ span {
   border: 1px solid #f2f2f2 !important;
 }
 
-input:not([type='radio']) {
+input:not([type='radio']), select {
   transition: box-shadow 100ms ease;
   padding-left: 13px !important;
   padding-right: 13px !important;
   font-size: 14px !important;
   height: 38px !important;
   line-height: 38px !important;
+  outline: none;
+}
+
+textarea {
+  font-family: var(--yc-font-family);
+  min-height: 38px;
   outline: none;
 }
 

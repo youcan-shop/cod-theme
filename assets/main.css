@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* --------------------- */
 /* ----- variables ----- */
 /* -------------------- */
@@ -50,15 +51,15 @@ a.disabled {
   pointer-events: none;
 }
 
-input {
+input, textarea, select {
   font-weight: 300 !important;
   border: var(--yc-main-border);
 }
-input.error {
+input.error, textarea.error, select.error {
   border-color: var(--yc-error-color) !important;
   outline: 1px solid var(--yc-error-color) !important;
 }
-input + .validation-error {
+input + .validation-error, textarea + .validation-error, select + .validation-error {
   color: var(--yc-error-color) !important;
   font-size: 12px;
   font-weight: 600;
@@ -200,13 +201,19 @@ span {
   border: 1px solid #f2f2f2 !important;
 }
 
-input:not([type=radio]) {
+input:not([type=radio]), select {
   transition: box-shadow 100ms ease;
   padding-left: 13px !important;
   padding-right: 13px !important;
   font-size: 14px !important;
   height: 38px !important;
   line-height: 38px !important;
+  outline: none;
+}
+
+textarea {
+  font-family: var(--yc-font-family);
+  min-height: 38px;
   outline: none;
 }
 

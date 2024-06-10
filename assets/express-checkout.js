@@ -1,6 +1,5 @@
 async function placeOrder() {
   const expressCheckoutForm = document.querySelector('#express-checkout-form');
-
   let fields = Object.fromEntries(new FormData(expressCheckoutForm));
 
   load('#loading__checkout');
@@ -25,21 +24,22 @@ async function placeOrder() {
 
         if (!form || !formFields) return;
 
-        formFields.forEach((field) => {
+        formFields.forEach(field => {
           const fieldName = field.indexOf('extra_fields') > -1 ? field.replace('extra_fields.', 'extra_fields[') + ']' : field;
-          const input = form.querySelector(`input[name="${fieldName}"]`);
-          const errorEl = form.querySelector(`.validation-error[data-error="${field}"]`);
-
-          if (input) {
-            input.classList.add('error');
+      
+          const formField = form.querySelector(`[name="${fieldName}"]`);
+          const errorEl = form.querySelector(`.validation-error[data-error="${fieldName}"]`);
+          if (formField) {
+            console.log(formField);
+            formField.classList.add('error');
           }
 
           if (errorEl) {
             errorEl.innerHTML = err.meta.fields[field][0];
           }
 
-          input.addEventListener('input', () => {
-            input.classList.remove('error');
+          formField.addEventListener('formField', () => {
+            formField.classList.remove('error');
             errorEl.innerHTML = '';
           });
         });

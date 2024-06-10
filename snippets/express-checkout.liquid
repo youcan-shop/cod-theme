@@ -11,19 +11,20 @@
     #express-checkout-form {
       display: none;
     }
-
   {% endif %}
 
   .custom-checkout-{{ checkout_id }},
   .express-checkout-fields {
-    border-color: {{ settings.form_border_colour.hex }};
+    border: 1px solid {{ settings.form_border_colour.hex }};
   }
 
-  .custom-checkout-{{ checkout_id }} .express-checkout-fields  {
+  .custom-checkout-{{ checkout_id }} .express-checkout-fields {
     grid-gap: {{ settings.inputs_gap }}px;
   }
 
-  .custom-checkout-{{ checkout_id }} input {
+  .custom-checkout-{{ checkout_id }} input, 
+  .custom-checkout-{{ checkout_id }} textarea, 
+  .custom-checkout-{{ checkout_id }} select {
     padding: {{ settings.input_padding }}px;
     border-radius: {{ settings.input_border_radius }}px;
     font-size: {{ settings.input_text_size }}px !important;
@@ -37,8 +38,13 @@
     {% endif %}
 
     {% if settings.input_border_color %}
-    border-color: {{ settings.input_border_color.hex }};
+    border: 1px solid {{ settings.input_border_color.hex }};
     {% endif %}
+  }
+
+  .custom-checkout-{{ checkout_id }} select,
+  .custom-checkout-{{ checkout_id }} textarea {
+    padding: calc({{ settings.input_padding }}px - 4px);
   }
 
   .express-checkout-button {
@@ -62,7 +68,8 @@
   {% endif %}
 
   {% if settings.input_placeholder_color %}
-  .custom-checkout-{{ checkout_id }} input::placeholder {
+  .custom-checkout-{{ checkout_id }} input::placeholder,
+  .custom-checkout-{{ checkout_id }} textarea::placeholder {
     color: {{ settings.input_placeholder_color.hex }};
   }
   {% endif %}
@@ -73,52 +80,63 @@
   }
 {% endstyle %}
 
-<form
-  id='express-checkout-form'
+<form id='express-checkout-form'
   class='custom-checkout-{{ checkout_id }} {% if is_placeholder %}express-checkout-placeholder{% endif %}'
-  onsubmit="return false;"
->
+  onsubmit="return false;">
   <div class='express-checkout-fields'>
     <div class='express-checkout-title'>{{ settings.form_title }}</div>
-    {%- for field in checkout.fields %}
+    {% for field in checkout.fields %}
+      {% assign field_name = field.name %}
+      {% if field.custom %}
+        {% assign field_name = "extra_fields[" | append: field.name | append: "]" %}
+      {% endif %}
+
       <div class='express-checkout-field'>
-        <input
-          type='{{ field.type }}'
-          class='w-full'
-          id='{{ field.name }}'
-          {% if field.custom %}
-            name='extra_fields[{{ field.name }}]'
+        {% case field.type %}
+          {% when 'select' %}
+            <select class="w-full" name='{{ field_name }}'>
+              {% if field.placeholder %}
+                <option value='' disabled {% if field.default_value == '' %}selected{% endif %}>
+                  {{ field.placeholder }}
+                </option>
+              {% endif %}
+              {% for option in field.options %}
+                <option value='{{ option }}' {% if option == field.default_value %}selected{% endif %}>
+                  {{ option }}
+                </option>
+              {% endfor %}
+            </select>
+          {% when 'textarea' %}
+            <textarea 
+              name='{{ field_name }}'
+              id='{{ field.name }}' 
+              class='w-full' 
+              placeholder='{{ field.placeholder }}' 
+              required='{{ field.required }}' min></textarea>
           {% else %}
-            name='{{ field.name }}'
-          {% endif %}
-          placeholder='{{ field.placeholder }}'
-          {% if field.required %}
-            required
-          {% endif %}
-        >
+            <input 
+              name='{{ field_name }}'
+              type='{{ field.type }}' 
+              id='{{ field.name }}' 
+              class='w-full' 
+              placeholder='{{ field.placeholder }}' 
+              required='{{ field.required }}'>
+        {% endcase %}
         <div
           class='validation-error'
           {% if field.custom %}
-            data-error='extra_fields.{{ field.name }}'
+            data-error='extra_fields[{{ field.name }}]'
           {% else %}
             data-error='{{ field.name }}'
           {% endif %}
         ></div>
       </div>
-    {%- endfor %}
+    {% endfor %}
     {% if is_sticky == false %}
-      <button
-        type='submit'
-        class='yc-btn w-full express-checkout-button'
-        {% if is_placeholder %} disabled {% endif %}
-        onclick='placeOrder(this)'
-      >
-        <span
-          class='spinner hidden'
-          id='loading__checkout'
-        ></span>
-        <span>{{ settings.express_checkout_cta }}</span>
-      </button>
+      <button type='submit' class='express-checkout-button' {% if is_placeholder %} disabled {% endif %} onclick='placeOrder(this)'>
+      <span class='spinner hidden' id='loading__checkout'></span>
+      <span>{{ settings.express_checkout_cta }}</span>
+    </button>
       {% endif %}
   </div>
 </form>
