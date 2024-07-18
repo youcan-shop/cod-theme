@@ -1,3 +1,5 @@
+# Theme permanently moved to https://github.com/youcan-shop/youcan-themes
+
 # COD-THEME
 
 COD-theme is a starter template to initialize a cash on delivery theme, it includes prebuilt sections and snippets that you can customize to create your own COD theme.
